@@ -22,8 +22,8 @@ export declare const LLM: {
     readonly Qwen36: "qwen3_6";
     readonly Qwen3Instruct: "qwen3_instruct";
     readonly Gemma4Instruct: "gemma4_instruct";
-    readonly Gemma4ForHer: "gemma4-for-her";
-    readonly Gemma4ForHim: "gemma4-for-him";
+    readonly Gemma4ForHer: "gemma4_for_her";
+    readonly Gemma4ForHim: "gemma4_for_him";
     readonly Serenity: "serenity";
     readonly LemonadePremium: "lemonade_premium";
     readonly GemmaPremium: "gemma_premium";
