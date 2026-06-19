@@ -103,7 +103,7 @@ export interface PostCustomChatbotV2Payload {
      * @type {string}
      * @memberof PostCustomChatbotV2Payload
      */
-    scenario: string;
+    scenario?: string;
     /**
      *
      * @type {string}

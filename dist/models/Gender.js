@@ -28,7 +28,6 @@ exports.Gender = {
     Male: 'male',
     Transgender: 'transgender',
     Futa: 'futa',
-    Furry: 'furry',
     Other: 'other'
 };
 function instanceOfGender(value) {

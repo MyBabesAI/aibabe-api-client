@@ -19,7 +19,7 @@ exports.AvatarOptionalFieldFromJSONTyped = AvatarOptionalFieldFromJSONTyped;
 exports.AvatarOptionalFieldToJSON = AvatarOptionalFieldToJSON;
 exports.AvatarOptionalFieldToJSONTyped = AvatarOptionalFieldToJSONTyped;
 const ReviewCharacterFieldStatus_1 = require("./ReviewCharacterFieldStatus");
-const Value_1 = require("./Value");
+const AvatarFieldValue_1 = require("./AvatarFieldValue");
 /**
  * Check if a given object implements the AvatarOptionalField interface.
  */
@@ -36,7 +36,7 @@ function AvatarOptionalFieldFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'value': json['value'] == null ? undefined : (0, Value_1.ValueFromJSON)(json['value']),
+        'value': json['value'] == null ? undefined : (0, AvatarFieldValue_1.AvatarFieldValueFromJSON)(json['value']),
         'status': (0, ReviewCharacterFieldStatus_1.ReviewCharacterFieldStatusFromJSON)(json['status']),
         'required': json['required'] == null ? undefined : json['required'],
     };
@@ -49,7 +49,7 @@ function AvatarOptionalFieldToJSONTyped(value, ignoreDiscriminator = false) {
         return value;
     }
     return {
-        'value': (0, Value_1.ValueToJSON)(value['value']),
+        'value': (0, AvatarFieldValue_1.AvatarFieldValueToJSON)(value['value']),
         'status': (0, ReviewCharacterFieldStatus_1.ReviewCharacterFieldStatusToJSON)(value['status']),
         'required': value['required'],
     };
