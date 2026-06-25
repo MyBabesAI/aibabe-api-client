@@ -19,6 +19,7 @@ exports.InstanceTypeUrlResponseFromJSONTyped = InstanceTypeUrlResponseFromJSONTy
 exports.InstanceTypeUrlResponseToJSON = InstanceTypeUrlResponseToJSON;
 exports.InstanceTypeUrlResponseToJSONTyped = InstanceTypeUrlResponseToJSONTyped;
 const InstanceType_1 = require("./InstanceType");
+const InstanceProvider_1 = require("./InstanceProvider");
 /**
  * Check if a given object implements the InstanceTypeUrlResponse interface.
  */
@@ -26,6 +27,8 @@ function instanceOfInstanceTypeUrlResponse(value) {
     if (!('type' in value) || value['type'] === undefined)
         return false;
     if (!('url' in value) || value['url'] === undefined)
+        return false;
+    if (!('provider' in value) || value['provider'] === undefined)
         return false;
     return true;
 }
@@ -39,6 +42,7 @@ function InstanceTypeUrlResponseFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'type': (0, InstanceType_1.InstanceTypeFromJSON)(json['type']),
         'url': json['url'],
+        'provider': (0, InstanceProvider_1.InstanceProviderFromJSON)(json['provider']),
     };
 }
 function InstanceTypeUrlResponseToJSON(json) {
@@ -51,6 +55,7 @@ function InstanceTypeUrlResponseToJSONTyped(value, ignoreDiscriminator = false) 
     return {
         'type': (0, InstanceType_1.InstanceTypeToJSON)(value['type']),
         'url': value['url'],
+        'provider': (0, InstanceProvider_1.InstanceProviderToJSON)(value['provider']),
     };
 }
 //# sourceMappingURL=InstanceTypeUrlResponse.js.map
