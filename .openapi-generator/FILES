@@ -196,6 +196,7 @@ src/models/PostAdvancedPersonalityPayload.ts
 src/models/PostAssistantChatMessageRequest.ts
 src/models/PostCategoryValues.ts
 src/models/PostChatRequest.ts
+src/models/PostChatSuggestionRequest.ts
 src/models/PostCheckoutResponse.ts
 src/models/PostCheckoutSessionRequest.ts
 src/models/PostClaimRequest.ts

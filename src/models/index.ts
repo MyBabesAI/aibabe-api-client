@@ -169,6 +169,7 @@ export * from './PostAdvancedPersonalityPayload';
 export * from './PostAssistantChatMessageRequest';
 export * from './PostCategoryValues';
 export * from './PostChatRequest';
+export * from './PostChatSuggestionRequest';
 export * from './PostCheckoutResponse';
 export * from './PostCheckoutSessionRequest';
 export * from './PostClaimRequest';

@@ -83,6 +83,35 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Chat Suggestion
+     */
+    async chatSuggestionChatChatbotIdSuggestionPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling chatSuggestionChatChatbotIdSuggestionPost().');
+        }
+        if (requestParameters['postChatSuggestionRequest'] == null) {
+            throw new runtime.RequiredError('postChatSuggestionRequest', 'Required parameter "postChatSuggestionRequest" was null or undefined when calling chatSuggestionChatChatbotIdSuggestionPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/suggestion`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostChatSuggestionRequestToJSON)(requestParameters['postChatSuggestionRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChatReponseFromJSON)(jsonValue));
+    }
+    /**
+     * Chat Suggestion
+     */
+    async chatSuggestionChatChatbotIdSuggestionPost(requestParameters, initOverrides) {
+        const response = await this.chatSuggestionChatChatbotIdSuggestionPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Conversation
      */
     async conversationChatChatbotIdGetRaw(requestParameters, initOverrides) {

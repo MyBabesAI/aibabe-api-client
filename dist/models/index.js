@@ -185,6 +185,7 @@ __exportStar(require("./PostAdvancedPersonalityPayload"), exports);
 __exportStar(require("./PostAssistantChatMessageRequest"), exports);
 __exportStar(require("./PostCategoryValues"), exports);
 __exportStar(require("./PostChatRequest"), exports);
+__exportStar(require("./PostChatSuggestionRequest"), exports);
 __exportStar(require("./PostCheckoutResponse"), exports);
 __exportStar(require("./PostCheckoutSessionRequest"), exports);
 __exportStar(require("./PostClaimRequest"), exports);
