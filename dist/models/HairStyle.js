@@ -24,6 +24,17 @@ exports.HairStyleToJSONTyped = HairStyleToJSONTyped;
  * @export
  */
 exports.HairStyle = {
+    Buzz: 'buzz',
+    Fade: 'fade',
+    Crop: 'crop',
+    Slickback: 'slickback',
+    Manbun: 'manbun',
+    Longflow: 'longflow',
+    Wolfcut: 'wolfcut',
+    Shaggy: 'shaggy',
+    Sidepart: 'sidepart',
+    Mullet: 'mullet',
+    Quiff: 'quiff',
     Short: 'short',
     Braids: 'braids',
     Curly: 'curly',
@@ -37,7 +48,6 @@ exports.HairStyle = {
     VeryLongWave: 'very long wave',
     LongWavy: 'long wavy',
     LooseWave: 'loose wave',
-    LongFlow: 'long flow',
     CurlyFrizzy: 'curly frizzy',
     CurlyShort: 'curly short',
     Ringlets: 'ringlets',
@@ -50,7 +60,6 @@ exports.HairStyle = {
     LongHairWithBangs: 'long hair with bangs',
     Halfup: 'halfup',
     Shag: 'shag',
-    Shaggy: 'shaggy',
     Asymmetric: 'asymmetric',
     Updo: 'updo',
     Chignon: 'chignon',
@@ -74,10 +83,6 @@ exports.HairStyle = {
     Cloudy: 'cloudy',
     Crimped: 'crimped',
     BuzzCut: 'buzz cut',
-    Buzz: 'buzz',
-    Fade: 'fade',
-    Crop: 'crop',
-    Slickback: 'slickback',
     Bald: 'bald',
     BleachedSpikes: 'bleached spikes',
     Spiky: 'spiky',
@@ -86,10 +91,6 @@ exports.HairStyle = {
     Beehive: 'beehive',
     Pompadour: 'pompadour',
     QuiffHaircut: 'quiff haircut',
-    Quiff: 'quiff',
-    Wolfcut: 'wolfcut',
-    Sidepart: 'sidepart',
-    Mullet: 'mullet',
     CrazyFuturistic: 'crazy futuristic',
     CrazyPunk: 'crazy punk',
     CrazyVintage: 'crazy vintage',
@@ -98,8 +99,7 @@ exports.HairStyle = {
     MegaPonytail: 'mega ponytail',
     Big: 'big',
     BobCut: 'bob cut',
-    Bob: 'bob',
-    Manbun: 'manbun'
+    Bob: 'bob'
 };
 function instanceOfHairStyle(value) {
     for (const key in exports.HairStyle) {

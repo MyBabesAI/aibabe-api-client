@@ -10,10 +10,14 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatReponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, ListConversationsResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostChatRequest, PostConversationSettingsRequest } from '../models/index';
+import type { ChatReponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, ListConversationsResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest } from '../models/index';
 export interface ChatChatChatbotIdPostRequest {
     chatbotId: string;
     postChatRequest: PostChatRequest;
+}
+export interface ChatSuggestionChatChatbotIdSuggestionPostRequest {
+    chatbotId: string;
+    postChatSuggestionRequest: PostChatSuggestionRequest;
 }
 export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
@@ -73,6 +77,14 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Chat
      */
     chatChatChatbotIdPost(requestParameters: ChatChatChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse>;
+    /**
+     * Chat Suggestion
+     */
+    chatSuggestionChatChatbotIdSuggestionPostRaw(requestParameters: ChatSuggestionChatChatbotIdSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatReponse>>;
+    /**
+     * Chat Suggestion
+     */
+    chatSuggestionChatChatbotIdSuggestionPost(requestParameters: ChatSuggestionChatChatbotIdSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse>;
     /**
      * Conversation
      */

@@ -96,6 +96,7 @@ export class WebhookApi extends runtime.BaseAPI {
 
     /**
      * Vastai Status Webhook
+     * @deprecated
      */
     async vastaiStatusWebhookWebhookInstanceStatusPostRaw(requestParameters: VastaiStatusWebhookWebhookInstanceStatusPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
         if (requestParameters['postVastAIStatus'] == null) {
@@ -128,6 +129,7 @@ export class WebhookApi extends runtime.BaseAPI {
 
     /**
      * Vastai Status Webhook
+     * @deprecated
      */
     async vastaiStatusWebhookWebhookInstanceStatusPost(requestParameters: VastaiStatusWebhookWebhookInstanceStatusPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.vastaiStatusWebhookWebhookInstanceStatusPostRaw(requestParameters, initOverrides);

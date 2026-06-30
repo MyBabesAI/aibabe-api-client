@@ -130,6 +130,14 @@ exports.LoraName = {
     ShiirosStylesNiji: 'shiiros_styles_niji ',
     CommixStyleLoraPonyIllusFlux: 'commix_style_lora_pony_illus_flux',
     PonyPeoplesWorksV1V6: 'pony_peoples_works_v1_v6',
+    GayPornPony: 'gay_porn_pony',
+    GayPornIllustrious: 'gay_porn_illustrious',
+    ChromaFlashHeunR256Fp32: 'chroma_flash_heun_r256_fp32',
+    ChromaDndPainterly: 'chroma_dnd_painterly',
+    ChromaProfessionalPhoto: 'chroma_professional_photo',
+    ChromaLenovoUltrareal: 'chroma_lenovo_ultrareal',
+    ChromaSemiAnime: 'chroma_semi_anime',
+    ChromaDarkGhibli: 'chroma_dark_ghibli',
     None: 'none'
 };
 function instanceOfLoraName(value) {
