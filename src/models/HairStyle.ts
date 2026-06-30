@@ -18,6 +18,17 @@
  * @export
  */
 export const HairStyle = {
+    Buzz: 'buzz',
+    Fade: 'fade',
+    Crop: 'crop',
+    Slickback: 'slickback',
+    Manbun: 'manbun',
+    Longflow: 'longflow',
+    Wolfcut: 'wolfcut',
+    Shaggy: 'shaggy',
+    Sidepart: 'sidepart',
+    Mullet: 'mullet',
+    Quiff: 'quiff',
     Short: 'short',
     Braids: 'braids',
     Curly: 'curly',
@@ -31,7 +42,6 @@ export const HairStyle = {
     VeryLongWave: 'very long wave',
     LongWavy: 'long wavy',
     LooseWave: 'loose wave',
-    LongFlow: 'long flow',
     CurlyFrizzy: 'curly frizzy',
     CurlyShort: 'curly short',
     Ringlets: 'ringlets',
@@ -44,7 +54,6 @@ export const HairStyle = {
     LongHairWithBangs: 'long hair with bangs',
     Halfup: 'halfup',
     Shag: 'shag',
-    Shaggy: 'shaggy',
     Asymmetric: 'asymmetric',
     Updo: 'updo',
     Chignon: 'chignon',
@@ -68,10 +77,6 @@ export const HairStyle = {
     Cloudy: 'cloudy',
     Crimped: 'crimped',
     BuzzCut: 'buzz cut',
-    Buzz: 'buzz',
-    Fade: 'fade',
-    Crop: 'crop',
-    Slickback: 'slickback',
     Bald: 'bald',
     BleachedSpikes: 'bleached spikes',
     Spiky: 'spiky',
@@ -80,10 +85,6 @@ export const HairStyle = {
     Beehive: 'beehive',
     Pompadour: 'pompadour',
     QuiffHaircut: 'quiff haircut',
-    Quiff: 'quiff',
-    Wolfcut: 'wolfcut',
-    Sidepart: 'sidepart',
-    Mullet: 'mullet',
     CrazyFuturistic: 'crazy futuristic',
     CrazyPunk: 'crazy punk',
     CrazyVintage: 'crazy vintage',
@@ -92,8 +93,7 @@ export const HairStyle = {
     MegaPonytail: 'mega ponytail',
     Big: 'big',
     BobCut: 'bob cut',
-    Bob: 'bob',
-    Manbun: 'manbun'
+    Bob: 'bob'
 } as const;
 export type HairStyle = typeof HairStyle[keyof typeof HairStyle];
 

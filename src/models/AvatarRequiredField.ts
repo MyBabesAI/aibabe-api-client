@@ -20,13 +20,13 @@ import {
     ReviewCharacterFieldStatusToJSON,
     ReviewCharacterFieldStatusToJSONTyped,
 } from './ReviewCharacterFieldStatus';
-import type { Value } from './Value';
+import type { AvatarFieldValue } from './AvatarFieldValue';
 import {
-    ValueFromJSON,
-    ValueFromJSONTyped,
-    ValueToJSON,
-    ValueToJSONTyped,
-} from './Value';
+    AvatarFieldValueFromJSON,
+    AvatarFieldValueFromJSONTyped,
+    AvatarFieldValueToJSON,
+    AvatarFieldValueToJSONTyped,
+} from './AvatarFieldValue';
 
 /**
  * 
@@ -36,10 +36,10 @@ import {
 export interface AvatarRequiredField {
     /**
      * 
-     * @type {Value}
+     * @type {AvatarFieldValue}
      * @memberof AvatarRequiredField
      */
-    value?: Value | null;
+    value?: AvatarFieldValue | null;
     /**
      * 
      * @type {ReviewCharacterFieldStatus}
@@ -74,7 +74,7 @@ export function AvatarRequiredFieldFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'value': json['value'] == null ? undefined : ValueFromJSON(json['value']),
+        'value': json['value'] == null ? undefined : AvatarFieldValueFromJSON(json['value']),
         'status': ReviewCharacterFieldStatusFromJSON(json['status']),
         'required': json['required'] == null ? undefined : json['required'],
     };
@@ -91,7 +91,7 @@ export function AvatarRequiredFieldFromJSONTyped(json: any, ignoreDiscriminator:
 
     return {
         
-        'value': ValueToJSON(value['value']),
+        'value': AvatarFieldValueToJSON(value['value']),
         'status': ReviewCharacterFieldStatusToJSON(value['status']),
         'required': value['required'],
     };
