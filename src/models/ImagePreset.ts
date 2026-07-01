@@ -41,6 +41,12 @@ export interface ImagePreset {
     prompt: string;
     /**
      * 
+     * @type {string}
+     * @memberof ImagePreset
+     */
+    url: string;
+    /**
+     * 
      * @type {Array<LoraName>}
      * @memberof ImagePreset
      */
@@ -53,6 +59,7 @@ export interface ImagePreset {
 export function instanceOfImagePreset(value: object): value is ImagePreset {
     if (!('name' in value) || value['name'] === undefined) return false;
     if (!('prompt' in value) || value['prompt'] === undefined) return false;
+    if (!('url' in value) || value['url'] === undefined) return false;
     return true;
 }
 
@@ -68,6 +75,7 @@ export function ImagePresetFromJSONTyped(json: any, ignoreDiscriminator: boolean
         
         'name': json['name'],
         'prompt': json['prompt'],
+        'url': json['url'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(LoraNameFromJSON)),
     };
 }
@@ -85,6 +93,7 @@ export function ImagePresetFromJSONTyped(json: any, ignoreDiscriminator: boolean
         
         'name': value['name'],
         'prompt': value['prompt'],
+        'url': value['url'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(LoraNameToJSON)),
     };
 }
