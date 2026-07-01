@@ -120,6 +120,14 @@ export declare const LoraName: {
     readonly ShiirosStylesNiji: "shiiros_styles_niji ";
     readonly CommixStyleLoraPonyIllusFlux: "commix_style_lora_pony_illus_flux";
     readonly PonyPeoplesWorksV1V6: "pony_peoples_works_v1_v6";
+    readonly GayPornPony: "gay_porn_pony";
+    readonly GayPornIllustrious: "gay_porn_illustrious";
+    readonly ChromaFlashHeunR256Fp32: "chroma_flash_heun_r256_fp32";
+    readonly ChromaDndPainterly: "chroma_dnd_painterly";
+    readonly ChromaProfessionalPhoto: "chroma_professional_photo";
+    readonly ChromaLenovoUltrareal: "chroma_lenovo_ultrareal";
+    readonly ChromaSemiAnime: "chroma_semi_anime";
+    readonly ChromaDarkGhibli: "chroma_dark_ghibli";
     readonly None: "none";
 };
 export type LoraName = typeof LoraName[keyof typeof LoraName];

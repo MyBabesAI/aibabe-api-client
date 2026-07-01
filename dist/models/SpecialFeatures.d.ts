@@ -15,8 +15,10 @@
  */
 export declare const SpecialFeatures: {
     readonly Tattoos: "tattoos";
+    readonly Tattoo: "tattoo";
     readonly PubicHair: "pubic_hair";
     readonly Piercing: "piercing";
+    readonly Piercings: "piercings";
     readonly Freckles: "freckles";
     readonly Scar: "scar";
     readonly Vascularity: "vascularity";

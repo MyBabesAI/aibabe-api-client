@@ -107,6 +107,7 @@ class WebhookApi extends runtime.BaseAPI {
     }
     /**
      * Vastai Status Webhook
+     * @deprecated
      */
     async vastaiStatusWebhookWebhookInstanceStatusPostRaw(requestParameters, initOverrides) {
         if (requestParameters['postVastAIStatus'] == null) {
@@ -131,6 +132,7 @@ class WebhookApi extends runtime.BaseAPI {
     }
     /**
      * Vastai Status Webhook
+     * @deprecated
      */
     async vastaiStatusWebhookWebhookInstanceStatusPost(requestParameters, initOverrides) {
         const response = await this.vastaiStatusWebhookWebhookInstanceStatusPostRaw(requestParameters, initOverrides);

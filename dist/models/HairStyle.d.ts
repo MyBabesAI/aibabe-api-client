@@ -14,6 +14,17 @@
  * @export
  */
 export declare const HairStyle: {
+    readonly Buzz: "buzz";
+    readonly Fade: "fade";
+    readonly Crop: "crop";
+    readonly Slickback: "slickback";
+    readonly Manbun: "manbun";
+    readonly Longflow: "longflow";
+    readonly Wolfcut: "wolfcut";
+    readonly Shaggy: "shaggy";
+    readonly Sidepart: "sidepart";
+    readonly Mullet: "mullet";
+    readonly Quiff: "quiff";
     readonly Short: "short";
     readonly Braids: "braids";
     readonly Curly: "curly";
@@ -27,7 +38,6 @@ export declare const HairStyle: {
     readonly VeryLongWave: "very long wave";
     readonly LongWavy: "long wavy";
     readonly LooseWave: "loose wave";
-    readonly LongFlow: "long flow";
     readonly CurlyFrizzy: "curly frizzy";
     readonly CurlyShort: "curly short";
     readonly Ringlets: "ringlets";
@@ -40,7 +50,6 @@ export declare const HairStyle: {
     readonly LongHairWithBangs: "long hair with bangs";
     readonly Halfup: "halfup";
     readonly Shag: "shag";
-    readonly Shaggy: "shaggy";
     readonly Asymmetric: "asymmetric";
     readonly Updo: "updo";
     readonly Chignon: "chignon";
@@ -64,10 +73,6 @@ export declare const HairStyle: {
     readonly Cloudy: "cloudy";
     readonly Crimped: "crimped";
     readonly BuzzCut: "buzz cut";
-    readonly Buzz: "buzz";
-    readonly Fade: "fade";
-    readonly Crop: "crop";
-    readonly Slickback: "slickback";
     readonly Bald: "bald";
     readonly BleachedSpikes: "bleached spikes";
     readonly Spiky: "spiky";
@@ -76,10 +81,6 @@ export declare const HairStyle: {
     readonly Beehive: "beehive";
     readonly Pompadour: "pompadour";
     readonly QuiffHaircut: "quiff haircut";
-    readonly Quiff: "quiff";
-    readonly Wolfcut: "wolfcut";
-    readonly Sidepart: "sidepart";
-    readonly Mullet: "mullet";
     readonly CrazyFuturistic: "crazy futuristic";
     readonly CrazyPunk: "crazy punk";
     readonly CrazyVintage: "crazy vintage";
@@ -89,7 +90,6 @@ export declare const HairStyle: {
     readonly Big: "big";
     readonly BobCut: "bob cut";
     readonly Bob: "bob";
-    readonly Manbun: "manbun";
 };
 export type HairStyle = typeof HairStyle[keyof typeof HairStyle];
 export declare function instanceOfHairStyle(value: any): boolean;
