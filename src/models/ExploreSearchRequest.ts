@@ -139,6 +139,12 @@ export interface ExploreSearchRequest {
      * @memberof ExploreSearchRequest
      */
     unlockedStories?: boolean | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ExploreSearchRequest
+     */
+    useViewerPreferences?: boolean;
 }
 
 
@@ -174,6 +180,7 @@ export function ExploreSearchRequestFromJSONTyped(json: any, ignoreDiscriminator
         'scene': json['scene'] == null ? undefined : json['scene'],
         'seenStories': json['seen_stories'] == null ? undefined : json['seen_stories'],
         'unlockedStories': json['unlocked_stories'] == null ? undefined : json['unlocked_stories'],
+        'useViewerPreferences': json['use_viewer_preferences'] == null ? undefined : json['use_viewer_preferences'],
     };
 }
 
@@ -202,6 +209,7 @@ export function ExploreSearchRequestFromJSONTyped(json: any, ignoreDiscriminator
         'scene': value['scene'],
         'seen_stories': value['seenStories'],
         'unlocked_stories': value['unlockedStories'],
+        'use_viewer_preferences': value['useViewerPreferences'],
     };
 }
 

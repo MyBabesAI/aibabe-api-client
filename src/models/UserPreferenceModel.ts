@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { Gender } from './Gender';
+import {
+    GenderFromJSON,
+    GenderFromJSONTyped,
+    GenderToJSON,
+    GenderToJSONTyped,
+} from './Gender';
 import type { LLM } from './LLM';
 import {
     LLMFromJSON,
@@ -68,12 +75,6 @@ export interface UserPreferenceModel {
      * @type {boolean}
      * @memberof UserPreferenceModel
      */
-    displayUnlockWarning?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UserPreferenceModel
-     */
     usernameUpdated?: boolean | null;
     /**
      * 
@@ -81,6 +82,42 @@ export interface UserPreferenceModel {
      * @memberof UserPreferenceModel
      */
     llmName?: LLM | null;
+    /**
+     * 
+     * @type {Gender}
+     * @memberof UserPreferenceModel
+     */
+    gender?: Gender | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof UserPreferenceModel
+     */
+    preferredContentStyles?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof UserPreferenceModel
+     */
+    preferredContentGenders?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof UserPreferenceModel
+     */
+    preferredOrientations?: Array<string> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserPreferenceModel
+     */
+    pronouns?: string | null;
+    /**
+     * 
+     * @type {{ [key: string]: any; }}
+     * @memberof UserPreferenceModel
+     */
+    onboardingState?: { [key: string]: any; };
 }
 
 
@@ -109,9 +146,14 @@ export function UserPreferenceModelFromJSONTyped(json: any, ignoreDiscriminator:
         'userId': json['user_id'],
         'displayGirls': json['display_girls'] == null ? undefined : json['display_girls'],
         'displayAnime': json['display_anime'] == null ? undefined : json['display_anime'],
-        'displayUnlockWarning': json['display_unlock_warning'] == null ? undefined : json['display_unlock_warning'],
         'usernameUpdated': json['username_updated'] == null ? undefined : json['username_updated'],
         'llmName': json['llm_name'] == null ? undefined : LLMFromJSON(json['llm_name']),
+        'gender': json['gender'] == null ? undefined : GenderFromJSON(json['gender']),
+        'preferredContentStyles': json['preferred_content_styles'] == null ? undefined : json['preferred_content_styles'],
+        'preferredContentGenders': json['preferred_content_genders'] == null ? undefined : json['preferred_content_genders'],
+        'preferredOrientations': json['preferred_orientations'] == null ? undefined : json['preferred_orientations'],
+        'pronouns': json['pronouns'] == null ? undefined : json['pronouns'],
+        'onboardingState': json['onboarding_state'] == null ? undefined : json['onboarding_state'],
     };
 }
 
@@ -132,9 +174,14 @@ export function UserPreferenceModelFromJSONTyped(json: any, ignoreDiscriminator:
         'user_id': value['userId'],
         'display_girls': value['displayGirls'],
         'display_anime': value['displayAnime'],
-        'display_unlock_warning': value['displayUnlockWarning'],
         'username_updated': value['usernameUpdated'],
         'llm_name': LLMToJSON(value['llmName']),
+        'gender': GenderToJSON(value['gender']),
+        'preferred_content_styles': value['preferredContentStyles'],
+        'preferred_content_genders': value['preferredContentGenders'],
+        'preferred_orientations': value['preferredOrientations'],
+        'pronouns': value['pronouns'],
+        'onboarding_state': value['onboardingState'],
     };
 }
 

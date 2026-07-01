@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { Gender } from './Gender';
 import type { LLM } from './LLM';
 /**
  *
@@ -57,12 +58,6 @@ export interface Preferences {
      * @type {boolean}
      * @memberof Preferences
      */
-    displayUnlockWarning?: boolean;
-    /**
-     *
-     * @type {boolean}
-     * @memberof Preferences
-     */
     usernameUpdated?: boolean;
     /**
      *
@@ -70,6 +65,44 @@ export interface Preferences {
      * @memberof Preferences
      */
     llmName?: LLM;
+    /**
+     *
+     * @type {Gender}
+     * @memberof Preferences
+     */
+    gender?: Gender;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof Preferences
+     */
+    preferredContentStyles?: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof Preferences
+     */
+    preferredContentGenders?: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof Preferences
+     */
+    preferredOrientations?: Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof Preferences
+     */
+    pronouns?: string;
+    /**
+     *
+     * @type {{ [key: string]: any; }}
+     * @memberof Preferences
+     */
+    onboardingState?: {
+        [key: string]: any;
+    };
 }
 /**
  * Check if a given object implements the Preferences interface.

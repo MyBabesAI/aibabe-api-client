@@ -20,6 +20,13 @@ import {
     PublicUserPreviewToJSON,
     PublicUserPreviewToJSONTyped,
 } from './PublicUserPreview';
+import type { UserPreferenceProfile } from './UserPreferenceProfile';
+import {
+    UserPreferenceProfileFromJSON,
+    UserPreferenceProfileFromJSONTyped,
+    UserPreferenceProfileToJSON,
+    UserPreferenceProfileToJSONTyped,
+} from './UserPreferenceProfile';
 import type { UserRole } from './UserRole';
 import {
     UserRoleFromJSON,
@@ -121,6 +128,12 @@ export interface UserInfoResponse {
      * @memberof UserInfoResponse
      */
     preferences: Preferences;
+    /**
+     * 
+     * @type {UserPreferenceProfile}
+     * @memberof UserInfoResponse
+     */
+    preferenceProfile?: UserPreferenceProfile | null;
 }
 
 
@@ -164,6 +177,7 @@ export function UserInfoResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'featureFlags': ((json['feature_flags'] as Array<any>).map(FeatureFlagNameFromJSON)),
         'subscription': SubscriptionFromJSON(json['subscription']),
         'preferences': PreferencesFromJSON(json['preferences']),
+        'preferenceProfile': json['preference_profile'] == null ? undefined : UserPreferenceProfileFromJSON(json['preference_profile']),
     };
 }
 
@@ -189,6 +203,7 @@ export function UserInfoResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'feature_flags': ((value['featureFlags'] as Array<any>).map(FeatureFlagNameToJSON)),
         'subscription': SubscriptionToJSON(value['subscription']),
         'preferences': PreferencesToJSON(value['preferences']),
+        'preference_profile': UserPreferenceProfileToJSON(value['preferenceProfile']),
     };
 }
 

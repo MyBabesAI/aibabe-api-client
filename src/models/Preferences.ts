@@ -20,6 +20,13 @@ import {
     UserPreferenceModelToJSON,
     UserPreferenceModelToJSONTyped,
 } from './UserPreferenceModel';
+import type { Gender } from './Gender';
+import {
+    GenderFromJSON,
+    GenderFromJSONTyped,
+    GenderToJSON,
+    GenderToJSONTyped,
+} from './Gender';
 import type { LLM } from './LLM';
 import {
     LLMFromJSON,
@@ -75,12 +82,6 @@ export interface Preferences {
      * @type {boolean}
      * @memberof Preferences
      */
-    displayUnlockWarning?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Preferences
-     */
     usernameUpdated?: boolean;
     /**
      * 
@@ -88,6 +89,42 @@ export interface Preferences {
      * @memberof Preferences
      */
     llmName?: LLM;
+    /**
+     * 
+     * @type {Gender}
+     * @memberof Preferences
+     */
+    gender?: Gender;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof Preferences
+     */
+    preferredContentStyles?: Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof Preferences
+     */
+    preferredContentGenders?: Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof Preferences
+     */
+    preferredOrientations?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof Preferences
+     */
+    pronouns?: string;
+    /**
+     * 
+     * @type {{ [key: string]: any; }}
+     * @memberof Preferences
+     */
+    onboardingState?: { [key: string]: any; };
 }
 
 
@@ -116,9 +153,14 @@ export function PreferencesFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'userId': json['user_id'],
         'displayGirls': json['display_girls'] == null ? undefined : json['display_girls'],
         'displayAnime': json['display_anime'] == null ? undefined : json['display_anime'],
-        'displayUnlockWarning': json['display_unlock_warning'] == null ? undefined : json['display_unlock_warning'],
         'usernameUpdated': json['username_updated'] == null ? undefined : json['username_updated'],
         'llmName': json['llm_name'] == null ? undefined : LLMFromJSON(json['llm_name']),
+        'gender': json['gender'] == null ? undefined : GenderFromJSON(json['gender']),
+        'preferredContentStyles': json['preferred_content_styles'] == null ? undefined : json['preferred_content_styles'],
+        'preferredContentGenders': json['preferred_content_genders'] == null ? undefined : json['preferred_content_genders'],
+        'preferredOrientations': json['preferred_orientations'] == null ? undefined : json['preferred_orientations'],
+        'pronouns': json['pronouns'] == null ? undefined : json['pronouns'],
+        'onboardingState': json['onboarding_state'] == null ? undefined : json['onboarding_state'],
     };
 }
 
@@ -139,9 +181,14 @@ export function PreferencesFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'user_id': value['userId'],
         'display_girls': value['displayGirls'],
         'display_anime': value['displayAnime'],
-        'display_unlock_warning': value['displayUnlockWarning'],
         'username_updated': value['usernameUpdated'],
         'llm_name': LLMToJSON(value['llmName']),
+        'gender': GenderToJSON(value['gender']),
+        'preferred_content_styles': value['preferredContentStyles'],
+        'preferred_content_genders': value['preferredContentGenders'],
+        'preferred_orientations': value['preferredOrientations'],
+        'pronouns': value['pronouns'],
+        'onboarding_state': value['onboardingState'],
     };
 }
 

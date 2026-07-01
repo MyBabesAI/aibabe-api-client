@@ -19,6 +19,7 @@ exports.UserInfoResponseFromJSONTyped = UserInfoResponseFromJSONTyped;
 exports.UserInfoResponseToJSON = UserInfoResponseToJSON;
 exports.UserInfoResponseToJSONTyped = UserInfoResponseToJSONTyped;
 const PublicUserPreview_1 = require("./PublicUserPreview");
+const UserPreferenceProfile_1 = require("./UserPreferenceProfile");
 const UserRole_1 = require("./UserRole");
 const FeatureFlagName_1 = require("./FeatureFlagName");
 const Preferences_1 = require("./Preferences");
@@ -70,6 +71,7 @@ function UserInfoResponseFromJSONTyped(json, ignoreDiscriminator) {
         'featureFlags': (json['feature_flags'].map(FeatureFlagName_1.FeatureFlagNameFromJSON)),
         'subscription': (0, Subscription_1.SubscriptionFromJSON)(json['subscription']),
         'preferences': (0, Preferences_1.PreferencesFromJSON)(json['preferences']),
+        'preferenceProfile': json['preference_profile'] == null ? undefined : (0, UserPreferenceProfile_1.UserPreferenceProfileFromJSON)(json['preference_profile']),
     };
 }
 function UserInfoResponseToJSON(json) {
@@ -91,6 +93,7 @@ function UserInfoResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'feature_flags': (value['featureFlags'].map(FeatureFlagName_1.FeatureFlagNameToJSON)),
         'subscription': (0, Subscription_1.SubscriptionToJSON)(value['subscription']),
         'preferences': (0, Preferences_1.PreferencesToJSON)(value['preferences']),
+        'preference_profile': (0, UserPreferenceProfile_1.UserPreferenceProfileToJSON)(value['preferenceProfile']),
     };
 }
 //# sourceMappingURL=UserInfoResponse.js.map

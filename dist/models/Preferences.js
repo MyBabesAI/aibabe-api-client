@@ -18,6 +18,7 @@ exports.PreferencesFromJSON = PreferencesFromJSON;
 exports.PreferencesFromJSONTyped = PreferencesFromJSONTyped;
 exports.PreferencesToJSON = PreferencesToJSON;
 exports.PreferencesToJSONTyped = PreferencesToJSONTyped;
+const Gender_1 = require("./Gender");
 const LLM_1 = require("./LLM");
 /**
  * Check if a given object implements the Preferences interface.
@@ -41,9 +42,14 @@ function PreferencesFromJSONTyped(json, ignoreDiscriminator) {
         'userId': json['user_id'],
         'displayGirls': json['display_girls'] == null ? undefined : json['display_girls'],
         'displayAnime': json['display_anime'] == null ? undefined : json['display_anime'],
-        'displayUnlockWarning': json['display_unlock_warning'] == null ? undefined : json['display_unlock_warning'],
         'usernameUpdated': json['username_updated'] == null ? undefined : json['username_updated'],
         'llmName': json['llm_name'] == null ? undefined : (0, LLM_1.LLMFromJSON)(json['llm_name']),
+        'gender': json['gender'] == null ? undefined : (0, Gender_1.GenderFromJSON)(json['gender']),
+        'preferredContentStyles': json['preferred_content_styles'] == null ? undefined : json['preferred_content_styles'],
+        'preferredContentGenders': json['preferred_content_genders'] == null ? undefined : json['preferred_content_genders'],
+        'preferredOrientations': json['preferred_orientations'] == null ? undefined : json['preferred_orientations'],
+        'pronouns': json['pronouns'] == null ? undefined : json['pronouns'],
+        'onboardingState': json['onboarding_state'] == null ? undefined : json['onboarding_state'],
     };
 }
 function PreferencesToJSON(json) {
@@ -60,9 +66,14 @@ function PreferencesToJSONTyped(value, ignoreDiscriminator = false) {
         'user_id': value['userId'],
         'display_girls': value['displayGirls'],
         'display_anime': value['displayAnime'],
-        'display_unlock_warning': value['displayUnlockWarning'],
         'username_updated': value['usernameUpdated'],
         'llm_name': (0, LLM_1.LLMToJSON)(value['llmName']),
+        'gender': (0, Gender_1.GenderToJSON)(value['gender']),
+        'preferred_content_styles': value['preferredContentStyles'],
+        'preferred_content_genders': value['preferredContentGenders'],
+        'preferred_orientations': value['preferredOrientations'],
+        'pronouns': value['pronouns'],
+        'onboarding_state': value['onboardingState'],
     };
 }
 //# sourceMappingURL=Preferences.js.map

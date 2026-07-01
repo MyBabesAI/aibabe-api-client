@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { Gender } from './Gender';
 import type { LLM } from './LLM';
 /**
  *
@@ -57,12 +58,6 @@ export interface UserPreferenceModel {
      * @type {boolean}
      * @memberof UserPreferenceModel
      */
-    displayUnlockWarning?: boolean | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof UserPreferenceModel
-     */
     usernameUpdated?: boolean | null;
     /**
      *
@@ -70,6 +65,44 @@ export interface UserPreferenceModel {
      * @memberof UserPreferenceModel
      */
     llmName?: LLM | null;
+    /**
+     *
+     * @type {Gender}
+     * @memberof UserPreferenceModel
+     */
+    gender?: Gender | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof UserPreferenceModel
+     */
+    preferredContentStyles?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof UserPreferenceModel
+     */
+    preferredContentGenders?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof UserPreferenceModel
+     */
+    preferredOrientations?: Array<string> | null;
+    /**
+     *
+     * @type {string}
+     * @memberof UserPreferenceModel
+     */
+    pronouns?: string | null;
+    /**
+     *
+     * @type {{ [key: string]: any; }}
+     * @memberof UserPreferenceModel
+     */
+    onboardingState?: {
+        [key: string]: any;
+    };
 }
 /**
  * Check if a given object implements the UserPreferenceModel interface.
