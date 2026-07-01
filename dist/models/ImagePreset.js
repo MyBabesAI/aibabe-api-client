@@ -27,8 +27,6 @@ function instanceOfImagePreset(value) {
         return false;
     if (!('prompt' in value) || value['prompt'] === undefined)
         return false;
-    if (!('url' in value) || value['url'] === undefined)
-        return false;
     return true;
 }
 function ImagePresetFromJSON(json) {
@@ -41,7 +39,6 @@ function ImagePresetFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'name': json['name'],
         'prompt': json['prompt'],
-        'url': json['url'],
         'loras': json['loras'] == null ? undefined : (json['loras'].map(LoraName_1.LoraNameFromJSON)),
     };
 }
@@ -55,7 +52,6 @@ function ImagePresetToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'name': value['name'],
         'prompt': value['prompt'],
-        'url': value['url'],
         'loras': value['loras'] == null ? undefined : (value['loras'].map(LoraName_1.LoraNameToJSON)),
     };
 }
