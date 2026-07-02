@@ -36,6 +36,12 @@ export interface CategoryValues {
      * @type {Array<string>}
      * @memberof CategoryValues
      */
+    orientation?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
     style?: Array<string> | null;
     /**
      * 
@@ -100,6 +106,7 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'baseModel': json['base_model'] == null ? undefined : json['base_model'],
         'gender': json['gender'] == null ? undefined : json['gender'],
+        'orientation': json['orientation'] == null ? undefined : json['orientation'],
         'style': json['style'] == null ? undefined : json['style'],
         'lora': json['lora'] == null ? undefined : json['lora'],
         'age': json['age'] == null ? undefined : json['age'],
@@ -124,6 +131,7 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'base_model': value['baseModel'],
         'gender': value['gender'],
+        'orientation': value['orientation'],
         'style': value['style'],
         'lora': value['lora'],
         'age': value['age'],

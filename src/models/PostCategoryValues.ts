@@ -42,6 +42,12 @@ export interface PostCategoryValues {
      * @type {Array<string>}
      * @memberof PostCategoryValues
      */
+    orientation: Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof PostCategoryValues
+     */
     ethnicity: Array<string>;
     /**
      * 
@@ -76,6 +82,7 @@ export function instanceOfPostCategoryValues(value: object): value is PostCatego
     if (!('style' in value) || value['style'] === undefined) return false;
     if (!('age' in value) || value['age'] === undefined) return false;
     if (!('gender' in value) || value['gender'] === undefined) return false;
+    if (!('orientation' in value) || value['orientation'] === undefined) return false;
     if (!('ethnicity' in value) || value['ethnicity'] === undefined) return false;
     if (!('assSize' in value) || value['assSize'] === undefined) return false;
     if (!('breastSize' in value) || value['breastSize'] === undefined) return false;
@@ -97,6 +104,7 @@ export function PostCategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: 
         'style': json['style'],
         'age': json['age'],
         'gender': json['gender'],
+        'orientation': json['orientation'],
         'ethnicity': json['ethnicity'],
         'assSize': json['ass_size'],
         'breastSize': json['breast_size'],
@@ -119,6 +127,7 @@ export function PostCategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: 
         'style': value['style'],
         'age': value['age'],
         'gender': value['gender'],
+        'orientation': value['orientation'],
         'ethnicity': value['ethnicity'],
         'ass_size': value['assSize'],
         'breast_size': value['breastSize'],

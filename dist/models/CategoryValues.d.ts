@@ -32,6 +32,12 @@ export interface CategoryValues {
      * @type {Array<string>}
      * @memberof CategoryValues
      */
+    orientation?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
     style?: Array<string> | null;
     /**
      *

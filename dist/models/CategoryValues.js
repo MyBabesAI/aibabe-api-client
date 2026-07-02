@@ -34,6 +34,7 @@ function CategoryValuesFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'baseModel': json['base_model'] == null ? undefined : json['base_model'],
         'gender': json['gender'] == null ? undefined : json['gender'],
+        'orientation': json['orientation'] == null ? undefined : json['orientation'],
         'style': json['style'] == null ? undefined : json['style'],
         'lora': json['lora'] == null ? undefined : json['lora'],
         'age': json['age'] == null ? undefined : json['age'],
@@ -54,6 +55,7 @@ function CategoryValuesToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'base_model': value['baseModel'],
         'gender': value['gender'],
+        'orientation': value['orientation'],
         'style': value['style'],
         'lora': value['lora'],
         'age': value['age'],

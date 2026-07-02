@@ -38,6 +38,12 @@ export interface PostCategoryValues {
      * @type {Array<string>}
      * @memberof PostCategoryValues
      */
+    orientation: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof PostCategoryValues
+     */
     ethnicity: Array<string>;
     /**
      *
