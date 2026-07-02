@@ -235,7 +235,6 @@ src/models/PostVastAIStatus.ts
 src/models/PostVerifyPublicUsernameRequest.ts
 src/models/PostVerifyPublicUsernameResponse.ts
 src/models/PreferenceOption.ts
-src/models/Preferences.ts
 src/models/PublicUserInfo.ts
 src/models/PublicUserPreview.ts
 src/models/PublicUserPreviewWithFollow.ts
@@ -327,7 +326,6 @@ src/models/UserBadgeStatus.ts
 src/models/UserClaimType.ts
 src/models/UserEpisodeProgressType.ts
 src/models/UserInfoResponse.ts
-src/models/UserPreferenceModel.ts
 src/models/UserPreferenceProfile.ts
 src/models/UserPreferenceTaxonomyResponse.ts
 src/models/UserPreferences.ts

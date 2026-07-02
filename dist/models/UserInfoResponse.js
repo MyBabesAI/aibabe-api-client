@@ -22,7 +22,6 @@ const PublicUserPreview_1 = require("./PublicUserPreview");
 const UserPreferenceProfile_1 = require("./UserPreferenceProfile");
 const UserRole_1 = require("./UserRole");
 const FeatureFlagName_1 = require("./FeatureFlagName");
-const Preferences_1 = require("./Preferences");
 const Subscription_1 = require("./Subscription");
 /**
  * Check if a given object implements the UserInfoResponse interface.
@@ -48,8 +47,6 @@ function instanceOfUserInfoResponse(value) {
         return false;
     if (!('subscription' in value) || value['subscription'] === undefined)
         return false;
-    if (!('preferences' in value) || value['preferences'] === undefined)
-        return false;
     return true;
 }
 function UserInfoResponseFromJSON(json) {
@@ -70,7 +67,6 @@ function UserInfoResponseFromJSONTyped(json, ignoreDiscriminator) {
         'feedbackGiven': json['feedback_given'],
         'featureFlags': (json['feature_flags'].map(FeatureFlagName_1.FeatureFlagNameFromJSON)),
         'subscription': (0, Subscription_1.SubscriptionFromJSON)(json['subscription']),
-        'preferences': (0, Preferences_1.PreferencesFromJSON)(json['preferences']),
         'preferenceProfile': json['preference_profile'] == null ? undefined : (0, UserPreferenceProfile_1.UserPreferenceProfileFromJSON)(json['preference_profile']),
     };
 }
@@ -92,7 +88,6 @@ function UserInfoResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'feedback_given': value['feedbackGiven'],
         'feature_flags': (value['featureFlags'].map(FeatureFlagName_1.FeatureFlagNameToJSON)),
         'subscription': (0, Subscription_1.SubscriptionToJSON)(value['subscription']),
-        'preferences': (0, Preferences_1.PreferencesToJSON)(value['preferences']),
         'preference_profile': (0, UserPreferenceProfile_1.UserPreferenceProfileToJSON)(value['preferenceProfile']),
     };
 }
