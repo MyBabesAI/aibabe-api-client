@@ -280,7 +280,6 @@ export * from './SubscriptionTier';
 export * from './TagCategory';
 export * from './TagData';
 export * from './TagImageLora';
-export * from './TagModel';
 export * from './TagVideoLora';
 export * from './TagsExploreTypesGet200ResponseInner';
 export * from './TextToSpeechEnhanceRequest';

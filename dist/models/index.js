@@ -298,7 +298,6 @@ __exportStar(require("./SubscriptionTier"), exports);
 __exportStar(require("./TagCategory"), exports);
 __exportStar(require("./TagData"), exports);
 __exportStar(require("./TagImageLora"), exports);
-__exportStar(require("./TagModel"), exports);
 __exportStar(require("./TagVideoLora"), exports);
 __exportStar(require("./TagsExploreTypesGet200ResponseInner"), exports);
 __exportStar(require("./TextToSpeechEnhanceRequest"), exports);
