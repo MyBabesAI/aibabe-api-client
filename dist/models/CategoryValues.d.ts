@@ -62,6 +62,12 @@ export interface CategoryValues {
      * @type {Array<string>}
      * @memberof CategoryValues
      */
+    theme?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
     bodyType?: Array<string> | null;
     /**
      *

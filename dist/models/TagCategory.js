@@ -33,6 +33,7 @@ exports.TagCategory = {
     Gender: 'gender',
     Fetishes: 'fetishes',
     Ethnicity: 'ethnicity',
+    Theme: 'theme',
     Age: 'age',
     Lora: 'lora',
     Style: 'style',

@@ -15,6 +15,7 @@ import type { Ethnicity } from './Ethnicity';
 import type { ArtStyle } from './ArtStyle';
 import type { FurryVisualType } from './FurryVisualType';
 import type { RoleplayType } from './RoleplayType';
+import type { CustomChatbotTheme } from './CustomChatbotTheme';
 import type { VisualType } from './VisualType';
 import type { Gender } from './Gender';
 import type { SeduceDifficulty } from './SeduceDifficulty';
@@ -86,6 +87,12 @@ export interface PostCustomChatbotV2Payload {
      * @memberof PostCustomChatbotV2Payload
      */
     roleplayType?: RoleplayType | null;
+    /**
+     *
+     * @type {CustomChatbotTheme}
+     * @memberof PostCustomChatbotV2Payload
+     */
+    theme?: CustomChatbotTheme | null;
     /**
      *
      * @type {AvatarLooksV2}

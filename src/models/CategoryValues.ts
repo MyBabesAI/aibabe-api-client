@@ -66,6 +66,12 @@ export interface CategoryValues {
      * @type {Array<string>}
      * @memberof CategoryValues
      */
+    theme?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
     bodyType?: Array<string> | null;
     /**
      * 
@@ -111,6 +117,7 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         'lora': json['lora'] == null ? undefined : json['lora'],
         'age': json['age'] == null ? undefined : json['age'],
         'ethnicity': json['ethnicity'] == null ? undefined : json['ethnicity'],
+        'theme': json['theme'] == null ? undefined : json['theme'],
         'bodyType': json['body_type'] == null ? undefined : json['body_type'],
         'roleplayType': json['roleplay_type'] == null ? undefined : json['roleplay_type'],
         'characterType': json['character_type'] == null ? undefined : json['character_type'],
@@ -136,6 +143,7 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         'lora': value['lora'],
         'age': value['age'],
         'ethnicity': value['ethnicity'],
+        'theme': value['theme'],
         'body_type': value['bodyType'],
         'roleplay_type': value['roleplayType'],
         'character_type': value['characterType'],

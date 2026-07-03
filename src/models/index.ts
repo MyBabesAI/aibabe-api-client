@@ -47,6 +47,7 @@ export * from './ConversationListItem';
 export * from './ConversationMessageFeedback';
 export * from './ConversationSettings';
 export * from './CreateAssistantChatSessionRequest';
+export * from './CustomChatbotTheme';
 export * from './DateRangeFilter';
 export * from './DeleteBulkMemoryRequest';
 export * from './DeleteUserRequest';

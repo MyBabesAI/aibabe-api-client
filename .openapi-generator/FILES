@@ -74,6 +74,7 @@ src/models/ConversationListItem.ts
 src/models/ConversationMessageFeedback.ts
 src/models/ConversationSettings.ts
 src/models/CreateAssistantChatSessionRequest.ts
+src/models/CustomChatbotTheme.ts
 src/models/DateRangeFilter.ts
 src/models/DeleteBulkMemoryRequest.ts
 src/models/DeleteUserRequest.ts

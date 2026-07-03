@@ -63,6 +63,7 @@ __exportStar(require("./ConversationListItem"), exports);
 __exportStar(require("./ConversationMessageFeedback"), exports);
 __exportStar(require("./ConversationSettings"), exports);
 __exportStar(require("./CreateAssistantChatSessionRequest"), exports);
+__exportStar(require("./CustomChatbotTheme"), exports);
 __exportStar(require("./DateRangeFilter"), exports);
 __exportStar(require("./DeleteBulkMemoryRequest"), exports);
 __exportStar(require("./DeleteUserRequest"), exports);
