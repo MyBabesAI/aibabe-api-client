@@ -55,6 +55,13 @@ import {
     RoleplayTypeToJSON,
     RoleplayTypeToJSONTyped,
 } from './RoleplayType';
+import type { CustomChatbotTheme } from './CustomChatbotTheme';
+import {
+    CustomChatbotThemeFromJSON,
+    CustomChatbotThemeFromJSONTyped,
+    CustomChatbotThemeToJSON,
+    CustomChatbotThemeToJSONTyped,
+} from './CustomChatbotTheme';
 import type { VisualType } from './VisualType';
 import {
     VisualTypeFromJSON,
@@ -62,6 +69,13 @@ import {
     VisualTypeToJSON,
     VisualTypeToJSONTyped,
 } from './VisualType';
+import type { Gender } from './Gender';
+import {
+    GenderFromJSON,
+    GenderFromJSONTyped,
+    GenderToJSON,
+    GenderToJSONTyped,
+} from './Gender';
 import type { SeduceDifficulty } from './SeduceDifficulty';
 import {
     SeduceDifficultyFromJSON,
@@ -76,6 +90,13 @@ import {
     AvatarLooksV2ToJSON,
     AvatarLooksV2ToJSONTyped,
 } from './AvatarLooksV2';
+import type { SexualOrientation } from './SexualOrientation';
+import {
+    SexualOrientationFromJSON,
+    SexualOrientationFromJSONTyped,
+    SexualOrientationToJSON,
+    SexualOrientationToJSONTyped,
+} from './SexualOrientation';
 
 /**
  * 
@@ -91,16 +112,10 @@ export interface PostCustomChatbotV2Payload {
     age: number;
     /**
      * 
-     * @type {string}
+     * @type {Gender}
      * @memberof PostCustomChatbotV2Payload
      */
-    name?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PostCustomChatbotV2Payload
-     */
-    gender?: string | null;
+    gender: Gender;
     /**
      * 
      * @type {Array<SpecialFeatures>}
@@ -113,6 +128,12 @@ export interface PostCustomChatbotV2Payload {
      * @memberof PostCustomChatbotV2Payload
      */
     artStyle: ArtStyle;
+    /**
+     * 
+     * @type {SexualOrientation}
+     * @memberof PostCustomChatbotV2Payload
+     */
+    sexualOrientation?: SexualOrientation | null;
     /**
      * 
      * @type {Ethnicity}
@@ -145,6 +166,12 @@ export interface PostCustomChatbotV2Payload {
     roleplayType?: RoleplayType | null;
     /**
      * 
+     * @type {CustomChatbotTheme}
+     * @memberof PostCustomChatbotV2Payload
+     */
+    theme?: CustomChatbotTheme | null;
+    /**
+     * 
      * @type {AvatarLooksV2}
      * @memberof PostCustomChatbotV2Payload
      */
@@ -172,6 +199,12 @@ export interface PostCustomChatbotV2Payload {
      * @type {string}
      * @memberof PostCustomChatbotV2Payload
      */
+    name?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostCustomChatbotV2Payload
+     */
     referenceAudioId?: string;
     /**
      * 
@@ -188,6 +221,7 @@ export interface PostCustomChatbotV2Payload {
  */
 export function instanceOfPostCustomChatbotV2Payload(value: object): value is PostCustomChatbotV2Payload {
     if (!('age' in value) || value['age'] === undefined) return false;
+    if (!('gender' in value) || value['gender'] === undefined) return false;
     if (!('specialFeatures' in value) || value['specialFeatures'] === undefined) return false;
     if (!('artStyle' in value) || value['artStyle'] === undefined) return false;
     if (!('looks' in value) || value['looks'] === undefined) return false;
@@ -207,19 +241,21 @@ export function PostCustomChatbotV2PayloadFromJSONTyped(json: any, ignoreDiscrim
     return {
         
         'age': json['age'],
-        'name': json['name'] == null ? undefined : json['name'],
-        'gender': json['gender'] == null ? undefined : json['gender'],
+        'gender': GenderFromJSON(json['gender']),
         'specialFeatures': ((json['special_features'] as Array<any>).map(SpecialFeaturesFromJSON)),
         'artStyle': ArtStyleFromJSON(json['art_style']),
+        'sexualOrientation': json['sexual_orientation'] == null ? undefined : SexualOrientationFromJSON(json['sexual_orientation']),
         'ethnicity': json['ethnicity'] == null ? undefined : EthnicityFromJSON(json['ethnicity']),
         'fantasyRace': json['fantasy_race'] == null ? undefined : FantasyRaceFromJSON(json['fantasy_race']),
         'visualType': json['visual_type'] == null ? undefined : VisualTypeFromJSON(json['visual_type']),
         'furryVisualType': json['furry_visual_type'] == null ? undefined : FurryVisualTypeFromJSON(json['furry_visual_type']),
         'roleplayType': json['roleplay_type'] == null ? undefined : RoleplayTypeFromJSON(json['roleplay_type']),
+        'theme': json['theme'] == null ? undefined : CustomChatbotThemeFromJSON(json['theme']),
         'looks': AvatarLooksV2FromJSON(json['looks']),
         'difficulty': SeduceDifficultyFromJSON(json['difficulty']),
         'scenario': json['scenario'] == null ? undefined : json['scenario'],
         'clientId': json['client_id'],
+        'name': json['name'] == null ? undefined : json['name'],
         'referenceAudioId': json['reference_audio_id'] == null ? undefined : json['reference_audio_id'],
         'userId': json['user_id'] == null ? undefined : json['user_id'],
     };
@@ -237,19 +273,21 @@ export function PostCustomChatbotV2PayloadFromJSONTyped(json: any, ignoreDiscrim
     return {
         
         'age': value['age'],
-        'name': value['name'],
-        'gender': value['gender'],
+        'gender': GenderToJSON(value['gender']),
         'special_features': ((value['specialFeatures'] as Array<any>).map(SpecialFeaturesToJSON)),
         'art_style': ArtStyleToJSON(value['artStyle']),
+        'sexual_orientation': SexualOrientationToJSON(value['sexualOrientation']),
         'ethnicity': EthnicityToJSON(value['ethnicity']),
         'fantasy_race': FantasyRaceToJSON(value['fantasyRace']),
         'visual_type': VisualTypeToJSON(value['visualType']),
         'furry_visual_type': FurryVisualTypeToJSON(value['furryVisualType']),
         'roleplay_type': RoleplayTypeToJSON(value['roleplayType']),
+        'theme': CustomChatbotThemeToJSON(value['theme']),
         'looks': AvatarLooksV2ToJSON(value['looks']),
         'difficulty': SeduceDifficultyToJSON(value['difficulty']),
         'scenario': value['scenario'],
         'client_id': value['clientId'],
+        'name': value['name'],
         'reference_audio_id': value['referenceAudioId'],
         'user_id': value['userId'],
     };

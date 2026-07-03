@@ -104,6 +104,12 @@ export interface ExploreSearchRequest {
      * @memberof ExploreSearchRequest
      */
     unlockedStories?: boolean | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ExploreSearchRequest
+     */
+    useViewerPreferences?: boolean;
 }
 /**
  * Check if a given object implements the ExploreSearchRequest interface.

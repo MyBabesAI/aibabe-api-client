@@ -28,6 +28,8 @@ function instanceOfPostCategoryValues(value) {
         return false;
     if (!('gender' in value) || value['gender'] === undefined)
         return false;
+    if (!('orientation' in value) || value['orientation'] === undefined)
+        return false;
     if (!('ethnicity' in value) || value['ethnicity'] === undefined)
         return false;
     if (!('assSize' in value) || value['assSize'] === undefined)
@@ -51,6 +53,7 @@ function PostCategoryValuesFromJSONTyped(json, ignoreDiscriminator) {
         'style': json['style'],
         'age': json['age'],
         'gender': json['gender'],
+        'orientation': json['orientation'],
         'ethnicity': json['ethnicity'],
         'assSize': json['ass_size'],
         'breastSize': json['breast_size'],
@@ -69,6 +72,7 @@ function PostCategoryValuesToJSONTyped(value, ignoreDiscriminator = false) {
         'style': value['style'],
         'age': value['age'],
         'gender': value['gender'],
+        'orientation': value['orientation'],
         'ethnicity': value['ethnicity'],
         'ass_size': value['assSize'],
         'breast_size': value['breastSize'],

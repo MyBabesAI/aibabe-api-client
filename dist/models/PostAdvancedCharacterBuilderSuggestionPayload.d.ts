@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CharacterBuilderSuggestionField } from './CharacterBuilderSuggestionField';
+import type { Gender } from './Gender';
 /**
  *
  * @export
@@ -28,6 +29,12 @@ export interface PostAdvancedCharacterBuilderSuggestionPayload {
      * @memberof PostAdvancedCharacterBuilderSuggestionPayload
      */
     currentName?: string | null;
+    /**
+     *
+     * @type {Gender}
+     * @memberof PostAdvancedCharacterBuilderSuggestionPayload
+     */
+    currentGender?: Gender | null;
     /**
      *
      * @type {string}

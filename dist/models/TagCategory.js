@@ -33,9 +33,11 @@ exports.TagCategory = {
     Gender: 'gender',
     Fetishes: 'fetishes',
     Ethnicity: 'ethnicity',
+    Theme: 'theme',
     Age: 'age',
     Lora: 'lora',
     Style: 'style',
+    Orientation: 'orientation',
     RoleplayType: 'roleplay_type',
     CharacterType: 'character_type',
     Genre: 'genre'

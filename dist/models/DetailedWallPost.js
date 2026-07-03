@@ -24,7 +24,7 @@ const VideoContent_1 = require("./VideoContent");
 const ContentType_1 = require("./ContentType");
 const ImageContent_1 = require("./ImageContent");
 const StoryPreview_1 = require("./StoryPreview");
-const TagModel_1 = require("./TagModel");
+const TagData_1 = require("./TagData");
 /**
  * Check if a given object implements the DetailedWallPost interface.
  */
@@ -85,7 +85,7 @@ function DetailedWallPostFromJSONTyped(json, ignoreDiscriminator) {
         'liked': json['liked'],
         'type': (0, ContentType_1.ContentTypeFromJSON)(json['type']),
         'title': json['title'],
-        'tags': (json['tags'].map(TagModel_1.TagModelFromJSON)),
+        'tags': (json['tags'].map(TagData_1.TagDataFromJSON)),
         'creator': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowFromJSON)(json['creator']),
     };
 }
@@ -111,7 +111,7 @@ function DetailedWallPostToJSONTyped(value, ignoreDiscriminator = false) {
         'liked': value['liked'],
         'type': (0, ContentType_1.ContentTypeToJSON)(value['type']),
         'title': value['title'],
-        'tags': (value['tags'].map(TagModel_1.TagModelToJSON)),
+        'tags': (value['tags'].map(TagData_1.TagDataToJSON)),
         'creator': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowToJSON)(value['creator']),
     };
 }
