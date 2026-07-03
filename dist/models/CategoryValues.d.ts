@@ -32,6 +32,12 @@ export interface CategoryValues {
      * @type {Array<string>}
      * @memberof CategoryValues
      */
+    orientation?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
     style?: Array<string> | null;
     /**
      *
@@ -51,6 +57,12 @@ export interface CategoryValues {
      * @memberof CategoryValues
      */
     ethnicity?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    theme?: Array<string> | null;
     /**
      *
      * @type {Array<string>}

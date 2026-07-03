@@ -20,6 +20,13 @@ import {
     PublicUserPreviewToJSON,
     PublicUserPreviewToJSONTyped,
 } from './PublicUserPreview';
+import type { UserPreferenceProfile } from './UserPreferenceProfile';
+import {
+    UserPreferenceProfileFromJSON,
+    UserPreferenceProfileFromJSONTyped,
+    UserPreferenceProfileToJSON,
+    UserPreferenceProfileToJSONTyped,
+} from './UserPreferenceProfile';
 import type { UserRole } from './UserRole';
 import {
     UserRoleFromJSON,
@@ -34,13 +41,6 @@ import {
     FeatureFlagNameToJSON,
     FeatureFlagNameToJSONTyped,
 } from './FeatureFlagName';
-import type { Preferences } from './Preferences';
-import {
-    PreferencesFromJSON,
-    PreferencesFromJSONTyped,
-    PreferencesToJSON,
-    PreferencesToJSONTyped,
-} from './Preferences';
 import type { Subscription } from './Subscription';
 import {
     SubscriptionFromJSON,
@@ -117,10 +117,10 @@ export interface UserInfoResponse {
     subscription: Subscription;
     /**
      * 
-     * @type {Preferences}
+     * @type {UserPreferenceProfile}
      * @memberof UserInfoResponse
      */
-    preferences: Preferences;
+    preferenceProfile?: UserPreferenceProfile | null;
 }
 
 
@@ -139,7 +139,6 @@ export function instanceOfUserInfoResponse(value: object): value is UserInfoResp
     if (!('feedbackGiven' in value) || value['feedbackGiven'] === undefined) return false;
     if (!('featureFlags' in value) || value['featureFlags'] === undefined) return false;
     if (!('subscription' in value) || value['subscription'] === undefined) return false;
-    if (!('preferences' in value) || value['preferences'] === undefined) return false;
     return true;
 }
 
@@ -163,7 +162,7 @@ export function UserInfoResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'feedbackGiven': json['feedback_given'],
         'featureFlags': ((json['feature_flags'] as Array<any>).map(FeatureFlagNameFromJSON)),
         'subscription': SubscriptionFromJSON(json['subscription']),
-        'preferences': PreferencesFromJSON(json['preferences']),
+        'preferenceProfile': json['preference_profile'] == null ? undefined : UserPreferenceProfileFromJSON(json['preference_profile']),
     };
 }
 
@@ -188,7 +187,7 @@ export function UserInfoResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'feedback_given': value['feedbackGiven'],
         'feature_flags': ((value['featureFlags'] as Array<any>).map(FeatureFlagNameToJSON)),
         'subscription': SubscriptionToJSON(value['subscription']),
-        'preferences': PreferencesToJSON(value['preferences']),
+        'preference_profile': UserPreferenceProfileToJSON(value['preferenceProfile']),
     };
 }
 

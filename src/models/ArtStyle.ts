@@ -36,13 +36,11 @@ export const ArtStyle = {
     Aphroditegay: 'aphroditegay',
     Anthrogay: 'anthrogay',
     Furrygay: 'furrygay',
-    Grok: 'grok',
-    Noirluxe: 'noirluxe',
-    Chromaghibli: 'chromaghibli',
-    Chromasemianime: 'chromasemianime',
-    Chromadnd: 'chromadnd',
-    Chromalenovoultrareal: 'chromalenovoultrareal',
-    Chromaprofessionalphoto: 'chromaprofessionalphoto'
+    Forbiddenfairytale: 'forbiddenfairytale',
+    Afterglow: 'afterglow',
+    Enchantedfantasy: 'enchantedfantasy',
+    Realtemptation: 'realtemptation',
+    Midnightstudio: 'midnightstudio'
 } as const;
 export type ArtStyle = typeof ArtStyle[keyof typeof ArtStyle];
 

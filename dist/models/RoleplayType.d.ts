@@ -14,6 +14,12 @@
  * @export
  */
 export declare const RoleplayType: {
+    readonly AgeGap: "age_gap";
+    readonly Cop: "cop";
+    readonly Twink: "twink";
+    readonly Jock: "jock";
+    readonly Bear: "bear";
+    readonly Mafia: "mafia";
     readonly FamilyTaboo: "family_taboo";
     readonly Schoolmate: "schoolmate";
     readonly Friend: "friend";

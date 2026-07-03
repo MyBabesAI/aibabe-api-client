@@ -18,6 +18,12 @@
  * @export
  */
 export const RoleplayType = {
+    AgeGap: 'age_gap',
+    Cop: 'cop',
+    Twink: 'twink',
+    Jock: 'jock',
+    Bear: 'bear',
+    Mafia: 'mafia',
     FamilyTaboo: 'family_taboo',
     Schoolmate: 'schoolmate',
     Friend: 'friend',

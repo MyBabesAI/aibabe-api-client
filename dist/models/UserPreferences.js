@@ -35,7 +35,6 @@ function UserPreferencesFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'displayGirls': json['display_girls'] == null ? undefined : json['display_girls'],
         'displayAnime': json['display_anime'] == null ? undefined : json['display_anime'],
-        'displayUnlockWarning': json['display_unlock_warning'] == null ? undefined : json['display_unlock_warning'],
         'usernameUpdated': json['username_updated'] == null ? undefined : json['username_updated'],
         'gender': json['gender'] == null ? undefined : (0, Gender_1.GenderFromJSON)(json['gender']),
     };
@@ -50,7 +49,6 @@ function UserPreferencesToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'display_girls': value['displayGirls'],
         'display_anime': value['displayAnime'],
-        'display_unlock_warning': value['displayUnlockWarning'],
         'username_updated': value['usernameUpdated'],
         'gender': (0, Gender_1.GenderToJSON)(value['gender']),
     };

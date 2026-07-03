@@ -44,12 +44,6 @@ export interface UserPreferences {
      * @type {boolean}
      * @memberof UserPreferences
      */
-    displayUnlockWarning?: boolean | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UserPreferences
-     */
     usernameUpdated?: boolean | null;
     /**
      * 
@@ -80,7 +74,6 @@ export function UserPreferencesFromJSONTyped(json: any, ignoreDiscriminator: boo
         
         'displayGirls': json['display_girls'] == null ? undefined : json['display_girls'],
         'displayAnime': json['display_anime'] == null ? undefined : json['display_anime'],
-        'displayUnlockWarning': json['display_unlock_warning'] == null ? undefined : json['display_unlock_warning'],
         'usernameUpdated': json['username_updated'] == null ? undefined : json['username_updated'],
         'gender': json['gender'] == null ? undefined : GenderFromJSON(json['gender']),
     };
@@ -99,7 +92,6 @@ export function UserPreferencesFromJSONTyped(json: any, ignoreDiscriminator: boo
         
         'display_girls': value['displayGirls'],
         'display_anime': value['displayAnime'],
-        'display_unlock_warning': value['displayUnlockWarning'],
         'username_updated': value['usernameUpdated'],
         'gender': GenderToJSON(value['gender']),
     };

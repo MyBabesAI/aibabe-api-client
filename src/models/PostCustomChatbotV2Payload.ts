@@ -55,6 +55,13 @@ import {
     RoleplayTypeToJSON,
     RoleplayTypeToJSONTyped,
 } from './RoleplayType';
+import type { CustomChatbotTheme } from './CustomChatbotTheme';
+import {
+    CustomChatbotThemeFromJSON,
+    CustomChatbotThemeFromJSONTyped,
+    CustomChatbotThemeToJSON,
+    CustomChatbotThemeToJSONTyped,
+} from './CustomChatbotTheme';
 import type { VisualType } from './VisualType';
 import {
     VisualTypeFromJSON,
@@ -159,6 +166,12 @@ export interface PostCustomChatbotV2Payload {
     roleplayType?: RoleplayType | null;
     /**
      * 
+     * @type {CustomChatbotTheme}
+     * @memberof PostCustomChatbotV2Payload
+     */
+    theme?: CustomChatbotTheme | null;
+    /**
+     * 
      * @type {AvatarLooksV2}
      * @memberof PostCustomChatbotV2Payload
      */
@@ -237,6 +250,7 @@ export function PostCustomChatbotV2PayloadFromJSONTyped(json: any, ignoreDiscrim
         'visualType': json['visual_type'] == null ? undefined : VisualTypeFromJSON(json['visual_type']),
         'furryVisualType': json['furry_visual_type'] == null ? undefined : FurryVisualTypeFromJSON(json['furry_visual_type']),
         'roleplayType': json['roleplay_type'] == null ? undefined : RoleplayTypeFromJSON(json['roleplay_type']),
+        'theme': json['theme'] == null ? undefined : CustomChatbotThemeFromJSON(json['theme']),
         'looks': AvatarLooksV2FromJSON(json['looks']),
         'difficulty': SeduceDifficultyFromJSON(json['difficulty']),
         'scenario': json['scenario'] == null ? undefined : json['scenario'],
@@ -268,6 +282,7 @@ export function PostCustomChatbotV2PayloadFromJSONTyped(json: any, ignoreDiscrim
         'visual_type': VisualTypeToJSON(value['visualType']),
         'furry_visual_type': FurryVisualTypeToJSON(value['furryVisualType']),
         'roleplay_type': RoleplayTypeToJSON(value['roleplayType']),
+        'theme': CustomChatbotThemeToJSON(value['theme']),
         'looks': AvatarLooksV2ToJSON(value['looks']),
         'difficulty': SeduceDifficultyToJSON(value['difficulty']),
         'scenario': value['scenario'],

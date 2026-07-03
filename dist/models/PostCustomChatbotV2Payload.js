@@ -24,6 +24,7 @@ const Ethnicity_1 = require("./Ethnicity");
 const ArtStyle_1 = require("./ArtStyle");
 const FurryVisualType_1 = require("./FurryVisualType");
 const RoleplayType_1 = require("./RoleplayType");
+const CustomChatbotTheme_1 = require("./CustomChatbotTheme");
 const VisualType_1 = require("./VisualType");
 const Gender_1 = require("./Gender");
 const SeduceDifficulty_1 = require("./SeduceDifficulty");
@@ -67,6 +68,7 @@ function PostCustomChatbotV2PayloadFromJSONTyped(json, ignoreDiscriminator) {
         'visualType': json['visual_type'] == null ? undefined : (0, VisualType_1.VisualTypeFromJSON)(json['visual_type']),
         'furryVisualType': json['furry_visual_type'] == null ? undefined : (0, FurryVisualType_1.FurryVisualTypeFromJSON)(json['furry_visual_type']),
         'roleplayType': json['roleplay_type'] == null ? undefined : (0, RoleplayType_1.RoleplayTypeFromJSON)(json['roleplay_type']),
+        'theme': json['theme'] == null ? undefined : (0, CustomChatbotTheme_1.CustomChatbotThemeFromJSON)(json['theme']),
         'looks': (0, AvatarLooksV2_1.AvatarLooksV2FromJSON)(json['looks']),
         'difficulty': (0, SeduceDifficulty_1.SeduceDifficultyFromJSON)(json['difficulty']),
         'scenario': json['scenario'] == null ? undefined : json['scenario'],
@@ -94,6 +96,7 @@ function PostCustomChatbotV2PayloadToJSONTyped(value, ignoreDiscriminator = fals
         'visual_type': (0, VisualType_1.VisualTypeToJSON)(value['visualType']),
         'furry_visual_type': (0, FurryVisualType_1.FurryVisualTypeToJSON)(value['furryVisualType']),
         'roleplay_type': (0, RoleplayType_1.RoleplayTypeToJSON)(value['roleplayType']),
+        'theme': (0, CustomChatbotTheme_1.CustomChatbotThemeToJSON)(value['theme']),
         'looks': (0, AvatarLooksV2_1.AvatarLooksV2ToJSON)(value['looks']),
         'difficulty': (0, SeduceDifficulty_1.SeduceDifficultyToJSON)(value['difficulty']),
         'scenario': value['scenario'],

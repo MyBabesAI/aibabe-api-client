@@ -24,6 +24,12 @@ exports.RoleplayTypeToJSONTyped = RoleplayTypeToJSONTyped;
  * @export
  */
 exports.RoleplayType = {
+    AgeGap: 'age_gap',
+    Cop: 'cop',
+    Twink: 'twink',
+    Jock: 'jock',
+    Bear: 'bear',
+    Mafia: 'mafia',
     FamilyTaboo: 'family_taboo',
     Schoolmate: 'schoolmate',
     Friend: 'friend',

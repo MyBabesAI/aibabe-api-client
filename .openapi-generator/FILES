@@ -74,6 +74,7 @@ src/models/ConversationListItem.ts
 src/models/ConversationMessageFeedback.ts
 src/models/ConversationSettings.ts
 src/models/CreateAssistantChatSessionRequest.ts
+src/models/CustomChatbotTheme.ts
 src/models/DateRangeFilter.ts
 src/models/DeleteBulkMemoryRequest.ts
 src/models/DeleteUserRequest.ts
@@ -181,6 +182,7 @@ src/models/PatchChatMessageRequest.ts
 src/models/PatchCustomChatbotRequest.ts
 src/models/PatchImageModerationPromptRequest.ts
 src/models/PatchPostTitleRequest.ts
+src/models/PatchUserPreferenceProfileRequest.ts
 src/models/PatchUserRequest.ts
 src/models/PaymentProviderType.ts
 src/models/PingRequest.ts
@@ -228,11 +230,12 @@ src/models/PostShareGetTagsRequest.ts
 src/models/PostSharePublishRequest.ts
 src/models/PostShareTagsResponse.ts
 src/models/PostType.ts
+src/models/PostUserPreferencesOnboardingRequest.ts
 src/models/PostUserRequest.ts
 src/models/PostVastAIStatus.ts
 src/models/PostVerifyPublicUsernameRequest.ts
 src/models/PostVerifyPublicUsernameResponse.ts
-src/models/Preferences.ts
+src/models/PreferenceOption.ts
 src/models/PublicUserInfo.ts
 src/models/PublicUserPreview.ts
 src/models/PublicUserPreviewWithFollow.ts
@@ -307,7 +310,6 @@ src/models/SubscriptionTier.ts
 src/models/TagCategory.ts
 src/models/TagData.ts
 src/models/TagImageLora.ts
-src/models/TagModel.ts
 src/models/TagVideoLora.ts
 src/models/TagsExploreTypesGet200ResponseInner.ts
 src/models/TextToSpeechEnhanceRequest.ts
@@ -324,7 +326,8 @@ src/models/UserBadgeStatus.ts
 src/models/UserClaimType.ts
 src/models/UserEpisodeProgressType.ts
 src/models/UserInfoResponse.ts
-src/models/UserPreferenceModel.ts
+src/models/UserPreferenceProfile.ts
+src/models/UserPreferenceTaxonomyResponse.ts
 src/models/UserPreferences.ts
 src/models/UserRole.ts
 src/models/UserScore.ts

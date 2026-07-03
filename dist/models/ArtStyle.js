@@ -42,13 +42,11 @@ exports.ArtStyle = {
     Aphroditegay: 'aphroditegay',
     Anthrogay: 'anthrogay',
     Furrygay: 'furrygay',
-    Grok: 'grok',
-    Noirluxe: 'noirluxe',
-    Chromaghibli: 'chromaghibli',
-    Chromasemianime: 'chromasemianime',
-    Chromadnd: 'chromadnd',
-    Chromalenovoultrareal: 'chromalenovoultrareal',
-    Chromaprofessionalphoto: 'chromaprofessionalphoto'
+    Forbiddenfairytale: 'forbiddenfairytale',
+    Afterglow: 'afterglow',
+    Enchantedfantasy: 'enchantedfantasy',
+    Realtemptation: 'realtemptation',
+    Midnightstudio: 'midnightstudio'
 };
 function instanceOfArtStyle(value) {
     for (const key in exports.ArtStyle) {

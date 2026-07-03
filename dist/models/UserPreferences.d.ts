@@ -33,12 +33,6 @@ export interface UserPreferences {
      * @type {boolean}
      * @memberof UserPreferences
      */
-    displayUnlockWarning?: boolean | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof UserPreferences
-     */
     usernameUpdated?: boolean | null;
     /**
      *
