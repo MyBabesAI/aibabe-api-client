@@ -128,6 +128,7 @@ export declare const LoraName: {
     readonly ChromaLenovoUltrareal: "chroma_lenovo_ultrareal";
     readonly ChromaSemiAnime: "chroma_semi_anime";
     readonly ChromaDarkGhibli: "chroma_dark_ghibli";
+    readonly ChromaDarkRomance: "chroma_dark_romance";
     readonly None: "none";
 };
 export type LoraName = typeof LoraName[keyof typeof LoraName];

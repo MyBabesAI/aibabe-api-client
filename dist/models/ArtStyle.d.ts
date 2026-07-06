@@ -34,6 +34,7 @@ export declare const ArtStyle: {
     readonly Furrygay: "furrygay";
     readonly Forbiddenfairytale: "forbiddenfairytale";
     readonly Afterglow: "afterglow";
+    readonly Darkromance: "darkromance";
     readonly Enchantedfantasy: "enchantedfantasy";
     readonly Realtemptation: "realtemptation";
     readonly Midnightstudio: "midnightstudio";

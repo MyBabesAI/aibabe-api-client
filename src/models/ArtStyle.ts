@@ -38,6 +38,7 @@ export const ArtStyle = {
     Furrygay: 'furrygay',
     Forbiddenfairytale: 'forbiddenfairytale',
     Afterglow: 'afterglow',
+    Darkromance: 'darkromance',
     Enchantedfantasy: 'enchantedfantasy',
     Realtemptation: 'realtemptation',
     Midnightstudio: 'midnightstudio'
