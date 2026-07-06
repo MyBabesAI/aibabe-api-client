@@ -129,6 +129,11 @@ export declare const LoraName: {
     readonly ChromaSemiAnime: "chroma_semi_anime";
     readonly ChromaDarkGhibli: "chroma_dark_ghibli";
     readonly ChromaDarkRomanceV2: "chroma_dark_romance_v2";
+    readonly Chroma90sRetroScifi: "chroma_90s_retro_scifi";
+    readonly ChromaNeonNoir: "chroma_neon_noir";
+    readonly ChromaDarkSynth: "chroma_dark_synth";
+    readonly ChromaArsNiji: "chroma_ars_niji";
+    readonly Chroma90sDarkFantasy: "chroma_90s_dark_fantasy";
     readonly None: "none";
 };
 export type LoraName = typeof LoraName[keyof typeof LoraName];

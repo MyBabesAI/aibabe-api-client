@@ -133,6 +133,11 @@ export const LoraName = {
     ChromaSemiAnime: 'chroma_semi_anime',
     ChromaDarkGhibli: 'chroma_dark_ghibli',
     ChromaDarkRomanceV2: 'chroma_dark_romance_v2',
+    Chroma90sRetroScifi: 'chroma_90s_retro_scifi',
+    ChromaNeonNoir: 'chroma_neon_noir',
+    ChromaDarkSynth: 'chroma_dark_synth',
+    ChromaArsNiji: 'chroma_ars_niji',
+    Chroma90sDarkFantasy: 'chroma_90s_dark_fantasy',
     None: 'none'
 } as const;
 export type LoraName = typeof LoraName[keyof typeof LoraName];
