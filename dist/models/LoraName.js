@@ -138,7 +138,7 @@ exports.LoraName = {
     ChromaLenovoUltrareal: 'chroma_lenovo_ultrareal',
     ChromaSemiAnime: 'chroma_semi_anime',
     ChromaDarkGhibli: 'chroma_dark_ghibli',
-    ChromaDarkRomance: 'chroma_dark_romance',
+    ChromaDarkRomanceV2: 'chroma_dark_romance_v2',
     None: 'none'
 };
 function instanceOfLoraName(value) {
