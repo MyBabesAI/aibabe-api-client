@@ -51,6 +51,7 @@ function ExploreSearchRequestFromJSONTyped(json, ignoreDiscriminator) {
         'scene': json['scene'] == null ? undefined : json['scene'],
         'seenStories': json['seen_stories'] == null ? undefined : json['seen_stories'],
         'unlockedStories': json['unlocked_stories'] == null ? undefined : json['unlocked_stories'],
+        'useViewerPreferences': json['use_viewer_preferences'] == null ? undefined : json['use_viewer_preferences'],
     };
 }
 function ExploreSearchRequestToJSON(json) {
@@ -75,6 +76,7 @@ function ExploreSearchRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'scene': value['scene'],
         'seen_stories': value['seenStories'],
         'unlocked_stories': value['unlockedStories'],
+        'use_viewer_preferences': value['useViewerPreferences'],
     };
 }
 //# sourceMappingURL=ExploreSearchRequest.js.map

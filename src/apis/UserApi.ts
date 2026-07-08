@@ -21,6 +21,7 @@ import type {
   GetPublicLatestUpdateResponse,
   GetPublicUsersResponse,
   HTTPValidationError,
+  PatchUserPreferenceProfileRequest,
   PatchUserRequest,
   PostClaimRequest,
   PostDonateRequest,
@@ -29,6 +30,7 @@ import type {
   PostRatingRequest,
   PostRatingResponse,
   PostReportUserRequest,
+  PostUserPreferencesOnboardingRequest,
   PostVerifyPublicUsernameRequest,
   PostVerifyPublicUsernameResponse,
   PublicUserInfo,
@@ -36,6 +38,8 @@ import type {
   PutPublicUserRequest,
   PutUsernameRequest,
   RemainingFreeUsesResponse,
+  UserPreferenceProfile,
+  UserPreferenceTaxonomyResponse,
 } from '../models/index';
 import {
     DeleteUserRequestFromJSON,
@@ -50,6 +54,8 @@ import {
     GetPublicUsersResponseToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
+    PatchUserPreferenceProfileRequestFromJSON,
+    PatchUserPreferenceProfileRequestToJSON,
     PatchUserRequestFromJSON,
     PatchUserRequestToJSON,
     PostClaimRequestFromJSON,
@@ -66,6 +72,8 @@ import {
     PostRatingResponseToJSON,
     PostReportUserRequestFromJSON,
     PostReportUserRequestToJSON,
+    PostUserPreferencesOnboardingRequestFromJSON,
+    PostUserPreferencesOnboardingRequestToJSON,
     PostVerifyPublicUsernameRequestFromJSON,
     PostVerifyPublicUsernameRequestToJSON,
     PostVerifyPublicUsernameResponseFromJSON,
@@ -80,6 +88,10 @@ import {
     PutUsernameRequestToJSON,
     RemainingFreeUsesResponseFromJSON,
     RemainingFreeUsesResponseToJSON,
+    UserPreferenceProfileFromJSON,
+    UserPreferenceProfileToJSON,
+    UserPreferenceTaxonomyResponseFromJSON,
+    UserPreferenceTaxonomyResponseToJSON,
 } from '../models/index';
 
 export interface ClaimUserClaimPostRequest {
@@ -109,8 +121,16 @@ export interface GetPublicUserUserPublicGetRequest {
     userId?: string | null;
 }
 
+export interface PatchPreferencesUserPreferencesPatchRequest {
+    patchUserPreferenceProfileRequest: PatchUserPreferenceProfileRequest;
+}
+
 export interface PatchUserPatchRequest {
     patchUserRequest: PatchUserRequest;
+}
+
+export interface PostPreferencesOnboardingUserPreferencesOnboardingPostRequest {
+    postUserPreferencesOnboardingRequest: PostUserPreferencesOnboardingRequest;
 }
 
 export interface PostRatingUserRatingPostRequest {
@@ -356,6 +376,32 @@ export class UserApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get Preferences
+     */
+    async getPreferencesUserPreferencesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPreferenceProfile>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/user/preferences`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserPreferenceProfileFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Preferences
+     */
+    async getPreferencesUserPreferencesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPreferenceProfile> {
+        const response = await this.getPreferencesUserPreferencesGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Get Public User Like
      */
     async getPublicUserLikeUserPublicLikeGetRaw(requestParameters: GetPublicUserLikeUserPublicLikeGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPublicUsersResponse>> {
@@ -428,6 +474,42 @@ export class UserApi extends runtime.BaseAPI {
     }
 
     /**
+     * Patch Preferences
+     */
+    async patchPreferencesUserPreferencesPatchRaw(requestParameters: PatchPreferencesUserPreferencesPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPreferenceProfile>> {
+        if (requestParameters['patchUserPreferenceProfileRequest'] == null) {
+            throw new runtime.RequiredError(
+                'patchUserPreferenceProfileRequest',
+                'Required parameter "patchUserPreferenceProfileRequest" was null or undefined when calling patchPreferencesUserPreferencesPatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/user/preferences`,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchUserPreferenceProfileRequestToJSON(requestParameters['patchUserPreferenceProfileRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserPreferenceProfileFromJSON(jsonValue));
+    }
+
+    /**
+     * Patch Preferences
+     */
+    async patchPreferencesUserPreferencesPatch(requestParameters: PatchPreferencesUserPreferencesPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPreferenceProfile> {
+        const response = await this.patchPreferencesUserPreferencesPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Patch
      */
     async patchUserPatchRaw(requestParameters: PatchUserPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -468,6 +550,42 @@ export class UserApi extends runtime.BaseAPI {
     }
 
     /**
+     * Post Preferences Onboarding
+     */
+    async postPreferencesOnboardingUserPreferencesOnboardingPostRaw(requestParameters: PostPreferencesOnboardingUserPreferencesOnboardingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPreferenceProfile>> {
+        if (requestParameters['postUserPreferencesOnboardingRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postUserPreferencesOnboardingRequest',
+                'Required parameter "postUserPreferencesOnboardingRequest" was null or undefined when calling postPreferencesOnboardingUserPreferencesOnboardingPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/user/preferences/onboarding`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostUserPreferencesOnboardingRequestToJSON(requestParameters['postUserPreferencesOnboardingRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserPreferenceProfileFromJSON(jsonValue));
+    }
+
+    /**
+     * Post Preferences Onboarding
+     */
+    async postPreferencesOnboardingUserPreferencesOnboardingPost(requestParameters: PostPreferencesOnboardingUserPreferencesOnboardingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPreferenceProfile> {
+        const response = await this.postPreferencesOnboardingUserPreferencesOnboardingPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Post Rating
      */
     async postRatingUserRatingPostRaw(requestParameters: PostRatingUserRatingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostRatingResponse>> {
@@ -500,6 +618,32 @@ export class UserApi extends runtime.BaseAPI {
      */
     async postRatingUserRatingPost(requestParameters: PostRatingUserRatingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostRatingResponse> {
         const response = await this.postRatingUserRatingPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Preference Taxonomy
+     */
+    async preferenceTaxonomyUserPreferencesTaxonomyGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPreferenceTaxonomyResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/user/preferences/taxonomy`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserPreferenceTaxonomyResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Preference Taxonomy
+     */
+    async preferenceTaxonomyUserPreferencesTaxonomyGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPreferenceTaxonomyResponse> {
+        const response = await this.preferenceTaxonomyUserPreferencesTaxonomyGetRaw(initOverrides);
         return await response.value();
     }
 

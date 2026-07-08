@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ReviewCharacterFieldStatus } from './ReviewCharacterFieldStatus';
-import type { Value } from './Value';
+import type { AvatarFieldValue } from './AvatarFieldValue';
 /**
  *
  * @export
@@ -19,10 +19,10 @@ import type { Value } from './Value';
 export interface AvatarOptionalField {
     /**
      *
-     * @type {Value}
+     * @type {AvatarFieldValue}
      * @memberof AvatarOptionalField
      */
-    value?: Value | null;
+    value?: AvatarFieldValue | null;
     /**
      *
      * @type {ReviewCharacterFieldStatus}

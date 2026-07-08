@@ -25,8 +25,10 @@ exports.SpecialFeaturesToJSONTyped = SpecialFeaturesToJSONTyped;
  */
 exports.SpecialFeatures = {
     Tattoos: 'tattoos',
+    Tattoo: 'tattoo',
     PubicHair: 'pubic_hair',
     Piercing: 'piercing',
+    Piercings: 'piercings',
     Freckles: 'freckles',
     Scar: 'scar',
     Vascularity: 'vascularity',

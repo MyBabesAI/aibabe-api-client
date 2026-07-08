@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { DeleteUserRequest, GetClaimablesResponse, GetFollowedUsersResponse, GetPublicLatestUpdateResponse, GetPublicUsersResponse, PatchUserRequest, PostClaimRequest, PostDonateRequest, PostDonateResponse, PostFollowUserRequest, PostRatingRequest, PostRatingResponse, PostReportUserRequest, PostVerifyPublicUsernameRequest, PostVerifyPublicUsernameResponse, PublicUserInfo, PutPasswordRequest, PutPublicUserRequest, PutUsernameRequest, RemainingFreeUsesResponse } from '../models/index';
+import type { DeleteUserRequest, GetClaimablesResponse, GetFollowedUsersResponse, GetPublicLatestUpdateResponse, GetPublicUsersResponse, PatchUserPreferenceProfileRequest, PatchUserRequest, PostClaimRequest, PostDonateRequest, PostDonateResponse, PostFollowUserRequest, PostRatingRequest, PostRatingResponse, PostReportUserRequest, PostUserPreferencesOnboardingRequest, PostVerifyPublicUsernameRequest, PostVerifyPublicUsernameResponse, PublicUserInfo, PutPasswordRequest, PutPublicUserRequest, PutUsernameRequest, RemainingFreeUsesResponse, UserPreferenceProfile, UserPreferenceTaxonomyResponse } from '../models/index';
 export interface ClaimUserClaimPostRequest {
     postClaimRequest: PostClaimRequest;
 }
@@ -32,8 +32,14 @@ export interface GetPublicUserUserPublicGetRequest {
     publicUsername?: string | null;
     userId?: string | null;
 }
+export interface PatchPreferencesUserPreferencesPatchRequest {
+    patchUserPreferenceProfileRequest: PatchUserPreferenceProfileRequest;
+}
 export interface PatchUserPatchRequest {
     patchUserRequest: PatchUserRequest;
+}
+export interface PostPreferencesOnboardingUserPreferencesOnboardingPostRequest {
+    postUserPreferencesOnboardingRequest: PostUserPreferencesOnboardingRequest;
 }
 export interface PostRatingUserRatingPostRequest {
     postRatingRequest: PostRatingRequest;
@@ -110,6 +116,14 @@ export declare class UserApi extends runtime.BaseAPI {
      */
     getFollowedUsersUserFollowedGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFollowedUsersResponse>;
     /**
+     * Get Preferences
+     */
+    getPreferencesUserPreferencesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPreferenceProfile>>;
+    /**
+     * Get Preferences
+     */
+    getPreferencesUserPreferencesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPreferenceProfile>;
+    /**
      * Get Public User Like
      */
     getPublicUserLikeUserPublicLikeGetRaw(requestParameters: GetPublicUserLikeUserPublicLikeGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPublicUsersResponse>>;
@@ -126,6 +140,14 @@ export declare class UserApi extends runtime.BaseAPI {
      */
     getPublicUserUserPublicGet(requestParameters?: GetPublicUserUserPublicGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PublicUserInfo>;
     /**
+     * Patch Preferences
+     */
+    patchPreferencesUserPreferencesPatchRaw(requestParameters: PatchPreferencesUserPreferencesPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPreferenceProfile>>;
+    /**
+     * Patch Preferences
+     */
+    patchPreferencesUserPreferencesPatch(requestParameters: PatchPreferencesUserPreferencesPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPreferenceProfile>;
+    /**
      * Patch
      */
     patchUserPatchRaw(requestParameters: PatchUserPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
@@ -134,6 +156,14 @@ export declare class UserApi extends runtime.BaseAPI {
      */
     patchUserPatch(requestParameters: PatchUserPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
+     * Post Preferences Onboarding
+     */
+    postPreferencesOnboardingUserPreferencesOnboardingPostRaw(requestParameters: PostPreferencesOnboardingUserPreferencesOnboardingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPreferenceProfile>>;
+    /**
+     * Post Preferences Onboarding
+     */
+    postPreferencesOnboardingUserPreferencesOnboardingPost(requestParameters: PostPreferencesOnboardingUserPreferencesOnboardingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPreferenceProfile>;
+    /**
      * Post Rating
      */
     postRatingUserRatingPostRaw(requestParameters: PostRatingUserRatingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostRatingResponse>>;
@@ -141,6 +171,14 @@ export declare class UserApi extends runtime.BaseAPI {
      * Post Rating
      */
     postRatingUserRatingPost(requestParameters: PostRatingUserRatingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostRatingResponse>;
+    /**
+     * Preference Taxonomy
+     */
+    preferenceTaxonomyUserPreferencesTaxonomyGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPreferenceTaxonomyResponse>>;
+    /**
+     * Preference Taxonomy
+     */
+    preferenceTaxonomyUserPreferencesTaxonomyGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPreferenceTaxonomyResponse>;
     /**
      * Remaining Free Uses
      */

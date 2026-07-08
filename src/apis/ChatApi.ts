@@ -24,6 +24,7 @@ import type {
   PatchChatMessageRequest,
   PatchImageModerationPromptRequest,
   PostChatRequest,
+  PostChatSuggestionRequest,
   PostConversationSettingsRequest,
 } from '../models/index';
 import {
@@ -45,6 +46,8 @@ import {
     PatchImageModerationPromptRequestToJSON,
     PostChatRequestFromJSON,
     PostChatRequestToJSON,
+    PostChatSuggestionRequestFromJSON,
+    PostChatSuggestionRequestToJSON,
     PostConversationSettingsRequestFromJSON,
     PostConversationSettingsRequestToJSON,
 } from '../models/index';
@@ -52,6 +55,11 @@ import {
 export interface ChatChatChatbotIdPostRequest {
     chatbotId: string;
     postChatRequest: PostChatRequest;
+}
+
+export interface ChatSuggestionChatChatbotIdSuggestionPostRequest {
+    chatbotId: string;
+    postChatSuggestionRequest: PostChatSuggestionRequest;
 }
 
 export interface ConversationChatChatbotIdGetRequest {
@@ -156,6 +164,49 @@ export class ChatApi extends runtime.BaseAPI {
      */
     async chatChatChatbotIdPost(requestParameters: ChatChatChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse> {
         const response = await this.chatChatChatbotIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Chat Suggestion
+     */
+    async chatSuggestionChatChatbotIdSuggestionPostRaw(requestParameters: ChatSuggestionChatChatbotIdSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatReponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling chatSuggestionChatChatbotIdSuggestionPost().'
+            );
+        }
+
+        if (requestParameters['postChatSuggestionRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postChatSuggestionRequest',
+                'Required parameter "postChatSuggestionRequest" was null or undefined when calling chatSuggestionChatChatbotIdSuggestionPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/suggestion`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostChatSuggestionRequestToJSON(requestParameters['postChatSuggestionRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ChatReponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Chat Suggestion
+     */
+    async chatSuggestionChatChatbotIdSuggestionPost(requestParameters: ChatSuggestionChatChatbotIdSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse> {
+        const response = await this.chatSuggestionChatChatbotIdSuggestionPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -25,6 +25,18 @@ export declare const ArtStyle: {
     readonly Aphrodite: "aphrodite";
     readonly Anthro: "anthro";
     readonly Furry: "furry";
+    readonly Fantasygay: "fantasygay";
+    readonly Anime3dgay: "anime3dgay";
+    readonly Cartoongay: "cartoongay";
+    readonly Darkfantasygay: "darkfantasygay";
+    readonly Aphroditegay: "aphroditegay";
+    readonly Anthrogay: "anthrogay";
+    readonly Furrygay: "furrygay";
+    readonly Forbiddenfairytale: "forbiddenfairytale";
+    readonly Afterglow: "afterglow";
+    readonly Enchantedfantasy: "enchantedfantasy";
+    readonly Realtemptation: "realtemptation";
+    readonly Midnightstudio: "midnightstudio";
 };
 export type ArtStyle = typeof ArtStyle[keyof typeof ArtStyle];
 export declare function instanceOfArtStyle(value: any): boolean;

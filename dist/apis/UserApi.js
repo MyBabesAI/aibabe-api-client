@@ -215,6 +215,27 @@ class UserApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Get Preferences
+     */
+    async getPreferencesUserPreferencesGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/user/preferences`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.UserPreferenceProfileFromJSON)(jsonValue));
+    }
+    /**
+     * Get Preferences
+     */
+    async getPreferencesUserPreferencesGet(initOverrides) {
+        const response = await this.getPreferencesUserPreferencesGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Public User Like
      */
     async getPublicUserLikeUserPublicLikeGetRaw(requestParameters, initOverrides) {
@@ -272,6 +293,32 @@ class UserApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Patch Preferences
+     */
+    async patchPreferencesUserPreferencesPatchRaw(requestParameters, initOverrides) {
+        if (requestParameters['patchUserPreferenceProfileRequest'] == null) {
+            throw new runtime.RequiredError('patchUserPreferenceProfileRequest', 'Required parameter "patchUserPreferenceProfileRequest" was null or undefined when calling patchPreferencesUserPreferencesPatch().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/user/preferences`,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PatchUserPreferenceProfileRequestToJSON)(requestParameters['patchUserPreferenceProfileRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.UserPreferenceProfileFromJSON)(jsonValue));
+    }
+    /**
+     * Patch Preferences
+     */
+    async patchPreferencesUserPreferencesPatch(requestParameters, initOverrides) {
+        const response = await this.patchPreferencesUserPreferencesPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Patch
      */
     async patchUserPatchRaw(requestParameters, initOverrides) {
@@ -303,6 +350,32 @@ class UserApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Post Preferences Onboarding
+     */
+    async postPreferencesOnboardingUserPreferencesOnboardingPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['postUserPreferencesOnboardingRequest'] == null) {
+            throw new runtime.RequiredError('postUserPreferencesOnboardingRequest', 'Required parameter "postUserPreferencesOnboardingRequest" was null or undefined when calling postPreferencesOnboardingUserPreferencesOnboardingPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/user/preferences/onboarding`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostUserPreferencesOnboardingRequestToJSON)(requestParameters['postUserPreferencesOnboardingRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.UserPreferenceProfileFromJSON)(jsonValue));
+    }
+    /**
+     * Post Preferences Onboarding
+     */
+    async postPreferencesOnboardingUserPreferencesOnboardingPost(requestParameters, initOverrides) {
+        const response = await this.postPreferencesOnboardingUserPreferencesOnboardingPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Post Rating
      */
     async postRatingUserRatingPostRaw(requestParameters, initOverrides) {
@@ -326,6 +399,27 @@ class UserApi extends runtime.BaseAPI {
      */
     async postRatingUserRatingPost(requestParameters, initOverrides) {
         const response = await this.postRatingUserRatingPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Preference Taxonomy
+     */
+    async preferenceTaxonomyUserPreferencesTaxonomyGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/user/preferences/taxonomy`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.UserPreferenceTaxonomyResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Preference Taxonomy
+     */
+    async preferenceTaxonomyUserPreferencesTaxonomyGet(initOverrides) {
+        const response = await this.preferenceTaxonomyUserPreferencesTaxonomyGetRaw(initOverrides);
         return await response.value();
     }
     /**

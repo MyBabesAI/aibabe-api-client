@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { InstanceType } from './InstanceType';
+import type { InstanceProvider } from './InstanceProvider';
 /**
  *
  * @export
@@ -28,6 +29,12 @@ export interface InstanceTypeUrlResponse {
      * @memberof InstanceTypeUrlResponse
      */
     url: string;
+    /**
+     *
+     * @type {InstanceProvider}
+     * @memberof InstanceTypeUrlResponse
+     */
+    provider: InstanceProvider;
 }
 /**
  * Check if a given object implements the InstanceTypeUrlResponse interface.
