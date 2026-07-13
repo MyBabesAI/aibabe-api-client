@@ -27,9 +27,8 @@ export declare const ModelName: {
     readonly IllustriousDamn: "illustriousDAMN";
     readonly CyberRealisticPony: "cyberRealisticPony";
     readonly PonyRealism: "ponyRealism";
-    readonly ZitMoodysV12: "zitMoodysV12";
     readonly GrokImagineImageQuality: "grok_imagine_image_quality";
-    readonly ChromaUnGloryHail: "chromaUnGloryHail";
+    readonly Krea2Pornmaster: "krea2Pornmaster";
 };
 export type ModelName = typeof ModelName[keyof typeof ModelName];
 export declare function instanceOfModelName(value: any): boolean;
