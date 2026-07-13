@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 import type { PublicUserPreview } from './PublicUserPreview';
+import type { UserPreferenceProfile } from './UserPreferenceProfile';
 import type { UserRole } from './UserRole';
 import type { FeatureFlagName } from './FeatureFlagName';
-import type { Preferences } from './Preferences';
 import type { Subscription } from './Subscription';
 /**
  *
@@ -82,10 +82,10 @@ export interface UserInfoResponse {
     subscription: Subscription;
     /**
      *
-     * @type {Preferences}
+     * @type {UserPreferenceProfile}
      * @memberof UserInfoResponse
      */
-    preferences: Preferences;
+    preferenceProfile?: UserPreferenceProfile | null;
 }
 /**
  * Check if a given object implements the UserInfoResponse interface.

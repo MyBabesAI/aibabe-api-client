@@ -36,6 +36,12 @@ export interface CategoryValues {
      * @type {Array<string>}
      * @memberof CategoryValues
      */
+    orientation?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
     style?: Array<string> | null;
     /**
      * 
@@ -55,6 +61,12 @@ export interface CategoryValues {
      * @memberof CategoryValues
      */
     ethnicity?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    theme?: Array<string> | null;
     /**
      * 
      * @type {Array<string>}
@@ -100,10 +112,12 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'baseModel': json['base_model'] == null ? undefined : json['base_model'],
         'gender': json['gender'] == null ? undefined : json['gender'],
+        'orientation': json['orientation'] == null ? undefined : json['orientation'],
         'style': json['style'] == null ? undefined : json['style'],
         'lora': json['lora'] == null ? undefined : json['lora'],
         'age': json['age'] == null ? undefined : json['age'],
         'ethnicity': json['ethnicity'] == null ? undefined : json['ethnicity'],
+        'theme': json['theme'] == null ? undefined : json['theme'],
         'bodyType': json['body_type'] == null ? undefined : json['body_type'],
         'roleplayType': json['roleplay_type'] == null ? undefined : json['roleplay_type'],
         'characterType': json['character_type'] == null ? undefined : json['character_type'],
@@ -124,10 +138,12 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'base_model': value['baseModel'],
         'gender': value['gender'],
+        'orientation': value['orientation'],
         'style': value['style'],
         'lora': value['lora'],
         'age': value['age'],
         'ethnicity': value['ethnicity'],
+        'theme': value['theme'],
         'body_type': value['bodyType'],
         'roleplay_type': value['roleplayType'],
         'character_type': value['characterType'],

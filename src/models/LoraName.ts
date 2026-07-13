@@ -124,6 +124,20 @@ export const LoraName = {
     ShiirosStylesNiji: 'shiiros_styles_niji ',
     CommixStyleLoraPonyIllusFlux: 'commix_style_lora_pony_illus_flux',
     PonyPeoplesWorksV1V6: 'pony_peoples_works_v1_v6',
+    GayPornPony: 'gay_porn_pony',
+    GayPornIllustrious: 'gay_porn_illustrious',
+    ChromaFlashHeunR256Fp32: 'chroma_flash_heun_r256_fp32',
+    ChromaDndPainterly: 'chroma_dnd_painterly',
+    ChromaProfessionalPhoto: 'chroma_professional_photo',
+    ChromaLenovoUltrareal: 'chroma_lenovo_ultrareal',
+    ChromaSemiAnime: 'chroma_semi_anime',
+    ChromaDarkGhibli: 'chroma_dark_ghibli',
+    ChromaDarkRomanceV2: 'chroma_dark_romance_v2',
+    Chroma90sRetroScifi: 'chroma_90s_retro_scifi',
+    ChromaNeonNoir: 'chroma_neon_noir',
+    ChromaDarkSynth: 'chroma_dark_synth',
+    ChromaArsNiji: 'chroma_ars_niji',
+    Chroma90sDarkFantasy: 'chroma_90s_dark_fantasy',
     None: 'none'
 } as const;
 export type LoraName = typeof LoraName[keyof typeof LoraName];

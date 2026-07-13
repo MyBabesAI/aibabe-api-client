@@ -55,13 +55,13 @@ import {
     StoryPreviewToJSON,
     StoryPreviewToJSONTyped,
 } from './StoryPreview';
-import type { TagModel } from './TagModel';
+import type { TagData } from './TagData';
 import {
-    TagModelFromJSON,
-    TagModelFromJSONTyped,
-    TagModelToJSON,
-    TagModelToJSONTyped,
-} from './TagModel';
+    TagDataFromJSON,
+    TagDataFromJSONTyped,
+    TagDataToJSON,
+    TagDataToJSONTyped,
+} from './TagData';
 
 /**
  * 
@@ -155,10 +155,10 @@ export interface DetailedWallPost {
     title: string;
     /**
      * 
-     * @type {Array<TagModel>}
+     * @type {Array<TagData>}
      * @memberof DetailedWallPost
      */
-    tags: Array<TagModel>;
+    tags: Array<TagData>;
     /**
      * 
      * @type {PublicUserPreviewWithFollow}
@@ -216,7 +216,7 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'liked': json['liked'],
         'type': ContentTypeFromJSON(json['type']),
         'title': json['title'],
-        'tags': ((json['tags'] as Array<any>).map(TagModelFromJSON)),
+        'tags': ((json['tags'] as Array<any>).map(TagDataFromJSON)),
         'creator': PublicUserPreviewWithFollowFromJSON(json['creator']),
     };
 }
@@ -246,7 +246,7 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'liked': value['liked'],
         'type': ContentTypeToJSON(value['type']),
         'title': value['title'],
-        'tags': ((value['tags'] as Array<any>).map(TagModelToJSON)),
+        'tags': ((value['tags'] as Array<any>).map(TagDataToJSON)),
         'creator': PublicUserPreviewWithFollowToJSON(value['creator']),
     };
 }

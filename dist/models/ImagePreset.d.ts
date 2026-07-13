@@ -30,12 +30,6 @@ export interface ImagePreset {
     prompt: string;
     /**
      *
-     * @type {string}
-     * @memberof ImagePreset
-     */
-    url: string;
-    /**
-     *
      * @type {Array<LoraName>}
      * @memberof ImagePreset
      */

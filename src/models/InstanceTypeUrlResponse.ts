@@ -20,6 +20,13 @@ import {
     InstanceTypeToJSON,
     InstanceTypeToJSONTyped,
 } from './InstanceType';
+import type { InstanceProvider } from './InstanceProvider';
+import {
+    InstanceProviderFromJSON,
+    InstanceProviderFromJSONTyped,
+    InstanceProviderToJSON,
+    InstanceProviderToJSONTyped,
+} from './InstanceProvider';
 
 /**
  * 
@@ -39,6 +46,12 @@ export interface InstanceTypeUrlResponse {
      * @memberof InstanceTypeUrlResponse
      */
     url: string;
+    /**
+     * 
+     * @type {InstanceProvider}
+     * @memberof InstanceTypeUrlResponse
+     */
+    provider: InstanceProvider;
 }
 
 
@@ -49,6 +62,7 @@ export interface InstanceTypeUrlResponse {
 export function instanceOfInstanceTypeUrlResponse(value: object): value is InstanceTypeUrlResponse {
     if (!('type' in value) || value['type'] === undefined) return false;
     if (!('url' in value) || value['url'] === undefined) return false;
+    if (!('provider' in value) || value['provider'] === undefined) return false;
     return true;
 }
 
@@ -64,6 +78,7 @@ export function InstanceTypeUrlResponseFromJSONTyped(json: any, ignoreDiscrimina
         
         'type': InstanceTypeFromJSON(json['type']),
         'url': json['url'],
+        'provider': InstanceProviderFromJSON(json['provider']),
     };
 }
 
@@ -80,6 +95,7 @@ export function InstanceTypeUrlResponseFromJSONTyped(json: any, ignoreDiscrimina
         
         'type': InstanceTypeToJSON(value['type']),
         'url': value['url'],
+        'provider': InstanceProviderToJSON(value['provider']),
     };
 }
 

@@ -23,9 +23,11 @@ export declare const TagCategory: {
     readonly Gender: "gender";
     readonly Fetishes: "fetishes";
     readonly Ethnicity: "ethnicity";
+    readonly Theme: "theme";
     readonly Age: "age";
     readonly Lora: "lora";
     readonly Style: "style";
+    readonly Orientation: "orientation";
     readonly RoleplayType: "roleplay_type";
     readonly CharacterType: "character_type";
     readonly Genre: "genre";
