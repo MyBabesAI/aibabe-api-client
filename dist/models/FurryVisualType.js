@@ -31,7 +31,15 @@ exports.FurryVisualType = {
     Cowgirl: 'cowgirl',
     Sharkgirl: 'sharkgirl',
     Tigergirl: 'tigergirl',
-    Dragoness: 'dragoness'
+    Dragoness: 'dragoness',
+    Panther: 'panther',
+    Wolf: 'wolf',
+    Fox: 'fox',
+    Jackrabbit: 'jackrabbit',
+    Minotaur: 'minotaur',
+    Shark: 'shark',
+    Tiger: 'tiger',
+    Dragon: 'dragon'
 };
 function instanceOfFurryVisualType(value) {
     for (const key in exports.FurryVisualType) {

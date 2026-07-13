@@ -22,6 +22,14 @@ export declare const FurryVisualType: {
     readonly Sharkgirl: "sharkgirl";
     readonly Tigergirl: "tigergirl";
     readonly Dragoness: "dragoness";
+    readonly Panther: "panther";
+    readonly Wolf: "wolf";
+    readonly Fox: "fox";
+    readonly Jackrabbit: "jackrabbit";
+    readonly Minotaur: "minotaur";
+    readonly Shark: "shark";
+    readonly Tiger: "tiger";
+    readonly Dragon: "dragon";
 };
 export type FurryVisualType = typeof FurryVisualType[keyof typeof FurryVisualType];
 export declare function instanceOfFurryVisualType(value: any): boolean;
