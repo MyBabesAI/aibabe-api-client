@@ -137,8 +137,8 @@ export const LoraName = {
     Krea2Kreafactory: 'krea2_kreafactory',
     Krea2Kreacomics: 'krea2_kreacomics',
     Krea2Dndstyle: 'krea2_dndstyle',
-    Krea2Darkromance: 'krea2_darkromance',
-    Krea2LenovoUltrareal: 'krea2_lenovo_ultrareal',
+    Krea2DarkromanceV2: 'krea2_darkromance_v2',
+    Krea2RealismSlider: 'krea2_realism_slider',
     Krea2Manrotica: 'krea2_manrotica',
     None: 'none'
 } as const;

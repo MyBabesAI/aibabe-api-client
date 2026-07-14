@@ -133,8 +133,8 @@ export declare const LoraName: {
     readonly Krea2Kreafactory: "krea2_kreafactory";
     readonly Krea2Kreacomics: "krea2_kreacomics";
     readonly Krea2Dndstyle: "krea2_dndstyle";
-    readonly Krea2Darkromance: "krea2_darkromance";
-    readonly Krea2LenovoUltrareal: "krea2_lenovo_ultrareal";
+    readonly Krea2DarkromanceV2: "krea2_darkromance_v2";
+    readonly Krea2RealismSlider: "krea2_realism_slider";
     readonly Krea2Manrotica: "krea2_manrotica";
     readonly None: "none";
 };
