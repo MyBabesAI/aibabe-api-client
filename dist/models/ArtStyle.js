@@ -49,18 +49,11 @@ exports.ArtStyle = {
     Rizz: 'rizz',
     Grok: 'grok',
     Noirluxe: 'noirluxe',
-    Forbiddenfairytale: 'forbiddenfairytale',
     Afterglow: 'afterglow',
     Darkromance: 'darkromance',
     Enchantedfantasy: 'enchantedfantasy',
     Realtemptation: 'realtemptation',
-    Midnightstudio: 'midnightstudio',
-    Chromaghibli: 'chromaghibli',
-    Chromadnd: 'chromadnd',
-    Chromasemianime: 'chromasemianime',
-    Chromadarkromance: 'chromadarkromance',
-    Chromalenovoultrareal: 'chromalenovoultrareal',
-    Chromaprofessionalphoto: 'chromaprofessionalphoto'
+    Midnightstudio: 'midnightstudio'
 };
 function instanceOfArtStyle(value) {
     for (const key in exports.ArtStyle) {
