@@ -157,7 +157,6 @@ __exportStar(require("./MemoracekType"), exports);
 __exportStar(require("./MemoryChat"), exports);
 __exportStar(require("./MemoryUpdateReponse"), exports);
 __exportStar(require("./MessageType"), exports);
-__exportStar(require("./ModelName"), exports);
 __exportStar(require("./MuleRouterWanTaskError"), exports);
 __exportStar(require("./MuleRouterWanTaskInfo"), exports);
 __exportStar(require("./MuleRouterWanTaskResponse"), exports);
