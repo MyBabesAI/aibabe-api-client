@@ -44,6 +44,7 @@ export declare const ArtStyle: {
     readonly Enchantedfantasy: "enchantedfantasy";
     readonly Realtemptation: "realtemptation";
     readonly Midnightstudio: "midnightstudio";
+    readonly Forbiddenfairytale: "forbiddenfairytale";
 };
 export type ArtStyle = typeof ArtStyle[keyof typeof ArtStyle];
 export declare function instanceOfArtStyle(value: any): boolean;
