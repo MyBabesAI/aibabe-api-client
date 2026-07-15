@@ -128,6 +128,8 @@ exports.ExceptionCode = {
     TransactionNotFound: 'transaction_not_found',
     GiftCodeNotFoundOrUsed: 'gift_code_not_found_or_used',
     LeaderOnlyAction: 'leader_only_action',
+    LeaderNotAvailable: 'leader_not_available',
+    QueueListenersNotEnabled: 'queue_listeners_not_enabled',
     ServerNotFound: 'server_not_found',
     WebsocketServerNotAvailable: 'websocket_server_not_available',
     LlmModelNotAvailable: 'llm_model_not_available',
