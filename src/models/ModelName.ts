@@ -31,9 +31,8 @@ export const ModelName = {
     IllustriousDamn: 'illustriousDAMN',
     CyberRealisticPony: 'cyberRealisticPony',
     PonyRealism: 'ponyRealism',
-    ZitMoodysV12: 'zitMoodysV12',
     GrokImagineImageQuality: 'grok_imagine_image_quality',
-    ChromaUnGloryHail: 'chromaUnGloryHail'
+    Krea2Pornmaster: 'krea2Pornmaster'
 } as const;
 export type ModelName = typeof ModelName[keyof typeof ModelName];
 

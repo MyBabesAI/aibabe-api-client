@@ -25,7 +25,15 @@ export const FurryVisualType = {
     Cowgirl: 'cowgirl',
     Sharkgirl: 'sharkgirl',
     Tigergirl: 'tigergirl',
-    Dragoness: 'dragoness'
+    Dragoness: 'dragoness',
+    Panther: 'panther',
+    Wolf: 'wolf',
+    Fox: 'fox',
+    Jackrabbit: 'jackrabbit',
+    Minotaur: 'minotaur',
+    Shark: 'shark',
+    Tiger: 'tiger',
+    Dragon: 'dragon'
 } as const;
 export type FurryVisualType = typeof FurryVisualType[keyof typeof FurryVisualType];
 
