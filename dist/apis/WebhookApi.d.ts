@@ -36,10 +36,12 @@ export declare class WebhookApi extends runtime.BaseAPI {
     truevoWebhookTruevoPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Vastai Status Webhook
+     * @deprecated
      */
     vastaiStatusWebhookWebhookInstanceStatusPostRaw(requestParameters: VastaiStatusWebhookWebhookInstanceStatusPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
     /**
      * Vastai Status Webhook
+     * @deprecated
      */
     vastaiStatusWebhookWebhookInstanceStatusPost(requestParameters: VastaiStatusWebhookWebhookInstanceStatusPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
 }

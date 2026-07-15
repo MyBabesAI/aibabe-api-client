@@ -15,7 +15,7 @@ import type { VideoContent } from './VideoContent';
 import type { ContentType } from './ContentType';
 import type { ImageContent } from './ImageContent';
 import type { StoryPreview } from './StoryPreview';
-import type { TagModel } from './TagModel';
+import type { TagData } from './TagData';
 /**
  *
  * @export
@@ -108,10 +108,10 @@ export interface DetailedWallPost {
     title: string;
     /**
      *
-     * @type {Array<TagModel>}
+     * @type {Array<TagData>}
      * @memberof DetailedWallPost
      */
-    tags: Array<TagModel>;
+    tags: Array<TagData>;
     /**
      *
      * @type {PublicUserPreviewWithFollow}

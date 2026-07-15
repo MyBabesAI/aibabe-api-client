@@ -19,6 +19,7 @@ exports.PostAdvancedCharacterBuilderSuggestionPayloadFromJSONTyped = PostAdvance
 exports.PostAdvancedCharacterBuilderSuggestionPayloadToJSON = PostAdvancedCharacterBuilderSuggestionPayloadToJSON;
 exports.PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped = PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped;
 const CharacterBuilderSuggestionField_1 = require("./CharacterBuilderSuggestionField");
+const Gender_1 = require("./Gender");
 /**
  * Check if a given object implements the PostAdvancedCharacterBuilderSuggestionPayload interface.
  */
@@ -37,6 +38,7 @@ function PostAdvancedCharacterBuilderSuggestionPayloadFromJSONTyped(json, ignore
     return {
         'fieldName': (0, CharacterBuilderSuggestionField_1.CharacterBuilderSuggestionFieldFromJSON)(json['field_name']),
         'currentName': json['current_name'] == null ? undefined : json['current_name'],
+        'currentGender': json['current_gender'] == null ? undefined : (0, Gender_1.GenderFromJSON)(json['current_gender']),
         'currentBio': json['current_bio'] == null ? undefined : json['current_bio'],
         'currentGreetings': json['current_greetings'] == null ? undefined : json['current_greetings'],
         'currentStory': json['current_story'] == null ? undefined : json['current_story'],
@@ -53,6 +55,7 @@ function PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped(value, ignoreD
     return {
         'field_name': (0, CharacterBuilderSuggestionField_1.CharacterBuilderSuggestionFieldToJSON)(value['fieldName']),
         'current_name': value['currentName'],
+        'current_gender': (0, Gender_1.GenderToJSON)(value['currentGender']),
         'current_bio': value['currentBio'],
         'current_greetings': value['currentGreetings'],
         'current_story': value['currentStory'],
