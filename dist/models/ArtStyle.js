@@ -53,8 +53,7 @@ exports.ArtStyle = {
     Darkromance: 'darkromance',
     Enchantedfantasy: 'enchantedfantasy',
     Realtemptation: 'realtemptation',
-    Midnightstudio: 'midnightstudio',
-    Forbiddenfairytale: 'forbiddenfairytale'
+    Midnightstudio: 'midnightstudio'
 };
 function instanceOfArtStyle(value) {
     for (const key in exports.ArtStyle) {
