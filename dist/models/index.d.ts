@@ -139,7 +139,6 @@ export * from './MemoracekType';
 export * from './MemoryChat';
 export * from './MemoryUpdateReponse';
 export * from './MessageType';
-export * from './ModelName';
 export * from './MuleRouterWanTaskError';
 export * from './MuleRouterWanTaskInfo';
 export * from './MuleRouterWanTaskResponse';
