@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ArtStyle } from './ArtStyle';
+import type { ModelName } from './ModelName';
 import {
-    ArtStyleFromJSON,
-    ArtStyleFromJSONTyped,
-    ArtStyleToJSON,
-    ArtStyleToJSONTyped,
-} from './ArtStyle';
+    ModelNameFromJSON,
+    ModelNameFromJSONTyped,
+    ModelNameToJSON,
+    ModelNameToJSONTyped,
+} from './ModelName';
 import type { LoraName } from './LoraName';
 import {
     LoraNameFromJSON,
@@ -43,10 +43,10 @@ import {
 export interface GetQualityControlRequest {
     /**
      * 
-     * @type {ArtStyle}
+     * @type {ModelName}
      * @memberof GetQualityControlRequest
      */
-    artStyle?: ArtStyle | null;
+    baseModel?: ModelName | null;
     /**
      * 
      * @type {Array<LoraName>}
@@ -104,7 +104,7 @@ export function GetQualityControlRequestFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
+        'baseModel': json['base_model'] == null ? undefined : ModelNameFromJSON(json['base_model']),
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(LoraNameFromJSON)),
         'generationSource': json['generation_source'] == null ? undefined : ImageGenerationSourceFromJSON(json['generation_source']),
         'pageSize': json['page_size'] == null ? undefined : json['page_size'],
@@ -125,7 +125,7 @@ export function GetQualityControlRequestFromJSONTyped(json: any, ignoreDiscrimin
 
     return {
         
-        'art_style': ArtStyleToJSON(value['artStyle']),
+        'base_model': ModelNameToJSON(value['baseModel']),
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(LoraNameToJSON)),
         'generation_source': ImageGenerationSourceToJSON(value['generationSource']),
         'page_size': value['pageSize'],

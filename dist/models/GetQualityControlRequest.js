@@ -18,7 +18,7 @@ exports.GetQualityControlRequestFromJSON = GetQualityControlRequestFromJSON;
 exports.GetQualityControlRequestFromJSONTyped = GetQualityControlRequestFromJSONTyped;
 exports.GetQualityControlRequestToJSON = GetQualityControlRequestToJSON;
 exports.GetQualityControlRequestToJSONTyped = GetQualityControlRequestToJSONTyped;
-const ArtStyle_1 = require("./ArtStyle");
+const ModelName_1 = require("./ModelName");
 const LoraName_1 = require("./LoraName");
 const ImageGenerationSource_1 = require("./ImageGenerationSource");
 /**
@@ -35,7 +35,7 @@ function GetQualityControlRequestFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
+        'baseModel': json['base_model'] == null ? undefined : (0, ModelName_1.ModelNameFromJSON)(json['base_model']),
         'loras': json['loras'] == null ? undefined : (json['loras'].map(LoraName_1.LoraNameFromJSON)),
         'generationSource': json['generation_source'] == null ? undefined : (0, ImageGenerationSource_1.ImageGenerationSourceFromJSON)(json['generation_source']),
         'pageSize': json['page_size'] == null ? undefined : json['page_size'],
@@ -52,7 +52,7 @@ function GetQualityControlRequestToJSONTyped(value, ignoreDiscriminator = false)
         return value;
     }
     return {
-        'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
+        'base_model': (0, ModelName_1.ModelNameToJSON)(value['baseModel']),
         'loras': value['loras'] == null ? undefined : (value['loras'].map(LoraName_1.LoraNameToJSON)),
         'generation_source': (0, ImageGenerationSource_1.ImageGenerationSourceToJSON)(value['generationSource']),
         'page_size': value['pageSize'],

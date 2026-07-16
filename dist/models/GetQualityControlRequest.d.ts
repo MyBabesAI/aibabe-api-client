@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ArtStyle } from './ArtStyle';
+import type { ModelName } from './ModelName';
 import type { LoraName } from './LoraName';
 import type { ImageGenerationSource } from './ImageGenerationSource';
 /**
@@ -20,10 +20,10 @@ import type { ImageGenerationSource } from './ImageGenerationSource';
 export interface GetQualityControlRequest {
     /**
      *
-     * @type {ArtStyle}
+     * @type {ModelName}
      * @memberof GetQualityControlRequest
      */
-    artStyle?: ArtStyle | null;
+    baseModel?: ModelName | null;
     /**
      *
      * @type {Array<LoraName>}

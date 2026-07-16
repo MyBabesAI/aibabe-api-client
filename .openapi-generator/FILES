@@ -168,6 +168,7 @@ src/models/MemoracekType.ts
 src/models/MemoryChat.ts
 src/models/MemoryUpdateReponse.ts
 src/models/MessageType.ts
+src/models/ModelName.ts
 src/models/MuleRouterWanTaskError.ts
 src/models/MuleRouterWanTaskInfo.ts
 src/models/MuleRouterWanTaskResponse.ts
