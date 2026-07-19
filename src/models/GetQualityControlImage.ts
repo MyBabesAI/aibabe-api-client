@@ -44,6 +44,12 @@ export interface GetQualityControlImage {
      * @type {string}
      * @memberof GetQualityControlImage
      */
+    userId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetQualityControlImage
+     */
     createdAt: string;
     /**
      * 
@@ -73,6 +79,7 @@ export interface GetQualityControlImage {
 export function instanceOfGetQualityControlImage(value: object): value is GetQualityControlImage {
     if (!('imageUrl' in value) || value['imageUrl'] === undefined) return false;
     if (!('imageId' in value) || value['imageId'] === undefined) return false;
+    if (!('userId' in value) || value['userId'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('prompt' in value) || value['prompt'] === undefined) return false;
     if (!('generationTags' in value) || value['generationTags'] === undefined) return false;
@@ -92,6 +99,7 @@ export function GetQualityControlImageFromJSONTyped(json: any, ignoreDiscriminat
         
         'imageUrl': json['image_url'],
         'imageId': json['image_id'],
+        'userId': json['user_id'],
         'createdAt': json['created_at'],
         'prompt': json['prompt'],
         'generationTags': json['generation_tags'],
@@ -112,6 +120,7 @@ export function GetQualityControlImageFromJSONTyped(json: any, ignoreDiscriminat
         
         'image_url': value['imageUrl'],
         'image_id': value['imageId'],
+        'user_id': value['userId'],
         'created_at': value['createdAt'],
         'prompt': value['prompt'],
         'generation_tags': value['generationTags'],

@@ -21,6 +21,7 @@ import type {
   BadgeCategory,
   BadgeTimePeriod,
   ContentType,
+  GetConversationMessagesResponse,
   GetQualityControlImage,
   GetQualityControlRequest,
   GiftCodeType,
@@ -29,6 +30,8 @@ import type {
   SetUserFeatureFlagsRequest,
   SetUserFeatureFlagsResponse,
   UserInfoResponse,
+  UserJourneyEventType,
+  UserJourneyResponse,
 } from '../models/index';
 import {
     AdminAwardBadgeRequestFromJSON,
@@ -43,6 +46,8 @@ import {
     BadgeTimePeriodToJSON,
     ContentTypeFromJSON,
     ContentTypeToJSON,
+    GetConversationMessagesResponseFromJSON,
+    GetConversationMessagesResponseToJSON,
     GetQualityControlImageFromJSON,
     GetQualityControlImageToJSON,
     GetQualityControlRequestFromJSON,
@@ -59,6 +64,10 @@ import {
     SetUserFeatureFlagsResponseToJSON,
     UserInfoResponseFromJSON,
     UserInfoResponseToJSON,
+    UserJourneyEventTypeFromJSON,
+    UserJourneyEventTypeToJSON,
+    UserJourneyResponseFromJSON,
+    UserJourneyResponseToJSON,
 } from '../models/index';
 
 export interface AddTokensAdminAddTokensPutRequest {
@@ -95,12 +104,25 @@ export interface GenerateCodesAdminGiftCodesGeneratePostRequest {
     codeType: GiftCodeType;
 }
 
+export interface GetQualityControlConversationAdminChatQualityControlConversationIdGetRequest {
+    conversationId: string;
+    paginationToken?: string | null;
+    limit?: number;
+}
+
 export interface GetQualityControlImagesAdminImageQualityControlPostRequest {
     getQualityControlRequest: GetQualityControlRequest;
 }
 
 export interface GetTokenBalanceAdminTokenBalanceEmailGetRequest {
     email: string;
+}
+
+export interface GetUserJourneyAdminUserJourneyUserIdGetRequest {
+    userId: string;
+    eventTypes?: Array<UserJourneyEventType> | null;
+    paginationToken?: string | null;
+    limit?: number;
 }
 
 export interface ImpersonateAdminImpersonateEmailPostRequest {
@@ -444,6 +466,47 @@ export class AdminApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get Quality Control Conversation
+     */
+    async getQualityControlConversationAdminChatQualityControlConversationIdGetRaw(requestParameters: GetQualityControlConversationAdminChatQualityControlConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationMessagesResponse>> {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError(
+                'conversationId',
+                'Required parameter "conversationId" was null or undefined when calling getQualityControlConversationAdminChatQualityControlConversationIdGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/admin/chat/quality-control/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetConversationMessagesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Quality Control Conversation
+     */
+    async getQualityControlConversationAdminChatQualityControlConversationIdGet(requestParameters: GetQualityControlConversationAdminChatQualityControlConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationMessagesResponse> {
+        const response = await this.getQualityControlConversationAdminChatQualityControlConversationIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Get Quality Control Images
      */
     async getQualityControlImagesAdminImageQualityControlPostRaw(requestParameters: GetQualityControlImagesAdminImageQualityControlPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetQualityControlImage>>> {
@@ -513,6 +576,51 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async getTokenBalanceAdminTokenBalanceEmailGet(requestParameters: GetTokenBalanceAdminTokenBalanceEmailGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<number> {
         const response = await this.getTokenBalanceAdminTokenBalanceEmailGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get User Journey
+     */
+    async getUserJourneyAdminUserJourneyUserIdGetRaw(requestParameters: GetUserJourneyAdminUserJourneyUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserJourneyResponse>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getUserJourneyAdminUserJourneyUserIdGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['eventTypes'] != null) {
+            queryParameters['event_types'] = requestParameters['eventTypes'];
+        }
+
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/admin/user-journey/{user_id}`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserJourneyResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get User Journey
+     */
+    async getUserJourneyAdminUserJourneyUserIdGet(requestParameters: GetUserJourneyAdminUserJourneyUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserJourneyResponse> {
+        const response = await this.getUserJourneyAdminUserJourneyUserIdGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

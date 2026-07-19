@@ -54,18 +54,6 @@ export interface UserPreferenceProfile {
     llmModel?: LLM | null;
     /**
      *
-     * @type {boolean}
-     * @memberof UserPreferenceProfile
-     */
-    chatNympho?: boolean;
-    /**
-     *
-     * @type {boolean}
-     * @memberof UserPreferenceProfile
-     */
-    chatAutoSuggestions?: boolean;
-    /**
-     *
      * @type {{ [key: string]: any; }}
      * @memberof UserPreferenceProfile
      */
