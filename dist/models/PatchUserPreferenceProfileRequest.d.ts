@@ -52,18 +52,6 @@ export interface PatchUserPreferenceProfileRequest {
      * @memberof PatchUserPreferenceProfileRequest
      */
     llmModel?: LLM | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof PatchUserPreferenceProfileRequest
-     */
-    chatNympho?: boolean | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof PatchUserPreferenceProfileRequest
-     */
-    chatAutoSuggestions?: boolean | null;
 }
 /**
  * Check if a given object implements the PatchUserPreferenceProfileRequest interface.

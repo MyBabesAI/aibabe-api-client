@@ -39,8 +39,6 @@ function UserPreferenceProfileFromJSONTyped(json, ignoreDiscriminator) {
         'pronouns': json['pronouns'] == null ? undefined : json['pronouns'],
         'chatNickname': json['chat_nickname'] == null ? undefined : json['chat_nickname'],
         'llmModel': json['llm_model'] == null ? undefined : (0, LLM_1.LLMFromJSON)(json['llm_model']),
-        'chatNympho': json['chat_nympho'] == null ? undefined : json['chat_nympho'],
-        'chatAutoSuggestions': json['chat_auto_suggestions'] == null ? undefined : json['chat_auto_suggestions'],
         'onboardingState': json['onboarding_state'] == null ? undefined : json['onboarding_state'],
     };
 }
@@ -58,8 +56,6 @@ function UserPreferenceProfileToJSONTyped(value, ignoreDiscriminator = false) {
         'pronouns': value['pronouns'],
         'chat_nickname': value['chatNickname'],
         'llm_model': (0, LLM_1.LLMToJSON)(value['llmModel']),
-        'chat_nympho': value['chatNympho'],
-        'chat_auto_suggestions': value['chatAutoSuggestions'],
         'onboarding_state': value['onboardingState'],
     };
 }

@@ -65,18 +65,6 @@ export interface UserPreferenceProfile {
     llmModel?: LLM | null;
     /**
      * 
-     * @type {boolean}
-     * @memberof UserPreferenceProfile
-     */
-    chatNympho?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UserPreferenceProfile
-     */
-    chatAutoSuggestions?: boolean;
-    /**
-     * 
      * @type {{ [key: string]: any; }}
      * @memberof UserPreferenceProfile
      */
@@ -108,8 +96,6 @@ export function UserPreferenceProfileFromJSONTyped(json: any, ignoreDiscriminato
         'pronouns': json['pronouns'] == null ? undefined : json['pronouns'],
         'chatNickname': json['chat_nickname'] == null ? undefined : json['chat_nickname'],
         'llmModel': json['llm_model'] == null ? undefined : LLMFromJSON(json['llm_model']),
-        'chatNympho': json['chat_nympho'] == null ? undefined : json['chat_nympho'],
-        'chatAutoSuggestions': json['chat_auto_suggestions'] == null ? undefined : json['chat_auto_suggestions'],
         'onboardingState': json['onboarding_state'] == null ? undefined : json['onboarding_state'],
     };
 }
@@ -131,8 +117,6 @@ export function UserPreferenceProfileFromJSONTyped(json: any, ignoreDiscriminato
         'pronouns': value['pronouns'],
         'chat_nickname': value['chatNickname'],
         'llm_model': LLMToJSON(value['llmModel']),
-        'chat_nympho': value['chatNympho'],
-        'chat_auto_suggestions': value['chatAutoSuggestions'],
         'onboarding_state': value['onboardingState'],
     };
 }
