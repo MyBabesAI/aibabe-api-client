@@ -379,6 +379,9 @@ class AdminApi extends runtime.BaseAPI {
         if (requestParameters['eventTypes'] != null) {
             queryParameters['event_types'] = requestParameters['eventTypes'];
         }
+        if (requestParameters['date'] != null) {
+            queryParameters['date'] = requestParameters['date'].toISOString().substring(0, 10);
+        }
         if (requestParameters['paginationToken'] != null) {
             queryParameters['pagination_token'] = requestParameters['paginationToken'];
         }

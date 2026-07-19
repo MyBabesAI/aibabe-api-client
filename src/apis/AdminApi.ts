@@ -121,6 +121,7 @@ export interface GetTokenBalanceAdminTokenBalanceEmailGetRequest {
 export interface GetUserJourneyAdminUserJourneyUserIdGetRequest {
     userId: string;
     eventTypes?: Array<UserJourneyEventType> | null;
+    date?: Date | null;
     paginationToken?: string | null;
     limit?: number;
 }
@@ -594,6 +595,10 @@ export class AdminApi extends runtime.BaseAPI {
 
         if (requestParameters['eventTypes'] != null) {
             queryParameters['event_types'] = requestParameters['eventTypes'];
+        }
+
+        if (requestParameters['date'] != null) {
+            queryParameters['date'] = (requestParameters['date'] as any).toISOString().substring(0,10);
         }
 
         if (requestParameters['paginationToken'] != null) {

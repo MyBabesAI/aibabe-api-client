@@ -55,6 +55,7 @@ export interface GetTokenBalanceAdminTokenBalanceEmailGetRequest {
 export interface GetUserJourneyAdminUserJourneyUserIdGetRequest {
     userId: string;
     eventTypes?: Array<UserJourneyEventType> | null;
+    date?: Date | null;
     paginationToken?: string | null;
     limit?: number;
 }
