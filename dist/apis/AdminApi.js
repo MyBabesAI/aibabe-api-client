@@ -284,6 +284,27 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Get Pricing
+     */
+    async getPricingAdminPricingGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/pricing`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminPricingGroupsResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get Pricing
+     */
+    async getPricingAdminPricingGet(initOverrides) {
+        const response = await this.getPricingAdminPricingGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Quality Control Conversation
      */
     async getQualityControlConversationAdminChatQualityControlConversationIdGetRaw(requestParameters, initOverrides) {
@@ -405,42 +426,6 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Get User Journeys
-     */
-    async getUserJourneysAdminUserJourneysGetRaw(requestParameters, initOverrides) {
-        const queryParameters = {};
-        if (requestParameters['createdAt'] != null) {
-            queryParameters['created_at'] = requestParameters['createdAt'].toISOString().substring(0, 10);
-        }
-        if (requestParameters['subscriptionStatus'] != null) {
-            queryParameters['subscription_status'] = requestParameters['subscriptionStatus'];
-        }
-        if (requestParameters['transactionCount'] != null) {
-            queryParameters['transaction_count'] = requestParameters['transactionCount'];
-        }
-        if (requestParameters['paginationToken'] != null) {
-            queryParameters['pagination_token'] = requestParameters['paginationToken'];
-        }
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/admin/user-journeys`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminUserJourneysResponseFromJSON)(jsonValue));
-    }
-    /**
-     * Get User Journeys
-     */
-    async getUserJourneysAdminUserJourneysGet(requestParameters = {}, initOverrides) {
-        const response = await this.getUserJourneysAdminUserJourneysGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
      * Impersonate
      */
     async impersonateAdminImpersonateEmailPostRaw(requestParameters, initOverrides) {
@@ -540,6 +525,32 @@ class AdminApi extends runtime.BaseAPI {
      */
     async resetUserClaimablesAdminUserResetClaimablesPost(initOverrides) {
         const response = await this.resetUserClaimablesAdminUserResetClaimablesPostRaw(initOverrides);
+        return await response.value();
+    }
+    /**
+     * Save Pricing Group Revisions
+     */
+    async savePricingGroupRevisionsAdminPricingPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['adminSavePricingGroupRevisionsRequest'] == null) {
+            throw new runtime.RequiredError('adminSavePricingGroupRevisionsRequest', 'Required parameter "adminSavePricingGroupRevisionsRequest" was null or undefined when calling savePricingGroupRevisionsAdminPricingPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/admin/pricing`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.AdminSavePricingGroupRevisionsRequestToJSON)(requestParameters['adminSavePricingGroupRevisionsRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminPricingGroupRevisionsResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Save Pricing Group Revisions
+     */
+    async savePricingGroupRevisionsAdminPricingPost(requestParameters, initOverrides) {
+        const response = await this.savePricingGroupRevisionsAdminPricingPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

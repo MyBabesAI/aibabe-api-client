@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminUserJourneysResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, ContentType, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
+import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminSavePricingGroupRevisionsRequest, AuraSubcategory, BadgeCategory, BadgeTimePeriod, ContentType, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -59,18 +59,14 @@ export interface GetUserJourneyAdminUserJourneyUserIdGetRequest {
     paginationToken?: string | null;
     limit?: number;
 }
-export interface GetUserJourneysAdminUserJourneysGetRequest {
-    createdAt?: Date | null;
-    subscriptionStatus?: SubscriptionStatus | null;
-    transactionCount?: number | null;
-    paginationToken?: string | null;
-    limit?: number;
-}
 export interface ImpersonateAdminImpersonateEmailPostRequest {
     email: string;
 }
 export interface ProvideAwardAdminBadgesAwardPostRequest {
     adminAwardBadgeRequest: AdminAwardBadgeRequest;
+}
+export interface SavePricingGroupRevisionsAdminPricingPostRequest {
+    adminSavePricingGroupRevisionsRequest: AdminSavePricingGroupRevisionsRequest;
 }
 export interface SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest {
     setUserFeatureFlagsRequest: SetUserFeatureFlagsRequest;
@@ -131,6 +127,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      */
     generateCodesAdminGiftCodesGeneratePost(requestParameters: GenerateCodesAdminGiftCodesGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
+     * Get Pricing
+     */
+    getPricingAdminPricingGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminPricingGroupsResponse>>;
+    /**
+     * Get Pricing
+     */
+    getPricingAdminPricingGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPricingGroupsResponse>;
+    /**
      * Get Quality Control Conversation
      */
     getQualityControlConversationAdminChatQualityControlConversationIdGetRaw(requestParameters: GetQualityControlConversationAdminChatQualityControlConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationMessagesResponse>>;
@@ -163,14 +167,6 @@ export declare class AdminApi extends runtime.BaseAPI {
      */
     getUserJourneyAdminUserJourneyUserIdGet(requestParameters: GetUserJourneyAdminUserJourneyUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserJourneyResponse>;
     /**
-     * Get User Journeys
-     */
-    getUserJourneysAdminUserJourneysGetRaw(requestParameters: GetUserJourneysAdminUserJourneysGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminUserJourneysResponse>>;
-    /**
-     * Get User Journeys
-     */
-    getUserJourneysAdminUserJourneysGet(requestParameters?: GetUserJourneysAdminUserJourneysGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminUserJourneysResponse>;
-    /**
      * Impersonate
      */
     impersonateAdminImpersonateEmailPostRaw(requestParameters: ImpersonateAdminImpersonateEmailPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInfoResponse>>;
@@ -202,6 +198,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Reset User Claimables
      */
     resetUserClaimablesAdminUserResetClaimablesPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Save Pricing Group Revisions
+     */
+    savePricingGroupRevisionsAdminPricingPostRaw(requestParameters: SavePricingGroupRevisionsAdminPricingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminPricingGroupRevisionsResponse>>;
+    /**
+     * Save Pricing Group Revisions
+     */
+    savePricingGroupRevisionsAdminPricingPost(requestParameters: SavePricingGroupRevisionsAdminPricingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPricingGroupRevisionsResponse>;
     /**
      * Set User Feature Flags
      */

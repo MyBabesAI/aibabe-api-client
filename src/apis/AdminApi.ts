@@ -17,7 +17,9 @@ import * as runtime from '../runtime';
 import type {
   AdminAwardBadgeRequest,
   AdminBadgeResponse,
-  AdminUserJourneysResponse,
+  AdminPricingGroupRevisionsResponse,
+  AdminPricingGroupsResponse,
+  AdminSavePricingGroupRevisionsRequest,
   AuraSubcategory,
   BadgeCategory,
   BadgeTimePeriod,
@@ -30,7 +32,6 @@ import type {
   ScoreCategory,
   SetUserFeatureFlagsRequest,
   SetUserFeatureFlagsResponse,
-  SubscriptionStatus,
   UserInfoResponse,
   UserJourneyEventType,
   UserJourneyResponse,
@@ -40,8 +41,12 @@ import {
     AdminAwardBadgeRequestToJSON,
     AdminBadgeResponseFromJSON,
     AdminBadgeResponseToJSON,
-    AdminUserJourneysResponseFromJSON,
-    AdminUserJourneysResponseToJSON,
+    AdminPricingGroupRevisionsResponseFromJSON,
+    AdminPricingGroupRevisionsResponseToJSON,
+    AdminPricingGroupsResponseFromJSON,
+    AdminPricingGroupsResponseToJSON,
+    AdminSavePricingGroupRevisionsRequestFromJSON,
+    AdminSavePricingGroupRevisionsRequestToJSON,
     AuraSubcategoryFromJSON,
     AuraSubcategoryToJSON,
     BadgeCategoryFromJSON,
@@ -66,8 +71,6 @@ import {
     SetUserFeatureFlagsRequestToJSON,
     SetUserFeatureFlagsResponseFromJSON,
     SetUserFeatureFlagsResponseToJSON,
-    SubscriptionStatusFromJSON,
-    SubscriptionStatusToJSON,
     UserInfoResponseFromJSON,
     UserInfoResponseToJSON,
     UserJourneyEventTypeFromJSON,
@@ -132,20 +135,16 @@ export interface GetUserJourneyAdminUserJourneyUserIdGetRequest {
     limit?: number;
 }
 
-export interface GetUserJourneysAdminUserJourneysGetRequest {
-    createdAt?: Date | null;
-    subscriptionStatus?: SubscriptionStatus | null;
-    transactionCount?: number | null;
-    paginationToken?: string | null;
-    limit?: number;
-}
-
 export interface ImpersonateAdminImpersonateEmailPostRequest {
     email: string;
 }
 
 export interface ProvideAwardAdminBadgesAwardPostRequest {
     adminAwardBadgeRequest: AdminAwardBadgeRequest;
+}
+
+export interface SavePricingGroupRevisionsAdminPricingPostRequest {
+    adminSavePricingGroupRevisionsRequest: AdminSavePricingGroupRevisionsRequest;
 }
 
 export interface SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest {
@@ -481,6 +480,32 @@ export class AdminApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get Pricing
+     */
+    async getPricingAdminPricingGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminPricingGroupsResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/admin/pricing`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminPricingGroupsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Pricing
+     */
+    async getPricingAdminPricingGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPricingGroupsResponse> {
+        const response = await this.getPricingAdminPricingGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Get Quality Control Conversation
      */
     async getQualityControlConversationAdminChatQualityControlConversationIdGetRaw(requestParameters: GetQualityControlConversationAdminChatQualityControlConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationMessagesResponse>> {
@@ -644,52 +669,6 @@ export class AdminApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get User Journeys
-     */
-    async getUserJourneysAdminUserJourneysGetRaw(requestParameters: GetUserJourneysAdminUserJourneysGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminUserJourneysResponse>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['createdAt'] != null) {
-            queryParameters['created_at'] = (requestParameters['createdAt'] as any).toISOString().substring(0,10);
-        }
-
-        if (requestParameters['subscriptionStatus'] != null) {
-            queryParameters['subscription_status'] = requestParameters['subscriptionStatus'];
-        }
-
-        if (requestParameters['transactionCount'] != null) {
-            queryParameters['transaction_count'] = requestParameters['transactionCount'];
-        }
-
-        if (requestParameters['paginationToken'] != null) {
-            queryParameters['pagination_token'] = requestParameters['paginationToken'];
-        }
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/admin/user-journeys`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AdminUserJourneysResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Get User Journeys
-     */
-    async getUserJourneysAdminUserJourneysGet(requestParameters: GetUserJourneysAdminUserJourneysGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminUserJourneysResponse> {
-        const response = await this.getUserJourneysAdminUserJourneysGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Impersonate
      */
     async impersonateAdminImpersonateEmailPostRaw(requestParameters: ImpersonateAdminImpersonateEmailPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserInfoResponse>> {
@@ -815,6 +794,42 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async resetUserClaimablesAdminUserResetClaimablesPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.resetUserClaimablesAdminUserResetClaimablesPostRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Save Pricing Group Revisions
+     */
+    async savePricingGroupRevisionsAdminPricingPostRaw(requestParameters: SavePricingGroupRevisionsAdminPricingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminPricingGroupRevisionsResponse>> {
+        if (requestParameters['adminSavePricingGroupRevisionsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'adminSavePricingGroupRevisionsRequest',
+                'Required parameter "adminSavePricingGroupRevisionsRequest" was null or undefined when calling savePricingGroupRevisionsAdminPricingPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/admin/pricing`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: AdminSavePricingGroupRevisionsRequestToJSON(requestParameters['adminSavePricingGroupRevisionsRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminPricingGroupRevisionsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Save Pricing Group Revisions
+     */
+    async savePricingGroupRevisionsAdminPricingPost(requestParameters: SavePricingGroupRevisionsAdminPricingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPricingGroupRevisionsResponse> {
+        const response = await this.savePricingGroupRevisionsAdminPricingPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
