@@ -23,6 +23,8 @@ export * from './AdminSaveTokenUsageGroupRequestInput';
 export * from './AdminSaveTokenUsageGroupRequestOutput';
 export * from './AdminTokenUsageGroupResponse';
 export * from './AdminTokenUsageResponse';
+export * from './AdminUserJourneyListItem';
+export * from './AdminUserJourneysResponse';
 export * from './ArtStyle';
 export * from './AssistantChatMessageDetail';
 export * from './AssistantChatResponse';

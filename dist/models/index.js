@@ -39,6 +39,8 @@ __exportStar(require("./AdminSaveTokenUsageGroupRequestInput"), exports);
 __exportStar(require("./AdminSaveTokenUsageGroupRequestOutput"), exports);
 __exportStar(require("./AdminTokenUsageGroupResponse"), exports);
 __exportStar(require("./AdminTokenUsageResponse"), exports);
+__exportStar(require("./AdminUserJourneyListItem"), exports);
+__exportStar(require("./AdminUserJourneysResponse"), exports);
 __exportStar(require("./ArtStyle"), exports);
 __exportStar(require("./AssistantChatMessageDetail"), exports);
 __exportStar(require("./AssistantChatResponse"), exports);

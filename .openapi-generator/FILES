@@ -50,6 +50,8 @@ src/models/AdminSaveTokenUsageGroupRequestInput.ts
 src/models/AdminSaveTokenUsageGroupRequestOutput.ts
 src/models/AdminTokenUsageGroupResponse.ts
 src/models/AdminTokenUsageResponse.ts
+src/models/AdminUserJourneyListItem.ts
+src/models/AdminUserJourneysResponse.ts
 src/models/ArtStyle.ts
 src/models/AssistantChatMessageDetail.ts
 src/models/AssistantChatResponse.ts
