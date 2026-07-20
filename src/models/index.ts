@@ -5,6 +5,8 @@ export * from './ActorRole';
 export * from './AddonPrice';
 export * from './AdminAwardBadgeRequest';
 export * from './AdminBadgeResponse';
+export * from './AdminUserJourneyListItem';
+export * from './AdminUserJourneysResponse';
 export * from './ArtStyle';
 export * from './AssistantChatMessageDetail';
 export * from './AssistantChatResponse';

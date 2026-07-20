@@ -21,6 +21,8 @@ __exportStar(require("./ActorRole"), exports);
 __exportStar(require("./AddonPrice"), exports);
 __exportStar(require("./AdminAwardBadgeRequest"), exports);
 __exportStar(require("./AdminBadgeResponse"), exports);
+__exportStar(require("./AdminUserJourneyListItem"), exports);
+__exportStar(require("./AdminUserJourneysResponse"), exports);
 __exportStar(require("./ArtStyle"), exports);
 __exportStar(require("./AssistantChatMessageDetail"), exports);
 __exportStar(require("./AssistantChatResponse"), exports);
