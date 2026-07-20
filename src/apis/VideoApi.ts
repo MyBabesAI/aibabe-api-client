@@ -24,7 +24,7 @@ import type {
   LastVideoFrameResponse,
   ResponseGetWanTaskStatusVideoWanTaskTaskIdGet,
   SeedanceImageToVideoCompletionPayload,
-  SeedanceImageToVideoRequest,
+  SeedanceImageToVideoResponse,
   VideoConfigResponse,
   VideoFromChatResponse,
   VideoResolution,
@@ -51,8 +51,8 @@ import {
     ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSON,
     SeedanceImageToVideoCompletionPayloadFromJSON,
     SeedanceImageToVideoCompletionPayloadToJSON,
-    SeedanceImageToVideoRequestFromJSON,
-    SeedanceImageToVideoRequestToJSON,
+    SeedanceImageToVideoResponseFromJSON,
+    SeedanceImageToVideoResponseToJSON,
     VideoConfigResponseFromJSON,
     VideoConfigResponseToJSON,
     VideoFromChatResponseFromJSON,
@@ -111,7 +111,13 @@ export interface ExtendVideoVideoExtendPostRequest {
 }
 
 export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
-    seedanceImageToVideoRequest: SeedanceImageToVideoRequest;
+    prompt: string;
+    image?: Blob | null;
+    imageUrl?: string | null;
+    resolution?: VideoResolution;
+    duration?: number;
+    watermark?: boolean;
+    audioGeneration?: boolean;
 }
 
 export interface GenerateVideoDescriptionVideoRecommendationPostRequest {
@@ -606,11 +612,11 @@ export class VideoApi extends runtime.BaseAPI {
     /**
      * Generate Seedance Video
      */
-    async generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['seedanceImageToVideoRequest'] == null) {
+    async generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SeedanceImageToVideoResponse>> {
+        if (requestParameters['prompt'] == null) {
             throw new runtime.RequiredError(
-                'seedanceImageToVideoRequest',
-                'Required parameter "seedanceImageToVideoRequest" was null or undefined when calling generateSeedanceVideoVideoSeedanceGeneratePost().'
+                'prompt',
+                'Required parameter "prompt" was null or undefined when calling generateSeedanceVideoVideoSeedanceGeneratePost().'
             );
         }
 
@@ -618,27 +624,65 @@ export class VideoApi extends runtime.BaseAPI {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        const consumes: runtime.Consume[] = [
+            { contentType: 'multipart/form-data' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+
+        let formParams: { append(param: string, value: any): any };
+        let useForm = false;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        if (useForm) {
+            formParams = new FormData();
+        } else {
+            formParams = new URLSearchParams();
+        }
+
+        if (requestParameters['image'] != null) {
+            formParams.append('image', requestParameters['image'] as any);
+        }
+
+        if (requestParameters['imageUrl'] != null) {
+            formParams.append('image_url', requestParameters['imageUrl'] as any);
+        }
+
+        if (requestParameters['prompt'] != null) {
+            formParams.append('prompt', requestParameters['prompt'] as any);
+        }
+
+        if (requestParameters['resolution'] != null) {
+            formParams.append('resolution', requestParameters['resolution'] as any);
+        }
+
+        if (requestParameters['duration'] != null) {
+            formParams.append('duration', requestParameters['duration'] as any);
+        }
+
+        if (requestParameters['watermark'] != null) {
+            formParams.append('watermark', requestParameters['watermark'] as any);
+        }
+
+        if (requestParameters['audioGeneration'] != null) {
+            formParams.append('audio_generation', requestParameters['audioGeneration'] as any);
+        }
 
         const response = await this.request({
             path: `/video/seedance/generate`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: SeedanceImageToVideoRequestToJSON(requestParameters['seedanceImageToVideoRequest']),
+            body: formParams,
         }, initOverrides);
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
+        return new runtime.JSONApiResponse(response, (jsonValue) => SeedanceImageToVideoResponseFromJSON(jsonValue));
     }
 
     /**
      * Generate Seedance Video
      */
-    async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+    async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedanceImageToVideoResponse> {
         const response = await this.generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides);
         return await response.value();
     }

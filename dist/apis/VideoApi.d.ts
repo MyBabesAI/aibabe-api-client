@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ExtendVideoPayload, GetVideoGenerationTagsResponse, ImageToVideoFromChatPayload, ImageToVideoRecommendationPayload, ImageToVideoRequest, LastVideoFrameResponse, ResponseGetWanTaskStatusVideoWanTaskTaskIdGet, SeedanceImageToVideoCompletionPayload, SeedanceImageToVideoRequest, VideoConfigResponse, VideoFromChatResponse, VideoResolution, WanExtendVideoCompletionPayload, WanImageToVideoCompletionPayload, WanImageToVideoResponse } from '../models/index';
+import type { ExtendVideoPayload, GetVideoGenerationTagsResponse, ImageToVideoFromChatPayload, ImageToVideoRecommendationPayload, ImageToVideoRequest, LastVideoFrameResponse, ResponseGetWanTaskStatusVideoWanTaskTaskIdGet, SeedanceImageToVideoCompletionPayload, SeedanceImageToVideoResponse, VideoConfigResponse, VideoFromChatResponse, VideoResolution, WanExtendVideoCompletionPayload, WanImageToVideoCompletionPayload, WanImageToVideoResponse } from '../models/index';
 export interface AttachmentVideoVideoIdAttachmentGetRequest {
     videoId: string;
     videoName: string;
@@ -46,7 +46,13 @@ export interface ExtendVideoVideoExtendPostRequest {
     extendVideoPayload: ExtendVideoPayload;
 }
 export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
-    seedanceImageToVideoRequest: SeedanceImageToVideoRequest;
+    prompt: string;
+    image?: Blob | null;
+    imageUrl?: string | null;
+    resolution?: VideoResolution;
+    duration?: number;
+    watermark?: boolean;
+    audioGeneration?: boolean;
 }
 export interface GenerateVideoDescriptionVideoRecommendationPostRequest {
     imageToVideoRecommendationPayload: ImageToVideoRecommendationPayload;
@@ -158,11 +164,11 @@ export declare class VideoApi extends runtime.BaseAPI {
     /**
      * Generate Seedance Video
      */
-    generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SeedanceImageToVideoResponse>>;
     /**
      * Generate Seedance Video
      */
-    generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedanceImageToVideoResponse>;
     /**
      * Generate Video Description
      */

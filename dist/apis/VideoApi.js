@@ -401,25 +401,55 @@ class VideoApi extends runtime.BaseAPI {
      * Generate Seedance Video
      */
     async generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides) {
-        if (requestParameters['seedanceImageToVideoRequest'] == null) {
-            throw new runtime.RequiredError('seedanceImageToVideoRequest', 'Required parameter "seedanceImageToVideoRequest" was null or undefined when calling generateSeedanceVideoVideoSeedanceGeneratePost().');
+        if (requestParameters['prompt'] == null) {
+            throw new runtime.RequiredError('prompt', 'Required parameter "prompt" was null or undefined when calling generateSeedanceVideoVideoSeedanceGeneratePost().');
         }
         const queryParameters = {};
         const headerParameters = {};
-        headerParameters['Content-Type'] = 'application/json';
+        const consumes = [
+            { contentType: 'multipart/form-data' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+        let formParams;
+        let useForm = false;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        if (useForm) {
+            formParams = new FormData();
+        }
+        else {
+            formParams = new URLSearchParams();
+        }
+        if (requestParameters['image'] != null) {
+            formParams.append('image', requestParameters['image']);
+        }
+        if (requestParameters['imageUrl'] != null) {
+            formParams.append('image_url', requestParameters['imageUrl']);
+        }
+        if (requestParameters['prompt'] != null) {
+            formParams.append('prompt', requestParameters['prompt']);
+        }
+        if (requestParameters['resolution'] != null) {
+            formParams.append('resolution', requestParameters['resolution']);
+        }
+        if (requestParameters['duration'] != null) {
+            formParams.append('duration', requestParameters['duration']);
+        }
+        if (requestParameters['watermark'] != null) {
+            formParams.append('watermark', requestParameters['watermark']);
+        }
+        if (requestParameters['audioGeneration'] != null) {
+            formParams.append('audio_generation', requestParameters['audioGeneration']);
+        }
         const response = await this.request({
             path: `/video/seedance/generate`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: (0, index_1.SeedanceImageToVideoRequestToJSON)(requestParameters['seedanceImageToVideoRequest']),
+            body: formParams,
         }, initOverrides);
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse(response);
-        }
-        else {
-            return new runtime.TextApiResponse(response);
-        }
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.SeedanceImageToVideoResponseFromJSON)(jsonValue));
     }
     /**
      * Generate Seedance Video

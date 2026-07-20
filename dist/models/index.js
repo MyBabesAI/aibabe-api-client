@@ -241,7 +241,7 @@ __exportStar(require("./ScoreTimePeriods"), exports);
 __exportStar(require("./ScoreType"), exports);
 __exportStar(require("./SeduceDifficulty"), exports);
 __exportStar(require("./SeedanceImageToVideoCompletionPayload"), exports);
-__exportStar(require("./SeedanceImageToVideoRequest"), exports);
+__exportStar(require("./SeedanceImageToVideoResponse"), exports);
 __exportStar(require("./SendCustomMemoracekRequest"), exports);
 __exportStar(require("./SendMemoracekRequest"), exports);
 __exportStar(require("./SetUserFeatureFlagsRequest"), exports);

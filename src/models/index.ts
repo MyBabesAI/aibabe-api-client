@@ -225,7 +225,7 @@ export * from './ScoreTimePeriods';
 export * from './ScoreType';
 export * from './SeduceDifficulty';
 export * from './SeedanceImageToVideoCompletionPayload';
-export * from './SeedanceImageToVideoRequest';
+export * from './SeedanceImageToVideoResponse';
 export * from './SendCustomMemoracekRequest';
 export * from './SendMemoracekRequest';
 export * from './SetUserFeatureFlagsRequest';
