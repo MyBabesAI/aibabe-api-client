@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminUserJourneysResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, ContentType, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
+import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminUserJourneysResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, ContentType, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -60,6 +60,9 @@ export interface GetUserJourneyAdminUserJourneyUserIdGetRequest {
     limit?: number;
 }
 export interface GetUserJourneysAdminUserJourneysGetRequest {
+    createdAt?: Date | null;
+    subscriptionStatus?: SubscriptionStatus | null;
+    transactionCount?: number | null;
     paginationToken?: string | null;
     limit?: number;
 }

@@ -409,6 +409,15 @@ class AdminApi extends runtime.BaseAPI {
      */
     async getUserJourneysAdminUserJourneysGetRaw(requestParameters, initOverrides) {
         const queryParameters = {};
+        if (requestParameters['createdAt'] != null) {
+            queryParameters['created_at'] = requestParameters['createdAt'].toISOString().substring(0, 10);
+        }
+        if (requestParameters['subscriptionStatus'] != null) {
+            queryParameters['subscription_status'] = requestParameters['subscriptionStatus'];
+        }
+        if (requestParameters['transactionCount'] != null) {
+            queryParameters['transaction_count'] = requestParameters['transactionCount'];
+        }
         if (requestParameters['paginationToken'] != null) {
             queryParameters['pagination_token'] = requestParameters['paginationToken'];
         }
