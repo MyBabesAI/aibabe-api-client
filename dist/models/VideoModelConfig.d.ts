@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ImageToVideoModel } from './ImageToVideoModel';
 import type { VideoQualityConfig } from './VideoQualityConfig';
 /**
  *
@@ -19,10 +18,10 @@ import type { VideoQualityConfig } from './VideoQualityConfig';
 export interface VideoModelConfig {
     /**
      *
-     * @type {ImageToVideoModel}
+     * @type {string}
      * @memberof VideoModelConfig
      */
-    model: ImageToVideoModel;
+    model: VideoModelConfigModelEnum;
     /**
      *
      * @type {string}
@@ -56,6 +55,14 @@ export interface VideoModelConfig {
      */
     modsAvailable: boolean;
 }
+/**
+ * @export
+ */
+export declare const VideoModelConfigModelEnum: {
+    readonly _22I2V: "WAN_22_I2V";
+    readonly _27I2V: "WAN_27_I2V";
+};
+export type VideoModelConfigModelEnum = typeof VideoModelConfigModelEnum[keyof typeof VideoModelConfigModelEnum];
 /**
  * Check if a given object implements the VideoModelConfig interface.
  */

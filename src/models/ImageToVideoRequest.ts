@@ -20,13 +20,6 @@ import {
     VideoLoraNameToJSON,
     VideoLoraNameToJSONTyped,
 } from './VideoLoraName';
-import type { ImageToVideoModel } from './ImageToVideoModel';
-import {
-    ImageToVideoModelFromJSON,
-    ImageToVideoModelFromJSONTyped,
-    ImageToVideoModelToJSON,
-    ImageToVideoModelToJSONTyped,
-} from './ImageToVideoModel';
 import type { VideoResolution } from './VideoResolution';
 import {
     VideoResolutionFromJSON,
@@ -43,10 +36,10 @@ import {
 export interface ImageToVideoRequest {
     /**
      * 
-     * @type {ImageToVideoModel}
+     * @type {string}
      * @memberof ImageToVideoRequest
      */
-    model: ImageToVideoModel;
+    model: ImageToVideoRequestModelEnum;
     /**
      * 
      * @type {string}
@@ -128,6 +121,15 @@ export interface ImageToVideoRequest {
 }
 
 
+/**
+ * @export
+ */
+export const ImageToVideoRequestModelEnum = {
+    _22I2V: 'WAN_22_I2V',
+    _27I2V: 'WAN_27_I2V'
+} as const;
+export type ImageToVideoRequestModelEnum = typeof ImageToVideoRequestModelEnum[keyof typeof ImageToVideoRequestModelEnum];
+
 
 /**
  * Check if a given object implements the ImageToVideoRequest interface.
@@ -154,7 +156,7 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'model': ImageToVideoModelFromJSON(json['model']),
+        'model': json['model'],
         'prompt': json['prompt'],
         'duration': json['duration'],
         'clientId': json['client_id'],
@@ -182,7 +184,7 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
 
     return {
         
-        'model': ImageToVideoModelToJSON(value['model']),
+        'model': value['model'],
         'prompt': value['prompt'],
         'duration': value['duration'],
         'client_id': value['clientId'],

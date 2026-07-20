@@ -23,6 +23,8 @@ import type {
   ImageToVideoRequest,
   LastVideoFrameResponse,
   ResponseGetWanTaskStatusVideoWanTaskTaskIdGet,
+  SeedanceImageToVideoCompletionPayload,
+  SeedanceImageToVideoRequest,
   VideoConfigResponse,
   VideoFromChatResponse,
   VideoResolution,
@@ -47,6 +49,10 @@ import {
     LastVideoFrameResponseToJSON,
     ResponseGetWanTaskStatusVideoWanTaskTaskIdGetFromJSON,
     ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSON,
+    SeedanceImageToVideoCompletionPayloadFromJSON,
+    SeedanceImageToVideoCompletionPayloadToJSON,
+    SeedanceImageToVideoRequestFromJSON,
+    SeedanceImageToVideoRequestToJSON,
     VideoConfigResponseFromJSON,
     VideoConfigResponseToJSON,
     VideoFromChatResponseFromJSON,
@@ -78,6 +84,10 @@ export interface ChatCallbackVideoCallbackChatGenerationIdPostRequest {
     errorMessage?: string | null;
 }
 
+export interface CompleteSeedanceVideoVideoSeedanceCompletePostRequest {
+    seedanceImageToVideoCompletionPayload: SeedanceImageToVideoCompletionPayload;
+}
+
 export interface CompleteWanExtendVideoVideoWanExtendCompletePostRequest {
     wanExtendVideoCompletionPayload: WanExtendVideoCompletionPayload;
 }
@@ -98,6 +108,10 @@ export interface ExtendCallbackVideoExtendCallbackGenerationIdPostRequest {
 
 export interface ExtendVideoVideoExtendPostRequest {
     extendVideoPayload: ExtendVideoPayload;
+}
+
+export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
+    seedanceImageToVideoRequest: SeedanceImageToVideoRequest;
 }
 
 export interface GenerateVideoDescriptionVideoRecommendationPostRequest {
@@ -326,6 +340,46 @@ export class VideoApi extends runtime.BaseAPI {
     }
 
     /**
+     * Complete Seedance Video
+     */
+    async completeSeedanceVideoVideoSeedanceCompletePostRaw(requestParameters: CompleteSeedanceVideoVideoSeedanceCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['seedanceImageToVideoCompletionPayload'] == null) {
+            throw new runtime.RequiredError(
+                'seedanceImageToVideoCompletionPayload',
+                'Required parameter "seedanceImageToVideoCompletionPayload" was null or undefined when calling completeSeedanceVideoVideoSeedanceCompletePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/video/seedance/complete`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SeedanceImageToVideoCompletionPayloadToJSON(requestParameters['seedanceImageToVideoCompletionPayload']),
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Complete Seedance Video
+     */
+    async completeSeedanceVideoVideoSeedanceCompletePost(requestParameters: CompleteSeedanceVideoVideoSeedanceCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.completeSeedanceVideoVideoSeedanceCompletePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Complete Wan Extend Video
      */
     async completeWanExtendVideoVideoWanExtendCompletePostRaw(requestParameters: CompleteWanExtendVideoVideoWanExtendCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -546,6 +600,46 @@ export class VideoApi extends runtime.BaseAPI {
      */
     async extendVideoVideoExtendPost(requestParameters: ExtendVideoVideoExtendPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.extendVideoVideoExtendPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Generate Seedance Video
+     */
+    async generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['seedanceImageToVideoRequest'] == null) {
+            throw new runtime.RequiredError(
+                'seedanceImageToVideoRequest',
+                'Required parameter "seedanceImageToVideoRequest" was null or undefined when calling generateSeedanceVideoVideoSeedanceGeneratePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/video/seedance/generate`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SeedanceImageToVideoRequestToJSON(requestParameters['seedanceImageToVideoRequest']),
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Generate Seedance Video
+     */
+    async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

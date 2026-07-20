@@ -13,14 +13,21 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ImageToVideoRequestModelEnum = void 0;
 exports.instanceOfImageToVideoRequest = instanceOfImageToVideoRequest;
 exports.ImageToVideoRequestFromJSON = ImageToVideoRequestFromJSON;
 exports.ImageToVideoRequestFromJSONTyped = ImageToVideoRequestFromJSONTyped;
 exports.ImageToVideoRequestToJSON = ImageToVideoRequestToJSON;
 exports.ImageToVideoRequestToJSONTyped = ImageToVideoRequestToJSONTyped;
 const VideoLoraName_1 = require("./VideoLoraName");
-const ImageToVideoModel_1 = require("./ImageToVideoModel");
 const VideoResolution_1 = require("./VideoResolution");
+/**
+ * @export
+ */
+exports.ImageToVideoRequestModelEnum = {
+    _22I2V: 'WAN_22_I2V',
+    _27I2V: 'WAN_27_I2V'
+};
 /**
  * Check if a given object implements the ImageToVideoRequest interface.
  */
@@ -51,7 +58,7 @@ function ImageToVideoRequestFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'model': (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
+        'model': json['model'],
         'prompt': json['prompt'],
         'duration': json['duration'],
         'clientId': json['client_id'],
@@ -75,7 +82,7 @@ function ImageToVideoRequestToJSONTyped(value, ignoreDiscriminator = false) {
         return value;
     }
     return {
-        'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
+        'model': value['model'],
         'prompt': value['prompt'],
         'duration': value['duration'],
         'client_id': value['clientId'],

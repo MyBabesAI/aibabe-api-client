@@ -20,13 +20,6 @@ import {
     VideoLoraNameToJSON,
     VideoLoraNameToJSONTyped,
 } from './VideoLoraName';
-import type { ImageToVideoModel } from './ImageToVideoModel';
-import {
-    ImageToVideoModelFromJSON,
-    ImageToVideoModelFromJSONTyped,
-    ImageToVideoModelToJSON,
-    ImageToVideoModelToJSONTyped,
-} from './ImageToVideoModel';
 import type { VideoResolution } from './VideoResolution';
 import {
     VideoResolutionFromJSON,
@@ -49,10 +42,10 @@ export interface ExtendVideoPayload {
     videoId: string;
     /**
      * 
-     * @type {ImageToVideoModel}
+     * @type {string}
      * @memberof ExtendVideoPayload
      */
-    model: ImageToVideoModel;
+    model: ExtendVideoPayloadModelEnum;
     /**
      * 
      * @type {string}
@@ -128,6 +121,15 @@ export interface ExtendVideoPayload {
 }
 
 
+/**
+ * @export
+ */
+export const ExtendVideoPayloadModelEnum = {
+    _22I2V: 'WAN_22_I2V',
+    _27I2V: 'WAN_27_I2V'
+} as const;
+export type ExtendVideoPayloadModelEnum = typeof ExtendVideoPayloadModelEnum[keyof typeof ExtendVideoPayloadModelEnum];
+
 
 /**
  * Check if a given object implements the ExtendVideoPayload interface.
@@ -155,7 +157,7 @@ export function ExtendVideoPayloadFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'videoId': json['video_id'],
-        'model': ImageToVideoModelFromJSON(json['model']),
+        'model': json['model'],
         'clientId': json['client_id'],
         'requestId': json['request_id'],
         'chatbotId': json['chatbot_id'],
@@ -183,7 +185,7 @@ export function ExtendVideoPayloadFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'video_id': value['videoId'],
-        'model': ImageToVideoModelToJSON(value['model']),
+        'model': value['model'],
         'client_id': value['clientId'],
         'request_id': value['requestId'],
         'chatbot_id': value['chatbotId'],

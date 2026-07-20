@@ -405,42 +405,6 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Get User Journeys
-     */
-    async getUserJourneysAdminUserJourneysGetRaw(requestParameters, initOverrides) {
-        const queryParameters = {};
-        if (requestParameters['createdAt'] != null) {
-            queryParameters['created_at'] = requestParameters['createdAt'].toISOString().substring(0, 10);
-        }
-        if (requestParameters['subscriptionStatus'] != null) {
-            queryParameters['subscription_status'] = requestParameters['subscriptionStatus'];
-        }
-        if (requestParameters['transactionCount'] != null) {
-            queryParameters['transaction_count'] = requestParameters['transactionCount'];
-        }
-        if (requestParameters['paginationToken'] != null) {
-            queryParameters['pagination_token'] = requestParameters['paginationToken'];
-        }
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/admin/user-journeys`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminUserJourneysResponseFromJSON)(jsonValue));
-    }
-    /**
-     * Get User Journeys
-     */
-    async getUserJourneysAdminUserJourneysGet(requestParameters = {}, initOverrides) {
-        const response = await this.getUserJourneysAdminUserJourneysGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
      * Impersonate
      */
     async impersonateAdminImpersonateEmailPostRaw(requestParameters, initOverrides) {

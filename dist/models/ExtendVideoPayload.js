@@ -13,14 +13,21 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ExtendVideoPayloadModelEnum = void 0;
 exports.instanceOfExtendVideoPayload = instanceOfExtendVideoPayload;
 exports.ExtendVideoPayloadFromJSON = ExtendVideoPayloadFromJSON;
 exports.ExtendVideoPayloadFromJSONTyped = ExtendVideoPayloadFromJSONTyped;
 exports.ExtendVideoPayloadToJSON = ExtendVideoPayloadToJSON;
 exports.ExtendVideoPayloadToJSONTyped = ExtendVideoPayloadToJSONTyped;
 const VideoLoraName_1 = require("./VideoLoraName");
-const ImageToVideoModel_1 = require("./ImageToVideoModel");
 const VideoResolution_1 = require("./VideoResolution");
+/**
+ * @export
+ */
+exports.ExtendVideoPayloadModelEnum = {
+    _22I2V: 'WAN_22_I2V',
+    _27I2V: 'WAN_27_I2V'
+};
 /**
  * Check if a given object implements the ExtendVideoPayload interface.
  */
@@ -52,7 +59,7 @@ function ExtendVideoPayloadFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'videoId': json['video_id'],
-        'model': (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
+        'model': json['model'],
         'clientId': json['client_id'],
         'requestId': json['request_id'],
         'chatbotId': json['chatbot_id'],
@@ -76,7 +83,7 @@ function ExtendVideoPayloadToJSONTyped(value, ignoreDiscriminator = false) {
     }
     return {
         'video_id': value['videoId'],
-        'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
+        'model': value['model'],
         'client_id': value['clientId'],
         'request_id': value['requestId'],
         'chatbot_id': value['chatbotId'],

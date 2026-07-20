@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { VideoLoraName } from './VideoLoraName';
-import type { ImageToVideoModel } from './ImageToVideoModel';
 import type { VideoResolution } from './VideoResolution';
 /**
  *
@@ -26,10 +25,10 @@ export interface ExtendVideoPayload {
     videoId: string;
     /**
      *
-     * @type {ImageToVideoModel}
+     * @type {string}
      * @memberof ExtendVideoPayload
      */
-    model: ImageToVideoModel;
+    model: ExtendVideoPayloadModelEnum;
     /**
      *
      * @type {string}
@@ -103,6 +102,14 @@ export interface ExtendVideoPayload {
      */
     audioGeneration?: boolean;
 }
+/**
+ * @export
+ */
+export declare const ExtendVideoPayloadModelEnum: {
+    readonly _22I2V: "WAN_22_I2V";
+    readonly _27I2V: "WAN_27_I2V";
+};
+export type ExtendVideoPayloadModelEnum = typeof ExtendVideoPayloadModelEnum[keyof typeof ExtendVideoPayloadModelEnum];
 /**
  * Check if a given object implements the ExtendVideoPayload interface.
  */

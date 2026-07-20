@@ -17,7 +17,6 @@ import * as runtime from '../runtime';
 import type {
   AdminAwardBadgeRequest,
   AdminBadgeResponse,
-  AdminUserJourneysResponse,
   AuraSubcategory,
   BadgeCategory,
   BadgeTimePeriod,
@@ -30,7 +29,6 @@ import type {
   ScoreCategory,
   SetUserFeatureFlagsRequest,
   SetUserFeatureFlagsResponse,
-  SubscriptionStatus,
   UserInfoResponse,
   UserJourneyEventType,
   UserJourneyResponse,
@@ -40,8 +38,6 @@ import {
     AdminAwardBadgeRequestToJSON,
     AdminBadgeResponseFromJSON,
     AdminBadgeResponseToJSON,
-    AdminUserJourneysResponseFromJSON,
-    AdminUserJourneysResponseToJSON,
     AuraSubcategoryFromJSON,
     AuraSubcategoryToJSON,
     BadgeCategoryFromJSON,
@@ -66,8 +62,6 @@ import {
     SetUserFeatureFlagsRequestToJSON,
     SetUserFeatureFlagsResponseFromJSON,
     SetUserFeatureFlagsResponseToJSON,
-    SubscriptionStatusFromJSON,
-    SubscriptionStatusToJSON,
     UserInfoResponseFromJSON,
     UserInfoResponseToJSON,
     UserJourneyEventTypeFromJSON,
@@ -128,14 +122,6 @@ export interface GetUserJourneyAdminUserJourneyUserIdGetRequest {
     userId: string;
     eventTypes?: Array<UserJourneyEventType> | null;
     date?: Date | null;
-    paginationToken?: string | null;
-    limit?: number;
-}
-
-export interface GetUserJourneysAdminUserJourneysGetRequest {
-    createdAt?: Date | null;
-    subscriptionStatus?: SubscriptionStatus | null;
-    transactionCount?: number | null;
     paginationToken?: string | null;
     limit?: number;
 }
@@ -640,52 +626,6 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async getUserJourneyAdminUserJourneyUserIdGet(requestParameters: GetUserJourneyAdminUserJourneyUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserJourneyResponse> {
         const response = await this.getUserJourneyAdminUserJourneyUserIdGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get User Journeys
-     */
-    async getUserJourneysAdminUserJourneysGetRaw(requestParameters: GetUserJourneysAdminUserJourneysGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminUserJourneysResponse>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['createdAt'] != null) {
-            queryParameters['created_at'] = (requestParameters['createdAt'] as any).toISOString().substring(0,10);
-        }
-
-        if (requestParameters['subscriptionStatus'] != null) {
-            queryParameters['subscription_status'] = requestParameters['subscriptionStatus'];
-        }
-
-        if (requestParameters['transactionCount'] != null) {
-            queryParameters['transaction_count'] = requestParameters['transactionCount'];
-        }
-
-        if (requestParameters['paginationToken'] != null) {
-            queryParameters['pagination_token'] = requestParameters['paginationToken'];
-        }
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/admin/user-journeys`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AdminUserJourneysResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Get User Journeys
-     */
-    async getUserJourneysAdminUserJourneysGet(requestParameters: GetUserJourneysAdminUserJourneysGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminUserJourneysResponse> {
-        const response = await this.getUserJourneysAdminUserJourneysGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

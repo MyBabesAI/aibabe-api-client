@@ -193,6 +193,37 @@ class VideoApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Complete Seedance Video
+     */
+    async completeSeedanceVideoVideoSeedanceCompletePostRaw(requestParameters, initOverrides) {
+        if (requestParameters['seedanceImageToVideoCompletionPayload'] == null) {
+            throw new runtime.RequiredError('seedanceImageToVideoCompletionPayload', 'Required parameter "seedanceImageToVideoCompletionPayload" was null or undefined when calling completeSeedanceVideoVideoSeedanceCompletePost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/video/seedance/complete`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.SeedanceImageToVideoCompletionPayloadToJSON)(requestParameters['seedanceImageToVideoCompletionPayload']),
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Complete Seedance Video
+     */
+    async completeSeedanceVideoVideoSeedanceCompletePost(requestParameters, initOverrides) {
+        const response = await this.completeSeedanceVideoVideoSeedanceCompletePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Complete Wan Extend Video
      */
     async completeWanExtendVideoVideoWanExtendCompletePostRaw(requestParameters, initOverrides) {
@@ -364,6 +395,37 @@ class VideoApi extends runtime.BaseAPI {
      */
     async extendVideoVideoExtendPost(requestParameters, initOverrides) {
         const response = await this.extendVideoVideoExtendPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Generate Seedance Video
+     */
+    async generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides) {
+        if (requestParameters['seedanceImageToVideoRequest'] == null) {
+            throw new runtime.RequiredError('seedanceImageToVideoRequest', 'Required parameter "seedanceImageToVideoRequest" was null or undefined when calling generateSeedanceVideoVideoSeedanceGeneratePost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/video/seedance/generate`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.SeedanceImageToVideoRequestToJSON)(requestParameters['seedanceImageToVideoRequest']),
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Generate Seedance Video
+     */
+    async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters, initOverrides) {
+        const response = await this.generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
