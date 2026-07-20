@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { VideoLoraName } from './VideoLoraName';
-import type { VideoResolution } from './VideoResolution';
 /**
  *
  * @export
@@ -67,10 +66,10 @@ export interface ExtendVideoPayload {
     loras?: Array<VideoLoraName>;
     /**
      *
-     * @type {VideoResolution}
+     * @type {string}
      * @memberof ExtendVideoPayload
      */
-    resolution: VideoResolution;
+    resolution: ExtendVideoPayloadResolutionEnum;
     /**
      *
      * @type {string}
@@ -110,6 +109,15 @@ export declare const ExtendVideoPayloadModelEnum: {
     readonly _27I2V: "WAN_27_I2V";
 };
 export type ExtendVideoPayloadModelEnum = typeof ExtendVideoPayloadModelEnum[keyof typeof ExtendVideoPayloadModelEnum];
+/**
+ * @export
+ */
+export declare const ExtendVideoPayloadResolutionEnum: {
+    readonly P480: "P480";
+    readonly P720: "P720";
+    readonly P1080: "P1080";
+};
+export type ExtendVideoPayloadResolutionEnum = typeof ExtendVideoPayloadResolutionEnum[keyof typeof ExtendVideoPayloadResolutionEnum];
 /**
  * Check if a given object implements the ExtendVideoPayload interface.
  */

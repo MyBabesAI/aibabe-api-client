@@ -13,20 +13,27 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExtendVideoPayloadModelEnum = void 0;
+exports.ExtendVideoPayloadResolutionEnum = exports.ExtendVideoPayloadModelEnum = void 0;
 exports.instanceOfExtendVideoPayload = instanceOfExtendVideoPayload;
 exports.ExtendVideoPayloadFromJSON = ExtendVideoPayloadFromJSON;
 exports.ExtendVideoPayloadFromJSONTyped = ExtendVideoPayloadFromJSONTyped;
 exports.ExtendVideoPayloadToJSON = ExtendVideoPayloadToJSON;
 exports.ExtendVideoPayloadToJSONTyped = ExtendVideoPayloadToJSONTyped;
 const VideoLoraName_1 = require("./VideoLoraName");
-const VideoResolution_1 = require("./VideoResolution");
 /**
  * @export
  */
 exports.ExtendVideoPayloadModelEnum = {
     _22I2V: 'WAN_22_I2V',
     _27I2V: 'WAN_27_I2V'
+};
+/**
+ * @export
+ */
+exports.ExtendVideoPayloadResolutionEnum = {
+    P480: 'P480',
+    P720: 'P720',
+    P1080: 'P1080'
 };
 /**
  * Check if a given object implements the ExtendVideoPayload interface.
@@ -66,7 +73,7 @@ function ExtendVideoPayloadFromJSONTyped(json, ignoreDiscriminator) {
         'duration': json['duration'],
         'prompt': json['prompt'],
         'loras': json['loras'] == null ? undefined : (json['loras'].map(VideoLoraName_1.VideoLoraNameFromJSON)),
-        'resolution': (0, VideoResolution_1.VideoResolutionFromJSON)(json['resolution']),
+        'resolution': json['resolution'],
         'negativePrompt': json['negative_prompt'] == null ? undefined : json['negative_prompt'],
         'watermark': json['watermark'] == null ? undefined : json['watermark'],
         'promptExtend': json['prompt_extend'] == null ? undefined : json['prompt_extend'],
@@ -90,7 +97,7 @@ function ExtendVideoPayloadToJSONTyped(value, ignoreDiscriminator = false) {
         'duration': value['duration'],
         'prompt': value['prompt'],
         'loras': value['loras'] == null ? undefined : (value['loras'].map(VideoLoraName_1.VideoLoraNameToJSON)),
-        'resolution': (0, VideoResolution_1.VideoResolutionToJSON)(value['resolution']),
+        'resolution': value['resolution'],
         'negative_prompt': value['negativePrompt'],
         'watermark': value['watermark'],
         'prompt_extend': value['promptExtend'],

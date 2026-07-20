@@ -46,7 +46,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetWanTaskStatusVideoWanTaskTaskIdGetProviderEnum = exports.GenerateWanVideoDirectVideoWanGeneratePostProviderEnum = exports.ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum = exports.ChatCallbackVideoCallbackChatGenerationIdPostStatusEnum = exports.CallbackVideoCallbackGenerationIdPostStatusEnum = exports.VideoApi = void 0;
+exports.GetWanTaskStatusVideoWanTaskTaskIdGetProviderEnum = exports.GenerateWanVideoDirectVideoWanGeneratePostProviderEnum = exports.GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum = exports.GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum = exports.ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum = exports.ChatCallbackVideoCallbackChatGenerationIdPostStatusEnum = exports.CallbackVideoCallbackGenerationIdPostStatusEnum = exports.VideoApi = void 0;
 const runtime = __importStar(require("../runtime"));
 const index_1 = require("../models/index");
 /**
@@ -401,9 +401,6 @@ class VideoApi extends runtime.BaseAPI {
      * Generate Seedance Video
      */
     async generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides) {
-        if (requestParameters['prompt'] == null) {
-            throw new runtime.RequiredError('prompt', 'Required parameter "prompt" was null or undefined when calling generateSeedanceVideoVideoSeedanceGeneratePost().');
-        }
         const queryParameters = {};
         const headerParameters = {};
         const consumes = [
@@ -415,6 +412,12 @@ class VideoApi extends runtime.BaseAPI {
         let useForm = false;
         // use FormData to transmit files using content-type "multipart/form-data"
         useForm = canConsumeForm;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
         if (useForm) {
             formParams = new FormData();
         }
@@ -422,16 +425,49 @@ class VideoApi extends runtime.BaseAPI {
             formParams = new URLSearchParams();
         }
         if (requestParameters['image'] != null) {
-            formParams.append('image', requestParameters['image']);
+            requestParameters['image'].forEach((element) => {
+                formParams.append('image', element);
+            });
         }
         if (requestParameters['imageUrl'] != null) {
-            formParams.append('image_url', requestParameters['imageUrl']);
+            formParams.append('image_url', requestParameters['imageUrl'].join(runtime.COLLECTION_FORMATS["csv"]));
+        }
+        if (requestParameters['imageRole'] != null) {
+            formParams.append('image_role', requestParameters['imageRole']);
+        }
+        if (requestParameters['lastFrame'] != null) {
+            formParams.append('last_frame', requestParameters['lastFrame']);
+        }
+        if (requestParameters['lastFrameUrl'] != null) {
+            formParams.append('last_frame_url', requestParameters['lastFrameUrl']);
+        }
+        if (requestParameters['video'] != null) {
+            requestParameters['video'].forEach((element) => {
+                formParams.append('video', element);
+            });
+        }
+        if (requestParameters['videoUrl'] != null) {
+            formParams.append('video_url', requestParameters['videoUrl'].join(runtime.COLLECTION_FORMATS["csv"]));
+        }
+        if (requestParameters['audio'] != null) {
+            requestParameters['audio'].forEach((element) => {
+                formParams.append('audio', element);
+            });
+        }
+        if (requestParameters['audioUrl'] != null) {
+            formParams.append('audio_url', requestParameters['audioUrl'].join(runtime.COLLECTION_FORMATS["csv"]));
         }
         if (requestParameters['prompt'] != null) {
             formParams.append('prompt', requestParameters['prompt']);
         }
+        if (requestParameters['model'] != null) {
+            formParams.append('model', requestParameters['model']);
+        }
         if (requestParameters['resolution'] != null) {
             formParams.append('resolution', requestParameters['resolution']);
+        }
+        if (requestParameters['ratio'] != null) {
+            formParams.append('ratio', requestParameters['ratio']);
         }
         if (requestParameters['duration'] != null) {
             formParams.append('duration', requestParameters['duration']);
@@ -441,6 +477,21 @@ class VideoApi extends runtime.BaseAPI {
         }
         if (requestParameters['audioGeneration'] != null) {
             formParams.append('audio_generation', requestParameters['audioGeneration']);
+        }
+        if (requestParameters['returnLastFrame'] != null) {
+            formParams.append('return_last_frame', requestParameters['returnLastFrame']);
+        }
+        if (requestParameters['priority'] != null) {
+            formParams.append('priority', requestParameters['priority']);
+        }
+        if (requestParameters['callbackUrl'] != null) {
+            formParams.append('callback_url', requestParameters['callbackUrl']);
+        }
+        if (requestParameters['executionExpiresAfter'] != null) {
+            formParams.append('execution_expires_after', requestParameters['executionExpiresAfter']);
+        }
+        if (requestParameters['safetyIdentifier'] != null) {
+            formParams.append('safety_identifier', requestParameters['safetyIdentifier']);
         }
         const response = await this.request({
             path: `/video/seedance/generate`,
@@ -454,7 +505,7 @@ class VideoApi extends runtime.BaseAPI {
     /**
      * Generate Seedance Video
      */
-    async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters, initOverrides) {
+    async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters = {}, initOverrides) {
         const response = await this.generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -739,6 +790,26 @@ exports.ChatCallbackVideoCallbackChatGenerationIdPostStatusEnum = {
 exports.ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum = {
     Finished: 'finished',
     Failed: 'failed'
+};
+/**
+ * @export
+ */
+exports.GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum = {
+    FirstFrame: 'first_frame',
+    LastFrame: 'last_frame',
+    ReferenceImage: 'reference_image'
+};
+/**
+ * @export
+ */
+exports.GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum = {
+    Adaptive: 'adaptive',
+    _219: '21:9',
+    _169: '16:9',
+    _43: '4:3',
+    _11: '1:1',
+    _34: '3:4',
+    _916: '9:16'
 };
 /**
  * @export

@@ -46,13 +46,27 @@ export interface ExtendVideoVideoExtendPostRequest {
     extendVideoPayload: ExtendVideoPayload;
 }
 export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
-    prompt: string;
-    image?: Blob | null;
-    imageUrl?: string | null;
+    image?: Array<Blob> | null;
+    imageUrl?: Array<string> | null;
+    imageRole?: GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum;
+    lastFrame?: Blob | null;
+    lastFrameUrl?: string | null;
+    video?: Array<Blob> | null;
+    videoUrl?: Array<string> | null;
+    audio?: Array<Blob> | null;
+    audioUrl?: Array<string> | null;
+    prompt?: string | null;
+    model?: string | null;
     resolution?: VideoResolution;
+    ratio?: GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum;
     duration?: number;
     watermark?: boolean;
     audioGeneration?: boolean;
+    returnLastFrame?: boolean;
+    priority?: number;
+    callbackUrl?: string | null;
+    executionExpiresAfter?: number | null;
+    safetyIdentifier?: string | null;
 }
 export interface GenerateVideoDescriptionVideoRecommendationPostRequest {
     imageToVideoRecommendationPayload: ImageToVideoRecommendationPayload;
@@ -168,7 +182,7 @@ export declare class VideoApi extends runtime.BaseAPI {
     /**
      * Generate Seedance Video
      */
-    generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedanceImageToVideoResponse>;
+    generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters?: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedanceImageToVideoResponse>;
     /**
      * Generate Video Description
      */
@@ -258,6 +272,28 @@ export declare const ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum
     readonly Failed: "failed";
 };
 export type ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum = typeof ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum[keyof typeof ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum];
+/**
+ * @export
+ */
+export declare const GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum: {
+    readonly FirstFrame: "first_frame";
+    readonly LastFrame: "last_frame";
+    readonly ReferenceImage: "reference_image";
+};
+export type GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum = typeof GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum[keyof typeof GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum];
+/**
+ * @export
+ */
+export declare const GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum: {
+    readonly Adaptive: "adaptive";
+    readonly _219: "21:9";
+    readonly _169: "16:9";
+    readonly _43: "4:3";
+    readonly _11: "1:1";
+    readonly _34: "3:4";
+    readonly _916: "9:16";
+};
+export type GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum = typeof GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum[keyof typeof GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum];
 /**
  * @export
  */

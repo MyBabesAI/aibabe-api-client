@@ -20,13 +20,6 @@ import {
     VideoLoraNameToJSON,
     VideoLoraNameToJSONTyped,
 } from './VideoLoraName';
-import type { VideoResolution } from './VideoResolution';
-import {
-    VideoResolutionFromJSON,
-    VideoResolutionFromJSONTyped,
-    VideoResolutionToJSON,
-    VideoResolutionToJSONTyped,
-} from './VideoResolution';
 
 /**
  * 
@@ -84,10 +77,10 @@ export interface ExtendVideoPayload {
     loras?: Array<VideoLoraName>;
     /**
      * 
-     * @type {VideoResolution}
+     * @type {string}
      * @memberof ExtendVideoPayload
      */
-    resolution: VideoResolution;
+    resolution: ExtendVideoPayloadResolutionEnum;
     /**
      * 
      * @type {string}
@@ -130,6 +123,16 @@ export const ExtendVideoPayloadModelEnum = {
 } as const;
 export type ExtendVideoPayloadModelEnum = typeof ExtendVideoPayloadModelEnum[keyof typeof ExtendVideoPayloadModelEnum];
 
+/**
+ * @export
+ */
+export const ExtendVideoPayloadResolutionEnum = {
+    P480: 'P480',
+    P720: 'P720',
+    P1080: 'P1080'
+} as const;
+export type ExtendVideoPayloadResolutionEnum = typeof ExtendVideoPayloadResolutionEnum[keyof typeof ExtendVideoPayloadResolutionEnum];
+
 
 /**
  * Check if a given object implements the ExtendVideoPayload interface.
@@ -164,7 +167,7 @@ export function ExtendVideoPayloadFromJSONTyped(json: any, ignoreDiscriminator: 
         'duration': json['duration'],
         'prompt': json['prompt'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(VideoLoraNameFromJSON)),
-        'resolution': VideoResolutionFromJSON(json['resolution']),
+        'resolution': json['resolution'],
         'negativePrompt': json['negative_prompt'] == null ? undefined : json['negative_prompt'],
         'watermark': json['watermark'] == null ? undefined : json['watermark'],
         'promptExtend': json['prompt_extend'] == null ? undefined : json['prompt_extend'],
@@ -192,7 +195,7 @@ export function ExtendVideoPayloadFromJSONTyped(json: any, ignoreDiscriminator: 
         'duration': value['duration'],
         'prompt': value['prompt'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(VideoLoraNameToJSON)),
-        'resolution': VideoResolutionToJSON(value['resolution']),
+        'resolution': value['resolution'],
         'negative_prompt': value['negativePrompt'],
         'watermark': value['watermark'],
         'prompt_extend': value['promptExtend'],

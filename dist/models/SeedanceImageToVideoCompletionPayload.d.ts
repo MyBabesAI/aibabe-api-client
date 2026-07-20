@@ -27,7 +27,35 @@ export interface SeedanceImageToVideoCompletionPayload {
      * @memberof SeedanceImageToVideoCompletionPayload
      */
     videoUrl: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SeedanceImageToVideoCompletionPayload
+     */
+    lastFrameUrl?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof SeedanceImageToVideoCompletionPayload
+     */
+    resolution?: SeedanceImageToVideoCompletionPayloadResolutionEnum | null;
+    /**
+     *
+     * @type {number}
+     * @memberof SeedanceImageToVideoCompletionPayload
+     */
+    duration?: number | null;
 }
+/**
+ * @export
+ */
+export declare const SeedanceImageToVideoCompletionPayloadResolutionEnum: {
+    readonly _480p: "480p";
+    readonly _720p: "720p";
+    readonly _1080p: "1080p";
+    readonly _4k: "4k";
+};
+export type SeedanceImageToVideoCompletionPayloadResolutionEnum = typeof SeedanceImageToVideoCompletionPayloadResolutionEnum[keyof typeof SeedanceImageToVideoCompletionPayloadResolutionEnum];
 /**
  * Check if a given object implements the SeedanceImageToVideoCompletionPayload interface.
  */

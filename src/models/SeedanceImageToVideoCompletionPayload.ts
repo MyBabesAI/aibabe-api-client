@@ -31,7 +31,38 @@ export interface SeedanceImageToVideoCompletionPayload {
      * @memberof SeedanceImageToVideoCompletionPayload
      */
     videoUrl: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SeedanceImageToVideoCompletionPayload
+     */
+    lastFrameUrl?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof SeedanceImageToVideoCompletionPayload
+     */
+    resolution?: SeedanceImageToVideoCompletionPayloadResolutionEnum | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof SeedanceImageToVideoCompletionPayload
+     */
+    duration?: number | null;
 }
+
+
+/**
+ * @export
+ */
+export const SeedanceImageToVideoCompletionPayloadResolutionEnum = {
+    _480p: '480p',
+    _720p: '720p',
+    _1080p: '1080p',
+    _4k: '4k'
+} as const;
+export type SeedanceImageToVideoCompletionPayloadResolutionEnum = typeof SeedanceImageToVideoCompletionPayloadResolutionEnum[keyof typeof SeedanceImageToVideoCompletionPayloadResolutionEnum];
+
 
 /**
  * Check if a given object implements the SeedanceImageToVideoCompletionPayload interface.
@@ -54,6 +85,9 @@ export function SeedanceImageToVideoCompletionPayloadFromJSONTyped(json: any, ig
         
         'videoId': json['video_id'],
         'videoUrl': json['video_url'],
+        'lastFrameUrl': json['last_frame_url'] == null ? undefined : json['last_frame_url'],
+        'resolution': json['resolution'] == null ? undefined : json['resolution'],
+        'duration': json['duration'] == null ? undefined : json['duration'],
     };
 }
 
@@ -70,6 +104,9 @@ export function SeedanceImageToVideoCompletionPayloadFromJSONTyped(json: any, ig
         
         'video_id': value['videoId'],
         'video_url': value['videoUrl'],
+        'last_frame_url': value['lastFrameUrl'],
+        'resolution': value['resolution'],
+        'duration': value['duration'],
     };
 }
 

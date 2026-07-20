@@ -13,11 +13,21 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SeedanceImageToVideoCompletionPayloadResolutionEnum = void 0;
 exports.instanceOfSeedanceImageToVideoCompletionPayload = instanceOfSeedanceImageToVideoCompletionPayload;
 exports.SeedanceImageToVideoCompletionPayloadFromJSON = SeedanceImageToVideoCompletionPayloadFromJSON;
 exports.SeedanceImageToVideoCompletionPayloadFromJSONTyped = SeedanceImageToVideoCompletionPayloadFromJSONTyped;
 exports.SeedanceImageToVideoCompletionPayloadToJSON = SeedanceImageToVideoCompletionPayloadToJSON;
 exports.SeedanceImageToVideoCompletionPayloadToJSONTyped = SeedanceImageToVideoCompletionPayloadToJSONTyped;
+/**
+ * @export
+ */
+exports.SeedanceImageToVideoCompletionPayloadResolutionEnum = {
+    _480p: '480p',
+    _720p: '720p',
+    _1080p: '1080p',
+    _4k: '4k'
+};
 /**
  * Check if a given object implements the SeedanceImageToVideoCompletionPayload interface.
  */
@@ -38,6 +48,9 @@ function SeedanceImageToVideoCompletionPayloadFromJSONTyped(json, ignoreDiscrimi
     return {
         'videoId': json['video_id'],
         'videoUrl': json['video_url'],
+        'lastFrameUrl': json['last_frame_url'] == null ? undefined : json['last_frame_url'],
+        'resolution': json['resolution'] == null ? undefined : json['resolution'],
+        'duration': json['duration'] == null ? undefined : json['duration'],
     };
 }
 function SeedanceImageToVideoCompletionPayloadToJSON(json) {
@@ -50,6 +63,9 @@ function SeedanceImageToVideoCompletionPayloadToJSONTyped(value, ignoreDiscrimin
     return {
         'video_id': value['videoId'],
         'video_url': value['videoUrl'],
+        'last_frame_url': value['lastFrameUrl'],
+        'resolution': value['resolution'],
+        'duration': value['duration'],
     };
 }
 //# sourceMappingURL=SeedanceImageToVideoCompletionPayload.js.map
