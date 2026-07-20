@@ -238,6 +238,27 @@ class VoiceApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Get Audio Config
+     */
+    async getAudioConfigVoiceConfigGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/voice/config`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.TokenPricingConfigResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get Audio Config
+     */
+    async getAudioConfigVoiceConfigGet(initOverrides) {
+        const response = await this.getAudioConfigVoiceConfigGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Audio
      */
     async getAudioVoiceDetailsAudioIdGetRaw(requestParameters, initOverrides) {

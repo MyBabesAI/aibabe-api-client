@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, GetGeneratedImage, GetImageGenerationTagsResponse, GetLorasResponse, LoraName, PostGenerateImageRequest, PostGenerateSceneRequest, PostImagenResponse, PostRestartServersRequest } from '../models/index';
+import type { ArtStyle, GetGeneratedImage, GetImageGenerationTagsResponse, GetLorasResponse, LoraName, PostGenerateImageRequest, PostGenerateSceneRequest, PostImagenResponse, PostRestartServersRequest, TokenPricingConfigResponse } from '../models/index';
 export interface AttachmentImagenImageIdAttachmentGetRequest {
     imageId: string;
     imageName: string;
@@ -95,6 +95,14 @@ export declare class ImageApi extends runtime.BaseAPI {
      * Get Image By Filename
      */
     getImageByFilenameImagenFilenameGet(requestParameters: GetImageByFilenameImagenFilenameGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGeneratedImage>;
+    /**
+     * Get Image Config
+     */
+    getImageConfigImagenConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenPricingConfigResponse>>;
+    /**
+     * Get Image Config
+     */
+    getImageConfigImagenConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse>;
     /**
      * Get Loras
      */

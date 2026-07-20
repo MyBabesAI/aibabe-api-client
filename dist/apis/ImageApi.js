@@ -192,6 +192,27 @@ class ImageApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Get Image Config
+     */
+    async getImageConfigImagenConfigGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/imagen/config`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.TokenPricingConfigResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get Image Config
+     */
+    async getImageConfigImagenConfigGet(initOverrides) {
+        const response = await this.getImageConfigImagenConfigGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Loras
      */
     async getLorasImagenLorasGetRaw(requestParameters, initOverrides) {

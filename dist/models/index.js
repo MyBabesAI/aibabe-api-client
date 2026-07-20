@@ -335,6 +335,8 @@ __exportStar(require("./TextToSpeechEnhanceResponse"), exports);
 __exportStar(require("./TextToSpeechRequest"), exports);
 __exportStar(require("./TextToSpeechResponse"), exports);
 __exportStar(require("./TimedBadgeType"), exports);
+__exportStar(require("./TokenPriceConfig"), exports);
+__exportStar(require("./TokenPricingConfigResponse"), exports);
 __exportStar(require("./TokenReconciliationResponse"), exports);
 __exportStar(require("./TokenUsageCalculationMode"), exports);
 __exportStar(require("./TokenUsageType"), exports);

@@ -26,6 +26,7 @@ import type {
   PostChatRequest,
   PostChatSuggestionRequest,
   PostConversationSettingsRequest,
+  TokenPricingConfigResponse,
 } from '../models/index';
 import {
     ChatReponseFromJSON,
@@ -50,6 +51,8 @@ import {
     PostChatSuggestionRequestToJSON,
     PostConversationSettingsRequestFromJSON,
     PostConversationSettingsRequestToJSON,
+    TokenPricingConfigResponseFromJSON,
+    TokenPricingConfigResponseToJSON,
 } from '../models/index';
 
 export interface ChatChatChatbotIdPostRequest {
@@ -458,6 +461,32 @@ export class ChatApi extends runtime.BaseAPI {
      */
     async generateImageOnMessageChatChatbotIdMessageRequestIdImagePost(requestParameters: GenerateImageOnMessageChatChatbotIdMessageRequestIdImagePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse> {
         const response = await this.generateImageOnMessageChatChatbotIdMessageRequestIdImagePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get Chat Config
+     */
+    async getChatConfigChatConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenPricingConfigResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/config`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => TokenPricingConfigResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Chat Config
+     */
+    async getChatConfigChatConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse> {
+        const response = await this.getChatConfigChatConfigGetRaw(initOverrides);
         return await response.value();
     }
 

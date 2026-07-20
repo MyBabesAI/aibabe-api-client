@@ -346,6 +346,8 @@ src/models/TextToSpeechEnhanceResponse.ts
 src/models/TextToSpeechRequest.ts
 src/models/TextToSpeechResponse.ts
 src/models/TimedBadgeType.ts
+src/models/TokenPriceConfig.ts
+src/models/TokenPricingConfigResponse.ts
 src/models/TokenReconciliationResponse.ts
 src/models/TokenUsageCalculationMode.ts
 src/models/TokenUsageType.ts

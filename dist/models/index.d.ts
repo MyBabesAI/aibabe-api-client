@@ -317,6 +317,8 @@ export * from './TextToSpeechEnhanceResponse';
 export * from './TextToSpeechRequest';
 export * from './TextToSpeechResponse';
 export * from './TimedBadgeType';
+export * from './TokenPriceConfig';
+export * from './TokenPricingConfigResponse';
 export * from './TokenReconciliationResponse';
 export * from './TokenUsageCalculationMode';
 export * from './TokenUsageType';

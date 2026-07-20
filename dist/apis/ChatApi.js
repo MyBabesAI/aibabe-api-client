@@ -295,6 +295,27 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Get Chat Config
+     */
+    async getChatConfigChatConfigGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/config`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.TokenPricingConfigResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get Chat Config
+     */
+    async getChatConfigChatConfigGet(initOverrides) {
+        const response = await this.getChatConfigChatConfigGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Image Moderation Prompt
      */
     async getImageModerationPromptChatImageModerationPromptGetRaw(initOverrides) {
