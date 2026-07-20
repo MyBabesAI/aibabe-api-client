@@ -27,8 +27,6 @@ function instanceOfGetQualityControlImage(value) {
         return false;
     if (!('imageId' in value) || value['imageId'] === undefined)
         return false;
-    if (!('userId' in value) || value['userId'] === undefined)
-        return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
     if (!('prompt' in value) || value['prompt'] === undefined)
@@ -49,7 +47,6 @@ function GetQualityControlImageFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'imageUrl': json['image_url'],
         'imageId': json['image_id'],
-        'userId': json['user_id'],
         'createdAt': json['created_at'],
         'prompt': json['prompt'],
         'generationTags': json['generation_tags'],
@@ -66,7 +63,6 @@ function GetQualityControlImageToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'image_url': value['imageUrl'],
         'image_id': value['imageId'],
-        'user_id': value['userId'],
         'created_at': value['createdAt'],
         'prompt': value['prompt'],
         'generation_tags': value['generationTags'],

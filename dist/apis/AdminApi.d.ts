@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAwardBadgeRequest, AdminBadgeResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, ContentType, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
+import type { AdminAwardBadgeRequest, AdminBadgeResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, ContentType, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, UserInfoResponse } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -41,23 +41,11 @@ export interface GenerateCodesAdminGiftCodesGeneratePostRequest {
     count: number;
     codeType: GiftCodeType;
 }
-export interface GetQualityControlConversationAdminChatQualityControlConversationIdGetRequest {
-    conversationId: string;
-    paginationToken?: string | null;
-    limit?: number;
-}
 export interface GetQualityControlImagesAdminImageQualityControlPostRequest {
     getQualityControlRequest: GetQualityControlRequest;
 }
 export interface GetTokenBalanceAdminTokenBalanceEmailGetRequest {
     email: string;
-}
-export interface GetUserJourneyAdminUserJourneyUserIdGetRequest {
-    userId: string;
-    eventTypes?: Array<UserJourneyEventType> | null;
-    date?: Date | null;
-    paginationToken?: string | null;
-    limit?: number;
 }
 export interface ImpersonateAdminImpersonateEmailPostRequest {
     email: string;
@@ -124,14 +112,6 @@ export declare class AdminApi extends runtime.BaseAPI {
      */
     generateCodesAdminGiftCodesGeneratePost(requestParameters: GenerateCodesAdminGiftCodesGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
-     * Get Quality Control Conversation
-     */
-    getQualityControlConversationAdminChatQualityControlConversationIdGetRaw(requestParameters: GetQualityControlConversationAdminChatQualityControlConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationMessagesResponse>>;
-    /**
-     * Get Quality Control Conversation
-     */
-    getQualityControlConversationAdminChatQualityControlConversationIdGet(requestParameters: GetQualityControlConversationAdminChatQualityControlConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationMessagesResponse>;
-    /**
      * Get Quality Control Images
      */
     getQualityControlImagesAdminImageQualityControlPostRaw(requestParameters: GetQualityControlImagesAdminImageQualityControlPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<GetQualityControlImage>>>;
@@ -147,14 +127,6 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Get Token Balance
      */
     getTokenBalanceAdminTokenBalanceEmailGet(requestParameters: GetTokenBalanceAdminTokenBalanceEmailGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<number>;
-    /**
-     * Get User Journey
-     */
-    getUserJourneyAdminUserJourneyUserIdGetRaw(requestParameters: GetUserJourneyAdminUserJourneyUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserJourneyResponse>>;
-    /**
-     * Get User Journey
-     */
-    getUserJourneyAdminUserJourneyUserIdGet(requestParameters: GetUserJourneyAdminUserJourneyUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserJourneyResponse>;
     /**
      * Impersonate
      */

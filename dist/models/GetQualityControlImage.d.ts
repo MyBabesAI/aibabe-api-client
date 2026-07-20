@@ -33,12 +33,6 @@ export interface GetQualityControlImage {
      * @type {string}
      * @memberof GetQualityControlImage
      */
-    userId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof GetQualityControlImage
-     */
     createdAt: string;
     /**
      *

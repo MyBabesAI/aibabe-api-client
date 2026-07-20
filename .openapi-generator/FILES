@@ -325,9 +325,6 @@ src/models/UserBadgeStatus.ts
 src/models/UserClaimType.ts
 src/models/UserEpisodeProgressType.ts
 src/models/UserInfoResponse.ts
-src/models/UserJourneyEvent.ts
-src/models/UserJourneyEventType.ts
-src/models/UserJourneyResponse.ts
 src/models/UserPreferenceProfile.ts
 src/models/UserPreferenceTaxonomyResponse.ts
 src/models/UserPreferences.ts

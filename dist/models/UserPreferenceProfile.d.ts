@@ -66,6 +66,12 @@ export interface UserPreferenceProfile {
     chatAutoSuggestions?: boolean;
     /**
      *
+     * @type {boolean}
+     * @memberof UserPreferenceProfile
+     */
+    videoPromptExpansion?: boolean;
+    /**
+     *
      * @type {{ [key: string]: any; }}
      * @memberof UserPreferenceProfile
      */
