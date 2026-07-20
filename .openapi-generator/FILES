@@ -32,6 +32,8 @@ src/models/ActorRole.ts
 src/models/AddonPrice.ts
 src/models/AdminAwardBadgeRequest.ts
 src/models/AdminBadgeResponse.ts
+src/models/AdminUserJourneyListItem.ts
+src/models/AdminUserJourneysResponse.ts
 src/models/ArtStyle.ts
 src/models/AssistantChatMessageDetail.ts
 src/models/AssistantChatResponse.ts
