@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAwardBadgeRequest, AdminBadgeResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, ContentType, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
+import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminUserJourneysResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, ContentType, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -56,6 +56,13 @@ export interface GetUserJourneyAdminUserJourneyUserIdGetRequest {
     userId: string;
     eventTypes?: Array<UserJourneyEventType> | null;
     date?: Date | null;
+    paginationToken?: string | null;
+    limit?: number;
+}
+export interface GetUserJourneysAdminUserJourneysGetRequest {
+    createdAt?: Date | null;
+    subscriptionStatus?: SubscriptionStatus | null;
+    transactionCount?: number | null;
     paginationToken?: string | null;
     limit?: number;
 }
@@ -155,6 +162,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Get User Journey
      */
     getUserJourneyAdminUserJourneyUserIdGet(requestParameters: GetUserJourneyAdminUserJourneyUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserJourneyResponse>;
+    /**
+     * Get User Journeys
+     */
+    getUserJourneysAdminUserJourneysGetRaw(requestParameters: GetUserJourneysAdminUserJourneysGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminUserJourneysResponse>>;
+    /**
+     * Get User Journeys
+     */
+    getUserJourneysAdminUserJourneysGet(requestParameters?: GetUserJourneysAdminUserJourneysGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminUserJourneysResponse>;
     /**
      * Impersonate
      */
