@@ -69,6 +69,12 @@ export interface GetQualityControlImage {
      * @memberof GetQualityControlImage
      */
     generationSource: ImageGenerationSource | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetQualityControlImage
+     */
+    chatbotId: string | null;
 }
 
 
@@ -84,6 +90,7 @@ export function instanceOfGetQualityControlImage(value: object): value is GetQua
     if (!('prompt' in value) || value['prompt'] === undefined) return false;
     if (!('generationTags' in value) || value['generationTags'] === undefined) return false;
     if (!('generationSource' in value) || value['generationSource'] === undefined) return false;
+    if (!('chatbotId' in value) || value['chatbotId'] === undefined) return false;
     return true;
 }
 
@@ -104,6 +111,7 @@ export function GetQualityControlImageFromJSONTyped(json: any, ignoreDiscriminat
         'prompt': json['prompt'],
         'generationTags': json['generation_tags'],
         'generationSource': ImageGenerationSourceFromJSON(json['generation_source']),
+        'chatbotId': json['chatbot_id'],
     };
 }
 
@@ -125,6 +133,7 @@ export function GetQualityControlImageFromJSONTyped(json: any, ignoreDiscriminat
         'prompt': value['prompt'],
         'generation_tags': value['generationTags'],
         'generation_source': ImageGenerationSourceToJSON(value['generationSource']),
+        'chatbot_id': value['chatbotId'],
     };
 }
 

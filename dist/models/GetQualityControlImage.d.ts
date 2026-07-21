@@ -58,6 +58,12 @@ export interface GetQualityControlImage {
      * @memberof GetQualityControlImage
      */
     generationSource: ImageGenerationSource | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GetQualityControlImage
+     */
+    chatbotId: string | null;
 }
 /**
  * Check if a given object implements the GetQualityControlImage interface.
