@@ -26,7 +26,8 @@ exports.VideoResolutionToJSONTyped = VideoResolutionToJSONTyped;
 exports.VideoResolution = {
     P480: 'P480',
     P720: 'P720',
-    P1080: 'P1080'
+    P1080: 'P1080',
+    P2160: 'P2160'
 };
 function instanceOfVideoResolution(value) {
     for (const key in exports.VideoResolution) {

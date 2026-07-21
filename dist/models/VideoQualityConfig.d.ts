@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { VideoResolution } from './VideoResolution';
 import type { VideoDurationConfig } from './VideoDurationConfig';
 /**
  *
@@ -19,10 +18,10 @@ import type { VideoDurationConfig } from './VideoDurationConfig';
 export interface VideoQualityConfig {
     /**
      *
-     * @type {VideoResolution}
+     * @type {string}
      * @memberof VideoQualityConfig
      */
-    resolution: VideoResolution;
+    resolution: VideoQualityConfigResolutionEnum;
     /**
      *
      * @type {Array<VideoDurationConfig>}
@@ -30,6 +29,15 @@ export interface VideoQualityConfig {
      */
     durations: Array<VideoDurationConfig>;
 }
+/**
+ * @export
+ */
+export declare const VideoQualityConfigResolutionEnum: {
+    readonly P480: "P480";
+    readonly P720: "P720";
+    readonly P1080: "P1080";
+};
+export type VideoQualityConfigResolutionEnum = typeof VideoQualityConfigResolutionEnum[keyof typeof VideoQualityConfigResolutionEnum];
 /**
  * Check if a given object implements the VideoQualityConfig interface.
  */

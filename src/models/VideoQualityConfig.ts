@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { VideoResolution } from './VideoResolution';
-import {
-    VideoResolutionFromJSON,
-    VideoResolutionFromJSONTyped,
-    VideoResolutionToJSON,
-    VideoResolutionToJSONTyped,
-} from './VideoResolution';
 import type { VideoDurationConfig } from './VideoDurationConfig';
 import {
     VideoDurationConfigFromJSON,
@@ -36,10 +29,10 @@ import {
 export interface VideoQualityConfig {
     /**
      * 
-     * @type {VideoResolution}
+     * @type {string}
      * @memberof VideoQualityConfig
      */
-    resolution: VideoResolution;
+    resolution: VideoQualityConfigResolutionEnum;
     /**
      * 
      * @type {Array<VideoDurationConfig>}
@@ -48,6 +41,16 @@ export interface VideoQualityConfig {
     durations: Array<VideoDurationConfig>;
 }
 
+
+/**
+ * @export
+ */
+export const VideoQualityConfigResolutionEnum = {
+    P480: 'P480',
+    P720: 'P720',
+    P1080: 'P1080'
+} as const;
+export type VideoQualityConfigResolutionEnum = typeof VideoQualityConfigResolutionEnum[keyof typeof VideoQualityConfigResolutionEnum];
 
 
 /**
@@ -69,7 +72,7 @@ export function VideoQualityConfigFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'resolution': VideoResolutionFromJSON(json['resolution']),
+        'resolution': json['resolution'],
         'durations': ((json['durations'] as Array<any>).map(VideoDurationConfigFromJSON)),
     };
 }
@@ -85,7 +88,7 @@ export function VideoQualityConfigFromJSONTyped(json: any, ignoreDiscriminator: 
 
     return {
         
-        'resolution': VideoResolutionToJSON(value['resolution']),
+        'resolution': value['resolution'],
         'durations': ((value['durations'] as Array<any>).map(VideoDurationConfigToJSON)),
     };
 }

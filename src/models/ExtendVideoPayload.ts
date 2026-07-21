@@ -20,20 +20,6 @@ import {
     VideoLoraNameToJSON,
     VideoLoraNameToJSONTyped,
 } from './VideoLoraName';
-import type { ImageToVideoModel } from './ImageToVideoModel';
-import {
-    ImageToVideoModelFromJSON,
-    ImageToVideoModelFromJSONTyped,
-    ImageToVideoModelToJSON,
-    ImageToVideoModelToJSONTyped,
-} from './ImageToVideoModel';
-import type { VideoResolution } from './VideoResolution';
-import {
-    VideoResolutionFromJSON,
-    VideoResolutionFromJSONTyped,
-    VideoResolutionToJSON,
-    VideoResolutionToJSONTyped,
-} from './VideoResolution';
 
 /**
  * 
@@ -49,10 +35,10 @@ export interface ExtendVideoPayload {
     videoId: string;
     /**
      * 
-     * @type {ImageToVideoModel}
+     * @type {string}
      * @memberof ExtendVideoPayload
      */
-    model: ImageToVideoModel;
+    model: ExtendVideoPayloadModelEnum;
     /**
      * 
      * @type {string}
@@ -91,10 +77,10 @@ export interface ExtendVideoPayload {
     loras?: Array<VideoLoraName>;
     /**
      * 
-     * @type {VideoResolution}
+     * @type {string}
      * @memberof ExtendVideoPayload
      */
-    resolution: VideoResolution;
+    resolution: ExtendVideoPayloadResolutionEnum;
     /**
      * 
      * @type {string}
@@ -128,6 +114,25 @@ export interface ExtendVideoPayload {
 }
 
 
+/**
+ * @export
+ */
+export const ExtendVideoPayloadModelEnum = {
+    _22I2V: 'WAN_22_I2V',
+    _27I2V: 'WAN_27_I2V'
+} as const;
+export type ExtendVideoPayloadModelEnum = typeof ExtendVideoPayloadModelEnum[keyof typeof ExtendVideoPayloadModelEnum];
+
+/**
+ * @export
+ */
+export const ExtendVideoPayloadResolutionEnum = {
+    P480: 'P480',
+    P720: 'P720',
+    P1080: 'P1080'
+} as const;
+export type ExtendVideoPayloadResolutionEnum = typeof ExtendVideoPayloadResolutionEnum[keyof typeof ExtendVideoPayloadResolutionEnum];
+
 
 /**
  * Check if a given object implements the ExtendVideoPayload interface.
@@ -155,14 +160,14 @@ export function ExtendVideoPayloadFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'videoId': json['video_id'],
-        'model': ImageToVideoModelFromJSON(json['model']),
+        'model': json['model'],
         'clientId': json['client_id'],
         'requestId': json['request_id'],
         'chatbotId': json['chatbot_id'],
         'duration': json['duration'],
         'prompt': json['prompt'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(VideoLoraNameFromJSON)),
-        'resolution': VideoResolutionFromJSON(json['resolution']),
+        'resolution': json['resolution'],
         'negativePrompt': json['negative_prompt'] == null ? undefined : json['negative_prompt'],
         'watermark': json['watermark'] == null ? undefined : json['watermark'],
         'promptExtend': json['prompt_extend'] == null ? undefined : json['prompt_extend'],
@@ -183,14 +188,14 @@ export function ExtendVideoPayloadFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'video_id': value['videoId'],
-        'model': ImageToVideoModelToJSON(value['model']),
+        'model': value['model'],
         'client_id': value['clientId'],
         'request_id': value['requestId'],
         'chatbot_id': value['chatbotId'],
         'duration': value['duration'],
         'prompt': value['prompt'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(VideoLoraNameToJSON)),
-        'resolution': VideoResolutionToJSON(value['resolution']),
+        'resolution': value['resolution'],
         'negative_prompt': value['negativePrompt'],
         'watermark': value['watermark'],
         'prompt_extend': value['promptExtend'],

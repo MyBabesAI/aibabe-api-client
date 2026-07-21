@@ -75,6 +75,12 @@ export interface PatchUserPreferenceProfileRequest {
      * @memberof PatchUserPreferenceProfileRequest
      */
     chatAutoSuggestions?: boolean | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PatchUserPreferenceProfileRequest
+     */
+    videoPromptExpansion?: boolean | null;
 }
 
 
@@ -104,6 +110,7 @@ export function PatchUserPreferenceProfileRequestFromJSONTyped(json: any, ignore
         'llmModel': json['llm_model'] == null ? undefined : LLMFromJSON(json['llm_model']),
         'chatNympho': json['chat_nympho'] == null ? undefined : json['chat_nympho'],
         'chatAutoSuggestions': json['chat_auto_suggestions'] == null ? undefined : json['chat_auto_suggestions'],
+        'videoPromptExpansion': json['video_prompt_expansion'] == null ? undefined : json['video_prompt_expansion'],
     };
 }
 
@@ -126,6 +133,7 @@ export function PatchUserPreferenceProfileRequestFromJSONTyped(json: any, ignore
         'llm_model': LLMToJSON(value['llmModel']),
         'chat_nympho': value['chatNympho'],
         'chat_auto_suggestions': value['chatAutoSuggestions'],
+        'video_prompt_expansion': value['videoPromptExpansion'],
     };
 }
 

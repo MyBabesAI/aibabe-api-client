@@ -13,14 +13,21 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.VideoModelConfigModelEnum = void 0;
 exports.instanceOfVideoModelConfig = instanceOfVideoModelConfig;
 exports.VideoModelConfigFromJSON = VideoModelConfigFromJSON;
 exports.VideoModelConfigFromJSONTyped = VideoModelConfigFromJSONTyped;
 exports.VideoModelConfigToJSON = VideoModelConfigToJSON;
 exports.VideoModelConfigToJSONTyped = VideoModelConfigToJSONTyped;
 const runtime_1 = require("../runtime");
-const ImageToVideoModel_1 = require("./ImageToVideoModel");
 const VideoQualityConfig_1 = require("./VideoQualityConfig");
+/**
+ * @export
+ */
+exports.VideoModelConfigModelEnum = {
+    _22I2V: 'WAN_22_I2V',
+    _27I2V: 'WAN_27_I2V'
+};
 /**
  * Check if a given object implements the VideoModelConfig interface.
  */
@@ -47,7 +54,7 @@ function VideoModelConfigFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'model': (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
+        'model': json['model'],
         'displayName': json['display_name'],
         'qualities': ((0, runtime_1.mapValues)(json['qualities'], VideoQualityConfig_1.VideoQualityConfigFromJSON)),
         'audioGenerationAvailable': json['audio_generation_available'],
@@ -63,7 +70,7 @@ function VideoModelConfigToJSONTyped(value, ignoreDiscriminator = false) {
         return value;
     }
     return {
-        'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
+        'model': value['model'],
         'display_name': value['displayName'],
         'qualities': ((0, runtime_1.mapValues)(value['qualities'], VideoQualityConfig_1.VideoQualityConfigToJSON)),
         'audio_generation_available': value['audioGenerationAvailable'],

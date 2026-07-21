@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ImageToVideoModel } from './ImageToVideoModel';
-import {
-    ImageToVideoModelFromJSON,
-    ImageToVideoModelFromJSONTyped,
-    ImageToVideoModelToJSON,
-    ImageToVideoModelToJSONTyped,
-} from './ImageToVideoModel';
 import type { VideoQualityConfig } from './VideoQualityConfig';
 import {
     VideoQualityConfigFromJSON,
@@ -36,10 +29,10 @@ import {
 export interface VideoModelConfig {
     /**
      * 
-     * @type {ImageToVideoModel}
+     * @type {string}
      * @memberof VideoModelConfig
      */
-    model: ImageToVideoModel;
+    model: VideoModelConfigModelEnum;
     /**
      * 
      * @type {string}
@@ -73,6 +66,15 @@ export interface VideoModelConfig {
 }
 
 
+/**
+ * @export
+ */
+export const VideoModelConfigModelEnum = {
+    _22I2V: 'WAN_22_I2V',
+    _27I2V: 'WAN_27_I2V'
+} as const;
+export type VideoModelConfigModelEnum = typeof VideoModelConfigModelEnum[keyof typeof VideoModelConfigModelEnum];
+
 
 /**
  * Check if a given object implements the VideoModelConfig interface.
@@ -97,7 +99,7 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
     }
     return {
         
-        'model': ImageToVideoModelFromJSON(json['model']),
+        'model': json['model'],
         'displayName': json['display_name'],
         'qualities': (mapValues(json['qualities'], VideoQualityConfigFromJSON)),
         'audioGenerationAvailable': json['audio_generation_available'],
@@ -117,7 +119,7 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
 
     return {
         
-        'model': ImageToVideoModelToJSON(value['model']),
+        'model': value['model'],
         'display_name': value['displayName'],
         'qualities': (mapValues(value['qualities'], VideoQualityConfigToJSON)),
         'audio_generation_available': value['audioGenerationAvailable'],

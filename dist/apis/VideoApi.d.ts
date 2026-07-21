@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ExtendVideoPayload, GetVideoGenerationTagsResponse, ImageToVideoFromChatPayload, ImageToVideoRecommendationPayload, ImageToVideoRequest, LastVideoFrameResponse, ResponseGetWanTaskStatusVideoWanTaskTaskIdGet, VideoConfigResponse, VideoFromChatResponse, VideoResolution, WanExtendVideoCompletionPayload, WanImageToVideoCompletionPayload, WanImageToVideoResponse } from '../models/index';
+import type { ExtendVideoPayload, GetVideoGenerationTagsResponse, ImageToVideoFromChatPayload, ImageToVideoRecommendationPayload, ImageToVideoRequest, LastVideoFrameResponse, ResponseGetWanTaskStatusVideoWanTaskTaskIdGet, SeedanceImageToVideoCompletionPayload, SeedanceImageToVideoResponse, VideoConfigResponse, VideoFromChatResponse, VideoResolution, WanExtendVideoCompletionPayload, WanImageToVideoCompletionPayload, WanImageToVideoResponse } from '../models/index';
 export interface AttachmentVideoVideoIdAttachmentGetRequest {
     videoId: string;
     videoName: string;
@@ -24,6 +24,9 @@ export interface ChatCallbackVideoCallbackChatGenerationIdPostRequest {
     generationId: string;
     status: ChatCallbackVideoCallbackChatGenerationIdPostStatusEnum;
     errorMessage?: string | null;
+}
+export interface CompleteSeedanceVideoVideoSeedanceCompletePostRequest {
+    seedanceImageToVideoCompletionPayload: SeedanceImageToVideoCompletionPayload;
 }
 export interface CompleteWanExtendVideoVideoWanExtendCompletePostRequest {
     wanExtendVideoCompletionPayload: WanExtendVideoCompletionPayload;
@@ -41,6 +44,29 @@ export interface ExtendCallbackVideoExtendCallbackGenerationIdPostRequest {
 }
 export interface ExtendVideoVideoExtendPostRequest {
     extendVideoPayload: ExtendVideoPayload;
+}
+export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
+    image?: Array<Blob>;
+    imageUrl?: Array<string>;
+    imageRole?: GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum;
+    lastFrame?: Blob | null;
+    lastFrameUrl?: string | null;
+    video?: Array<Blob>;
+    videoUrl?: Array<string>;
+    audio?: Array<Blob>;
+    audioUrl?: Array<string>;
+    prompt?: string | null;
+    model?: string | null;
+    resolution?: VideoResolution;
+    ratio?: GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum;
+    duration?: number;
+    watermark?: boolean;
+    audioGeneration?: boolean;
+    returnLastFrame?: boolean;
+    priority?: number;
+    callbackUrl?: string | null;
+    executionExpiresAfter?: number | null;
+    safetyIdentifier?: string | null;
 }
 export interface GenerateVideoDescriptionVideoRecommendationPostRequest {
     imageToVideoRecommendationPayload: ImageToVideoRecommendationPayload;
@@ -102,6 +128,14 @@ export declare class VideoApi extends runtime.BaseAPI {
      */
     chatCallbackVideoCallbackChatGenerationIdPost(requestParameters: ChatCallbackVideoCallbackChatGenerationIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
+     * Complete Seedance Video
+     */
+    completeSeedanceVideoVideoSeedanceCompletePostRaw(requestParameters: CompleteSeedanceVideoVideoSeedanceCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Complete Seedance Video
+     */
+    completeSeedanceVideoVideoSeedanceCompletePost(requestParameters: CompleteSeedanceVideoVideoSeedanceCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
      * Complete Wan Extend Video
      */
     completeWanExtendVideoVideoWanExtendCompletePostRaw(requestParameters: CompleteWanExtendVideoVideoWanExtendCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
@@ -141,6 +175,14 @@ export declare class VideoApi extends runtime.BaseAPI {
      * Extend Video
      */
     extendVideoVideoExtendPost(requestParameters: ExtendVideoVideoExtendPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Generate Seedance Video
+     */
+    generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SeedanceImageToVideoResponse>>;
+    /**
+     * Generate Seedance Video
+     */
+    generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters?: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedanceImageToVideoResponse>;
     /**
      * Generate Video Description
      */
@@ -230,6 +272,28 @@ export declare const ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum
     readonly Failed: "failed";
 };
 export type ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum = typeof ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum[keyof typeof ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum];
+/**
+ * @export
+ */
+export declare const GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum: {
+    readonly FirstFrame: "first_frame";
+    readonly LastFrame: "last_frame";
+    readonly ReferenceImage: "reference_image";
+};
+export type GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum = typeof GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum[keyof typeof GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum];
+/**
+ * @export
+ */
+export declare const GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum: {
+    readonly Adaptive: "adaptive";
+    readonly _219: "21:9";
+    readonly _169: "16:9";
+    readonly _43: "4:3";
+    readonly _11: "1:1";
+    readonly _34: "3:4";
+    readonly _916: "9:16";
+};
+export type GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum = typeof GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum[keyof typeof GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum];
 /**
  * @export
  */

@@ -13,13 +13,21 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.VideoQualityConfigResolutionEnum = void 0;
 exports.instanceOfVideoQualityConfig = instanceOfVideoQualityConfig;
 exports.VideoQualityConfigFromJSON = VideoQualityConfigFromJSON;
 exports.VideoQualityConfigFromJSONTyped = VideoQualityConfigFromJSONTyped;
 exports.VideoQualityConfigToJSON = VideoQualityConfigToJSON;
 exports.VideoQualityConfigToJSONTyped = VideoQualityConfigToJSONTyped;
-const VideoResolution_1 = require("./VideoResolution");
 const VideoDurationConfig_1 = require("./VideoDurationConfig");
+/**
+ * @export
+ */
+exports.VideoQualityConfigResolutionEnum = {
+    P480: 'P480',
+    P720: 'P720',
+    P1080: 'P1080'
+};
 /**
  * Check if a given object implements the VideoQualityConfig interface.
  */
@@ -38,7 +46,7 @@ function VideoQualityConfigFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'resolution': (0, VideoResolution_1.VideoResolutionFromJSON)(json['resolution']),
+        'resolution': json['resolution'],
         'durations': (json['durations'].map(VideoDurationConfig_1.VideoDurationConfigFromJSON)),
     };
 }
@@ -50,7 +58,7 @@ function VideoQualityConfigToJSONTyped(value, ignoreDiscriminator = false) {
         return value;
     }
     return {
-        'resolution': (0, VideoResolution_1.VideoResolutionToJSON)(value['resolution']),
+        'resolution': value['resolution'],
         'durations': (value['durations'].map(VideoDurationConfig_1.VideoDurationConfigToJSON)),
     };
 }

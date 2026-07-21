@@ -23,6 +23,8 @@ import type {
   ImageToVideoRequest,
   LastVideoFrameResponse,
   ResponseGetWanTaskStatusVideoWanTaskTaskIdGet,
+  SeedanceImageToVideoCompletionPayload,
+  SeedanceImageToVideoResponse,
   VideoConfigResponse,
   VideoFromChatResponse,
   VideoResolution,
@@ -47,6 +49,10 @@ import {
     LastVideoFrameResponseToJSON,
     ResponseGetWanTaskStatusVideoWanTaskTaskIdGetFromJSON,
     ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSON,
+    SeedanceImageToVideoCompletionPayloadFromJSON,
+    SeedanceImageToVideoCompletionPayloadToJSON,
+    SeedanceImageToVideoResponseFromJSON,
+    SeedanceImageToVideoResponseToJSON,
     VideoConfigResponseFromJSON,
     VideoConfigResponseToJSON,
     VideoFromChatResponseFromJSON,
@@ -78,6 +84,10 @@ export interface ChatCallbackVideoCallbackChatGenerationIdPostRequest {
     errorMessage?: string | null;
 }
 
+export interface CompleteSeedanceVideoVideoSeedanceCompletePostRequest {
+    seedanceImageToVideoCompletionPayload: SeedanceImageToVideoCompletionPayload;
+}
+
 export interface CompleteWanExtendVideoVideoWanExtendCompletePostRequest {
     wanExtendVideoCompletionPayload: WanExtendVideoCompletionPayload;
 }
@@ -98,6 +108,30 @@ export interface ExtendCallbackVideoExtendCallbackGenerationIdPostRequest {
 
 export interface ExtendVideoVideoExtendPostRequest {
     extendVideoPayload: ExtendVideoPayload;
+}
+
+export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
+    image?: Array<Blob>;
+    imageUrl?: Array<string>;
+    imageRole?: GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum;
+    lastFrame?: Blob | null;
+    lastFrameUrl?: string | null;
+    video?: Array<Blob>;
+    videoUrl?: Array<string>;
+    audio?: Array<Blob>;
+    audioUrl?: Array<string>;
+    prompt?: string | null;
+    model?: string | null;
+    resolution?: VideoResolution;
+    ratio?: GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum;
+    duration?: number;
+    watermark?: boolean;
+    audioGeneration?: boolean;
+    returnLastFrame?: boolean;
+    priority?: number;
+    callbackUrl?: string | null;
+    executionExpiresAfter?: number | null;
+    safetyIdentifier?: string | null;
 }
 
 export interface GenerateVideoDescriptionVideoRecommendationPostRequest {
@@ -326,6 +360,46 @@ export class VideoApi extends runtime.BaseAPI {
     }
 
     /**
+     * Complete Seedance Video
+     */
+    async completeSeedanceVideoVideoSeedanceCompletePostRaw(requestParameters: CompleteSeedanceVideoVideoSeedanceCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['seedanceImageToVideoCompletionPayload'] == null) {
+            throw new runtime.RequiredError(
+                'seedanceImageToVideoCompletionPayload',
+                'Required parameter "seedanceImageToVideoCompletionPayload" was null or undefined when calling completeSeedanceVideoVideoSeedanceCompletePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/video/seedance/complete`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SeedanceImageToVideoCompletionPayloadToJSON(requestParameters['seedanceImageToVideoCompletionPayload']),
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Complete Seedance Video
+     */
+    async completeSeedanceVideoVideoSeedanceCompletePost(requestParameters: CompleteSeedanceVideoVideoSeedanceCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.completeSeedanceVideoVideoSeedanceCompletePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Complete Wan Extend Video
      */
     async completeWanExtendVideoVideoWanExtendCompletePostRaw(requestParameters: CompleteWanExtendVideoVideoWanExtendCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -546,6 +620,145 @@ export class VideoApi extends runtime.BaseAPI {
      */
     async extendVideoVideoExtendPost(requestParameters: ExtendVideoVideoExtendPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.extendVideoVideoExtendPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Generate Seedance Video
+     */
+    async generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SeedanceImageToVideoResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const consumes: runtime.Consume[] = [
+            { contentType: 'multipart/form-data' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+
+        let formParams: { append(param: string, value: any): any };
+        let useForm = false;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        if (useForm) {
+            formParams = new FormData();
+        } else {
+            formParams = new URLSearchParams();
+        }
+
+        if (requestParameters['image'] != null) {
+            requestParameters['image'].forEach((element) => {
+                formParams.append('image', element as any);
+            })
+        }
+
+        if (requestParameters['imageUrl'] != null) {
+            formParams.append('image_url', requestParameters['imageUrl']!.join(runtime.COLLECTION_FORMATS["csv"]));
+        }
+
+        if (requestParameters['imageRole'] != null) {
+            formParams.append('image_role', requestParameters['imageRole'] as any);
+        }
+
+        if (requestParameters['lastFrame'] != null) {
+            formParams.append('last_frame', requestParameters['lastFrame'] as any);
+        }
+
+        if (requestParameters['lastFrameUrl'] != null) {
+            formParams.append('last_frame_url', requestParameters['lastFrameUrl'] as any);
+        }
+
+        if (requestParameters['video'] != null) {
+            requestParameters['video'].forEach((element) => {
+                formParams.append('video', element as any);
+            })
+        }
+
+        if (requestParameters['videoUrl'] != null) {
+            formParams.append('video_url', requestParameters['videoUrl']!.join(runtime.COLLECTION_FORMATS["csv"]));
+        }
+
+        if (requestParameters['audio'] != null) {
+            requestParameters['audio'].forEach((element) => {
+                formParams.append('audio', element as any);
+            })
+        }
+
+        if (requestParameters['audioUrl'] != null) {
+            formParams.append('audio_url', requestParameters['audioUrl']!.join(runtime.COLLECTION_FORMATS["csv"]));
+        }
+
+        if (requestParameters['prompt'] != null) {
+            formParams.append('prompt', requestParameters['prompt'] as any);
+        }
+
+        if (requestParameters['model'] != null) {
+            formParams.append('model', requestParameters['model'] as any);
+        }
+
+        if (requestParameters['resolution'] != null) {
+            formParams.append('resolution', requestParameters['resolution'] as any);
+        }
+
+        if (requestParameters['ratio'] != null) {
+            formParams.append('ratio', requestParameters['ratio'] as any);
+        }
+
+        if (requestParameters['duration'] != null) {
+            formParams.append('duration', requestParameters['duration'] as any);
+        }
+
+        if (requestParameters['watermark'] != null) {
+            formParams.append('watermark', requestParameters['watermark'] as any);
+        }
+
+        if (requestParameters['audioGeneration'] != null) {
+            formParams.append('audio_generation', requestParameters['audioGeneration'] as any);
+        }
+
+        if (requestParameters['returnLastFrame'] != null) {
+            formParams.append('return_last_frame', requestParameters['returnLastFrame'] as any);
+        }
+
+        if (requestParameters['priority'] != null) {
+            formParams.append('priority', requestParameters['priority'] as any);
+        }
+
+        if (requestParameters['callbackUrl'] != null) {
+            formParams.append('callback_url', requestParameters['callbackUrl'] as any);
+        }
+
+        if (requestParameters['executionExpiresAfter'] != null) {
+            formParams.append('execution_expires_after', requestParameters['executionExpiresAfter'] as any);
+        }
+
+        if (requestParameters['safetyIdentifier'] != null) {
+            formParams.append('safety_identifier', requestParameters['safetyIdentifier'] as any);
+        }
+
+        const response = await this.request({
+            path: `/video/seedance/generate`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SeedanceImageToVideoResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Generate Seedance Video
+     */
+    async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedanceImageToVideoResponse> {
+        const response = await this.generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -919,6 +1132,28 @@ export const ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum = {
     Failed: 'failed'
 } as const;
 export type ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum = typeof ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum[keyof typeof ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum];
+/**
+ * @export
+ */
+export const GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum = {
+    FirstFrame: 'first_frame',
+    LastFrame: 'last_frame',
+    ReferenceImage: 'reference_image'
+} as const;
+export type GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum = typeof GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum[keyof typeof GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum];
+/**
+ * @export
+ */
+export const GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum = {
+    Adaptive: 'adaptive',
+    _219: '21:9',
+    _169: '16:9',
+    _43: '4:3',
+    _11: '1:1',
+    _34: '3:4',
+    _916: '9:16'
+} as const;
+export type GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum = typeof GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum[keyof typeof GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum];
 /**
  * @export
  */
