@@ -37,6 +37,8 @@ function instanceOfGetQualityControlImage(value) {
         return false;
     if (!('generationSource' in value) || value['generationSource'] === undefined)
         return false;
+    if (!('chatbotId' in value) || value['chatbotId'] === undefined)
+        return false;
     return true;
 }
 function GetQualityControlImageFromJSON(json) {
@@ -54,6 +56,7 @@ function GetQualityControlImageFromJSONTyped(json, ignoreDiscriminator) {
         'prompt': json['prompt'],
         'generationTags': json['generation_tags'],
         'generationSource': (0, ImageGenerationSource_1.ImageGenerationSourceFromJSON)(json['generation_source']),
+        'chatbotId': json['chatbot_id'],
     };
 }
 function GetQualityControlImageToJSON(json) {
@@ -71,6 +74,7 @@ function GetQualityControlImageToJSONTyped(value, ignoreDiscriminator = false) {
         'prompt': value['prompt'],
         'generation_tags': value['generationTags'],
         'generation_source': (0, ImageGenerationSource_1.ImageGenerationSourceToJSON)(value['generationSource']),
+        'chatbot_id': value['chatbotId'],
     };
 }
 //# sourceMappingURL=GetQualityControlImage.js.map
