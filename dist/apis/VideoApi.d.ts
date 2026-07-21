@@ -46,15 +46,15 @@ export interface ExtendVideoVideoExtendPostRequest {
     extendVideoPayload: ExtendVideoPayload;
 }
 export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
-    image?: Array<Blob> | null;
-    imageUrl?: Array<string> | null;
+    image?: Array<Blob>;
+    imageUrl?: Array<string>;
     imageRole?: GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum;
     lastFrame?: Blob | null;
     lastFrameUrl?: string | null;
-    video?: Array<Blob> | null;
-    videoUrl?: Array<string> | null;
-    audio?: Array<Blob> | null;
-    audioUrl?: Array<string> | null;
+    video?: Array<Blob>;
+    videoUrl?: Array<string>;
+    audio?: Array<Blob>;
+    audioUrl?: Array<string>;
     prompt?: string | null;
     model?: string | null;
     resolution?: VideoResolution;
