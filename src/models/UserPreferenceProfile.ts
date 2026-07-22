@@ -77,6 +77,12 @@ export interface UserPreferenceProfile {
     chatAutoSuggestions?: boolean;
     /**
      * 
+     * @type {boolean}
+     * @memberof UserPreferenceProfile
+     */
+    videoPromptExpansion?: boolean;
+    /**
+     * 
      * @type {{ [key: string]: any; }}
      * @memberof UserPreferenceProfile
      */
@@ -110,6 +116,7 @@ export function UserPreferenceProfileFromJSONTyped(json: any, ignoreDiscriminato
         'llmModel': json['llm_model'] == null ? undefined : LLMFromJSON(json['llm_model']),
         'chatNympho': json['chat_nympho'] == null ? undefined : json['chat_nympho'],
         'chatAutoSuggestions': json['chat_auto_suggestions'] == null ? undefined : json['chat_auto_suggestions'],
+        'videoPromptExpansion': json['video_prompt_expansion'] == null ? undefined : json['video_prompt_expansion'],
         'onboardingState': json['onboarding_state'] == null ? undefined : json['onboarding_state'],
     };
 }
@@ -133,6 +140,7 @@ export function UserPreferenceProfileFromJSONTyped(json: any, ignoreDiscriminato
         'llm_model': LLMToJSON(value['llmModel']),
         'chat_nympho': value['chatNympho'],
         'chat_auto_suggestions': value['chatAutoSuggestions'],
+        'video_prompt_expansion': value['videoPromptExpansion'],
         'onboarding_state': value['onboardingState'],
     };
 }

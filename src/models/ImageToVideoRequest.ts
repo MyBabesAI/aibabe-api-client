@@ -20,20 +20,6 @@ import {
     VideoLoraNameToJSON,
     VideoLoraNameToJSONTyped,
 } from './VideoLoraName';
-import type { ImageToVideoModel } from './ImageToVideoModel';
-import {
-    ImageToVideoModelFromJSON,
-    ImageToVideoModelFromJSONTyped,
-    ImageToVideoModelToJSON,
-    ImageToVideoModelToJSONTyped,
-} from './ImageToVideoModel';
-import type { VideoResolution } from './VideoResolution';
-import {
-    VideoResolutionFromJSON,
-    VideoResolutionFromJSONTyped,
-    VideoResolutionToJSON,
-    VideoResolutionToJSONTyped,
-} from './VideoResolution';
 
 /**
  * 
@@ -43,10 +29,10 @@ import {
 export interface ImageToVideoRequest {
     /**
      * 
-     * @type {ImageToVideoModel}
+     * @type {string}
      * @memberof ImageToVideoRequest
      */
-    model: ImageToVideoModel;
+    model: ImageToVideoRequestModelEnum;
     /**
      * 
      * @type {string}
@@ -85,10 +71,10 @@ export interface ImageToVideoRequest {
     inputImageId: string;
     /**
      * 
-     * @type {VideoResolution}
+     * @type {string}
      * @memberof ImageToVideoRequest
      */
-    resolution: VideoResolution;
+    resolution: ImageToVideoRequestResolutionEnum;
     /**
      * 
      * @type {Array<VideoLoraName>}
@@ -128,6 +114,25 @@ export interface ImageToVideoRequest {
 }
 
 
+/**
+ * @export
+ */
+export const ImageToVideoRequestModelEnum = {
+    _22I2V: 'WAN_22_I2V',
+    _27I2V: 'WAN_27_I2V'
+} as const;
+export type ImageToVideoRequestModelEnum = typeof ImageToVideoRequestModelEnum[keyof typeof ImageToVideoRequestModelEnum];
+
+/**
+ * @export
+ */
+export const ImageToVideoRequestResolutionEnum = {
+    P480: 'P480',
+    P720: 'P720',
+    P1080: 'P1080'
+} as const;
+export type ImageToVideoRequestResolutionEnum = typeof ImageToVideoRequestResolutionEnum[keyof typeof ImageToVideoRequestResolutionEnum];
+
 
 /**
  * Check if a given object implements the ImageToVideoRequest interface.
@@ -154,14 +159,14 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'model': ImageToVideoModelFromJSON(json['model']),
+        'model': json['model'],
         'prompt': json['prompt'],
         'duration': json['duration'],
         'clientId': json['client_id'],
         'requestId': json['request_id'],
         'chatbotId': json['chatbot_id'],
         'inputImageId': json['input_image_id'],
-        'resolution': VideoResolutionFromJSON(json['resolution']),
+        'resolution': json['resolution'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(VideoLoraNameFromJSON)),
         'negativePrompt': json['negative_prompt'] == null ? undefined : json['negative_prompt'],
         'watermark': json['watermark'] == null ? undefined : json['watermark'],
@@ -182,14 +187,14 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
 
     return {
         
-        'model': ImageToVideoModelToJSON(value['model']),
+        'model': value['model'],
         'prompt': value['prompt'],
         'duration': value['duration'],
         'client_id': value['clientId'],
         'request_id': value['requestId'],
         'chatbot_id': value['chatbotId'],
         'input_image_id': value['inputImageId'],
-        'resolution': VideoResolutionToJSON(value['resolution']),
+        'resolution': value['resolution'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(VideoLoraNameToJSON)),
         'negative_prompt': value['negativePrompt'],
         'watermark': value['watermark'],

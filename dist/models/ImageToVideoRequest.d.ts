@@ -10,8 +10,6 @@
  * Do not edit the class manually.
  */
 import type { VideoLoraName } from './VideoLoraName';
-import type { ImageToVideoModel } from './ImageToVideoModel';
-import type { VideoResolution } from './VideoResolution';
 /**
  *
  * @export
@@ -20,10 +18,10 @@ import type { VideoResolution } from './VideoResolution';
 export interface ImageToVideoRequest {
     /**
      *
-     * @type {ImageToVideoModel}
+     * @type {string}
      * @memberof ImageToVideoRequest
      */
-    model: ImageToVideoModel;
+    model: ImageToVideoRequestModelEnum;
     /**
      *
      * @type {string}
@@ -62,10 +60,10 @@ export interface ImageToVideoRequest {
     inputImageId: string;
     /**
      *
-     * @type {VideoResolution}
+     * @type {string}
      * @memberof ImageToVideoRequest
      */
-    resolution: VideoResolution;
+    resolution: ImageToVideoRequestResolutionEnum;
     /**
      *
      * @type {Array<VideoLoraName>}
@@ -103,6 +101,23 @@ export interface ImageToVideoRequest {
      */
     audioGeneration?: boolean;
 }
+/**
+ * @export
+ */
+export declare const ImageToVideoRequestModelEnum: {
+    readonly _22I2V: "WAN_22_I2V";
+    readonly _27I2V: "WAN_27_I2V";
+};
+export type ImageToVideoRequestModelEnum = typeof ImageToVideoRequestModelEnum[keyof typeof ImageToVideoRequestModelEnum];
+/**
+ * @export
+ */
+export declare const ImageToVideoRequestResolutionEnum: {
+    readonly P480: "P480";
+    readonly P720: "P720";
+    readonly P1080: "P1080";
+};
+export type ImageToVideoRequestResolutionEnum = typeof ImageToVideoRequestResolutionEnum[keyof typeof ImageToVideoRequestResolutionEnum];
 /**
  * Check if a given object implements the ImageToVideoRequest interface.
  */

@@ -41,6 +41,7 @@ function UserPreferenceProfileFromJSONTyped(json, ignoreDiscriminator) {
         'llmModel': json['llm_model'] == null ? undefined : (0, LLM_1.LLMFromJSON)(json['llm_model']),
         'chatNympho': json['chat_nympho'] == null ? undefined : json['chat_nympho'],
         'chatAutoSuggestions': json['chat_auto_suggestions'] == null ? undefined : json['chat_auto_suggestions'],
+        'videoPromptExpansion': json['video_prompt_expansion'] == null ? undefined : json['video_prompt_expansion'],
         'onboardingState': json['onboarding_state'] == null ? undefined : json['onboarding_state'],
     };
 }
@@ -60,6 +61,7 @@ function UserPreferenceProfileToJSONTyped(value, ignoreDiscriminator = false) {
         'llm_model': (0, LLM_1.LLMToJSON)(value['llmModel']),
         'chat_nympho': value['chatNympho'],
         'chat_auto_suggestions': value['chatAutoSuggestions'],
+        'video_prompt_expansion': value['videoPromptExpansion'],
         'onboarding_state': value['onboardingState'],
     };
 }
