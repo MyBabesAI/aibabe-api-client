@@ -31,48 +31,48 @@ import {
 /**
  * 
  * @export
- * @interface AdminSavePricingGroupRequestOutput
+ * @interface AdminSavePricingGroupRequest
  */
-export interface AdminSavePricingGroupRequestOutput {
+export interface AdminSavePricingGroupRequest {
     [key: string]: any | any;
     /**
      * 
      * @type {Id}
-     * @memberof AdminSavePricingGroupRequestOutput
+     * @memberof AdminSavePricingGroupRequest
      */
     id?: Id;
     /**
      * 
      * @type {string}
-     * @memberof AdminSavePricingGroupRequestOutput
+     * @memberof AdminSavePricingGroupRequest
      */
     code?: string;
     /**
      * 
      * @type {boolean}
-     * @memberof AdminSavePricingGroupRequestOutput
+     * @memberof AdminSavePricingGroupRequest
      */
     activate?: boolean;
     /**
      * 
      * @type {Array<AdminCreatePricingProductRequest>}
-     * @memberof AdminSavePricingGroupRequestOutput
+     * @memberof AdminSavePricingGroupRequest
      */
     prices?: Array<AdminCreatePricingProductRequest>;
 }
 
 /**
- * Check if a given object implements the AdminSavePricingGroupRequestOutput interface.
+ * Check if a given object implements the AdminSavePricingGroupRequest interface.
  */
-export function instanceOfAdminSavePricingGroupRequestOutput(value: object): value is AdminSavePricingGroupRequestOutput {
+export function instanceOfAdminSavePricingGroupRequest(value: object): value is AdminSavePricingGroupRequest {
     return true;
 }
 
-export function AdminSavePricingGroupRequestOutputFromJSON(json: any): AdminSavePricingGroupRequestOutput {
-    return AdminSavePricingGroupRequestOutputFromJSONTyped(json, false);
+export function AdminSavePricingGroupRequestFromJSON(json: any): AdminSavePricingGroupRequest {
+    return AdminSavePricingGroupRequestFromJSONTyped(json, false);
 }
 
-export function AdminSavePricingGroupRequestOutputFromJSONTyped(json: any, ignoreDiscriminator: boolean): AdminSavePricingGroupRequestOutput {
+export function AdminSavePricingGroupRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): AdminSavePricingGroupRequest {
     if (json == null) {
         return json;
     }
@@ -86,11 +86,11 @@ export function AdminSavePricingGroupRequestOutputFromJSONTyped(json: any, ignor
     };
 }
 
-  export function AdminSavePricingGroupRequestOutputToJSON(json: any): AdminSavePricingGroupRequestOutput {
-      return AdminSavePricingGroupRequestOutputToJSONTyped(json, false);
+  export function AdminSavePricingGroupRequestToJSON(json: any): AdminSavePricingGroupRequest {
+      return AdminSavePricingGroupRequestToJSONTyped(json, false);
   }
 
-  export function AdminSavePricingGroupRequestOutputToJSONTyped(value?: AdminSavePricingGroupRequestOutput | null, ignoreDiscriminator: boolean = false): any {
+  export function AdminSavePricingGroupRequestToJSONTyped(value?: AdminSavePricingGroupRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -13,20 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { AdminSavePricingGroupRequestOutput } from './AdminSavePricingGroupRequestOutput';
+import type { AdminSaveTokenUsageGroupRequest } from './AdminSaveTokenUsageGroupRequest';
 import {
-    AdminSavePricingGroupRequestOutputFromJSON,
-    AdminSavePricingGroupRequestOutputFromJSONTyped,
-    AdminSavePricingGroupRequestOutputToJSON,
-    AdminSavePricingGroupRequestOutputToJSONTyped,
-} from './AdminSavePricingGroupRequestOutput';
-import type { AdminSaveTokenUsageGroupRequestOutput } from './AdminSaveTokenUsageGroupRequestOutput';
+    AdminSaveTokenUsageGroupRequestFromJSON,
+    AdminSaveTokenUsageGroupRequestFromJSONTyped,
+    AdminSaveTokenUsageGroupRequestToJSON,
+    AdminSaveTokenUsageGroupRequestToJSONTyped,
+} from './AdminSaveTokenUsageGroupRequest';
+import type { AdminSavePricingGroupRequest } from './AdminSavePricingGroupRequest';
 import {
-    AdminSaveTokenUsageGroupRequestOutputFromJSON,
-    AdminSaveTokenUsageGroupRequestOutputFromJSONTyped,
-    AdminSaveTokenUsageGroupRequestOutputToJSON,
-    AdminSaveTokenUsageGroupRequestOutputToJSONTyped,
-} from './AdminSaveTokenUsageGroupRequestOutput';
+    AdminSavePricingGroupRequestFromJSON,
+    AdminSavePricingGroupRequestFromJSONTyped,
+    AdminSavePricingGroupRequestToJSON,
+    AdminSavePricingGroupRequestToJSONTyped,
+} from './AdminSavePricingGroupRequest';
 
 /**
  * 
@@ -36,16 +36,16 @@ import {
 export interface AdminPricingGroupsResponse {
     /**
      * 
-     * @type {Array<AdminSavePricingGroupRequestOutput>}
+     * @type {Array<AdminSavePricingGroupRequest>}
      * @memberof AdminPricingGroupsResponse
      */
-    pricingGroups: Array<AdminSavePricingGroupRequestOutput>;
+    pricingGroups: Array<AdminSavePricingGroupRequest>;
     /**
      * 
-     * @type {Array<AdminSaveTokenUsageGroupRequestOutput>}
+     * @type {Array<AdminSaveTokenUsageGroupRequest>}
      * @memberof AdminPricingGroupsResponse
      */
-    tokenUsageGroups: Array<AdminSaveTokenUsageGroupRequestOutput>;
+    tokenUsageGroups: Array<AdminSaveTokenUsageGroupRequest>;
 }
 
 /**
@@ -67,8 +67,8 @@ export function AdminPricingGroupsResponseFromJSONTyped(json: any, ignoreDiscrim
     }
     return {
         
-        'pricingGroups': ((json['pricing_groups'] as Array<any>).map(AdminSavePricingGroupRequestOutputFromJSON)),
-        'tokenUsageGroups': ((json['token_usage_groups'] as Array<any>).map(AdminSaveTokenUsageGroupRequestOutputFromJSON)),
+        'pricingGroups': ((json['pricing_groups'] as Array<any>).map(AdminSavePricingGroupRequestFromJSON)),
+        'tokenUsageGroups': ((json['token_usage_groups'] as Array<any>).map(AdminSaveTokenUsageGroupRequestFromJSON)),
     };
 }
 
@@ -83,8 +83,8 @@ export function AdminPricingGroupsResponseFromJSONTyped(json: any, ignoreDiscrim
 
     return {
         
-        'pricing_groups': ((value['pricingGroups'] as Array<any>).map(AdminSavePricingGroupRequestOutputToJSON)),
-        'token_usage_groups': ((value['tokenUsageGroups'] as Array<any>).map(AdminSaveTokenUsageGroupRequestOutputToJSON)),
+        'pricing_groups': ((value['pricingGroups'] as Array<any>).map(AdminSavePricingGroupRequestToJSON)),
+        'token_usage_groups': ((value['tokenUsageGroups'] as Array<any>).map(AdminSaveTokenUsageGroupRequestToJSON)),
     };
 }
 

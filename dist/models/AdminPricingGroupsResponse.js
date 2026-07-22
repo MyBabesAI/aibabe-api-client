@@ -18,8 +18,8 @@ exports.AdminPricingGroupsResponseFromJSON = AdminPricingGroupsResponseFromJSON;
 exports.AdminPricingGroupsResponseFromJSONTyped = AdminPricingGroupsResponseFromJSONTyped;
 exports.AdminPricingGroupsResponseToJSON = AdminPricingGroupsResponseToJSON;
 exports.AdminPricingGroupsResponseToJSONTyped = AdminPricingGroupsResponseToJSONTyped;
-const AdminSavePricingGroupRequestOutput_1 = require("./AdminSavePricingGroupRequestOutput");
-const AdminSaveTokenUsageGroupRequestOutput_1 = require("./AdminSaveTokenUsageGroupRequestOutput");
+const AdminSaveTokenUsageGroupRequest_1 = require("./AdminSaveTokenUsageGroupRequest");
+const AdminSavePricingGroupRequest_1 = require("./AdminSavePricingGroupRequest");
 /**
  * Check if a given object implements the AdminPricingGroupsResponse interface.
  */
@@ -38,8 +38,8 @@ function AdminPricingGroupsResponseFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'pricingGroups': (json['pricing_groups'].map(AdminSavePricingGroupRequestOutput_1.AdminSavePricingGroupRequestOutputFromJSON)),
-        'tokenUsageGroups': (json['token_usage_groups'].map(AdminSaveTokenUsageGroupRequestOutput_1.AdminSaveTokenUsageGroupRequestOutputFromJSON)),
+        'pricingGroups': (json['pricing_groups'].map(AdminSavePricingGroupRequest_1.AdminSavePricingGroupRequestFromJSON)),
+        'tokenUsageGroups': (json['token_usage_groups'].map(AdminSaveTokenUsageGroupRequest_1.AdminSaveTokenUsageGroupRequestFromJSON)),
     };
 }
 function AdminPricingGroupsResponseToJSON(json) {
@@ -50,8 +50,8 @@ function AdminPricingGroupsResponseToJSONTyped(value, ignoreDiscriminator = fals
         return value;
     }
     return {
-        'pricing_groups': (value['pricingGroups'].map(AdminSavePricingGroupRequestOutput_1.AdminSavePricingGroupRequestOutputToJSON)),
-        'token_usage_groups': (value['tokenUsageGroups'].map(AdminSaveTokenUsageGroupRequestOutput_1.AdminSaveTokenUsageGroupRequestOutputToJSON)),
+        'pricing_groups': (value['pricingGroups'].map(AdminSavePricingGroupRequest_1.AdminSavePricingGroupRequestToJSON)),
+        'token_usage_groups': (value['tokenUsageGroups'].map(AdminSaveTokenUsageGroupRequest_1.AdminSaveTokenUsageGroupRequestToJSON)),
     };
 }
 //# sourceMappingURL=AdminPricingGroupsResponse.js.map

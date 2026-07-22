@@ -41,13 +41,11 @@ src/models/AdminPricingGroupResponse.ts
 src/models/AdminPricingGroupRevisionsResponse.ts
 src/models/AdminPricingGroupsResponse.ts
 src/models/AdminPricingProductResponse.ts
-src/models/AdminSavePricingGroupRequestInput.ts
-src/models/AdminSavePricingGroupRequestOutput.ts
+src/models/AdminSavePricingGroupRequest.ts
 src/models/AdminSavePricingGroupRevisionsRequest.ts
 src/models/AdminSavePricingGroupRevisionsRequestPricingGroup.ts
 src/models/AdminSavePricingGroupRevisionsRequestTokenUsageGroup.ts
-src/models/AdminSaveTokenUsageGroupRequestInput.ts
-src/models/AdminSaveTokenUsageGroupRequestOutput.ts
+src/models/AdminSaveTokenUsageGroupRequest.ts
 src/models/AdminTokenUsageGroupResponse.ts
 src/models/AdminTokenUsageResponse.ts
 src/models/AdminUserJourneyListItem.ts

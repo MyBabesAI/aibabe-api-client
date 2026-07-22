@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { AdminSaveTokenUsageGroupRequest } from './AdminSaveTokenUsageGroupRequest';
+import {
+    AdminSaveTokenUsageGroupRequestFromJSON,
+    AdminSaveTokenUsageGroupRequestFromJSONTyped,
+    AdminSaveTokenUsageGroupRequestToJSON,
+    AdminSaveTokenUsageGroupRequestToJSONTyped,
+} from './AdminSaveTokenUsageGroupRequest';
 import type { AdminCreateTokenUsageRequest } from './AdminCreateTokenUsageRequest';
 import {
     AdminCreateTokenUsageRequestFromJSON,
@@ -27,13 +34,6 @@ import {
     IdToJSON,
     IdToJSONTyped,
 } from './Id';
-import type { AdminSaveTokenUsageGroupRequestInput } from './AdminSaveTokenUsageGroupRequestInput';
-import {
-    AdminSaveTokenUsageGroupRequestInputFromJSON,
-    AdminSaveTokenUsageGroupRequestInputFromJSONTyped,
-    AdminSaveTokenUsageGroupRequestInputToJSON,
-    AdminSaveTokenUsageGroupRequestInputToJSONTyped,
-} from './AdminSaveTokenUsageGroupRequestInput';
 
 /**
  * 

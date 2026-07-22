@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { AdminSavePricingGroupRequest } from './AdminSavePricingGroupRequest';
+import {
+    AdminSavePricingGroupRequestFromJSON,
+    AdminSavePricingGroupRequestFromJSONTyped,
+    AdminSavePricingGroupRequestToJSON,
+    AdminSavePricingGroupRequestToJSONTyped,
+} from './AdminSavePricingGroupRequest';
 import type { AdminCreatePricingProductRequest } from './AdminCreatePricingProductRequest';
 import {
     AdminCreatePricingProductRequestFromJSON,
@@ -27,13 +34,6 @@ import {
     IdToJSON,
     IdToJSONTyped,
 } from './Id';
-import type { AdminSavePricingGroupRequestInput } from './AdminSavePricingGroupRequestInput';
-import {
-    AdminSavePricingGroupRequestInputFromJSON,
-    AdminSavePricingGroupRequestInputFromJSONTyped,
-    AdminSavePricingGroupRequestInputToJSON,
-    AdminSavePricingGroupRequestInputToJSONTyped,
-} from './AdminSavePricingGroupRequestInput';
 
 /**
  * 

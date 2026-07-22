@@ -31,48 +31,48 @@ import {
 /**
  * 
  * @export
- * @interface AdminSaveTokenUsageGroupRequestOutput
+ * @interface AdminSaveTokenUsageGroupRequest
  */
-export interface AdminSaveTokenUsageGroupRequestOutput {
+export interface AdminSaveTokenUsageGroupRequest {
     [key: string]: any | any;
     /**
      * 
      * @type {Id}
-     * @memberof AdminSaveTokenUsageGroupRequestOutput
+     * @memberof AdminSaveTokenUsageGroupRequest
      */
     id?: Id;
     /**
      * 
      * @type {string}
-     * @memberof AdminSaveTokenUsageGroupRequestOutput
+     * @memberof AdminSaveTokenUsageGroupRequest
      */
     code?: string;
     /**
      * 
      * @type {boolean}
-     * @memberof AdminSaveTokenUsageGroupRequestOutput
+     * @memberof AdminSaveTokenUsageGroupRequest
      */
     activate?: boolean;
     /**
      * 
      * @type {Array<AdminCreateTokenUsageRequest>}
-     * @memberof AdminSaveTokenUsageGroupRequestOutput
+     * @memberof AdminSaveTokenUsageGroupRequest
      */
     rules?: Array<AdminCreateTokenUsageRequest>;
 }
 
 /**
- * Check if a given object implements the AdminSaveTokenUsageGroupRequestOutput interface.
+ * Check if a given object implements the AdminSaveTokenUsageGroupRequest interface.
  */
-export function instanceOfAdminSaveTokenUsageGroupRequestOutput(value: object): value is AdminSaveTokenUsageGroupRequestOutput {
+export function instanceOfAdminSaveTokenUsageGroupRequest(value: object): value is AdminSaveTokenUsageGroupRequest {
     return true;
 }
 
-export function AdminSaveTokenUsageGroupRequestOutputFromJSON(json: any): AdminSaveTokenUsageGroupRequestOutput {
-    return AdminSaveTokenUsageGroupRequestOutputFromJSONTyped(json, false);
+export function AdminSaveTokenUsageGroupRequestFromJSON(json: any): AdminSaveTokenUsageGroupRequest {
+    return AdminSaveTokenUsageGroupRequestFromJSONTyped(json, false);
 }
 
-export function AdminSaveTokenUsageGroupRequestOutputFromJSONTyped(json: any, ignoreDiscriminator: boolean): AdminSaveTokenUsageGroupRequestOutput {
+export function AdminSaveTokenUsageGroupRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): AdminSaveTokenUsageGroupRequest {
     if (json == null) {
         return json;
     }
@@ -86,11 +86,11 @@ export function AdminSaveTokenUsageGroupRequestOutputFromJSONTyped(json: any, ig
     };
 }
 
-  export function AdminSaveTokenUsageGroupRequestOutputToJSON(json: any): AdminSaveTokenUsageGroupRequestOutput {
-      return AdminSaveTokenUsageGroupRequestOutputToJSONTyped(json, false);
+  export function AdminSaveTokenUsageGroupRequestToJSON(json: any): AdminSaveTokenUsageGroupRequest {
+      return AdminSaveTokenUsageGroupRequestToJSONTyped(json, false);
   }
 
-  export function AdminSaveTokenUsageGroupRequestOutputToJSONTyped(value?: AdminSaveTokenUsageGroupRequestOutput | null, ignoreDiscriminator: boolean = false): any {
+  export function AdminSaveTokenUsageGroupRequestToJSONTyped(value?: AdminSaveTokenUsageGroupRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

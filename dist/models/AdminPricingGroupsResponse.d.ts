@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AdminSavePricingGroupRequestOutput } from './AdminSavePricingGroupRequestOutput';
-import type { AdminSaveTokenUsageGroupRequestOutput } from './AdminSaveTokenUsageGroupRequestOutput';
+import type { AdminSaveTokenUsageGroupRequest } from './AdminSaveTokenUsageGroupRequest';
+import type { AdminSavePricingGroupRequest } from './AdminSavePricingGroupRequest';
 /**
  *
  * @export
@@ -19,16 +19,16 @@ import type { AdminSaveTokenUsageGroupRequestOutput } from './AdminSaveTokenUsag
 export interface AdminPricingGroupsResponse {
     /**
      *
-     * @type {Array<AdminSavePricingGroupRequestOutput>}
+     * @type {Array<AdminSavePricingGroupRequest>}
      * @memberof AdminPricingGroupsResponse
      */
-    pricingGroups: Array<AdminSavePricingGroupRequestOutput>;
+    pricingGroups: Array<AdminSavePricingGroupRequest>;
     /**
      *
-     * @type {Array<AdminSaveTokenUsageGroupRequestOutput>}
+     * @type {Array<AdminSaveTokenUsageGroupRequest>}
      * @memberof AdminPricingGroupsResponse
      */
-    tokenUsageGroups: Array<AdminSaveTokenUsageGroupRequestOutput>;
+    tokenUsageGroups: Array<AdminSaveTokenUsageGroupRequest>;
 }
 /**
  * Check if a given object implements the AdminPricingGroupsResponse interface.
