@@ -15,6 +15,7 @@
  */
 export declare const ExceptionCode: {
     readonly InternalError: "internal_error";
+    readonly RateLimitExceeded: "rate_limit_exceeded";
     readonly AuthInvalidCredentials: "auth_invalid_credentials";
     readonly AuthInvalidPassword: "auth_invalid_password";
     readonly AuthNotVerified: "auth_not_verified";

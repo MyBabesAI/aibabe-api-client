@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatReponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, ListConversationsResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest, TokenPricingConfigResponse } from '../models/index';
+import type { ChatReponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, TokenPricingConfigResponse } from '../models/index';
 export interface ChatChatChatbotIdPostRequest {
     chatbotId: string;
     postChatRequest: PostChatRequest;
@@ -18,6 +18,9 @@ export interface ChatChatChatbotIdPostRequest {
 export interface ChatSuggestionChatChatbotIdSuggestionPostRequest {
     chatbotId: string;
     postChatSuggestionRequest: PostChatSuggestionRequest;
+}
+export interface ClaimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRequest {
+    chatbotId: string;
 }
 export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
@@ -45,6 +48,13 @@ export interface GenerateImageOnMessageChatChatbotIdMessageRequestIdImagePostReq
     chatbotId: string;
     requestId: string;
     postChatRequest: PostChatRequest;
+}
+export interface GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest {
+    chatbotId: string;
+}
+export interface LiveRoleplayChatChatbotIdLiveRoleplayPostRequest {
+    chatbotId: string;
+    postLiveRoleplayRequest: PostLiveRoleplayRequest;
 }
 export interface RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest {
     chatbotId: string;
@@ -85,6 +95,14 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Chat Suggestion
      */
     chatSuggestionChatChatbotIdSuggestionPost(requestParameters: ChatSuggestionChatChatbotIdSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse>;
+    /**
+     * Claim Live Roleplay
+     */
+    claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRaw(requestParameters: ClaimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Claim Live Roleplay
+     */
+    claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPost(requestParameters: ClaimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Conversation
      */
@@ -149,6 +167,22 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Get Image Moderation Prompt
      */
     getImageModerationPromptChatImageModerationPromptGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageModerationPromptResponse>;
+    /**
+     * Get Live Roleplay History
+     */
+    getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRaw(requestParameters: GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetLiveRoleplayHistoryResponse>>;
+    /**
+     * Get Live Roleplay History
+     */
+    getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGet(requestParameters: GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLiveRoleplayHistoryResponse>;
+    /**
+     * Live Roleplay
+     */
+    liveRoleplayChatChatbotIdLiveRoleplayPostRaw(requestParameters: LiveRoleplayChatChatbotIdLiveRoleplayPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostLiveRoleplayResponse>>;
+    /**
+     * Live Roleplay
+     */
+    liveRoleplayChatChatbotIdLiveRoleplayPost(requestParameters: LiveRoleplayChatChatbotIdLiveRoleplayPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostLiveRoleplayResponse>;
     /**
      * Regenerate
      */

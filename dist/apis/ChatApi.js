@@ -112,6 +112,35 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Claim Live Roleplay
+     */
+    async claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/live-roleplay/claim`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Claim Live Roleplay
+     */
+    async claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPost(requestParameters, initOverrides) {
+        const response = await this.claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Conversation
      */
     async conversationChatChatbotIdGetRaw(requestParameters, initOverrides) {
@@ -334,6 +363,59 @@ class ChatApi extends runtime.BaseAPI {
      */
     async getImageModerationPromptChatImageModerationPromptGet(initOverrides) {
         const response = await this.getImageModerationPromptChatImageModerationPromptGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
+     * Get Live Roleplay History
+     */
+    async getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/live-roleplay`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetLiveRoleplayHistoryResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get Live Roleplay History
+     */
+    async getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGet(requestParameters, initOverrides) {
+        const response = await this.getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Live Roleplay
+     */
+    async liveRoleplayChatChatbotIdLiveRoleplayPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling liveRoleplayChatChatbotIdLiveRoleplayPost().');
+        }
+        if (requestParameters['postLiveRoleplayRequest'] == null) {
+            throw new runtime.RequiredError('postLiveRoleplayRequest', 'Required parameter "postLiveRoleplayRequest" was null or undefined when calling liveRoleplayChatChatbotIdLiveRoleplayPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/live-roleplay`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostLiveRoleplayRequestToJSON)(requestParameters['postLiveRoleplayRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostLiveRoleplayResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Live Roleplay
+     */
+    async liveRoleplayChatChatbotIdLiveRoleplayPost(requestParameters, initOverrides) {
+        const response = await this.liveRoleplayChatChatbotIdLiveRoleplayPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

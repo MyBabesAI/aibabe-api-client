@@ -146,6 +146,7 @@ src/models/GetImageModerationPromptResponse.ts
 src/models/GetInstancesDBVastAiListResponse.ts
 src/models/GetLeaderboardRequest.ts
 src/models/GetLeaderboardResponse.ts
+src/models/GetLiveRoleplayHistoryResponse.ts
 src/models/GetLorasResponse.ts
 src/models/GetMemoryResponse.ts
 src/models/GetPersonalityChatbotResponse.ts
@@ -184,6 +185,7 @@ src/models/LikePostNotification.ts
 src/models/ListAssistantChatSessionsResponse.ts
 src/models/ListChatbotItem.ts
 src/models/ListConversationsResponse.ts
+src/models/LiveRoleplayHistoryMessage.ts
 src/models/LoraName.ts
 src/models/MarketingCampaignName.ts
 src/models/MemoracekType.ts
@@ -240,6 +242,8 @@ src/models/PostGenerateImageRequest.ts
 src/models/PostGenerateSceneRequest.ts
 src/models/PostImagenResponse.ts
 src/models/PostInstancesDBVastAiListResponse.ts
+src/models/PostLiveRoleplayRequest.ts
+src/models/PostLiveRoleplayResponse.ts
 src/models/PostLogin.ts
 src/models/PostPasswordReset.ts
 src/models/PostProfilePictureResponse.ts

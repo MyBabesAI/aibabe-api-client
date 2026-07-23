@@ -25,6 +25,7 @@ exports.ExceptionCodeToJSONTyped = ExceptionCodeToJSONTyped;
  */
 exports.ExceptionCode = {
     InternalError: 'internal_error',
+    RateLimitExceeded: 'rate_limit_exceeded',
     AuthInvalidCredentials: 'auth_invalid_credentials',
     AuthInvalidPassword: 'auth_invalid_password',
     AuthNotVerified: 'auth_not_verified',
