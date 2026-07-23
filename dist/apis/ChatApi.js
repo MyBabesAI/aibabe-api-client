@@ -112,35 +112,6 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Claim Live Roleplay
-     */
-    async claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRaw(requestParameters, initOverrides) {
-        if (requestParameters['chatbotId'] == null) {
-            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPost().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/chat/{chatbot_id}/live-roleplay/claim`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse(response);
-        }
-        else {
-            return new runtime.TextApiResponse(response);
-        }
-    }
-    /**
-     * Claim Live Roleplay
-     */
-    async claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPost(requestParameters, initOverrides) {
-        const response = await this.claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
      * Conversation
      */
     async conversationChatChatbotIdGetRaw(requestParameters, initOverrides) {

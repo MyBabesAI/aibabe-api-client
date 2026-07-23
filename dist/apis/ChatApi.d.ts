@@ -19,9 +19,6 @@ export interface ChatSuggestionChatChatbotIdSuggestionPostRequest {
     chatbotId: string;
     postChatSuggestionRequest: PostChatSuggestionRequest;
 }
-export interface ClaimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRequest {
-    chatbotId: string;
-}
 export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
     limit?: number;
@@ -95,14 +92,6 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Chat Suggestion
      */
     chatSuggestionChatChatbotIdSuggestionPost(requestParameters: ChatSuggestionChatChatbotIdSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse>;
-    /**
-     * Claim Live Roleplay
-     */
-    claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRaw(requestParameters: ClaimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
-    /**
-     * Claim Live Roleplay
-     */
-    claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPost(requestParameters: ClaimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Conversation
      */

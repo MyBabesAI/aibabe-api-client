@@ -74,10 +74,6 @@ export interface ChatSuggestionChatChatbotIdSuggestionPostRequest {
     postChatSuggestionRequest: PostChatSuggestionRequest;
 }
 
-export interface ClaimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRequest {
-    chatbotId: string;
-}
-
 export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
     limit?: number;
@@ -232,43 +228,6 @@ export class ChatApi extends runtime.BaseAPI {
      */
     async chatSuggestionChatChatbotIdSuggestionPost(requestParameters: ChatSuggestionChatChatbotIdSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse> {
         const response = await this.chatSuggestionChatChatbotIdSuggestionPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Claim Live Roleplay
-     */
-    async claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRaw(requestParameters: ClaimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['chatbotId'] == null) {
-            throw new runtime.RequiredError(
-                'chatbotId',
-                'Required parameter "chatbotId" was null or undefined when calling claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/chat/{chatbot_id}/live-roleplay/claim`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * Claim Live Roleplay
-     */
-    async claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPost(requestParameters: ClaimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
-        const response = await this.claimLiveRoleplayChatChatbotIdLiveRoleplayClaimPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
