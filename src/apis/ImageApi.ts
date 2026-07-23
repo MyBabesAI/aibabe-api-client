@@ -25,6 +25,7 @@ import type {
   PostGenerateSceneRequest,
   PostImagenResponse,
   PostRestartServersRequest,
+  TokenPricingConfigResponse,
 } from '../models/index';
 import {
     ArtStyleFromJSON,
@@ -47,6 +48,8 @@ import {
     PostImagenResponseToJSON,
     PostRestartServersRequestFromJSON,
     PostRestartServersRequestToJSON,
+    TokenPricingConfigResponseFromJSON,
+    TokenPricingConfigResponseToJSON,
 } from '../models/index';
 
 export interface AttachmentImagenImageIdAttachmentGetRequest {
@@ -287,6 +290,32 @@ export class ImageApi extends runtime.BaseAPI {
      */
     async getImageByFilenameImagenFilenameGet(requestParameters: GetImageByFilenameImagenFilenameGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGeneratedImage> {
         const response = await this.getImageByFilenameImagenFilenameGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get Image Config
+     */
+    async getImageConfigImagenConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenPricingConfigResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/imagen/config`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => TokenPricingConfigResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Image Config
+     */
+    async getImageConfigImagenConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse> {
+        const response = await this.getImageConfigImagenConfigGetRaw(initOverrides);
         return await response.value();
     }
 

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatReponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, ListConversationsResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest } from '../models/index';
+import type { ChatReponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, ListConversationsResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest, TokenPricingConfigResponse } from '../models/index';
 export interface ChatChatChatbotIdPostRequest {
     chatbotId: string;
     postChatRequest: PostChatRequest;
@@ -133,6 +133,14 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Generate Image On Message
      */
     generateImageOnMessageChatChatbotIdMessageRequestIdImagePost(requestParameters: GenerateImageOnMessageChatChatbotIdMessageRequestIdImagePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse>;
+    /**
+     * Get Chat Config
+     */
+    getChatConfigChatConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenPricingConfigResponse>>;
+    /**
+     * Get Chat Config
+     */
+    getChatConfigChatConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse>;
     /**
      * Get Image Moderation Prompt
      */

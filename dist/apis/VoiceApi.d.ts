@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { GeneratedAudioItem, GetGeneratedAudioResponse, Language, SoundEffectResponse, SoundEffectsRequest, TextToSpeechEnhanceRequest, TextToSpeechEnhanceResponse, TextToSpeechRequest, TextToSpeechResponse } from '../models/index';
+import type { GeneratedAudioItem, GetGeneratedAudioResponse, Language, SoundEffectResponse, SoundEffectsRequest, TextToSpeechEnhanceRequest, TextToSpeechEnhanceResponse, TextToSpeechRequest, TextToSpeechResponse, TokenPricingConfigResponse } from '../models/index';
 export interface CreateReferenceVoiceReferencesPostRequest {
     name: string;
     audio: Blob;
@@ -86,6 +86,14 @@ export declare class VoiceApi extends runtime.BaseAPI {
      * Generate Voice Chat
      */
     generateVoiceChatVoiceMessageMessageIdPost(requestParameters: GenerateVoiceChatVoiceMessageMessageIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Get Audio Config
+     */
+    getAudioConfigVoiceConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenPricingConfigResponse>>;
+    /**
+     * Get Audio Config
+     */
+    getAudioConfigVoiceConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse>;
     /**
      * Get Audio
      */

@@ -25,6 +25,7 @@ import type {
   TextToSpeechEnhanceResponse,
   TextToSpeechRequest,
   TextToSpeechResponse,
+  TokenPricingConfigResponse,
 } from '../models/index';
 import {
     GeneratedAudioItemFromJSON,
@@ -47,6 +48,8 @@ import {
     TextToSpeechRequestToJSON,
     TextToSpeechResponseFromJSON,
     TextToSpeechResponseToJSON,
+    TokenPricingConfigResponseFromJSON,
+    TokenPricingConfigResponseToJSON,
 } from '../models/index';
 
 export interface CreateReferenceVoiceReferencesPostRequest {
@@ -343,6 +346,32 @@ export class VoiceApi extends runtime.BaseAPI {
      */
     async generateVoiceChatVoiceMessageMessageIdPost(requestParameters: GenerateVoiceChatVoiceMessageMessageIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.generateVoiceChatVoiceMessageMessageIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get Audio Config
+     */
+    async getAudioConfigVoiceConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenPricingConfigResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/voice/config`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => TokenPricingConfigResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Audio Config
+     */
+    async getAudioConfigVoiceConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse> {
+        const response = await this.getAudioConfigVoiceConfigGetRaw(initOverrides);
         return await response.value();
     }
 

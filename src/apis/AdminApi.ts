@@ -17,6 +17,9 @@ import * as runtime from '../runtime';
 import type {
   AdminAwardBadgeRequest,
   AdminBadgeResponse,
+  AdminPricingGroupRevisionsResponse,
+  AdminPricingGroupsResponse,
+  AdminSavePricingGroupRevisionsRequest,
   AdminUserJourneysResponse,
   AuraSubcategory,
   BadgeCategory,
@@ -40,6 +43,12 @@ import {
     AdminAwardBadgeRequestToJSON,
     AdminBadgeResponseFromJSON,
     AdminBadgeResponseToJSON,
+    AdminPricingGroupRevisionsResponseFromJSON,
+    AdminPricingGroupRevisionsResponseToJSON,
+    AdminPricingGroupsResponseFromJSON,
+    AdminPricingGroupsResponseToJSON,
+    AdminSavePricingGroupRevisionsRequestFromJSON,
+    AdminSavePricingGroupRevisionsRequestToJSON,
     AdminUserJourneysResponseFromJSON,
     AdminUserJourneysResponseToJSON,
     AuraSubcategoryFromJSON,
@@ -146,6 +155,10 @@ export interface ImpersonateAdminImpersonateEmailPostRequest {
 
 export interface ProvideAwardAdminBadgesAwardPostRequest {
     adminAwardBadgeRequest: AdminAwardBadgeRequest;
+}
+
+export interface SavePricingGroupRevisionsAdminPricingPostRequest {
+    adminSavePricingGroupRevisionsRequest: AdminSavePricingGroupRevisionsRequest;
 }
 
 export interface SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest {
@@ -477,6 +490,32 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async generateCodesAdminGiftCodesGeneratePost(requestParameters: GenerateCodesAdminGiftCodesGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.generateCodesAdminGiftCodesGeneratePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get Pricing
+     */
+    async getPricingAdminPricingGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminPricingGroupsResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/admin/pricing`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminPricingGroupsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Pricing
+     */
+    async getPricingAdminPricingGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPricingGroupsResponse> {
+        const response = await this.getPricingAdminPricingGetRaw(initOverrides);
         return await response.value();
     }
 
@@ -815,6 +854,42 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async resetUserClaimablesAdminUserResetClaimablesPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.resetUserClaimablesAdminUserResetClaimablesPostRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Save Pricing Group Revisions
+     */
+    async savePricingGroupRevisionsAdminPricingPostRaw(requestParameters: SavePricingGroupRevisionsAdminPricingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminPricingGroupRevisionsResponse>> {
+        if (requestParameters['adminSavePricingGroupRevisionsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'adminSavePricingGroupRevisionsRequest',
+                'Required parameter "adminSavePricingGroupRevisionsRequest" was null or undefined when calling savePricingGroupRevisionsAdminPricingPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/admin/pricing`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: AdminSavePricingGroupRevisionsRequestToJSON(requestParameters['adminSavePricingGroupRevisionsRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminPricingGroupRevisionsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Save Pricing Group Revisions
+     */
+    async savePricingGroupRevisionsAdminPricingPost(requestParameters: SavePricingGroupRevisionsAdminPricingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPricingGroupRevisionsResponse> {
+        const response = await this.savePricingGroupRevisionsAdminPricingPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
