@@ -120,6 +120,7 @@ export const ExceptionCode = {
     TokenUsageMessageModelInvalid: 'token_usage_message_model_invalid',
     TokenUsageCodeDuplicate: 'token_usage_code_duplicate',
     TokenUsageSelectorDuplicate: 'token_usage_selector_duplicate',
+    TokenUsagePriceNotFound: 'token_usage_price_not_found',
     PricingGroupRevisionPayloadRequired: 'pricing_group_revision_payload_required',
     FormatNotSupported: 'format_not_supported',
     FileSizeExceeded: 'file_size_exceeded',

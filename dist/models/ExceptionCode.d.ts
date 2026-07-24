@@ -116,6 +116,7 @@ export declare const ExceptionCode: {
     readonly TokenUsageMessageModelInvalid: "token_usage_message_model_invalid";
     readonly TokenUsageCodeDuplicate: "token_usage_code_duplicate";
     readonly TokenUsageSelectorDuplicate: "token_usage_selector_duplicate";
+    readonly TokenUsagePriceNotFound: "token_usage_price_not_found";
     readonly PricingGroupRevisionPayloadRequired: "pricing_group_revision_payload_required";
     readonly FormatNotSupported: "format_not_supported";
     readonly FileSizeExceeded: "file_size_exceeded";

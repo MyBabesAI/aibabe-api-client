@@ -29,7 +29,7 @@ src/apis/index.ts
 src/index.ts
 src/models/AccessType.ts
 src/models/ActorRole.ts
-src/models/AddonPrice.ts
+src/models/AddonProductPrice.ts
 src/models/AdminAwardBadgeRequest.ts
 src/models/AdminBadgeResponse.ts
 src/models/AdminCreatePricingProductRequest.ts
@@ -261,6 +261,7 @@ src/models/PostVastAIStatus.ts
 src/models/PostVerifyPublicUsernameRequest.ts
 src/models/PostVerifyPublicUsernameResponse.ts
 src/models/PreferenceOption.ts
+src/models/PricingDisplayContext.ts
 src/models/PricingVersionStatus.ts
 src/models/ProductType.ts
 src/models/PublicUserInfo.ts
@@ -333,10 +334,13 @@ src/models/StoryPreview.ts
 src/models/StoryRating.ts
 src/models/StoryVisibility.ts
 src/models/Subscription.ts
+src/models/SubscriptionGenerationEstimate.ts
 src/models/SubscriptionModel.ts
-src/models/SubscriptionPrice.ts
+src/models/SubscriptionPlanPrice.ts
 src/models/SubscriptionStatus.ts
 src/models/SubscriptionTier.ts
+src/models/SubscriptionTokenUsage.ts
+src/models/SubscriptionVideoTokenPrice.ts
 src/models/TagCategory.ts
 src/models/TagData.ts
 src/models/TagImageLora.ts
@@ -381,6 +385,7 @@ src/models/VideoModCategory.ts
 src/models/VideoModelConfig.ts
 src/models/VideoPreset.ts
 src/models/VideoPresetCategory.ts
+src/models/VideoPricingModel.ts
 src/models/VideoQualityConfig.ts
 src/models/VideoResolution.ts
 src/models/VisualType.ts
