@@ -9,8 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { AddonPrice } from './AddonPrice';
-import type { SubscriptionPrice } from './SubscriptionPrice';
+import type { AddonProductPrice } from './AddonProductPrice';
+import type { SubscriptionPlanPrice } from './SubscriptionPlanPrice';
+import type { SubscriptionTokenUsage } from './SubscriptionTokenUsage';
+import type { PaymentCurrency } from './PaymentCurrency';
 /**
  *
  * @export
@@ -19,19 +21,33 @@ import type { SubscriptionPrice } from './SubscriptionPrice';
 export interface GetPricesResponse {
     /**
      *
-     * @type {{ [key: string]: Array<SubscriptionPrice>; }}
+     * @type {PaymentCurrency}
      * @memberof GetPricesResponse
      */
-    subscriptions: {
-        [key: string]: Array<SubscriptionPrice>;
+    currency: PaymentCurrency;
+    /**
+     *
+     * @type {{ [key: string]: SubscriptionTokenUsage; }}
+     * @memberof GetPricesResponse
+     */
+    tokenUsage: {
+        [key: string]: SubscriptionTokenUsage;
     };
     /**
      *
-     * @type {{ [key: string]: Array<AddonPrice>; }}
+     * @type {{ [key: string]: Array<SubscriptionPlanPrice>; }}
+     * @memberof GetPricesResponse
+     */
+    subscriptions: {
+        [key: string]: Array<SubscriptionPlanPrice>;
+    };
+    /**
+     *
+     * @type {{ [key: string]: Array<AddonProductPrice>; }}
      * @memberof GetPricesResponse
      */
     addons: {
-        [key: string]: Array<AddonPrice>;
+        [key: string]: Array<AddonProductPrice>;
     };
 }
 /**

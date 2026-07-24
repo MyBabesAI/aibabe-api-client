@@ -13,20 +13,34 @@
  */
 
 import { mapValues } from '../runtime';
-import type { AddonPrice } from './AddonPrice';
+import type { AddonProductPrice } from './AddonProductPrice';
 import {
-    AddonPriceFromJSON,
-    AddonPriceFromJSONTyped,
-    AddonPriceToJSON,
-    AddonPriceToJSONTyped,
-} from './AddonPrice';
-import type { SubscriptionPrice } from './SubscriptionPrice';
+    AddonProductPriceFromJSON,
+    AddonProductPriceFromJSONTyped,
+    AddonProductPriceToJSON,
+    AddonProductPriceToJSONTyped,
+} from './AddonProductPrice';
+import type { SubscriptionPlanPrice } from './SubscriptionPlanPrice';
 import {
-    SubscriptionPriceFromJSON,
-    SubscriptionPriceFromJSONTyped,
-    SubscriptionPriceToJSON,
-    SubscriptionPriceToJSONTyped,
-} from './SubscriptionPrice';
+    SubscriptionPlanPriceFromJSON,
+    SubscriptionPlanPriceFromJSONTyped,
+    SubscriptionPlanPriceToJSON,
+    SubscriptionPlanPriceToJSONTyped,
+} from './SubscriptionPlanPrice';
+import type { SubscriptionTokenUsage } from './SubscriptionTokenUsage';
+import {
+    SubscriptionTokenUsageFromJSON,
+    SubscriptionTokenUsageFromJSONTyped,
+    SubscriptionTokenUsageToJSON,
+    SubscriptionTokenUsageToJSONTyped,
+} from './SubscriptionTokenUsage';
+import type { PaymentCurrency } from './PaymentCurrency';
+import {
+    PaymentCurrencyFromJSON,
+    PaymentCurrencyFromJSONTyped,
+    PaymentCurrencyToJSON,
+    PaymentCurrencyToJSONTyped,
+} from './PaymentCurrency';
 
 /**
  * 
@@ -36,22 +50,38 @@ import {
 export interface GetPricesResponse {
     /**
      * 
-     * @type {{ [key: string]: Array<SubscriptionPrice>; }}
+     * @type {PaymentCurrency}
      * @memberof GetPricesResponse
      */
-    subscriptions: { [key: string]: Array<SubscriptionPrice>; };
+    currency: PaymentCurrency;
     /**
      * 
-     * @type {{ [key: string]: Array<AddonPrice>; }}
+     * @type {{ [key: string]: SubscriptionTokenUsage; }}
      * @memberof GetPricesResponse
      */
-    addons: { [key: string]: Array<AddonPrice>; };
+    tokenUsage: { [key: string]: SubscriptionTokenUsage; };
+    /**
+     * 
+     * @type {{ [key: string]: Array<SubscriptionPlanPrice>; }}
+     * @memberof GetPricesResponse
+     */
+    subscriptions: { [key: string]: Array<SubscriptionPlanPrice>; };
+    /**
+     * 
+     * @type {{ [key: string]: Array<AddonProductPrice>; }}
+     * @memberof GetPricesResponse
+     */
+    addons: { [key: string]: Array<AddonProductPrice>; };
 }
+
+
 
 /**
  * Check if a given object implements the GetPricesResponse interface.
  */
 export function instanceOfGetPricesResponse(value: object): value is GetPricesResponse {
+    if (!('currency' in value) || value['currency'] === undefined) return false;
+    if (!('tokenUsage' in value) || value['tokenUsage'] === undefined) return false;
     if (!('subscriptions' in value) || value['subscriptions'] === undefined) return false;
     if (!('addons' in value) || value['addons'] === undefined) return false;
     return true;
@@ -67,6 +97,8 @@ export function GetPricesResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
+        'currency': PaymentCurrencyFromJSON(json['currency']),
+        'tokenUsage': (mapValues(json['token_usage'], SubscriptionTokenUsageFromJSON)),
         'subscriptions': json['subscriptions'],
         'addons': json['addons'],
     };
@@ -83,6 +115,8 @@ export function GetPricesResponseFromJSONTyped(json: any, ignoreDiscriminator: b
 
     return {
         
+        'currency': PaymentCurrencyToJSON(value['currency']),
+        'token_usage': (mapValues(value['tokenUsage'], SubscriptionTokenUsageToJSON)),
         'subscriptions': value['subscriptions'],
         'addons': value['addons'],
     };

@@ -29,7 +29,7 @@ src/apis/index.ts
 src/index.ts
 src/models/AccessType.ts
 src/models/ActorRole.ts
-src/models/AddonPrice.ts
+src/models/AddonProductPrice.ts
 src/models/AdminAwardBadgeRequest.ts
 src/models/AdminBadgeResponse.ts
 src/models/AdminCreatePricingProductRequest.ts
@@ -170,6 +170,7 @@ src/models/ImagePreset.ts
 src/models/ImagePresetCategory.ts
 src/models/ImageSendingMode.ts
 src/models/ImageToVideoFromChatPayload.ts
+src/models/ImageToVideoModel.ts
 src/models/ImageToVideoRecommendationPayload.ts
 src/models/ImageToVideoRequest.ts
 src/models/InstanceDetails.ts
@@ -261,6 +262,7 @@ src/models/PostVastAIStatus.ts
 src/models/PostVerifyPublicUsernameRequest.ts
 src/models/PostVerifyPublicUsernameResponse.ts
 src/models/PreferenceOption.ts
+src/models/PricingDisplayContext.ts
 src/models/PricingVersionStatus.ts
 src/models/ProductType.ts
 src/models/PublicUserInfo.ts
@@ -333,10 +335,14 @@ src/models/StoryPreview.ts
 src/models/StoryRating.ts
 src/models/StoryVisibility.ts
 src/models/Subscription.ts
+src/models/SubscriptionGenerationEstimate.ts
 src/models/SubscriptionModel.ts
-src/models/SubscriptionPrice.ts
+src/models/SubscriptionPlanPrice.ts
 src/models/SubscriptionStatus.ts
 src/models/SubscriptionTier.ts
+src/models/SubscriptionTokenUsage.ts
+src/models/SubscriptionVideoGenerationEstimate.ts
+src/models/SubscriptionVideoTokenPrice.ts
 src/models/TagCategory.ts
 src/models/TagData.ts
 src/models/TagImageLora.ts

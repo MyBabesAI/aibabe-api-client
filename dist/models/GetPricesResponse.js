@@ -18,10 +18,17 @@ exports.GetPricesResponseFromJSON = GetPricesResponseFromJSON;
 exports.GetPricesResponseFromJSONTyped = GetPricesResponseFromJSONTyped;
 exports.GetPricesResponseToJSON = GetPricesResponseToJSON;
 exports.GetPricesResponseToJSONTyped = GetPricesResponseToJSONTyped;
+const runtime_1 = require("../runtime");
+const SubscriptionTokenUsage_1 = require("./SubscriptionTokenUsage");
+const PaymentCurrency_1 = require("./PaymentCurrency");
 /**
  * Check if a given object implements the GetPricesResponse interface.
  */
 function instanceOfGetPricesResponse(value) {
+    if (!('currency' in value) || value['currency'] === undefined)
+        return false;
+    if (!('tokenUsage' in value) || value['tokenUsage'] === undefined)
+        return false;
     if (!('subscriptions' in value) || value['subscriptions'] === undefined)
         return false;
     if (!('addons' in value) || value['addons'] === undefined)
@@ -36,6 +43,8 @@ function GetPricesResponseFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
+        'currency': (0, PaymentCurrency_1.PaymentCurrencyFromJSON)(json['currency']),
+        'tokenUsage': ((0, runtime_1.mapValues)(json['token_usage'], SubscriptionTokenUsage_1.SubscriptionTokenUsageFromJSON)),
         'subscriptions': json['subscriptions'],
         'addons': json['addons'],
     };
@@ -48,6 +57,8 @@ function GetPricesResponseToJSONTyped(value, ignoreDiscriminator = false) {
         return value;
     }
     return {
+        'currency': (0, PaymentCurrency_1.PaymentCurrencyToJSON)(value['currency']),
+        'token_usage': ((0, runtime_1.mapValues)(value['tokenUsage'], SubscriptionTokenUsage_1.SubscriptionTokenUsageToJSON)),
         'subscriptions': value['subscriptions'],
         'addons': value['addons'],
     };

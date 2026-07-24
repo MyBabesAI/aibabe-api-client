@@ -16,57 +16,57 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface AddonPrice
+ * @interface AddonProductPrice
  */
-export interface AddonPrice {
+export interface AddonProductPrice {
     /**
      * 
      * @type {string}
-     * @memberof AddonPrice
+     * @memberof AddonProductPrice
      */
-    id: string;
+    id: string | null;
     /**
      * 
      * @type {string}
-     * @memberof AddonPrice
+     * @memberof AddonProductPrice
      */
     displayName: string;
     /**
      * 
      * @type {string}
-     * @memberof AddonPrice
+     * @memberof AddonProductPrice
      */
     displayPrice: string;
     /**
      * 
      * @type {string}
-     * @memberof AddonPrice
+     * @memberof AddonProductPrice
      */
     currency: string;
     /**
      * 
      * @type {number}
-     * @memberof AddonPrice
+     * @memberof AddonProductPrice
      */
     tokens: number;
     /**
      * 
      * @type {string}
-     * @memberof AddonPrice
+     * @memberof AddonProductPrice
      */
     discount: string | null;
     /**
      * 
      * @type {number}
-     * @memberof AddonPrice
+     * @memberof AddonProductPrice
      */
     originalTokens?: number | null;
 }
 
 /**
- * Check if a given object implements the AddonPrice interface.
+ * Check if a given object implements the AddonProductPrice interface.
  */
-export function instanceOfAddonPrice(value: object): value is AddonPrice {
+export function instanceOfAddonProductPrice(value: object): value is AddonProductPrice {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('displayName' in value) || value['displayName'] === undefined) return false;
     if (!('displayPrice' in value) || value['displayPrice'] === undefined) return false;
@@ -76,11 +76,11 @@ export function instanceOfAddonPrice(value: object): value is AddonPrice {
     return true;
 }
 
-export function AddonPriceFromJSON(json: any): AddonPrice {
-    return AddonPriceFromJSONTyped(json, false);
+export function AddonProductPriceFromJSON(json: any): AddonProductPrice {
+    return AddonProductPriceFromJSONTyped(json, false);
 }
 
-export function AddonPriceFromJSONTyped(json: any, ignoreDiscriminator: boolean): AddonPrice {
+export function AddonProductPriceFromJSONTyped(json: any, ignoreDiscriminator: boolean): AddonProductPrice {
     if (json == null) {
         return json;
     }
@@ -96,11 +96,11 @@ export function AddonPriceFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     };
 }
 
-  export function AddonPriceToJSON(json: any): AddonPrice {
-      return AddonPriceToJSONTyped(json, false);
+  export function AddonProductPriceToJSON(json: any): AddonProductPrice {
+      return AddonProductPriceToJSONTyped(json, false);
   }
 
-  export function AddonPriceToJSONTyped(value?: AddonPrice | null, ignoreDiscriminator: boolean = false): any {
+  export function AddonProductPriceToJSONTyped(value?: AddonProductPrice | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

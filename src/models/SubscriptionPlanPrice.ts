@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { SubscriptionVideoGenerationEstimate } from './SubscriptionVideoGenerationEstimate';
+import {
+    SubscriptionVideoGenerationEstimateFromJSON,
+    SubscriptionVideoGenerationEstimateFromJSONTyped,
+    SubscriptionVideoGenerationEstimateToJSON,
+    SubscriptionVideoGenerationEstimateToJSONTyped,
+} from './SubscriptionVideoGenerationEstimate';
 import type { BillingPeriod } from './BillingPeriod';
 import {
     BillingPeriodFromJSON,
@@ -27,93 +34,125 @@ import {
     SubscriptionTierToJSON,
     SubscriptionTierToJSONTyped,
 } from './SubscriptionTier';
+import type { SpecialSubscriptionOffer } from './SpecialSubscriptionOffer';
+import {
+    SpecialSubscriptionOfferFromJSON,
+    SpecialSubscriptionOfferFromJSONTyped,
+    SpecialSubscriptionOfferToJSON,
+    SpecialSubscriptionOfferToJSONTyped,
+} from './SpecialSubscriptionOffer';
+import type { SubscriptionGenerationEstimate } from './SubscriptionGenerationEstimate';
+import {
+    SubscriptionGenerationEstimateFromJSON,
+    SubscriptionGenerationEstimateFromJSONTyped,
+    SubscriptionGenerationEstimateToJSON,
+    SubscriptionGenerationEstimateToJSONTyped,
+} from './SubscriptionGenerationEstimate';
 
 /**
  * 
  * @export
- * @interface SubscriptionPrice
+ * @interface SubscriptionPlanPrice
  */
-export interface SubscriptionPrice {
+export interface SubscriptionPlanPrice {
     /**
      * 
      * @type {string}
-     * @memberof SubscriptionPrice
+     * @memberof SubscriptionPlanPrice
      */
-    id: string;
+    id: string | null;
     /**
      * 
      * @type {string}
-     * @memberof SubscriptionPrice
+     * @memberof SubscriptionPlanPrice
      */
     displayName: string;
     /**
      * 
      * @type {string}
-     * @memberof SubscriptionPrice
+     * @memberof SubscriptionPlanPrice
      */
     displayPrice: string;
     /**
      * 
      * @type {string}
-     * @memberof SubscriptionPrice
+     * @memberof SubscriptionPlanPrice
      */
     currency: string;
     /**
      * 
      * @type {string}
-     * @memberof SubscriptionPrice
+     * @memberof SubscriptionPlanPrice
      */
     code: string;
     /**
      * 
      * @type {BillingPeriod}
-     * @memberof SubscriptionPrice
+     * @memberof SubscriptionPlanPrice
      */
     billingPeriod: BillingPeriod;
     /**
      * 
      * @type {string}
-     * @memberof SubscriptionPrice
+     * @memberof SubscriptionPlanPrice
      */
     totalPrice: string;
     /**
      * 
      * @type {string}
-     * @memberof SubscriptionPrice
+     * @memberof SubscriptionPlanPrice
      */
     discount: string;
     /**
      * 
      * @type {number}
-     * @memberof SubscriptionPrice
+     * @memberof SubscriptionPlanPrice
      */
     monthlyTokens: number;
     /**
      * 
      * @type {number}
-     * @memberof SubscriptionPrice
+     * @memberof SubscriptionPlanPrice
      */
     singleBonusTokens: number;
     /**
      * 
      * @type {boolean}
-     * @memberof SubscriptionPrice
+     * @memberof SubscriptionPlanPrice
      */
     hidden: boolean;
     /**
      * 
      * @type {SubscriptionTier}
-     * @memberof SubscriptionPrice
+     * @memberof SubscriptionPlanPrice
      */
     tier: SubscriptionTier;
+    /**
+     * 
+     * @type {SpecialSubscriptionOffer}
+     * @memberof SubscriptionPlanPrice
+     */
+    specialOffer: SpecialSubscriptionOffer;
+    /**
+     * 
+     * @type {SubscriptionGenerationEstimate}
+     * @memberof SubscriptionPlanPrice
+     */
+    imageGeneration: SubscriptionGenerationEstimate;
+    /**
+     * 
+     * @type {SubscriptionVideoGenerationEstimate}
+     * @memberof SubscriptionPlanPrice
+     */
+    videoGeneration: SubscriptionVideoGenerationEstimate;
 }
 
 
 
 /**
- * Check if a given object implements the SubscriptionPrice interface.
+ * Check if a given object implements the SubscriptionPlanPrice interface.
  */
-export function instanceOfSubscriptionPrice(value: object): value is SubscriptionPrice {
+export function instanceOfSubscriptionPlanPrice(value: object): value is SubscriptionPlanPrice {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('displayName' in value) || value['displayName'] === undefined) return false;
     if (!('displayPrice' in value) || value['displayPrice'] === undefined) return false;
@@ -126,14 +165,17 @@ export function instanceOfSubscriptionPrice(value: object): value is Subscriptio
     if (!('singleBonusTokens' in value) || value['singleBonusTokens'] === undefined) return false;
     if (!('hidden' in value) || value['hidden'] === undefined) return false;
     if (!('tier' in value) || value['tier'] === undefined) return false;
+    if (!('specialOffer' in value) || value['specialOffer'] === undefined) return false;
+    if (!('imageGeneration' in value) || value['imageGeneration'] === undefined) return false;
+    if (!('videoGeneration' in value) || value['videoGeneration'] === undefined) return false;
     return true;
 }
 
-export function SubscriptionPriceFromJSON(json: any): SubscriptionPrice {
-    return SubscriptionPriceFromJSONTyped(json, false);
+export function SubscriptionPlanPriceFromJSON(json: any): SubscriptionPlanPrice {
+    return SubscriptionPlanPriceFromJSONTyped(json, false);
 }
 
-export function SubscriptionPriceFromJSONTyped(json: any, ignoreDiscriminator: boolean): SubscriptionPrice {
+export function SubscriptionPlanPriceFromJSONTyped(json: any, ignoreDiscriminator: boolean): SubscriptionPlanPrice {
     if (json == null) {
         return json;
     }
@@ -151,14 +193,17 @@ export function SubscriptionPriceFromJSONTyped(json: any, ignoreDiscriminator: b
         'singleBonusTokens': json['single_bonus_tokens'],
         'hidden': json['hidden'],
         'tier': SubscriptionTierFromJSON(json['tier']),
+        'specialOffer': SpecialSubscriptionOfferFromJSON(json['special_offer']),
+        'imageGeneration': SubscriptionGenerationEstimateFromJSON(json['image_generation']),
+        'videoGeneration': SubscriptionVideoGenerationEstimateFromJSON(json['video_generation']),
     };
 }
 
-  export function SubscriptionPriceToJSON(json: any): SubscriptionPrice {
-      return SubscriptionPriceToJSONTyped(json, false);
+  export function SubscriptionPlanPriceToJSON(json: any): SubscriptionPlanPrice {
+      return SubscriptionPlanPriceToJSONTyped(json, false);
   }
 
-  export function SubscriptionPriceToJSONTyped(value?: SubscriptionPrice | null, ignoreDiscriminator: boolean = false): any {
+  export function SubscriptionPlanPriceToJSONTyped(value?: SubscriptionPlanPrice | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -177,6 +222,9 @@ export function SubscriptionPriceFromJSONTyped(json: any, ignoreDiscriminator: b
         'single_bonus_tokens': value['singleBonusTokens'],
         'hidden': value['hidden'],
         'tier': SubscriptionTierToJSON(value['tier']),
+        'special_offer': SpecialSubscriptionOfferToJSON(value['specialOffer']),
+        'image_generation': SubscriptionGenerationEstimateToJSON(value['imageGeneration']),
+        'video_generation': SubscriptionVideoGenerationEstimateToJSON(value['videoGeneration']),
     };
 }
 
