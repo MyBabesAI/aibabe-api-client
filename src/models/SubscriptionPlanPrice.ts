@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { SubscriptionVideoGenerationEstimate } from './SubscriptionVideoGenerationEstimate';
-import {
-    SubscriptionVideoGenerationEstimateFromJSON,
-    SubscriptionVideoGenerationEstimateFromJSONTyped,
-    SubscriptionVideoGenerationEstimateToJSON,
-    SubscriptionVideoGenerationEstimateToJSONTyped,
-} from './SubscriptionVideoGenerationEstimate';
 import type { BillingPeriod } from './BillingPeriod';
 import {
     BillingPeriodFromJSON,
@@ -27,6 +20,13 @@ import {
     BillingPeriodToJSON,
     BillingPeriodToJSONTyped,
 } from './BillingPeriod';
+import type { SubscriptionVideoTokenPrice } from './SubscriptionVideoTokenPrice';
+import {
+    SubscriptionVideoTokenPriceFromJSON,
+    SubscriptionVideoTokenPriceFromJSONTyped,
+    SubscriptionVideoTokenPriceToJSON,
+    SubscriptionVideoTokenPriceToJSONTyped,
+} from './SubscriptionVideoTokenPrice';
 import type { SubscriptionTier } from './SubscriptionTier';
 import {
     SubscriptionTierFromJSON,
@@ -141,10 +141,10 @@ export interface SubscriptionPlanPrice {
     imageGeneration: SubscriptionGenerationEstimate;
     /**
      * 
-     * @type {SubscriptionVideoGenerationEstimate}
+     * @type {SubscriptionVideoTokenPrice}
      * @memberof SubscriptionPlanPrice
      */
-    videoGeneration: SubscriptionVideoGenerationEstimate;
+    videoGeneration: SubscriptionVideoTokenPrice;
 }
 
 
@@ -195,7 +195,7 @@ export function SubscriptionPlanPriceFromJSONTyped(json: any, ignoreDiscriminato
         'tier': SubscriptionTierFromJSON(json['tier']),
         'specialOffer': SpecialSubscriptionOfferFromJSON(json['special_offer']),
         'imageGeneration': SubscriptionGenerationEstimateFromJSON(json['image_generation']),
-        'videoGeneration': SubscriptionVideoGenerationEstimateFromJSON(json['video_generation']),
+        'videoGeneration': SubscriptionVideoTokenPriceFromJSON(json['video_generation']),
     };
 }
 
@@ -224,7 +224,7 @@ export function SubscriptionPlanPriceFromJSONTyped(json: any, ignoreDiscriminato
         'tier': SubscriptionTierToJSON(value['tier']),
         'special_offer': SpecialSubscriptionOfferToJSON(value['specialOffer']),
         'image_generation': SubscriptionGenerationEstimateToJSON(value['imageGeneration']),
-        'video_generation': SubscriptionVideoGenerationEstimateToJSON(value['videoGeneration']),
+        'video_generation': SubscriptionVideoTokenPriceToJSON(value['videoGeneration']),
     };
 }
 

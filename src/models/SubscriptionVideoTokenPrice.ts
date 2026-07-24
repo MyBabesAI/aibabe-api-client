@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ImageToVideoModel } from './ImageToVideoModel';
+import type { VideoPricingModel } from './VideoPricingModel';
 import {
-    ImageToVideoModelFromJSON,
-    ImageToVideoModelFromJSONTyped,
-    ImageToVideoModelToJSON,
-    ImageToVideoModelToJSONTyped,
-} from './ImageToVideoModel';
+    VideoPricingModelFromJSON,
+    VideoPricingModelFromJSONTyped,
+    VideoPricingModelToJSON,
+    VideoPricingModelToJSONTyped,
+} from './VideoPricingModel';
 import type { VideoResolution } from './VideoResolution';
 import {
     VideoResolutionFromJSON,
@@ -36,10 +36,10 @@ import {
 export interface SubscriptionVideoTokenPrice {
     /**
      * 
-     * @type {ImageToVideoModel}
+     * @type {VideoPricingModel}
      * @memberof SubscriptionVideoTokenPrice
      */
-    model: ImageToVideoModel;
+    model: VideoPricingModel;
     /**
      * 
      * @type {string}
@@ -57,7 +57,7 @@ export interface SubscriptionVideoTokenPrice {
      * @type {number}
      * @memberof SubscriptionVideoTokenPrice
      */
-    durationSeconds: number;
+    durationSeconds?: number | null;
     /**
      * 
      * @type {number}
@@ -75,7 +75,6 @@ export function instanceOfSubscriptionVideoTokenPrice(value: object): value is S
     if (!('model' in value) || value['model'] === undefined) return false;
     if (!('displayName' in value) || value['displayName'] === undefined) return false;
     if (!('resolution' in value) || value['resolution'] === undefined) return false;
-    if (!('durationSeconds' in value) || value['durationSeconds'] === undefined) return false;
     if (!('tokenCost' in value) || value['tokenCost'] === undefined) return false;
     return true;
 }
@@ -90,10 +89,10 @@ export function SubscriptionVideoTokenPriceFromJSONTyped(json: any, ignoreDiscri
     }
     return {
         
-        'model': ImageToVideoModelFromJSON(json['model']),
+        'model': VideoPricingModelFromJSON(json['model']),
         'displayName': json['display_name'],
         'resolution': VideoResolutionFromJSON(json['resolution']),
-        'durationSeconds': json['duration_seconds'],
+        'durationSeconds': json['duration_seconds'] == null ? undefined : json['duration_seconds'],
         'tokenCost': json['token_cost'],
     };
 }
@@ -109,7 +108,7 @@ export function SubscriptionVideoTokenPriceFromJSONTyped(json: any, ignoreDiscri
 
     return {
         
-        'model': ImageToVideoModelToJSON(value['model']),
+        'model': VideoPricingModelToJSON(value['model']),
         'display_name': value['displayName'],
         'resolution': VideoResolutionToJSON(value['resolution']),
         'duration_seconds': value['durationSeconds'],

@@ -18,8 +18,8 @@ exports.SubscriptionPlanPriceFromJSON = SubscriptionPlanPriceFromJSON;
 exports.SubscriptionPlanPriceFromJSONTyped = SubscriptionPlanPriceFromJSONTyped;
 exports.SubscriptionPlanPriceToJSON = SubscriptionPlanPriceToJSON;
 exports.SubscriptionPlanPriceToJSONTyped = SubscriptionPlanPriceToJSONTyped;
-const SubscriptionVideoGenerationEstimate_1 = require("./SubscriptionVideoGenerationEstimate");
 const BillingPeriod_1 = require("./BillingPeriod");
+const SubscriptionVideoTokenPrice_1 = require("./SubscriptionVideoTokenPrice");
 const SubscriptionTier_1 = require("./SubscriptionTier");
 const SpecialSubscriptionOffer_1 = require("./SpecialSubscriptionOffer");
 const SubscriptionGenerationEstimate_1 = require("./SubscriptionGenerationEstimate");
@@ -81,7 +81,7 @@ function SubscriptionPlanPriceFromJSONTyped(json, ignoreDiscriminator) {
         'tier': (0, SubscriptionTier_1.SubscriptionTierFromJSON)(json['tier']),
         'specialOffer': (0, SpecialSubscriptionOffer_1.SpecialSubscriptionOfferFromJSON)(json['special_offer']),
         'imageGeneration': (0, SubscriptionGenerationEstimate_1.SubscriptionGenerationEstimateFromJSON)(json['image_generation']),
-        'videoGeneration': (0, SubscriptionVideoGenerationEstimate_1.SubscriptionVideoGenerationEstimateFromJSON)(json['video_generation']),
+        'videoGeneration': (0, SubscriptionVideoTokenPrice_1.SubscriptionVideoTokenPriceFromJSON)(json['video_generation']),
     };
 }
 function SubscriptionPlanPriceToJSON(json) {
@@ -106,7 +106,7 @@ function SubscriptionPlanPriceToJSONTyped(value, ignoreDiscriminator = false) {
         'tier': (0, SubscriptionTier_1.SubscriptionTierToJSON)(value['tier']),
         'special_offer': (0, SpecialSubscriptionOffer_1.SpecialSubscriptionOfferToJSON)(value['specialOffer']),
         'image_generation': (0, SubscriptionGenerationEstimate_1.SubscriptionGenerationEstimateToJSON)(value['imageGeneration']),
-        'video_generation': (0, SubscriptionVideoGenerationEstimate_1.SubscriptionVideoGenerationEstimateToJSON)(value['videoGeneration']),
+        'video_generation': (0, SubscriptionVideoTokenPrice_1.SubscriptionVideoTokenPriceToJSON)(value['videoGeneration']),
     };
 }
 //# sourceMappingURL=SubscriptionPlanPrice.js.map

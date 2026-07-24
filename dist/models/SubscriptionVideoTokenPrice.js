@@ -18,7 +18,7 @@ exports.SubscriptionVideoTokenPriceFromJSON = SubscriptionVideoTokenPriceFromJSO
 exports.SubscriptionVideoTokenPriceFromJSONTyped = SubscriptionVideoTokenPriceFromJSONTyped;
 exports.SubscriptionVideoTokenPriceToJSON = SubscriptionVideoTokenPriceToJSON;
 exports.SubscriptionVideoTokenPriceToJSONTyped = SubscriptionVideoTokenPriceToJSONTyped;
-const ImageToVideoModel_1 = require("./ImageToVideoModel");
+const VideoPricingModel_1 = require("./VideoPricingModel");
 const VideoResolution_1 = require("./VideoResolution");
 /**
  * Check if a given object implements the SubscriptionVideoTokenPrice interface.
@@ -29,8 +29,6 @@ function instanceOfSubscriptionVideoTokenPrice(value) {
     if (!('displayName' in value) || value['displayName'] === undefined)
         return false;
     if (!('resolution' in value) || value['resolution'] === undefined)
-        return false;
-    if (!('durationSeconds' in value) || value['durationSeconds'] === undefined)
         return false;
     if (!('tokenCost' in value) || value['tokenCost'] === undefined)
         return false;
@@ -44,10 +42,10 @@ function SubscriptionVideoTokenPriceFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'model': (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
+        'model': (0, VideoPricingModel_1.VideoPricingModelFromJSON)(json['model']),
         'displayName': json['display_name'],
         'resolution': (0, VideoResolution_1.VideoResolutionFromJSON)(json['resolution']),
-        'durationSeconds': json['duration_seconds'],
+        'durationSeconds': json['duration_seconds'] == null ? undefined : json['duration_seconds'],
         'tokenCost': json['token_cost'],
     };
 }
@@ -59,7 +57,7 @@ function SubscriptionVideoTokenPriceToJSONTyped(value, ignoreDiscriminator = fal
         return value;
     }
     return {
-        'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
+        'model': (0, VideoPricingModel_1.VideoPricingModelToJSON)(value['model']),
         'display_name': value['displayName'],
         'resolution': (0, VideoResolution_1.VideoResolutionToJSON)(value['resolution']),
         'duration_seconds': value['durationSeconds'],

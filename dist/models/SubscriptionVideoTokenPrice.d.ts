@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ImageToVideoModel } from './ImageToVideoModel';
+import type { VideoPricingModel } from './VideoPricingModel';
 import type { VideoResolution } from './VideoResolution';
 /**
  *
@@ -19,10 +19,10 @@ import type { VideoResolution } from './VideoResolution';
 export interface SubscriptionVideoTokenPrice {
     /**
      *
-     * @type {ImageToVideoModel}
+     * @type {VideoPricingModel}
      * @memberof SubscriptionVideoTokenPrice
      */
-    model: ImageToVideoModel;
+    model: VideoPricingModel;
     /**
      *
      * @type {string}
@@ -40,7 +40,7 @@ export interface SubscriptionVideoTokenPrice {
      * @type {number}
      * @memberof SubscriptionVideoTokenPrice
      */
-    durationSeconds: number;
+    durationSeconds?: number | null;
     /**
      *
      * @type {number}

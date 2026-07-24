@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { SubscriptionVideoGenerationEstimate } from './SubscriptionVideoGenerationEstimate';
 import type { BillingPeriod } from './BillingPeriod';
+import type { SubscriptionVideoTokenPrice } from './SubscriptionVideoTokenPrice';
 import type { SubscriptionTier } from './SubscriptionTier';
 import type { SpecialSubscriptionOffer } from './SpecialSubscriptionOffer';
 import type { SubscriptionGenerationEstimate } from './SubscriptionGenerationEstimate';
@@ -106,10 +106,10 @@ export interface SubscriptionPlanPrice {
     imageGeneration: SubscriptionGenerationEstimate;
     /**
      *
-     * @type {SubscriptionVideoGenerationEstimate}
+     * @type {SubscriptionVideoTokenPrice}
      * @memberof SubscriptionPlanPrice
      */
-    videoGeneration: SubscriptionVideoGenerationEstimate;
+    videoGeneration: SubscriptionVideoTokenPrice;
 }
 /**
  * Check if a given object implements the SubscriptionPlanPrice interface.

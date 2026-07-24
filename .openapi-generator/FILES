@@ -170,7 +170,6 @@ src/models/ImagePreset.ts
 src/models/ImagePresetCategory.ts
 src/models/ImageSendingMode.ts
 src/models/ImageToVideoFromChatPayload.ts
-src/models/ImageToVideoModel.ts
 src/models/ImageToVideoRecommendationPayload.ts
 src/models/ImageToVideoRequest.ts
 src/models/InstanceDetails.ts
@@ -341,7 +340,6 @@ src/models/SubscriptionPlanPrice.ts
 src/models/SubscriptionStatus.ts
 src/models/SubscriptionTier.ts
 src/models/SubscriptionTokenUsage.ts
-src/models/SubscriptionVideoGenerationEstimate.ts
 src/models/SubscriptionVideoTokenPrice.ts
 src/models/TagCategory.ts
 src/models/TagData.ts
@@ -387,6 +385,7 @@ src/models/VideoModCategory.ts
 src/models/VideoModelConfig.ts
 src/models/VideoPreset.ts
 src/models/VideoPresetCategory.ts
+src/models/VideoPricingModel.ts
 src/models/VideoQualityConfig.ts
 src/models/VideoResolution.ts
 src/models/VisualType.ts
