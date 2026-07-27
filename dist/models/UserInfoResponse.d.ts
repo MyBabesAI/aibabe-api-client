@@ -49,7 +49,13 @@ export interface UserInfoResponse {
      * @type {string}
      * @memberof UserInfoResponse
      */
-    groupName: string;
+    pricingGroup: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserInfoResponse
+     */
+    tokenUsageGroup: string;
     /**
      *
      * @type {PublicUserPreview}
