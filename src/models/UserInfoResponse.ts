@@ -81,6 +81,18 @@ export interface UserInfoResponse {
     username: string;
     /**
      * 
+     * @type {string}
+     * @memberof UserInfoResponse
+     */
+    pricingGroup: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserInfoResponse
+     */
+    tokenUsageGroup: string;
+    /**
+     * 
      * @type {PublicUserPreview}
      * @memberof UserInfoResponse
      */
@@ -133,6 +145,8 @@ export function instanceOfUserInfoResponse(value: object): value is UserInfoResp
     if (!('role' in value) || value['role'] === undefined) return false;
     if (!('email' in value) || value['email'] === undefined) return false;
     if (!('username' in value) || value['username'] === undefined) return false;
+    if (!('pricingGroup' in value) || value['pricingGroup'] === undefined) return false;
+    if (!('tokenUsageGroup' in value) || value['tokenUsageGroup'] === undefined) return false;
     if (!('publicPreview' in value) || value['publicPreview'] === undefined) return false;
     if (!('oauth' in value) || value['oauth'] === undefined) return false;
     if (!('firstLogin' in value) || value['firstLogin'] === undefined) return false;
@@ -156,6 +170,8 @@ export function UserInfoResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'role': UserRoleFromJSON(json['role']),
         'email': json['email'],
         'username': json['username'],
+        'pricingGroup': json['pricing_group'],
+        'tokenUsageGroup': json['token_usage_group'],
         'publicPreview': PublicUserPreviewFromJSON(json['public_preview']),
         'oauth': json['oauth'],
         'firstLogin': json['first_login'],
@@ -181,6 +197,8 @@ export function UserInfoResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'role': UserRoleToJSON(value['role']),
         'email': value['email'],
         'username': value['username'],
+        'pricing_group': value['pricingGroup'],
+        'token_usage_group': value['tokenUsageGroup'],
         'public_preview': PublicUserPreviewToJSON(value['publicPreview']),
         'oauth': value['oauth'],
         'first_login': value['firstLogin'],
