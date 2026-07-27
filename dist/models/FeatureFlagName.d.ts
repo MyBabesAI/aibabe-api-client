@@ -14,6 +14,7 @@
  * @export
  */
 export declare const FeatureFlagName: {
+    readonly DoubleTokenUsage: "DOUBLE_TOKEN_USAGE";
     readonly GrokModeration: "GROK_MODERATION";
     readonly MarketingBanners: "MARKETING_BANNERS";
     readonly Qwen3: "QWEN3";

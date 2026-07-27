@@ -24,6 +24,7 @@ exports.FeatureFlagNameToJSONTyped = FeatureFlagNameToJSONTyped;
  * @export
  */
 exports.FeatureFlagName = {
+    DoubleTokenUsage: 'DOUBLE_TOKEN_USAGE',
     GrokModeration: 'GROK_MODERATION',
     MarketingBanners: 'MARKETING_BANNERS',
     Qwen3: 'QWEN3',
