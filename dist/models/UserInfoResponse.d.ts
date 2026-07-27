@@ -46,6 +46,12 @@ export interface UserInfoResponse {
     username: string;
     /**
      *
+     * @type {string}
+     * @memberof UserInfoResponse
+     */
+    groupName: string;
+    /**
+     *
      * @type {PublicUserPreview}
      * @memberof UserInfoResponse
      */
