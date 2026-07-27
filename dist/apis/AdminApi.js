@@ -232,6 +232,44 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Downscale
+     */
+    async downscaleAdminDownscalePostRaw(requestParameters, initOverrides) {
+        if (requestParameters['downscaleRequest'] == null) {
+            throw new runtime.RequiredError('downscaleRequest', 'Required parameter "downscaleRequest" was null or undefined when calling downscaleAdminDownscalePost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/admin/downscale`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.DownscaleRequestToJSON)(requestParameters['downscaleRequest']),
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Downscale
+     */
+    async downscaleAdminDownscalePost(requestParameters, initOverrides) {
+        const response = await this.downscaleAdminDownscalePostRaw(requestParameters, initOverrides);
+        switch (response.raw.status) {
+            case 202:
+                return await response.value();
+            case 204:
+                return null;
+            default:
+                return await response.value();
+        }
+    }
+    /**
      * Generate Codes
      */
     async generateCodesAdminGiftCodesGeneratePostRaw(requestParameters, initOverrides) {

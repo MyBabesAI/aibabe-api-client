@@ -35,8 +35,6 @@ function instanceOfUserInfoResponse(value) {
         return false;
     if (!('username' in value) || value['username'] === undefined)
         return false;
-    if (!('groupName' in value) || value['groupName'] === undefined)
-        return false;
     if (!('publicPreview' in value) || value['publicPreview'] === undefined)
         return false;
     if (!('oauth' in value) || value['oauth'] === undefined)
@@ -63,7 +61,6 @@ function UserInfoResponseFromJSONTyped(json, ignoreDiscriminator) {
         'role': (0, UserRole_1.UserRoleFromJSON)(json['role']),
         'email': json['email'],
         'username': json['username'],
-        'groupName': json['group_name'],
         'publicPreview': (0, PublicUserPreview_1.PublicUserPreviewFromJSON)(json['public_preview']),
         'oauth': json['oauth'],
         'firstLogin': json['first_login'],
@@ -85,7 +82,6 @@ function UserInfoResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'role': (0, UserRole_1.UserRoleToJSON)(value['role']),
         'email': value['email'],
         'username': value['username'],
-        'group_name': value['groupName'],
         'public_preview': (0, PublicUserPreview_1.PublicUserPreviewToJSON)(value['publicPreview']),
         'oauth': value['oauth'],
         'first_login': value['firstLogin'],
