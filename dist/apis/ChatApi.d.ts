@@ -10,7 +10,21 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatReponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, TokenPricingConfigResponse } from '../models/index';
+import type { ChatReponse, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, TokenPricingConfigResponse } from '../models/index';
+export interface AnonymousChatChatAnonymousChatbotIdPostRequest {
+    chatbotId: string;
+    postAnonymousChatRequest: PostAnonymousChatRequest;
+}
+export interface AnonymousConversationChatAnonymousChatbotIdGetRequest {
+    chatbotId: string;
+    limit?: number;
+}
+export interface AnonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRequest {
+    chatbotId: string;
+    conversationId: string;
+    paginationToken?: string | null;
+    limit?: number;
+}
 export interface ChatChatChatbotIdPostRequest {
     chatbotId: string;
     postChatRequest: PostChatRequest;
@@ -32,6 +46,10 @@ export interface ConversationMessagesChatChatbotIdMessagesConversationIdGetReque
 export interface ConversationsChatGetRequest {
     paginationToken?: string | null;
     limit?: number;
+}
+export interface CreateAnonymousConversationChatAnonymousChatbotIdPutRequest {
+    chatbotId: string;
+    createAnonymousConversationRequest: CreateAnonymousConversationRequest;
 }
 export interface DeleteChatChatChatbotIdDeleteRequest {
     chatbotId: string;
@@ -77,6 +95,30 @@ export interface UpdateMessageChatMessageMessageIdPatchRequest {
  */
 export declare class ChatApi extends runtime.BaseAPI {
     /**
+     * Anonymous Chat
+     */
+    anonymousChatChatAnonymousChatbotIdPostRaw(requestParameters: AnonymousChatChatAnonymousChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAnonymousChatResponse>>;
+    /**
+     * Anonymous Chat
+     */
+    anonymousChatChatAnonymousChatbotIdPost(requestParameters: AnonymousChatChatAnonymousChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAnonymousChatResponse>;
+    /**
+     * Anonymous Conversation
+     */
+    anonymousConversationChatAnonymousChatbotIdGetRaw(requestParameters: AnonymousConversationChatAnonymousChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAnonymousConversationResponse>>;
+    /**
+     * Anonymous Conversation
+     */
+    anonymousConversationChatAnonymousChatbotIdGet(requestParameters: AnonymousConversationChatAnonymousChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAnonymousConversationResponse>;
+    /**
+     * Anonymous Conversation Messages
+     */
+    anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRaw(requestParameters: AnonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationMessagesResponse>>;
+    /**
+     * Anonymous Conversation Messages
+     */
+    anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGet(requestParameters: AnonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationMessagesResponse>;
+    /**
      * Chat
      */
     chatChatChatbotIdPostRaw(requestParameters: ChatChatChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatReponse>>;
@@ -116,6 +158,14 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Conversations
      */
     conversationsChatGet(requestParameters?: ConversationsChatGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListConversationsResponse>;
+    /**
+     * Create Anonymous Conversation
+     */
+    createAnonymousConversationChatAnonymousChatbotIdPutRaw(requestParameters: CreateAnonymousConversationChatAnonymousChatbotIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateAnonymousConversationResponse>>;
+    /**
+     * Create Anonymous Conversation
+     */
+    createAnonymousConversationChatAnonymousChatbotIdPut(requestParameters: CreateAnonymousConversationChatAnonymousChatbotIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateAnonymousConversationResponse>;
     /**
      * Delete Chat
      */

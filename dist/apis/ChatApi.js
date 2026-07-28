@@ -54,6 +54,95 @@ const index_1 = require("../models/index");
  */
 class ChatApi extends runtime.BaseAPI {
     /**
+     * Anonymous Chat
+     */
+    async anonymousChatChatAnonymousChatbotIdPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling anonymousChatChatAnonymousChatbotIdPost().');
+        }
+        if (requestParameters['postAnonymousChatRequest'] == null) {
+            throw new runtime.RequiredError('postAnonymousChatRequest', 'Required parameter "postAnonymousChatRequest" was null or undefined when calling anonymousChatChatAnonymousChatbotIdPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/anonymous/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostAnonymousChatRequestToJSON)(requestParameters['postAnonymousChatRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostAnonymousChatResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Anonymous Chat
+     */
+    async anonymousChatChatAnonymousChatbotIdPost(requestParameters, initOverrides) {
+        const response = await this.anonymousChatChatAnonymousChatbotIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Anonymous Conversation
+     */
+    async anonymousConversationChatAnonymousChatbotIdGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling anonymousConversationChatAnonymousChatbotIdGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/anonymous/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetAnonymousConversationResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Anonymous Conversation
+     */
+    async anonymousConversationChatAnonymousChatbotIdGet(requestParameters, initOverrides) {
+        const response = await this.anonymousConversationChatAnonymousChatbotIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Anonymous Conversation Messages
+     */
+    async anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGet().');
+        }
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/anonymous/{chatbot_id}/messages/{conversation_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))).replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationMessagesResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Anonymous Conversation Messages
+     */
+    async anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGet(requestParameters, initOverrides) {
+        const response = await this.anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Chat
      */
     async chatChatChatbotIdPostRaw(requestParameters, initOverrides) {
@@ -196,6 +285,35 @@ class ChatApi extends runtime.BaseAPI {
      */
     async conversationsChatGet(requestParameters = {}, initOverrides) {
         const response = await this.conversationsChatGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Create Anonymous Conversation
+     */
+    async createAnonymousConversationChatAnonymousChatbotIdPutRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling createAnonymousConversationChatAnonymousChatbotIdPut().');
+        }
+        if (requestParameters['createAnonymousConversationRequest'] == null) {
+            throw new runtime.RequiredError('createAnonymousConversationRequest', 'Required parameter "createAnonymousConversationRequest" was null or undefined when calling createAnonymousConversationChatAnonymousChatbotIdPut().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/anonymous/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.CreateAnonymousConversationRequestToJSON)(requestParameters['createAnonymousConversationRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.CreateAnonymousConversationResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Create Anonymous Conversation
+     */
+    async createAnonymousConversationChatAnonymousChatbotIdPut(requestParameters, initOverrides) {
+        const response = await this.createAnonymousConversationChatAnonymousChatbotIdPutRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

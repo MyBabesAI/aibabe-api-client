@@ -46,6 +46,18 @@ export interface UserInfoResponse {
     username: string;
     /**
      *
+     * @type {string}
+     * @memberof UserInfoResponse
+     */
+    pricingGroup: string;
+    /**
+     *
+     * @type {string}
+     * @memberof UserInfoResponse
+     */
+    tokenUsageGroup: string;
+    /**
+     *
      * @type {PublicUserPreview}
      * @memberof UserInfoResponse
      */

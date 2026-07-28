@@ -54,6 +54,9 @@ export declare const ExceptionCode: {
     readonly ChatbotNameTooLong: "chatbot_name_too_long";
     readonly ProfileVideoNotFound: "profile_video_not_found";
     readonly ConversationNotFound: "conversation_not_found";
+    readonly ConversationMessageInProgress: "conversation_message_in_progress";
+    readonly AnonymousConversationAlreadyExists: "anonymous_conversation_already_exists";
+    readonly AnonymousChatLimitReached: "anonymous_chat_limit_reached";
     readonly ConversationUpdateNonOwnedForbidden: "conversation_update_non_owned_forbidden";
     readonly ConversationResetNonOwnedForbidden: "conversation_reset_non_owned_forbidden";
     readonly ConversationMemoryNotFound: "conversation_memory_not_found";
@@ -117,6 +120,7 @@ export declare const ExceptionCode: {
     readonly TokenUsageMessageModelInvalid: "token_usage_message_model_invalid";
     readonly TokenUsageCodeDuplicate: "token_usage_code_duplicate";
     readonly TokenUsageSelectorDuplicate: "token_usage_selector_duplicate";
+    readonly TokenUsagePriceNotFound: "token_usage_price_not_found";
     readonly PricingGroupRevisionPayloadRequired: "pricing_group_revision_payload_required";
     readonly FormatNotSupported: "format_not_supported";
     readonly FileSizeExceeded: "file_size_exceeded";
