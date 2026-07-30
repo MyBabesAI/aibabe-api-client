@@ -61,6 +61,18 @@ export interface AdminPricingProductResponse {
      * @type {number}
      * @memberof AdminPricingProductResponse
      */
+    basePrice: number;
+    /**
+     *
+     * @type {number}
+     * @memberof AdminPricingProductResponse
+     */
+    fee: number;
+    /**
+     *
+     * @type {number}
+     * @memberof AdminPricingProductResponse
+     */
     totalPrice: number;
     /**
      *
