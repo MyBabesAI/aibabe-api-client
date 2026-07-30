@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminSavePricingGroupRevisionsRequest, AdminUserJourneysResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, ContentType, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
+import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminSavePricingGroupRevisionsRequest, AdminUserJourneysResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -36,6 +36,9 @@ export interface CreateBadgeAdminBadgesPostRequest {
     manuallyProvided?: boolean;
     usable?: boolean;
     visible?: boolean;
+}
+export interface DownscaleAdminDownscalePostRequest {
+    downscaleRequest: DownscaleRequest;
 }
 export interface GenerateCodesAdminGiftCodesGeneratePostRequest {
     count: number;
@@ -125,6 +128,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Create Badge
      */
     createBadgeAdminBadgesPost(requestParameters: CreateBadgeAdminBadgesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminBadgeResponse>;
+    /**
+     * Downscale
+     */
+    downscaleAdminDownscalePostRaw(requestParameters: DownscaleAdminDownscalePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Downscale
+     */
+    downscaleAdminDownscalePost(requestParameters: DownscaleAdminDownscalePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any | null | undefined>;
     /**
      * Generate Codes
      */

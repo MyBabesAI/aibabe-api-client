@@ -25,6 +25,7 @@ import type {
   BadgeCategory,
   BadgeTimePeriod,
   ContentType,
+  DownscaleRequest,
   GetConversationMessagesResponse,
   GetQualityControlImage,
   GetQualityControlRequest,
@@ -59,6 +60,8 @@ import {
     BadgeTimePeriodToJSON,
     ContentTypeFromJSON,
     ContentTypeToJSON,
+    DownscaleRequestFromJSON,
+    DownscaleRequestToJSON,
     GetConversationMessagesResponseFromJSON,
     GetConversationMessagesResponseToJSON,
     GetQualityControlImageFromJSON,
@@ -112,6 +115,10 @@ export interface CreateBadgeAdminBadgesPostRequest {
     manuallyProvided?: boolean;
     usable?: boolean;
     visible?: boolean;
+}
+
+export interface DownscaleAdminDownscalePostRequest {
+    downscaleRequest: DownscaleRequest;
 }
 
 export interface GenerateCodesAdminGiftCodesGeneratePostRequest {
@@ -424,6 +431,53 @@ export class AdminApi extends runtime.BaseAPI {
     async createBadgeAdminBadgesPost(requestParameters: CreateBadgeAdminBadgesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminBadgeResponse> {
         const response = await this.createBadgeAdminBadgesPostRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Downscale
+     */
+    async downscaleAdminDownscalePostRaw(requestParameters: DownscaleAdminDownscalePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['downscaleRequest'] == null) {
+            throw new runtime.RequiredError(
+                'downscaleRequest',
+                'Required parameter "downscaleRequest" was null or undefined when calling downscaleAdminDownscalePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/admin/downscale`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: DownscaleRequestToJSON(requestParameters['downscaleRequest']),
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Downscale
+     */
+    async downscaleAdminDownscalePost(requestParameters: DownscaleAdminDownscalePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any | null | undefined > {
+        const response = await this.downscaleAdminDownscalePostRaw(requestParameters, initOverrides);
+        switch (response.raw.status) {
+            case 202:
+                return await response.value();
+            case 204:
+                return null;
+            default:
+                return await response.value();
+        }
     }
 
     /**

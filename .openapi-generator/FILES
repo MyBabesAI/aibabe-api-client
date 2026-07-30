@@ -101,6 +101,7 @@ src/models/DiscountOriginalPrice.ts
 src/models/DiscountOriginalTokens.ts
 src/models/DisplayDiscount.ts
 src/models/DonationNotification.ts
+src/models/DownscaleRequest.ts
 src/models/EpisodeContent.ts
 src/models/EpisodeCounts.ts
 src/models/EpisodePanelType.ts
