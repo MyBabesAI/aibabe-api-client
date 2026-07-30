@@ -61,6 +61,18 @@ export interface AdminCreatePricingProductRequest {
      * @type {number}
      * @memberof AdminCreatePricingProductRequest
      */
+    basePrice: number;
+    /**
+     *
+     * @type {number}
+     * @memberof AdminCreatePricingProductRequest
+     */
+    fee?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof AdminCreatePricingProductRequest
+     */
     totalPrice: number;
     /**
      *

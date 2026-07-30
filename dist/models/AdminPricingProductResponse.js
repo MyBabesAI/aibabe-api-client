@@ -39,6 +39,10 @@ function instanceOfAdminPricingProductResponse(value) {
         return false;
     if (!('displayPrice' in value) || value['displayPrice'] === undefined)
         return false;
+    if (!('basePrice' in value) || value['basePrice'] === undefined)
+        return false;
+    if (!('fee' in value) || value['fee'] === undefined)
+        return false;
     if (!('totalPrice' in value) || value['totalPrice'] === undefined)
         return false;
     if (!('monthlyTokens' in value) || value['monthlyTokens'] === undefined)
@@ -81,6 +85,8 @@ function AdminPricingProductResponseFromJSONTyped(json, ignoreDiscriminator) {
         'specialOffer': (0, SpecialOffer_1.SpecialOfferFromJSON)(json['special_offer']),
         'displayName': json['display_name'],
         'displayPrice': json['display_price'],
+        'basePrice': json['base_price'],
+        'fee': json['fee'],
         'totalPrice': json['total_price'],
         'monthlyTokens': json['monthly_tokens'],
         'oneTimeTokens': json['one_time_tokens'],
@@ -110,6 +116,8 @@ function AdminPricingProductResponseToJSONTyped(value, ignoreDiscriminator = fal
         'special_offer': (0, SpecialOffer_1.SpecialOfferToJSON)(value['specialOffer']),
         'display_name': value['displayName'],
         'display_price': value['displayPrice'],
+        'base_price': value['basePrice'],
+        'fee': value['fee'],
         'total_price': value['totalPrice'],
         'monthly_tokens': value['monthlyTokens'],
         'one_time_tokens': value['oneTimeTokens'],

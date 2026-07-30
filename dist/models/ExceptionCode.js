@@ -106,6 +106,7 @@ exports.ExceptionCode = {
     TokenUsageGroupRevisionIncomplete: 'token_usage_group_revision_incomplete',
     PricingExternalProductIdBlank: 'pricing_external_product_id_blank',
     PricingExternalProductIdTooLong: 'pricing_external_product_id_too_long',
+    PricingTotalPriceInvalid: 'pricing_total_price_invalid',
     PricingSubscriptionBillingFieldsRequired: 'pricing_subscription_billing_fields_required',
     PricingSubscriptionTokenAmountsRequired: 'pricing_subscription_token_amounts_required',
     PricingSubscriptionTotalPriceInvalid: 'pricing_subscription_total_price_invalid',
