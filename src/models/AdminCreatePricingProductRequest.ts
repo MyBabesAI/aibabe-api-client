@@ -126,6 +126,18 @@ export interface AdminCreatePricingProductRequest {
      * @type {number}
      * @memberof AdminCreatePricingProductRequest
      */
+    basePrice: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AdminCreatePricingProductRequest
+     */
+    fee?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AdminCreatePricingProductRequest
+     */
     totalPrice: number;
     /**
      * 
@@ -211,6 +223,7 @@ export function instanceOfAdminCreatePricingProductRequest(value: object): value
     if (!('productType' in value) || value['productType'] === undefined) return false;
     if (!('displayName' in value) || value['displayName'] === undefined) return false;
     if (!('displayPrice' in value) || value['displayPrice'] === undefined) return false;
+    if (!('basePrice' in value) || value['basePrice'] === undefined) return false;
     if (!('totalPrice' in value) || value['totalPrice'] === undefined) return false;
     if (!('currency' in value) || value['currency'] === undefined) return false;
     return true;
@@ -232,6 +245,8 @@ export function AdminCreatePricingProductRequestFromJSONTyped(json: any, ignoreD
         'specialOffer': json['special_offer'] == null ? undefined : SpecialOfferFromJSON(json['special_offer']),
         'displayName': json['display_name'],
         'displayPrice': json['display_price'],
+        'basePrice': json['base_price'],
+        'fee': json['fee'] == null ? undefined : json['fee'],
         'totalPrice': json['total_price'],
         'monthlyTokens': json['monthly_tokens'] == null ? undefined : MonthlyTokensFromJSON(json['monthly_tokens']),
         'oneTimeTokens': json['one_time_tokens'] == null ? undefined : OneTimeTokensFromJSON(json['one_time_tokens']),
@@ -265,6 +280,8 @@ export function AdminCreatePricingProductRequestFromJSONTyped(json: any, ignoreD
         'special_offer': SpecialOfferToJSON(value['specialOffer']),
         'display_name': value['displayName'],
         'display_price': value['displayPrice'],
+        'base_price': value['basePrice'],
+        'fee': value['fee'],
         'total_price': value['totalPrice'],
         'monthly_tokens': MonthlyTokensToJSON(value['monthlyTokens']),
         'one_time_tokens': OneTimeTokensToJSON(value['oneTimeTokens']),
