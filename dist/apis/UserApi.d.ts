@@ -11,6 +11,9 @@
  */
 import * as runtime from '../runtime';
 import type { DeleteUserRequest, GetClaimablesResponse, GetFollowedUsersResponse, GetPublicLatestUpdateResponse, GetPublicUsersResponse, PatchUserPreferenceProfileRequest, PatchUserRequest, PostClaimRequest, PostDonateRequest, PostDonateResponse, PostFollowUserRequest, PostRatingRequest, PostRatingResponse, PostReportUserRequest, PostUserPreferencesOnboardingRequest, PostVerifyPublicUsernameRequest, PostVerifyPublicUsernameResponse, PublicUserInfo, PutPasswordRequest, PutPublicUserRequest, PutUsernameRequest, RemainingFreeUsesResponse, UserPreferenceProfile, UserPreferenceTaxonomyResponse } from '../models/index';
+export interface BlacklistUserUserBlacklistUserIdPatchRequest {
+    userId: string;
+}
 export interface ClaimUserClaimPostRequest {
     postClaimRequest: PostClaimRequest;
 }
@@ -67,6 +70,14 @@ export interface VerifyPublicUsernameUserPublicVerifyPostRequest {
  *
  */
 export declare class UserApi extends runtime.BaseAPI {
+    /**
+     * Blacklist User
+     */
+    blacklistUserUserBlacklistUserIdPatchRaw(requestParameters: BlacklistUserUserBlacklistUserIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Blacklist User
+     */
+    blacklistUserUserBlacklistUserIdPatch(requestParameters: BlacklistUserUserBlacklistUserIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Claim
      */
