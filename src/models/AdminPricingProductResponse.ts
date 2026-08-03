@@ -96,6 +96,18 @@ export interface AdminPricingProductResponse {
      * @type {number}
      * @memberof AdminPricingProductResponse
      */
+    basePrice: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AdminPricingProductResponse
+     */
+    fee: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AdminPricingProductResponse
+     */
     totalPrice: number;
     /**
      * 
@@ -183,6 +195,8 @@ export function instanceOfAdminPricingProductResponse(value: object): value is A
     if (!('specialOffer' in value) || value['specialOffer'] === undefined) return false;
     if (!('displayName' in value) || value['displayName'] === undefined) return false;
     if (!('displayPrice' in value) || value['displayPrice'] === undefined) return false;
+    if (!('basePrice' in value) || value['basePrice'] === undefined) return false;
+    if (!('fee' in value) || value['fee'] === undefined) return false;
     if (!('totalPrice' in value) || value['totalPrice'] === undefined) return false;
     if (!('monthlyTokens' in value) || value['monthlyTokens'] === undefined) return false;
     if (!('oneTimeTokens' in value) || value['oneTimeTokens'] === undefined) return false;
@@ -215,6 +229,8 @@ export function AdminPricingProductResponseFromJSONTyped(json: any, ignoreDiscri
         'specialOffer': SpecialOfferFromJSON(json['special_offer']),
         'displayName': json['display_name'],
         'displayPrice': json['display_price'],
+        'basePrice': json['base_price'],
+        'fee': json['fee'],
         'totalPrice': json['total_price'],
         'monthlyTokens': json['monthly_tokens'],
         'oneTimeTokens': json['one_time_tokens'],
@@ -248,6 +264,8 @@ export function AdminPricingProductResponseFromJSONTyped(json: any, ignoreDiscri
         'special_offer': SpecialOfferToJSON(value['specialOffer']),
         'display_name': value['displayName'],
         'display_price': value['displayPrice'],
+        'base_price': value['basePrice'],
+        'fee': value['fee'],
         'total_price': value['totalPrice'],
         'monthly_tokens': value['monthlyTokens'],
         'one_time_tokens': value['oneTimeTokens'],

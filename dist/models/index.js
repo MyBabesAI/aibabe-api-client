@@ -93,6 +93,7 @@ __exportStar(require("./DiscountOriginalPrice"), exports);
 __exportStar(require("./DiscountOriginalTokens"), exports);
 __exportStar(require("./DisplayDiscount"), exports);
 __exportStar(require("./DonationNotification"), exports);
+__exportStar(require("./DownscaleRequest"), exports);
 __exportStar(require("./EpisodeContent"), exports);
 __exportStar(require("./EpisodeCounts"), exports);
 __exportStar(require("./EpisodePanelType"), exports);

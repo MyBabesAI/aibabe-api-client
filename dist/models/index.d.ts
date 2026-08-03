@@ -75,6 +75,7 @@ export * from './DiscountOriginalPrice';
 export * from './DiscountOriginalTokens';
 export * from './DisplayDiscount';
 export * from './DonationNotification';
+export * from './DownscaleRequest';
 export * from './EpisodeContent';
 export * from './EpisodeCounts';
 export * from './EpisodePanelType';

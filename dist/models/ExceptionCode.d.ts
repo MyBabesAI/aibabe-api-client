@@ -100,6 +100,7 @@ export declare const ExceptionCode: {
     readonly TokenUsageGroupRevisionIncomplete: "token_usage_group_revision_incomplete";
     readonly PricingExternalProductIdBlank: "pricing_external_product_id_blank";
     readonly PricingExternalProductIdTooLong: "pricing_external_product_id_too_long";
+    readonly PricingTotalPriceInvalid: "pricing_total_price_invalid";
     readonly PricingSubscriptionBillingFieldsRequired: "pricing_subscription_billing_fields_required";
     readonly PricingSubscriptionTokenAmountsRequired: "pricing_subscription_token_amounts_required";
     readonly PricingSubscriptionTotalPriceInvalid: "pricing_subscription_total_price_invalid";
