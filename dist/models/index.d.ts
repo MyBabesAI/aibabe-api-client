@@ -162,6 +162,7 @@ export * from './ListAssistantChatSessionsResponse';
 export * from './ListChatbotItem';
 export * from './ListConversationsResponse';
 export * from './LiveRoleplayHistoryMessage';
+export * from './LiveRoleplaySessionResponse';
 export * from './LoraName';
 export * from './MarketingCampaignName';
 export * from './MemoracekType';

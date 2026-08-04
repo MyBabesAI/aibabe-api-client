@@ -25,6 +25,7 @@ import type {
   GetLiveRoleplayHistoryResponse,
   HTTPValidationError,
   ListConversationsResponse,
+  LiveRoleplaySessionResponse,
   PatchChatMessageRequest,
   PatchImageModerationPromptRequest,
   PostAnonymousChatRequest,
@@ -57,6 +58,8 @@ import {
     HTTPValidationErrorToJSON,
     ListConversationsResponseFromJSON,
     ListConversationsResponseToJSON,
+    LiveRoleplaySessionResponseFromJSON,
+    LiveRoleplaySessionResponseToJSON,
     PatchChatMessageRequestFromJSON,
     PatchChatMessageRequestToJSON,
     PatchImageModerationPromptRequestFromJSON,
@@ -128,6 +131,10 @@ export interface CreateAnonymousConversationChatAnonymousChatbotIdPutRequest {
     createAnonymousConversationRequest: CreateAnonymousConversationRequest;
 }
 
+export interface DeleteAnonymousConversationChatAnonymousChatbotIdDeleteRequest {
+    chatbotId: string;
+}
+
 export interface DeleteChatChatChatbotIdDeleteRequest {
     chatbotId: string;
 }
@@ -151,6 +158,10 @@ export interface GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest {
 export interface LiveRoleplayChatChatbotIdLiveRoleplayPostRequest {
     chatbotId: string;
     postLiveRoleplayRequest: PostLiveRoleplayRequest;
+}
+
+export interface LiveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRequest {
+    chatbotId: string;
 }
 
 export interface RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest {
@@ -559,6 +570,40 @@ export class ChatApi extends runtime.BaseAPI {
     }
 
     /**
+     * Start over: drop the guest\'s conversation with this chatbot and every message in it.  The guest keeps their identity, so the messages they have already spent stay spent; only the transcript goes. Creating the next conversation is a PUT away.
+     * Delete Anonymous Conversation
+     */
+    async deleteAnonymousConversationChatAnonymousChatbotIdDeleteRaw(requestParameters: DeleteAnonymousConversationChatAnonymousChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling deleteAnonymousConversationChatAnonymousChatbotIdDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/anonymous/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Start over: drop the guest\'s conversation with this chatbot and every message in it.  The guest keeps their identity, so the messages they have already spent stay spent; only the transcript goes. Creating the next conversation is a PUT away.
+     * Delete Anonymous Conversation
+     */
+    async deleteAnonymousConversationChatAnonymousChatbotIdDelete(requestParameters: DeleteAnonymousConversationChatAnonymousChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteAnonymousConversationChatAnonymousChatbotIdDeleteRaw(requestParameters, initOverrides);
+    }
+
+    /**
      * Delete Chat
      */
     async deleteChatChatChatbotIdDeleteRaw(requestParameters: DeleteChatChatChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -815,6 +860,41 @@ export class ChatApi extends runtime.BaseAPI {
      */
     async liveRoleplayChatChatbotIdLiveRoleplayPost(requestParameters: LiveRoleplayChatChatbotIdLiveRoleplayPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostLiveRoleplayResponse> {
         const response = await this.liveRoleplayChatChatbotIdLiveRoleplayPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Hand back the id this caller\'s replies will be addressed to, before they send one.  A guest\'s recipient id comes from a cookie that otherwise only the first message mints, which leaves them unable to open their socket until that turn is already streaming - and a reply sent while nobody is connected is dropped, not queued. Signed in callers already know theirs and are served by the authenticated socket; this is here so a guest can connect first and post second.
+     * Live Roleplay Session
+     */
+    async liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRaw(requestParameters: LiveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveRoleplaySessionResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/live-roleplay/session`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => LiveRoleplaySessionResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Hand back the id this caller\'s replies will be addressed to, before they send one.  A guest\'s recipient id comes from a cookie that otherwise only the first message mints, which leaves them unable to open their socket until that turn is already streaming - and a reply sent while nobody is connected is dropped, not queued. Signed in callers already know theirs and are served by the authenticated socket; this is here so a guest can connect first and post second.
+     * Live Roleplay Session
+     */
+    async liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPost(requestParameters: LiveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveRoleplaySessionResponse> {
+        const response = await this.liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -191,6 +191,7 @@ src/models/ListAssistantChatSessionsResponse.ts
 src/models/ListChatbotItem.ts
 src/models/ListConversationsResponse.ts
 src/models/LiveRoleplayHistoryMessage.ts
+src/models/LiveRoleplaySessionResponse.ts
 src/models/LoraName.ts
 src/models/MarketingCampaignName.ts
 src/models/MemoracekType.ts

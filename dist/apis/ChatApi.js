@@ -317,6 +317,31 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Start over: drop the guest\'s conversation with this chatbot and every message in it.  The guest keeps their identity, so the messages they have already spent stay spent; only the transcript goes. Creating the next conversation is a PUT away.
+     * Delete Anonymous Conversation
+     */
+    async deleteAnonymousConversationChatAnonymousChatbotIdDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling deleteAnonymousConversationChatAnonymousChatbotIdDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/anonymous/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.VoidApiResponse(response);
+    }
+    /**
+     * Start over: drop the guest\'s conversation with this chatbot and every message in it.  The guest keeps their identity, so the messages they have already spent stay spent; only the transcript goes. Creating the next conversation is a PUT away.
+     * Delete Anonymous Conversation
+     */
+    async deleteAnonymousConversationChatAnonymousChatbotIdDelete(requestParameters, initOverrides) {
+        await this.deleteAnonymousConversationChatAnonymousChatbotIdDeleteRaw(requestParameters, initOverrides);
+    }
+    /**
      * Delete Chat
      */
     async deleteChatChatChatbotIdDeleteRaw(requestParameters, initOverrides) {
@@ -505,6 +530,32 @@ class ChatApi extends runtime.BaseAPI {
      */
     async liveRoleplayChatChatbotIdLiveRoleplayPost(requestParameters, initOverrides) {
         const response = await this.liveRoleplayChatChatbotIdLiveRoleplayPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Hand back the id this caller\'s replies will be addressed to, before they send one.  A guest\'s recipient id comes from a cookie that otherwise only the first message mints, which leaves them unable to open their socket until that turn is already streaming - and a reply sent while nobody is connected is dropped, not queued. Signed in callers already know theirs and are served by the authenticated socket; this is here so a guest can connect first and post second.
+     * Live Roleplay Session
+     */
+    async liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/live-roleplay/session`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.LiveRoleplaySessionResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Hand back the id this caller\'s replies will be addressed to, before they send one.  A guest\'s recipient id comes from a cookie that otherwise only the first message mints, which leaves them unable to open their socket until that turn is already streaming - and a reply sent while nobody is connected is dropped, not queued. Signed in callers already know theirs and are served by the authenticated socket; this is here so a guest can connect first and post second.
+     * Live Roleplay Session
+     */
+    async liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPost(requestParameters, initOverrides) {
+        const response = await this.liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
