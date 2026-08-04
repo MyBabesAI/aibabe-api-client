@@ -139,6 +139,10 @@ export interface DeleteChatChatChatbotIdDeleteRequest {
     chatbotId: string;
 }
 
+export interface DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest {
+    chatbotId: string;
+}
+
 export interface DeleteMessageChatMessageMessageIdDeleteRequest {
     messageId: string;
     imageId?: string | null;
@@ -638,6 +642,40 @@ export class ChatApi extends runtime.BaseAPI {
     async deleteChatChatChatbotIdDelete(requestParameters: DeleteChatChatChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.deleteChatChatChatbotIdDeleteRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Delete Live Roleplay Conversation
+     */
+    async deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRaw(requestParameters: DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/live-roleplay`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Delete Live Roleplay Conversation
+     */
+    async deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete(requestParameters: DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRaw(requestParameters, initOverrides);
     }
 
     /**

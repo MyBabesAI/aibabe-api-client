@@ -371,6 +371,31 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Delete Live Roleplay Conversation
+     */
+    async deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/live-roleplay`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.VoidApiResponse(response);
+    }
+    /**
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Delete Live Roleplay Conversation
+     */
+    async deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete(requestParameters, initOverrides) {
+        await this.deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRaw(requestParameters, initOverrides);
+    }
+    /**
      * Delete Message
      */
     async deleteMessageChatMessageMessageIdDeleteRaw(requestParameters, initOverrides) {

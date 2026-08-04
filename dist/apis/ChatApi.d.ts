@@ -57,6 +57,9 @@ export interface DeleteAnonymousConversationChatAnonymousChatbotIdDeleteRequest 
 export interface DeleteChatChatChatbotIdDeleteRequest {
     chatbotId: string;
 }
+export interface DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest {
+    chatbotId: string;
+}
 export interface DeleteMessageChatMessageMessageIdDeleteRequest {
     messageId: string;
     imageId?: string | null;
@@ -190,6 +193,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Delete Chat
      */
     deleteChatChatChatbotIdDelete(requestParameters: DeleteChatChatChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Delete Live Roleplay Conversation
+     */
+    deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRaw(requestParameters: DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Delete Live Roleplay Conversation
+     */
+    deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete(requestParameters: DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      * Delete Message
      */
