@@ -68,6 +68,7 @@ src/models/BadgeTimePeriod.ts
 src/models/BeardStyle.ts
 src/models/BillingPeriod.ts
 src/models/BillingReconciliationResponse.ts
+src/models/BlacklistResponse.ts
 src/models/BodyType.ts
 src/models/BulkDeleteContentRequest.ts
 src/models/CancelSubscriptionRequest.ts

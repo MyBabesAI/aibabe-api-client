@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminSavePricingGroupRevisionsRequest, AdminUserJourneysResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
+import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminSavePricingGroupRevisionsRequest, AdminUserJourneysResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -80,6 +80,10 @@ export interface SavePricingGroupRevisionsAdminPricingPostRequest {
 }
 export interface SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest {
     setUserFeatureFlagsRequest: SetUserFeatureFlagsRequest;
+}
+export interface ToggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRequest {
+    contentType: ContentType;
+    contentId: string;
 }
 export interface UpdateBadgeAdminBadgesBadgeIdPatchRequest {
     badgeId: string;
@@ -240,6 +244,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Set User Feature Flags
      */
     setUserFeatureFlagsAdminUserFeatureFlagsPut(requestParameters: SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetUserFeatureFlagsResponse>;
+    /**
+     * Toggle Content Blacklist
+     */
+    toggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRaw(requestParameters: ToggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlacklistResponse>>;
+    /**
+     * Toggle Content Blacklist
+     */
+    toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch(requestParameters: ToggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlacklistResponse>;
     /**
      * Update Badge
      */
