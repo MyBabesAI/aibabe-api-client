@@ -118,8 +118,11 @@ export interface ExtendVideoPayload {
  * @export
  */
 export const ExtendVideoPayloadModelEnum = {
-    _22I2V: 'WAN_22_I2V',
-    _27I2V: 'WAN_27_I2V'
+    Wan22I2V: 'WAN_22_I2V',
+    Wan27I2V: 'WAN_27_I2V',
+    Seedance20I2V: 'SEEDANCE_20_I2V',
+    Seedance20MiniI2V: 'SEEDANCE_20_MINI_I2V',
+    Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V'
 } as const;
 export type ExtendVideoPayloadModelEnum = typeof ExtendVideoPayloadModelEnum[keyof typeof ExtendVideoPayloadModelEnum];
 
@@ -129,7 +132,8 @@ export type ExtendVideoPayloadModelEnum = typeof ExtendVideoPayloadModelEnum[key
 export const ExtendVideoPayloadResolutionEnum = {
     P480: 'P480',
     P720: 'P720',
-    P1080: 'P1080'
+    P1080: 'P1080',
+    P2160: 'P2160'
 } as const;
 export type ExtendVideoPayloadResolutionEnum = typeof ExtendVideoPayloadResolutionEnum[keyof typeof ExtendVideoPayloadResolutionEnum];
 

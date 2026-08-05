@@ -25,8 +25,11 @@ const VideoQualityConfig_1 = require("./VideoQualityConfig");
  * @export
  */
 exports.VideoModelConfigModelEnum = {
-    _22I2V: 'WAN_22_I2V',
-    _27I2V: 'WAN_27_I2V'
+    Wan22I2V: 'WAN_22_I2V',
+    Wan27I2V: 'WAN_27_I2V',
+    Seedance20I2V: 'SEEDANCE_20_I2V',
+    Seedance20MiniI2V: 'SEEDANCE_20_MINI_I2V',
+    Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V'
 };
 /**
  * Check if a given object implements the VideoModelConfig interface.
@@ -40,9 +43,15 @@ function instanceOfVideoModelConfig(value) {
         return false;
     if (!('audioGenerationAvailable' in value) || value['audioGenerationAvailable'] === undefined)
         return false;
+    if (!('promptExtendAvailable' in value) || value['promptExtendAvailable'] === undefined)
+        return false;
     if (!('lastFrameSupported' in value) || value['lastFrameSupported'] === undefined)
         return false;
     if (!('modsAvailable' in value) || value['modsAvailable'] === undefined)
+        return false;
+    if (!('templatesAvailable' in value) || value['templatesAvailable'] === undefined)
+        return false;
+    if (!('multishotSupported' in value) || value['multishotSupported'] === undefined)
         return false;
     return true;
 }
@@ -58,8 +67,11 @@ function VideoModelConfigFromJSONTyped(json, ignoreDiscriminator) {
         'displayName': json['display_name'],
         'qualities': ((0, runtime_1.mapValues)(json['qualities'], VideoQualityConfig_1.VideoQualityConfigFromJSON)),
         'audioGenerationAvailable': json['audio_generation_available'],
+        'promptExtendAvailable': json['prompt_extend_available'],
         'lastFrameSupported': json['last_frame_supported'],
         'modsAvailable': json['mods_available'],
+        'templatesAvailable': json['templates_available'],
+        'multishotSupported': json['multishot_supported'],
     };
 }
 function VideoModelConfigToJSON(json) {
@@ -74,8 +86,11 @@ function VideoModelConfigToJSONTyped(value, ignoreDiscriminator = false) {
         'display_name': value['displayName'],
         'qualities': ((0, runtime_1.mapValues)(value['qualities'], VideoQualityConfig_1.VideoQualityConfigToJSON)),
         'audio_generation_available': value['audioGenerationAvailable'],
+        'prompt_extend_available': value['promptExtendAvailable'],
         'last_frame_supported': value['lastFrameSupported'],
         'mods_available': value['modsAvailable'],
+        'templates_available': value['templatesAvailable'],
+        'multishot_supported': value['multishotSupported'],
     };
 }
 //# sourceMappingURL=VideoModelConfig.js.map

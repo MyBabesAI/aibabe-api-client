@@ -56,6 +56,12 @@ export interface VideoModelConfig {
      * @type {boolean}
      * @memberof VideoModelConfig
      */
+    promptExtendAvailable: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof VideoModelConfig
+     */
     lastFrameSupported: boolean;
     /**
      * 
@@ -63,6 +69,18 @@ export interface VideoModelConfig {
      * @memberof VideoModelConfig
      */
     modsAvailable: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof VideoModelConfig
+     */
+    templatesAvailable: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof VideoModelConfig
+     */
+    multishotSupported: boolean;
 }
 
 
@@ -70,8 +88,11 @@ export interface VideoModelConfig {
  * @export
  */
 export const VideoModelConfigModelEnum = {
-    _22I2V: 'WAN_22_I2V',
-    _27I2V: 'WAN_27_I2V'
+    Wan22I2V: 'WAN_22_I2V',
+    Wan27I2V: 'WAN_27_I2V',
+    Seedance20I2V: 'SEEDANCE_20_I2V',
+    Seedance20MiniI2V: 'SEEDANCE_20_MINI_I2V',
+    Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V'
 } as const;
 export type VideoModelConfigModelEnum = typeof VideoModelConfigModelEnum[keyof typeof VideoModelConfigModelEnum];
 
@@ -84,8 +105,11 @@ export function instanceOfVideoModelConfig(value: object): value is VideoModelCo
     if (!('displayName' in value) || value['displayName'] === undefined) return false;
     if (!('qualities' in value) || value['qualities'] === undefined) return false;
     if (!('audioGenerationAvailable' in value) || value['audioGenerationAvailable'] === undefined) return false;
+    if (!('promptExtendAvailable' in value) || value['promptExtendAvailable'] === undefined) return false;
     if (!('lastFrameSupported' in value) || value['lastFrameSupported'] === undefined) return false;
     if (!('modsAvailable' in value) || value['modsAvailable'] === undefined) return false;
+    if (!('templatesAvailable' in value) || value['templatesAvailable'] === undefined) return false;
+    if (!('multishotSupported' in value) || value['multishotSupported'] === undefined) return false;
     return true;
 }
 
@@ -103,8 +127,11 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         'displayName': json['display_name'],
         'qualities': (mapValues(json['qualities'], VideoQualityConfigFromJSON)),
         'audioGenerationAvailable': json['audio_generation_available'],
+        'promptExtendAvailable': json['prompt_extend_available'],
         'lastFrameSupported': json['last_frame_supported'],
         'modsAvailable': json['mods_available'],
+        'templatesAvailable': json['templates_available'],
+        'multishotSupported': json['multishot_supported'],
     };
 }
 
@@ -123,8 +150,11 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         'display_name': value['displayName'],
         'qualities': (mapValues(value['qualities'], VideoQualityConfigToJSON)),
         'audio_generation_available': value['audioGenerationAvailable'],
+        'prompt_extend_available': value['promptExtendAvailable'],
         'last_frame_supported': value['lastFrameSupported'],
         'mods_available': value['modsAvailable'],
+        'templates_available': value['templatesAvailable'],
+        'multishot_supported': value['multishotSupported'],
     };
 }
 

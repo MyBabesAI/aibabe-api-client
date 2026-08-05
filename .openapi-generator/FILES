@@ -389,6 +389,7 @@ src/models/VideoPresetCategory.ts
 src/models/VideoPricingModel.ts
 src/models/VideoQualityConfig.ts
 src/models/VideoResolution.ts
+src/models/VideoShot.ts
 src/models/VisualType.ts
 src/models/WallPost.ts
 src/models/WanExtendVideoCompletionPayload.ts

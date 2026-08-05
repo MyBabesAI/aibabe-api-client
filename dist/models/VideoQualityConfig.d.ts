@@ -36,6 +36,7 @@ export declare const VideoQualityConfigResolutionEnum: {
     readonly P480: "P480";
     readonly P720: "P720";
     readonly P1080: "P1080";
+    readonly P2160: "P2160";
 };
 export type VideoQualityConfigResolutionEnum = typeof VideoQualityConfigResolutionEnum[keyof typeof VideoQualityConfigResolutionEnum];
 /**

@@ -378,6 +378,7 @@ __exportStar(require("./VideoPresetCategory"), exports);
 __exportStar(require("./VideoPricingModel"), exports);
 __exportStar(require("./VideoQualityConfig"), exports);
 __exportStar(require("./VideoResolution"), exports);
+__exportStar(require("./VideoShot"), exports);
 __exportStar(require("./VisualType"), exports);
 __exportStar(require("./WallPost"), exports);
 __exportStar(require("./WanExtendVideoCompletionPayload"), exports);

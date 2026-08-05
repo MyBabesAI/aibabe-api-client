@@ -26,7 +26,8 @@ const VideoDurationConfig_1 = require("./VideoDurationConfig");
 exports.VideoQualityConfigResolutionEnum = {
     P480: 'P480',
     P720: 'P720',
-    P1080: 'P1080'
+    P1080: 'P1080',
+    P2160: 'P2160'
 };
 /**
  * Check if a given object implements the VideoQualityConfig interface.

@@ -27,7 +27,9 @@ exports.VideoPricingModel = {
     Wan22I2V: 'WAN_22_I2V',
     Wan27I2V: 'WAN_27_I2V',
     Wan27NsfwI2V: 'WAN_27_NSFW_I2V',
-    Seedance20I2V: 'SEEDANCE_20_I2V'
+    Seedance20I2V: 'SEEDANCE_20_I2V',
+    Seedance20MiniI2V: 'SEEDANCE_20_MINI_I2V',
+    Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V'
 };
 function instanceOfVideoPricingModel(value) {
     for (const key in exports.VideoPricingModel) {

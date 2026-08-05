@@ -360,6 +360,7 @@ export * from './VideoPresetCategory';
 export * from './VideoPricingModel';
 export * from './VideoQualityConfig';
 export * from './VideoResolution';
+export * from './VideoShot';
 export * from './VisualType';
 export * from './WallPost';
 export * from './WanExtendVideoCompletionPayload';

@@ -47,6 +47,12 @@ export interface VideoModelConfig {
      * @type {boolean}
      * @memberof VideoModelConfig
      */
+    promptExtendAvailable: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof VideoModelConfig
+     */
     lastFrameSupported: boolean;
     /**
      *
@@ -54,13 +60,28 @@ export interface VideoModelConfig {
      * @memberof VideoModelConfig
      */
     modsAvailable: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof VideoModelConfig
+     */
+    templatesAvailable: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof VideoModelConfig
+     */
+    multishotSupported: boolean;
 }
 /**
  * @export
  */
 export declare const VideoModelConfigModelEnum: {
-    readonly _22I2V: "WAN_22_I2V";
-    readonly _27I2V: "WAN_27_I2V";
+    readonly Wan22I2V: "WAN_22_I2V";
+    readonly Wan27I2V: "WAN_27_I2V";
+    readonly Seedance20I2V: "SEEDANCE_20_I2V";
+    readonly Seedance20MiniI2V: "SEEDANCE_20_MINI_I2V";
+    readonly Seedance20FastI2V: "SEEDANCE_20_FAST_I2V";
 };
 export type VideoModelConfigModelEnum = typeof VideoModelConfigModelEnum[keyof typeof VideoModelConfigModelEnum];
 /**
