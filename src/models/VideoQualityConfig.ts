@@ -13,14 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { VideoDurationConfig } from './VideoDurationConfig';
-import {
-    VideoDurationConfigFromJSON,
-    VideoDurationConfigFromJSONTyped,
-    VideoDurationConfigToJSON,
-    VideoDurationConfigToJSONTyped,
-} from './VideoDurationConfig';
-
 /**
  * 
  * @export
@@ -35,10 +27,10 @@ export interface VideoQualityConfig {
     resolution: VideoQualityConfigResolutionEnum;
     /**
      * 
-     * @type {Array<VideoDurationConfig>}
+     * @type {number}
      * @memberof VideoQualityConfig
      */
-    durations: Array<VideoDurationConfig>;
+    tokenCostPerSecond: number;
 }
 
 
@@ -59,7 +51,7 @@ export type VideoQualityConfigResolutionEnum = typeof VideoQualityConfigResoluti
  */
 export function instanceOfVideoQualityConfig(value: object): value is VideoQualityConfig {
     if (!('resolution' in value) || value['resolution'] === undefined) return false;
-    if (!('durations' in value) || value['durations'] === undefined) return false;
+    if (!('tokenCostPerSecond' in value) || value['tokenCostPerSecond'] === undefined) return false;
     return true;
 }
 
@@ -74,7 +66,7 @@ export function VideoQualityConfigFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'resolution': json['resolution'],
-        'durations': ((json['durations'] as Array<any>).map(VideoDurationConfigFromJSON)),
+        'tokenCostPerSecond': json['token_cost_per_second'],
     };
 }
 
@@ -90,7 +82,7 @@ export function VideoQualityConfigFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'resolution': value['resolution'],
-        'durations': ((value['durations'] as Array<any>).map(VideoDurationConfigToJSON)),
+        'token_cost_per_second': value['tokenCostPerSecond'],
     };
 }
 

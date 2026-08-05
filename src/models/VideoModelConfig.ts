@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { VideoDurationOptions } from './VideoDurationOptions';
+import {
+    VideoDurationOptionsFromJSON,
+    VideoDurationOptionsFromJSONTyped,
+    VideoDurationOptionsToJSON,
+    VideoDurationOptionsToJSONTyped,
+} from './VideoDurationOptions';
 import type { VideoQualityConfig } from './VideoQualityConfig';
 import {
     VideoQualityConfigFromJSON,
@@ -39,6 +46,18 @@ export interface VideoModelConfig {
      * @memberof VideoModelConfig
      */
     displayName: string;
+    /**
+     * 
+     * @type {VideoDurationOptions}
+     * @memberof VideoModelConfig
+     */
+    durations: VideoDurationOptions;
+    /**
+     * 
+     * @type {number}
+     * @memberof VideoModelConfig
+     */
+    billedExtraSeconds?: number;
     /**
      * 
      * @type {{ [key: string]: VideoQualityConfig; }}
@@ -103,6 +122,7 @@ export type VideoModelConfigModelEnum = typeof VideoModelConfigModelEnum[keyof t
 export function instanceOfVideoModelConfig(value: object): value is VideoModelConfig {
     if (!('model' in value) || value['model'] === undefined) return false;
     if (!('displayName' in value) || value['displayName'] === undefined) return false;
+    if (!('durations' in value) || value['durations'] === undefined) return false;
     if (!('qualities' in value) || value['qualities'] === undefined) return false;
     if (!('audioGenerationAvailable' in value) || value['audioGenerationAvailable'] === undefined) return false;
     if (!('promptExtendAvailable' in value) || value['promptExtendAvailable'] === undefined) return false;
@@ -125,6 +145,8 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'model': json['model'],
         'displayName': json['display_name'],
+        'durations': VideoDurationOptionsFromJSON(json['durations']),
+        'billedExtraSeconds': json['billed_extra_seconds'] == null ? undefined : json['billed_extra_seconds'],
         'qualities': (mapValues(json['qualities'], VideoQualityConfigFromJSON)),
         'audioGenerationAvailable': json['audio_generation_available'],
         'promptExtendAvailable': json['prompt_extend_available'],
@@ -148,6 +170,8 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'model': value['model'],
         'display_name': value['displayName'],
+        'durations': VideoDurationOptionsToJSON(value['durations']),
+        'billed_extra_seconds': value['billedExtraSeconds'],
         'qualities': (mapValues(value['qualities'], VideoQualityConfigToJSON)),
         'audio_generation_available': value['audioGenerationAvailable'],
         'prompt_extend_available': value['promptExtendAvailable'],

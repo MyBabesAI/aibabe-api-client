@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { VideoDurationOptions } from './VideoDurationOptions';
 import type { VideoQualityConfig } from './VideoQualityConfig';
 /**
  *
@@ -28,6 +29,18 @@ export interface VideoModelConfig {
      * @memberof VideoModelConfig
      */
     displayName: string;
+    /**
+     *
+     * @type {VideoDurationOptions}
+     * @memberof VideoModelConfig
+     */
+    durations: VideoDurationOptions;
+    /**
+     *
+     * @type {number}
+     * @memberof VideoModelConfig
+     */
+    billedExtraSeconds?: number;
     /**
      *
      * @type {{ [key: string]: VideoQualityConfig; }}

@@ -20,6 +20,7 @@ exports.VideoModelConfigFromJSONTyped = VideoModelConfigFromJSONTyped;
 exports.VideoModelConfigToJSON = VideoModelConfigToJSON;
 exports.VideoModelConfigToJSONTyped = VideoModelConfigToJSONTyped;
 const runtime_1 = require("../runtime");
+const VideoDurationOptions_1 = require("./VideoDurationOptions");
 const VideoQualityConfig_1 = require("./VideoQualityConfig");
 /**
  * @export
@@ -38,6 +39,8 @@ function instanceOfVideoModelConfig(value) {
     if (!('model' in value) || value['model'] === undefined)
         return false;
     if (!('displayName' in value) || value['displayName'] === undefined)
+        return false;
+    if (!('durations' in value) || value['durations'] === undefined)
         return false;
     if (!('qualities' in value) || value['qualities'] === undefined)
         return false;
@@ -65,6 +68,8 @@ function VideoModelConfigFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'model': json['model'],
         'displayName': json['display_name'],
+        'durations': (0, VideoDurationOptions_1.VideoDurationOptionsFromJSON)(json['durations']),
+        'billedExtraSeconds': json['billed_extra_seconds'] == null ? undefined : json['billed_extra_seconds'],
         'qualities': ((0, runtime_1.mapValues)(json['qualities'], VideoQualityConfig_1.VideoQualityConfigFromJSON)),
         'audioGenerationAvailable': json['audio_generation_available'],
         'promptExtendAvailable': json['prompt_extend_available'],
@@ -84,6 +89,8 @@ function VideoModelConfigToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'model': value['model'],
         'display_name': value['displayName'],
+        'durations': (0, VideoDurationOptions_1.VideoDurationOptionsToJSON)(value['durations']),
+        'billed_extra_seconds': value['billedExtraSeconds'],
         'qualities': ((0, runtime_1.mapValues)(value['qualities'], VideoQualityConfig_1.VideoQualityConfigToJSON)),
         'audio_generation_available': value['audioGenerationAvailable'],
         'prompt_extend_available': value['promptExtendAvailable'],

@@ -350,7 +350,7 @@ export * from './ValidationError';
 export * from './ValidationErrorLocInner';
 export * from './VideoConfigResponse';
 export * from './VideoContent';
-export * from './VideoDurationConfig';
+export * from './VideoDurationOptions';
 export * from './VideoFromChatResponse';
 export * from './VideoGenerationStatus';
 export * from './VideoLoraName';

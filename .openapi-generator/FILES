@@ -377,7 +377,7 @@ src/models/ValidationError.ts
 src/models/ValidationErrorLocInner.ts
 src/models/VideoConfigResponse.ts
 src/models/VideoContent.ts
-src/models/VideoDurationConfig.ts
+src/models/VideoDurationOptions.ts
 src/models/VideoFromChatResponse.ts
 src/models/VideoGenerationStatus.ts
 src/models/VideoLoraName.ts

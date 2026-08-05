@@ -19,7 +19,6 @@ exports.VideoQualityConfigFromJSON = VideoQualityConfigFromJSON;
 exports.VideoQualityConfigFromJSONTyped = VideoQualityConfigFromJSONTyped;
 exports.VideoQualityConfigToJSON = VideoQualityConfigToJSON;
 exports.VideoQualityConfigToJSONTyped = VideoQualityConfigToJSONTyped;
-const VideoDurationConfig_1 = require("./VideoDurationConfig");
 /**
  * @export
  */
@@ -35,7 +34,7 @@ exports.VideoQualityConfigResolutionEnum = {
 function instanceOfVideoQualityConfig(value) {
     if (!('resolution' in value) || value['resolution'] === undefined)
         return false;
-    if (!('durations' in value) || value['durations'] === undefined)
+    if (!('tokenCostPerSecond' in value) || value['tokenCostPerSecond'] === undefined)
         return false;
     return true;
 }
@@ -48,7 +47,7 @@ function VideoQualityConfigFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'resolution': json['resolution'],
-        'durations': (json['durations'].map(VideoDurationConfig_1.VideoDurationConfigFromJSON)),
+        'tokenCostPerSecond': json['token_cost_per_second'],
     };
 }
 function VideoQualityConfigToJSON(json) {
@@ -60,7 +59,7 @@ function VideoQualityConfigToJSONTyped(value, ignoreDiscriminator = false) {
     }
     return {
         'resolution': value['resolution'],
-        'durations': (value['durations'].map(VideoDurationConfig_1.VideoDurationConfigToJSON)),
+        'token_cost_per_second': value['tokenCostPerSecond'],
     };
 }
 //# sourceMappingURL=VideoQualityConfig.js.map

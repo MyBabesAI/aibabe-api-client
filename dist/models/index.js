@@ -366,7 +366,7 @@ __exportStar(require("./ValidationError"), exports);
 __exportStar(require("./ValidationErrorLocInner"), exports);
 __exportStar(require("./VideoConfigResponse"), exports);
 __exportStar(require("./VideoContent"), exports);
-__exportStar(require("./VideoDurationConfig"), exports);
+__exportStar(require("./VideoDurationOptions"), exports);
 __exportStar(require("./VideoFromChatResponse"), exports);
 __exportStar(require("./VideoGenerationStatus"), exports);
 __exportStar(require("./VideoLoraName"), exports);

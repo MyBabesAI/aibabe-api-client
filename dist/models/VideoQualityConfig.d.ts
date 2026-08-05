@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { VideoDurationConfig } from './VideoDurationConfig';
 /**
  *
  * @export
@@ -24,10 +23,10 @@ export interface VideoQualityConfig {
     resolution: VideoQualityConfigResolutionEnum;
     /**
      *
-     * @type {Array<VideoDurationConfig>}
+     * @type {number}
      * @memberof VideoQualityConfig
      */
-    durations: Array<VideoDurationConfig>;
+    tokenCostPerSecond: number;
 }
 /**
  * @export
