@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { VideoDurationOptions } from './VideoDurationOptions';
+import {
+    VideoDurationOptionsFromJSON,
+    VideoDurationOptionsFromJSONTyped,
+    VideoDurationOptionsToJSON,
+    VideoDurationOptionsToJSONTyped,
+} from './VideoDurationOptions';
 import type { VideoQualityConfig } from './VideoQualityConfig';
 import {
     VideoQualityConfigFromJSON,
@@ -41,6 +48,18 @@ export interface VideoModelConfig {
     displayName: string;
     /**
      * 
+     * @type {VideoDurationOptions}
+     * @memberof VideoModelConfig
+     */
+    durations: VideoDurationOptions;
+    /**
+     * 
+     * @type {number}
+     * @memberof VideoModelConfig
+     */
+    billedExtraSeconds?: number;
+    /**
+     * 
      * @type {{ [key: string]: VideoQualityConfig; }}
      * @memberof VideoModelConfig
      */
@@ -56,6 +75,12 @@ export interface VideoModelConfig {
      * @type {boolean}
      * @memberof VideoModelConfig
      */
+    promptExtendAvailable: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof VideoModelConfig
+     */
     lastFrameSupported: boolean;
     /**
      * 
@@ -63,6 +88,18 @@ export interface VideoModelConfig {
      * @memberof VideoModelConfig
      */
     modsAvailable: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof VideoModelConfig
+     */
+    templatesAvailable: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof VideoModelConfig
+     */
+    multishotSupported: boolean;
 }
 
 
@@ -70,8 +107,11 @@ export interface VideoModelConfig {
  * @export
  */
 export const VideoModelConfigModelEnum = {
-    _22I2V: 'WAN_22_I2V',
-    _27I2V: 'WAN_27_I2V'
+    Wan22I2V: 'WAN_22_I2V',
+    Wan27I2V: 'WAN_27_I2V',
+    Seedance20I2V: 'SEEDANCE_20_I2V',
+    Seedance20MiniI2V: 'SEEDANCE_20_MINI_I2V',
+    Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V'
 } as const;
 export type VideoModelConfigModelEnum = typeof VideoModelConfigModelEnum[keyof typeof VideoModelConfigModelEnum];
 
@@ -82,10 +122,14 @@ export type VideoModelConfigModelEnum = typeof VideoModelConfigModelEnum[keyof t
 export function instanceOfVideoModelConfig(value: object): value is VideoModelConfig {
     if (!('model' in value) || value['model'] === undefined) return false;
     if (!('displayName' in value) || value['displayName'] === undefined) return false;
+    if (!('durations' in value) || value['durations'] === undefined) return false;
     if (!('qualities' in value) || value['qualities'] === undefined) return false;
     if (!('audioGenerationAvailable' in value) || value['audioGenerationAvailable'] === undefined) return false;
+    if (!('promptExtendAvailable' in value) || value['promptExtendAvailable'] === undefined) return false;
     if (!('lastFrameSupported' in value) || value['lastFrameSupported'] === undefined) return false;
     if (!('modsAvailable' in value) || value['modsAvailable'] === undefined) return false;
+    if (!('templatesAvailable' in value) || value['templatesAvailable'] === undefined) return false;
+    if (!('multishotSupported' in value) || value['multishotSupported'] === undefined) return false;
     return true;
 }
 
@@ -101,10 +145,15 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'model': json['model'],
         'displayName': json['display_name'],
+        'durations': VideoDurationOptionsFromJSON(json['durations']),
+        'billedExtraSeconds': json['billed_extra_seconds'] == null ? undefined : json['billed_extra_seconds'],
         'qualities': (mapValues(json['qualities'], VideoQualityConfigFromJSON)),
         'audioGenerationAvailable': json['audio_generation_available'],
+        'promptExtendAvailable': json['prompt_extend_available'],
         'lastFrameSupported': json['last_frame_supported'],
         'modsAvailable': json['mods_available'],
+        'templatesAvailable': json['templates_available'],
+        'multishotSupported': json['multishot_supported'],
     };
 }
 
@@ -121,10 +170,15 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'model': value['model'],
         'display_name': value['displayName'],
+        'durations': VideoDurationOptionsToJSON(value['durations']),
+        'billed_extra_seconds': value['billedExtraSeconds'],
         'qualities': (mapValues(value['qualities'], VideoQualityConfigToJSON)),
         'audio_generation_available': value['audioGenerationAvailable'],
+        'prompt_extend_available': value['promptExtendAvailable'],
         'last_frame_supported': value['lastFrameSupported'],
         'mods_available': value['modsAvailable'],
+        'templates_available': value['templatesAvailable'],
+        'multishot_supported': value['multishotSupported'],
     };
 }
 

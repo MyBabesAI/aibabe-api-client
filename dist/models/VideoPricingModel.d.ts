@@ -18,6 +18,8 @@ export declare const VideoPricingModel: {
     readonly Wan27I2V: "WAN_27_I2V";
     readonly Wan27NsfwI2V: "WAN_27_NSFW_I2V";
     readonly Seedance20I2V: "SEEDANCE_20_I2V";
+    readonly Seedance20MiniI2V: "SEEDANCE_20_MINI_I2V";
+    readonly Seedance20FastI2V: "SEEDANCE_20_FAST_I2V";
 };
 export type VideoPricingModel = typeof VideoPricingModel[keyof typeof VideoPricingModel];
 export declare function instanceOfVideoPricingModel(value: any): boolean;
