@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { VideoShot } from './VideoShot';
+import {
+    VideoShotFromJSON,
+    VideoShotFromJSONTyped,
+    VideoShotToJSON,
+    VideoShotToJSONTyped,
+} from './VideoShot';
 import type { VideoLoraName } from './VideoLoraName';
 import {
     VideoLoraNameFromJSON,
@@ -111,6 +118,12 @@ export interface ExtendVideoPayload {
      * @memberof ExtendVideoPayload
      */
     audioGeneration?: boolean;
+    /**
+     * 
+     * @type {Array<VideoShot>}
+     * @memberof ExtendVideoPayload
+     */
+    shots?: Array<VideoShot> | null;
 }
 
 
@@ -177,6 +190,7 @@ export function ExtendVideoPayloadFromJSONTyped(json: any, ignoreDiscriminator: 
         'promptExtend': json['prompt_extend'] == null ? undefined : json['prompt_extend'],
         'seed': json['seed'] == null ? undefined : json['seed'],
         'audioGeneration': json['audio_generation'] == null ? undefined : json['audio_generation'],
+        'shots': json['shots'] == null ? undefined : ((json['shots'] as Array<any>).map(VideoShotFromJSON)),
     };
 }
 
@@ -205,6 +219,7 @@ export function ExtendVideoPayloadFromJSONTyped(json: any, ignoreDiscriminator: 
         'prompt_extend': value['promptExtend'],
         'seed': value['seed'],
         'audio_generation': value['audioGeneration'],
+        'shots': value['shots'] == null ? undefined : ((value['shots'] as Array<any>).map(VideoShotToJSON)),
     };
 }
 

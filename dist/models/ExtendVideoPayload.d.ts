@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { VideoShot } from './VideoShot';
 import type { VideoLoraName } from './VideoLoraName';
 /**
  *
@@ -100,6 +101,12 @@ export interface ExtendVideoPayload {
      * @memberof ExtendVideoPayload
      */
     audioGeneration?: boolean;
+    /**
+     *
+     * @type {Array<VideoShot>}
+     * @memberof ExtendVideoPayload
+     */
+    shots?: Array<VideoShot> | null;
 }
 /**
  * @export

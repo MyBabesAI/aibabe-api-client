@@ -19,6 +19,7 @@ exports.ExtendVideoPayloadFromJSON = ExtendVideoPayloadFromJSON;
 exports.ExtendVideoPayloadFromJSONTyped = ExtendVideoPayloadFromJSONTyped;
 exports.ExtendVideoPayloadToJSON = ExtendVideoPayloadToJSON;
 exports.ExtendVideoPayloadToJSONTyped = ExtendVideoPayloadToJSONTyped;
+const VideoShot_1 = require("./VideoShot");
 const VideoLoraName_1 = require("./VideoLoraName");
 /**
  * @export
@@ -83,6 +84,7 @@ function ExtendVideoPayloadFromJSONTyped(json, ignoreDiscriminator) {
         'promptExtend': json['prompt_extend'] == null ? undefined : json['prompt_extend'],
         'seed': json['seed'] == null ? undefined : json['seed'],
         'audioGeneration': json['audio_generation'] == null ? undefined : json['audio_generation'],
+        'shots': json['shots'] == null ? undefined : (json['shots'].map(VideoShot_1.VideoShotFromJSON)),
     };
 }
 function ExtendVideoPayloadToJSON(json) {
@@ -107,6 +109,7 @@ function ExtendVideoPayloadToJSONTyped(value, ignoreDiscriminator = false) {
         'prompt_extend': value['promptExtend'],
         'seed': value['seed'],
         'audio_generation': value['audioGeneration'],
+        'shots': value['shots'] == null ? undefined : (value['shots'].map(VideoShot_1.VideoShotToJSON)),
     };
 }
 //# sourceMappingURL=ExtendVideoPayload.js.map
