@@ -16,44 +16,88 @@
 import * as runtime from '../runtime';
 import type {
   ChatReponse,
+  CreateAnonymousConversationRequest,
+  CreateAnonymousConversationResponse,
+  GetAnonymousConversationResponse,
   GetConversationMessagesResponse,
   GetConversationResponse,
   GetImageModerationPromptResponse,
+  GetLiveRoleplayHistoryResponse,
   HTTPValidationError,
   ListConversationsResponse,
+  LiveRoleplaySessionResponse,
   PatchChatMessageRequest,
   PatchImageModerationPromptRequest,
+  PostAnonymousChatRequest,
+  PostAnonymousChatResponse,
   PostChatRequest,
   PostChatSuggestionRequest,
   PostConversationSettingsRequest,
+  PostLiveRoleplayRequest,
+  PostLiveRoleplayResponse,
   TokenPricingConfigResponse,
 } from '../models/index';
 import {
     ChatReponseFromJSON,
     ChatReponseToJSON,
+    CreateAnonymousConversationRequestFromJSON,
+    CreateAnonymousConversationRequestToJSON,
+    CreateAnonymousConversationResponseFromJSON,
+    CreateAnonymousConversationResponseToJSON,
+    GetAnonymousConversationResponseFromJSON,
+    GetAnonymousConversationResponseToJSON,
     GetConversationMessagesResponseFromJSON,
     GetConversationMessagesResponseToJSON,
     GetConversationResponseFromJSON,
     GetConversationResponseToJSON,
     GetImageModerationPromptResponseFromJSON,
     GetImageModerationPromptResponseToJSON,
+    GetLiveRoleplayHistoryResponseFromJSON,
+    GetLiveRoleplayHistoryResponseToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
     ListConversationsResponseFromJSON,
     ListConversationsResponseToJSON,
+    LiveRoleplaySessionResponseFromJSON,
+    LiveRoleplaySessionResponseToJSON,
     PatchChatMessageRequestFromJSON,
     PatchChatMessageRequestToJSON,
     PatchImageModerationPromptRequestFromJSON,
     PatchImageModerationPromptRequestToJSON,
+    PostAnonymousChatRequestFromJSON,
+    PostAnonymousChatRequestToJSON,
+    PostAnonymousChatResponseFromJSON,
+    PostAnonymousChatResponseToJSON,
     PostChatRequestFromJSON,
     PostChatRequestToJSON,
     PostChatSuggestionRequestFromJSON,
     PostChatSuggestionRequestToJSON,
     PostConversationSettingsRequestFromJSON,
     PostConversationSettingsRequestToJSON,
+    PostLiveRoleplayRequestFromJSON,
+    PostLiveRoleplayRequestToJSON,
+    PostLiveRoleplayResponseFromJSON,
+    PostLiveRoleplayResponseToJSON,
     TokenPricingConfigResponseFromJSON,
     TokenPricingConfigResponseToJSON,
 } from '../models/index';
+
+export interface AnonymousChatChatAnonymousChatbotIdPostRequest {
+    chatbotId: string;
+    postAnonymousChatRequest: PostAnonymousChatRequest;
+}
+
+export interface AnonymousConversationChatAnonymousChatbotIdGetRequest {
+    chatbotId: string;
+    limit?: number;
+}
+
+export interface AnonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRequest {
+    chatbotId: string;
+    conversationId: string;
+    paginationToken?: string | null;
+    limit?: number;
+}
 
 export interface ChatChatChatbotIdPostRequest {
     chatbotId: string;
@@ -82,7 +126,20 @@ export interface ConversationsChatGetRequest {
     limit?: number;
 }
 
+export interface CreateAnonymousConversationChatAnonymousChatbotIdPutRequest {
+    chatbotId: string;
+    createAnonymousConversationRequest: CreateAnonymousConversationRequest;
+}
+
+export interface DeleteAnonymousConversationChatAnonymousChatbotIdDeleteRequest {
+    chatbotId: string;
+}
+
 export interface DeleteChatChatChatbotIdDeleteRequest {
+    chatbotId: string;
+}
+
+export interface DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest {
     chatbotId: string;
 }
 
@@ -96,6 +153,19 @@ export interface GenerateImageOnMessageChatChatbotIdMessageRequestIdImagePostReq
     chatbotId: string;
     requestId: string;
     postChatRequest: PostChatRequest;
+}
+
+export interface GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest {
+    chatbotId: string;
+}
+
+export interface LiveRoleplayChatChatbotIdLiveRoleplayPostRequest {
+    chatbotId: string;
+    postLiveRoleplayRequest: PostLiveRoleplayRequest;
+}
+
+export interface LiveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRequest {
+    chatbotId: string;
 }
 
 export interface RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest {
@@ -126,6 +196,134 @@ export interface UpdateMessageChatMessageMessageIdPatchRequest {
  * 
  */
 export class ChatApi extends runtime.BaseAPI {
+
+    /**
+     * Anonymous Chat
+     */
+    async anonymousChatChatAnonymousChatbotIdPostRaw(requestParameters: AnonymousChatChatAnonymousChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAnonymousChatResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling anonymousChatChatAnonymousChatbotIdPost().'
+            );
+        }
+
+        if (requestParameters['postAnonymousChatRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postAnonymousChatRequest',
+                'Required parameter "postAnonymousChatRequest" was null or undefined when calling anonymousChatChatAnonymousChatbotIdPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chat/anonymous/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostAnonymousChatRequestToJSON(requestParameters['postAnonymousChatRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostAnonymousChatResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Anonymous Chat
+     */
+    async anonymousChatChatAnonymousChatbotIdPost(requestParameters: AnonymousChatChatAnonymousChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAnonymousChatResponse> {
+        const response = await this.anonymousChatChatAnonymousChatbotIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Anonymous Conversation
+     */
+    async anonymousConversationChatAnonymousChatbotIdGetRaw(requestParameters: AnonymousConversationChatAnonymousChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAnonymousConversationResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling anonymousConversationChatAnonymousChatbotIdGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/anonymous/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetAnonymousConversationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Anonymous Conversation
+     */
+    async anonymousConversationChatAnonymousChatbotIdGet(requestParameters: AnonymousConversationChatAnonymousChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAnonymousConversationResponse> {
+        const response = await this.anonymousConversationChatAnonymousChatbotIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Anonymous Conversation Messages
+     */
+    async anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRaw(requestParameters: AnonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationMessagesResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGet().'
+            );
+        }
+
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError(
+                'conversationId',
+                'Required parameter "conversationId" was null or undefined when calling anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/anonymous/{chatbot_id}/messages/{conversation_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))).replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetConversationMessagesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Anonymous Conversation Messages
+     */
+    async anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGet(requestParameters: AnonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationMessagesResponse> {
+        const response = await this.anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
 
     /**
      * Chat
@@ -333,6 +531,83 @@ export class ChatApi extends runtime.BaseAPI {
     }
 
     /**
+     * Create Anonymous Conversation
+     */
+    async createAnonymousConversationChatAnonymousChatbotIdPutRaw(requestParameters: CreateAnonymousConversationChatAnonymousChatbotIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateAnonymousConversationResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling createAnonymousConversationChatAnonymousChatbotIdPut().'
+            );
+        }
+
+        if (requestParameters['createAnonymousConversationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createAnonymousConversationRequest',
+                'Required parameter "createAnonymousConversationRequest" was null or undefined when calling createAnonymousConversationChatAnonymousChatbotIdPut().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chat/anonymous/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateAnonymousConversationRequestToJSON(requestParameters['createAnonymousConversationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CreateAnonymousConversationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Create Anonymous Conversation
+     */
+    async createAnonymousConversationChatAnonymousChatbotIdPut(requestParameters: CreateAnonymousConversationChatAnonymousChatbotIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateAnonymousConversationResponse> {
+        const response = await this.createAnonymousConversationChatAnonymousChatbotIdPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Start over: drop the guest\'s conversation with this chatbot and every message in it.  The guest keeps their identity, so the messages they have already spent stay spent; only the transcript goes. Creating the next conversation is a PUT away.
+     * Delete Anonymous Conversation
+     */
+    async deleteAnonymousConversationChatAnonymousChatbotIdDeleteRaw(requestParameters: DeleteAnonymousConversationChatAnonymousChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling deleteAnonymousConversationChatAnonymousChatbotIdDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/anonymous/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Start over: drop the guest\'s conversation with this chatbot and every message in it.  The guest keeps their identity, so the messages they have already spent stay spent; only the transcript goes. Creating the next conversation is a PUT away.
+     * Delete Anonymous Conversation
+     */
+    async deleteAnonymousConversationChatAnonymousChatbotIdDelete(requestParameters: DeleteAnonymousConversationChatAnonymousChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteAnonymousConversationChatAnonymousChatbotIdDeleteRaw(requestParameters, initOverrides);
+    }
+
+    /**
      * Delete Chat
      */
     async deleteChatChatChatbotIdDeleteRaw(requestParameters: DeleteChatChatChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -367,6 +642,40 @@ export class ChatApi extends runtime.BaseAPI {
     async deleteChatChatChatbotIdDelete(requestParameters: DeleteChatChatChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.deleteChatChatChatbotIdDeleteRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Delete Live Roleplay Conversation
+     */
+    async deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRaw(requestParameters: DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/live-roleplay`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Delete Live Roleplay Conversation
+     */
+    async deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete(requestParameters: DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRaw(requestParameters, initOverrides);
     }
 
     /**
@@ -513,6 +822,117 @@ export class ChatApi extends runtime.BaseAPI {
      */
     async getImageModerationPromptChatImageModerationPromptGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageModerationPromptResponse> {
         const response = await this.getImageModerationPromptChatImageModerationPromptGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get Live Roleplay History
+     */
+    async getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRaw(requestParameters: GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetLiveRoleplayHistoryResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/live-roleplay`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetLiveRoleplayHistoryResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Live Roleplay History
+     */
+    async getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGet(requestParameters: GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLiveRoleplayHistoryResponse> {
+        const response = await this.getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Live Roleplay
+     */
+    async liveRoleplayChatChatbotIdLiveRoleplayPostRaw(requestParameters: LiveRoleplayChatChatbotIdLiveRoleplayPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostLiveRoleplayResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling liveRoleplayChatChatbotIdLiveRoleplayPost().'
+            );
+        }
+
+        if (requestParameters['postLiveRoleplayRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postLiveRoleplayRequest',
+                'Required parameter "postLiveRoleplayRequest" was null or undefined when calling liveRoleplayChatChatbotIdLiveRoleplayPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/live-roleplay`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostLiveRoleplayRequestToJSON(requestParameters['postLiveRoleplayRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostLiveRoleplayResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Live Roleplay
+     */
+    async liveRoleplayChatChatbotIdLiveRoleplayPost(requestParameters: LiveRoleplayChatChatbotIdLiveRoleplayPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostLiveRoleplayResponse> {
+        const response = await this.liveRoleplayChatChatbotIdLiveRoleplayPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Hand back the id this caller\'s replies will be addressed to, before they send one.  A guest\'s recipient id comes from a cookie that otherwise only the first message mints, which leaves them unable to open their socket until that turn is already streaming - and a reply sent while nobody is connected is dropped, not queued. Signed in callers already know theirs and are served by the authenticated socket; this is here so a guest can connect first and post second.
+     * Live Roleplay Session
+     */
+    async liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRaw(requestParameters: LiveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveRoleplaySessionResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/live-roleplay/session`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => LiveRoleplaySessionResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Hand back the id this caller\'s replies will be addressed to, before they send one.  A guest\'s recipient id comes from a cookie that otherwise only the first message mints, which leaves them unable to open their socket until that turn is already streaming - and a reply sent while nobody is connected is dropped, not queued. Signed in callers already know theirs and are served by the authenticated socket; this is here so a guest can connect first and post second.
+     * Live Roleplay Session
+     */
+    async liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPost(requestParameters: LiveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveRoleplaySessionResponse> {
+        const response = await this.liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

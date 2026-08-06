@@ -25,6 +25,7 @@ exports.ExceptionCodeToJSONTyped = ExceptionCodeToJSONTyped;
  */
 exports.ExceptionCode = {
     InternalError: 'internal_error',
+    RateLimitExceeded: 'rate_limit_exceeded',
     AuthInvalidCredentials: 'auth_invalid_credentials',
     AuthInvalidPassword: 'auth_invalid_password',
     AuthNotVerified: 'auth_not_verified',
@@ -68,6 +69,9 @@ exports.ExceptionCode = {
     ChatbotNameTooLong: 'chatbot_name_too_long',
     ProfileVideoNotFound: 'profile_video_not_found',
     ConversationNotFound: 'conversation_not_found',
+    ConversationMessageInProgress: 'conversation_message_in_progress',
+    AnonymousConversationAlreadyExists: 'anonymous_conversation_already_exists',
+    AnonymousChatLimitReached: 'anonymous_chat_limit_reached',
     ConversationUpdateNonOwnedForbidden: 'conversation_update_non_owned_forbidden',
     ConversationResetNonOwnedForbidden: 'conversation_reset_non_owned_forbidden',
     ConversationMemoryNotFound: 'conversation_memory_not_found',
