@@ -19,6 +19,11 @@ export declare const ExceptionCode: {
     readonly AuthInvalidPassword: "auth_invalid_password";
     readonly AuthNotVerified: "auth_not_verified";
     readonly AuthOauthOnly: "auth_oauth_only";
+    readonly MonitoringInvalidClient: "monitoring_invalid_client";
+    readonly MonitoringUnsupportedGrantType: "monitoring_unsupported_grant_type";
+    readonly MonitoringInvalidScope: "monitoring_invalid_scope";
+    readonly MonitoringDisabled: "monitoring_disabled";
+    readonly MonitoringServiceTokenNotConfigured: "monitoring_service_token_not_configured";
     readonly UserAlreadyExists: "user_already_exists";
     readonly UserNotFound: "user_not_found";
     readonly UserNotSubscribed: "user_not_subscribed";

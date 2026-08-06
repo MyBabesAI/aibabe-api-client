@@ -286,6 +286,7 @@ src/models/SeedanceImageToVideoCompletionPayload.ts
 src/models/SeedanceImageToVideoResponse.ts
 src/models/SendCustomMemoracekRequest.ts
 src/models/SendMemoracekRequest.ts
+src/models/ServiceTokenResponse.ts
 src/models/SetUserFeatureFlagsRequest.ts
 src/models/SetUserFeatureFlagsResponse.ts
 src/models/SexualOrientation.ts

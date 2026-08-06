@@ -259,6 +259,7 @@ export * from './SeedanceImageToVideoCompletionPayload';
 export * from './SeedanceImageToVideoResponse';
 export * from './SendCustomMemoracekRequest';
 export * from './SendMemoracekRequest';
+export * from './ServiceTokenResponse';
 export * from './SetUserFeatureFlagsRequest';
 export * from './SetUserFeatureFlagsResponse';
 export * from './SexualOrientation';
