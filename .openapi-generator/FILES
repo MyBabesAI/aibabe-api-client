@@ -91,6 +91,9 @@ src/models/ContentType.ts
 src/models/ConversationListItem.ts
 src/models/ConversationMessageFeedback.ts
 src/models/ConversationSettings.ts
+src/models/CreateAnonymousConversationMessageRequest.ts
+src/models/CreateAnonymousConversationRequest.ts
+src/models/CreateAnonymousConversationResponse.ts
 src/models/CreateAssistantChatSessionRequest.ts
 src/models/CustomChatbotTheme.ts
 src/models/DateRangeFilter.ts
@@ -127,6 +130,7 @@ src/models/GeneratedAudioStatus.ts
 src/models/GeneratedImages.ts
 src/models/GeneratedVideos.ts
 src/models/GetAboutChatbotResponse.ts
+src/models/GetAnonymousConversationResponse.ts
 src/models/GetAssistantChatMessagesResponse.ts
 src/models/GetChatbotListResponse.ts
 src/models/GetChatbotResponse.ts
@@ -147,6 +151,7 @@ src/models/GetImageModerationPromptResponse.ts
 src/models/GetInstancesDBVastAiListResponse.ts
 src/models/GetLeaderboardRequest.ts
 src/models/GetLeaderboardResponse.ts
+src/models/GetLiveRoleplayHistoryResponse.ts
 src/models/GetLorasResponse.ts
 src/models/GetMemoryResponse.ts
 src/models/GetPersonalityChatbotResponse.ts
@@ -185,6 +190,8 @@ src/models/LikePostNotification.ts
 src/models/ListAssistantChatSessionsResponse.ts
 src/models/ListChatbotItem.ts
 src/models/ListConversationsResponse.ts
+src/models/LiveRoleplayHistoryMessage.ts
+src/models/LiveRoleplaySessionResponse.ts
 src/models/LoraName.ts
 src/models/MarketingCampaignName.ts
 src/models/MemoracekType.ts
@@ -221,6 +228,8 @@ src/models/PostAdvancedChatbotPublishPayload.ts
 src/models/PostAdvancedChatbotPublishResponse.ts
 src/models/PostAdvancedIdentityPayload.ts
 src/models/PostAdvancedPersonalityPayload.ts
+src/models/PostAnonymousChatRequest.ts
+src/models/PostAnonymousChatResponse.ts
 src/models/PostAssistantChatMessageRequest.ts
 src/models/PostCategoryValues.ts
 src/models/PostChatRequest.ts
@@ -241,6 +250,8 @@ src/models/PostGenerateImageRequest.ts
 src/models/PostGenerateSceneRequest.ts
 src/models/PostImagenResponse.ts
 src/models/PostInstancesDBVastAiListResponse.ts
+src/models/PostLiveRoleplayRequest.ts
+src/models/PostLiveRoleplayResponse.ts
 src/models/PostLogin.ts
 src/models/PostPasswordReset.ts
 src/models/PostProfilePictureResponse.ts
@@ -286,6 +297,7 @@ src/models/SeedanceImageToVideoCompletionPayload.ts
 src/models/SeedanceImageToVideoResponse.ts
 src/models/SendCustomMemoracekRequest.ts
 src/models/SendMemoracekRequest.ts
+src/models/ServiceTokenResponse.ts
 src/models/SetUserFeatureFlagsRequest.ts
 src/models/SetUserFeatureFlagsResponse.ts
 src/models/SexualOrientation.ts
@@ -377,7 +389,7 @@ src/models/ValidationError.ts
 src/models/ValidationErrorLocInner.ts
 src/models/VideoConfigResponse.ts
 src/models/VideoContent.ts
-src/models/VideoDurationConfig.ts
+src/models/VideoDurationOptions.ts
 src/models/VideoFromChatResponse.ts
 src/models/VideoGenerationStatus.ts
 src/models/VideoLoraName.ts
@@ -389,6 +401,7 @@ src/models/VideoPresetCategory.ts
 src/models/VideoPricingModel.ts
 src/models/VideoQualityConfig.ts
 src/models/VideoResolution.ts
+src/models/VideoShot.ts
 src/models/VisualType.ts
 src/models/WallPost.ts
 src/models/WanExtendVideoCompletionPayload.ts

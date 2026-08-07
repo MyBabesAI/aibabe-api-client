@@ -21,6 +21,7 @@ import type {
   PostPasswordReset,
   PostResendEmailRequest,
   PostUserRequest,
+  ServiceTokenResponse,
   UserInfoResponse,
 } from '../models/index';
 import {
@@ -36,6 +37,8 @@ import {
     PostResendEmailRequestToJSON,
     PostUserRequestFromJSON,
     PostUserRequestToJSON,
+    ServiceTokenResponseFromJSON,
+    ServiceTokenResponseToJSON,
     UserInfoResponseFromJSON,
     UserInfoResponseToJSON,
 } from '../models/index';
@@ -79,6 +82,13 @@ export interface PasswordResetEmailAuthUserPasswordResetEmailPutRequest {
 export interface ResendVerificationEmailAuthUserVerifyResendEmailPostRequest {
     returnUrl: string;
     postResendEmailRequest: PostResendEmailRequest;
+}
+
+export interface ServiceTokenAuthServiceTokenPostRequest {
+    grantType: string;
+    clientId?: string | null;
+    clientSecret?: string | null;
+    scope?: string;
 }
 
 export interface XCallbackAuthCallbackXGetRequest {
@@ -544,6 +554,73 @@ export class AuthenticationApi extends runtime.BaseAPI {
      */
     async resendVerificationEmailAuthUserVerifyResendEmailPost(requestParameters: ResendVerificationEmailAuthUserVerifyResendEmailPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.resendVerificationEmailAuthUserVerifyResendEmailPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Service Token
+     */
+    async serviceTokenAuthServiceTokenPostRaw(requestParameters: ServiceTokenAuthServiceTokenPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceTokenResponse>> {
+        if (requestParameters['grantType'] == null) {
+            throw new runtime.RequiredError(
+                'grantType',
+                'Required parameter "grantType" was null or undefined when calling serviceTokenAuthServiceTokenPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+        }
+        const consumes: runtime.Consume[] = [
+            { contentType: 'application/x-www-form-urlencoded' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+
+        let formParams: { append(param: string, value: any): any };
+        let useForm = false;
+        if (useForm) {
+            formParams = new FormData();
+        } else {
+            formParams = new URLSearchParams();
+        }
+
+        if (requestParameters['grantType'] != null) {
+            formParams.append('grant_type', requestParameters['grantType'] as any);
+        }
+
+        if (requestParameters['clientId'] != null) {
+            formParams.append('client_id', requestParameters['clientId'] as any);
+        }
+
+        if (requestParameters['clientSecret'] != null) {
+            formParams.append('client_secret', requestParameters['clientSecret'] as any);
+        }
+
+        if (requestParameters['scope'] != null) {
+            formParams.append('scope', requestParameters['scope'] as any);
+        }
+
+        const response = await this.request({
+            path: `/auth/service-token`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ServiceTokenResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Service Token
+     */
+    async serviceTokenAuthServiceTokenPost(requestParameters: ServiceTokenAuthServiceTokenPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceTokenResponse> {
+        const response = await this.serviceTokenAuthServiceTokenPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
