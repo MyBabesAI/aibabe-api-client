@@ -29,7 +29,11 @@ import {
 } from './MessageType';
 
 /**
+ * One imported message. Media arrives as the URL the roleplay showed the visitor.
  * 
+ * The roleplay renders its media straight from storage, so nothing was ever written to
+ * generated_picture / generated_video / generated_audio and there is no id to send. The
+ * import creates those rows from the file the URL points at - see AnonymousChatService.
  * @export
  * @interface CreateAnonymousConversationMessageRequest
  */
@@ -57,19 +61,19 @@ export interface CreateAnonymousConversationMessageRequest {
      * @type {string}
      * @memberof CreateAnonymousConversationMessageRequest
      */
-    imageId?: string | null;
+    imageUrl?: string | null;
     /**
      * 
      * @type {string}
      * @memberof CreateAnonymousConversationMessageRequest
      */
-    videoId?: string | null;
+    videoUrl?: string | null;
     /**
      * 
      * @type {string}
      * @memberof CreateAnonymousConversationMessageRequest
      */
-    audioId?: string | null;
+    audioUrl?: string | null;
 }
 
 
@@ -96,9 +100,9 @@ export function CreateAnonymousConversationMessageRequestFromJSONTyped(json: any
         'content': json['content'],
         'role': ChatRoleFromJSON(json['role']),
         'type': json['type'] == null ? undefined : MessageTypeFromJSON(json['type']),
-        'imageId': json['image_id'] == null ? undefined : json['image_id'],
-        'videoId': json['video_id'] == null ? undefined : json['video_id'],
-        'audioId': json['audio_id'] == null ? undefined : json['audio_id'],
+        'imageUrl': json['image_url'] == null ? undefined : json['image_url'],
+        'videoUrl': json['video_url'] == null ? undefined : json['video_url'],
+        'audioUrl': json['audio_url'] == null ? undefined : json['audio_url'],
     };
 }
 
@@ -116,9 +120,9 @@ export function CreateAnonymousConversationMessageRequestFromJSONTyped(json: any
         'content': value['content'],
         'role': ChatRoleToJSON(value['role']),
         'type': MessageTypeToJSON(value['type']),
-        'image_id': value['imageId'],
-        'video_id': value['videoId'],
-        'audio_id': value['audioId'],
+        'image_url': value['imageUrl'],
+        'video_url': value['videoUrl'],
+        'audio_url': value['audioUrl'],
     };
 }
 

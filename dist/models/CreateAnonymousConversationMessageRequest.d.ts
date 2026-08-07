@@ -12,7 +12,11 @@
 import type { ChatRole } from './ChatRole';
 import type { MessageType } from './MessageType';
 /**
+ * One imported message. Media arrives as the URL the roleplay showed the visitor.
  *
+ * The roleplay renders its media straight from storage, so nothing was ever written to
+ * generated_picture / generated_video / generated_audio and there is no id to send. The
+ * import creates those rows from the file the URL points at - see AnonymousChatService.
  * @export
  * @interface CreateAnonymousConversationMessageRequest
  */
@@ -40,19 +44,19 @@ export interface CreateAnonymousConversationMessageRequest {
      * @type {string}
      * @memberof CreateAnonymousConversationMessageRequest
      */
-    imageId?: string | null;
+    imageUrl?: string | null;
     /**
      *
      * @type {string}
      * @memberof CreateAnonymousConversationMessageRequest
      */
-    videoId?: string | null;
+    videoUrl?: string | null;
     /**
      *
      * @type {string}
      * @memberof CreateAnonymousConversationMessageRequest
      */
-    audioId?: string | null;
+    audioUrl?: string | null;
 }
 /**
  * Check if a given object implements the CreateAnonymousConversationMessageRequest interface.

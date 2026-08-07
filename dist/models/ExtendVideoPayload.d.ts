@@ -117,6 +117,7 @@ export declare const ExtendVideoPayloadModelEnum: {
     readonly Seedance20I2V: "SEEDANCE_20_I2V";
     readonly Seedance20MiniI2V: "SEEDANCE_20_MINI_I2V";
     readonly Seedance20FastI2V: "SEEDANCE_20_FAST_I2V";
+    readonly Seedance25I2V: "SEEDANCE_25_I2V";
 };
 export type ExtendVideoPayloadModelEnum = typeof ExtendVideoPayloadModelEnum[keyof typeof ExtendVideoPayloadModelEnum];
 /**

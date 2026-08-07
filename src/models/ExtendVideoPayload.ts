@@ -135,7 +135,8 @@ export const ExtendVideoPayloadModelEnum = {
     Wan27I2V: 'WAN_27_I2V',
     Seedance20I2V: 'SEEDANCE_20_I2V',
     Seedance20MiniI2V: 'SEEDANCE_20_MINI_I2V',
-    Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V'
+    Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V',
+    Seedance25I2V: 'SEEDANCE_25_I2V'
 } as const;
 export type ExtendVideoPayloadModelEnum = typeof ExtendVideoPayloadModelEnum[keyof typeof ExtendVideoPayloadModelEnum];
 

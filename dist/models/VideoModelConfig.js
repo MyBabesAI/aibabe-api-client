@@ -30,7 +30,8 @@ exports.VideoModelConfigModelEnum = {
     Wan27I2V: 'WAN_27_I2V',
     Seedance20I2V: 'SEEDANCE_20_I2V',
     Seedance20MiniI2V: 'SEEDANCE_20_MINI_I2V',
-    Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V'
+    Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V',
+    Seedance25I2V: 'SEEDANCE_25_I2V'
 };
 /**
  * Check if a given object implements the VideoModelConfig interface.

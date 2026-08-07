@@ -41,9 +41,9 @@ function CreateAnonymousConversationMessageRequestFromJSONTyped(json, ignoreDisc
         'content': json['content'],
         'role': (0, ChatRole_1.ChatRoleFromJSON)(json['role']),
         'type': json['type'] == null ? undefined : (0, MessageType_1.MessageTypeFromJSON)(json['type']),
-        'imageId': json['image_id'] == null ? undefined : json['image_id'],
-        'videoId': json['video_id'] == null ? undefined : json['video_id'],
-        'audioId': json['audio_id'] == null ? undefined : json['audio_id'],
+        'imageUrl': json['image_url'] == null ? undefined : json['image_url'],
+        'videoUrl': json['video_url'] == null ? undefined : json['video_url'],
+        'audioUrl': json['audio_url'] == null ? undefined : json['audio_url'],
     };
 }
 function CreateAnonymousConversationMessageRequestToJSON(json) {
@@ -57,9 +57,9 @@ function CreateAnonymousConversationMessageRequestToJSONTyped(value, ignoreDiscr
         'content': value['content'],
         'role': (0, ChatRole_1.ChatRoleToJSON)(value['role']),
         'type': (0, MessageType_1.MessageTypeToJSON)(value['type']),
-        'image_id': value['imageId'],
-        'video_id': value['videoId'],
-        'audio_id': value['audioId'],
+        'image_url': value['imageUrl'],
+        'video_url': value['videoUrl'],
+        'audio_url': value['audioUrl'],
     };
 }
 //# sourceMappingURL=CreateAnonymousConversationMessageRequest.js.map
