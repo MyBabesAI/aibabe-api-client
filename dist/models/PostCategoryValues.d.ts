@@ -68,7 +68,25 @@ export interface PostCategoryValues {
      * @type {Array<string>}
      * @memberof PostCategoryValues
      */
+    hairColor: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof PostCategoryValues
+     */
+    hairStyle: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof PostCategoryValues
+     */
     lora: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof PostCategoryValues
+     */
+    sexPosition: Array<string>;
 }
 /**
  * Check if a given object implements the PostCategoryValues interface.

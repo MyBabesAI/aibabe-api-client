@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { OAuthProvider, PostLogin, PostPasswordReset, PostResendEmailRequest, PostUserRequest, UserInfoResponse } from '../models/index';
+import type { OAuthProvider, PostLogin, PostPasswordReset, PostResendEmailRequest, PostUserRequest, ServiceTokenResponse, UserInfoResponse } from '../models/index';
 export interface CreateUserAuthUserPostRequest {
     returnUrl: string;
     postUserRequest: PostUserRequest;
@@ -42,6 +42,12 @@ export interface PasswordResetEmailAuthUserPasswordResetEmailPutRequest {
 export interface ResendVerificationEmailAuthUserVerifyResendEmailPostRequest {
     returnUrl: string;
     postResendEmailRequest: PostResendEmailRequest;
+}
+export interface ServiceTokenAuthServiceTokenPostRequest {
+    grantType: string;
+    clientId?: string | null;
+    clientSecret?: string | null;
+    scope?: string;
 }
 export interface XCallbackAuthCallbackXGetRequest {
     code: string;
@@ -138,6 +144,14 @@ export declare class AuthenticationApi extends runtime.BaseAPI {
      * Resend Verification Email
      */
     resendVerificationEmailAuthUserVerifyResendEmailPost(requestParameters: ResendVerificationEmailAuthUserVerifyResendEmailPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Service Token
+     */
+    serviceTokenAuthServiceTokenPostRaw(requestParameters: ServiceTokenAuthServiceTokenPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ServiceTokenResponse>>;
+    /**
+     * Service Token
+     */
+    serviceTokenAuthServiceTokenPost(requestParameters: ServiceTokenAuthServiceTokenPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ServiceTokenResponse>;
     /**
      * X-Callback
      */
