@@ -399,6 +399,59 @@ class AuthenticationApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Service Token
+     */
+    async serviceTokenAuthServiceTokenPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['grantType'] == null) {
+            throw new runtime.RequiredError('grantType', 'Required parameter "grantType" was null or undefined when calling serviceTokenAuthServiceTokenPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        if (this.configuration && (this.configuration.username !== undefined || this.configuration.password !== undefined)) {
+            headerParameters["Authorization"] = "Basic " + btoa(this.configuration.username + ":" + this.configuration.password);
+        }
+        const consumes = [
+            { contentType: 'application/x-www-form-urlencoded' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+        let formParams;
+        let useForm = false;
+        if (useForm) {
+            formParams = new FormData();
+        }
+        else {
+            formParams = new URLSearchParams();
+        }
+        if (requestParameters['grantType'] != null) {
+            formParams.append('grant_type', requestParameters['grantType']);
+        }
+        if (requestParameters['clientId'] != null) {
+            formParams.append('client_id', requestParameters['clientId']);
+        }
+        if (requestParameters['clientSecret'] != null) {
+            formParams.append('client_secret', requestParameters['clientSecret']);
+        }
+        if (requestParameters['scope'] != null) {
+            formParams.append('scope', requestParameters['scope']);
+        }
+        const response = await this.request({
+            path: `/auth/service-token`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ServiceTokenResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Service Token
+     */
+    async serviceTokenAuthServiceTokenPost(requestParameters, initOverrides) {
+        const response = await this.serviceTokenAuthServiceTokenPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * X-Callback
      */
     async xCallbackAuthCallbackXGetRaw(requestParameters, initOverrides) {

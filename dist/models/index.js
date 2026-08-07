@@ -286,6 +286,7 @@ __exportStar(require("./SeedanceImageToVideoCompletionPayload"), exports);
 __exportStar(require("./SeedanceImageToVideoResponse"), exports);
 __exportStar(require("./SendCustomMemoracekRequest"), exports);
 __exportStar(require("./SendMemoracekRequest"), exports);
+__exportStar(require("./ServiceTokenResponse"), exports);
 __exportStar(require("./SetUserFeatureFlagsRequest"), exports);
 __exportStar(require("./SetUserFeatureFlagsResponse"), exports);
 __exportStar(require("./SexualOrientation"), exports);
