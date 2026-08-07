@@ -26,6 +26,7 @@ exports.TagCategoryToJSONTyped = TagCategoryToJSONTyped;
 exports.TagCategory = {
     BaseModel: 'base_model',
     HairColor: 'hair_color',
+    HairStyle: 'hair_style',
     BodyType: 'body_type',
     BreastSize: 'breast_size',
     AssSize: 'ass_size',

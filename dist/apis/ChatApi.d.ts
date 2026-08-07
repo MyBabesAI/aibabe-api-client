@@ -10,7 +10,21 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatReponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, ListConversationsResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest, TokenPricingConfigResponse } from '../models/index';
+import type { ChatReponse, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, TokenPricingConfigResponse } from '../models/index';
+export interface AnonymousChatChatAnonymousChatbotIdPostRequest {
+    chatbotId: string;
+    postAnonymousChatRequest: PostAnonymousChatRequest;
+}
+export interface AnonymousConversationChatAnonymousChatbotIdGetRequest {
+    chatbotId: string;
+    limit?: number;
+}
+export interface AnonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRequest {
+    chatbotId: string;
+    conversationId: string;
+    paginationToken?: string | null;
+    limit?: number;
+}
 export interface ChatChatChatbotIdPostRequest {
     chatbotId: string;
     postChatRequest: PostChatRequest;
@@ -33,7 +47,17 @@ export interface ConversationsChatGetRequest {
     paginationToken?: string | null;
     limit?: number;
 }
+export interface CreateAnonymousConversationChatAnonymousChatbotIdPutRequest {
+    chatbotId: string;
+    createAnonymousConversationRequest: CreateAnonymousConversationRequest;
+}
+export interface DeleteAnonymousConversationChatAnonymousChatbotIdDeleteRequest {
+    chatbotId: string;
+}
 export interface DeleteChatChatChatbotIdDeleteRequest {
+    chatbotId: string;
+}
+export interface DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest {
     chatbotId: string;
 }
 export interface DeleteMessageChatMessageMessageIdDeleteRequest {
@@ -45,6 +69,16 @@ export interface GenerateImageOnMessageChatChatbotIdMessageRequestIdImagePostReq
     chatbotId: string;
     requestId: string;
     postChatRequest: PostChatRequest;
+}
+export interface GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest {
+    chatbotId: string;
+}
+export interface LiveRoleplayChatChatbotIdLiveRoleplayPostRequest {
+    chatbotId: string;
+    postLiveRoleplayRequest: PostLiveRoleplayRequest;
+}
+export interface LiveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRequest {
+    chatbotId: string;
 }
 export interface RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest {
     chatbotId: string;
@@ -69,6 +103,30 @@ export interface UpdateMessageChatMessageMessageIdPatchRequest {
  *
  */
 export declare class ChatApi extends runtime.BaseAPI {
+    /**
+     * Anonymous Chat
+     */
+    anonymousChatChatAnonymousChatbotIdPostRaw(requestParameters: AnonymousChatChatAnonymousChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAnonymousChatResponse>>;
+    /**
+     * Anonymous Chat
+     */
+    anonymousChatChatAnonymousChatbotIdPost(requestParameters: AnonymousChatChatAnonymousChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAnonymousChatResponse>;
+    /**
+     * Anonymous Conversation
+     */
+    anonymousConversationChatAnonymousChatbotIdGetRaw(requestParameters: AnonymousConversationChatAnonymousChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAnonymousConversationResponse>>;
+    /**
+     * Anonymous Conversation
+     */
+    anonymousConversationChatAnonymousChatbotIdGet(requestParameters: AnonymousConversationChatAnonymousChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAnonymousConversationResponse>;
+    /**
+     * Anonymous Conversation Messages
+     */
+    anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRaw(requestParameters: AnonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationMessagesResponse>>;
+    /**
+     * Anonymous Conversation Messages
+     */
+    anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGet(requestParameters: AnonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationMessagesResponse>;
     /**
      * Chat
      */
@@ -110,6 +168,24 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     conversationsChatGet(requestParameters?: ConversationsChatGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListConversationsResponse>;
     /**
+     * Create Anonymous Conversation
+     */
+    createAnonymousConversationChatAnonymousChatbotIdPutRaw(requestParameters: CreateAnonymousConversationChatAnonymousChatbotIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CreateAnonymousConversationResponse>>;
+    /**
+     * Create Anonymous Conversation
+     */
+    createAnonymousConversationChatAnonymousChatbotIdPut(requestParameters: CreateAnonymousConversationChatAnonymousChatbotIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CreateAnonymousConversationResponse>;
+    /**
+     * Start over: drop the guest\'s conversation with this chatbot and every message in it.  The guest keeps their identity, so the messages they have already spent stay spent; only the transcript goes. Creating the next conversation is a PUT away.
+     * Delete Anonymous Conversation
+     */
+    deleteAnonymousConversationChatAnonymousChatbotIdDeleteRaw(requestParameters: DeleteAnonymousConversationChatAnonymousChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Start over: drop the guest\'s conversation with this chatbot and every message in it.  The guest keeps their identity, so the messages they have already spent stay spent; only the transcript goes. Creating the next conversation is a PUT away.
+     * Delete Anonymous Conversation
+     */
+    deleteAnonymousConversationChatAnonymousChatbotIdDelete(requestParameters: DeleteAnonymousConversationChatAnonymousChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
      * Delete Chat
      */
     deleteChatChatChatbotIdDeleteRaw(requestParameters: DeleteChatChatChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
@@ -117,6 +193,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Delete Chat
      */
     deleteChatChatChatbotIdDelete(requestParameters: DeleteChatChatChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Delete Live Roleplay Conversation
+     */
+    deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRaw(requestParameters: DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Delete Live Roleplay Conversation
+     */
+    deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete(requestParameters: DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      * Delete Message
      */
@@ -149,6 +235,32 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Get Image Moderation Prompt
      */
     getImageModerationPromptChatImageModerationPromptGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageModerationPromptResponse>;
+    /**
+     * Get Live Roleplay History
+     */
+    getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRaw(requestParameters: GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetLiveRoleplayHistoryResponse>>;
+    /**
+     * Get Live Roleplay History
+     */
+    getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGet(requestParameters: GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLiveRoleplayHistoryResponse>;
+    /**
+     * Live Roleplay
+     */
+    liveRoleplayChatChatbotIdLiveRoleplayPostRaw(requestParameters: LiveRoleplayChatChatbotIdLiveRoleplayPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostLiveRoleplayResponse>>;
+    /**
+     * Live Roleplay
+     */
+    liveRoleplayChatChatbotIdLiveRoleplayPost(requestParameters: LiveRoleplayChatChatbotIdLiveRoleplayPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostLiveRoleplayResponse>;
+    /**
+     * Hand back the id this caller\'s replies will be addressed to, before they send one.  A guest\'s recipient id comes from a cookie that otherwise only the first message mints, which leaves them unable to open their socket until that turn is already streaming - and a reply sent while nobody is connected is dropped, not queued. Signed in callers already know theirs and are served by the authenticated socket; this is here so a guest can connect first and post second.
+     * Live Roleplay Session
+     */
+    liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRaw(requestParameters: LiveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveRoleplaySessionResponse>>;
+    /**
+     * Hand back the id this caller\'s replies will be addressed to, before they send one.  A guest\'s recipient id comes from a cookie that otherwise only the first message mints, which leaves them unable to open their socket until that turn is already streaming - and a reply sent while nobody is connected is dropped, not queued. Signed in callers already know theirs and are served by the authenticated socket; this is here so a guest can connect first and post second.
+     * Live Roleplay Session
+     */
+    liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPost(requestParameters: LiveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveRoleplaySessionResponse>;
     /**
      * Regenerate
      */

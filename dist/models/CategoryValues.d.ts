@@ -50,6 +50,12 @@ export interface CategoryValues {
      * @type {Array<string>}
      * @memberof CategoryValues
      */
+    sexPosition?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
     age?: Array<string> | null;
     /**
      *
@@ -87,6 +93,18 @@ export interface CategoryValues {
      * @memberof CategoryValues
      */
     genre?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    hairColor?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    hairStyle?: Array<string> | null;
 }
 /**
  * Check if a given object implements the CategoryValues interface.
