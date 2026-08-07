@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { VideoShot } from './VideoShot';
+import {
+    VideoShotFromJSON,
+    VideoShotFromJSONTyped,
+    VideoShotToJSON,
+    VideoShotToJSONTyped,
+} from './VideoShot';
 import type { VideoLoraName } from './VideoLoraName';
 import {
     VideoLoraNameFromJSON,
@@ -111,6 +118,12 @@ export interface ExtendVideoPayload {
      * @memberof ExtendVideoPayload
      */
     audioGeneration?: boolean;
+    /**
+     * 
+     * @type {Array<VideoShot>}
+     * @memberof ExtendVideoPayload
+     */
+    shots?: Array<VideoShot> | null;
 }
 
 
@@ -118,8 +131,12 @@ export interface ExtendVideoPayload {
  * @export
  */
 export const ExtendVideoPayloadModelEnum = {
-    _22I2V: 'WAN_22_I2V',
-    _27I2V: 'WAN_27_I2V'
+    Wan22I2V: 'WAN_22_I2V',
+    Wan27I2V: 'WAN_27_I2V',
+    Seedance20I2V: 'SEEDANCE_20_I2V',
+    Seedance20MiniI2V: 'SEEDANCE_20_MINI_I2V',
+    Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V',
+    Seedance25I2V: 'SEEDANCE_25_I2V'
 } as const;
 export type ExtendVideoPayloadModelEnum = typeof ExtendVideoPayloadModelEnum[keyof typeof ExtendVideoPayloadModelEnum];
 
@@ -129,7 +146,8 @@ export type ExtendVideoPayloadModelEnum = typeof ExtendVideoPayloadModelEnum[key
 export const ExtendVideoPayloadResolutionEnum = {
     P480: 'P480',
     P720: 'P720',
-    P1080: 'P1080'
+    P1080: 'P1080',
+    P2160: 'P2160'
 } as const;
 export type ExtendVideoPayloadResolutionEnum = typeof ExtendVideoPayloadResolutionEnum[keyof typeof ExtendVideoPayloadResolutionEnum];
 
@@ -173,6 +191,7 @@ export function ExtendVideoPayloadFromJSONTyped(json: any, ignoreDiscriminator: 
         'promptExtend': json['prompt_extend'] == null ? undefined : json['prompt_extend'],
         'seed': json['seed'] == null ? undefined : json['seed'],
         'audioGeneration': json['audio_generation'] == null ? undefined : json['audio_generation'],
+        'shots': json['shots'] == null ? undefined : ((json['shots'] as Array<any>).map(VideoShotFromJSON)),
     };
 }
 
@@ -201,6 +220,7 @@ export function ExtendVideoPayloadFromJSONTyped(json: any, ignoreDiscriminator: 
         'prompt_extend': value['promptExtend'],
         'seed': value['seed'],
         'audio_generation': value['audioGeneration'],
+        'shots': value['shots'] == null ? undefined : ((value['shots'] as Array<any>).map(VideoShotToJSON)),
     };
 }
 
