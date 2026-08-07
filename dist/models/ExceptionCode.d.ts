@@ -15,10 +15,16 @@
  */
 export declare const ExceptionCode: {
     readonly InternalError: "internal_error";
+    readonly RateLimitExceeded: "rate_limit_exceeded";
     readonly AuthInvalidCredentials: "auth_invalid_credentials";
     readonly AuthInvalidPassword: "auth_invalid_password";
     readonly AuthNotVerified: "auth_not_verified";
     readonly AuthOauthOnly: "auth_oauth_only";
+    readonly MonitoringInvalidClient: "monitoring_invalid_client";
+    readonly MonitoringUnsupportedGrantType: "monitoring_unsupported_grant_type";
+    readonly MonitoringInvalidScope: "monitoring_invalid_scope";
+    readonly MonitoringDisabled: "monitoring_disabled";
+    readonly MonitoringServiceTokenNotConfigured: "monitoring_service_token_not_configured";
     readonly UserAlreadyExists: "user_already_exists";
     readonly UserNotFound: "user_not_found";
     readonly UserNotSubscribed: "user_not_subscribed";
@@ -53,6 +59,9 @@ export declare const ExceptionCode: {
     readonly ChatbotNameTooLong: "chatbot_name_too_long";
     readonly ProfileVideoNotFound: "profile_video_not_found";
     readonly ConversationNotFound: "conversation_not_found";
+    readonly ConversationMessageInProgress: "conversation_message_in_progress";
+    readonly AnonymousConversationAlreadyExists: "anonymous_conversation_already_exists";
+    readonly AnonymousChatLimitReached: "anonymous_chat_limit_reached";
     readonly ConversationUpdateNonOwnedForbidden: "conversation_update_non_owned_forbidden";
     readonly ConversationResetNonOwnedForbidden: "conversation_reset_non_owned_forbidden";
     readonly ConversationMemoryNotFound: "conversation_memory_not_found";

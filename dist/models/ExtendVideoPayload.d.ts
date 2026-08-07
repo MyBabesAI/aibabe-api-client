@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { VideoShot } from './VideoShot';
 import type { VideoLoraName } from './VideoLoraName';
 /**
  *
@@ -100,13 +101,23 @@ export interface ExtendVideoPayload {
      * @memberof ExtendVideoPayload
      */
     audioGeneration?: boolean;
+    /**
+     *
+     * @type {Array<VideoShot>}
+     * @memberof ExtendVideoPayload
+     */
+    shots?: Array<VideoShot> | null;
 }
 /**
  * @export
  */
 export declare const ExtendVideoPayloadModelEnum: {
-    readonly _22I2V: "WAN_22_I2V";
-    readonly _27I2V: "WAN_27_I2V";
+    readonly Wan22I2V: "WAN_22_I2V";
+    readonly Wan27I2V: "WAN_27_I2V";
+    readonly Seedance20I2V: "SEEDANCE_20_I2V";
+    readonly Seedance20MiniI2V: "SEEDANCE_20_MINI_I2V";
+    readonly Seedance20FastI2V: "SEEDANCE_20_FAST_I2V";
+    readonly Seedance25I2V: "SEEDANCE_25_I2V";
 };
 export type ExtendVideoPayloadModelEnum = typeof ExtendVideoPayloadModelEnum[keyof typeof ExtendVideoPayloadModelEnum];
 /**
@@ -116,6 +127,7 @@ export declare const ExtendVideoPayloadResolutionEnum: {
     readonly P480: "P480";
     readonly P720: "P720";
     readonly P1080: "P1080";
+    readonly P2160: "P2160";
 };
 export type ExtendVideoPayloadResolutionEnum = typeof ExtendVideoPayloadResolutionEnum[keyof typeof ExtendVideoPayloadResolutionEnum];
 /**

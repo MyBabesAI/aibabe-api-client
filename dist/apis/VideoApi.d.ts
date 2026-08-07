@@ -25,6 +25,9 @@ export interface ChatCallbackVideoCallbackChatGenerationIdPostRequest {
     status: ChatCallbackVideoCallbackChatGenerationIdPostStatusEnum;
     errorMessage?: string | null;
 }
+export interface CompleteSeedanceExtendVideoVideoSeedanceExtendCompletePostRequest {
+    seedanceImageToVideoCompletionPayload: SeedanceImageToVideoCompletionPayload;
+}
 export interface CompleteSeedanceVideoVideoSeedanceCompletePostRequest {
     seedanceImageToVideoCompletionPayload: SeedanceImageToVideoCompletionPayload;
 }
@@ -127,6 +130,14 @@ export declare class VideoApi extends runtime.BaseAPI {
      * Chat Callback
      */
     chatCallbackVideoCallbackChatGenerationIdPost(requestParameters: ChatCallbackVideoCallbackChatGenerationIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Complete Seedance Extend Video
+     */
+    completeSeedanceExtendVideoVideoSeedanceExtendCompletePostRaw(requestParameters: CompleteSeedanceExtendVideoVideoSeedanceExtendCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Complete Seedance Extend Video
+     */
+    completeSeedanceExtendVideoVideoSeedanceExtendCompletePost(requestParameters: CompleteSeedanceExtendVideoVideoSeedanceExtendCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Complete Seedance Video
      */
