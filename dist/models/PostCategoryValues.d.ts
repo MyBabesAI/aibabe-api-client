@@ -80,12 +80,6 @@ export interface PostCategoryValues {
      * @type {Array<string>}
      * @memberof PostCategoryValues
      */
-    lora: Array<string>;
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof PostCategoryValues
-     */
     sexPosition: Array<string>;
 }
 /**

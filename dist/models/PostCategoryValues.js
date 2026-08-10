@@ -42,8 +42,6 @@ function instanceOfPostCategoryValues(value) {
         return false;
     if (!('hairStyle' in value) || value['hairStyle'] === undefined)
         return false;
-    if (!('lora' in value) || value['lora'] === undefined)
-        return false;
     if (!('sexPosition' in value) || value['sexPosition'] === undefined)
         return false;
     return true;
@@ -66,7 +64,6 @@ function PostCategoryValuesFromJSONTyped(json, ignoreDiscriminator) {
         'bodyType': json['body_type'],
         'hairColor': json['hair_color'],
         'hairStyle': json['hair_style'],
-        'lora': json['lora'],
         'sexPosition': json['sex_position'],
     };
 }
@@ -88,7 +85,6 @@ function PostCategoryValuesToJSONTyped(value, ignoreDiscriminator = false) {
         'body_type': value['bodyType'],
         'hair_color': value['hairColor'],
         'hair_style': value['hairStyle'],
-        'lora': value['lora'],
         'sex_position': value['sexPosition'],
     };
 }

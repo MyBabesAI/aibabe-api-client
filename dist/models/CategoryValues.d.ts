@@ -44,12 +44,6 @@ export interface CategoryValues {
      * @type {Array<string>}
      * @memberof CategoryValues
      */
-    lora?: Array<string> | null;
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof CategoryValues
-     */
     sexPosition?: Array<string> | null;
     /**
      *

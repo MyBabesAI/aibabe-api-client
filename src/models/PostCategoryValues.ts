@@ -84,12 +84,6 @@ export interface PostCategoryValues {
      * @type {Array<string>}
      * @memberof PostCategoryValues
      */
-    lora: Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof PostCategoryValues
-     */
     sexPosition: Array<string>;
 }
 
@@ -107,7 +101,6 @@ export function instanceOfPostCategoryValues(value: object): value is PostCatego
     if (!('bodyType' in value) || value['bodyType'] === undefined) return false;
     if (!('hairColor' in value) || value['hairColor'] === undefined) return false;
     if (!('hairStyle' in value) || value['hairStyle'] === undefined) return false;
-    if (!('lora' in value) || value['lora'] === undefined) return false;
     if (!('sexPosition' in value) || value['sexPosition'] === undefined) return false;
     return true;
 }
@@ -132,7 +125,6 @@ export function PostCategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: 
         'bodyType': json['body_type'],
         'hairColor': json['hair_color'],
         'hairStyle': json['hair_style'],
-        'lora': json['lora'],
         'sexPosition': json['sex_position'],
     };
 }
@@ -158,7 +150,6 @@ export function PostCategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: 
         'body_type': value['bodyType'],
         'hair_color': value['hairColor'],
         'hair_style': value['hairStyle'],
-        'lora': value['lora'],
         'sex_position': value['sexPosition'],
     };
 }
