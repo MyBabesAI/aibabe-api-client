@@ -54,6 +54,12 @@ export interface CategoryValues {
      * @type {Array<string>}
      * @memberof CategoryValues
      */
+    fetishes?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
     age?: Array<string> | null;
     /**
      * 
@@ -127,6 +133,7 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         'orientation': json['orientation'] == null ? undefined : json['orientation'],
         'style': json['style'] == null ? undefined : json['style'],
         'sexPosition': json['sex_position'] == null ? undefined : json['sex_position'],
+        'fetishes': json['fetishes'] == null ? undefined : json['fetishes'],
         'age': json['age'] == null ? undefined : json['age'],
         'ethnicity': json['ethnicity'] == null ? undefined : json['ethnicity'],
         'theme': json['theme'] == null ? undefined : json['theme'],
@@ -155,6 +162,7 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         'orientation': value['orientation'],
         'style': value['style'],
         'sex_position': value['sexPosition'],
+        'fetishes': value['fetishes'],
         'age': value['age'],
         'ethnicity': value['ethnicity'],
         'theme': value['theme'],

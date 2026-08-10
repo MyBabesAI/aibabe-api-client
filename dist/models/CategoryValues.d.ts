@@ -50,6 +50,12 @@ export interface CategoryValues {
      * @type {Array<string>}
      * @memberof CategoryValues
      */
+    fetishes?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
     age?: Array<string> | null;
     /**
      *
