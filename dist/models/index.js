@@ -283,6 +283,7 @@ __exportStar(require("./ScoreCategory"), exports);
 __exportStar(require("./ScoreTimePeriods"), exports);
 __exportStar(require("./ScoreType"), exports);
 __exportStar(require("./SeduceDifficulty"), exports);
+__exportStar(require("./SeedConversationResponse"), exports);
 __exportStar(require("./SeedanceImageToVideoCompletionPayload"), exports);
 __exportStar(require("./SeedanceImageToVideoResponse"), exports);
 __exportStar(require("./SendCustomMemoracekRequest"), exports);

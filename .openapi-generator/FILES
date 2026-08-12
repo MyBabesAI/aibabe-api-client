@@ -294,6 +294,7 @@ src/models/ScoreCategory.ts
 src/models/ScoreTimePeriods.ts
 src/models/ScoreType.ts
 src/models/SeduceDifficulty.ts
+src/models/SeedConversationResponse.ts
 src/models/SeedanceImageToVideoCompletionPayload.ts
 src/models/SeedanceImageToVideoResponse.ts
 src/models/SendCustomMemoracekRequest.ts

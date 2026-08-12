@@ -267,6 +267,7 @@ export * from './ScoreCategory';
 export * from './ScoreTimePeriods';
 export * from './ScoreType';
 export * from './SeduceDifficulty';
+export * from './SeedConversationResponse';
 export * from './SeedanceImageToVideoCompletionPayload';
 export * from './SeedanceImageToVideoResponse';
 export * from './SendCustomMemoracekRequest';
