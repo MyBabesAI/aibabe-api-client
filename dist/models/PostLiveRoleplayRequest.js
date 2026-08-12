@@ -18,6 +18,7 @@ exports.PostLiveRoleplayRequestFromJSON = PostLiveRoleplayRequestFromJSON;
 exports.PostLiveRoleplayRequestFromJSONTyped = PostLiveRoleplayRequestFromJSONTyped;
 exports.PostLiveRoleplayRequestToJSON = PostLiveRoleplayRequestToJSON;
 exports.PostLiveRoleplayRequestToJSONTyped = PostLiveRoleplayRequestToJSONTyped;
+const LiveRoleplaySeedMessage_1 = require("./LiveRoleplaySeedMessage");
 /**
  * Check if a given object implements the PostLiveRoleplayRequest interface.
  */
@@ -38,6 +39,7 @@ function PostLiveRoleplayRequestFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'requestId': json['request_id'],
         'query': json['query'],
+        'seedMessages': json['seed_messages'] == null ? undefined : (json['seed_messages'].map(LiveRoleplaySeedMessage_1.LiveRoleplaySeedMessageFromJSON)),
         'debug': json['debug'] == null ? undefined : json['debug'],
     };
 }
@@ -51,6 +53,7 @@ function PostLiveRoleplayRequestToJSONTyped(value, ignoreDiscriminator = false) 
     return {
         'request_id': value['requestId'],
         'query': value['query'],
+        'seed_messages': value['seedMessages'] == null ? undefined : (value['seedMessages'].map(LiveRoleplaySeedMessage_1.LiveRoleplaySeedMessageToJSON)),
         'debug': value['debug'],
     };
 }

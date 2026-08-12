@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { LiveRoleplaySeedMessage } from './LiveRoleplaySeedMessage';
 /**
  *
  * @export
@@ -27,6 +28,12 @@ export interface PostLiveRoleplayRequest {
      * @memberof PostLiveRoleplayRequest
      */
     query: string;
+    /**
+     *
+     * @type {Array<LiveRoleplaySeedMessage>}
+     * @memberof PostLiveRoleplayRequest
+     */
+    seedMessages?: Array<LiveRoleplaySeedMessage>;
     /**
      *
      * @type {boolean}

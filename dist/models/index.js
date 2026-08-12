@@ -180,6 +180,7 @@ __exportStar(require("./ListAssistantChatSessionsResponse"), exports);
 __exportStar(require("./ListChatbotItem"), exports);
 __exportStar(require("./ListConversationsResponse"), exports);
 __exportStar(require("./LiveRoleplayHistoryMessage"), exports);
+__exportStar(require("./LiveRoleplaySeedMessage"), exports);
 __exportStar(require("./LiveRoleplaySessionResponse"), exports);
 __exportStar(require("./LoraName"), exports);
 __exportStar(require("./MarketingCampaignName"), exports);
