@@ -645,6 +645,37 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Import the funnel\'s scripted opening for a signed-in user, idempotently.  The reels funnel plays its script client-side and gates sending on login, so the client calls this right after login and before the first real message. If the user already has a conversation with this chatbot it is returned untouched (seeded=false) - retries and returning users are both no-ops, never conflicts.
+     * Seed Conversation
+     */
+    async seedConversationChatChatbotIdSeedPutRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling seedConversationChatChatbotIdSeedPut().');
+        }
+        if (requestParameters['createAnonymousConversationRequest'] == null) {
+            throw new runtime.RequiredError('createAnonymousConversationRequest', 'Required parameter "createAnonymousConversationRequest" was null or undefined when calling seedConversationChatChatbotIdSeedPut().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/seed`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.CreateAnonymousConversationRequestToJSON)(requestParameters['createAnonymousConversationRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.SeedConversationResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Import the funnel\'s scripted opening for a signed-in user, idempotently.  The reels funnel plays its script client-side and gates sending on login, so the client calls this right after login and before the first real message. If the user already has a conversation with this chatbot it is returned untouched (seeded=false) - retries and returning users are both no-ops, never conflicts.
+     * Seed Conversation
+     */
+    async seedConversationChatChatbotIdSeedPut(requestParameters, initOverrides) {
+        const response = await this.seedConversationChatChatbotIdSeedPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Update Conversation Settings
      */
     async updateConversationSettingsChatConversationConversationIdSettingsPatchRaw(requestParameters, initOverrides) {
