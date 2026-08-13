@@ -46,6 +46,8 @@ function instanceOfPostCategoryValues(value) {
         return false;
     if (!('fetishes' in value) || value['fetishes'] === undefined)
         return false;
+    if (!('videoModel' in value) || value['videoModel'] === undefined)
+        return false;
     return true;
 }
 function PostCategoryValuesFromJSON(json) {
@@ -68,6 +70,7 @@ function PostCategoryValuesFromJSONTyped(json, ignoreDiscriminator) {
         'hairStyle': json['hair_style'],
         'sexPosition': json['sex_position'],
         'fetishes': json['fetishes'],
+        'videoModel': json['video_model'],
     };
 }
 function PostCategoryValuesToJSON(json) {
@@ -90,6 +93,7 @@ function PostCategoryValuesToJSONTyped(value, ignoreDiscriminator = false) {
         'hair_style': value['hairStyle'],
         'sex_position': value['sexPosition'],
         'fetishes': value['fetishes'],
+        'video_model': value['videoModel'],
     };
 }
 //# sourceMappingURL=PostCategoryValues.js.map

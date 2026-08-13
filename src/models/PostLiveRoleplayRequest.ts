@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { LiveRoleplaySeedMessage } from './LiveRoleplaySeedMessage';
+import {
+    LiveRoleplaySeedMessageFromJSON,
+    LiveRoleplaySeedMessageFromJSONTyped,
+    LiveRoleplaySeedMessageToJSON,
+    LiveRoleplaySeedMessageToJSONTyped,
+} from './LiveRoleplaySeedMessage';
+
 /**
  * 
  * @export
@@ -31,6 +39,12 @@ export interface PostLiveRoleplayRequest {
      * @memberof PostLiveRoleplayRequest
      */
     query: string;
+    /**
+     * 
+     * @type {Array<LiveRoleplaySeedMessage>}
+     * @memberof PostLiveRoleplayRequest
+     */
+    seedMessages?: Array<LiveRoleplaySeedMessage>;
     /**
      * 
      * @type {boolean}
@@ -60,6 +74,7 @@ export function PostLiveRoleplayRequestFromJSONTyped(json: any, ignoreDiscrimina
         
         'requestId': json['request_id'],
         'query': json['query'],
+        'seedMessages': json['seed_messages'] == null ? undefined : ((json['seed_messages'] as Array<any>).map(LiveRoleplaySeedMessageFromJSON)),
         'debug': json['debug'] == null ? undefined : json['debug'],
     };
 }
@@ -77,6 +92,7 @@ export function PostLiveRoleplayRequestFromJSONTyped(json: any, ignoreDiscrimina
         
         'request_id': value['requestId'],
         'query': value['query'],
+        'seed_messages': value['seedMessages'] == null ? undefined : ((value['seedMessages'] as Array<any>).map(LiveRoleplaySeedMessageToJSON)),
         'debug': value['debug'],
     };
 }

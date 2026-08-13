@@ -42,6 +42,8 @@ function PatchUserPreferenceProfileRequestFromJSONTyped(json, ignoreDiscriminato
         'chatNympho': json['chat_nympho'] == null ? undefined : json['chat_nympho'],
         'chatAutoSuggestions': json['chat_auto_suggestions'] == null ? undefined : json['chat_auto_suggestions'],
         'videoPromptExpansion': json['video_prompt_expansion'] == null ? undefined : json['video_prompt_expansion'],
+        'chatGlassStyle': json['chat_glass_style'] == null ? undefined : json['chat_glass_style'],
+        'chatSuggestionPanel': json['chat_suggestion_panel'] == null ? undefined : json['chat_suggestion_panel'],
     };
 }
 function PatchUserPreferenceProfileRequestToJSON(json) {
@@ -61,6 +63,8 @@ function PatchUserPreferenceProfileRequestToJSONTyped(value, ignoreDiscriminator
         'chat_nympho': value['chatNympho'],
         'chat_auto_suggestions': value['chatAutoSuggestions'],
         'video_prompt_expansion': value['videoPromptExpansion'],
+        'chat_glass_style': value['chatGlassStyle'],
+        'chat_suggestion_panel': value['chatSuggestionPanel'],
     };
 }
 //# sourceMappingURL=PatchUserPreferenceProfileRequest.js.map

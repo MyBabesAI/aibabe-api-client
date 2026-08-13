@@ -105,6 +105,12 @@ export interface CategoryValues {
      * @memberof CategoryValues
      */
     hairStyle?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    videoModel?: Array<string> | null;
 }
 /**
  * Check if a given object implements the CategoryValues interface.

@@ -109,6 +109,12 @@ export interface CategoryValues {
      * @memberof CategoryValues
      */
     hairStyle?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    videoModel?: Array<string> | null;
 }
 
 /**
@@ -143,6 +149,7 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         'genre': json['genre'] == null ? undefined : json['genre'],
         'hairColor': json['hair_color'] == null ? undefined : json['hair_color'],
         'hairStyle': json['hair_style'] == null ? undefined : json['hair_style'],
+        'videoModel': json['video_model'] == null ? undefined : json['video_model'],
     };
 }
 
@@ -172,6 +179,7 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         'genre': value['genre'],
         'hair_color': value['hairColor'],
         'hair_style': value['hairStyle'],
+        'video_model': value['videoModel'],
     };
 }
 

@@ -72,6 +72,18 @@ export interface UserPreferenceProfile {
     videoPromptExpansion?: boolean;
     /**
      *
+     * @type {boolean}
+     * @memberof UserPreferenceProfile
+     */
+    chatGlassStyle?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UserPreferenceProfile
+     */
+    chatSuggestionPanel?: boolean;
+    /**
+     *
      * @type {{ [key: string]: any; }}
      * @memberof UserPreferenceProfile
      */

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatReponse, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, TokenPricingConfigResponse } from '../models/index';
+import type { ChatReponse, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, SeedConversationResponse, TokenPricingConfigResponse } from '../models/index';
 export interface AnonymousChatChatAnonymousChatbotIdPostRequest {
     chatbotId: string;
     postAnonymousChatRequest: PostAnonymousChatRequest;
@@ -87,6 +87,10 @@ export interface RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest {
 }
 export interface ResetConversationChatConversationConversationIdResetPostRequest {
     conversationId: string;
+}
+export interface SeedConversationChatChatbotIdSeedPutRequest {
+    chatbotId: string;
+    createAnonymousConversationRequest: CreateAnonymousConversationRequest;
 }
 export interface UpdateConversationSettingsChatConversationConversationIdSettingsPatchRequest {
     conversationId: string;
@@ -277,6 +281,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Reset Conversation
      */
     resetConversationChatConversationConversationIdResetPost(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Import the funnel\'s scripted opening for a signed-in user, idempotently.  The reels funnel plays its script client-side and gates sending on login, so the client calls this right after login and before the first real message. If the user already has a conversation with this chatbot it is returned untouched (seeded=false) - retries and returning users are both no-ops, never conflicts.
+     * Seed Conversation
+     */
+    seedConversationChatChatbotIdSeedPutRaw(requestParameters: SeedConversationChatChatbotIdSeedPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SeedConversationResponse>>;
+    /**
+     * Import the funnel\'s scripted opening for a signed-in user, idempotently.  The reels funnel plays its script client-side and gates sending on login, so the client calls this right after login and before the first real message. If the user already has a conversation with this chatbot it is returned untouched (seeded=false) - retries and returning users are both no-ops, never conflicts.
+     * Seed Conversation
+     */
+    seedConversationChatChatbotIdSeedPut(requestParameters: SeedConversationChatChatbotIdSeedPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedConversationResponse>;
     /**
      * Update Conversation Settings
      */

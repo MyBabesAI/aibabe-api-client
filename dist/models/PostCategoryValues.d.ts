@@ -87,6 +87,12 @@ export interface PostCategoryValues {
      * @memberof PostCategoryValues
      */
     fetishes: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof PostCategoryValues
+     */
+    videoModel: Array<string>;
 }
 /**
  * Check if a given object implements the PostCategoryValues interface.

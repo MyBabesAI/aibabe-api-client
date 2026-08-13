@@ -91,6 +91,12 @@ export interface PostCategoryValues {
      * @memberof PostCategoryValues
      */
     fetishes: Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof PostCategoryValues
+     */
+    videoModel: Array<string>;
 }
 
 /**
@@ -109,6 +115,7 @@ export function instanceOfPostCategoryValues(value: object): value is PostCatego
     if (!('hairStyle' in value) || value['hairStyle'] === undefined) return false;
     if (!('sexPosition' in value) || value['sexPosition'] === undefined) return false;
     if (!('fetishes' in value) || value['fetishes'] === undefined) return false;
+    if (!('videoModel' in value) || value['videoModel'] === undefined) return false;
     return true;
 }
 
@@ -134,6 +141,7 @@ export function PostCategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: 
         'hairStyle': json['hair_style'],
         'sexPosition': json['sex_position'],
         'fetishes': json['fetishes'],
+        'videoModel': json['video_model'],
     };
 }
 
@@ -160,6 +168,7 @@ export function PostCategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: 
         'hair_style': value['hairStyle'],
         'sex_position': value['sexPosition'],
         'fetishes': value['fetishes'],
+        'video_model': value['videoModel'],
     };
 }
 
