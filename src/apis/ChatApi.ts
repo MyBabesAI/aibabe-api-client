@@ -35,6 +35,7 @@ import type {
   PostConversationSettingsRequest,
   PostLiveRoleplayRequest,
   PostLiveRoleplayResponse,
+  SeedConversationResponse,
   TokenPricingConfigResponse,
 } from '../models/index';
 import {
@@ -78,6 +79,8 @@ import {
     PostLiveRoleplayRequestToJSON,
     PostLiveRoleplayResponseFromJSON,
     PostLiveRoleplayResponseToJSON,
+    SeedConversationResponseFromJSON,
+    SeedConversationResponseToJSON,
     TokenPricingConfigResponseFromJSON,
     TokenPricingConfigResponseToJSON,
 } from '../models/index';
@@ -176,6 +179,11 @@ export interface RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest {
 
 export interface ResetConversationChatConversationConversationIdResetPostRequest {
     conversationId: string;
+}
+
+export interface SeedConversationChatChatbotIdSeedPutRequest {
+    chatbotId: string;
+    createAnonymousConversationRequest: CreateAnonymousConversationRequest;
 }
 
 export interface UpdateConversationSettingsChatConversationConversationIdSettingsPatchRequest {
@@ -1020,6 +1028,51 @@ export class ChatApi extends runtime.BaseAPI {
      */
     async resetConversationChatConversationConversationIdResetPost(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.resetConversationChatConversationConversationIdResetPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Import the funnel\'s scripted opening for a signed-in user, idempotently.  The reels funnel plays its script client-side and gates sending on login, so the client calls this right after login and before the first real message. If the user already has a conversation with this chatbot it is returned untouched (seeded=false) - retries and returning users are both no-ops, never conflicts.
+     * Seed Conversation
+     */
+    async seedConversationChatChatbotIdSeedPutRaw(requestParameters: SeedConversationChatChatbotIdSeedPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SeedConversationResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling seedConversationChatChatbotIdSeedPut().'
+            );
+        }
+
+        if (requestParameters['createAnonymousConversationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'createAnonymousConversationRequest',
+                'Required parameter "createAnonymousConversationRequest" was null or undefined when calling seedConversationChatChatbotIdSeedPut().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/seed`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CreateAnonymousConversationRequestToJSON(requestParameters['createAnonymousConversationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SeedConversationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Import the funnel\'s scripted opening for a signed-in user, idempotently.  The reels funnel plays its script client-side and gates sending on login, so the client calls this right after login and before the first real message. If the user already has a conversation with this chatbot it is returned untouched (seeded=false) - retries and returning users are both no-ops, never conflicts.
+     * Seed Conversation
+     */
+    async seedConversationChatChatbotIdSeedPut(requestParameters: SeedConversationChatChatbotIdSeedPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedConversationResponse> {
+        const response = await this.seedConversationChatChatbotIdSeedPutRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
