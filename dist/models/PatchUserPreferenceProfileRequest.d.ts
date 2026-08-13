@@ -70,6 +70,18 @@ export interface PatchUserPreferenceProfileRequest {
      * @memberof PatchUserPreferenceProfileRequest
      */
     videoPromptExpansion?: boolean | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PatchUserPreferenceProfileRequest
+     */
+    chatGlassStyle?: boolean | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PatchUserPreferenceProfileRequest
+     */
+    chatSuggestionPanel?: boolean | null;
 }
 /**
  * Check if a given object implements the PatchUserPreferenceProfileRequest interface.

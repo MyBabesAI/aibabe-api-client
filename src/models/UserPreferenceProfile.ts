@@ -83,6 +83,18 @@ export interface UserPreferenceProfile {
     videoPromptExpansion?: boolean;
     /**
      * 
+     * @type {boolean}
+     * @memberof UserPreferenceProfile
+     */
+    chatGlassStyle?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UserPreferenceProfile
+     */
+    chatSuggestionPanel?: boolean;
+    /**
+     * 
      * @type {{ [key: string]: any; }}
      * @memberof UserPreferenceProfile
      */
@@ -117,6 +129,8 @@ export function UserPreferenceProfileFromJSONTyped(json: any, ignoreDiscriminato
         'chatNympho': json['chat_nympho'] == null ? undefined : json['chat_nympho'],
         'chatAutoSuggestions': json['chat_auto_suggestions'] == null ? undefined : json['chat_auto_suggestions'],
         'videoPromptExpansion': json['video_prompt_expansion'] == null ? undefined : json['video_prompt_expansion'],
+        'chatGlassStyle': json['chat_glass_style'] == null ? undefined : json['chat_glass_style'],
+        'chatSuggestionPanel': json['chat_suggestion_panel'] == null ? undefined : json['chat_suggestion_panel'],
         'onboardingState': json['onboarding_state'] == null ? undefined : json['onboarding_state'],
     };
 }
@@ -141,6 +155,8 @@ export function UserPreferenceProfileFromJSONTyped(json: any, ignoreDiscriminato
         'chat_nympho': value['chatNympho'],
         'chat_auto_suggestions': value['chatAutoSuggestions'],
         'video_prompt_expansion': value['videoPromptExpansion'],
+        'chat_glass_style': value['chatGlassStyle'],
+        'chat_suggestion_panel': value['chatSuggestionPanel'],
         'onboarding_state': value['onboardingState'],
     };
 }
