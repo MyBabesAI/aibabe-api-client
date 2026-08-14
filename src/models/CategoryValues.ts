@@ -48,7 +48,13 @@ export interface CategoryValues {
      * @type {Array<string>}
      * @memberof CategoryValues
      */
-    lora?: Array<string> | null;
+    sexPosition?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    fetishes?: Array<string> | null;
     /**
      * 
      * @type {Array<string>}
@@ -91,6 +97,24 @@ export interface CategoryValues {
      * @memberof CategoryValues
      */
     genre?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    hairColor?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    hairStyle?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    videoModel?: Array<string> | null;
 }
 
 /**
@@ -114,7 +138,8 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         'gender': json['gender'] == null ? undefined : json['gender'],
         'orientation': json['orientation'] == null ? undefined : json['orientation'],
         'style': json['style'] == null ? undefined : json['style'],
-        'lora': json['lora'] == null ? undefined : json['lora'],
+        'sexPosition': json['sex_position'] == null ? undefined : json['sex_position'],
+        'fetishes': json['fetishes'] == null ? undefined : json['fetishes'],
         'age': json['age'] == null ? undefined : json['age'],
         'ethnicity': json['ethnicity'] == null ? undefined : json['ethnicity'],
         'theme': json['theme'] == null ? undefined : json['theme'],
@@ -122,6 +147,9 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         'roleplayType': json['roleplay_type'] == null ? undefined : json['roleplay_type'],
         'characterType': json['character_type'] == null ? undefined : json['character_type'],
         'genre': json['genre'] == null ? undefined : json['genre'],
+        'hairColor': json['hair_color'] == null ? undefined : json['hair_color'],
+        'hairStyle': json['hair_style'] == null ? undefined : json['hair_style'],
+        'videoModel': json['video_model'] == null ? undefined : json['video_model'],
     };
 }
 
@@ -140,7 +168,8 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         'gender': value['gender'],
         'orientation': value['orientation'],
         'style': value['style'],
-        'lora': value['lora'],
+        'sex_position': value['sexPosition'],
+        'fetishes': value['fetishes'],
         'age': value['age'],
         'ethnicity': value['ethnicity'],
         'theme': value['theme'],
@@ -148,6 +177,9 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
         'roleplay_type': value['roleplayType'],
         'character_type': value['characterType'],
         'genre': value['genre'],
+        'hair_color': value['hairColor'],
+        'hair_style': value['hairStyle'],
+        'video_model': value['videoModel'],
     };
 }
 

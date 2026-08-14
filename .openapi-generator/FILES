@@ -46,6 +46,7 @@ src/models/AdminSavePricingGroupRevisionsRequest.ts
 src/models/AdminSavePricingGroupRevisionsRequestPricingGroup.ts
 src/models/AdminSavePricingGroupRevisionsRequestTokenUsageGroup.ts
 src/models/AdminSaveTokenUsageGroupRequest.ts
+src/models/AdminSeedanceModel.ts
 src/models/AdminTokenUsageGroupResponse.ts
 src/models/AdminTokenUsageResponse.ts
 src/models/AdminUserJourneyListItem.ts

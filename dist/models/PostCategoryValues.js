@@ -38,7 +38,15 @@ function instanceOfPostCategoryValues(value) {
         return false;
     if (!('bodyType' in value) || value['bodyType'] === undefined)
         return false;
-    if (!('lora' in value) || value['lora'] === undefined)
+    if (!('hairColor' in value) || value['hairColor'] === undefined)
+        return false;
+    if (!('hairStyle' in value) || value['hairStyle'] === undefined)
+        return false;
+    if (!('sexPosition' in value) || value['sexPosition'] === undefined)
+        return false;
+    if (!('fetishes' in value) || value['fetishes'] === undefined)
+        return false;
+    if (!('videoModel' in value) || value['videoModel'] === undefined)
         return false;
     return true;
 }
@@ -58,7 +66,11 @@ function PostCategoryValuesFromJSONTyped(json, ignoreDiscriminator) {
         'assSize': json['ass_size'],
         'breastSize': json['breast_size'],
         'bodyType': json['body_type'],
-        'lora': json['lora'],
+        'hairColor': json['hair_color'],
+        'hairStyle': json['hair_style'],
+        'sexPosition': json['sex_position'],
+        'fetishes': json['fetishes'],
+        'videoModel': json['video_model'],
     };
 }
 function PostCategoryValuesToJSON(json) {
@@ -77,7 +89,11 @@ function PostCategoryValuesToJSONTyped(value, ignoreDiscriminator = false) {
         'ass_size': value['assSize'],
         'breast_size': value['breastSize'],
         'body_type': value['bodyType'],
-        'lora': value['lora'],
+        'hair_color': value['hairColor'],
+        'hair_style': value['hairStyle'],
+        'sex_position': value['sexPosition'],
+        'fetishes': value['fetishes'],
+        'video_model': value['videoModel'],
     };
 }
 //# sourceMappingURL=PostCategoryValues.js.map

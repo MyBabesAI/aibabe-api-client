@@ -44,7 +44,13 @@ export interface CategoryValues {
      * @type {Array<string>}
      * @memberof CategoryValues
      */
-    lora?: Array<string> | null;
+    sexPosition?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    fetishes?: Array<string> | null;
     /**
      *
      * @type {Array<string>}
@@ -87,6 +93,24 @@ export interface CategoryValues {
      * @memberof CategoryValues
      */
     genre?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    hairColor?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    hairStyle?: Array<string> | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof CategoryValues
+     */
+    videoModel?: Array<string> | null;
 }
 /**
  * Check if a given object implements the CategoryValues interface.
