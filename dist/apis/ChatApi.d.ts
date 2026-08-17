@@ -25,6 +25,10 @@ export interface AnonymousConversationMessagesChatAnonymousChatbotIdMessagesConv
     paginationToken?: string | null;
     limit?: number;
 }
+export interface AnonymousMessageChatAnonymousChatbotIdMessageIdGetRequest {
+    chatbotId: string;
+    messageId: string;
+}
 export interface ChatChatChatbotIdPostRequest {
     chatbotId: string;
     postChatRequest: PostChatRequest;
@@ -135,6 +139,14 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Anonymous Conversation Messages
      */
     anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGet(requestParameters: AnonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationMessagesResponse>;
+    /**
+     * Anonymous Message
+     */
+    anonymousMessageChatAnonymousChatbotIdMessageIdGetRaw(requestParameters: AnonymousMessageChatAnonymousChatbotIdMessageIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MessageCheckResponse>>;
+    /**
+     * Anonymous Message
+     */
+    anonymousMessageChatAnonymousChatbotIdMessageIdGet(requestParameters: AnonymousMessageChatAnonymousChatbotIdMessageIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MessageCheckResponse>;
     /**
      * Chat
      */

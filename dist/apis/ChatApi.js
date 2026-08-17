@@ -143,6 +143,33 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Anonymous Message
+     */
+    async anonymousMessageChatAnonymousChatbotIdMessageIdGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling anonymousMessageChatAnonymousChatbotIdMessageIdGet().');
+        }
+        if (requestParameters['messageId'] == null) {
+            throw new runtime.RequiredError('messageId', 'Required parameter "messageId" was null or undefined when calling anonymousMessageChatAnonymousChatbotIdMessageIdGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/anonymous/{chatbot_id}/{message_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))).replace(`{${"message_id"}}`, encodeURIComponent(String(requestParameters['messageId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.MessageCheckResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Anonymous Message
+     */
+    async anonymousMessageChatAnonymousChatbotIdMessageIdGet(requestParameters, initOverrides) {
+        const response = await this.anonymousMessageChatAnonymousChatbotIdMessageIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Chat
      */
     async chatChatChatbotIdPostRaw(requestParameters, initOverrides) {
