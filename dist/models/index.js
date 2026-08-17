@@ -188,6 +188,7 @@ __exportStar(require("./MarketingCampaignName"), exports);
 __exportStar(require("./MemoracekType"), exports);
 __exportStar(require("./MemoryChat"), exports);
 __exportStar(require("./MemoryUpdateReponse"), exports);
+__exportStar(require("./MessageCheckResponse"), exports);
 __exportStar(require("./MessageType"), exports);
 __exportStar(require("./Model"), exports);
 __exportStar(require("./MonthlyTokens"), exports);
