@@ -30,6 +30,7 @@ __exportStar(require("./LeaderboardsApi"), exports);
 __exportStar(require("./MemoryApi"), exports);
 __exportStar(require("./NotificationApi"), exports);
 __exportStar(require("./PostApi"), exports);
+__exportStar(require("./SEOApi"), exports);
 __exportStar(require("./ServerApi"), exports);
 __exportStar(require("./StoryCreatorApi"), exports);
 __exportStar(require("./SubscriptionsApi"), exports);
