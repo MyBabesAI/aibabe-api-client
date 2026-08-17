@@ -17,6 +17,7 @@ export * from './AdminSavePricingGroupRevisionsRequest';
 export * from './AdminSavePricingGroupRevisionsRequestPricingGroup';
 export * from './AdminSavePricingGroupRevisionsRequestTokenUsageGroup';
 export * from './AdminSaveTokenUsageGroupRequest';
+export * from './AdminSeedanceModel';
 export * from './AdminTokenUsageGroupResponse';
 export * from './AdminTokenUsageResponse';
 export * from './AdminUserJourneyListItem';

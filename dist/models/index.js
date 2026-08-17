@@ -35,6 +35,7 @@ __exportStar(require("./AdminSavePricingGroupRevisionsRequest"), exports);
 __exportStar(require("./AdminSavePricingGroupRevisionsRequestPricingGroup"), exports);
 __exportStar(require("./AdminSavePricingGroupRevisionsRequestTokenUsageGroup"), exports);
 __exportStar(require("./AdminSaveTokenUsageGroupRequest"), exports);
+__exportStar(require("./AdminSeedanceModel"), exports);
 __exportStar(require("./AdminTokenUsageGroupResponse"), exports);
 __exportStar(require("./AdminTokenUsageResponse"), exports);
 __exportStar(require("./AdminUserJourneyListItem"), exports);
