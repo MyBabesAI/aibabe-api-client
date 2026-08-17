@@ -198,6 +198,7 @@ src/models/MarketingCampaignName.ts
 src/models/MemoracekType.ts
 src/models/MemoryChat.ts
 src/models/MemoryUpdateReponse.ts
+src/models/MessageCheckResponse.ts
 src/models/MessageType.ts
 src/models/Model.ts
 src/models/MonthlyTokens.ts

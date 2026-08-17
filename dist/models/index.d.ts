@@ -169,6 +169,7 @@ export * from './MarketingCampaignName';
 export * from './MemoracekType';
 export * from './MemoryChat';
 export * from './MemoryUpdateReponse';
+export * from './MessageCheckResponse';
 export * from './MessageType';
 export * from './Model';
 export * from './MonthlyTokens';
