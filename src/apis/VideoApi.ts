@@ -15,6 +15,7 @@
 
 import * as runtime from '../runtime';
 import type {
+  AdminSeedanceModel,
   ExtendVideoPayload,
   GetVideoGenerationTagsResponse,
   HTTPValidationError,
@@ -33,6 +34,8 @@ import type {
   WanImageToVideoResponse,
 } from '../models/index';
 import {
+    AdminSeedanceModelFromJSON,
+    AdminSeedanceModelToJSON,
     ExtendVideoPayloadFromJSON,
     ExtendVideoPayloadToJSON,
     GetVideoGenerationTagsResponseFromJSON,
@@ -125,7 +128,7 @@ export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
     audio?: Array<Blob>;
     audioUrl?: Array<string>;
     prompt?: string | null;
-    model?: string | null;
+    model?: AdminSeedanceModel | null;
     resolution?: VideoResolution;
     ratio?: GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum;
     duration?: number;

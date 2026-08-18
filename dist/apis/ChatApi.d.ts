@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatReponse, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, SeedConversationResponse, TokenPricingConfigResponse } from '../models/index';
+import type { ChatReponse, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, SeedConversationResponse, TokenPricingConfigResponse } from '../models/index';
 export interface AnonymousChatChatAnonymousChatbotIdPostRequest {
     chatbotId: string;
     postAnonymousChatRequest: PostAnonymousChatRequest;
@@ -24,6 +24,10 @@ export interface AnonymousConversationMessagesChatAnonymousChatbotIdMessagesConv
     conversationId: string;
     paginationToken?: string | null;
     limit?: number;
+}
+export interface AnonymousMessageChatAnonymousChatbotIdMessageIdGetRequest {
+    chatbotId: string;
+    messageId: string;
 }
 export interface ChatChatChatbotIdPostRequest {
     chatbotId: string;
@@ -80,6 +84,10 @@ export interface LiveRoleplayChatChatbotIdLiveRoleplayPostRequest {
 export interface LiveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRequest {
     chatbotId: string;
 }
+export interface MessageChatChatbotIdMessageIdGetRequest {
+    chatbotId: string;
+    messageId: string;
+}
 export interface RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest {
     chatbotId: string;
     messageId: string;
@@ -131,6 +139,14 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Anonymous Conversation Messages
      */
     anonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGet(requestParameters: AnonymousConversationMessagesChatAnonymousChatbotIdMessagesConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationMessagesResponse>;
+    /**
+     * Anonymous Message
+     */
+    anonymousMessageChatAnonymousChatbotIdMessageIdGetRaw(requestParameters: AnonymousMessageChatAnonymousChatbotIdMessageIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MessageCheckResponse>>;
+    /**
+     * Anonymous Message
+     */
+    anonymousMessageChatAnonymousChatbotIdMessageIdGet(requestParameters: AnonymousMessageChatAnonymousChatbotIdMessageIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MessageCheckResponse>;
     /**
      * Chat
      */
@@ -265,6 +281,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Live Roleplay Session
      */
     liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPost(requestParameters: LiveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveRoleplaySessionResponse>;
+    /**
+     * Poll for the reply to a queued turn, for a client the websocket did not reach.  Takes the assistant_message_id returned by POST /chat/{chatbot_id}; answers ready=false while the turn is still in flight and never blocks waiting for it. An id that is not this caller\'s, or not this chatbot\'s, reads as not ready.
+     * Message
+     */
+    messageChatChatbotIdMessageIdGetRaw(requestParameters: MessageChatChatbotIdMessageIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MessageCheckResponse>>;
+    /**
+     * Poll for the reply to a queued turn, for a client the websocket did not reach.  Takes the assistant_message_id returned by POST /chat/{chatbot_id}; answers ready=false while the turn is still in flight and never blocks waiting for it. An id that is not this caller\'s, or not this chatbot\'s, reads as not ready.
+     * Message
+     */
+    messageChatChatbotIdMessageIdGet(requestParameters: MessageChatChatbotIdMessageIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MessageCheckResponse>;
     /**
      * Regenerate
      */

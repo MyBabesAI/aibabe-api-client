@@ -143,6 +143,33 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Anonymous Message
+     */
+    async anonymousMessageChatAnonymousChatbotIdMessageIdGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling anonymousMessageChatAnonymousChatbotIdMessageIdGet().');
+        }
+        if (requestParameters['messageId'] == null) {
+            throw new runtime.RequiredError('messageId', 'Required parameter "messageId" was null or undefined when calling anonymousMessageChatAnonymousChatbotIdMessageIdGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/anonymous/{chatbot_id}/{message_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))).replace(`{${"message_id"}}`, encodeURIComponent(String(requestParameters['messageId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.MessageCheckResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Anonymous Message
+     */
+    async anonymousMessageChatAnonymousChatbotIdMessageIdGet(requestParameters, initOverrides) {
+        const response = await this.anonymousMessageChatAnonymousChatbotIdMessageIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Chat
      */
     async chatChatChatbotIdPostRaw(requestParameters, initOverrides) {
@@ -581,6 +608,35 @@ class ChatApi extends runtime.BaseAPI {
      */
     async liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPost(requestParameters, initOverrides) {
         const response = await this.liveRoleplaySessionChatChatbotIdLiveRoleplaySessionPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Poll for the reply to a queued turn, for a client the websocket did not reach.  Takes the assistant_message_id returned by POST /chat/{chatbot_id}; answers ready=false while the turn is still in flight and never blocks waiting for it. An id that is not this caller\'s, or not this chatbot\'s, reads as not ready.
+     * Message
+     */
+    async messageChatChatbotIdMessageIdGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling messageChatChatbotIdMessageIdGet().');
+        }
+        if (requestParameters['messageId'] == null) {
+            throw new runtime.RequiredError('messageId', 'Required parameter "messageId" was null or undefined when calling messageChatChatbotIdMessageIdGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/{chatbot_id}/{message_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))).replace(`{${"message_id"}}`, encodeURIComponent(String(requestParameters['messageId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.MessageCheckResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Poll for the reply to a queued turn, for a client the websocket did not reach.  Takes the assistant_message_id returned by POST /chat/{chatbot_id}; answers ready=false while the turn is still in flight and never blocks waiting for it. An id that is not this caller\'s, or not this chatbot\'s, reads as not ready.
+     * Message
+     */
+    async messageChatChatbotIdMessageIdGet(requestParameters, initOverrides) {
+        const response = await this.messageChatChatbotIdMessageIdGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
