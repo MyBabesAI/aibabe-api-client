@@ -241,6 +241,8 @@ __exportStar(require("./PostFollowUserRequest"), exports);
 __exportStar(require("./PostGenerateImageRequest"), exports);
 __exportStar(require("./PostGenerateSceneRequest"), exports);
 __exportStar(require("./PostImagenResponse"), exports);
+__exportStar(require("./PostInstanceDestroyRequest"), exports);
+__exportStar(require("./PostInstanceDestroyResponse"), exports);
 __exportStar(require("./PostInstancesDBVastAiListResponse"), exports);
 __exportStar(require("./PostLiveRoleplayRequest"), exports);
 __exportStar(require("./PostLiveRoleplayResponse"), exports);

@@ -223,6 +223,8 @@ export * from './PostFollowUserRequest';
 export * from './PostGenerateImageRequest';
 export * from './PostGenerateSceneRequest';
 export * from './PostImagenResponse';
+export * from './PostInstanceDestroyRequest';
+export * from './PostInstanceDestroyResponse';
 export * from './PostInstancesDBVastAiListResponse';
 export * from './PostLiveRoleplayRequest';
 export * from './PostLiveRoleplayResponse';
