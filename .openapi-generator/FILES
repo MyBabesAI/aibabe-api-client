@@ -253,8 +253,6 @@ src/models/PostFollowUserRequest.ts
 src/models/PostGenerateImageRequest.ts
 src/models/PostGenerateSceneRequest.ts
 src/models/PostImagenResponse.ts
-src/models/PostInstanceDestroyRequest.ts
-src/models/PostInstanceDestroyResponse.ts
 src/models/PostInstancesDBVastAiListResponse.ts
 src/models/PostLiveRoleplayRequest.ts
 src/models/PostLiveRoleplayResponse.ts
