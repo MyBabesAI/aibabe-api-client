@@ -61,6 +61,12 @@ export interface StoryCreatorSaveEpisodePanel {
     videoPrompt?: string | null;
     /**
      *
+     * @type {number}
+     * @memberof StoryCreatorSaveEpisodePanel
+     */
+    videoVolume?: number;
+    /**
+     *
      * @type {string}
      * @memberof StoryCreatorSaveEpisodePanel
      */
