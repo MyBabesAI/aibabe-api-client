@@ -172,6 +172,9 @@ export declare const ExceptionCode: {
     readonly LeaderNotAvailable: "leader_not_available";
     readonly QueueListenersNotEnabled: "queue_listeners_not_enabled";
     readonly ServerNotFound: "server_not_found";
+    readonly ServerNotDestroyable: "server_not_destroyable";
+    readonly ServerDestroyFailed: "server_destroy_failed";
+    readonly ServerDestroyNotSupported: "server_destroy_not_supported";
     readonly WebsocketServerNotAvailable: "websocket_server_not_available";
     readonly LlmModelNotAvailable: "llm_model_not_available";
     readonly OpenSearchDisabled: "open_search_disabled";

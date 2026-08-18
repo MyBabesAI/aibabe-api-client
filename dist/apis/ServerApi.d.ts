@@ -10,7 +10,10 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { GetInstancesDBVastAiListResponse, InstanceDetails, InstanceType, PingRequest, PostInstancesDBVastAiListResponse } from '../models/index';
+import type { GetInstancesDBVastAiListResponse, InstanceDetails, InstanceType, PingRequest, PostInstanceDestroyRequest, PostInstanceDestroyResponse, PostInstancesDBVastAiListResponse } from '../models/index';
+export interface DestroyInstanceServerInstancesDestroyPostRequest {
+    postInstanceDestroyRequest: PostInstanceDestroyRequest;
+}
 export interface PingServerPingPostRequest {
     pingRequest: PingRequest;
 }
@@ -25,6 +28,14 @@ export interface StopServerServerStopDeleteRequest {
  *
  */
 export declare class ServerApi extends runtime.BaseAPI {
+    /**
+     * Destroy Instance
+     */
+    destroyInstanceServerInstancesDestroyPostRaw(requestParameters: DestroyInstanceServerInstancesDestroyPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostInstanceDestroyResponse>>;
+    /**
+     * Destroy Instance
+     */
+    destroyInstanceServerInstancesDestroyPost(requestParameters: DestroyInstanceServerInstancesDestroyPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostInstanceDestroyResponse>;
     /**
      * Get Instances
      */
