@@ -20,6 +20,8 @@ import type {
   InstanceDetails,
   InstanceType,
   PingRequest,
+  PostInstanceDestroyRequest,
+  PostInstanceDestroyResponse,
   PostInstancesDBVastAiListResponse,
 } from '../models/index';
 import {
@@ -33,9 +35,17 @@ import {
     InstanceTypeToJSON,
     PingRequestFromJSON,
     PingRequestToJSON,
+    PostInstanceDestroyRequestFromJSON,
+    PostInstanceDestroyRequestToJSON,
+    PostInstanceDestroyResponseFromJSON,
+    PostInstanceDestroyResponseToJSON,
     PostInstancesDBVastAiListResponseFromJSON,
     PostInstancesDBVastAiListResponseToJSON,
 } from '../models/index';
+
+export interface DestroyInstanceServerInstancesDestroyPostRequest {
+    postInstanceDestroyRequest: PostInstanceDestroyRequest;
+}
 
 export interface PingServerPingPostRequest {
     pingRequest: PingRequest;
@@ -54,6 +64,42 @@ export interface StopServerServerStopDeleteRequest {
  * 
  */
 export class ServerApi extends runtime.BaseAPI {
+
+    /**
+     * Destroy Instance
+     */
+    async destroyInstanceServerInstancesDestroyPostRaw(requestParameters: DestroyInstanceServerInstancesDestroyPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostInstanceDestroyResponse>> {
+        if (requestParameters['postInstanceDestroyRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postInstanceDestroyRequest',
+                'Required parameter "postInstanceDestroyRequest" was null or undefined when calling destroyInstanceServerInstancesDestroyPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/server/instances/destroy`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostInstanceDestroyRequestToJSON(requestParameters['postInstanceDestroyRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostInstanceDestroyResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Destroy Instance
+     */
+    async destroyInstanceServerInstancesDestroyPost(requestParameters: DestroyInstanceServerInstancesDestroyPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostInstanceDestroyResponse> {
+        const response = await this.destroyInstanceServerInstancesDestroyPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
 
     /**
      * Get Instances
