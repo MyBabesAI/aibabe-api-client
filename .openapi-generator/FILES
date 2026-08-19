@@ -116,6 +116,8 @@ src/models/EpisodeUnlockNotification.ts
 src/models/EpisodeVisibility.ts
 src/models/Ethnicity.ts
 src/models/ExceptionCode.ts
+src/models/ExploreOffsetSearchRequest.ts
+src/models/ExploreOffsetSearchResponse.ts
 src/models/ExploreSearchRequest.ts
 src/models/ExtendVideoPayload.ts
 src/models/FantasyRace.ts
@@ -168,6 +170,8 @@ src/models/GiftCodeType.ts
 src/models/HTTPValidationError.ts
 src/models/HairColor.ts
 src/models/HairStyle.ts
+src/models/HubTag.ts
+src/models/HubTagsResponse.ts
 src/models/Id.ts
 src/models/ImageContent.ts
 src/models/ImageGenerationSource.ts
