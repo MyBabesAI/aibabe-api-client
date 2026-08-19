@@ -78,12 +78,6 @@ export interface StoryCreatorSaveEpisodePanel {
     videoPrompt?: string | null;
     /**
      * 
-     * @type {number}
-     * @memberof StoryCreatorSaveEpisodePanel
-     */
-    videoVolume?: number;
-    /**
-     * 
      * @type {string}
      * @memberof StoryCreatorSaveEpisodePanel
      */
@@ -185,7 +179,6 @@ export function StoryCreatorSaveEpisodePanelFromJSONTyped(json: any, ignoreDiscr
         'imagePrompt': json['image_prompt'] == null ? undefined : json['image_prompt'],
         'videoUrl': json['video_url'] == null ? undefined : json['video_url'],
         'videoPrompt': json['video_prompt'] == null ? undefined : json['video_prompt'],
-        'videoVolume': json['video_volume'] == null ? undefined : json['video_volume'],
         'message': json['message'] == null ? undefined : json['message'],
         'actorId': json['actor_id'] == null ? undefined : json['actor_id'],
         'actorDisplayName': json['actor_display_name'] == null ? undefined : json['actor_display_name'],
@@ -219,7 +212,6 @@ export function StoryCreatorSaveEpisodePanelFromJSONTyped(json: any, ignoreDiscr
         'image_prompt': value['imagePrompt'],
         'video_url': value['videoUrl'],
         'video_prompt': value['videoPrompt'],
-        'video_volume': value['videoVolume'],
         'message': value['message'],
         'actor_id': value['actorId'],
         'actor_display_name': value['actorDisplayName'],

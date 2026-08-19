@@ -54,32 +54,6 @@ const index_1 = require("../models/index");
  */
 class ServerApi extends runtime.BaseAPI {
     /**
-     * Destroy Instance
-     */
-    async destroyInstanceServerInstancesDestroyPostRaw(requestParameters, initOverrides) {
-        if (requestParameters['postInstanceDestroyRequest'] == null) {
-            throw new runtime.RequiredError('postInstanceDestroyRequest', 'Required parameter "postInstanceDestroyRequest" was null or undefined when calling destroyInstanceServerInstancesDestroyPost().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        headerParameters['Content-Type'] = 'application/json';
-        const response = await this.request({
-            path: `/server/instances/destroy`,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: (0, index_1.PostInstanceDestroyRequestToJSON)(requestParameters['postInstanceDestroyRequest']),
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostInstanceDestroyResponseFromJSON)(jsonValue));
-    }
-    /**
-     * Destroy Instance
-     */
-    async destroyInstanceServerInstancesDestroyPost(requestParameters, initOverrides) {
-        const response = await this.destroyInstanceServerInstancesDestroyPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
      * Get Instances
      */
     async getInstancesServerInstancesGetRaw(initOverrides) {
