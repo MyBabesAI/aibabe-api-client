@@ -16,21 +16,30 @@
 import * as runtime from '../runtime';
 import type {
   CategoryValues,
+  ExploreOffsetSearchRequest,
+  ExploreOffsetSearchResponse,
   ExploreSearchRequest,
   GetPostsResponse,
   HTTPValidationError,
+  HubTagsResponse,
   PostType,
   TagsExploreTypesGet200ResponseInner,
 } from '../models/index';
 import {
     CategoryValuesFromJSON,
     CategoryValuesToJSON,
+    ExploreOffsetSearchRequestFromJSON,
+    ExploreOffsetSearchRequestToJSON,
+    ExploreOffsetSearchResponseFromJSON,
+    ExploreOffsetSearchResponseToJSON,
     ExploreSearchRequestFromJSON,
     ExploreSearchRequestToJSON,
     GetPostsResponseFromJSON,
     GetPostsResponseToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
+    HubTagsResponseFromJSON,
+    HubTagsResponseToJSON,
     PostTypeFromJSON,
     PostTypeToJSON,
     TagsExploreTypesGet200ResponseInnerFromJSON,
@@ -43,6 +52,10 @@ export interface CategoriesExploreContentCategoriesGetRequest {
 
 export interface SearchContentExploreContentPostRequest {
     exploreSearchRequest: ExploreSearchRequest;
+}
+
+export interface SearchContentOffsetExploreContentOffsetPostRequest {
+    exploreOffsetSearchRequest: ExploreOffsetSearchRequest;
 }
 
 /**
@@ -81,6 +94,32 @@ export class ExploreApi extends runtime.BaseAPI {
     }
 
     /**
+     * Hub Tags
+     */
+    async hubTagsExploreHubTagsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HubTagsResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/explore/hub-tags`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => HubTagsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Hub Tags
+     */
+    async hubTagsExploreHubTagsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HubTagsResponse> {
+        const response = await this.hubTagsExploreHubTagsGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Search Content
      */
     async searchContentExploreContentPostRaw(requestParameters: SearchContentExploreContentPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPostsResponse>> {
@@ -113,6 +152,42 @@ export class ExploreApi extends runtime.BaseAPI {
      */
     async searchContentExploreContentPost(requestParameters: SearchContentExploreContentPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPostsResponse> {
         const response = await this.searchContentExploreContentPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Search Content Offset
+     */
+    async searchContentOffsetExploreContentOffsetPostRaw(requestParameters: SearchContentOffsetExploreContentOffsetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExploreOffsetSearchResponse>> {
+        if (requestParameters['exploreOffsetSearchRequest'] == null) {
+            throw new runtime.RequiredError(
+                'exploreOffsetSearchRequest',
+                'Required parameter "exploreOffsetSearchRequest" was null or undefined when calling searchContentOffsetExploreContentOffsetPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/explore/content/offset`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ExploreOffsetSearchRequestToJSON(requestParameters['exploreOffsetSearchRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ExploreOffsetSearchResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Search Content Offset
+     */
+    async searchContentOffsetExploreContentOffsetPost(requestParameters: SearchContentOffsetExploreContentOffsetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExploreOffsetSearchResponse> {
+        const response = await this.searchContentOffsetExploreContentOffsetPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -184,6 +184,7 @@ export const ExceptionCode = {
     OpenSearchDisabled: 'open_search_disabled',
     OpenSearchNotSuportedSort: 'open_search_not_suported_sort',
     OpenSearchNotSuportedPostFiltering: 'open_search_not_suported_post_filtering',
+    ExploreInvalidSortFilter: 'explore_invalid_sort_filter',
     EmailSendFailed: 'email_send_failed',
     InvalidParams: 'invalid_params',
     ModerationFlagged: 'moderation_flagged',

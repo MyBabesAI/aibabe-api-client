@@ -19,6 +19,7 @@
  */
 export const TagCategory = {
     BaseModel: 'base_model',
+    VideoModel: 'video_model',
     HairColor: 'hair_color',
     HairStyle: 'hair_style',
     BodyType: 'body_type',
