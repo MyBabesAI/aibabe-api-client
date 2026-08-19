@@ -8,6 +8,8 @@ export * from './ChatApi';
 export * from './ChatbotApi';
 export * from './ExploreApi';
 export * from './GalleryApi';
+export * from './GameAdventureCreatorApi';
+export * from './GameAdventuresApi';
 export * from './HeartbeatApi';
 export * from './ImageApi';
 export * from './LeaderboardsApi';

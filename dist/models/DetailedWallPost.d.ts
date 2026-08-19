@@ -16,6 +16,7 @@ import type { ContentType } from './ContentType';
 import type { ImageContent } from './ImageContent';
 import type { StoryPreview } from './StoryPreview';
 import type { TagData } from './TagData';
+import type { GameAdventurePreview } from './GameAdventurePreview';
 /**
  *
  * @export
@@ -48,6 +49,12 @@ export interface DetailedWallPost {
     story: StoryPreview | null;
     /**
      *
+     * @type {GameAdventurePreview}
+     * @memberof DetailedWallPost
+     */
+    gameAdventure?: GameAdventurePreview | null;
+    /**
+     *
      * @type {ImageContent}
      * @memberof DetailedWallPost
      */
@@ -63,7 +70,7 @@ export interface DetailedWallPost {
      * @type {number}
      * @memberof DetailedWallPost
      */
-    likes: number;
+    likes: number | null;
     /**
      *
      * @type {number}
@@ -93,7 +100,7 @@ export interface DetailedWallPost {
      * @type {boolean}
      * @memberof DetailedWallPost
      */
-    liked: boolean;
+    liked: boolean | null;
     /**
      *
      * @type {ContentType}

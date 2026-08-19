@@ -14,6 +14,7 @@ import type { VideoContent } from './VideoContent';
 import type { ContentType } from './ContentType';
 import type { ImageContent } from './ImageContent';
 import type { StoryPreview } from './StoryPreview';
+import type { GameAdventurePreview } from './GameAdventurePreview';
 /**
  *
  * @export
@@ -46,6 +47,12 @@ export interface WallPost {
     story: StoryPreview | null;
     /**
      *
+     * @type {GameAdventurePreview}
+     * @memberof WallPost
+     */
+    gameAdventure?: GameAdventurePreview | null;
+    /**
+     *
      * @type {ImageContent}
      * @memberof WallPost
      */
@@ -61,7 +68,7 @@ export interface WallPost {
      * @type {number}
      * @memberof WallPost
      */
-    likes: number;
+    likes: number | null;
     /**
      *
      * @type {number}
@@ -91,7 +98,7 @@ export interface WallPost {
      * @type {boolean}
      * @memberof WallPost
      */
-    liked: boolean;
+    liked: boolean | null;
     /**
      *
      * @type {ContentType}

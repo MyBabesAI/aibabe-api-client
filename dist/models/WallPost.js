@@ -23,6 +23,7 @@ const VideoContent_1 = require("./VideoContent");
 const ContentType_1 = require("./ContentType");
 const ImageContent_1 = require("./ImageContent");
 const StoryPreview_1 = require("./StoryPreview");
+const GameAdventurePreview_1 = require("./GameAdventurePreview");
 /**
  * Check if a given object implements the WallPost interface.
  */
@@ -67,6 +68,7 @@ function WallPostFromJSONTyped(json, ignoreDiscriminator) {
         'creatorId': json['creator_id'],
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['chatbot']),
         'story': (0, StoryPreview_1.StoryPreviewFromJSON)(json['story']),
+        'gameAdventure': json['game_adventure'] == null ? undefined : (0, GameAdventurePreview_1.GameAdventurePreviewFromJSON)(json['game_adventure']),
         'picture': (0, ImageContent_1.ImageContentFromJSON)(json['picture']),
         'video': (0, VideoContent_1.VideoContentFromJSON)(json['video']),
         'likes': json['likes'],
@@ -90,6 +92,7 @@ function WallPostToJSONTyped(value, ignoreDiscriminator = false) {
         'creator_id': value['creatorId'],
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['chatbot']),
         'story': (0, StoryPreview_1.StoryPreviewToJSON)(value['story']),
+        'game_adventure': (0, GameAdventurePreview_1.GameAdventurePreviewToJSON)(value['gameAdventure']),
         'picture': (0, ImageContent_1.ImageContentToJSON)(value['picture']),
         'video': (0, VideoContent_1.VideoContentToJSON)(value['video']),
         'likes': value['likes'],

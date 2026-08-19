@@ -24,6 +24,8 @@ __exportStar(require("./ChatApi"), exports);
 __exportStar(require("./ChatbotApi"), exports);
 __exportStar(require("./ExploreApi"), exports);
 __exportStar(require("./GalleryApi"), exports);
+__exportStar(require("./GameAdventureCreatorApi"), exports);
+__exportStar(require("./GameAdventuresApi"), exports);
 __exportStar(require("./HeartbeatApi"), exports);
 __exportStar(require("./ImageApi"), exports);
 __exportStar(require("./LeaderboardsApi"), exports);

@@ -192,6 +192,16 @@ export declare const ExceptionCode: {
     readonly PurchasedEpisodeAndVersionMismatch: "purchased_episode_and_version_mismatch";
     readonly PurchasedEpisodeVersionNotFound: "purchased_episode_version_not_found";
     readonly NotificationNotCreated: "notification_not_created";
+    readonly PostTypeNotLikeable: "post_type_not_likeable";
+    readonly GameAdventureNotFoundOrNotAuthorized: "game_adventure_not_found_or_not_authorized";
+    readonly GameAdventureNotPublished: "game_adventure_not_published";
+    readonly GameAdventureIncomplete: "game_adventure_incomplete";
+    readonly GameAdventureSessionNotFoundOrNotAuthorized: "game_adventure_session_not_found_or_not_authorized";
+    readonly GameAdventureSessionNotActive: "game_adventure_session_not_active";
+    readonly GameAdventureAssetNotFoundOrNotAuthorized: "game_adventure_asset_not_found_or_not_authorized";
+    readonly GameAdventureAssetChatbotMismatch: "game_adventure_asset_chatbot_mismatch";
+    readonly GameAdventureOwnRatingForbidden: "game_adventure_own_rating_forbidden";
+    readonly GameAdventureRatingRequiresSession: "game_adventure_rating_requires_session";
 };
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 export declare function instanceOfExceptionCode(value: any): boolean;
