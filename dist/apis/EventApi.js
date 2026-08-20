@@ -119,6 +119,9 @@ class EventApi extends runtime.BaseAPI {
         if (requestParameters['maxSubmissionsPerUser'] != null) {
             formParams.append('max_submissions_per_user', requestParameters['maxSubmissionsPerUser']);
         }
+        if (requestParameters['tagName'] != null) {
+            formParams.append('tag_name', requestParameters['tagName']);
+        }
         const response = await this.request({
             path: `/event`,
             method: 'POST',
@@ -339,6 +342,9 @@ class EventApi extends runtime.BaseAPI {
         }
         if (requestParameters['maxSubmissionsPerUser'] != null) {
             formParams.append('max_submissions_per_user', requestParameters['maxSubmissionsPerUser']);
+        }
+        if (requestParameters['tagName'] != null) {
+            formParams.append('tag_name', requestParameters['tagName']);
         }
         const response = await this.request({
             path: `/event/{event_id}`.replace(`{${"event_id"}}`, encodeURIComponent(String(requestParameters['eventId']))),

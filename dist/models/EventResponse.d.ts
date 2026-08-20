@@ -114,6 +114,12 @@ export interface EventResponse {
      * @memberof EventResponse
      */
     mySubmissionCount?: number | null;
+    /**
+     *
+     * @type {string}
+     * @memberof EventResponse
+     */
+    tagValue?: string | null;
 }
 /**
  * Check if a given object implements the EventResponse interface.

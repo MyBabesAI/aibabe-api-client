@@ -137,6 +137,12 @@ export interface EventResponse {
      * @memberof EventResponse
      */
     mySubmissionCount?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventResponse
+     */
+    tagValue?: string | null;
 }
 
 
@@ -189,6 +195,7 @@ export function EventResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'maxSubmissionsPerUser': json['max_submissions_per_user'],
         'submissionCount': json['submission_count'],
         'mySubmissionCount': json['my_submission_count'] == null ? undefined : json['my_submission_count'],
+        'tagValue': json['tag_value'] == null ? undefined : json['tag_value'],
     };
 }
 
@@ -219,6 +226,7 @@ export function EventResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'max_submissions_per_user': value['maxSubmissionsPerUser'],
         'submission_count': value['submissionCount'],
         'my_submission_count': value['mySubmissionCount'],
+        'tag_value': value['tagValue'],
     };
 }
 

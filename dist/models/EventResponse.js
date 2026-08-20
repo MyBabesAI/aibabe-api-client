@@ -81,6 +81,7 @@ function EventResponseFromJSONTyped(json, ignoreDiscriminator) {
         'maxSubmissionsPerUser': json['max_submissions_per_user'],
         'submissionCount': json['submission_count'],
         'mySubmissionCount': json['my_submission_count'] == null ? undefined : json['my_submission_count'],
+        'tagValue': json['tag_value'] == null ? undefined : json['tag_value'],
     };
 }
 function EventResponseToJSON(json) {
@@ -107,6 +108,7 @@ function EventResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'max_submissions_per_user': value['maxSubmissionsPerUser'],
         'submission_count': value['submissionCount'],
         'my_submission_count': value['mySubmissionCount'],
+        'tag_value': value['tagValue'],
     };
 }
 //# sourceMappingURL=EventResponse.js.map

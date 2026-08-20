@@ -110,6 +110,8 @@ exports.ExceptionCode = {
     EventContentAlreadyPublished: 'event_content_already_published',
     EventBackgroundConflict: 'event_background_conflict',
     EventBackgroundTooLarge: 'event_background_too_large',
+    EventTagConflict: 'event_tag_conflict',
+    EventTagInvalid: 'event_tag_invalid',
     EventInvalidTime: 'event_invalid_time',
     EventResultInvalidSubmission: 'event_result_invalid_submission',
     EventWinnersWithoutEvent: 'event_winners_without_event',

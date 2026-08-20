@@ -36,7 +36,8 @@ export const TagCategory = {
     Orientation: 'orientation',
     RoleplayType: 'roleplay_type',
     CharacterType: 'character_type',
-    Genre: 'genre'
+    Genre: 'genre',
+    Event: 'event'
 } as const;
 export type TagCategory = typeof TagCategory[keyof typeof TagCategory];
 

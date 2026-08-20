@@ -100,6 +100,8 @@ export declare const ExceptionCode: {
     readonly EventContentAlreadyPublished: "event_content_already_published";
     readonly EventBackgroundConflict: "event_background_conflict";
     readonly EventBackgroundTooLarge: "event_background_too_large";
+    readonly EventTagConflict: "event_tag_conflict";
+    readonly EventTagInvalid: "event_tag_invalid";
     readonly EventInvalidTime: "event_invalid_time";
     readonly EventResultInvalidSubmission: "event_result_invalid_submission";
     readonly EventWinnersWithoutEvent: "event_winners_without_event";
