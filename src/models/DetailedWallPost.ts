@@ -41,6 +41,13 @@ import {
     ContentTypeToJSON,
     ContentTypeToJSONTyped,
 } from './ContentType';
+import type { EventSubmissionPreview } from './EventSubmissionPreview';
+import {
+    EventSubmissionPreviewFromJSON,
+    EventSubmissionPreviewFromJSONTyped,
+    EventSubmissionPreviewToJSON,
+    EventSubmissionPreviewToJSONTyped,
+} from './EventSubmissionPreview';
 import type { ImageContent } from './ImageContent';
 import {
     ImageContentFromJSON,
@@ -149,6 +156,18 @@ export interface DetailedWallPost {
     type: ContentType;
     /**
      * 
+     * @type {Array<EventSubmissionPreview>}
+     * @memberof DetailedWallPost
+     */
+    eventSubmissionPreviews: Array<EventSubmissionPreview>;
+    /**
+     * 
+     * @type {PublicUserPreviewWithFollow}
+     * @memberof DetailedWallPost
+     */
+    creator: PublicUserPreviewWithFollow;
+    /**
+     * 
      * @type {string}
      * @memberof DetailedWallPost
      */
@@ -159,12 +178,6 @@ export interface DetailedWallPost {
      * @memberof DetailedWallPost
      */
     tags: Array<TagData>;
-    /**
-     * 
-     * @type {PublicUserPreviewWithFollow}
-     * @memberof DetailedWallPost
-     */
-    creator: PublicUserPreviewWithFollow;
 }
 
 
@@ -186,9 +199,10 @@ export function instanceOfDetailedWallPost(value: object): value is DetailedWall
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     if (!('liked' in value) || value['liked'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
+    if (!('eventSubmissionPreviews' in value) || value['eventSubmissionPreviews'] === undefined) return false;
+    if (!('creator' in value) || value['creator'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
     if (!('tags' in value) || value['tags'] === undefined) return false;
-    if (!('creator' in value) || value['creator'] === undefined) return false;
     return true;
 }
 
@@ -215,9 +229,10 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'updatedAt': (new Date(json['updated_at'])),
         'liked': json['liked'],
         'type': ContentTypeFromJSON(json['type']),
+        'eventSubmissionPreviews': ((json['event_submission_previews'] as Array<any>).map(EventSubmissionPreviewFromJSON)),
+        'creator': PublicUserPreviewWithFollowFromJSON(json['creator']),
         'title': json['title'],
         'tags': ((json['tags'] as Array<any>).map(TagDataFromJSON)),
-        'creator': PublicUserPreviewWithFollowFromJSON(json['creator']),
     };
 }
 
@@ -245,9 +260,10 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'updated_at': ((value['updatedAt']).toISOString()),
         'liked': value['liked'],
         'type': ContentTypeToJSON(value['type']),
+        'event_submission_previews': ((value['eventSubmissionPreviews'] as Array<any>).map(EventSubmissionPreviewToJSON)),
+        'creator': PublicUserPreviewWithFollowToJSON(value['creator']),
         'title': value['title'],
         'tags': ((value['tags'] as Array<any>).map(TagDataToJSON)),
-        'creator': PublicUserPreviewWithFollowToJSON(value['creator']),
     };
 }
 
