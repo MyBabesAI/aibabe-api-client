@@ -17,7 +17,6 @@ src/apis/LeaderboardsApi.ts
 src/apis/MemoryApi.ts
 src/apis/NotificationApi.ts
 src/apis/PostApi.ts
-src/apis/SEOApi.ts
 src/apis/ServerApi.ts
 src/apis/StoryCreatorApi.ts
 src/apis/SubscriptionsApi.ts
@@ -116,8 +115,6 @@ src/models/EpisodeUnlockNotification.ts
 src/models/EpisodeVisibility.ts
 src/models/Ethnicity.ts
 src/models/ExceptionCode.ts
-src/models/ExploreOffsetSearchRequest.ts
-src/models/ExploreOffsetSearchResponse.ts
 src/models/ExploreSearchRequest.ts
 src/models/ExtendVideoPayload.ts
 src/models/FantasyRace.ts
@@ -170,8 +167,6 @@ src/models/GiftCodeType.ts
 src/models/HTTPValidationError.ts
 src/models/HairColor.ts
 src/models/HairStyle.ts
-src/models/HubTag.ts
-src/models/HubTagsResponse.ts
 src/models/Id.ts
 src/models/ImageContent.ts
 src/models/ImageGenerationSource.ts
@@ -257,8 +252,6 @@ src/models/PostFollowUserRequest.ts
 src/models/PostGenerateImageRequest.ts
 src/models/PostGenerateSceneRequest.ts
 src/models/PostImagenResponse.ts
-src/models/PostInstanceDestroyRequest.ts
-src/models/PostInstanceDestroyResponse.ts
 src/models/PostInstancesDBVastAiListResponse.ts
 src/models/PostLiveRoleplayRequest.ts
 src/models/PostLiveRoleplayResponse.ts

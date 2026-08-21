@@ -15,7 +15,6 @@
  */
 export declare const TagCategory: {
     readonly BaseModel: "base_model";
-    readonly VideoModel: "video_model";
     readonly HairColor: "hair_color";
     readonly HairStyle: "hair_style";
     readonly BodyType: "body_type";

@@ -49,12 +49,6 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     originalImageUrl: string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof VideoContent
-     */
-    durationSeconds?: number | null;
 }
 
 /**
@@ -84,7 +78,6 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'generationId': json['generation_id'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
-        'durationSeconds': json['duration_seconds'] == null ? undefined : json['duration_seconds'],
     };
 }
 
@@ -104,7 +97,6 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'generation_id': value['generationId'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
-        'duration_seconds': value['durationSeconds'],
     };
 }
 
