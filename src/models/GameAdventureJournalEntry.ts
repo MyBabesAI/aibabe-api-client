@@ -20,6 +20,13 @@ import {
     GameAdventureJournalEntryKindToJSON,
     GameAdventureJournalEntryKindToJSONTyped,
 } from './GameAdventureJournalEntryKind';
+import type { GameAdventureJournalSlot } from './GameAdventureJournalSlot';
+import {
+    GameAdventureJournalSlotFromJSON,
+    GameAdventureJournalSlotFromJSONTyped,
+    GameAdventureJournalSlotToJSON,
+    GameAdventureJournalSlotToJSONTyped,
+} from './GameAdventureJournalSlot';
 
 /**
  * 
@@ -33,6 +40,12 @@ export interface GameAdventureJournalEntry {
      * @memberof GameAdventureJournalEntry
      */
     kind: GameAdventureJournalEntryKind;
+    /**
+     * 
+     * @type {GameAdventureJournalSlot}
+     * @memberof GameAdventureJournalEntry
+     */
+    slot?: GameAdventureJournalSlot | null;
     /**
      * 
      * @type {string}
@@ -69,6 +82,7 @@ export function GameAdventureJournalEntryFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'kind': GameAdventureJournalEntryKindFromJSON(json['kind']),
+        'slot': json['slot'] == null ? undefined : GameAdventureJournalSlotFromJSON(json['slot']),
         'text': json['text'],
         'at': json['at'] == null ? undefined : json['at'],
     };
@@ -86,6 +100,7 @@ export function GameAdventureJournalEntryFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'kind': GameAdventureJournalEntryKindToJSON(value['kind']),
+        'slot': GameAdventureJournalSlotToJSON(value['slot']),
         'text': value['text'],
         'at': value['at'],
     };

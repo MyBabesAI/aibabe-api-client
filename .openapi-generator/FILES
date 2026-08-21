@@ -135,6 +135,7 @@ src/models/GameAdventureDetailResponse.ts
 src/models/GameAdventureDifficulty.ts
 src/models/GameAdventureJournalEntry.ts
 src/models/GameAdventureJournalEntryKind.ts
+src/models/GameAdventureJournalSlot.ts
 src/models/GameAdventurePlayerAction.ts
 src/models/GameAdventurePreview.ts
 src/models/GameAdventurePrize.ts
@@ -278,6 +279,8 @@ src/models/PostDonateRequest.ts
 src/models/PostDonateResponse.ts
 src/models/PostFollowUserRequest.ts
 src/models/PostGameAdventureImageRequest.ts
+src/models/PostGameAdventureJournalReviewRequest.ts
+src/models/PostGameAdventureJournalReviewResponse.ts
 src/models/PostGameAdventureMediaResponse.ts
 src/models/PostGameAdventureMessageRequest.ts
 src/models/PostGameAdventureMessageResponse.ts

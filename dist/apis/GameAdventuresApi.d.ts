@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { GameAdventureDetailResponse, GameAdventurePrizesResponse, GameAdventureRating, GameAdventureSessionDetailResponse, GameAdventureSessionListResponse, GameAdventureSessionResponse, PostGameAdventureImageRequest, PostGameAdventureMediaResponse, PostGameAdventureMessageRequest, PostGameAdventureMessageResponse, PostGameAdventureRatingRequest, PostGameAdventureVideoRequest } from '../models/index';
+import type { GameAdventureDetailResponse, GameAdventurePrizesResponse, GameAdventureRating, GameAdventureSessionDetailResponse, GameAdventureSessionListResponse, GameAdventureSessionResponse, PostGameAdventureImageRequest, PostGameAdventureJournalReviewRequest, PostGameAdventureJournalReviewResponse, PostGameAdventureMediaResponse, PostGameAdventureMessageRequest, PostGameAdventureMessageResponse, PostGameAdventureRatingRequest, PostGameAdventureVideoRequest } from '../models/index';
 export interface CreateSessionGameAdventuresGameAdventureIdSessionsPostRequest {
     gameAdventureId: string;
 }
@@ -40,6 +40,10 @@ export interface ListSessionsGameAdventuresGameAdventureIdSessionsGetRequest {
 export interface RateGameAdventuresGameAdventureIdRatingPostRequest {
     gameAdventureId: string;
     postGameAdventureRatingRequest: PostGameAdventureRatingRequest;
+}
+export interface ReviewJournalGameAdventureSessionsSessionIdJournalReviewPostRequest {
+    sessionId: string;
+    postGameAdventureJournalReviewRequest: PostGameAdventureJournalReviewRequest;
 }
 export interface SendMessageGameAdventureSessionsSessionIdMessagePostRequest {
     sessionId: string;
@@ -123,6 +127,16 @@ export declare class GameAdventuresApi extends runtime.BaseAPI {
      * Rate
      */
     rateGameAdventuresGameAdventureIdRatingPost(requestParameters: RateGameAdventuresGameAdventureIdRatingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureRating>;
+    /**
+     * **The judge reviews the turn\'s player message + response and appends journal facts if anything new is worth recording**
+     * Review one exchange for the journal
+     */
+    reviewJournalGameAdventureSessionsSessionIdJournalReviewPostRaw(requestParameters: ReviewJournalGameAdventureSessionsSessionIdJournalReviewPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostGameAdventureJournalReviewResponse>>;
+    /**
+     * **The judge reviews the turn\'s player message + response and appends journal facts if anything new is worth recording**
+     * Review one exchange for the journal
+     */
+    reviewJournalGameAdventureSessionsSessionIdJournalReviewPost(requestParameters: ReviewJournalGameAdventureSessionsSessionIdJournalReviewPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostGameAdventureJournalReviewResponse>;
     /**
      * Send Message
      */

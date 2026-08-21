@@ -23,6 +23,8 @@ import type {
   GameAdventureSessionResponse,
   HTTPValidationError,
   PostGameAdventureImageRequest,
+  PostGameAdventureJournalReviewRequest,
+  PostGameAdventureJournalReviewResponse,
   PostGameAdventureMediaResponse,
   PostGameAdventureMessageRequest,
   PostGameAdventureMessageResponse,
@@ -46,6 +48,10 @@ import {
     HTTPValidationErrorToJSON,
     PostGameAdventureImageRequestFromJSON,
     PostGameAdventureImageRequestToJSON,
+    PostGameAdventureJournalReviewRequestFromJSON,
+    PostGameAdventureJournalReviewRequestToJSON,
+    PostGameAdventureJournalReviewResponseFromJSON,
+    PostGameAdventureJournalReviewResponseToJSON,
     PostGameAdventureMediaResponseFromJSON,
     PostGameAdventureMediaResponseToJSON,
     PostGameAdventureMessageRequestFromJSON,
@@ -95,6 +101,11 @@ export interface ListSessionsGameAdventuresGameAdventureIdSessionsGetRequest {
 export interface RateGameAdventuresGameAdventureIdRatingPostRequest {
     gameAdventureId: string;
     postGameAdventureRatingRequest: PostGameAdventureRatingRequest;
+}
+
+export interface ReviewJournalGameAdventureSessionsSessionIdJournalReviewPostRequest {
+    sessionId: string;
+    postGameAdventureJournalReviewRequest: PostGameAdventureJournalReviewRequest;
 }
 
 export interface SendMessageGameAdventureSessionsSessionIdMessagePostRequest {
@@ -432,6 +443,51 @@ export class GameAdventuresApi extends runtime.BaseAPI {
      */
     async rateGameAdventuresGameAdventureIdRatingPost(requestParameters: RateGameAdventuresGameAdventureIdRatingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureRating> {
         const response = await this.rateGameAdventuresGameAdventureIdRatingPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * **The judge reviews the turn\'s player message + response and appends journal facts if anything new is worth recording**
+     * Review one exchange for the journal
+     */
+    async reviewJournalGameAdventureSessionsSessionIdJournalReviewPostRaw(requestParameters: ReviewJournalGameAdventureSessionsSessionIdJournalReviewPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostGameAdventureJournalReviewResponse>> {
+        if (requestParameters['sessionId'] == null) {
+            throw new runtime.RequiredError(
+                'sessionId',
+                'Required parameter "sessionId" was null or undefined when calling reviewJournalGameAdventureSessionsSessionIdJournalReviewPost().'
+            );
+        }
+
+        if (requestParameters['postGameAdventureJournalReviewRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postGameAdventureJournalReviewRequest',
+                'Required parameter "postGameAdventureJournalReviewRequest" was null or undefined when calling reviewJournalGameAdventureSessionsSessionIdJournalReviewPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/game-adventure-sessions/{session_id}/journal-review`.replace(`{${"session_id"}}`, encodeURIComponent(String(requestParameters['sessionId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostGameAdventureJournalReviewRequestToJSON(requestParameters['postGameAdventureJournalReviewRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostGameAdventureJournalReviewResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * **The judge reviews the turn\'s player message + response and appends journal facts if anything new is worth recording**
+     * Review one exchange for the journal
+     */
+    async reviewJournalGameAdventureSessionsSessionIdJournalReviewPost(requestParameters: ReviewJournalGameAdventureSessionsSessionIdJournalReviewPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostGameAdventureJournalReviewResponse> {
+        const response = await this.reviewJournalGameAdventureSessionsSessionIdJournalReviewPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

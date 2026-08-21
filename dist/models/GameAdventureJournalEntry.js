@@ -19,6 +19,7 @@ exports.GameAdventureJournalEntryFromJSONTyped = GameAdventureJournalEntryFromJS
 exports.GameAdventureJournalEntryToJSON = GameAdventureJournalEntryToJSON;
 exports.GameAdventureJournalEntryToJSONTyped = GameAdventureJournalEntryToJSONTyped;
 const GameAdventureJournalEntryKind_1 = require("./GameAdventureJournalEntryKind");
+const GameAdventureJournalSlot_1 = require("./GameAdventureJournalSlot");
 /**
  * Check if a given object implements the GameAdventureJournalEntry interface.
  */
@@ -38,6 +39,7 @@ function GameAdventureJournalEntryFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'kind': (0, GameAdventureJournalEntryKind_1.GameAdventureJournalEntryKindFromJSON)(json['kind']),
+        'slot': json['slot'] == null ? undefined : (0, GameAdventureJournalSlot_1.GameAdventureJournalSlotFromJSON)(json['slot']),
         'text': json['text'],
         'at': json['at'] == null ? undefined : json['at'],
     };
@@ -51,6 +53,7 @@ function GameAdventureJournalEntryToJSONTyped(value, ignoreDiscriminator = false
     }
     return {
         'kind': (0, GameAdventureJournalEntryKind_1.GameAdventureJournalEntryKindToJSON)(value['kind']),
+        'slot': (0, GameAdventureJournalSlot_1.GameAdventureJournalSlotToJSON)(value['slot']),
         'text': value['text'],
         'at': value['at'],
     };

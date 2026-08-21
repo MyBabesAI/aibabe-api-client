@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { GameAdventureJournalEntryKind } from './GameAdventureJournalEntryKind';
+import type { GameAdventureJournalSlot } from './GameAdventureJournalSlot';
 /**
  *
  * @export
@@ -22,6 +23,12 @@ export interface GameAdventureJournalEntry {
      * @memberof GameAdventureJournalEntry
      */
     kind: GameAdventureJournalEntryKind;
+    /**
+     *
+     * @type {GameAdventureJournalSlot}
+     * @memberof GameAdventureJournalEntry
+     */
+    slot?: GameAdventureJournalSlot | null;
     /**
      *
      * @type {string}

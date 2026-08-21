@@ -286,6 +286,37 @@ class GameAdventuresApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * **The judge reviews the turn\'s player message + response and appends journal facts if anything new is worth recording**
+     * Review one exchange for the journal
+     */
+    async reviewJournalGameAdventureSessionsSessionIdJournalReviewPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['sessionId'] == null) {
+            throw new runtime.RequiredError('sessionId', 'Required parameter "sessionId" was null or undefined when calling reviewJournalGameAdventureSessionsSessionIdJournalReviewPost().');
+        }
+        if (requestParameters['postGameAdventureJournalReviewRequest'] == null) {
+            throw new runtime.RequiredError('postGameAdventureJournalReviewRequest', 'Required parameter "postGameAdventureJournalReviewRequest" was null or undefined when calling reviewJournalGameAdventureSessionsSessionIdJournalReviewPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/game-adventure-sessions/{session_id}/journal-review`.replace(`{${"session_id"}}`, encodeURIComponent(String(requestParameters['sessionId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostGameAdventureJournalReviewRequestToJSON)(requestParameters['postGameAdventureJournalReviewRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostGameAdventureJournalReviewResponseFromJSON)(jsonValue));
+    }
+    /**
+     * **The judge reviews the turn\'s player message + response and appends journal facts if anything new is worth recording**
+     * Review one exchange for the journal
+     */
+    async reviewJournalGameAdventureSessionsSessionIdJournalReviewPost(requestParameters, initOverrides) {
+        const response = await this.reviewJournalGameAdventureSessionsSessionIdJournalReviewPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Send Message
      */
     async sendMessageGameAdventureSessionsSessionIdMessagePostRaw(requestParameters, initOverrides) {
