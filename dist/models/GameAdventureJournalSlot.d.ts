@@ -16,11 +16,13 @@
  * @export
  */
 export declare const GameAdventureJournalSlot: {
+    readonly StorySummary: "story_summary";
     readonly PlayerPosition: "player_position";
     readonly PlayerClothing: "player_clothing";
     readonly PlayerInventory: "player_inventory";
     readonly CharacterPosition: "character_position";
     readonly CharacterClothing: "character_clothing";
+    readonly CharacterInventory: "character_inventory";
     readonly Relationship: "relationship";
 };
 export type GameAdventureJournalSlot = typeof GameAdventureJournalSlot[keyof typeof GameAdventureJournalSlot];

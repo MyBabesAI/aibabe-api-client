@@ -180,6 +180,7 @@ export declare const ExceptionCode: {
     readonly OpenSearchDisabled: "open_search_disabled";
     readonly OpenSearchNotSuportedSort: "open_search_not_suported_sort";
     readonly OpenSearchNotSuportedPostFiltering: "open_search_not_suported_post_filtering";
+    readonly ExploreInvalidSortFilter: "explore_invalid_sort_filter";
     readonly EmailSendFailed: "email_send_failed";
     readonly InvalidParams: "invalid_params";
     readonly ModerationFlagged: "moderation_flagged";

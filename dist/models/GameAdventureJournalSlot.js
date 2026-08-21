@@ -26,11 +26,13 @@ exports.GameAdventureJournalSlotToJSONTyped = GameAdventureJournalSlotToJSONType
  * @export
  */
 exports.GameAdventureJournalSlot = {
+    StorySummary: 'story_summary',
     PlayerPosition: 'player_position',
     PlayerClothing: 'player_clothing',
     PlayerInventory: 'player_inventory',
     CharacterPosition: 'character_position',
     CharacterClothing: 'character_clothing',
+    CharacterInventory: 'character_inventory',
     Relationship: 'relationship'
 };
 function instanceOfGameAdventureJournalSlot(value) {

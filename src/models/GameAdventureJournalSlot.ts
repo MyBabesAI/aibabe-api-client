@@ -20,11 +20,13 @@
  * @export
  */
 export const GameAdventureJournalSlot = {
+    StorySummary: 'story_summary',
     PlayerPosition: 'player_position',
     PlayerClothing: 'player_clothing',
     PlayerInventory: 'player_inventory',
     CharacterPosition: 'character_position',
     CharacterClothing: 'character_clothing',
+    CharacterInventory: 'character_inventory',
     Relationship: 'relationship'
 } as const;
 export type GameAdventureJournalSlot = typeof GameAdventureJournalSlot[keyof typeof GameAdventureJournalSlot];
