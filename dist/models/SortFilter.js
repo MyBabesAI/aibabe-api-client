@@ -30,7 +30,8 @@ exports.SortFilter = {
     HighestRating: 'highest_rating',
     MostViewed: 'most_viewed',
     MostMessages: 'most_messages',
-    LatestMessage: 'latest_message'
+    LatestMessage: 'latest_message',
+    Shuffled: 'shuffled'
 };
 function instanceOfSortFilter(value) {
     for (const key in exports.SortFilter) {

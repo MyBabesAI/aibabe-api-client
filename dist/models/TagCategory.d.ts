@@ -33,6 +33,7 @@ export declare const TagCategory: {
     readonly RoleplayType: "roleplay_type";
     readonly CharacterType: "character_type";
     readonly Genre: "genre";
+    readonly Event: "event";
 };
 export type TagCategory = typeof TagCategory[keyof typeof TagCategory];
 export declare function instanceOfTagCategory(value: any): boolean;

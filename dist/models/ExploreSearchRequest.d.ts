@@ -110,6 +110,18 @@ export interface ExploreSearchRequest {
      * @memberof ExploreSearchRequest
      */
     useViewerPreferences?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof ExploreSearchRequest
+     */
+    eventId?: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ExploreSearchRequest
+     */
+    eventWinners?: boolean | null;
 }
 /**
  * Check if a given object implements the ExploreSearchRequest interface.
