@@ -41,6 +41,12 @@ export interface PostGameAdventureMessageRequest {
      * @memberof PostGameAdventureMessageRequest
      */
     llmModel?: LLM | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PostGameAdventureMessageRequest
+     */
+    suggestion?: boolean;
 }
 /**
  * Check if a given object implements the PostGameAdventureMessageRequest interface.

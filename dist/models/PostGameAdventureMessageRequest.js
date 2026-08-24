@@ -40,6 +40,7 @@ function PostGameAdventureMessageRequestFromJSONTyped(json, ignoreDiscriminator)
         'content': json['content'] == null ? undefined : json['content'],
         'action': json['action'] == null ? undefined : (0, GameAdventurePlayerAction_1.GameAdventurePlayerActionFromJSON)(json['action']),
         'llmModel': json['llm_model'] == null ? undefined : (0, LLM_1.LLMFromJSON)(json['llm_model']),
+        'suggestion': json['suggestion'] == null ? undefined : json['suggestion'],
     };
 }
 function PostGameAdventureMessageRequestToJSON(json) {
@@ -54,6 +55,7 @@ function PostGameAdventureMessageRequestToJSONTyped(value, ignoreDiscriminator =
         'content': value['content'],
         'action': (0, GameAdventurePlayerAction_1.GameAdventurePlayerActionToJSON)(value['action']),
         'llm_model': (0, LLM_1.LLMToJSON)(value['llmModel']),
+        'suggestion': value['suggestion'],
     };
 }
 //# sourceMappingURL=PostGameAdventureMessageRequest.js.map

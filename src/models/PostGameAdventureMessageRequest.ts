@@ -58,6 +58,12 @@ export interface PostGameAdventureMessageRequest {
      * @memberof PostGameAdventureMessageRequest
      */
     llmModel?: LLM | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PostGameAdventureMessageRequest
+     */
+    suggestion?: boolean;
 }
 
 
@@ -84,6 +90,7 @@ export function PostGameAdventureMessageRequestFromJSONTyped(json: any, ignoreDi
         'content': json['content'] == null ? undefined : json['content'],
         'action': json['action'] == null ? undefined : GameAdventurePlayerActionFromJSON(json['action']),
         'llmModel': json['llm_model'] == null ? undefined : LLMFromJSON(json['llm_model']),
+        'suggestion': json['suggestion'] == null ? undefined : json['suggestion'],
     };
 }
 
@@ -102,6 +109,7 @@ export function PostGameAdventureMessageRequestFromJSONTyped(json: any, ignoreDi
         'content': value['content'],
         'action': GameAdventurePlayerActionToJSON(value['action']),
         'llm_model': LLMToJSON(value['llmModel']),
+        'suggestion': value['suggestion'],
     };
 }
 
