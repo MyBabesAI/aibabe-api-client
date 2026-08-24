@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { GeneratedAudioStatus } from './GeneratedAudioStatus';
 import type { ChatRole } from './ChatRole';
 import type { MessageType } from './MessageType';
 /**
@@ -65,6 +66,18 @@ export interface GameAdventureSessionMessage {
      * @memberof GameAdventureSessionMessage
      */
     videoId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GameAdventureSessionMessage
+     */
+    audioUrl?: string | null;
+    /**
+     *
+     * @type {GeneratedAudioStatus}
+     * @memberof GameAdventureSessionMessage
+     */
+    audioStatus?: GeneratedAudioStatus | null;
 }
 /**
  * Check if a given object implements the GameAdventureSessionMessage interface.

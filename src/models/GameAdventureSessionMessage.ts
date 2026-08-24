@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { GeneratedAudioStatus } from './GeneratedAudioStatus';
+import {
+    GeneratedAudioStatusFromJSON,
+    GeneratedAudioStatusFromJSONTyped,
+    GeneratedAudioStatusToJSON,
+    GeneratedAudioStatusToJSONTyped,
+} from './GeneratedAudioStatus';
 import type { ChatRole } from './ChatRole';
 import {
     ChatRoleFromJSON,
@@ -82,6 +89,18 @@ export interface GameAdventureSessionMessage {
      * @memberof GameAdventureSessionMessage
      */
     videoId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GameAdventureSessionMessage
+     */
+    audioUrl?: string | null;
+    /**
+     * 
+     * @type {GeneratedAudioStatus}
+     * @memberof GameAdventureSessionMessage
+     */
+    audioStatus?: GeneratedAudioStatus | null;
 }
 
 
@@ -117,6 +136,8 @@ export function GameAdventureSessionMessageFromJSONTyped(json: any, ignoreDiscri
         'requestId': json['request_id'],
         'pictureId': json['picture_id'] == null ? undefined : json['picture_id'],
         'videoId': json['video_id'] == null ? undefined : json['video_id'],
+        'audioUrl': json['audio_url'] == null ? undefined : json['audio_url'],
+        'audioStatus': json['audio_status'] == null ? undefined : GeneratedAudioStatusFromJSON(json['audio_status']),
     };
 }
 
@@ -139,6 +160,8 @@ export function GameAdventureSessionMessageFromJSONTyped(json: any, ignoreDiscri
         'request_id': value['requestId'],
         'picture_id': value['pictureId'],
         'video_id': value['videoId'],
+        'audio_url': value['audioUrl'],
+        'audio_status': GeneratedAudioStatusToJSON(value['audioStatus']),
     };
 }
 

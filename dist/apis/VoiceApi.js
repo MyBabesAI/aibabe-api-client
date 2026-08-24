@@ -216,6 +216,9 @@ class VoiceApi extends runtime.BaseAPI {
             throw new runtime.RequiredError('messageId', 'Required parameter "messageId" was null or undefined when calling generateVoiceChatVoiceMessageMessageIdPost().');
         }
         const queryParameters = {};
+        if (requestParameters['referenceAudioId'] != null) {
+            queryParameters['reference_audio_id'] = requestParameters['referenceAudioId'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/voice/message/{message_id}`.replace(`{${"message_id"}}`, encodeURIComponent(String(requestParameters['messageId']))),
