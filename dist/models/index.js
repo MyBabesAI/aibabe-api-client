@@ -128,6 +128,7 @@ __exportStar(require("./GameAdventurePlayerAction"), exports);
 __exportStar(require("./GameAdventurePreview"), exports);
 __exportStar(require("./GameAdventurePrize"), exports);
 __exportStar(require("./GameAdventurePrizeItem"), exports);
+__exportStar(require("./GameAdventurePrizeKind"), exports);
 __exportStar(require("./GameAdventurePrizeUpdate"), exports);
 __exportStar(require("./GameAdventurePrizesResponse"), exports);
 __exportStar(require("./GameAdventureRating"), exports);

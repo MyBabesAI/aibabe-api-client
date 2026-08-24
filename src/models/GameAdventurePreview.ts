@@ -76,6 +76,18 @@ export interface GameAdventurePreview {
      * @memberof GameAdventurePreview
      */
     prizesCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GameAdventurePreview
+     */
+    winnersCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GameAdventurePreview
+     */
+    playersCount?: number;
 }
 
 
@@ -108,6 +120,8 @@ export function GameAdventurePreviewFromJSONTyped(json: any, ignoreDiscriminator
         'difficulty': GameAdventureDifficultyFromJSON(json['difficulty']),
         'rating': GameAdventureRatingFromJSON(json['rating']),
         'prizesCount': json['prizes_count'],
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
     };
 }
 
@@ -129,6 +143,8 @@ export function GameAdventurePreviewFromJSONTyped(json: any, ignoreDiscriminator
         'difficulty': GameAdventureDifficultyToJSON(value['difficulty']),
         'rating': GameAdventureRatingToJSON(value['rating']),
         'prizes_count': value['prizesCount'],
+        'winners_count': value['winnersCount'],
+        'players_count': value['playersCount'],
     };
 }
 

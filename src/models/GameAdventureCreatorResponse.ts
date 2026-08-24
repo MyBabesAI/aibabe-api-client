@@ -188,6 +188,18 @@ export interface GameAdventureCreatorResponse {
      * @memberof GameAdventureCreatorResponse
      */
     rating: GameAdventureRating;
+    /**
+     * 
+     * @type {number}
+     * @memberof GameAdventureCreatorResponse
+     */
+    winnersCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GameAdventureCreatorResponse
+     */
+    playersCount?: number;
 }
 
 
@@ -242,6 +254,8 @@ export function GameAdventureCreatorResponseFromJSONTyped(json: any, ignoreDiscr
         'targets': ((json['targets'] as Array<any>).map(GameAdventureTargetFromJSON)),
         'prizes': ((json['prizes'] as Array<any>).map(GameAdventurePrizeFromJSON)),
         'rating': GameAdventureRatingFromJSON(json['rating']),
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
     };
 }
 
@@ -277,6 +291,8 @@ export function GameAdventureCreatorResponseFromJSONTyped(json: any, ignoreDiscr
         'targets': ((value['targets'] as Array<any>).map(GameAdventureTargetToJSON)),
         'prizes': ((value['prizes'] as Array<any>).map(GameAdventurePrizeToJSON)),
         'rating': GameAdventureRatingToJSON(value['rating']),
+        'winners_count': value['winnersCount'],
+        'players_count': value['playersCount'],
     };
 }
 

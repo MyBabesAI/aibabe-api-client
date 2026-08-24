@@ -10,12 +10,19 @@
  * Do not edit the class manually.
  */
 import type { ContentType } from './ContentType';
+import type { GameAdventurePrizeKind } from './GameAdventurePrizeKind';
 /**
  *
  * @export
  * @interface GameAdventurePrizeItem
  */
 export interface GameAdventurePrizeItem {
+    /**
+     *
+     * @type {GameAdventurePrizeKind}
+     * @memberof GameAdventurePrizeItem
+     */
+    kind?: GameAdventurePrizeKind;
     /**
      *
      * @type {ContentType}

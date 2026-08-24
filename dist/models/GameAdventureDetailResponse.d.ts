@@ -106,6 +106,18 @@ export interface GameAdventureDetailResponse {
     rating: GameAdventureRating;
     /**
      *
+     * @type {number}
+     * @memberof GameAdventureDetailResponse
+     */
+    winnersCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GameAdventureDetailResponse
+     */
+    playersCount?: number;
+    /**
+     *
      * @type {Array<GameAdventureSessionSummary>}
      * @memberof GameAdventureDetailResponse
      */

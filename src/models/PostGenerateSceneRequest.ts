@@ -76,6 +76,12 @@ export interface PostGenerateSceneRequest {
      * @memberof PostGenerateSceneRequest
      */
     artStyle: ArtStyle;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostGenerateSceneRequest
+     */
+    chatbotId?: string | null;
 }
 
 
@@ -109,6 +115,7 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'numberOfImages': json['number_of_images'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(LoraNameFromJSON)),
         'artStyle': ArtStyleFromJSON(json['art_style']),
+        'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
     };
 }
 
@@ -130,6 +137,7 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'number_of_images': value['numberOfImages'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(LoraNameToJSON)),
         'art_style': ArtStyleToJSON(value['artStyle']),
+        'chatbot_id': value['chatbotId'],
     };
 }
 

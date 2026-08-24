@@ -110,6 +110,7 @@ export * from './GameAdventurePlayerAction';
 export * from './GameAdventurePreview';
 export * from './GameAdventurePrize';
 export * from './GameAdventurePrizeItem';
+export * from './GameAdventurePrizeKind';
 export * from './GameAdventurePrizeUpdate';
 export * from './GameAdventurePrizesResponse';
 export * from './GameAdventureRating';

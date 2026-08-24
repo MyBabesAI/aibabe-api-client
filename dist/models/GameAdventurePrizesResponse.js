@@ -42,6 +42,7 @@ function GameAdventurePrizesResponseFromJSONTyped(json, ignoreDiscriminator) {
         'unlocked': json['unlocked'],
         'prizesCount': json['prizes_count'],
         'prizes': (json['prizes'].map(GameAdventurePrizeItem_1.GameAdventurePrizeItemFromJSON)),
+        'losePrizes': json['lose_prizes'] == null ? undefined : (json['lose_prizes'].map(GameAdventurePrizeItem_1.GameAdventurePrizeItemFromJSON)),
     };
 }
 function GameAdventurePrizesResponseToJSON(json) {
@@ -55,6 +56,7 @@ function GameAdventurePrizesResponseToJSONTyped(value, ignoreDiscriminator = fal
         'unlocked': value['unlocked'],
         'prizes_count': value['prizesCount'],
         'prizes': (value['prizes'].map(GameAdventurePrizeItem_1.GameAdventurePrizeItemToJSON)),
+        'lose_prizes': value['losePrizes'] == null ? undefined : (value['losePrizes'].map(GameAdventurePrizeItem_1.GameAdventurePrizeItemToJSON)),
     };
 }
 //# sourceMappingURL=GameAdventurePrizesResponse.js.map

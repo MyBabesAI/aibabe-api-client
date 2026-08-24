@@ -19,6 +19,7 @@ exports.GameAdventurePrizeItemFromJSONTyped = GameAdventurePrizeItemFromJSONType
 exports.GameAdventurePrizeItemToJSON = GameAdventurePrizeItemToJSON;
 exports.GameAdventurePrizeItemToJSONTyped = GameAdventurePrizeItemToJSONTyped;
 const ContentType_1 = require("./ContentType");
+const GameAdventurePrizeKind_1 = require("./GameAdventurePrizeKind");
 /**
  * Check if a given object implements the GameAdventurePrizeItem interface.
  */
@@ -39,6 +40,7 @@ function GameAdventurePrizeItemFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
+        'kind': json['kind'] == null ? undefined : (0, GameAdventurePrizeKind_1.GameAdventurePrizeKindFromJSON)(json['kind']),
         'contentType': (0, ContentType_1.ContentTypeFromJSON)(json['content_type']),
         'contentId': json['content_id'],
         'url': json['url'],
@@ -52,6 +54,7 @@ function GameAdventurePrizeItemToJSONTyped(value, ignoreDiscriminator = false) {
         return value;
     }
     return {
+        'kind': (0, GameAdventurePrizeKind_1.GameAdventurePrizeKindToJSON)(value['kind']),
         'content_type': (0, ContentType_1.ContentTypeToJSON)(value['contentType']),
         'content_id': value['contentId'],
         'url': value['url'],

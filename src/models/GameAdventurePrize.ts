@@ -20,6 +20,13 @@ import {
     ContentTypeToJSON,
     ContentTypeToJSONTyped,
 } from './ContentType';
+import type { GameAdventurePrizeKind } from './GameAdventurePrizeKind';
+import {
+    GameAdventurePrizeKindFromJSON,
+    GameAdventurePrizeKindFromJSONTyped,
+    GameAdventurePrizeKindToJSON,
+    GameAdventurePrizeKindToJSONTyped,
+} from './GameAdventurePrizeKind';
 
 /**
  * 
@@ -39,6 +46,12 @@ export interface GameAdventurePrize {
      * @memberof GameAdventurePrize
      */
     position: number;
+    /**
+     * 
+     * @type {GameAdventurePrizeKind}
+     * @memberof GameAdventurePrize
+     */
+    kind: GameAdventurePrizeKind;
     /**
      * 
      * @type {ContentType}
@@ -61,6 +74,7 @@ export interface GameAdventurePrize {
 export function instanceOfGameAdventurePrize(value: object): value is GameAdventurePrize {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('position' in value) || value['position'] === undefined) return false;
+    if (!('kind' in value) || value['kind'] === undefined) return false;
     if (!('contentType' in value) || value['contentType'] === undefined) return false;
     if (!('contentId' in value) || value['contentId'] === undefined) return false;
     return true;
@@ -78,6 +92,7 @@ export function GameAdventurePrizeFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'id': json['id'],
         'position': json['position'],
+        'kind': GameAdventurePrizeKindFromJSON(json['kind']),
         'contentType': ContentTypeFromJSON(json['content_type']),
         'contentId': json['content_id'],
     };
@@ -96,6 +111,7 @@ export function GameAdventurePrizeFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'id': value['id'],
         'position': value['position'],
+        'kind': GameAdventurePrizeKindToJSON(value['kind']),
         'content_type': ContentTypeToJSON(value['contentType']),
         'content_id': value['contentId'],
     };

@@ -147,6 +147,18 @@ export interface GameAdventureCreatorResponse {
      * @memberof GameAdventureCreatorResponse
      */
     rating: GameAdventureRating;
+    /**
+     *
+     * @type {number}
+     * @memberof GameAdventureCreatorResponse
+     */
+    winnersCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GameAdventureCreatorResponse
+     */
+    playersCount?: number;
 }
 /**
  * Check if a given object implements the GameAdventureCreatorResponse interface.

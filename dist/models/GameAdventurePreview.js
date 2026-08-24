@@ -49,6 +49,8 @@ function GameAdventurePreviewFromJSONTyped(json, ignoreDiscriminator) {
         'difficulty': (0, GameAdventureDifficulty_1.GameAdventureDifficultyFromJSON)(json['difficulty']),
         'rating': (0, GameAdventureRating_1.GameAdventureRatingFromJSON)(json['rating']),
         'prizesCount': json['prizes_count'],
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
     };
 }
 function GameAdventurePreviewToJSON(json) {
@@ -66,6 +68,8 @@ function GameAdventurePreviewToJSONTyped(value, ignoreDiscriminator = false) {
         'difficulty': (0, GameAdventureDifficulty_1.GameAdventureDifficultyToJSON)(value['difficulty']),
         'rating': (0, GameAdventureRating_1.GameAdventureRatingToJSON)(value['rating']),
         'prizes_count': value['prizesCount'],
+        'winners_count': value['winnersCount'],
+        'players_count': value['playersCount'],
     };
 }
 //# sourceMappingURL=GameAdventurePreview.js.map

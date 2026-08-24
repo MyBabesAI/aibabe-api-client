@@ -59,6 +59,18 @@ export interface GameAdventurePreview {
      * @memberof GameAdventurePreview
      */
     prizesCount: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GameAdventurePreview
+     */
+    winnersCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GameAdventurePreview
+     */
+    playersCount?: number;
 }
 /**
  * Check if a given object implements the GameAdventurePreview interface.

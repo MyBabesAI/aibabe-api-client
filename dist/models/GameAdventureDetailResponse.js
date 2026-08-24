@@ -71,6 +71,8 @@ function GameAdventureDetailResponseFromJSONTyped(json, ignoreDiscriminator) {
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
         'prizesCount': json['prizes_count'],
         'rating': (0, GameAdventureRating_1.GameAdventureRatingFromJSON)(json['rating']),
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
         'sessions': (json['sessions'].map(GameAdventureSessionSummary_1.GameAdventureSessionSummaryFromJSON)),
     };
 }
@@ -96,6 +98,8 @@ function GameAdventureDetailResponseToJSONTyped(value, ignoreDiscriminator = fal
         'poster_picture_id': value['posterPictureId'],
         'prizes_count': value['prizesCount'],
         'rating': (0, GameAdventureRating_1.GameAdventureRatingToJSON)(value['rating']),
+        'winners_count': value['winnersCount'],
+        'players_count': value['playersCount'],
         'sessions': (value['sessions'].map(GameAdventureSessionSummary_1.GameAdventureSessionSummaryToJSON)),
     };
 }

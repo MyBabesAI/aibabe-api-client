@@ -34,6 +34,12 @@ export interface GameAdventurePrizesResponse {
      * @memberof GameAdventurePrizesResponse
      */
     prizes: Array<GameAdventurePrizeItem>;
+    /**
+     *
+     * @type {Array<GameAdventurePrizeItem>}
+     * @memberof GameAdventurePrizesResponse
+     */
+    losePrizes?: Array<GameAdventurePrizeItem>;
 }
 /**
  * Check if a given object implements the GameAdventurePrizesResponse interface.

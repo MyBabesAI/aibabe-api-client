@@ -83,6 +83,8 @@ function GameAdventureCreatorResponseFromJSONTyped(json, ignoreDiscriminator) {
         'targets': (json['targets'].map(GameAdventureTarget_1.GameAdventureTargetFromJSON)),
         'prizes': (json['prizes'].map(GameAdventurePrize_1.GameAdventurePrizeFromJSON)),
         'rating': (0, GameAdventureRating_1.GameAdventureRatingFromJSON)(json['rating']),
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
     };
 }
 function GameAdventureCreatorResponseToJSON(json) {
@@ -114,6 +116,8 @@ function GameAdventureCreatorResponseToJSONTyped(value, ignoreDiscriminator = fa
         'targets': (value['targets'].map(GameAdventureTarget_1.GameAdventureTargetToJSON)),
         'prizes': (value['prizes'].map(GameAdventurePrize_1.GameAdventurePrizeToJSON)),
         'rating': (0, GameAdventureRating_1.GameAdventureRatingToJSON)(value['rating']),
+        'winners_count': value['winnersCount'],
+        'players_count': value['playersCount'],
     };
 }
 //# sourceMappingURL=GameAdventureCreatorResponse.js.map

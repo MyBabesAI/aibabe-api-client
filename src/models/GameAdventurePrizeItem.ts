@@ -20,6 +20,13 @@ import {
     ContentTypeToJSON,
     ContentTypeToJSONTyped,
 } from './ContentType';
+import type { GameAdventurePrizeKind } from './GameAdventurePrizeKind';
+import {
+    GameAdventurePrizeKindFromJSON,
+    GameAdventurePrizeKindFromJSONTyped,
+    GameAdventurePrizeKindToJSON,
+    GameAdventurePrizeKindToJSONTyped,
+} from './GameAdventurePrizeKind';
 
 /**
  * 
@@ -27,6 +34,12 @@ import {
  * @interface GameAdventurePrizeItem
  */
 export interface GameAdventurePrizeItem {
+    /**
+     * 
+     * @type {GameAdventurePrizeKind}
+     * @memberof GameAdventurePrizeItem
+     */
+    kind?: GameAdventurePrizeKind;
     /**
      * 
      * @type {ContentType}
@@ -69,6 +82,7 @@ export function GameAdventurePrizeItemFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
+        'kind': json['kind'] == null ? undefined : GameAdventurePrizeKindFromJSON(json['kind']),
         'contentType': ContentTypeFromJSON(json['content_type']),
         'contentId': json['content_id'],
         'url': json['url'],
@@ -86,6 +100,7 @@ export function GameAdventurePrizeItemFromJSONTyped(json: any, ignoreDiscriminat
 
     return {
         
+        'kind': GameAdventurePrizeKindToJSON(value['kind']),
         'content_type': ContentTypeToJSON(value['contentType']),
         'content_id': value['contentId'],
         'url': value['url'],

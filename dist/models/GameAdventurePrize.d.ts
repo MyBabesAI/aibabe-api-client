@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ContentType } from './ContentType';
+import type { GameAdventurePrizeKind } from './GameAdventurePrizeKind';
 /**
  *
  * @export
@@ -28,6 +29,12 @@ export interface GameAdventurePrize {
      * @memberof GameAdventurePrize
      */
     position: number;
+    /**
+     *
+     * @type {GameAdventurePrizeKind}
+     * @memberof GameAdventurePrize
+     */
+    kind: GameAdventurePrizeKind;
     /**
      *
      * @type {ContentType}

@@ -142,6 +142,7 @@ src/models/GameAdventurePlayerAction.ts
 src/models/GameAdventurePreview.ts
 src/models/GameAdventurePrize.ts
 src/models/GameAdventurePrizeItem.ts
+src/models/GameAdventurePrizeKind.ts
 src/models/GameAdventurePrizeUpdate.ts
 src/models/GameAdventurePrizesResponse.ts
 src/models/GameAdventureRating.ts

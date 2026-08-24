@@ -45,6 +45,12 @@ export interface GameAdventurePrizesResponse {
      * @memberof GameAdventurePrizesResponse
      */
     prizes: Array<GameAdventurePrizeItem>;
+    /**
+     * 
+     * @type {Array<GameAdventurePrizeItem>}
+     * @memberof GameAdventurePrizesResponse
+     */
+    losePrizes?: Array<GameAdventurePrizeItem>;
 }
 
 /**
@@ -70,6 +76,7 @@ export function GameAdventurePrizesResponseFromJSONTyped(json: any, ignoreDiscri
         'unlocked': json['unlocked'],
         'prizesCount': json['prizes_count'],
         'prizes': ((json['prizes'] as Array<any>).map(GameAdventurePrizeItemFromJSON)),
+        'losePrizes': json['lose_prizes'] == null ? undefined : ((json['lose_prizes'] as Array<any>).map(GameAdventurePrizeItemFromJSON)),
     };
 }
 
@@ -87,6 +94,7 @@ export function GameAdventurePrizesResponseFromJSONTyped(json: any, ignoreDiscri
         'unlocked': value['unlocked'],
         'prizes_count': value['prizesCount'],
         'prizes': ((value['prizes'] as Array<any>).map(GameAdventurePrizeItemToJSON)),
+        'lose_prizes': value['losePrizes'] == null ? undefined : ((value['losePrizes'] as Array<any>).map(GameAdventurePrizeItemToJSON)),
     };
 }
 

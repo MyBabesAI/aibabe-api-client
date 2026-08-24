@@ -141,6 +141,18 @@ export interface GameAdventureDetailResponse {
     rating: GameAdventureRating;
     /**
      * 
+     * @type {number}
+     * @memberof GameAdventureDetailResponse
+     */
+    winnersCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GameAdventureDetailResponse
+     */
+    playersCount?: number;
+    /**
+     * 
      * @type {Array<GameAdventureSessionSummary>}
      * @memberof GameAdventureDetailResponse
      */
@@ -190,6 +202,8 @@ export function GameAdventureDetailResponseFromJSONTyped(json: any, ignoreDiscri
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
         'prizesCount': json['prizes_count'],
         'rating': GameAdventureRatingFromJSON(json['rating']),
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
         'sessions': ((json['sessions'] as Array<any>).map(GameAdventureSessionSummaryFromJSON)),
     };
 }
@@ -219,6 +233,8 @@ export function GameAdventureDetailResponseFromJSONTyped(json: any, ignoreDiscri
         'poster_picture_id': value['posterPictureId'],
         'prizes_count': value['prizesCount'],
         'rating': GameAdventureRatingToJSON(value['rating']),
+        'winners_count': value['winnersCount'],
+        'players_count': value['playersCount'],
         'sessions': ((value['sessions'] as Array<any>).map(GameAdventureSessionSummaryToJSON)),
     };
 }
