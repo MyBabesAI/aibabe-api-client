@@ -13,6 +13,7 @@ import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow'
 import type { ChatbotPreview } from './ChatbotPreview';
 import type { VideoContent } from './VideoContent';
 import type { ContentType } from './ContentType';
+import type { EventSubmissionPreview } from './EventSubmissionPreview';
 import type { ImageContent } from './ImageContent';
 import type { StoryPreview } from './StoryPreview';
 import type { TagData } from './TagData';
@@ -102,6 +103,18 @@ export interface DetailedWallPost {
     type: ContentType;
     /**
      *
+     * @type {Array<EventSubmissionPreview>}
+     * @memberof DetailedWallPost
+     */
+    eventSubmissionPreviews: Array<EventSubmissionPreview>;
+    /**
+     *
+     * @type {PublicUserPreviewWithFollow}
+     * @memberof DetailedWallPost
+     */
+    creator: PublicUserPreviewWithFollow;
+    /**
+     *
      * @type {string}
      * @memberof DetailedWallPost
      */
@@ -112,12 +125,6 @@ export interface DetailedWallPost {
      * @memberof DetailedWallPost
      */
     tags: Array<TagData>;
-    /**
-     *
-     * @type {PublicUserPreviewWithFollow}
-     * @memberof DetailedWallPost
-     */
-    creator: PublicUserPreviewWithFollow;
 }
 /**
  * Check if a given object implements the DetailedWallPost interface.
