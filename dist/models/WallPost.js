@@ -18,11 +18,9 @@ exports.WallPostFromJSON = WallPostFromJSON;
 exports.WallPostFromJSONTyped = WallPostFromJSONTyped;
 exports.WallPostToJSON = WallPostToJSON;
 exports.WallPostToJSONTyped = WallPostToJSONTyped;
-const PublicUserPreview_1 = require("./PublicUserPreview");
 const ChatbotPreview_1 = require("./ChatbotPreview");
 const VideoContent_1 = require("./VideoContent");
 const ContentType_1 = require("./ContentType");
-const EventSubmissionPreview_1 = require("./EventSubmissionPreview");
 const ImageContent_1 = require("./ImageContent");
 const StoryPreview_1 = require("./StoryPreview");
 /**
@@ -30,6 +28,8 @@ const StoryPreview_1 = require("./StoryPreview");
  */
 function instanceOfWallPost(value) {
     if (!('id' in value) || value['id'] === undefined)
+        return false;
+    if (!('creatorId' in value) || value['creatorId'] === undefined)
         return false;
     if (!('chatbot' in value) || value['chatbot'] === undefined)
         return false;
@@ -53,8 +53,6 @@ function instanceOfWallPost(value) {
         return false;
     if (!('type' in value) || value['type'] === undefined)
         return false;
-    if (!('eventSubmissionPreviews' in value) || value['eventSubmissionPreviews'] === undefined)
-        return false;
     return true;
 }
 function WallPostFromJSON(json) {
@@ -66,6 +64,7 @@ function WallPostFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'id': json['id'],
+        'creatorId': json['creator_id'],
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['chatbot']),
         'story': (0, StoryPreview_1.StoryPreviewFromJSON)(json['story']),
         'picture': (0, ImageContent_1.ImageContentFromJSON)(json['picture']),
@@ -77,8 +76,6 @@ function WallPostFromJSONTyped(json, ignoreDiscriminator) {
         'updatedAt': (new Date(json['updated_at'])),
         'liked': json['liked'],
         'type': (0, ContentType_1.ContentTypeFromJSON)(json['type']),
-        'eventSubmissionPreviews': (json['event_submission_previews'].map(EventSubmissionPreview_1.EventSubmissionPreviewFromJSON)),
-        'creator': json['creator'] == null ? undefined : (0, PublicUserPreview_1.PublicUserPreviewFromJSON)(json['creator']),
     };
 }
 function WallPostToJSON(json) {
@@ -90,6 +87,7 @@ function WallPostToJSONTyped(value, ignoreDiscriminator = false) {
     }
     return {
         'id': value['id'],
+        'creator_id': value['creatorId'],
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['chatbot']),
         'story': (0, StoryPreview_1.StoryPreviewToJSON)(value['story']),
         'picture': (0, ImageContent_1.ImageContentToJSON)(value['picture']),
@@ -101,8 +99,6 @@ function WallPostToJSONTyped(value, ignoreDiscriminator = false) {
         'updated_at': ((value['updatedAt']).toISOString()),
         'liked': value['liked'],
         'type': (0, ContentType_1.ContentTypeToJSON)(value['type']),
-        'event_submission_previews': (value['eventSubmissionPreviews'].map(EventSubmissionPreview_1.EventSubmissionPreviewToJSON)),
-        'creator': (0, PublicUserPreview_1.PublicUserPreviewToJSON)(value['creator']),
     };
 }
 //# sourceMappingURL=WallPost.js.map

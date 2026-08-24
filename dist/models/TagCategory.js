@@ -25,7 +25,6 @@ exports.TagCategoryToJSONTyped = TagCategoryToJSONTyped;
  */
 exports.TagCategory = {
     BaseModel: 'base_model',
-    VideoModel: 'video_model',
     HairColor: 'hair_color',
     HairStyle: 'hair_style',
     BodyType: 'body_type',
@@ -42,8 +41,7 @@ exports.TagCategory = {
     Orientation: 'orientation',
     RoleplayType: 'roleplay_type',
     CharacterType: 'character_type',
-    Genre: 'genre',
-    Event: 'event'
+    Genre: 'genre'
 };
 function instanceOfTagCategory(value) {
     for (const key in exports.TagCategory) {

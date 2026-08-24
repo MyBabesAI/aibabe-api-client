@@ -21,7 +21,6 @@ export declare const SortFilter: {
     readonly MostViewed: "most_viewed";
     readonly MostMessages: "most_messages";
     readonly LatestMessage: "latest_message";
-    readonly Shuffled: "shuffled";
 };
 export type SortFilter = typeof SortFilter[keyof typeof SortFilter];
 export declare function instanceOfSortFilter(value: any): boolean;

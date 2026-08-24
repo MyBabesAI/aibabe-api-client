@@ -52,8 +52,6 @@ function ExploreSearchRequestFromJSONTyped(json, ignoreDiscriminator) {
         'seenStories': json['seen_stories'] == null ? undefined : json['seen_stories'],
         'unlockedStories': json['unlocked_stories'] == null ? undefined : json['unlocked_stories'],
         'useViewerPreferences': json['use_viewer_preferences'] == null ? undefined : json['use_viewer_preferences'],
-        'eventId': json['event_id'] == null ? undefined : json['event_id'],
-        'eventWinners': json['event_winners'] == null ? undefined : json['event_winners'],
     };
 }
 function ExploreSearchRequestToJSON(json) {
@@ -79,8 +77,6 @@ function ExploreSearchRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'seen_stories': value['seenStories'],
         'unlocked_stories': value['unlockedStories'],
         'use_viewer_preferences': value['useViewerPreferences'],
-        'event_id': value['eventId'],
-        'event_winners': value['eventWinners'],
     };
 }
 //# sourceMappingURL=ExploreSearchRequest.js.map

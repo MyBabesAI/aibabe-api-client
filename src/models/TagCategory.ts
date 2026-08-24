@@ -19,7 +19,6 @@
  */
 export const TagCategory = {
     BaseModel: 'base_model',
-    VideoModel: 'video_model',
     HairColor: 'hair_color',
     HairStyle: 'hair_style',
     BodyType: 'body_type',
@@ -36,8 +35,7 @@ export const TagCategory = {
     Orientation: 'orientation',
     RoleplayType: 'roleplay_type',
     CharacterType: 'character_type',
-    Genre: 'genre',
-    Event: 'event'
+    Genre: 'genre'
 } as const;
 export type TagCategory = typeof TagCategory[keyof typeof TagCategory];
 

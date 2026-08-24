@@ -48,7 +48,6 @@ function CategoryValuesFromJSONTyped(json, ignoreDiscriminator) {
         'hairColor': json['hair_color'] == null ? undefined : json['hair_color'],
         'hairStyle': json['hair_style'] == null ? undefined : json['hair_style'],
         'videoModel': json['video_model'] == null ? undefined : json['video_model'],
-        'event': json['event'] == null ? undefined : json['event'],
     };
 }
 function CategoryValuesToJSON(json) {
@@ -75,7 +74,6 @@ function CategoryValuesToJSONTyped(value, ignoreDiscriminator = false) {
         'hair_color': value['hairColor'],
         'hair_style': value['hairStyle'],
         'video_model': value['videoModel'],
-        'event': value['event'],
     };
 }
 //# sourceMappingURL=CategoryValues.js.map

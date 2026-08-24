@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PublicUserPreview } from './PublicUserPreview';
-import {
-    PublicUserPreviewFromJSON,
-    PublicUserPreviewFromJSONTyped,
-    PublicUserPreviewToJSON,
-    PublicUserPreviewToJSONTyped,
-} from './PublicUserPreview';
 import type { ChatbotPreview } from './ChatbotPreview';
 import {
     ChatbotPreviewFromJSON,
@@ -41,13 +34,6 @@ import {
     ContentTypeToJSON,
     ContentTypeToJSONTyped,
 } from './ContentType';
-import type { EventSubmissionPreview } from './EventSubmissionPreview';
-import {
-    EventSubmissionPreviewFromJSON,
-    EventSubmissionPreviewFromJSONTyped,
-    EventSubmissionPreviewToJSON,
-    EventSubmissionPreviewToJSONTyped,
-} from './EventSubmissionPreview';
 import type { ImageContent } from './ImageContent';
 import {
     ImageContentFromJSON,
@@ -75,6 +61,12 @@ export interface WallPost {
      * @memberof WallPost
      */
     id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof WallPost
+     */
+    creatorId: string;
     /**
      * 
      * @type {ChatbotPreview}
@@ -141,18 +133,6 @@ export interface WallPost {
      * @memberof WallPost
      */
     type: ContentType;
-    /**
-     * 
-     * @type {Array<EventSubmissionPreview>}
-     * @memberof WallPost
-     */
-    eventSubmissionPreviews: Array<EventSubmissionPreview>;
-    /**
-     * 
-     * @type {PublicUserPreview}
-     * @memberof WallPost
-     */
-    creator?: PublicUserPreview | null;
 }
 
 
@@ -162,6 +142,7 @@ export interface WallPost {
  */
 export function instanceOfWallPost(value: object): value is WallPost {
     if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('creatorId' in value) || value['creatorId'] === undefined) return false;
     if (!('chatbot' in value) || value['chatbot'] === undefined) return false;
     if (!('story' in value) || value['story'] === undefined) return false;
     if (!('picture' in value) || value['picture'] === undefined) return false;
@@ -173,7 +154,6 @@ export function instanceOfWallPost(value: object): value is WallPost {
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
     if (!('liked' in value) || value['liked'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
-    if (!('eventSubmissionPreviews' in value) || value['eventSubmissionPreviews'] === undefined) return false;
     return true;
 }
 
@@ -188,6 +168,7 @@ export function WallPostFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     return {
         
         'id': json['id'],
+        'creatorId': json['creator_id'],
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'story': StoryPreviewFromJSON(json['story']),
         'picture': ImageContentFromJSON(json['picture']),
@@ -199,8 +180,6 @@ export function WallPostFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'updatedAt': (new Date(json['updated_at'])),
         'liked': json['liked'],
         'type': ContentTypeFromJSON(json['type']),
-        'eventSubmissionPreviews': ((json['event_submission_previews'] as Array<any>).map(EventSubmissionPreviewFromJSON)),
-        'creator': json['creator'] == null ? undefined : PublicUserPreviewFromJSON(json['creator']),
     };
 }
 
@@ -216,6 +195,7 @@ export function WallPostFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     return {
         
         'id': value['id'],
+        'creator_id': value['creatorId'],
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'story': StoryPreviewToJSON(value['story']),
         'picture': ImageContentToJSON(value['picture']),
@@ -227,8 +207,6 @@ export function WallPostFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'updated_at': ((value['updatedAt']).toISOString()),
         'liked': value['liked'],
         'type': ContentTypeToJSON(value['type']),
-        'event_submission_previews': ((value['eventSubmissionPreviews'] as Array<any>).map(EventSubmissionPreviewToJSON)),
-        'creator': PublicUserPreviewToJSON(value['creator']),
     };
 }
 

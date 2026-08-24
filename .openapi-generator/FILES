@@ -9,7 +9,6 @@ src/apis/AuthenticationApi.ts
 src/apis/BadgesApi.ts
 src/apis/ChatApi.ts
 src/apis/ChatbotApi.ts
-src/apis/EventApi.ts
 src/apis/ExploreApi.ts
 src/apis/GalleryApi.ts
 src/apis/HeartbeatApi.ts
@@ -18,7 +17,6 @@ src/apis/LeaderboardsApi.ts
 src/apis/MemoryApi.ts
 src/apis/NotificationApi.ts
 src/apis/PostApi.ts
-src/apis/SEOApi.ts
 src/apis/ServerApi.ts
 src/apis/StoryCreatorApi.ts
 src/apis/SubscriptionsApi.ts
@@ -91,7 +89,6 @@ src/models/ChatbotType.ts
 src/models/ContentItem.ts
 src/models/ContentReportReason.ts
 src/models/ContentType.ts
-src/models/ContentTypes.ts
 src/models/ConversationListItem.ts
 src/models/ConversationMessageFeedback.ts
 src/models/ConversationSettings.ts
@@ -109,7 +106,6 @@ src/models/DiscountOriginalTokens.ts
 src/models/DisplayDiscount.ts
 src/models/DonationNotification.ts
 src/models/DownscaleRequest.ts
-src/models/EffectiveEventStatus.ts
 src/models/EpisodeContent.ts
 src/models/EpisodeCounts.ts
 src/models/EpisodePanelType.ts
@@ -118,19 +114,7 @@ src/models/EpisodeRating.ts
 src/models/EpisodeUnlockNotification.ts
 src/models/EpisodeVisibility.ts
 src/models/Ethnicity.ts
-src/models/EventListFilter.ts
-src/models/EventListResponse.ts
-src/models/EventPreview.ts
-src/models/EventPriceType.ts
-src/models/EventResponse.ts
-src/models/EventResult.ts
-src/models/EventResultType.ts
-src/models/EventResults.ts
-src/models/EventSubmissionPreview.ts
-src/models/EventSubmissionRequest.ts
 src/models/ExceptionCode.ts
-src/models/ExploreOffsetSearchRequest.ts
-src/models/ExploreOffsetSearchResponse.ts
 src/models/ExploreSearchRequest.ts
 src/models/ExtendVideoPayload.ts
 src/models/FantasyRace.ts
@@ -183,8 +167,6 @@ src/models/GiftCodeType.ts
 src/models/HTTPValidationError.ts
 src/models/HairColor.ts
 src/models/HairStyle.ts
-src/models/HubTag.ts
-src/models/HubTagsResponse.ts
 src/models/Id.ts
 src/models/ImageContent.ts
 src/models/ImageGenerationSource.ts
@@ -270,8 +252,6 @@ src/models/PostFollowUserRequest.ts
 src/models/PostGenerateImageRequest.ts
 src/models/PostGenerateSceneRequest.ts
 src/models/PostImagenResponse.ts
-src/models/PostInstanceDestroyRequest.ts
-src/models/PostInstanceDestroyResponse.ts
 src/models/PostInstancesDBVastAiListResponse.ts
 src/models/PostLiveRoleplayRequest.ts
 src/models/PostLiveRoleplayResponse.ts
@@ -370,7 +350,6 @@ src/models/StoryCreatorUpdateStoryRequest.ts
 src/models/StoryPreview.ts
 src/models/StoryRating.ts
 src/models/StoryVisibility.ts
-src/models/SubmissionPreview.ts
 src/models/Subscription.ts
 src/models/SubscriptionGenerationEstimate.ts
 src/models/SubscriptionModel.ts

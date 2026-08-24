@@ -61,12 +61,6 @@ export interface StoryCreatorPanel {
     videoPrompt?: string | null;
     /**
      *
-     * @type {number}
-     * @memberof StoryCreatorPanel
-     */
-    videoVolume?: number;
-    /**
-     *
      * @type {string}
      * @memberof StoryCreatorPanel
      */

@@ -111,12 +111,6 @@ export interface CategoryValues {
      * @memberof CategoryValues
      */
     videoModel?: Array<string> | null;
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof CategoryValues
-     */
-    event?: Array<string> | null;
 }
 /**
  * Check if a given object implements the CategoryValues interface.
