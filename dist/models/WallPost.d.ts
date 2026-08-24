@@ -30,12 +30,6 @@ export interface WallPost {
     id: string;
     /**
      *
-     * @type {string}
-     * @memberof WallPost
-     */
-    creatorId: string;
-    /**
-     *
      * @type {ChatbotPreview}
      * @memberof WallPost
      */

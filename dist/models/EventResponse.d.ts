@@ -107,6 +107,12 @@ export interface EventResponse {
      * @type {number}
      * @memberof EventResponse
      */
+    shufflePeriodHours?: number | null;
+    /**
+     *
+     * @type {number}
+     * @memberof EventResponse
+     */
     submissionCount: number;
     /**
      *

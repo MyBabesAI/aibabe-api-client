@@ -119,6 +119,9 @@ class EventApi extends runtime.BaseAPI {
         if (requestParameters['maxSubmissionsPerUser'] != null) {
             formParams.append('max_submissions_per_user', requestParameters['maxSubmissionsPerUser']);
         }
+        if (requestParameters['shufflePeriodHours'] != null) {
+            formParams.append('shuffle_period_hours', requestParameters['shufflePeriodHours']);
+        }
         if (requestParameters['tagName'] != null) {
             formParams.append('tag_name', requestParameters['tagName']);
         }
@@ -342,6 +345,9 @@ class EventApi extends runtime.BaseAPI {
         }
         if (requestParameters['maxSubmissionsPerUser'] != null) {
             formParams.append('max_submissions_per_user', requestParameters['maxSubmissionsPerUser']);
+        }
+        if (requestParameters['shufflePeriodHours'] != null) {
+            formParams.append('shuffle_period_hours', requestParameters['shufflePeriodHours']);
         }
         if (requestParameters['tagName'] != null) {
             formParams.append('tag_name', requestParameters['tagName']);

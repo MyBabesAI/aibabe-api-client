@@ -200,6 +200,7 @@ export declare const ExceptionCode: {
     readonly OpenSearchNotSuportedSort: "open_search_not_suported_sort";
     readonly OpenSearchNotSuportedPostFiltering: "open_search_not_suported_post_filtering";
     readonly ExploreInvalidSortFilter: "explore_invalid_sort_filter";
+    readonly ExploreEventFreeTextNotSupported: "explore_event_free_text_not_supported";
     readonly EmailSendFailed: "email_send_failed";
     readonly InvalidParams: "invalid_params";
     readonly ModerationFlagged: "moderation_flagged";

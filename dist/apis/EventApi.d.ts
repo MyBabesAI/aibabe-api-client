@@ -24,6 +24,7 @@ export interface CreateEventEventPostRequest {
     priceId?: string | null;
     contentTypes?: ContentTypes | null;
     maxSubmissionsPerUser?: number | null;
+    shufflePeriodHours?: number | null;
     tagName?: string | null;
 }
 export interface GetEventEventEventIdGetRequest {
@@ -57,6 +58,7 @@ export interface UpdateEventEventEventIdPatchRequest {
     priceId?: string | null;
     contentTypes?: ContentTypes | null;
     maxSubmissionsPerUser?: string | null;
+    shufflePeriodHours?: string | null;
     tagName?: string | null;
 }
 /**

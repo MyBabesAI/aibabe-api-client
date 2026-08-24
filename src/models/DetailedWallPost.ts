@@ -84,12 +84,6 @@ export interface DetailedWallPost {
     id: string;
     /**
      * 
-     * @type {string}
-     * @memberof DetailedWallPost
-     */
-    creatorId: string;
-    /**
-     * 
      * @type {ChatbotPreview}
      * @memberof DetailedWallPost
      */
@@ -187,7 +181,6 @@ export interface DetailedWallPost {
  */
 export function instanceOfDetailedWallPost(value: object): value is DetailedWallPost {
     if (!('id' in value) || value['id'] === undefined) return false;
-    if (!('creatorId' in value) || value['creatorId'] === undefined) return false;
     if (!('chatbot' in value) || value['chatbot'] === undefined) return false;
     if (!('story' in value) || value['story'] === undefined) return false;
     if (!('picture' in value) || value['picture'] === undefined) return false;
@@ -217,7 +210,6 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'id': json['id'],
-        'creatorId': json['creator_id'],
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'story': StoryPreviewFromJSON(json['story']),
         'picture': ImageContentFromJSON(json['picture']),
@@ -248,7 +240,6 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'id': value['id'],
-        'creator_id': value['creatorId'],
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'story': StoryPreviewToJSON(value['story']),
         'picture': ImageContentToJSON(value['picture']),

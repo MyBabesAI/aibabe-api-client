@@ -53,6 +53,7 @@ export interface CreateEventEventPostRequest {
     priceId?: string | null;
     contentTypes?: ContentTypes | null;
     maxSubmissionsPerUser?: number | null;
+    shufflePeriodHours?: number | null;
     tagName?: string | null;
 }
 
@@ -92,6 +93,7 @@ export interface UpdateEventEventEventIdPatchRequest {
     priceId?: string | null;
     contentTypes?: ContentTypes | null;
     maxSubmissionsPerUser?: string | null;
+    shufflePeriodHours?: string | null;
     tagName?: string | null;
 }
 
@@ -191,6 +193,10 @@ export class EventApi extends runtime.BaseAPI {
 
         if (requestParameters['maxSubmissionsPerUser'] != null) {
             formParams.append('max_submissions_per_user', requestParameters['maxSubmissionsPerUser'] as any);
+        }
+
+        if (requestParameters['shufflePeriodHours'] != null) {
+            formParams.append('shuffle_period_hours', requestParameters['shufflePeriodHours'] as any);
         }
 
         if (requestParameters['tagName'] != null) {
@@ -487,6 +493,10 @@ export class EventApi extends runtime.BaseAPI {
 
         if (requestParameters['maxSubmissionsPerUser'] != null) {
             formParams.append('max_submissions_per_user', requestParameters['maxSubmissionsPerUser'] as any);
+        }
+
+        if (requestParameters['shufflePeriodHours'] != null) {
+            formParams.append('shuffle_period_hours', requestParameters['shufflePeriodHours'] as any);
         }
 
         if (requestParameters['tagName'] != null) {

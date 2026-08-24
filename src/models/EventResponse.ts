@@ -130,6 +130,12 @@ export interface EventResponse {
      * @type {number}
      * @memberof EventResponse
      */
+    shufflePeriodHours?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof EventResponse
+     */
     submissionCount: number;
     /**
      * 
@@ -193,6 +199,7 @@ export function EventResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'contentTypes': (json['content_types'] == null ? null : (json['content_types'] as Array<any>).map(ContentTypeFromJSON)),
         'status': EffectiveEventStatusFromJSON(json['status']),
         'maxSubmissionsPerUser': json['max_submissions_per_user'],
+        'shufflePeriodHours': json['shuffle_period_hours'] == null ? undefined : json['shuffle_period_hours'],
         'submissionCount': json['submission_count'],
         'mySubmissionCount': json['my_submission_count'] == null ? undefined : json['my_submission_count'],
         'tagValue': json['tag_value'] == null ? undefined : json['tag_value'],
@@ -224,6 +231,7 @@ export function EventResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'content_types': (value['contentTypes'] == null ? null : (value['contentTypes'] as Array<any>).map(ContentTypeToJSON)),
         'status': EffectiveEventStatusToJSON(value['status']),
         'max_submissions_per_user': value['maxSubmissionsPerUser'],
+        'shuffle_period_hours': value['shufflePeriodHours'],
         'submission_count': value['submissionCount'],
         'my_submission_count': value['mySubmissionCount'],
         'tag_value': value['tagValue'],

@@ -31,8 +31,6 @@ const StoryPreview_1 = require("./StoryPreview");
 function instanceOfWallPost(value) {
     if (!('id' in value) || value['id'] === undefined)
         return false;
-    if (!('creatorId' in value) || value['creatorId'] === undefined)
-        return false;
     if (!('chatbot' in value) || value['chatbot'] === undefined)
         return false;
     if (!('story' in value) || value['story'] === undefined)
@@ -68,7 +66,6 @@ function WallPostFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'id': json['id'],
-        'creatorId': json['creator_id'],
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['chatbot']),
         'story': (0, StoryPreview_1.StoryPreviewFromJSON)(json['story']),
         'picture': (0, ImageContent_1.ImageContentFromJSON)(json['picture']),
@@ -93,7 +90,6 @@ function WallPostToJSONTyped(value, ignoreDiscriminator = false) {
     }
     return {
         'id': value['id'],
-        'creator_id': value['creatorId'],
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['chatbot']),
         'story': (0, StoryPreview_1.StoryPreviewToJSON)(value['story']),
         'picture': (0, ImageContent_1.ImageContentToJSON)(value['picture']),
