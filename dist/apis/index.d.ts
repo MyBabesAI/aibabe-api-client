@@ -1,4 +1,5 @@
 export * from './AdminApi';
+export * from './AgeVerificationApi';
 export * from './AssistantChatApi';
 export * from './AuthenticationApi';
 export * from './BadgesApi';

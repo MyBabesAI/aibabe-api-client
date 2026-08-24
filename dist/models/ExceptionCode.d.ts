@@ -193,6 +193,8 @@ export declare const ExceptionCode: {
     readonly PurchasedEpisodeAndVersionMismatch: "purchased_episode_and_version_mismatch";
     readonly PurchasedEpisodeVersionNotFound: "purchased_episode_version_not_found";
     readonly NotificationNotCreated: "notification_not_created";
+    readonly AgeVerificationDisabled: "age_verification_disabled";
+    readonly AgeVerificationInvalidPayload: "age_verification_invalid_payload";
 };
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 export declare function instanceOfExceptionCode(value: any): boolean;

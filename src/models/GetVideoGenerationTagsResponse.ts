@@ -20,6 +20,13 @@ import {
     VideoLoraNameToJSON,
     VideoLoraNameToJSONTyped,
 } from './VideoLoraName';
+import type { ImageToVideoModel } from './ImageToVideoModel';
+import {
+    ImageToVideoModelFromJSON,
+    ImageToVideoModelFromJSONTyped,
+    ImageToVideoModelToJSON,
+    ImageToVideoModelToJSONTyped,
+} from './ImageToVideoModel';
 
 /**
  * 
@@ -57,7 +64,15 @@ export interface GetVideoGenerationTagsResponse {
      * @memberof GetVideoGenerationTagsResponse
      */
     loras: Array<VideoLoraName>;
+    /**
+     * 
+     * @type {ImageToVideoModel}
+     * @memberof GetVideoGenerationTagsResponse
+     */
+    model: ImageToVideoModel;
 }
+
+
 
 /**
  * Check if a given object implements the GetVideoGenerationTagsResponse interface.
@@ -68,6 +83,7 @@ export function instanceOfGetVideoGenerationTagsResponse(value: object): value i
     if (!('chatbotName' in value) || value['chatbotName'] === undefined) return false;
     if (!('originalImageId' in value) || value['originalImageId'] === undefined) return false;
     if (!('loras' in value) || value['loras'] === undefined) return false;
+    if (!('model' in value) || value['model'] === undefined) return false;
     return true;
 }
 
@@ -86,6 +102,7 @@ export function GetVideoGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'chatbotName': json['chatbot_name'],
         'originalImageId': json['original_image_id'],
         'loras': ((json['loras'] as Array<any>).map(VideoLoraNameFromJSON)),
+        'model': ImageToVideoModelFromJSON(json['model']),
     };
 }
 
@@ -105,6 +122,7 @@ export function GetVideoGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'chatbot_name': value['chatbotName'],
         'original_image_id': value['originalImageId'],
         'loras': ((value['loras'] as Array<any>).map(VideoLoraNameToJSON)),
+        'model': ImageToVideoModelToJSON(value['model']),
     };
 }
 
