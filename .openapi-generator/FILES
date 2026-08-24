@@ -195,6 +195,7 @@ src/models/ImagePreset.ts
 src/models/ImagePresetCategory.ts
 src/models/ImageSendingMode.ts
 src/models/ImageToVideoFromChatPayload.ts
+src/models/ImageToVideoModel.ts
 src/models/ImageToVideoRecommendationPayload.ts
 src/models/ImageToVideoRequest.ts
 src/models/InstanceDetails.ts

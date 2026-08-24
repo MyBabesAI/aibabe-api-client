@@ -166,6 +166,7 @@ export * from './ImagePreset';
 export * from './ImagePresetCategory';
 export * from './ImageSendingMode';
 export * from './ImageToVideoFromChatPayload';
+export * from './ImageToVideoModel';
 export * from './ImageToVideoRecommendationPayload';
 export * from './ImageToVideoRequest';
 export * from './InstanceDetails';

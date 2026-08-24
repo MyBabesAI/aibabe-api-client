@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { VideoLoraName } from './VideoLoraName';
+import type { ImageToVideoModel } from './ImageToVideoModel';
 /**
  *
  * @export
@@ -46,6 +47,12 @@ export interface GetVideoGenerationTagsResponse {
      * @memberof GetVideoGenerationTagsResponse
      */
     loras: Array<VideoLoraName>;
+    /**
+     *
+     * @type {ImageToVideoModel}
+     * @memberof GetVideoGenerationTagsResponse
+     */
+    model: ImageToVideoModel;
 }
 /**
  * Check if a given object implements the GetVideoGenerationTagsResponse interface.
