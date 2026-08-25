@@ -17,6 +17,8 @@
  */
 export declare const GameAdventureJournalSlot: {
     readonly StorySummary: "story_summary";
+    readonly Surroundings: "surroundings";
+    readonly ItemsAround: "items_around";
     readonly PlayerPosition: "player_position";
     readonly PlayerClothing: "player_clothing";
     readonly PlayerInventory: "player_inventory";

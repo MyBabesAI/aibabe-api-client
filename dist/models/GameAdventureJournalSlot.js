@@ -27,6 +27,8 @@ exports.GameAdventureJournalSlotToJSONTyped = GameAdventureJournalSlotToJSONType
  */
 exports.GameAdventureJournalSlot = {
     StorySummary: 'story_summary',
+    Surroundings: 'surroundings',
+    ItemsAround: 'items_around',
     PlayerPosition: 'player_position',
     PlayerClothing: 'player_clothing',
     PlayerInventory: 'player_inventory',
