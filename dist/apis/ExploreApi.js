@@ -78,6 +78,27 @@ class ExploreApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Hub Tags
+     */
+    async hubTagsExploreHubTagsGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/explore/hub-tags`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.HubTagsResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Hub Tags
+     */
+    async hubTagsExploreHubTagsGet(initOverrides) {
+        const response = await this.hubTagsExploreHubTagsGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Search Content
      */
     async searchContentExploreContentPostRaw(requestParameters, initOverrides) {
@@ -101,6 +122,32 @@ class ExploreApi extends runtime.BaseAPI {
      */
     async searchContentExploreContentPost(requestParameters, initOverrides) {
         const response = await this.searchContentExploreContentPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Search Content Offset
+     */
+    async searchContentOffsetExploreContentOffsetPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['exploreOffsetSearchRequest'] == null) {
+            throw new runtime.RequiredError('exploreOffsetSearchRequest', 'Required parameter "exploreOffsetSearchRequest" was null or undefined when calling searchContentOffsetExploreContentOffsetPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/explore/content/offset`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.ExploreOffsetSearchRequestToJSON)(requestParameters['exploreOffsetSearchRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ExploreOffsetSearchResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Search Content Offset
+     */
+    async searchContentOffsetExploreContentOffsetPost(requestParameters, initOverrides) {
+        const response = await this.searchContentOffsetExploreContentOffsetPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

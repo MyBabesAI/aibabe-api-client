@@ -22,6 +22,7 @@ const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
 const ChatbotPreview_1 = require("./ChatbotPreview");
 const VideoContent_1 = require("./VideoContent");
 const ContentType_1 = require("./ContentType");
+const EventSubmissionPreview_1 = require("./EventSubmissionPreview");
 const ImageContent_1 = require("./ImageContent");
 const StoryPreview_1 = require("./StoryPreview");
 const TagData_1 = require("./TagData");
@@ -30,8 +31,6 @@ const TagData_1 = require("./TagData");
  */
 function instanceOfDetailedWallPost(value) {
     if (!('id' in value) || value['id'] === undefined)
-        return false;
-    if (!('creatorId' in value) || value['creatorId'] === undefined)
         return false;
     if (!('chatbot' in value) || value['chatbot'] === undefined)
         return false;
@@ -55,11 +54,13 @@ function instanceOfDetailedWallPost(value) {
         return false;
     if (!('type' in value) || value['type'] === undefined)
         return false;
+    if (!('eventSubmissionPreviews' in value) || value['eventSubmissionPreviews'] === undefined)
+        return false;
+    if (!('creator' in value) || value['creator'] === undefined)
+        return false;
     if (!('title' in value) || value['title'] === undefined)
         return false;
     if (!('tags' in value) || value['tags'] === undefined)
-        return false;
-    if (!('creator' in value) || value['creator'] === undefined)
         return false;
     return true;
 }
@@ -72,7 +73,6 @@ function DetailedWallPostFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'id': json['id'],
-        'creatorId': json['creator_id'],
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['chatbot']),
         'story': (0, StoryPreview_1.StoryPreviewFromJSON)(json['story']),
         'picture': (0, ImageContent_1.ImageContentFromJSON)(json['picture']),
@@ -84,9 +84,10 @@ function DetailedWallPostFromJSONTyped(json, ignoreDiscriminator) {
         'updatedAt': (new Date(json['updated_at'])),
         'liked': json['liked'],
         'type': (0, ContentType_1.ContentTypeFromJSON)(json['type']),
+        'eventSubmissionPreviews': (json['event_submission_previews'].map(EventSubmissionPreview_1.EventSubmissionPreviewFromJSON)),
+        'creator': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowFromJSON)(json['creator']),
         'title': json['title'],
         'tags': (json['tags'].map(TagData_1.TagDataFromJSON)),
-        'creator': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowFromJSON)(json['creator']),
     };
 }
 function DetailedWallPostToJSON(json) {
@@ -98,7 +99,6 @@ function DetailedWallPostToJSONTyped(value, ignoreDiscriminator = false) {
     }
     return {
         'id': value['id'],
-        'creator_id': value['creatorId'],
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['chatbot']),
         'story': (0, StoryPreview_1.StoryPreviewToJSON)(value['story']),
         'picture': (0, ImageContent_1.ImageContentToJSON)(value['picture']),
@@ -110,9 +110,10 @@ function DetailedWallPostToJSONTyped(value, ignoreDiscriminator = false) {
         'updated_at': ((value['updatedAt']).toISOString()),
         'liked': value['liked'],
         'type': (0, ContentType_1.ContentTypeToJSON)(value['type']),
+        'event_submission_previews': (value['eventSubmissionPreviews'].map(EventSubmissionPreview_1.EventSubmissionPreviewToJSON)),
+        'creator': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowToJSON)(value['creator']),
         'title': value['title'],
         'tags': (value['tags'].map(TagData_1.TagDataToJSON)),
-        'creator': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowToJSON)(value['creator']),
     };
 }
 //# sourceMappingURL=DetailedWallPost.js.map

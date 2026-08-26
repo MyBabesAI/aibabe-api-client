@@ -10,12 +10,15 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { CategoryValues, ExploreSearchRequest, GetPostsResponse, PostType, TagsExploreTypesGet200ResponseInner } from '../models/index';
+import type { CategoryValues, ExploreOffsetSearchRequest, ExploreOffsetSearchResponse, ExploreSearchRequest, GetPostsResponse, HubTagsResponse, PostType, TagsExploreTypesGet200ResponseInner } from '../models/index';
 export interface CategoriesExploreContentCategoriesGetRequest {
     postType?: PostType | null;
 }
 export interface SearchContentExploreContentPostRequest {
     exploreSearchRequest: ExploreSearchRequest;
+}
+export interface SearchContentOffsetExploreContentOffsetPostRequest {
+    exploreOffsetSearchRequest: ExploreOffsetSearchRequest;
 }
 /**
  *
@@ -30,6 +33,14 @@ export declare class ExploreApi extends runtime.BaseAPI {
      */
     categoriesExploreContentCategoriesGet(requestParameters?: CategoriesExploreContentCategoriesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CategoryValues>;
     /**
+     * Hub Tags
+     */
+    hubTagsExploreHubTagsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<HubTagsResponse>>;
+    /**
+     * Hub Tags
+     */
+    hubTagsExploreHubTagsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<HubTagsResponse>;
+    /**
      * Search Content
      */
     searchContentExploreContentPostRaw(requestParameters: SearchContentExploreContentPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPostsResponse>>;
@@ -37,6 +48,14 @@ export declare class ExploreApi extends runtime.BaseAPI {
      * Search Content
      */
     searchContentExploreContentPost(requestParameters: SearchContentExploreContentPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPostsResponse>;
+    /**
+     * Search Content Offset
+     */
+    searchContentOffsetExploreContentOffsetPostRaw(requestParameters: SearchContentOffsetExploreContentOffsetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ExploreOffsetSearchResponse>>;
+    /**
+     * Search Content Offset
+     */
+    searchContentOffsetExploreContentOffsetPost(requestParameters: SearchContentOffsetExploreContentOffsetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ExploreOffsetSearchResponse>;
     /**
      * Tags
      */

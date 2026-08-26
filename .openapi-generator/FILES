@@ -9,6 +9,7 @@ src/apis/AuthenticationApi.ts
 src/apis/BadgesApi.ts
 src/apis/ChatApi.ts
 src/apis/ChatbotApi.ts
+src/apis/EventApi.ts
 src/apis/ExploreApi.ts
 src/apis/GalleryApi.ts
 src/apis/HeartbeatApi.ts
@@ -17,6 +18,7 @@ src/apis/LeaderboardsApi.ts
 src/apis/MemoryApi.ts
 src/apis/NotificationApi.ts
 src/apis/PostApi.ts
+src/apis/SEOApi.ts
 src/apis/ServerApi.ts
 src/apis/StoryCreatorApi.ts
 src/apis/SubscriptionsApi.ts
@@ -46,6 +48,7 @@ src/models/AdminSavePricingGroupRevisionsRequest.ts
 src/models/AdminSavePricingGroupRevisionsRequestPricingGroup.ts
 src/models/AdminSavePricingGroupRevisionsRequestTokenUsageGroup.ts
 src/models/AdminSaveTokenUsageGroupRequest.ts
+src/models/AdminSeedanceModel.ts
 src/models/AdminTokenUsageGroupResponse.ts
 src/models/AdminTokenUsageResponse.ts
 src/models/AdminUserJourneyListItem.ts
@@ -89,9 +92,13 @@ src/models/ChatbotType.ts
 src/models/ContentItem.ts
 src/models/ContentReportReason.ts
 src/models/ContentType.ts
+src/models/ContentTypes.ts
 src/models/ConversationListItem.ts
 src/models/ConversationMessageFeedback.ts
 src/models/ConversationSettings.ts
+src/models/CreateAnonymousConversationMessageRequest.ts
+src/models/CreateAnonymousConversationRequest.ts
+src/models/CreateAnonymousConversationResponse.ts
 src/models/CreateAssistantChatSessionRequest.ts
 src/models/CustomChatbotTheme.ts
 src/models/DateRangeFilter.ts
@@ -103,6 +110,7 @@ src/models/DiscountOriginalTokens.ts
 src/models/DisplayDiscount.ts
 src/models/DonationNotification.ts
 src/models/DownscaleRequest.ts
+src/models/EffectiveEventStatus.ts
 src/models/EpisodeContent.ts
 src/models/EpisodeCounts.ts
 src/models/EpisodePanelType.ts
@@ -111,7 +119,19 @@ src/models/EpisodeRating.ts
 src/models/EpisodeUnlockNotification.ts
 src/models/EpisodeVisibility.ts
 src/models/Ethnicity.ts
+src/models/EventListFilter.ts
+src/models/EventListResponse.ts
+src/models/EventPreview.ts
+src/models/EventPriceType.ts
+src/models/EventResponse.ts
+src/models/EventResult.ts
+src/models/EventResultType.ts
+src/models/EventResults.ts
+src/models/EventSubmissionPreview.ts
+src/models/EventSubmissionRequest.ts
 src/models/ExceptionCode.ts
+src/models/ExploreOffsetSearchRequest.ts
+src/models/ExploreOffsetSearchResponse.ts
 src/models/ExploreSearchRequest.ts
 src/models/ExtendVideoPayload.ts
 src/models/FantasyRace.ts
@@ -128,6 +148,7 @@ src/models/GeneratedAudioStatus.ts
 src/models/GeneratedImages.ts
 src/models/GeneratedVideos.ts
 src/models/GetAboutChatbotResponse.ts
+src/models/GetAnonymousConversationResponse.ts
 src/models/GetAssistantChatMessagesResponse.ts
 src/models/GetChatbotListResponse.ts
 src/models/GetChatbotResponse.ts
@@ -148,6 +169,7 @@ src/models/GetImageModerationPromptResponse.ts
 src/models/GetInstancesDBVastAiListResponse.ts
 src/models/GetLeaderboardRequest.ts
 src/models/GetLeaderboardResponse.ts
+src/models/GetLiveRoleplayHistoryResponse.ts
 src/models/GetLorasResponse.ts
 src/models/GetMemoryResponse.ts
 src/models/GetPersonalityChatbotResponse.ts
@@ -162,6 +184,8 @@ src/models/GiftCodeType.ts
 src/models/HTTPValidationError.ts
 src/models/HairColor.ts
 src/models/HairStyle.ts
+src/models/HubTag.ts
+src/models/HubTagsResponse.ts
 src/models/Id.ts
 src/models/ImageContent.ts
 src/models/ImageGenerationSource.ts
@@ -186,11 +210,15 @@ src/models/LikePostNotification.ts
 src/models/ListAssistantChatSessionsResponse.ts
 src/models/ListChatbotItem.ts
 src/models/ListConversationsResponse.ts
+src/models/LiveRoleplayHistoryMessage.ts
+src/models/LiveRoleplaySeedMessage.ts
+src/models/LiveRoleplaySessionResponse.ts
 src/models/LoraName.ts
 src/models/MarketingCampaignName.ts
 src/models/MemoracekType.ts
 src/models/MemoryChat.ts
 src/models/MemoryUpdateReponse.ts
+src/models/MessageCheckResponse.ts
 src/models/MessageType.ts
 src/models/Model.ts
 src/models/MonthlyTokens.ts
@@ -222,6 +250,8 @@ src/models/PostAdvancedChatbotPublishPayload.ts
 src/models/PostAdvancedChatbotPublishResponse.ts
 src/models/PostAdvancedIdentityPayload.ts
 src/models/PostAdvancedPersonalityPayload.ts
+src/models/PostAnonymousChatRequest.ts
+src/models/PostAnonymousChatResponse.ts
 src/models/PostAssistantChatMessageRequest.ts
 src/models/PostCategoryValues.ts
 src/models/PostChatRequest.ts
@@ -241,7 +271,11 @@ src/models/PostFollowUserRequest.ts
 src/models/PostGenerateImageRequest.ts
 src/models/PostGenerateSceneRequest.ts
 src/models/PostImagenResponse.ts
+src/models/PostInstanceDestroyRequest.ts
+src/models/PostInstanceDestroyResponse.ts
 src/models/PostInstancesDBVastAiListResponse.ts
+src/models/PostLiveRoleplayRequest.ts
+src/models/PostLiveRoleplayResponse.ts
 src/models/PostLogin.ts
 src/models/PostPasswordReset.ts
 src/models/PostProfilePictureResponse.ts
@@ -283,10 +317,12 @@ src/models/ScoreCategory.ts
 src/models/ScoreTimePeriods.ts
 src/models/ScoreType.ts
 src/models/SeduceDifficulty.ts
+src/models/SeedConversationResponse.ts
 src/models/SeedanceImageToVideoCompletionPayload.ts
 src/models/SeedanceImageToVideoResponse.ts
 src/models/SendCustomMemoracekRequest.ts
 src/models/SendMemoracekRequest.ts
+src/models/ServiceTokenResponse.ts
 src/models/SetUserFeatureFlagsRequest.ts
 src/models/SetUserFeatureFlagsResponse.ts
 src/models/SexualOrientation.ts
@@ -335,6 +371,7 @@ src/models/StoryCreatorUpdateStoryRequest.ts
 src/models/StoryPreview.ts
 src/models/StoryRating.ts
 src/models/StoryVisibility.ts
+src/models/SubmissionPreview.ts
 src/models/Subscription.ts
 src/models/SubscriptionGenerationEstimate.ts
 src/models/SubscriptionModel.ts
@@ -378,7 +415,7 @@ src/models/ValidationError.ts
 src/models/ValidationErrorLocInner.ts
 src/models/VideoConfigResponse.ts
 src/models/VideoContent.ts
-src/models/VideoDurationConfig.ts
+src/models/VideoDurationOptions.ts
 src/models/VideoFromChatResponse.ts
 src/models/VideoGenerationStatus.ts
 src/models/VideoLoraName.ts
@@ -390,6 +427,7 @@ src/models/VideoPresetCategory.ts
 src/models/VideoPricingModel.ts
 src/models/VideoQualityConfig.ts
 src/models/VideoResolution.ts
+src/models/VideoShot.ts
 src/models/VisualType.ts
 src/models/WallPost.ts
 src/models/WanExtendVideoCompletionPayload.ts

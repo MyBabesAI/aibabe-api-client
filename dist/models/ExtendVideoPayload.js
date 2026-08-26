@@ -19,13 +19,18 @@ exports.ExtendVideoPayloadFromJSON = ExtendVideoPayloadFromJSON;
 exports.ExtendVideoPayloadFromJSONTyped = ExtendVideoPayloadFromJSONTyped;
 exports.ExtendVideoPayloadToJSON = ExtendVideoPayloadToJSON;
 exports.ExtendVideoPayloadToJSONTyped = ExtendVideoPayloadToJSONTyped;
+const VideoShot_1 = require("./VideoShot");
 const VideoLoraName_1 = require("./VideoLoraName");
 /**
  * @export
  */
 exports.ExtendVideoPayloadModelEnum = {
-    _22I2V: 'WAN_22_I2V',
-    _27I2V: 'WAN_27_I2V'
+    Wan22I2V: 'WAN_22_I2V',
+    Wan27I2V: 'WAN_27_I2V',
+    Seedance20I2V: 'SEEDANCE_20_I2V',
+    Seedance20MiniI2V: 'SEEDANCE_20_MINI_I2V',
+    Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V',
+    Seedance25I2V: 'SEEDANCE_25_I2V'
 };
 /**
  * @export
@@ -33,7 +38,8 @@ exports.ExtendVideoPayloadModelEnum = {
 exports.ExtendVideoPayloadResolutionEnum = {
     P480: 'P480',
     P720: 'P720',
-    P1080: 'P1080'
+    P1080: 'P1080',
+    P2160: 'P2160'
 };
 /**
  * Check if a given object implements the ExtendVideoPayload interface.
@@ -79,6 +85,7 @@ function ExtendVideoPayloadFromJSONTyped(json, ignoreDiscriminator) {
         'promptExtend': json['prompt_extend'] == null ? undefined : json['prompt_extend'],
         'seed': json['seed'] == null ? undefined : json['seed'],
         'audioGeneration': json['audio_generation'] == null ? undefined : json['audio_generation'],
+        'shots': json['shots'] == null ? undefined : (json['shots'].map(VideoShot_1.VideoShotFromJSON)),
     };
 }
 function ExtendVideoPayloadToJSON(json) {
@@ -103,6 +110,7 @@ function ExtendVideoPayloadToJSONTyped(value, ignoreDiscriminator = false) {
         'prompt_extend': value['promptExtend'],
         'seed': value['seed'],
         'audio_generation': value['audioGeneration'],
+        'shots': value['shots'] == null ? undefined : (value['shots'].map(VideoShot_1.VideoShotToJSON)),
     };
 }
 //# sourceMappingURL=ExtendVideoPayload.js.map

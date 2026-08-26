@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ExtendVideoPayload, GetVideoGenerationTagsResponse, ImageToVideoFromChatPayload, ImageToVideoRecommendationPayload, ImageToVideoRequest, LastVideoFrameResponse, ResponseGetWanTaskStatusVideoWanTaskTaskIdGet, SeedanceImageToVideoCompletionPayload, SeedanceImageToVideoResponse, VideoConfigResponse, VideoFromChatResponse, VideoResolution, WanExtendVideoCompletionPayload, WanImageToVideoCompletionPayload, WanImageToVideoResponse } from '../models/index';
+import type { AdminSeedanceModel, ExtendVideoPayload, GetVideoGenerationTagsResponse, ImageToVideoFromChatPayload, ImageToVideoRecommendationPayload, ImageToVideoRequest, LastVideoFrameResponse, ResponseGetWanTaskStatusVideoWanTaskTaskIdGet, SeedanceImageToVideoCompletionPayload, SeedanceImageToVideoResponse, VideoConfigResponse, VideoFromChatResponse, VideoResolution, WanExtendVideoCompletionPayload, WanImageToVideoCompletionPayload, WanImageToVideoResponse } from '../models/index';
 export interface AttachmentVideoVideoIdAttachmentGetRequest {
     videoId: string;
     videoName: string;
@@ -24,6 +24,9 @@ export interface ChatCallbackVideoCallbackChatGenerationIdPostRequest {
     generationId: string;
     status: ChatCallbackVideoCallbackChatGenerationIdPostStatusEnum;
     errorMessage?: string | null;
+}
+export interface CompleteSeedanceExtendVideoVideoSeedanceExtendCompletePostRequest {
+    seedanceImageToVideoCompletionPayload: SeedanceImageToVideoCompletionPayload;
 }
 export interface CompleteSeedanceVideoVideoSeedanceCompletePostRequest {
     seedanceImageToVideoCompletionPayload: SeedanceImageToVideoCompletionPayload;
@@ -56,7 +59,7 @@ export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
     audio?: Array<Blob>;
     audioUrl?: Array<string>;
     prompt?: string | null;
-    model?: string | null;
+    model?: AdminSeedanceModel | null;
     resolution?: VideoResolution;
     ratio?: GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum;
     duration?: number;
@@ -127,6 +130,14 @@ export declare class VideoApi extends runtime.BaseAPI {
      * Chat Callback
      */
     chatCallbackVideoCallbackChatGenerationIdPost(requestParameters: ChatCallbackVideoCallbackChatGenerationIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Complete Seedance Extend Video
+     */
+    completeSeedanceExtendVideoVideoSeedanceExtendCompletePostRaw(requestParameters: CompleteSeedanceExtendVideoVideoSeedanceExtendCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Complete Seedance Extend Video
+     */
+    completeSeedanceExtendVideoVideoSeedanceExtendCompletePost(requestParameters: CompleteSeedanceExtendVideoVideoSeedanceExtendCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Complete Seedance Video
      */
