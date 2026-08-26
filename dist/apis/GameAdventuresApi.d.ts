@@ -10,7 +10,11 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { GameAdventureDetailResponse, GameAdventurePrizesResponse, GameAdventureRating, GameAdventureSessionDetailResponse, GameAdventureSessionListResponse, GameAdventureSessionResponse, PostGameAdventureImageRequest, PostGameAdventureJournalReviewRequest, PostGameAdventureJournalReviewResponse, PostGameAdventureMediaResponse, PostGameAdventureMessageRequest, PostGameAdventureMessageResponse, PostGameAdventureRatingRequest, PostGameAdventureVideoRequest } from '../models/index';
+import type { GameAdventureDetailResponse, GameAdventurePrizesResponse, GameAdventureRating, GameAdventureSessionDetailResponse, GameAdventureSessionListResponse, GameAdventureSessionResponse, PostGameAdventureAdminActionRequest, PostGameAdventureAdminActionResponse, PostGameAdventureImageRequest, PostGameAdventureJournalReviewRequest, PostGameAdventureJournalReviewResponse, PostGameAdventureMediaResponse, PostGameAdventureMessageRequest, PostGameAdventureMessageResponse, PostGameAdventureRatingRequest, PostGameAdventureVideoRequest } from '../models/index';
+export interface AdminActionGameAdventureSessionsSessionIdAdminPostRequest {
+    sessionId: string;
+    postGameAdventureAdminActionRequest: PostGameAdventureAdminActionRequest;
+}
 export interface CreateSessionGameAdventuresGameAdventureIdSessionsPostRequest {
     gameAdventureId: string;
 }
@@ -53,6 +57,16 @@ export interface SendMessageGameAdventureSessionsSessionIdMessagePostRequest {
  *
  */
 export declare class GameAdventuresApi extends runtime.BaseAPI {
+    /**
+     * **Admin only: adjust the score or force the outcome of the requester\'s own session**
+     * Admin debug action on the session
+     */
+    adminActionGameAdventureSessionsSessionIdAdminPostRaw(requestParameters: AdminActionGameAdventureSessionsSessionIdAdminPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostGameAdventureAdminActionResponse>>;
+    /**
+     * **Admin only: adjust the score or force the outcome of the requester\'s own session**
+     * Admin debug action on the session
+     */
+    adminActionGameAdventureSessionsSessionIdAdminPost(requestParameters: AdminActionGameAdventureSessionsSessionIdAdminPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostGameAdventureAdminActionResponse>;
     /**
      * **Creates a new session pinned to the latest published version, seeding the greeting messages**
      * Start a new game adventure session

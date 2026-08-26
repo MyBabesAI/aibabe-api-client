@@ -206,7 +206,8 @@ export const ExceptionCode = {
     GameAdventureAssetNotFoundOrNotAuthorized: 'game_adventure_asset_not_found_or_not_authorized',
     GameAdventureAssetChatbotMismatch: 'game_adventure_asset_chatbot_mismatch',
     GameAdventureOwnRatingForbidden: 'game_adventure_own_rating_forbidden',
-    GameAdventureRatingRequiresSession: 'game_adventure_rating_requires_session'
+    GameAdventureRatingRequiresSession: 'game_adventure_rating_requires_session',
+    GameAdventureAdminOnly: 'game_adventure_admin_only'
 } as const;
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 

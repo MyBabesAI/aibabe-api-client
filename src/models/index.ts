@@ -253,6 +253,8 @@ export * from './PostDetailsWithDate';
 export * from './PostDonateRequest';
 export * from './PostDonateResponse';
 export * from './PostFollowUserRequest';
+export * from './PostGameAdventureAdminActionRequest';
+export * from './PostGameAdventureAdminActionResponse';
 export * from './PostGameAdventureImageRequest';
 export * from './PostGameAdventureJournalReviewRequest';
 export * from './PostGameAdventureJournalReviewResponse';

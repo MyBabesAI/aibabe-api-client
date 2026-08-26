@@ -54,6 +54,37 @@ const index_1 = require("../models/index");
  */
 class GameAdventuresApi extends runtime.BaseAPI {
     /**
+     * **Admin only: adjust the score or force the outcome of the requester\'s own session**
+     * Admin debug action on the session
+     */
+    async adminActionGameAdventureSessionsSessionIdAdminPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['sessionId'] == null) {
+            throw new runtime.RequiredError('sessionId', 'Required parameter "sessionId" was null or undefined when calling adminActionGameAdventureSessionsSessionIdAdminPost().');
+        }
+        if (requestParameters['postGameAdventureAdminActionRequest'] == null) {
+            throw new runtime.RequiredError('postGameAdventureAdminActionRequest', 'Required parameter "postGameAdventureAdminActionRequest" was null or undefined when calling adminActionGameAdventureSessionsSessionIdAdminPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/game-adventure-sessions/{session_id}/admin`.replace(`{${"session_id"}}`, encodeURIComponent(String(requestParameters['sessionId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostGameAdventureAdminActionRequestToJSON)(requestParameters['postGameAdventureAdminActionRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostGameAdventureAdminActionResponseFromJSON)(jsonValue));
+    }
+    /**
+     * **Admin only: adjust the score or force the outcome of the requester\'s own session**
+     * Admin debug action on the session
+     */
+    async adminActionGameAdventureSessionsSessionIdAdminPost(requestParameters, initOverrides) {
+        const response = await this.adminActionGameAdventureSessionsSessionIdAdminPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * **Creates a new session pinned to the latest published version, seeding the greeting messages**
      * Start a new game adventure session
      */

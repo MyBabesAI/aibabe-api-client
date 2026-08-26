@@ -45,6 +45,12 @@ export interface GameAdventureSessionTargetProgress {
      * @memberof GameAdventureSessionTargetProgress
      */
     completedAt?: Date | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GameAdventureSessionTargetProgress
+     */
+    condition?: string | null;
 }
 /**
  * Check if a given object implements the GameAdventureSessionTargetProgress interface.

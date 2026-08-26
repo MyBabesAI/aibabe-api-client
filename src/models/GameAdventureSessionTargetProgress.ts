@@ -49,6 +49,12 @@ export interface GameAdventureSessionTargetProgress {
      * @memberof GameAdventureSessionTargetProgress
      */
     completedAt?: Date | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GameAdventureSessionTargetProgress
+     */
+    condition?: string | null;
 }
 
 /**
@@ -77,6 +83,7 @@ export function GameAdventureSessionTargetProgressFromJSONTyped(json: any, ignor
         'upperLimit': json['upper_limit'],
         'lowerLimit': json['lower_limit'],
         'completedAt': json['completed_at'] == null ? undefined : (new Date(json['completed_at'])),
+        'condition': json['condition'] == null ? undefined : json['condition'],
     };
 }
 
@@ -96,6 +103,7 @@ export function GameAdventureSessionTargetProgressFromJSONTyped(json: any, ignor
         'upper_limit': value['upperLimit'],
         'lower_limit': value['lowerLimit'],
         'completed_at': value['completedAt'] == null ? undefined : ((value['completedAt'] as any).toISOString()),
+        'condition': value['condition'],
     };
 }
 

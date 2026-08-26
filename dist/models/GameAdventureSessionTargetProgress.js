@@ -45,6 +45,7 @@ function GameAdventureSessionTargetProgressFromJSONTyped(json, ignoreDiscriminat
         'upperLimit': json['upper_limit'],
         'lowerLimit': json['lower_limit'],
         'completedAt': json['completed_at'] == null ? undefined : (new Date(json['completed_at'])),
+        'condition': json['condition'] == null ? undefined : json['condition'],
     };
 }
 function GameAdventureSessionTargetProgressToJSON(json) {
@@ -60,6 +61,7 @@ function GameAdventureSessionTargetProgressToJSONTyped(value, ignoreDiscriminato
         'upper_limit': value['upperLimit'],
         'lower_limit': value['lowerLimit'],
         'completed_at': value['completedAt'] == null ? undefined : (value['completedAt'].toISOString()),
+        'condition': value['condition'],
     };
 }
 //# sourceMappingURL=GameAdventureSessionTargetProgress.js.map

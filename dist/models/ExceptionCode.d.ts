@@ -203,6 +203,7 @@ export declare const ExceptionCode: {
     readonly GameAdventureAssetChatbotMismatch: "game_adventure_asset_chatbot_mismatch";
     readonly GameAdventureOwnRatingForbidden: "game_adventure_own_rating_forbidden";
     readonly GameAdventureRatingRequiresSession: "game_adventure_rating_requires_session";
+    readonly GameAdventureAdminOnly: "game_adventure_admin_only";
 };
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 export declare function instanceOfExceptionCode(value: any): boolean;

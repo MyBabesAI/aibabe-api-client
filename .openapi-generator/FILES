@@ -283,6 +283,8 @@ src/models/PostDetailsWithDate.ts
 src/models/PostDonateRequest.ts
 src/models/PostDonateResponse.ts
 src/models/PostFollowUserRequest.ts
+src/models/PostGameAdventureAdminActionRequest.ts
+src/models/PostGameAdventureAdminActionResponse.ts
 src/models/PostGameAdventureImageRequest.ts
 src/models/PostGameAdventureJournalReviewRequest.ts
 src/models/PostGameAdventureJournalReviewResponse.ts

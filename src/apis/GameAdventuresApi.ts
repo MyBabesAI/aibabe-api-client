@@ -22,6 +22,8 @@ import type {
   GameAdventureSessionListResponse,
   GameAdventureSessionResponse,
   HTTPValidationError,
+  PostGameAdventureAdminActionRequest,
+  PostGameAdventureAdminActionResponse,
   PostGameAdventureImageRequest,
   PostGameAdventureJournalReviewRequest,
   PostGameAdventureJournalReviewResponse,
@@ -46,6 +48,10 @@ import {
     GameAdventureSessionResponseToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
+    PostGameAdventureAdminActionRequestFromJSON,
+    PostGameAdventureAdminActionRequestToJSON,
+    PostGameAdventureAdminActionResponseFromJSON,
+    PostGameAdventureAdminActionResponseToJSON,
     PostGameAdventureImageRequestFromJSON,
     PostGameAdventureImageRequestToJSON,
     PostGameAdventureJournalReviewRequestFromJSON,
@@ -63,6 +69,11 @@ import {
     PostGameAdventureVideoRequestFromJSON,
     PostGameAdventureVideoRequestToJSON,
 } from '../models/index';
+
+export interface AdminActionGameAdventureSessionsSessionIdAdminPostRequest {
+    sessionId: string;
+    postGameAdventureAdminActionRequest: PostGameAdventureAdminActionRequest;
+}
 
 export interface CreateSessionGameAdventuresGameAdventureIdSessionsPostRequest {
     gameAdventureId: string;
@@ -117,6 +128,51 @@ export interface SendMessageGameAdventureSessionsSessionIdMessagePostRequest {
  * 
  */
 export class GameAdventuresApi extends runtime.BaseAPI {
+
+    /**
+     * **Admin only: adjust the score or force the outcome of the requester\'s own session**
+     * Admin debug action on the session
+     */
+    async adminActionGameAdventureSessionsSessionIdAdminPostRaw(requestParameters: AdminActionGameAdventureSessionsSessionIdAdminPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostGameAdventureAdminActionResponse>> {
+        if (requestParameters['sessionId'] == null) {
+            throw new runtime.RequiredError(
+                'sessionId',
+                'Required parameter "sessionId" was null or undefined when calling adminActionGameAdventureSessionsSessionIdAdminPost().'
+            );
+        }
+
+        if (requestParameters['postGameAdventureAdminActionRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postGameAdventureAdminActionRequest',
+                'Required parameter "postGameAdventureAdminActionRequest" was null or undefined when calling adminActionGameAdventureSessionsSessionIdAdminPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/game-adventure-sessions/{session_id}/admin`.replace(`{${"session_id"}}`, encodeURIComponent(String(requestParameters['sessionId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostGameAdventureAdminActionRequestToJSON(requestParameters['postGameAdventureAdminActionRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostGameAdventureAdminActionResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * **Admin only: adjust the score or force the outcome of the requester\'s own session**
+     * Admin debug action on the session
+     */
+    async adminActionGameAdventureSessionsSessionIdAdminPost(requestParameters: AdminActionGameAdventureSessionsSessionIdAdminPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostGameAdventureAdminActionResponse> {
+        const response = await this.adminActionGameAdventureSessionsSessionIdAdminPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
 
     /**
      * **Creates a new session pinned to the latest published version, seeding the greeting messages**

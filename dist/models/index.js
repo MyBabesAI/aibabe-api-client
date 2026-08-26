@@ -269,6 +269,8 @@ __exportStar(require("./PostDetailsWithDate"), exports);
 __exportStar(require("./PostDonateRequest"), exports);
 __exportStar(require("./PostDonateResponse"), exports);
 __exportStar(require("./PostFollowUserRequest"), exports);
+__exportStar(require("./PostGameAdventureAdminActionRequest"), exports);
+__exportStar(require("./PostGameAdventureAdminActionResponse"), exports);
 __exportStar(require("./PostGameAdventureImageRequest"), exports);
 __exportStar(require("./PostGameAdventureJournalReviewRequest"), exports);
 __exportStar(require("./PostGameAdventureJournalReviewResponse"), exports);
