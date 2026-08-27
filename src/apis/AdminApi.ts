@@ -24,6 +24,7 @@ import type {
   AuraSubcategory,
   BadgeCategory,
   BadgeTimePeriod,
+  BlacklistResponse,
   ContentType,
   DownscaleRequest,
   GetConversationMessagesResponse,
@@ -58,6 +59,8 @@ import {
     BadgeCategoryToJSON,
     BadgeTimePeriodFromJSON,
     BadgeTimePeriodToJSON,
+    BlacklistResponseFromJSON,
+    BlacklistResponseToJSON,
     ContentTypeFromJSON,
     ContentTypeToJSON,
     DownscaleRequestFromJSON,
@@ -170,6 +173,11 @@ export interface SavePricingGroupRevisionsAdminPricingPostRequest {
 
 export interface SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest {
     setUserFeatureFlagsRequest: SetUserFeatureFlagsRequest;
+}
+
+export interface ToggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRequest {
+    contentType: ContentType;
+    contentId: string;
 }
 
 export interface UpdateBadgeAdminBadgesBadgeIdPatchRequest {
@@ -980,6 +988,46 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async setUserFeatureFlagsAdminUserFeatureFlagsPut(requestParameters: SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetUserFeatureFlagsResponse> {
         const response = await this.setUserFeatureFlagsAdminUserFeatureFlagsPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Toggle Content Blacklist
+     */
+    async toggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRaw(requestParameters: ToggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlacklistResponse>> {
+        if (requestParameters['contentType'] == null) {
+            throw new runtime.RequiredError(
+                'contentType',
+                'Required parameter "contentType" was null or undefined when calling toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch().'
+            );
+        }
+
+        if (requestParameters['contentId'] == null) {
+            throw new runtime.RequiredError(
+                'contentId',
+                'Required parameter "contentId" was null or undefined when calling toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/admin/blacklist/{content_type}/{content_id}`.replace(`{${"content_type"}}`, encodeURIComponent(String(requestParameters['contentType']))).replace(`{${"content_id"}}`, encodeURIComponent(String(requestParameters['contentId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BlacklistResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Toggle Content Blacklist
+     */
+    async toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch(requestParameters: ToggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlacklistResponse> {
+        const response = await this.toggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

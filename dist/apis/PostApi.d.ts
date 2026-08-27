@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { GetDetailedPostsResponse, GetPostsResponse, PatchPostTitleRequest, PostCategoryValues, PostPublishResponse, PostReportRequest, PostSearchRequest, PostShareGetTagsRequest, PostSharePublishRequest, PostShareTagsResponse, PostType } from '../models/index';
+import type { BlacklistResponse, GetDetailedPostsResponse, GetPostsResponse, PatchPostTitleRequest, PostCategoryValues, PostPublishResponse, PostReportRequest, PostSearchRequest, PostShareGetTagsRequest, PostSharePublishRequest, PostShareTagsResponse, PostType } from '../models/index';
 export interface BlacklistPostPostBlacklistPostIdPatchRequest {
     postId: string;
 }
@@ -69,11 +69,11 @@ export declare class PostApi extends runtime.BaseAPI {
     /**
      * Blacklist Post
      */
-    blacklistPostPostBlacklistPostIdPatchRaw(requestParameters: BlacklistPostPostBlacklistPostIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    blacklistPostPostBlacklistPostIdPatchRaw(requestParameters: BlacklistPostPostBlacklistPostIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlacklistResponse>>;
     /**
      * Blacklist Post
      */
-    blacklistPostPostBlacklistPostIdPatch(requestParameters: BlacklistPostPostBlacklistPostIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    blacklistPostPostBlacklistPostIdPatch(requestParameters: BlacklistPostPostBlacklistPostIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlacklistResponse>;
     /**
      * **Adds bot likes from accounts that have not liked it yet.**
      * Boost a specific post with bot likes

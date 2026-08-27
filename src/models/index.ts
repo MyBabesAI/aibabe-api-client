@@ -42,6 +42,7 @@ export * from './BadgeTimePeriod';
 export * from './BeardStyle';
 export * from './BillingPeriod';
 export * from './BillingReconciliationResponse';
+export * from './BlacklistResponse';
 export * from './BodyType';
 export * from './BulkDeleteContentRequest';
 export * from './CancelSubscriptionRequest';

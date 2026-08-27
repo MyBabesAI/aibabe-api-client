@@ -15,6 +15,7 @@
 
 import * as runtime from '../runtime';
 import type {
+  BlacklistResponse,
   GetDetailedPostsResponse,
   GetPostsResponse,
   HTTPValidationError,
@@ -29,6 +30,8 @@ import type {
   PostType,
 } from '../models/index';
 import {
+    BlacklistResponseFromJSON,
+    BlacklistResponseToJSON,
     GetDetailedPostsResponseFromJSON,
     GetDetailedPostsResponseToJSON,
     GetPostsResponseFromJSON,
@@ -127,7 +130,7 @@ export class PostApi extends runtime.BaseAPI {
     /**
      * Blacklist Post
      */
-    async blacklistPostPostBlacklistPostIdPatchRaw(requestParameters: BlacklistPostPostBlacklistPostIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+    async blacklistPostPostBlacklistPostIdPatchRaw(requestParameters: BlacklistPostPostBlacklistPostIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlacklistResponse>> {
         if (requestParameters['postId'] == null) {
             throw new runtime.RequiredError(
                 'postId',
@@ -146,17 +149,13 @@ export class PostApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
+        return new runtime.JSONApiResponse(response, (jsonValue) => BlacklistResponseFromJSON(jsonValue));
     }
 
     /**
      * Blacklist Post
      */
-    async blacklistPostPostBlacklistPostIdPatch(requestParameters: BlacklistPostPostBlacklistPostIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+    async blacklistPostPostBlacklistPostIdPatch(requestParameters: BlacklistPostPostBlacklistPostIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlacklistResponse> {
         const response = await this.blacklistPostPostBlacklistPostIdPatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
