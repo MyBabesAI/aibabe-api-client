@@ -58,6 +58,7 @@ __exportStar(require("./BadgeTimePeriod"), exports);
 __exportStar(require("./BeardStyle"), exports);
 __exportStar(require("./BillingPeriod"), exports);
 __exportStar(require("./BillingReconciliationResponse"), exports);
+__exportStar(require("./BlacklistResponse"), exports);
 __exportStar(require("./BodyType"), exports);
 __exportStar(require("./BulkDeleteContentRequest"), exports);
 __exportStar(require("./CancelSubscriptionRequest"), exports);

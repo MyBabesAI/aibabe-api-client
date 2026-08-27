@@ -654,6 +654,33 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Toggle Content Blacklist
+     */
+    async toggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRaw(requestParameters, initOverrides) {
+        if (requestParameters['contentType'] == null) {
+            throw new runtime.RequiredError('contentType', 'Required parameter "contentType" was null or undefined when calling toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch().');
+        }
+        if (requestParameters['contentId'] == null) {
+            throw new runtime.RequiredError('contentId', 'Required parameter "contentId" was null or undefined when calling toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/blacklist/{content_type}/{content_id}`.replace(`{${"content_type"}}`, encodeURIComponent(String(requestParameters['contentType']))).replace(`{${"content_id"}}`, encodeURIComponent(String(requestParameters['contentId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.BlacklistResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Toggle Content Blacklist
+     */
+    async toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch(requestParameters, initOverrides) {
+        const response = await this.toggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Update Badge
      */
     async updateBadgeAdminBadgesBadgeIdPatchRaw(requestParameters, initOverrides) {
