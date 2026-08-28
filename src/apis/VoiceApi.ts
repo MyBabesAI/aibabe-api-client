@@ -75,6 +75,7 @@ export interface GenerateTextToSpeechVoiceTextToSpeechPostRequest {
 
 export interface GenerateVoiceChatVoiceMessageMessageIdPostRequest {
     messageId: string;
+    referenceAudioId?: string | null;
 }
 
 export interface GetAudioVoiceDetailsAudioIdGetRequest {
@@ -324,6 +325,10 @@ export class VoiceApi extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters['referenceAudioId'] != null) {
+            queryParameters['reference_audio_id'] = requestParameters['referenceAudioId'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 

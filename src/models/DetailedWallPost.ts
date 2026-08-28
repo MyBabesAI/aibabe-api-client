@@ -69,6 +69,13 @@ import {
     TagDataToJSON,
     TagDataToJSONTyped,
 } from './TagData';
+import type { GameAdventurePreview } from './GameAdventurePreview';
+import {
+    GameAdventurePreviewFromJSON,
+    GameAdventurePreviewFromJSONTyped,
+    GameAdventurePreviewToJSON,
+    GameAdventurePreviewToJSONTyped,
+} from './GameAdventurePreview';
 
 /**
  * 
@@ -96,6 +103,12 @@ export interface DetailedWallPost {
     story: StoryPreview | null;
     /**
      * 
+     * @type {GameAdventurePreview}
+     * @memberof DetailedWallPost
+     */
+    gameAdventure?: GameAdventurePreview | null;
+    /**
+     * 
      * @type {ImageContent}
      * @memberof DetailedWallPost
      */
@@ -111,7 +124,7 @@ export interface DetailedWallPost {
      * @type {number}
      * @memberof DetailedWallPost
      */
-    likes: number;
+    likes: number | null;
     /**
      * 
      * @type {number}
@@ -141,7 +154,7 @@ export interface DetailedWallPost {
      * @type {boolean}
      * @memberof DetailedWallPost
      */
-    liked: boolean;
+    liked: boolean | null;
     /**
      * 
      * @type {ContentType}
@@ -212,6 +225,7 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'id': json['id'],
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'story': StoryPreviewFromJSON(json['story']),
+        'gameAdventure': json['game_adventure'] == null ? undefined : GameAdventurePreviewFromJSON(json['game_adventure']),
         'picture': ImageContentFromJSON(json['picture']),
         'video': VideoContentFromJSON(json['video']),
         'likes': json['likes'],
@@ -242,6 +256,7 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'id': value['id'],
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'story': StoryPreviewToJSON(value['story']),
+        'game_adventure': GameAdventurePreviewToJSON(value['gameAdventure']),
         'picture': ImageContentToJSON(value['picture']),
         'video': VideoContentToJSON(value['video']),
         'likes': value['likes'],

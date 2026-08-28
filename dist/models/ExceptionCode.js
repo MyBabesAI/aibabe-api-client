@@ -222,7 +222,18 @@ exports.ExceptionCode = {
     EpisodeAndVersionMismatch: 'episode_and_version_mismatch',
     PurchasedEpisodeAndVersionMismatch: 'purchased_episode_and_version_mismatch',
     PurchasedEpisodeVersionNotFound: 'purchased_episode_version_not_found',
-    NotificationNotCreated: 'notification_not_created'
+    NotificationNotCreated: 'notification_not_created',
+    PostTypeNotLikeable: 'post_type_not_likeable',
+    GameAdventureNotFoundOrNotAuthorized: 'game_adventure_not_found_or_not_authorized',
+    GameAdventureNotPublished: 'game_adventure_not_published',
+    GameAdventureIncomplete: 'game_adventure_incomplete',
+    GameAdventureSessionNotFoundOrNotAuthorized: 'game_adventure_session_not_found_or_not_authorized',
+    GameAdventureSessionNotActive: 'game_adventure_session_not_active',
+    GameAdventureAssetNotFoundOrNotAuthorized: 'game_adventure_asset_not_found_or_not_authorized',
+    GameAdventureAssetChatbotMismatch: 'game_adventure_asset_chatbot_mismatch',
+    GameAdventureOwnRatingForbidden: 'game_adventure_own_rating_forbidden',
+    GameAdventureRatingRequiresSession: 'game_adventure_rating_requires_session',
+    GameAdventureAdminOnly: 'game_adventure_admin_only'
 };
 function instanceOfExceptionCode(value) {
     for (const key in exports.ExceptionCode) {
