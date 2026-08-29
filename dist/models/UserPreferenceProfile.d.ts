@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { LLM } from './LLM';
+import type { ImageSendingMode } from './ImageSendingMode';
 /**
  *
  * @export
@@ -82,6 +83,24 @@ export interface UserPreferenceProfile {
      * @memberof UserPreferenceProfile
      */
     chatSuggestionPanel?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UserPreferenceProfile
+     */
+    adventureOnlySoloImages?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UserPreferenceProfile
+     */
+    adventureSfwFilterOn?: boolean;
+    /**
+     *
+     * @type {ImageSendingMode}
+     * @memberof UserPreferenceProfile
+     */
+    adventureImageMode?: ImageSendingMode;
     /**
      *
      * @type {{ [key: string]: any; }}

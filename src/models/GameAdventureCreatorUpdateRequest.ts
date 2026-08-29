@@ -104,6 +104,12 @@ export interface GameAdventureCreatorUpdateRequest {
     recommendedLlm?: LLM | null;
     /**
      * 
+     * @type {boolean}
+     * @memberof GameAdventureCreatorUpdateRequest
+     */
+    suggestionsEnabled?: boolean | null;
+    /**
+     * 
      * @type {GameAdventureTargetUpdate}
      * @memberof GameAdventureCreatorUpdateRequest
      */
@@ -144,6 +150,7 @@ export function GameAdventureCreatorUpdateRequestFromJSONTyped(json: any, ignore
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
         'difficulty': json['difficulty'] == null ? undefined : GameAdventureDifficultyFromJSON(json['difficulty']),
         'recommendedLlm': json['recommended_llm'] == null ? undefined : LLMFromJSON(json['recommended_llm']),
+        'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
         'target': json['target'] == null ? undefined : GameAdventureTargetUpdateFromJSON(json['target']),
         'prizes': json['prizes'] == null ? undefined : ((json['prizes'] as Array<any>).map(GameAdventurePrizeUpdateFromJSON)),
     };
@@ -169,6 +176,7 @@ export function GameAdventureCreatorUpdateRequestFromJSONTyped(json: any, ignore
         'poster_picture_id': value['posterPictureId'],
         'difficulty': GameAdventureDifficultyToJSON(value['difficulty']),
         'recommended_llm': LLMToJSON(value['recommendedLlm']),
+        'suggestions_enabled': value['suggestionsEnabled'],
         'target': GameAdventureTargetUpdateToJSON(value['target']),
         'prizes': value['prizes'] == null ? undefined : ((value['prizes'] as Array<any>).map(GameAdventurePrizeUpdateToJSON)),
     };
