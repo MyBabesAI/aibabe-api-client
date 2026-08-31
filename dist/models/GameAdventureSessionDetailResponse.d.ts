@@ -86,6 +86,12 @@ export interface GameAdventureSessionDetailResponse {
      * @memberof GameAdventureSessionDetailResponse
      */
     journal: Array<GameAdventureJournalEntry>;
+    /**
+     *
+     * @type {string}
+     * @memberof GameAdventureSessionDetailResponse
+     */
+    scenePrompt?: string | null;
 }
 /**
  * Check if a given object implements the GameAdventureSessionDetailResponse interface.

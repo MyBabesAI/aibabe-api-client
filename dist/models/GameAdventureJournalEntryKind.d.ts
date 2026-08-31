@@ -16,6 +16,7 @@
 export declare const GameAdventureJournalEntryKind: {
     readonly Visible: "visible";
     readonly Hidden: "hidden";
+    readonly Admin: "admin";
 };
 export type GameAdventureJournalEntryKind = typeof GameAdventureJournalEntryKind[keyof typeof GameAdventureJournalEntryKind];
 export declare function instanceOfGameAdventureJournalEntryKind(value: any): boolean;

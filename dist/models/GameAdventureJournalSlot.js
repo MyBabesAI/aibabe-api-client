@@ -35,7 +35,10 @@ exports.GameAdventureJournalSlot = {
     CharacterPosition: 'character_position',
     CharacterClothing: 'character_clothing',
     CharacterInventory: 'character_inventory',
-    Relationship: 'relationship'
+    Relationship: 'relationship',
+    SceneLocation: 'scene_location',
+    ScenePosition: 'scene_position',
+    SceneClothing: 'scene_clothing'
 };
 function instanceOfGameAdventureJournalSlot(value) {
     for (const key in exports.GameAdventureJournalSlot) {
