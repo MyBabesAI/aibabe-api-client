@@ -80,6 +80,32 @@ class AgeVerificationApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Callback Probe
+     */
+    async callbackProbeAgeVerificationCallbackGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/age-verification/callback/`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Callback Probe
+     */
+    async callbackProbeAgeVerificationCallbackGet(initOverrides) {
+        const response = await this.callbackProbeAgeVerificationCallbackGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Confirm
      */
     async confirmAgeVerificationConfirmPostRaw(requestParameters, initOverrides) {
