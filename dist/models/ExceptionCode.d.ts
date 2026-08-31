@@ -213,6 +213,8 @@ export declare const ExceptionCode: {
     readonly PurchasedEpisodeAndVersionMismatch: "purchased_episode_and_version_mismatch";
     readonly PurchasedEpisodeVersionNotFound: "purchased_episode_version_not_found";
     readonly NotificationNotCreated: "notification_not_created";
+    readonly AgeVerificationDisabled: "age_verification_disabled";
+    readonly AgeVerificationInvalidPayload: "age_verification_invalid_payload";
     readonly PostTypeNotLikeable: "post_type_not_likeable";
     readonly GameAdventureNotFoundOrNotAuthorized: "game_adventure_not_found_or_not_authorized";
     readonly GameAdventureNotPublished: "game_adventure_not_published";

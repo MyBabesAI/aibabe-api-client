@@ -4,6 +4,7 @@
 README.md
 package.json
 src/apis/AdminApi.ts
+src/apis/AgeVerificationApi.ts
 src/apis/AssistantChatApi.ts
 src/apis/AuthenticationApi.ts
 src/apis/BadgesApi.ts
@@ -55,6 +56,7 @@ src/models/AdminTokenUsageGroupResponse.ts
 src/models/AdminTokenUsageResponse.ts
 src/models/AdminUserJourneyListItem.ts
 src/models/AdminUserJourneysResponse.ts
+src/models/AgeVerificationStatusResponse.ts
 src/models/ArtStyle.ts
 src/models/AssistantChatMessageDetail.ts
 src/models/AssistantChatResponse.ts
@@ -91,6 +93,8 @@ src/models/ChatbotCreatedOrigin.ts
 src/models/ChatbotInfo.ts
 src/models/ChatbotPreview.ts
 src/models/ChatbotType.ts
+src/models/ConfirmAgeVerificationRequest.ts
+src/models/ConfirmAgeVerificationResponse.ts
 src/models/ContentItem.ts
 src/models/ContentReportReason.ts
 src/models/ContentType.ts
@@ -225,6 +229,7 @@ src/models/ImagePreset.ts
 src/models/ImagePresetCategory.ts
 src/models/ImageSendingMode.ts
 src/models/ImageToVideoFromChatPayload.ts
+src/models/ImageToVideoModel.ts
 src/models/ImageToVideoRecommendationPayload.ts
 src/models/ImageToVideoRequest.ts
 src/models/InstanceDetails.ts

@@ -19,6 +19,7 @@ exports.GetVideoGenerationTagsResponseFromJSONTyped = GetVideoGenerationTagsResp
 exports.GetVideoGenerationTagsResponseToJSON = GetVideoGenerationTagsResponseToJSON;
 exports.GetVideoGenerationTagsResponseToJSONTyped = GetVideoGenerationTagsResponseToJSONTyped;
 const VideoLoraName_1 = require("./VideoLoraName");
+const ImageToVideoModel_1 = require("./ImageToVideoModel");
 /**
  * Check if a given object implements the GetVideoGenerationTagsResponse interface.
  */
@@ -32,6 +33,8 @@ function instanceOfGetVideoGenerationTagsResponse(value) {
     if (!('originalImageId' in value) || value['originalImageId'] === undefined)
         return false;
     if (!('loras' in value) || value['loras'] === undefined)
+        return false;
+    if (!('model' in value) || value['model'] === undefined)
         return false;
     return true;
 }
@@ -48,6 +51,7 @@ function GetVideoGenerationTagsResponseFromJSONTyped(json, ignoreDiscriminator) 
         'chatbotName': json['chatbot_name'],
         'originalImageId': json['original_image_id'],
         'loras': (json['loras'].map(VideoLoraName_1.VideoLoraNameFromJSON)),
+        'model': (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
     };
 }
 function GetVideoGenerationTagsResponseToJSON(json) {
@@ -63,6 +67,7 @@ function GetVideoGenerationTagsResponseToJSONTyped(value, ignoreDiscriminator = 
         'chatbot_name': value['chatbotName'],
         'original_image_id': value['originalImageId'],
         'loras': (value['loras'].map(VideoLoraName_1.VideoLoraNameToJSON)),
+        'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
     };
 }
 //# sourceMappingURL=GetVideoGenerationTagsResponse.js.map
