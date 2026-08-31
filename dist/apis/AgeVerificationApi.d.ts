@@ -33,6 +33,14 @@ export declare class AgeVerificationApi extends runtime.BaseAPI {
      */
     callbackAgeVerificationCallbackPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
+     * Callback Probe
+     */
+    callbackProbeAgeVerificationCallbackGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Callback Probe
+     */
+    callbackProbeAgeVerificationCallbackGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
      * Confirm
      */
     confirmAgeVerificationConfirmPostRaw(requestParameters: ConfirmAgeVerificationConfirmPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConfirmAgeVerificationResponse>>;
