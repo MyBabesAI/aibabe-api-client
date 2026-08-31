@@ -351,6 +351,8 @@ src/models/PublicUserReportReason.ts
 src/models/PutPasswordRequest.ts
 src/models/PutPublicUserRequest.ts
 src/models/PutUsernameRequest.ts
+src/models/RedeemAgeVerificationRequest.ts
+src/models/RedeemAgeVerificationResponse.ts
 src/models/RedeemGiftCodeRequest.ts
 src/models/RedeemGiftCodeResponse.ts
 src/models/RemainingFreeUsesResponse.ts

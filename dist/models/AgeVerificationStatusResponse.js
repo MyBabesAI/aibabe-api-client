@@ -42,6 +42,7 @@ function AgeVerificationStatusResponseFromJSONTyped(json, ignoreDiscriminator) {
         'verified': json['verified'],
         'country': json['country'],
         'iframeUrl': json['iframe_url'] == null ? undefined : json['iframe_url'],
+        'redirectUrl': json['redirect_url'] == null ? undefined : json['redirect_url'],
     };
 }
 function AgeVerificationStatusResponseToJSON(json) {
@@ -56,6 +57,7 @@ function AgeVerificationStatusResponseToJSONTyped(value, ignoreDiscriminator = f
         'verified': value['verified'],
         'country': value['country'],
         'iframe_url': value['iframeUrl'],
+        'redirect_url': value['redirectUrl'],
     };
 }
 //# sourceMappingURL=AgeVerificationStatusResponse.js.map

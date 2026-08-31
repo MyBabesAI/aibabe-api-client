@@ -108,8 +108,11 @@ class AgeVerificationApi extends runtime.BaseAPI {
     /**
      * Get Status
      */
-    async getStatusAgeVerificationStatusGetRaw(initOverrides) {
+    async getStatusAgeVerificationStatusGetRaw(requestParameters, initOverrides) {
         const queryParameters = {};
+        if (requestParameters['returnTo'] != null) {
+            queryParameters['return_to'] = requestParameters['returnTo'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/age-verification/status/`,
@@ -122,8 +125,34 @@ class AgeVerificationApi extends runtime.BaseAPI {
     /**
      * Get Status
      */
-    async getStatusAgeVerificationStatusGet(initOverrides) {
-        const response = await this.getStatusAgeVerificationStatusGetRaw(initOverrides);
+    async getStatusAgeVerificationStatusGet(requestParameters = {}, initOverrides) {
+        const response = await this.getStatusAgeVerificationStatusGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Redeem
+     */
+    async redeemAgeVerificationRedeemPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['redeemAgeVerificationRequest'] == null) {
+            throw new runtime.RequiredError('redeemAgeVerificationRequest', 'Required parameter "redeemAgeVerificationRequest" was null or undefined when calling redeemAgeVerificationRedeemPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/age-verification/redeem/`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.RedeemAgeVerificationRequestToJSON)(requestParameters['redeemAgeVerificationRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.RedeemAgeVerificationResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Redeem
+     */
+    async redeemAgeVerificationRedeemPost(requestParameters, initOverrides) {
+        const response = await this.redeemAgeVerificationRedeemPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 }

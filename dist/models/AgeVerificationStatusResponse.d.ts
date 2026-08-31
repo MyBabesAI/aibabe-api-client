@@ -39,6 +39,12 @@ export interface AgeVerificationStatusResponse {
      * @memberof AgeVerificationStatusResponse
      */
     iframeUrl?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof AgeVerificationStatusResponse
+     */
+    redirectUrl?: string | null;
 }
 /**
  * Check if a given object implements the AgeVerificationStatusResponse interface.

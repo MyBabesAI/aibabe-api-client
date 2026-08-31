@@ -317,6 +317,8 @@ export * from './PublicUserReportReason';
 export * from './PutPasswordRequest';
 export * from './PutPublicUserRequest';
 export * from './PutUsernameRequest';
+export * from './RedeemAgeVerificationRequest';
+export * from './RedeemAgeVerificationResponse';
 export * from './RedeemGiftCodeRequest';
 export * from './RedeemGiftCodeResponse';
 export * from './RemainingFreeUsesResponse';

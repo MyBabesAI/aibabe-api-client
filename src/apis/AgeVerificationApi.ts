@@ -19,6 +19,8 @@ import type {
   ConfirmAgeVerificationRequest,
   ConfirmAgeVerificationResponse,
   HTTPValidationError,
+  RedeemAgeVerificationRequest,
+  RedeemAgeVerificationResponse,
 } from '../models/index';
 import {
     AgeVerificationStatusResponseFromJSON,
@@ -29,10 +31,22 @@ import {
     ConfirmAgeVerificationResponseToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
+    RedeemAgeVerificationRequestFromJSON,
+    RedeemAgeVerificationRequestToJSON,
+    RedeemAgeVerificationResponseFromJSON,
+    RedeemAgeVerificationResponseToJSON,
 } from '../models/index';
 
 export interface ConfirmAgeVerificationConfirmPostRequest {
     confirmAgeVerificationRequest: ConfirmAgeVerificationRequest;
+}
+
+export interface GetStatusAgeVerificationStatusGetRequest {
+    returnTo?: string | null;
+}
+
+export interface RedeemAgeVerificationRedeemPostRequest {
+    redeemAgeVerificationRequest: RedeemAgeVerificationRequest;
 }
 
 /**
@@ -109,8 +123,12 @@ export class AgeVerificationApi extends runtime.BaseAPI {
     /**
      * Get Status
      */
-    async getStatusAgeVerificationStatusGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AgeVerificationStatusResponse>> {
+    async getStatusAgeVerificationStatusGetRaw(requestParameters: GetStatusAgeVerificationStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AgeVerificationStatusResponse>> {
         const queryParameters: any = {};
+
+        if (requestParameters['returnTo'] != null) {
+            queryParameters['return_to'] = requestParameters['returnTo'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -127,8 +145,44 @@ export class AgeVerificationApi extends runtime.BaseAPI {
     /**
      * Get Status
      */
-    async getStatusAgeVerificationStatusGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AgeVerificationStatusResponse> {
-        const response = await this.getStatusAgeVerificationStatusGetRaw(initOverrides);
+    async getStatusAgeVerificationStatusGet(requestParameters: GetStatusAgeVerificationStatusGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AgeVerificationStatusResponse> {
+        const response = await this.getStatusAgeVerificationStatusGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Redeem
+     */
+    async redeemAgeVerificationRedeemPostRaw(requestParameters: RedeemAgeVerificationRedeemPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RedeemAgeVerificationResponse>> {
+        if (requestParameters['redeemAgeVerificationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'redeemAgeVerificationRequest',
+                'Required parameter "redeemAgeVerificationRequest" was null or undefined when calling redeemAgeVerificationRedeemPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/age-verification/redeem/`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: RedeemAgeVerificationRequestToJSON(requestParameters['redeemAgeVerificationRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => RedeemAgeVerificationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Redeem
+     */
+    async redeemAgeVerificationRedeemPost(requestParameters: RedeemAgeVerificationRedeemPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RedeemAgeVerificationResponse> {
+        const response = await this.redeemAgeVerificationRedeemPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

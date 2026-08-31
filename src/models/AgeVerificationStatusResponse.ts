@@ -43,6 +43,12 @@ export interface AgeVerificationStatusResponse {
      * @memberof AgeVerificationStatusResponse
      */
     iframeUrl?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof AgeVerificationStatusResponse
+     */
+    redirectUrl?: string | null;
 }
 
 /**
@@ -69,6 +75,7 @@ export function AgeVerificationStatusResponseFromJSONTyped(json: any, ignoreDisc
         'verified': json['verified'],
         'country': json['country'],
         'iframeUrl': json['iframe_url'] == null ? undefined : json['iframe_url'],
+        'redirectUrl': json['redirect_url'] == null ? undefined : json['redirect_url'],
     };
 }
 
@@ -87,6 +94,7 @@ export function AgeVerificationStatusResponseFromJSONTyped(json: any, ignoreDisc
         'verified': value['verified'],
         'country': value['country'],
         'iframe_url': value['iframeUrl'],
+        'redirect_url': value['redirectUrl'],
     };
 }
 

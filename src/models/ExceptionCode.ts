@@ -219,6 +219,7 @@ export const ExceptionCode = {
     NotificationNotCreated: 'notification_not_created',
     AgeVerificationDisabled: 'age_verification_disabled',
     AgeVerificationInvalidPayload: 'age_verification_invalid_payload',
+    AgeVerificationTicketNotFound: 'age_verification_ticket_not_found',
     PostTypeNotLikeable: 'post_type_not_likeable',
     GameAdventureNotFoundOrNotAuthorized: 'game_adventure_not_found_or_not_authorized',
     GameAdventureNotPublished: 'game_adventure_not_published',

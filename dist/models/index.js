@@ -335,6 +335,8 @@ __exportStar(require("./PublicUserReportReason"), exports);
 __exportStar(require("./PutPasswordRequest"), exports);
 __exportStar(require("./PutPublicUserRequest"), exports);
 __exportStar(require("./PutUsernameRequest"), exports);
+__exportStar(require("./RedeemAgeVerificationRequest"), exports);
+__exportStar(require("./RedeemAgeVerificationResponse"), exports);
 __exportStar(require("./RedeemGiftCodeRequest"), exports);
 __exportStar(require("./RedeemGiftCodeResponse"), exports);
 __exportStar(require("./RemainingFreeUsesResponse"), exports);

@@ -10,9 +10,15 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AgeVerificationStatusResponse, ConfirmAgeVerificationRequest, ConfirmAgeVerificationResponse } from '../models/index';
+import type { AgeVerificationStatusResponse, ConfirmAgeVerificationRequest, ConfirmAgeVerificationResponse, RedeemAgeVerificationRequest, RedeemAgeVerificationResponse } from '../models/index';
 export interface ConfirmAgeVerificationConfirmPostRequest {
     confirmAgeVerificationRequest: ConfirmAgeVerificationRequest;
+}
+export interface GetStatusAgeVerificationStatusGetRequest {
+    returnTo?: string | null;
+}
+export interface RedeemAgeVerificationRedeemPostRequest {
+    redeemAgeVerificationRequest: RedeemAgeVerificationRequest;
 }
 /**
  *
@@ -37,10 +43,18 @@ export declare class AgeVerificationApi extends runtime.BaseAPI {
     /**
      * Get Status
      */
-    getStatusAgeVerificationStatusGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AgeVerificationStatusResponse>>;
+    getStatusAgeVerificationStatusGetRaw(requestParameters: GetStatusAgeVerificationStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AgeVerificationStatusResponse>>;
     /**
      * Get Status
      */
-    getStatusAgeVerificationStatusGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AgeVerificationStatusResponse>;
+    getStatusAgeVerificationStatusGet(requestParameters?: GetStatusAgeVerificationStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AgeVerificationStatusResponse>;
+    /**
+     * Redeem
+     */
+    redeemAgeVerificationRedeemPostRaw(requestParameters: RedeemAgeVerificationRedeemPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RedeemAgeVerificationResponse>>;
+    /**
+     * Redeem
+     */
+    redeemAgeVerificationRedeemPost(requestParameters: RedeemAgeVerificationRedeemPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RedeemAgeVerificationResponse>;
 }
 //# sourceMappingURL=AgeVerificationApi.d.ts.map
