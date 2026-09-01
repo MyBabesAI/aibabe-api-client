@@ -45,7 +45,27 @@ export interface ConversationListItem {
      * @memberof ConversationListItem
      */
     unread: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    kind?: ConversationListItemKindEnum;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    gameAdventureId?: string | null;
 }
+/**
+ * @export
+ */
+export declare const ConversationListItemKindEnum: {
+    readonly Chat: "chat";
+    readonly GameAdventure: "game_adventure";
+};
+export type ConversationListItemKindEnum = typeof ConversationListItemKindEnum[keyof typeof ConversationListItemKindEnum];
 /**
  * Check if a given object implements the ConversationListItem interface.
  */

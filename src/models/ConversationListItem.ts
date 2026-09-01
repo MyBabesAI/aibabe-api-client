@@ -49,7 +49,30 @@ export interface ConversationListItem {
      * @memberof ConversationListItem
      */
     unread: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    kind?: ConversationListItemKindEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    gameAdventureId?: string | null;
 }
+
+
+/**
+ * @export
+ */
+export const ConversationListItemKindEnum = {
+    Chat: 'chat',
+    GameAdventure: 'game_adventure'
+} as const;
+export type ConversationListItemKindEnum = typeof ConversationListItemKindEnum[keyof typeof ConversationListItemKindEnum];
+
 
 /**
  * Check if a given object implements the ConversationListItem interface.
@@ -78,6 +101,8 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
         'displayName': json['display_name'],
         'lastMessage': json['last_message'],
         'unread': json['unread'],
+        'kind': json['kind'] == null ? undefined : json['kind'],
+        'gameAdventureId': json['game_adventure_id'] == null ? undefined : json['game_adventure_id'],
     };
 }
 
@@ -97,6 +122,8 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
         'display_name': value['displayName'],
         'last_message': value['lastMessage'],
         'unread': value['unread'],
+        'kind': value['kind'],
+        'game_adventure_id': value['gameAdventureId'],
     };
 }
 
