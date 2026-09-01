@@ -30,6 +30,7 @@ export interface GenerateTextToSpeechVoiceTextToSpeechPostRequest {
 }
 export interface GenerateVoiceChatVoiceMessageMessageIdPostRequest {
     messageId: string;
+    referenceAudioId?: string | null;
 }
 export interface GetAudioVoiceDetailsAudioIdGetRequest {
     audioId: string;
