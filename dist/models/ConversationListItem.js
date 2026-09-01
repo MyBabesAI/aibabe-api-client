@@ -57,6 +57,7 @@ function ConversationListItemFromJSONTyped(json, ignoreDiscriminator) {
         'unread': json['unread'],
         'kind': json['kind'] == null ? undefined : json['kind'],
         'gameAdventureId': json['game_adventure_id'] == null ? undefined : json['game_adventure_id'],
+        'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
     };
 }
 function ConversationListItemToJSON(json) {
@@ -74,6 +75,7 @@ function ConversationListItemToJSONTyped(value, ignoreDiscriminator = false) {
         'unread': value['unread'],
         'kind': value['kind'],
         'game_adventure_id': value['gameAdventureId'],
+        'poster_picture_id': value['posterPictureId'],
     };
 }
 //# sourceMappingURL=ConversationListItem.js.map

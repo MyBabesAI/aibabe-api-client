@@ -57,6 +57,12 @@ export interface ConversationListItem {
      * @memberof ConversationListItem
      */
     gameAdventureId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    posterPictureId?: string | null;
 }
 /**
  * @export
