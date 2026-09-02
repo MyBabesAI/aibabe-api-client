@@ -27,6 +27,12 @@ export interface VideoQualityConfig {
      * @memberof VideoQualityConfig
      */
     tokenCostPerSecond: number;
+    /**
+     *
+     * @type {number}
+     * @memberof VideoQualityConfig
+     */
+    originalTokenCostPerSecond?: number | null;
 }
 /**
  * @export

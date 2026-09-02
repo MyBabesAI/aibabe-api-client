@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PromotionSummary } from './PromotionSummary';
+import {
+    PromotionSummaryFromJSON,
+    PromotionSummaryFromJSONTyped,
+    PromotionSummaryToJSON,
+    PromotionSummaryToJSONTyped,
+} from './PromotionSummary';
 import type { VideoDurationOptions } from './VideoDurationOptions';
 import {
     VideoDurationOptionsFromJSON,
@@ -64,6 +71,12 @@ export interface VideoModelConfig {
      * @memberof VideoModelConfig
      */
     qualities: { [key: string]: VideoQualityConfig; };
+    /**
+     * 
+     * @type {PromotionSummary}
+     * @memberof VideoModelConfig
+     */
+    promotion?: PromotionSummary | null;
     /**
      * 
      * @type {boolean}
@@ -151,6 +164,7 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         'durations': VideoDurationOptionsFromJSON(json['durations']),
         'billedExtraSeconds': json['billed_extra_seconds'] == null ? undefined : json['billed_extra_seconds'],
         'qualities': (mapValues(json['qualities'], VideoQualityConfigFromJSON)),
+        'promotion': json['promotion'] == null ? undefined : PromotionSummaryFromJSON(json['promotion']),
         'audioGenerationAvailable': json['audio_generation_available'],
         'promptExtendAvailable': json['prompt_extend_available'],
         'lastFrameSupported': json['last_frame_supported'],
@@ -176,6 +190,7 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         'durations': VideoDurationOptionsToJSON(value['durations']),
         'billed_extra_seconds': value['billedExtraSeconds'],
         'qualities': (mapValues(value['qualities'], VideoQualityConfigToJSON)),
+        'promotion': PromotionSummaryToJSON(value['promotion']),
         'audio_generation_available': value['audioGenerationAvailable'],
         'prompt_extend_available': value['promptExtendAvailable'],
         'last_frame_supported': value['lastFrameSupported'],

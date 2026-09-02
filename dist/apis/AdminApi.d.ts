@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminSavePricingGroupRevisionsRequest, AdminUserJourneysResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
+import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminUpdatePromotionRequest, AdminUserJourneysResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -36,6 +36,9 @@ export interface CreateBadgeAdminBadgesPostRequest {
     manuallyProvided?: boolean;
     usable?: boolean;
     visible?: boolean;
+}
+export interface CreatePromotionAdminPromotionPostRequest {
+    adminCreatePromotionRequest: AdminCreatePromotionRequest;
 }
 export interface DownscaleAdminDownscalePostRequest {
     downscaleRequest: DownscaleRequest;
@@ -104,6 +107,10 @@ export interface UpdateBadgeAdminBadgesBadgeIdPatchRequest {
     usable?: boolean | null;
     visible?: boolean | null;
 }
+export interface UpdatePromotionAdminPromotionPromotionIdPatchRequest {
+    promotionId: string;
+    adminUpdatePromotionRequest: AdminUpdatePromotionRequest;
+}
 /**
  *
  */
@@ -132,6 +139,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Create Badge
      */
     createBadgeAdminBadgesPost(requestParameters: CreateBadgeAdminBadgesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminBadgeResponse>;
+    /**
+     * Create Promotion
+     */
+    createPromotionAdminPromotionPostRaw(requestParameters: CreatePromotionAdminPromotionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminPromotionResponse>>;
+    /**
+     * Create Promotion
+     */
+    createPromotionAdminPromotionPost(requestParameters: CreatePromotionAdminPromotionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPromotionResponse>;
     /**
      * Downscale
      */
@@ -213,6 +228,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      */
     listBadgesAdminBadgesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AdminBadgeResponse>>;
     /**
+     * List Promotions
+     */
+    listPromotionsAdminPromotionGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminPromotionListResponse>>;
+    /**
+     * List Promotions
+     */
+    listPromotionsAdminPromotionGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPromotionListResponse>;
+    /**
      * Provide Award
      */
     provideAwardAdminBadgesAwardPostRaw(requestParameters: ProvideAwardAdminBadgesAwardPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
@@ -260,5 +283,13 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Update Badge
      */
     updateBadgeAdminBadgesBadgeIdPatch(requestParameters: UpdateBadgeAdminBadgesBadgeIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Update Promotion
+     */
+    updatePromotionAdminPromotionPromotionIdPatchRaw(requestParameters: UpdatePromotionAdminPromotionPromotionIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminPromotionResponse>>;
+    /**
+     * Update Promotion
+     */
+    updatePromotionAdminPromotionPromotionIdPatch(requestParameters: UpdatePromotionAdminPromotionPromotionIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPromotionResponse>;
 }
 //# sourceMappingURL=AdminApi.d.ts.map

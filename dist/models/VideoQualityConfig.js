@@ -49,6 +49,7 @@ function VideoQualityConfigFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'resolution': json['resolution'],
         'tokenCostPerSecond': json['token_cost_per_second'],
+        'originalTokenCostPerSecond': json['original_token_cost_per_second'] == null ? undefined : json['original_token_cost_per_second'],
     };
 }
 function VideoQualityConfigToJSON(json) {
@@ -61,6 +62,7 @@ function VideoQualityConfigToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'resolution': value['resolution'],
         'token_cost_per_second': value['tokenCostPerSecond'],
+        'original_token_cost_per_second': value['originalTokenCostPerSecond'],
     };
 }
 //# sourceMappingURL=VideoQualityConfig.js.map

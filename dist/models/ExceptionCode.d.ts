@@ -227,6 +227,10 @@ export declare const ExceptionCode: {
     readonly GameAdventureOwnRatingForbidden: "game_adventure_own_rating_forbidden";
     readonly GameAdventureRatingRequiresSession: "game_adventure_rating_requires_session";
     readonly GameAdventureAdminOnly: "game_adventure_admin_only";
+    readonly PromotionNotFound: "promotion_not_found";
+    readonly PromotionInvalidTime: "promotion_invalid_time";
+    readonly PromotionCodeConflict: "promotion_code_conflict";
+    readonly PromotionOverlap: "promotion_overlap";
 };
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 export declare function instanceOfExceptionCode(value: any): boolean;

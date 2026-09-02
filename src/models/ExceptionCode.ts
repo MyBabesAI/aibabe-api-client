@@ -230,7 +230,11 @@ export const ExceptionCode = {
     GameAdventureAssetChatbotMismatch: 'game_adventure_asset_chatbot_mismatch',
     GameAdventureOwnRatingForbidden: 'game_adventure_own_rating_forbidden',
     GameAdventureRatingRequiresSession: 'game_adventure_rating_requires_session',
-    GameAdventureAdminOnly: 'game_adventure_admin_only'
+    GameAdventureAdminOnly: 'game_adventure_admin_only',
+    PromotionNotFound: 'promotion_not_found',
+    PromotionInvalidTime: 'promotion_invalid_time',
+    PromotionCodeConflict: 'promotion_code_conflict',
+    PromotionOverlap: 'promotion_overlap'
 } as const;
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 

@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { PromotionSummary } from './PromotionSummary';
 import type { VideoDurationOptions } from './VideoDurationOptions';
 import type { VideoQualityConfig } from './VideoQualityConfig';
 /**
@@ -49,6 +50,12 @@ export interface VideoModelConfig {
     qualities: {
         [key: string]: VideoQualityConfig;
     };
+    /**
+     *
+     * @type {PromotionSummary}
+     * @memberof VideoModelConfig
+     */
+    promotion?: PromotionSummary | null;
     /**
      *
      * @type {boolean}

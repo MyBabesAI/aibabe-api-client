@@ -47,6 +47,8 @@ function SubscriptionVideoTokenPriceFromJSONTyped(json, ignoreDiscriminator) {
         'resolution': (0, VideoResolution_1.VideoResolutionFromJSON)(json['resolution']),
         'durationSeconds': json['duration_seconds'] == null ? undefined : json['duration_seconds'],
         'tokenCost': json['token_cost'],
+        'originalTokenCost': json['original_token_cost'] == null ? undefined : json['original_token_cost'],
+        'promotionCode': json['promotion_code'] == null ? undefined : json['promotion_code'],
     };
 }
 function SubscriptionVideoTokenPriceToJSON(json) {
@@ -62,6 +64,8 @@ function SubscriptionVideoTokenPriceToJSONTyped(value, ignoreDiscriminator = fal
         'resolution': (0, VideoResolution_1.VideoResolutionToJSON)(value['resolution']),
         'duration_seconds': value['durationSeconds'],
         'token_cost': value['tokenCost'],
+        'original_token_cost': value['originalTokenCost'],
+        'promotion_code': value['promotionCode'],
     };
 }
 //# sourceMappingURL=SubscriptionVideoTokenPrice.js.map

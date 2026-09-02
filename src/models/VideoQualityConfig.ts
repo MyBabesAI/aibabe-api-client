@@ -31,6 +31,12 @@ export interface VideoQualityConfig {
      * @memberof VideoQualityConfig
      */
     tokenCostPerSecond: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof VideoQualityConfig
+     */
+    originalTokenCostPerSecond?: number | null;
 }
 
 
@@ -68,6 +74,7 @@ export function VideoQualityConfigFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'resolution': json['resolution'],
         'tokenCostPerSecond': json['token_cost_per_second'],
+        'originalTokenCostPerSecond': json['original_token_cost_per_second'] == null ? undefined : json['original_token_cost_per_second'],
     };
 }
 
@@ -84,6 +91,7 @@ export function VideoQualityConfigFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'resolution': value['resolution'],
         'token_cost_per_second': value['tokenCostPerSecond'],
+        'original_token_cost_per_second': value['originalTokenCostPerSecond'],
     };
 }
 
