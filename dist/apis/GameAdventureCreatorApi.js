@@ -157,8 +157,11 @@ class GameAdventureCreatorApi extends runtime.BaseAPI {
     /**
      * List Own
      */
-    async listOwnGameAdventureCreatorGetRaw(initOverrides) {
+    async listOwnGameAdventureCreatorGetRaw(requestParameters, initOverrides) {
         const queryParameters = {};
+        if (requestParameters['excludeEventEntries'] != null) {
+            queryParameters['exclude_event_entries'] = requestParameters['excludeEventEntries'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/game-adventure-creator`,
@@ -171,8 +174,8 @@ class GameAdventureCreatorApi extends runtime.BaseAPI {
     /**
      * List Own
      */
-    async listOwnGameAdventureCreatorGet(initOverrides) {
-        const response = await this.listOwnGameAdventureCreatorGetRaw(initOverrides);
+    async listOwnGameAdventureCreatorGet(requestParameters = {}, initOverrides) {
+        const response = await this.listOwnGameAdventureCreatorGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

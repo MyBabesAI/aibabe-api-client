@@ -98,6 +98,9 @@ class GalleryApi extends runtime.BaseAPI {
         if (requestParameters['freeTextSearch'] != null) {
             queryParameters['free_text_search'] = requestParameters['freeTextSearch'];
         }
+        if (requestParameters['excludeEventEntries'] != null) {
+            queryParameters['exclude_event_entries'] = requestParameters['excludeEventEntries'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/gallery/`,
