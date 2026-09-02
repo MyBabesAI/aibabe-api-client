@@ -61,18 +61,6 @@ export interface GameAdventureSessionTargetProgress {
      * @memberof GameAdventureSessionTargetProgress
      */
     conditionEarned?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameAdventureSessionTargetProgress
-     */
-    goodMoves?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameAdventureSessionTargetProgress
-     */
-    badMoves?: string | null;
 }
 
 /**
@@ -103,8 +91,6 @@ export function GameAdventureSessionTargetProgressFromJSONTyped(json: any, ignor
         'completedAt': json['completed_at'] == null ? undefined : (new Date(json['completed_at'])),
         'condition': json['condition'] == null ? undefined : json['condition'],
         'conditionEarned': json['condition_earned'] == null ? undefined : json['condition_earned'],
-        'goodMoves': json['good_moves'] == null ? undefined : json['good_moves'],
-        'badMoves': json['bad_moves'] == null ? undefined : json['bad_moves'],
     };
 }
 
@@ -126,8 +112,6 @@ export function GameAdventureSessionTargetProgressFromJSONTyped(json: any, ignor
         'completed_at': value['completedAt'] == null ? undefined : ((value['completedAt'] as any).toISOString()),
         'condition': value['condition'],
         'condition_earned': value['conditionEarned'],
-        'good_moves': value['goodMoves'],
-        'bad_moves': value['badMoves'],
     };
 }
 

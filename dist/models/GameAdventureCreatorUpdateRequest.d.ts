@@ -75,12 +75,6 @@ export interface GameAdventureCreatorUpdateRequest {
     recommendedLlm?: LLM | null;
     /**
      *
-     * @type {boolean}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    suggestionsEnabled?: boolean | null;
-    /**
-     *
      * @type {GameAdventureTargetUpdate}
      * @memberof GameAdventureCreatorUpdateRequest
      */

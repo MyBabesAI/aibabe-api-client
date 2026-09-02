@@ -19,8 +19,7 @@
  */
 export const GameAdventureJournalEntryKind = {
     Visible: 'visible',
-    Hidden: 'hidden',
-    Admin: 'admin'
+    Hidden: 'hidden'
 } as const;
 export type GameAdventureJournalEntryKind = typeof GameAdventureJournalEntryKind[keyof typeof GameAdventureJournalEntryKind];
 

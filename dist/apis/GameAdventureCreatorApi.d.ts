@@ -23,9 +23,6 @@ export interface DeleteGameAdventureCreatorGameAdventureIdDeleteRequest {
 export interface GetGameAdventureCreatorGameAdventureIdGetRequest {
     gameAdventureId: string;
 }
-export interface ListOwnGameAdventureCreatorGetRequest {
-    excludeEventEntries?: boolean;
-}
 export interface UnpublishGameAdventureCreatorGameAdventureIdPublishDeleteRequest {
     gameAdventureId: string;
 }
@@ -76,11 +73,11 @@ export declare class GameAdventureCreatorApi extends runtime.BaseAPI {
     /**
      * List Own
      */
-    listOwnGameAdventureCreatorGetRaw(requestParameters: ListOwnGameAdventureCreatorGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorListResponse>>;
+    listOwnGameAdventureCreatorGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorListResponse>>;
     /**
      * List Own
      */
-    listOwnGameAdventureCreatorGet(requestParameters?: ListOwnGameAdventureCreatorGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorListResponse>;
+    listOwnGameAdventureCreatorGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorListResponse>;
     /**
      * **Returns the adventure to draft and hides its post; existing unlocks keep their prize access**
      * Unpublish a game adventure

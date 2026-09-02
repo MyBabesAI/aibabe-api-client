@@ -123,12 +123,6 @@ export interface GameAdventureDetailResponse {
     recommendedLlm?: LLM | null;
     /**
      * 
-     * @type {boolean}
-     * @memberof GameAdventureDetailResponse
-     */
-    suggestionsEnabled?: boolean;
-    /**
-     * 
      * @type {string}
      * @memberof GameAdventureDetailResponse
      */
@@ -205,7 +199,6 @@ export function GameAdventureDetailResponseFromJSONTyped(json: any, ignoreDiscri
         'tone': json['tone'] == null ? undefined : json['tone'],
         'difficulty': GameAdventureDifficultyFromJSON(json['difficulty']),
         'recommendedLlm': json['recommended_llm'] == null ? undefined : LLMFromJSON(json['recommended_llm']),
-        'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
         'prizesCount': json['prizes_count'],
         'rating': GameAdventureRatingFromJSON(json['rating']),
@@ -237,7 +230,6 @@ export function GameAdventureDetailResponseFromJSONTyped(json: any, ignoreDiscri
         'tone': value['tone'],
         'difficulty': GameAdventureDifficultyToJSON(value['difficulty']),
         'recommended_llm': LLMToJSON(value['recommendedLlm']),
-        'suggestions_enabled': value['suggestionsEnabled'],
         'poster_picture_id': value['posterPictureId'],
         'prizes_count': value['prizesCount'],
         'rating': GameAdventureRatingToJSON(value['rating']),

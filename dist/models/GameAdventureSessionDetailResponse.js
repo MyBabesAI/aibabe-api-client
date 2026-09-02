@@ -68,7 +68,6 @@ function GameAdventureSessionDetailResponseFromJSONTyped(json, ignoreDiscriminat
         'targets': (json['targets'].map(GameAdventureSessionTargetProgress_1.GameAdventureSessionTargetProgressFromJSON)),
         'messages': (json['messages'].map(GameAdventureSessionMessage_1.GameAdventureSessionMessageFromJSON)),
         'journal': (json['journal'].map(GameAdventureJournalEntry_1.GameAdventureJournalEntryFromJSON)),
-        'scenePrompt': json['scene_prompt'] == null ? undefined : json['scene_prompt'],
     };
 }
 function GameAdventureSessionDetailResponseToJSON(json) {
@@ -90,7 +89,6 @@ function GameAdventureSessionDetailResponseToJSONTyped(value, ignoreDiscriminato
         'targets': (value['targets'].map(GameAdventureSessionTargetProgress_1.GameAdventureSessionTargetProgressToJSON)),
         'messages': (value['messages'].map(GameAdventureSessionMessage_1.GameAdventureSessionMessageToJSON)),
         'journal': (value['journal'].map(GameAdventureJournalEntry_1.GameAdventureJournalEntryToJSON)),
-        'scene_prompt': value['scenePrompt'],
     };
 }
 //# sourceMappingURL=GameAdventureSessionDetailResponse.js.map

@@ -20,7 +20,6 @@ export interface GetGalleryGalleryGetRequest {
     limit?: number;
     chatbotId?: string | null;
     freeTextSearch?: string | null;
-    excludeEventEntries?: boolean;
 }
 /**
  *

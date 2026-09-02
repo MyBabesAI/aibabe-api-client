@@ -25,8 +25,7 @@ exports.GameAdventureJournalEntryKindToJSONTyped = GameAdventureJournalEntryKind
  */
 exports.GameAdventureJournalEntryKind = {
     Visible: 'visible',
-    Hidden: 'hidden',
-    Admin: 'admin'
+    Hidden: 'hidden'
 };
 function instanceOfGameAdventureJournalEntryKind(value) {
     for (const key in exports.GameAdventureJournalEntryKind) {

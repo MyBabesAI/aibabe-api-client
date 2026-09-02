@@ -109,18 +109,6 @@ export interface ExploreSearchRequest {
      * @type {boolean}
      * @memberof ExploreSearchRequest
      */
-    playedAdventures?: boolean | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof ExploreSearchRequest
-     */
-    wonAdventures?: boolean | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof ExploreSearchRequest
-     */
     useViewerPreferences?: boolean;
     /**
      *

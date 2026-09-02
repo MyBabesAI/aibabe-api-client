@@ -53,10 +53,6 @@ export interface GetGameAdventureCreatorGameAdventureIdGetRequest {
     gameAdventureId: string;
 }
 
-export interface ListOwnGameAdventureCreatorGetRequest {
-    excludeEventEntries?: boolean;
-}
-
 export interface UnpublishGameAdventureCreatorGameAdventureIdPublishDeleteRequest {
     gameAdventureId: string;
 }
@@ -212,12 +208,8 @@ export class GameAdventureCreatorApi extends runtime.BaseAPI {
     /**
      * List Own
      */
-    async listOwnGameAdventureCreatorGetRaw(requestParameters: ListOwnGameAdventureCreatorGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorListResponse>> {
+    async listOwnGameAdventureCreatorGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorListResponse>> {
         const queryParameters: any = {};
-
-        if (requestParameters['excludeEventEntries'] != null) {
-            queryParameters['exclude_event_entries'] = requestParameters['excludeEventEntries'];
-        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -234,8 +226,8 @@ export class GameAdventureCreatorApi extends runtime.BaseAPI {
     /**
      * List Own
      */
-    async listOwnGameAdventureCreatorGet(requestParameters: ListOwnGameAdventureCreatorGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorListResponse> {
-        const response = await this.listOwnGameAdventureCreatorGetRaw(requestParameters, initOverrides);
+    async listOwnGameAdventureCreatorGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorListResponse> {
+        const response = await this.listOwnGameAdventureCreatorGetRaw(initOverrides);
         return await response.value();
     }
 

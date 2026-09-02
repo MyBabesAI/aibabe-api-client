@@ -13,19 +13,11 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ConversationListItemKindEnum = void 0;
 exports.instanceOfConversationListItem = instanceOfConversationListItem;
 exports.ConversationListItemFromJSON = ConversationListItemFromJSON;
 exports.ConversationListItemFromJSONTyped = ConversationListItemFromJSONTyped;
 exports.ConversationListItemToJSON = ConversationListItemToJSON;
 exports.ConversationListItemToJSONTyped = ConversationListItemToJSONTyped;
-/**
- * @export
- */
-exports.ConversationListItemKindEnum = {
-    Chat: 'chat',
-    GameAdventure: 'game_adventure'
-};
 /**
  * Check if a given object implements the ConversationListItem interface.
  */
@@ -55,9 +47,6 @@ function ConversationListItemFromJSONTyped(json, ignoreDiscriminator) {
         'displayName': json['display_name'],
         'lastMessage': json['last_message'],
         'unread': json['unread'],
-        'kind': json['kind'] == null ? undefined : json['kind'],
-        'gameAdventureId': json['game_adventure_id'] == null ? undefined : json['game_adventure_id'],
-        'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
     };
 }
 function ConversationListItemToJSON(json) {
@@ -73,9 +62,6 @@ function ConversationListItemToJSONTyped(value, ignoreDiscriminator = false) {
         'display_name': value['displayName'],
         'last_message': value['lastMessage'],
         'unread': value['unread'],
-        'kind': value['kind'],
-        'game_adventure_id': value['gameAdventureId'],
-        'poster_picture_id': value['posterPictureId'],
     };
 }
 //# sourceMappingURL=ConversationListItem.js.map

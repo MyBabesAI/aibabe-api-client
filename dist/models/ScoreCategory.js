@@ -27,8 +27,7 @@ exports.ScoreCategory = {
     Aura: 'aura',
     Likes: 'likes',
     Followers: 'followers',
-    LoginCount: 'login_count',
-    AdventureWins: 'adventure_wins'
+    LoginCount: 'login_count'
 };
 function instanceOfScoreCategory(value) {
     for (const key in exports.ScoreCategory) {

@@ -41,6 +41,7 @@ export const VideoQualityConfigResolutionEnum = {
     P480: 'P480',
     P720: 'P720',
     P1080: 'P1080',
+    P1440: 'P1440',
     P2160: 'P2160'
 } as const;
 export type VideoQualityConfigResolutionEnum = typeof VideoQualityConfigResolutionEnum[keyof typeof VideoQualityConfigResolutionEnum];

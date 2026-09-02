@@ -16,7 +16,6 @@ export interface ClearNotificationsNotificationClearPatchRequest {
     donationId?: string | null;
     episodeId?: string | null;
     badgeId?: string | null;
-    followUserId?: string | null;
 }
 export interface GetNotificationsNotificationGetRequest {
     paginationToken?: string | null;
