@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ContentType } from './ContentType';
 /**
  *
  * @export
@@ -39,6 +40,18 @@ export interface PostDonateRequest {
      * @memberof PostDonateRequest
      */
     message?: string | null;
+    /**
+     *
+     * @type {ContentType}
+     * @memberof PostDonateRequest
+     */
+    contentType?: ContentType | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PostDonateRequest
+     */
+    contentId?: string | null;
 }
 /**
  * Check if a given object implements the PostDonateRequest interface.

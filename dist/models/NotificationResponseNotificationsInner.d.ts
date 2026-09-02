@@ -11,6 +11,7 @@
  */
 import type { PublicUserPreview } from './PublicUserPreview';
 import type { PostType } from './PostType';
+import type { ContentType } from './ContentType';
 import type { NotificationType } from './NotificationType';
 import type { BadgeModel } from './BadgeModel';
 import type { WallPost } from './WallPost';
@@ -86,6 +87,30 @@ export interface NotificationResponseNotificationsInner {
      * @memberof NotificationResponseNotificationsInner
      */
     message: string;
+    /**
+     *
+     * @type {ContentType}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentType?: ContentType;
+    /**
+     *
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentTitle?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentCoverImage?: string;
     /**
      *
      * @type {string}

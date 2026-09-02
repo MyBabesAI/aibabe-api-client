@@ -20,6 +20,13 @@ import {
     PublicUserPreviewToJSON,
     PublicUserPreviewToJSONTyped,
 } from './PublicUserPreview';
+import type { ContentType } from './ContentType';
+import {
+    ContentTypeFromJSON,
+    ContentTypeFromJSONTyped,
+    ContentTypeToJSON,
+    ContentTypeToJSONTyped,
+} from './ContentType';
 import type { NotificationType } from './NotificationType';
 import {
     NotificationTypeFromJSON,
@@ -76,6 +83,30 @@ export interface DonationNotification {
      * @memberof DonationNotification
      */
     message: string | null;
+    /**
+     * 
+     * @type {ContentType}
+     * @memberof DonationNotification
+     */
+    contentType?: ContentType | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof DonationNotification
+     */
+    contentId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof DonationNotification
+     */
+    contentTitle?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof DonationNotification
+     */
+    contentCoverImage?: string | null;
 }
 
 
@@ -109,6 +140,10 @@ export function DonationNotificationFromJSONTyped(json: any, ignoreDiscriminator
         'donationId': json['donation_id'],
         'tokens': json['tokens'],
         'message': json['message'],
+        'contentType': json['content_type'] == null ? undefined : ContentTypeFromJSON(json['content_type']),
+        'contentId': json['content_id'] == null ? undefined : json['content_id'],
+        'contentTitle': json['content_title'] == null ? undefined : json['content_title'],
+        'contentCoverImage': json['content_cover_image'] == null ? undefined : json['content_cover_image'],
     };
 }
 
@@ -130,6 +165,10 @@ export function DonationNotificationFromJSONTyped(json: any, ignoreDiscriminator
         'donation_id': value['donationId'],
         'tokens': value['tokens'],
         'message': value['message'],
+        'content_type': ContentTypeToJSON(value['contentType']),
+        'content_id': value['contentId'],
+        'content_title': value['contentTitle'],
+        'content_cover_image': value['contentCoverImage'],
     };
 }
 

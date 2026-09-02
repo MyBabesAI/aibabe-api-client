@@ -48,6 +48,13 @@ import {
     PostTypeToJSON,
     PostTypeToJSONTyped,
 } from './PostType';
+import type { ContentType } from './ContentType';
+import {
+    ContentTypeFromJSON,
+    ContentTypeFromJSONTyped,
+    ContentTypeToJSON,
+    ContentTypeToJSONTyped,
+} from './ContentType';
 import type { BadgeNotification } from './BadgeNotification';
 import {
     BadgeNotificationFromJSON,
@@ -165,6 +172,30 @@ export interface NotificationResponseNotificationsInner {
     message: string;
     /**
      * 
+     * @type {ContentType}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentType?: ContentType;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentTitle?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentCoverImage?: string;
+    /**
+     * 
      * @type {string}
      * @memberof NotificationResponseNotificationsInner
      */
@@ -232,6 +263,10 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
         'donationId': json['donation_id'],
         'tokens': json['tokens'],
         'message': json['message'],
+        'contentType': json['content_type'] == null ? undefined : ContentTypeFromJSON(json['content_type']),
+        'contentId': json['content_id'] == null ? undefined : json['content_id'],
+        'contentTitle': json['content_title'] == null ? undefined : json['content_title'],
+        'contentCoverImage': json['content_cover_image'] == null ? undefined : json['content_cover_image'],
         'episodeId': json['episode_id'],
         'episodeTitle': json['episode_title'],
         'coverImage': json['cover_image'],
@@ -261,6 +296,10 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
         'donation_id': value['donationId'],
         'tokens': value['tokens'],
         'message': value['message'],
+        'content_type': ContentTypeToJSON(value['contentType']),
+        'content_id': value['contentId'],
+        'content_title': value['contentTitle'],
+        'content_cover_image': value['contentCoverImage'],
         'episode_id': value['episodeId'],
         'episode_title': value['episodeTitle'],
         'cover_image': value['coverImage'],

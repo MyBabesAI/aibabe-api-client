@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { PublicUserPreview } from './PublicUserPreview';
+import type { ContentType } from './ContentType';
 import type { NotificationType } from './NotificationType';
 /**
  *
@@ -59,6 +60,30 @@ export interface DonationNotification {
      * @memberof DonationNotification
      */
     message: string | null;
+    /**
+     *
+     * @type {ContentType}
+     * @memberof DonationNotification
+     */
+    contentType?: ContentType | null;
+    /**
+     *
+     * @type {string}
+     * @memberof DonationNotification
+     */
+    contentId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof DonationNotification
+     */
+    contentTitle?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof DonationNotification
+     */
+    contentCoverImage?: string | null;
 }
 /**
  * Check if a given object implements the DonationNotification interface.

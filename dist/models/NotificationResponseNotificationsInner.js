@@ -20,6 +20,7 @@ exports.NotificationResponseNotificationsInnerToJSON = NotificationResponseNotif
 exports.NotificationResponseNotificationsInnerToJSONTyped = NotificationResponseNotificationsInnerToJSONTyped;
 const PublicUserPreview_1 = require("./PublicUserPreview");
 const PostType_1 = require("./PostType");
+const ContentType_1 = require("./ContentType");
 const NotificationType_1 = require("./NotificationType");
 const BadgeModel_1 = require("./BadgeModel");
 const WallPost_1 = require("./WallPost");
@@ -74,6 +75,10 @@ function NotificationResponseNotificationsInnerFromJSONTyped(json, ignoreDiscrim
         'donationId': json['donation_id'],
         'tokens': json['tokens'],
         'message': json['message'],
+        'contentType': json['content_type'] == null ? undefined : (0, ContentType_1.ContentTypeFromJSON)(json['content_type']),
+        'contentId': json['content_id'] == null ? undefined : json['content_id'],
+        'contentTitle': json['content_title'] == null ? undefined : json['content_title'],
+        'contentCoverImage': json['content_cover_image'] == null ? undefined : json['content_cover_image'],
         'episodeId': json['episode_id'],
         'episodeTitle': json['episode_title'],
         'coverImage': json['cover_image'],
@@ -99,6 +104,10 @@ function NotificationResponseNotificationsInnerToJSONTyped(value, ignoreDiscrimi
         'donation_id': value['donationId'],
         'tokens': value['tokens'],
         'message': value['message'],
+        'content_type': (0, ContentType_1.ContentTypeToJSON)(value['contentType']),
+        'content_id': value['contentId'],
+        'content_title': value['contentTitle'],
+        'content_cover_image': value['contentCoverImage'],
         'episode_id': value['episodeId'],
         'episode_title': value['episodeTitle'],
         'cover_image': value['coverImage'],
