@@ -57,6 +57,18 @@ export interface GameAdventureSessionTargetProgress {
      * @memberof GameAdventureSessionTargetProgress
      */
     conditionEarned?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof GameAdventureSessionTargetProgress
+     */
+    goodMoves?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GameAdventureSessionTargetProgress
+     */
+    badMoves?: string | null;
 }
 /**
  * Check if a given object implements the GameAdventureSessionTargetProgress interface.

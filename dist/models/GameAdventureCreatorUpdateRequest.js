@@ -45,6 +45,7 @@ function GameAdventureCreatorUpdateRequestFromJSONTyped(json, ignoreDiscriminato
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
         'difficulty': json['difficulty'] == null ? undefined : (0, GameAdventureDifficulty_1.GameAdventureDifficultyFromJSON)(json['difficulty']),
         'recommendedLlm': json['recommended_llm'] == null ? undefined : (0, LLM_1.LLMFromJSON)(json['recommended_llm']),
+        'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
         'target': json['target'] == null ? undefined : (0, GameAdventureTargetUpdate_1.GameAdventureTargetUpdateFromJSON)(json['target']),
         'prizes': json['prizes'] == null ? undefined : (json['prizes'].map(GameAdventurePrizeUpdate_1.GameAdventurePrizeUpdateFromJSON)),
     };
@@ -66,6 +67,7 @@ function GameAdventureCreatorUpdateRequestToJSONTyped(value, ignoreDiscriminator
         'poster_picture_id': value['posterPictureId'],
         'difficulty': (0, GameAdventureDifficulty_1.GameAdventureDifficultyToJSON)(value['difficulty']),
         'recommended_llm': (0, LLM_1.LLMToJSON)(value['recommendedLlm']),
+        'suggestions_enabled': value['suggestionsEnabled'],
         'target': (0, GameAdventureTargetUpdate_1.GameAdventureTargetUpdateToJSON)(value['target']),
         'prizes': value['prizes'] == null ? undefined : (value['prizes'].map(GameAdventurePrizeUpdate_1.GameAdventurePrizeUpdateToJSON)),
     };

@@ -41,6 +41,7 @@ export interface GetGalleryGalleryGetRequest {
     limit?: number;
     chatbotId?: string | null;
     freeTextSearch?: string | null;
+    excludeEventEntries?: boolean;
 }
 
 /**
@@ -107,6 +108,10 @@ export class GalleryApi extends runtime.BaseAPI {
 
         if (requestParameters['freeTextSearch'] != null) {
             queryParameters['free_text_search'] = requestParameters['freeTextSearch'];
+        }
+
+        if (requestParameters['excludeEventEntries'] != null) {
+            queryParameters['exclude_event_entries'] = requestParameters['excludeEventEntries'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

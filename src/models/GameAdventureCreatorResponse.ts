@@ -118,6 +118,12 @@ export interface GameAdventureCreatorResponse {
     recommendedLlm?: LLM | null;
     /**
      * 
+     * @type {boolean}
+     * @memberof GameAdventureCreatorResponse
+     */
+    suggestionsEnabled?: boolean;
+    /**
+     * 
      * @type {string}
      * @memberof GameAdventureCreatorResponse
      */
@@ -242,6 +248,7 @@ export function GameAdventureCreatorResponseFromJSONTyped(json: any, ignoreDiscr
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
         'difficulty': json['difficulty'] == null ? undefined : GameAdventureDifficultyFromJSON(json['difficulty']),
         'recommendedLlm': json['recommended_llm'] == null ? undefined : LLMFromJSON(json['recommended_llm']),
+        'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
         'id': json['id'],
         'chatbotId': json['chatbot_id'],
         'userId': json['user_id'],
@@ -279,6 +286,7 @@ export function GameAdventureCreatorResponseFromJSONTyped(json: any, ignoreDiscr
         'poster_picture_id': value['posterPictureId'],
         'difficulty': GameAdventureDifficultyToJSON(value['difficulty']),
         'recommended_llm': LLMToJSON(value['recommendedLlm']),
+        'suggestions_enabled': value['suggestionsEnabled'],
         'id': value['id'],
         'chatbot_id': value['chatbotId'],
         'user_id': value['userId'],
