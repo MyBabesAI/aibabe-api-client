@@ -121,6 +121,12 @@ export interface GameAdventureSessionDetailResponse {
      * @memberof GameAdventureSessionDetailResponse
      */
     journal: Array<GameAdventureJournalEntry>;
+    /**
+     * 
+     * @type {string}
+     * @memberof GameAdventureSessionDetailResponse
+     */
+    scenePrompt?: string | null;
 }
 
 
@@ -163,6 +169,7 @@ export function GameAdventureSessionDetailResponseFromJSONTyped(json: any, ignor
         'targets': ((json['targets'] as Array<any>).map(GameAdventureSessionTargetProgressFromJSON)),
         'messages': ((json['messages'] as Array<any>).map(GameAdventureSessionMessageFromJSON)),
         'journal': ((json['journal'] as Array<any>).map(GameAdventureJournalEntryFromJSON)),
+        'scenePrompt': json['scene_prompt'] == null ? undefined : json['scene_prompt'],
     };
 }
 
@@ -188,6 +195,7 @@ export function GameAdventureSessionDetailResponseFromJSONTyped(json: any, ignor
         'targets': ((value['targets'] as Array<any>).map(GameAdventureSessionTargetProgressToJSON)),
         'messages': ((value['messages'] as Array<any>).map(GameAdventureSessionMessageToJSON)),
         'journal': ((value['journal'] as Array<any>).map(GameAdventureJournalEntryToJSON)),
+        'scene_prompt': value['scenePrompt'],
     };
 }
 

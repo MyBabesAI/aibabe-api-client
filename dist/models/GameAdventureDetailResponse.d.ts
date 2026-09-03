@@ -88,6 +88,12 @@ export interface GameAdventureDetailResponse {
     recommendedLlm?: LLM | null;
     /**
      *
+     * @type {boolean}
+     * @memberof GameAdventureDetailResponse
+     */
+    suggestionsEnabled?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof GameAdventureDetailResponse
      */

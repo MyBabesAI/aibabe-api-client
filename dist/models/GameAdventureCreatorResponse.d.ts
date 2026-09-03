@@ -77,6 +77,12 @@ export interface GameAdventureCreatorResponse {
     recommendedLlm?: LLM | null;
     /**
      *
+     * @type {boolean}
+     * @memberof GameAdventureCreatorResponse
+     */
+    suggestionsEnabled?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof GameAdventureCreatorResponse
      */

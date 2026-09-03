@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { LLM } from './LLM';
+import type { ImageSendingMode } from './ImageSendingMode';
 /**
  *
  * @export
@@ -82,6 +83,24 @@ export interface PatchUserPreferenceProfileRequest {
      * @memberof PatchUserPreferenceProfileRequest
      */
     chatSuggestionPanel?: boolean | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PatchUserPreferenceProfileRequest
+     */
+    adventureOnlySoloImages?: boolean | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PatchUserPreferenceProfileRequest
+     */
+    adventureSfwFilterOn?: boolean | null;
+    /**
+     *
+     * @type {ImageSendingMode}
+     * @memberof PatchUserPreferenceProfileRequest
+     */
+    adventureImageMode?: ImageSendingMode | null;
 }
 /**
  * Check if a given object implements the PatchUserPreferenceProfileRequest interface.

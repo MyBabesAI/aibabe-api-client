@@ -19,6 +19,7 @@ exports.PatchUserPreferenceProfileRequestFromJSONTyped = PatchUserPreferenceProf
 exports.PatchUserPreferenceProfileRequestToJSON = PatchUserPreferenceProfileRequestToJSON;
 exports.PatchUserPreferenceProfileRequestToJSONTyped = PatchUserPreferenceProfileRequestToJSONTyped;
 const LLM_1 = require("./LLM");
+const ImageSendingMode_1 = require("./ImageSendingMode");
 /**
  * Check if a given object implements the PatchUserPreferenceProfileRequest interface.
  */
@@ -44,6 +45,9 @@ function PatchUserPreferenceProfileRequestFromJSONTyped(json, ignoreDiscriminato
         'videoPromptExpansion': json['video_prompt_expansion'] == null ? undefined : json['video_prompt_expansion'],
         'chatGlassStyle': json['chat_glass_style'] == null ? undefined : json['chat_glass_style'],
         'chatSuggestionPanel': json['chat_suggestion_panel'] == null ? undefined : json['chat_suggestion_panel'],
+        'adventureOnlySoloImages': json['adventure_only_solo_images'] == null ? undefined : json['adventure_only_solo_images'],
+        'adventureSfwFilterOn': json['adventure_sfw_filter_on'] == null ? undefined : json['adventure_sfw_filter_on'],
+        'adventureImageMode': json['adventure_image_mode'] == null ? undefined : (0, ImageSendingMode_1.ImageSendingModeFromJSON)(json['adventure_image_mode']),
     };
 }
 function PatchUserPreferenceProfileRequestToJSON(json) {
@@ -65,6 +69,9 @@ function PatchUserPreferenceProfileRequestToJSONTyped(value, ignoreDiscriminator
         'video_prompt_expansion': value['videoPromptExpansion'],
         'chat_glass_style': value['chatGlassStyle'],
         'chat_suggestion_panel': value['chatSuggestionPanel'],
+        'adventure_only_solo_images': value['adventureOnlySoloImages'],
+        'adventure_sfw_filter_on': value['adventureSfwFilterOn'],
+        'adventure_image_mode': (0, ImageSendingMode_1.ImageSendingModeToJSON)(value['adventureImageMode']),
     };
 }
 //# sourceMappingURL=PatchUserPreferenceProfileRequest.js.map

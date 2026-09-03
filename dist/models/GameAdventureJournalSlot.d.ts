@@ -26,6 +26,9 @@ export declare const GameAdventureJournalSlot: {
     readonly CharacterClothing: "character_clothing";
     readonly CharacterInventory: "character_inventory";
     readonly Relationship: "relationship";
+    readonly SceneLocation: "scene_location";
+    readonly ScenePosition: "scene_position";
+    readonly SceneClothing: "scene_clothing";
 };
 export type GameAdventureJournalSlot = typeof GameAdventureJournalSlot[keyof typeof GameAdventureJournalSlot];
 export declare function instanceOfGameAdventureJournalSlot(value: any): boolean;
