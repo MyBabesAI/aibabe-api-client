@@ -188,6 +188,7 @@ export * from './HairStyle';
 export * from './HubTag';
 export * from './HubTagsResponse';
 export * from './Id';
+export * from './ImageAspectRatio';
 export * from './ImageContent';
 export * from './ImageGenerationSource';
 export * from './ImageGenerationStatus';

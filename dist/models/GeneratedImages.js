@@ -75,6 +75,8 @@ function GeneratedImagesFromJSONTyped(json, ignoreDiscriminator) {
         'generationId': json['generation_id'],
         'seenByUser': json['seen_by_user'],
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
+        'width': json['width'] == null ? undefined : json['width'],
+        'height': json['height'] == null ? undefined : json['height'],
     };
 }
 function GeneratedImagesToJSON(json) {
@@ -96,6 +98,8 @@ function GeneratedImagesToJSONTyped(value, ignoreDiscriminator = false) {
         'generation_id': value['generationId'],
         'seen_by_user': value['seenByUser'],
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
+        'width': value['width'],
+        'height': value['height'],
     };
 }
 //# sourceMappingURL=GeneratedImages.js.map

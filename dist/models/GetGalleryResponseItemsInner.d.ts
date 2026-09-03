@@ -91,6 +91,18 @@ export interface GetGalleryResponseItemsInner {
     artStyle: ArtStyle;
     /**
      *
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    width?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    height?: number;
+    /**
+     *
      * @type {string}
      * @memberof GetGalleryResponseItemsInner
      */

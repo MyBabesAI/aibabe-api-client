@@ -80,6 +80,18 @@ export interface GeneratedVideos {
     seenByUser: boolean;
     /**
      *
+     * @type {number}
+     * @memberof GeneratedVideos
+     */
+    width?: number | null;
+    /**
+     *
+     * @type {number}
+     * @memberof GeneratedVideos
+     */
+    height?: number | null;
+    /**
+     *
      * @type {string}
      * @memberof GeneratedVideos
      */

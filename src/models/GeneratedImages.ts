@@ -114,6 +114,18 @@ export interface GeneratedImages {
      * @memberof GeneratedImages
      */
     artStyle: ArtStyle;
+    /**
+     * 
+     * @type {number}
+     * @memberof GeneratedImages
+     */
+    width?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GeneratedImages
+     */
+    height?: number | null;
 }
 
 
@@ -165,6 +177,8 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'generationId': json['generation_id'],
         'seenByUser': json['seen_by_user'],
         'artStyle': ArtStyleFromJSON(json['art_style']),
+        'width': json['width'] == null ? undefined : json['width'],
+        'height': json['height'] == null ? undefined : json['height'],
     };
 }
 
@@ -190,6 +204,8 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'generation_id': value['generationId'],
         'seen_by_user': value['seenByUser'],
         'art_style': ArtStyleToJSON(value['artStyle']),
+        'width': value['width'],
+        'height': value['height'],
     };
 }
 

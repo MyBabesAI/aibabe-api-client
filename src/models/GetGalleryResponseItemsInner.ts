@@ -165,6 +165,18 @@ export interface GetGalleryResponseItemsInner {
     artStyle: ArtStyle;
     /**
      * 
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    width?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    height?: number;
+    /**
+     * 
      * @type {string}
      * @memberof GetGalleryResponseItemsInner
      */
@@ -274,6 +286,8 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'generationId': json['generation_id'],
         'seenByUser': json['seen_by_user'],
         'artStyle': ArtStyleFromJSON(json['art_style']),
+        'width': json['width'] == null ? undefined : json['width'],
+        'height': json['height'] == null ? undefined : json['height'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'owner': json['owner'] == null ? undefined : PublicUserPreviewWithFollowFromJSON(json['owner']),
@@ -308,6 +322,8 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'generation_id': value['generationId'],
         'seen_by_user': value['seenByUser'],
         'art_style': ArtStyleToJSON(value['artStyle']),
+        'width': value['width'],
+        'height': value['height'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'owner': PublicUserPreviewWithFollowToJSON(value['owner']),

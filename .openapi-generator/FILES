@@ -220,6 +220,7 @@ src/models/HairStyle.ts
 src/models/HubTag.ts
 src/models/HubTagsResponse.ts
 src/models/Id.ts
+src/models/ImageAspectRatio.ts
 src/models/ImageContent.ts
 src/models/ImageGenerationSource.ts
 src/models/ImageGenerationStatus.ts

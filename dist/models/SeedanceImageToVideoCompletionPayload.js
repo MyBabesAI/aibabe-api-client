@@ -51,6 +51,7 @@ function SeedanceImageToVideoCompletionPayloadFromJSONTyped(json, ignoreDiscrimi
         'lastFrameUrl': json['last_frame_url'] == null ? undefined : json['last_frame_url'],
         'resolution': json['resolution'] == null ? undefined : json['resolution'],
         'duration': json['duration'] == null ? undefined : json['duration'],
+        'ratio': json['ratio'] == null ? undefined : json['ratio'],
     };
 }
 function SeedanceImageToVideoCompletionPayloadToJSON(json) {
@@ -66,6 +67,7 @@ function SeedanceImageToVideoCompletionPayloadToJSONTyped(value, ignoreDiscrimin
         'last_frame_url': value['lastFrameUrl'],
         'resolution': value['resolution'],
         'duration': value['duration'],
+        'ratio': value['ratio'],
     };
 }
 //# sourceMappingURL=SeedanceImageToVideoCompletionPayload.js.map

@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ImageAspectRatio } from './ImageAspectRatio';
 import type { LoraName } from './LoraName';
 /**
  *
@@ -52,6 +53,12 @@ export interface PostGenerateImageRequest {
      * @memberof PostGenerateImageRequest
      */
     loras?: Array<LoraName> | null;
+    /**
+     *
+     * @type {ImageAspectRatio}
+     * @memberof PostGenerateImageRequest
+     */
+    aspectRatio?: ImageAspectRatio | null;
 }
 /**
  * Check if a given object implements the PostGenerateImageRequest interface.

@@ -204,6 +204,7 @@ __exportStar(require("./HairStyle"), exports);
 __exportStar(require("./HubTag"), exports);
 __exportStar(require("./HubTagsResponse"), exports);
 __exportStar(require("./Id"), exports);
+__exportStar(require("./ImageAspectRatio"), exports);
 __exportStar(require("./ImageContent"), exports);
 __exportStar(require("./ImageGenerationSource"), exports);
 __exportStar(require("./ImageGenerationStatus"), exports);

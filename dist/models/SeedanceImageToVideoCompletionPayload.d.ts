@@ -45,6 +45,12 @@ export interface SeedanceImageToVideoCompletionPayload {
      * @memberof SeedanceImageToVideoCompletionPayload
      */
     duration?: number | null;
+    /**
+     *
+     * @type {string}
+     * @memberof SeedanceImageToVideoCompletionPayload
+     */
+    ratio?: string | null;
 }
 /**
  * @export

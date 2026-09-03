@@ -48,7 +48,8 @@ export const ArtStyle = {
     Enchantedfantasy: 'enchantedfantasy',
     Realtemptation: 'realtemptation',
     Midnightstudio: 'midnightstudio',
-    Forbiddenfairytale: 'forbiddenfairytale'
+    Forbiddenfairytale: 'forbiddenfairytale',
+    Truelookv2: 'truelookv2'
 } as const;
 export type ArtStyle = typeof ArtStyle[keyof typeof ArtStyle];
 

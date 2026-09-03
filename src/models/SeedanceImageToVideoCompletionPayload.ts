@@ -49,6 +49,12 @@ export interface SeedanceImageToVideoCompletionPayload {
      * @memberof SeedanceImageToVideoCompletionPayload
      */
     duration?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof SeedanceImageToVideoCompletionPayload
+     */
+    ratio?: string | null;
 }
 
 
@@ -88,6 +94,7 @@ export function SeedanceImageToVideoCompletionPayloadFromJSONTyped(json: any, ig
         'lastFrameUrl': json['last_frame_url'] == null ? undefined : json['last_frame_url'],
         'resolution': json['resolution'] == null ? undefined : json['resolution'],
         'duration': json['duration'] == null ? undefined : json['duration'],
+        'ratio': json['ratio'] == null ? undefined : json['ratio'],
     };
 }
 
@@ -107,6 +114,7 @@ export function SeedanceImageToVideoCompletionPayloadFromJSONTyped(json: any, ig
         'last_frame_url': value['lastFrameUrl'],
         'resolution': value['resolution'],
         'duration': value['duration'],
+        'ratio': value['ratio'],
     };
 }
 

@@ -103,6 +103,18 @@ export interface GeneratedVideos {
     seenByUser: boolean;
     /**
      * 
+     * @type {number}
+     * @memberof GeneratedVideos
+     */
+    width?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GeneratedVideos
+     */
+    height?: number | null;
+    /**
+     * 
      * @type {string}
      * @memberof GeneratedVideos
      */
@@ -164,6 +176,8 @@ export function GeneratedVideosFromJSONTyped(json: any, ignoreDiscriminator: boo
         'status': VideoGenerationStatusFromJSON(json['status']),
         'generationId': json['generation_id'],
         'seenByUser': json['seen_by_user'],
+        'width': json['width'] == null ? undefined : json['width'],
+        'height': json['height'] == null ? undefined : json['height'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
     };
@@ -190,6 +204,8 @@ export function GeneratedVideosFromJSONTyped(json: any, ignoreDiscriminator: boo
         'status': VideoGenerationStatusToJSON(value['status']),
         'generation_id': value['generationId'],
         'seen_by_user': value['seenByUser'],
+        'width': value['width'],
+        'height': value['height'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
     };

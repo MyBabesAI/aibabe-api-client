@@ -19,6 +19,7 @@ exports.PostGenerateSceneRequestFromJSONTyped = PostGenerateSceneRequestFromJSON
 exports.PostGenerateSceneRequestToJSON = PostGenerateSceneRequestToJSON;
 exports.PostGenerateSceneRequestToJSONTyped = PostGenerateSceneRequestToJSONTyped;
 const ArtStyle_1 = require("./ArtStyle");
+const ImageAspectRatio_1 = require("./ImageAspectRatio");
 const LoraName_1 = require("./LoraName");
 /**
  * Check if a given object implements the PostGenerateSceneRequest interface.
@@ -50,6 +51,7 @@ function PostGenerateSceneRequestFromJSONTyped(json, ignoreDiscriminator) {
         'requestId': json['request_id'],
         'numberOfImages': json['number_of_images'],
         'loras': json['loras'] == null ? undefined : (json['loras'].map(LoraName_1.LoraNameFromJSON)),
+        'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, ImageAspectRatio_1.ImageAspectRatioFromJSON)(json['aspect_ratio']),
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
     };
@@ -68,6 +70,7 @@ function PostGenerateSceneRequestToJSONTyped(value, ignoreDiscriminator = false)
         'request_id': value['requestId'],
         'number_of_images': value['numberOfImages'],
         'loras': value['loras'] == null ? undefined : (value['loras'].map(LoraName_1.LoraNameToJSON)),
+        'aspect_ratio': (0, ImageAspectRatio_1.ImageAspectRatioToJSON)(value['aspectRatio']),
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'chatbot_id': value['chatbotId'],
     };

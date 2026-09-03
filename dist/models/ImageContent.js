@@ -38,6 +38,8 @@ function ImageContentFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'id': json['id'],
         'url': json['url'],
+        'width': json['width'] == null ? undefined : json['width'],
+        'height': json['height'] == null ? undefined : json['height'],
     };
 }
 function ImageContentToJSON(json) {
@@ -50,6 +52,8 @@ function ImageContentToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'id': value['id'],
         'url': value['url'],
+        'width': value['width'],
+        'height': value['height'],
     };
 }
 //# sourceMappingURL=ImageContent.js.map
