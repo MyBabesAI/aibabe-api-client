@@ -57,6 +57,12 @@ export interface GeneratedImages {
     postDetails?: PostDetails | null;
     /**
      *
+     * @type {boolean}
+     * @memberof GeneratedImages
+     */
+    isOriginal?: boolean | null;
+    /**
+     *
      * @type {string}
      * @memberof GeneratedImages
      */

@@ -116,6 +116,12 @@ export interface DetailedWallPost {
     creator: PublicUserPreviewWithFollow;
     /**
      *
+     * @type {boolean}
+     * @memberof DetailedWallPost
+     */
+    isOriginal?: boolean | null;
+    /**
+     *
      * @type {string}
      * @memberof DetailedWallPost
      */

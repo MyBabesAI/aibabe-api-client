@@ -79,6 +79,12 @@ export interface GeneratedVideos {
     postDetails?: PostDetails | null;
     /**
      * 
+     * @type {boolean}
+     * @memberof GeneratedVideos
+     */
+    isOriginal?: boolean | null;
+    /**
+     * 
      * @type {string}
      * @memberof GeneratedVideos
      */
@@ -160,6 +166,7 @@ export function GeneratedVideosFromJSONTyped(json: any, ignoreDiscriminator: boo
         'createdAt': (new Date(json['created_at'])),
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'postDetails': json['post_details'] == null ? undefined : PostDetailsFromJSON(json['post_details']),
+        'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
         'eta': json['eta'],
         'status': VideoGenerationStatusFromJSON(json['status']),
         'generationId': json['generation_id'],
@@ -186,6 +193,7 @@ export function GeneratedVideosFromJSONTyped(json: any, ignoreDiscriminator: boo
         'created_at': ((value['createdAt']).toISOString()),
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'post_details': PostDetailsToJSON(value['postDetails']),
+        'is_original': value['isOriginal'],
         'eta': value['eta'],
         'status': VideoGenerationStatusToJSON(value['status']),
         'generation_id': value['generationId'],

@@ -85,6 +85,7 @@ src/models/CharacterAvatarReview.ts
 src/models/CharacterBuilderSuggestionField.ts
 src/models/CharacterIdentityPageReview.ts
 src/models/CharacterPersonalityPageReview.ts
+src/models/ChatAdminDetails.ts
 src/models/ChatMessageDetail.ts
 src/models/ChatMode.ts
 src/models/ChatReponse.ts

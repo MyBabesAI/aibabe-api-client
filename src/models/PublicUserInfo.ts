@@ -89,6 +89,18 @@ export interface PublicUserInfo {
     messages: number;
     /**
      * 
+     * @type {number}
+     * @memberof PublicUserInfo
+     */
+    stories: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PublicUserInfo
+     */
+    adventures: number;
+    /**
+     * 
      * @type {boolean}
      * @memberof PublicUserInfo
      */
@@ -108,6 +120,8 @@ export function instanceOfPublicUserInfo(value: object): value is PublicUserInfo
     if (!('videos' in value) || value['videos'] === undefined) return false;
     if (!('images' in value) || value['images'] === undefined) return false;
     if (!('messages' in value) || value['messages'] === undefined) return false;
+    if (!('stories' in value) || value['stories'] === undefined) return false;
+    if (!('adventures' in value) || value['adventures'] === undefined) return false;
     if (!('followed' in value) || value['followed'] === undefined) return false;
     return true;
 }
@@ -132,6 +146,8 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'videos': json['videos'],
         'images': json['images'],
         'messages': json['messages'],
+        'stories': json['stories'],
+        'adventures': json['adventures'],
         'followed': json['followed'],
     };
 }
@@ -157,6 +173,8 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'videos': value['videos'],
         'images': value['images'],
         'messages': value['messages'],
+        'stories': value['stories'],
+        'adventures': value['adventures'],
         'followed': value['followed'],
     };
 }

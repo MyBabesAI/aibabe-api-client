@@ -41,6 +41,10 @@ function instanceOfPublicUserInfo(value) {
         return false;
     if (!('messages' in value) || value['messages'] === undefined)
         return false;
+    if (!('stories' in value) || value['stories'] === undefined)
+        return false;
+    if (!('adventures' in value) || value['adventures'] === undefined)
+        return false;
     if (!('followed' in value) || value['followed'] === undefined)
         return false;
     return true;
@@ -63,6 +67,8 @@ function PublicUserInfoFromJSONTyped(json, ignoreDiscriminator) {
         'videos': json['videos'],
         'images': json['images'],
         'messages': json['messages'],
+        'stories': json['stories'],
+        'adventures': json['adventures'],
         'followed': json['followed'],
     };
 }
@@ -84,6 +90,8 @@ function PublicUserInfoToJSONTyped(value, ignoreDiscriminator = false) {
         'videos': value['videos'],
         'images': value['images'],
         'messages': value['messages'],
+        'stories': value['stories'],
+        'adventures': value['adventures'],
         'followed': value['followed'],
     };
 }

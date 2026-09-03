@@ -20,6 +20,7 @@ exports.GetAnonymousConversationResponseToJSON = GetAnonymousConversationRespons
 exports.GetAnonymousConversationResponseToJSONTyped = GetAnonymousConversationResponseToJSONTyped;
 const ChatbotInfo_1 = require("./ChatbotInfo");
 const PostDetails_1 = require("./PostDetails");
+const ChatAdminDetails_1 = require("./ChatAdminDetails");
 const ChatMessageDetail_1 = require("./ChatMessageDetail");
 const ConversationSettings_1 = require("./ConversationSettings");
 /**
@@ -57,6 +58,7 @@ function GetAnonymousConversationResponseFromJSONTyped(json, ignoreDiscriminator
         'conversationId': json['conversation_id'],
         'postDetails': (0, PostDetails_1.PostDetailsFromJSON)(json['post_details']),
         'paginationToken': json['pagination_token'] == null ? undefined : json['pagination_token'],
+        'admin': json['admin'] == null ? undefined : (0, ChatAdminDetails_1.ChatAdminDetailsFromJSON)(json['admin']),
         'recipientId': json['recipient_id'],
     };
 }
@@ -75,6 +77,7 @@ function GetAnonymousConversationResponseToJSONTyped(value, ignoreDiscriminator 
         'conversation_id': value['conversationId'],
         'post_details': (0, PostDetails_1.PostDetailsToJSON)(value['postDetails']),
         'pagination_token': value['paginationToken'],
+        'admin': (0, ChatAdminDetails_1.ChatAdminDetailsToJSON)(value['admin']),
         'recipient_id': value['recipientId'],
     };
 }

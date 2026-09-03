@@ -56,6 +56,12 @@ export interface GeneratedVideos {
     postDetails?: PostDetails | null;
     /**
      *
+     * @type {boolean}
+     * @memberof GeneratedVideos
+     */
+    isOriginal?: boolean | null;
+    /**
+     *
      * @type {string}
      * @memberof GeneratedVideos
      */

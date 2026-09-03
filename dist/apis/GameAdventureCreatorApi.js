@@ -162,6 +162,9 @@ class GameAdventureCreatorApi extends runtime.BaseAPI {
         if (requestParameters['excludeEventEntries'] != null) {
             queryParameters['exclude_event_entries'] = requestParameters['excludeEventEntries'];
         }
+        if (requestParameters['freeTextSearch'] != null) {
+            queryParameters['free_text_search'] = requestParameters['freeTextSearch'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/game-adventure-creator`,

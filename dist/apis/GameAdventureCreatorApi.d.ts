@@ -25,6 +25,7 @@ export interface GetGameAdventureCreatorGameAdventureIdGetRequest {
 }
 export interface ListOwnGameAdventureCreatorGetRequest {
     excludeEventEntries?: boolean;
+    freeTextSearch?: string | null;
 }
 export interface UnpublishGameAdventureCreatorGameAdventureIdPublishDeleteRequest {
     gameAdventureId: string;

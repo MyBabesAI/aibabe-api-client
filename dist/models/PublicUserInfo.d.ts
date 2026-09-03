@@ -78,6 +78,18 @@ export interface PublicUserInfo {
     messages: number;
     /**
      *
+     * @type {number}
+     * @memberof PublicUserInfo
+     */
+    stories: number;
+    /**
+     *
+     * @type {number}
+     * @memberof PublicUserInfo
+     */
+    adventures: number;
+    /**
+     *
      * @type {boolean}
      * @memberof PublicUserInfo
      */

@@ -40,6 +40,7 @@ export interface ChatSuggestionChatChatbotIdSuggestionPostRequest {
 export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
     limit?: number;
+    includeAdmin?: boolean;
 }
 export interface ConversationMessagesChatChatbotIdMessagesConversationIdGetRequest {
     conversationId: string;

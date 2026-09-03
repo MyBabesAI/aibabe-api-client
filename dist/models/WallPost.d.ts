@@ -113,6 +113,12 @@ export interface WallPost {
      * @memberof WallPost
      */
     creator?: PublicUserPreview | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof WallPost
+     */
+    isOriginal?: boolean | null;
 }
 /**
  * Check if a given object implements the WallPost interface.

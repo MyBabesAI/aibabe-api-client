@@ -123,6 +123,7 @@ export interface ChatSuggestionChatChatbotIdSuggestionPostRequest {
 export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
     limit?: number;
+    includeAdmin?: boolean;
 }
 
 export interface ConversationMessagesChatChatbotIdMessagesConversationIdGetRequest {
@@ -487,6 +488,10 @@ export class ChatApi extends runtime.BaseAPI {
 
         if (requestParameters['limit'] != null) {
             queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['includeAdmin'] != null) {
+            queryParameters['include_admin'] = requestParameters['includeAdmin'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

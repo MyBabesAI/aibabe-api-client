@@ -61,6 +61,12 @@ export interface GetGalleryResponseItemsInner {
     postDetails?: PostDetails;
     /**
      *
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    isOriginal?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof GetGalleryResponseItemsInner
      */

@@ -238,6 +238,9 @@ class ChatApi extends runtime.BaseAPI {
         if (requestParameters['limit'] != null) {
             queryParameters['limit'] = requestParameters['limit'];
         }
+        if (requestParameters['includeAdmin'] != null) {
+            queryParameters['include_admin'] = requestParameters['includeAdmin'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/chat/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),

@@ -51,6 +51,7 @@ export * from './CharacterAvatarReview';
 export * from './CharacterBuilderSuggestionField';
 export * from './CharacterIdentityPageReview';
 export * from './CharacterPersonalityPageReview';
+export * from './ChatAdminDetails';
 export * from './ChatMessageDetail';
 export * from './ChatMode';
 export * from './ChatReponse';

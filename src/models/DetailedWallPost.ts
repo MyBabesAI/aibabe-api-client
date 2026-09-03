@@ -175,6 +175,12 @@ export interface DetailedWallPost {
     creator: PublicUserPreviewWithFollow;
     /**
      * 
+     * @type {boolean}
+     * @memberof DetailedWallPost
+     */
+    isOriginal?: boolean | null;
+    /**
+     * 
      * @type {string}
      * @memberof DetailedWallPost
      */
@@ -237,6 +243,7 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'type': ContentTypeFromJSON(json['type']),
         'eventSubmissionPreviews': ((json['event_submission_previews'] as Array<any>).map(EventSubmissionPreviewFromJSON)),
         'creator': PublicUserPreviewWithFollowFromJSON(json['creator']),
+        'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
         'title': json['title'],
         'tags': ((json['tags'] as Array<any>).map(TagDataFromJSON)),
     };
@@ -268,6 +275,7 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'type': ContentTypeToJSON(value['type']),
         'event_submission_previews': ((value['eventSubmissionPreviews'] as Array<any>).map(EventSubmissionPreviewToJSON)),
         'creator': PublicUserPreviewWithFollowToJSON(value['creator']),
+        'is_original': value['isOriginal'],
         'title': value['title'],
         'tags': ((value['tags'] as Array<any>).map(TagDataToJSON)),
     };

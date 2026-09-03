@@ -27,6 +27,13 @@ import {
     PostDetailsToJSON,
     PostDetailsToJSONTyped,
 } from './PostDetails';
+import type { ChatAdminDetails } from './ChatAdminDetails';
+import {
+    ChatAdminDetailsFromJSON,
+    ChatAdminDetailsFromJSONTyped,
+    ChatAdminDetailsToJSON,
+    ChatAdminDetailsToJSONTyped,
+} from './ChatAdminDetails';
 import type { ChatMessageDetail } from './ChatMessageDetail';
 import {
     ChatMessageDetailFromJSON,
@@ -92,6 +99,12 @@ export interface GetAnonymousConversationResponse {
     paginationToken?: string | null;
     /**
      * 
+     * @type {ChatAdminDetails}
+     * @memberof GetAnonymousConversationResponse
+     */
+    admin?: ChatAdminDetails | null;
+    /**
+     * 
      * @type {string}
      * @memberof GetAnonymousConversationResponse
      */
@@ -129,6 +142,7 @@ export function GetAnonymousConversationResponseFromJSONTyped(json: any, ignoreD
         'conversationId': json['conversation_id'],
         'postDetails': PostDetailsFromJSON(json['post_details']),
         'paginationToken': json['pagination_token'] == null ? undefined : json['pagination_token'],
+        'admin': json['admin'] == null ? undefined : ChatAdminDetailsFromJSON(json['admin']),
         'recipientId': json['recipient_id'],
     };
 }
@@ -151,6 +165,7 @@ export function GetAnonymousConversationResponseFromJSONTyped(json: any, ignoreD
         'conversation_id': value['conversationId'],
         'post_details': PostDetailsToJSON(value['postDetails']),
         'pagination_token': value['paginationToken'],
+        'admin': ChatAdminDetailsToJSON(value['admin']),
         'recipient_id': value['recipientId'],
     };
 }

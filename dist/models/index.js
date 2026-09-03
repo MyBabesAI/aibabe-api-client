@@ -69,6 +69,7 @@ __exportStar(require("./CharacterAvatarReview"), exports);
 __exportStar(require("./CharacterBuilderSuggestionField"), exports);
 __exportStar(require("./CharacterIdentityPageReview"), exports);
 __exportStar(require("./CharacterPersonalityPageReview"), exports);
+__exportStar(require("./ChatAdminDetails"), exports);
 __exportStar(require("./ChatMessageDetail"), exports);
 __exportStar(require("./ChatMode"), exports);
 __exportStar(require("./ChatReponse"), exports);
