@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreatorGenerationQuotaStatus } from './CreatorGenerationQuotaStatus';
+import {
+    CreatorGenerationQuotaStatusFromJSON,
+    CreatorGenerationQuotaStatusFromJSONTyped,
+    CreatorGenerationQuotaStatusToJSON,
+    CreatorGenerationQuotaStatusToJSONTyped,
+} from './CreatorGenerationQuotaStatus';
+
 /**
  * 
  * @export
@@ -37,6 +45,12 @@ export interface RemainingFreeUsesResponse {
      * @memberof RemainingFreeUsesResponse
      */
     resetAt?: number | null;
+    /**
+     * 
+     * @type {CreatorGenerationQuotaStatus}
+     * @memberof RemainingFreeUsesResponse
+     */
+    creatorGenerations?: CreatorGenerationQuotaStatus | null;
 }
 
 /**
@@ -59,6 +73,7 @@ export function RemainingFreeUsesResponseFromJSONTyped(json: any, ignoreDiscrimi
         'remainingFreeMessages': json['remaining_free_messages'] == null ? undefined : json['remaining_free_messages'],
         'remainingFreeImages': json['remaining_free_images'] == null ? undefined : json['remaining_free_images'],
         'resetAt': json['reset_at'] == null ? undefined : json['reset_at'],
+        'creatorGenerations': json['creator_generations'] == null ? undefined : CreatorGenerationQuotaStatusFromJSON(json['creator_generations']),
     };
 }
 
@@ -76,6 +91,7 @@ export function RemainingFreeUsesResponseFromJSONTyped(json: any, ignoreDiscrimi
         'remaining_free_messages': value['remainingFreeMessages'],
         'remaining_free_images': value['remainingFreeImages'],
         'reset_at': value['resetAt'],
+        'creator_generations': CreatorGenerationQuotaStatusToJSON(value['creatorGenerations']),
     };
 }
 

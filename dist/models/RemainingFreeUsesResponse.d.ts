@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CreatorGenerationQuotaStatus } from './CreatorGenerationQuotaStatus';
 /**
  *
  * @export
@@ -33,6 +34,12 @@ export interface RemainingFreeUsesResponse {
      * @memberof RemainingFreeUsesResponse
      */
     resetAt?: number | null;
+    /**
+     *
+     * @type {CreatorGenerationQuotaStatus}
+     * @memberof RemainingFreeUsesResponse
+     */
+    creatorGenerations?: CreatorGenerationQuotaStatus | null;
 }
 /**
  * Check if a given object implements the RemainingFreeUsesResponse interface.

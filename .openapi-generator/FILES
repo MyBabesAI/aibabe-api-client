@@ -107,6 +107,8 @@ src/models/CreateAnonymousConversationMessageRequest.ts
 src/models/CreateAnonymousConversationRequest.ts
 src/models/CreateAnonymousConversationResponse.ts
 src/models/CreateAssistantChatSessionRequest.ts
+src/models/CreatorGenerationCharge.ts
+src/models/CreatorGenerationQuotaStatus.ts
 src/models/CustomChatbotTheme.ts
 src/models/DateRangeFilter.ts
 src/models/DeleteBulkMemoryRequest.ts
@@ -228,6 +230,7 @@ src/models/ImageMod.ts
 src/models/ImageModCategory.ts
 src/models/ImagePreset.ts
 src/models/ImagePresetCategory.ts
+src/models/ImagePurpose.ts
 src/models/ImageSendingMode.ts
 src/models/ImageToVideoFromChatPayload.ts
 src/models/ImageToVideoModel.ts

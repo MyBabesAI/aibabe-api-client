@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ArtStyle } from './ArtStyle';
+import type { ImagePurpose } from './ImagePurpose';
 import type { LoraName } from './LoraName';
 /**
  *
@@ -59,6 +60,12 @@ export interface PostGenerateSceneRequest {
      * @memberof PostGenerateSceneRequest
      */
     artStyle: ArtStyle;
+    /**
+     *
+     * @type {ImagePurpose}
+     * @memberof PostGenerateSceneRequest
+     */
+    purpose?: ImagePurpose | null;
     /**
      *
      * @type {string}

@@ -20,6 +20,13 @@ import {
     ArtStyleToJSON,
     ArtStyleToJSONTyped,
 } from './ArtStyle';
+import type { ImagePurpose } from './ImagePurpose';
+import {
+    ImagePurposeFromJSON,
+    ImagePurposeFromJSONTyped,
+    ImagePurposeToJSON,
+    ImagePurposeToJSONTyped,
+} from './ImagePurpose';
 import type { LoraName } from './LoraName';
 import {
     LoraNameFromJSON,
@@ -78,6 +85,12 @@ export interface PostGenerateSceneRequest {
     artStyle: ArtStyle;
     /**
      * 
+     * @type {ImagePurpose}
+     * @memberof PostGenerateSceneRequest
+     */
+    purpose?: ImagePurpose | null;
+    /**
+     * 
      * @type {string}
      * @memberof PostGenerateSceneRequest
      */
@@ -115,6 +128,7 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'numberOfImages': json['number_of_images'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(LoraNameFromJSON)),
         'artStyle': ArtStyleFromJSON(json['art_style']),
+        'purpose': json['purpose'] == null ? undefined : ImagePurposeFromJSON(json['purpose']),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
     };
 }
@@ -137,6 +151,7 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'number_of_images': value['numberOfImages'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(LoraNameToJSON)),
         'art_style': ArtStyleToJSON(value['artStyle']),
+        'purpose': ImagePurposeToJSON(value['purpose']),
         'chatbot_id': value['chatbotId'],
     };
 }

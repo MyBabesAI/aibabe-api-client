@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreatorGenerationCharge } from './CreatorGenerationCharge';
+import {
+    CreatorGenerationChargeFromJSON,
+    CreatorGenerationChargeFromJSONTyped,
+    CreatorGenerationChargeToJSON,
+    CreatorGenerationChargeToJSONTyped,
+} from './CreatorGenerationCharge';
+
 /**
  * 
  * @export
@@ -31,6 +39,12 @@ export interface PostCustomChatbotResponse {
      * @memberof PostCustomChatbotResponse
      */
     isoEta: string;
+    /**
+     * 
+     * @type {CreatorGenerationCharge}
+     * @memberof PostCustomChatbotResponse
+     */
+    generationCharge?: CreatorGenerationCharge | null;
 }
 
 /**
@@ -54,6 +68,7 @@ export function PostCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimi
         
         'chatbotId': json['chatbot_id'],
         'isoEta': json['iso_eta'],
+        'generationCharge': json['generation_charge'] == null ? undefined : CreatorGenerationChargeFromJSON(json['generation_charge']),
     };
 }
 
@@ -70,6 +85,7 @@ export function PostCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimi
         
         'chatbot_id': value['chatbotId'],
         'iso_eta': value['isoEta'],
+        'generation_charge': CreatorGenerationChargeToJSON(value['generationCharge']),
     };
 }
 

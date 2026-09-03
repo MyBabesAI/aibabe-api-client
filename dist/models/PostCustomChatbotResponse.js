@@ -18,6 +18,7 @@ exports.PostCustomChatbotResponseFromJSON = PostCustomChatbotResponseFromJSON;
 exports.PostCustomChatbotResponseFromJSONTyped = PostCustomChatbotResponseFromJSONTyped;
 exports.PostCustomChatbotResponseToJSON = PostCustomChatbotResponseToJSON;
 exports.PostCustomChatbotResponseToJSONTyped = PostCustomChatbotResponseToJSONTyped;
+const CreatorGenerationCharge_1 = require("./CreatorGenerationCharge");
 /**
  * Check if a given object implements the PostCustomChatbotResponse interface.
  */
@@ -38,6 +39,7 @@ function PostCustomChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'chatbotId': json['chatbot_id'],
         'isoEta': json['iso_eta'],
+        'generationCharge': json['generation_charge'] == null ? undefined : (0, CreatorGenerationCharge_1.CreatorGenerationChargeFromJSON)(json['generation_charge']),
     };
 }
 function PostCustomChatbotResponseToJSON(json) {
@@ -50,6 +52,7 @@ function PostCustomChatbotResponseToJSONTyped(value, ignoreDiscriminator = false
     return {
         'chatbot_id': value['chatbotId'],
         'iso_eta': value['isoEta'],
+        'generation_charge': (0, CreatorGenerationCharge_1.CreatorGenerationChargeToJSON)(value['generationCharge']),
     };
 }
 //# sourceMappingURL=PostCustomChatbotResponse.js.map
