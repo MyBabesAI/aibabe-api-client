@@ -40,6 +40,7 @@ function HubTagFromJSONTyped(json, ignoreDiscriminator) {
         'category': (0, TagCategory_1.TagCategoryFromJSON)(json['category']),
         'value': json['value'],
         'previewImageUrls': json['preview_image_urls'] == null ? undefined : json['preview_image_urls'],
+        'indexable': json['indexable'] == null ? undefined : json['indexable'],
     };
 }
 function HubTagToJSON(json) {
@@ -53,6 +54,7 @@ function HubTagToJSONTyped(value, ignoreDiscriminator = false) {
         'category': (0, TagCategory_1.TagCategoryToJSON)(value['category']),
         'value': value['value'],
         'preview_image_urls': value['previewImageUrls'],
+        'indexable': value['indexable'],
     };
 }
 //# sourceMappingURL=HubTag.js.map
