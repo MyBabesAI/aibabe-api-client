@@ -15,6 +15,7 @@ import type { VideoContent } from './VideoContent';
 import type { ContentType } from './ContentType';
 import type { EventSubmissionPreview } from './EventSubmissionPreview';
 import type { ImageContent } from './ImageContent';
+import type { ContentOrigin } from './ContentOrigin';
 import type { StoryPreview } from './StoryPreview';
 import type { TagData } from './TagData';
 import type { GameAdventurePreview } from './GameAdventurePreview';
@@ -132,6 +133,12 @@ export interface DetailedWallPost {
      * @memberof DetailedWallPost
      */
     tags: Array<TagData>;
+    /**
+     *
+     * @type {ContentOrigin}
+     * @memberof DetailedWallPost
+     */
+    origin?: ContentOrigin | null;
 }
 /**
  * Check if a given object implements the DetailedWallPost interface.

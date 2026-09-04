@@ -81,6 +81,7 @@ __exportStar(require("./ChatbotType"), exports);
 __exportStar(require("./ConfirmAgeVerificationRequest"), exports);
 __exportStar(require("./ConfirmAgeVerificationResponse"), exports);
 __exportStar(require("./ContentItem"), exports);
+__exportStar(require("./ContentOrigin"), exports);
 __exportStar(require("./ContentReportReason"), exports);
 __exportStar(require("./ContentType"), exports);
 __exportStar(require("./ContentTypes"), exports);

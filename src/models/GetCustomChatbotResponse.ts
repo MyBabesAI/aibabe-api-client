@@ -27,6 +27,13 @@ import {
     ChatbotCreatedOriginToJSON,
     ChatbotCreatedOriginToJSONTyped,
 } from './ChatbotCreatedOrigin';
+import type { ChatbotPreview } from './ChatbotPreview';
+import {
+    ChatbotPreviewFromJSON,
+    ChatbotPreviewFromJSONTyped,
+    ChatbotPreviewToJSON,
+    ChatbotPreviewToJSONTyped,
+} from './ChatbotPreview';
 import type { PostDetailsWithDate } from './PostDetailsWithDate';
 import {
     PostDetailsWithDateFromJSON,
@@ -108,6 +115,12 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     postDetails?: PostDetailsWithDate | null;
+    /**
+     * 
+     * @type {ChatbotPreview}
+     * @memberof GetCustomChatbotResponse
+     */
+    origin?: ChatbotPreview | null;
 }
 
 
@@ -148,6 +161,7 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'createdFrom': ChatbotCreatedOriginFromJSON(json['created_from']),
         'creator': PublicUserPreviewWithFollowFromJSON(json['creator']),
         'postDetails': json['post_details'] == null ? undefined : PostDetailsWithDateFromJSON(json['post_details']),
+        'origin': json['origin'] == null ? undefined : ChatbotPreviewFromJSON(json['origin']),
     };
 }
 
@@ -172,6 +186,7 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'created_from': ChatbotCreatedOriginToJSON(value['createdFrom']),
         'creator': PublicUserPreviewWithFollowToJSON(value['creator']),
         'post_details': PostDetailsWithDateToJSON(value['postDetails']),
+        'origin': ChatbotPreviewToJSON(value['origin']),
     };
 }
 

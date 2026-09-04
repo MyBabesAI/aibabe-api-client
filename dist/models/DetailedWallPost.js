@@ -24,6 +24,7 @@ const VideoContent_1 = require("./VideoContent");
 const ContentType_1 = require("./ContentType");
 const EventSubmissionPreview_1 = require("./EventSubmissionPreview");
 const ImageContent_1 = require("./ImageContent");
+const ContentOrigin_1 = require("./ContentOrigin");
 const StoryPreview_1 = require("./StoryPreview");
 const TagData_1 = require("./TagData");
 const GameAdventurePreview_1 = require("./GameAdventurePreview");
@@ -91,6 +92,7 @@ function DetailedWallPostFromJSONTyped(json, ignoreDiscriminator) {
         'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
         'title': json['title'],
         'tags': (json['tags'].map(TagData_1.TagDataFromJSON)),
+        'origin': json['origin'] == null ? undefined : (0, ContentOrigin_1.ContentOriginFromJSON)(json['origin']),
     };
 }
 function DetailedWallPostToJSON(json) {
@@ -119,6 +121,7 @@ function DetailedWallPostToJSONTyped(value, ignoreDiscriminator = false) {
         'is_original': value['isOriginal'],
         'title': value['title'],
         'tags': (value['tags'].map(TagData_1.TagDataToJSON)),
+        'origin': (0, ContentOrigin_1.ContentOriginToJSON)(value['origin']),
     };
 }
 //# sourceMappingURL=DetailedWallPost.js.map

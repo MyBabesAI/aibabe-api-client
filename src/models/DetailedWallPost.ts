@@ -55,6 +55,13 @@ import {
     ImageContentToJSON,
     ImageContentToJSONTyped,
 } from './ImageContent';
+import type { ContentOrigin } from './ContentOrigin';
+import {
+    ContentOriginFromJSON,
+    ContentOriginFromJSONTyped,
+    ContentOriginToJSON,
+    ContentOriginToJSONTyped,
+} from './ContentOrigin';
 import type { StoryPreview } from './StoryPreview';
 import {
     StoryPreviewFromJSON,
@@ -191,6 +198,12 @@ export interface DetailedWallPost {
      * @memberof DetailedWallPost
      */
     tags: Array<TagData>;
+    /**
+     * 
+     * @type {ContentOrigin}
+     * @memberof DetailedWallPost
+     */
+    origin?: ContentOrigin | null;
 }
 
 
@@ -246,6 +259,7 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
         'title': json['title'],
         'tags': ((json['tags'] as Array<any>).map(TagDataFromJSON)),
+        'origin': json['origin'] == null ? undefined : ContentOriginFromJSON(json['origin']),
     };
 }
 
@@ -278,6 +292,7 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'is_original': value['isOriginal'],
         'title': value['title'],
         'tags': ((value['tags'] as Array<any>).map(TagDataToJSON)),
+        'origin': ContentOriginToJSON(value['origin']),
     };
 }
 

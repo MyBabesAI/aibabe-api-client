@@ -97,6 +97,7 @@ src/models/ChatbotType.ts
 src/models/ConfirmAgeVerificationRequest.ts
 src/models/ConfirmAgeVerificationResponse.ts
 src/models/ContentItem.ts
+src/models/ContentOrigin.ts
 src/models/ContentReportReason.ts
 src/models/ContentType.ts
 src/models/ContentTypes.ts

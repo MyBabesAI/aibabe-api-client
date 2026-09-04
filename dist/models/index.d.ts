@@ -63,6 +63,7 @@ export * from './ChatbotType';
 export * from './ConfirmAgeVerificationRequest';
 export * from './ConfirmAgeVerificationResponse';
 export * from './ContentItem';
+export * from './ContentOrigin';
 export * from './ContentReportReason';
 export * from './ContentType';
 export * from './ContentTypes';
