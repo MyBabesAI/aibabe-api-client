@@ -133,6 +133,8 @@ export interface ImageToVideoRequest {
 export const ImageToVideoRequestModelEnum = {
     Wan22I2V: 'WAN_22_I2V',
     Wan27I2V: 'WAN_27_I2V',
+    Wan30I2V: 'WAN_30_I2V',
+    Wan30ProI2V: 'WAN_30_PRO_I2V',
     Seedance20I2V: 'SEEDANCE_20_I2V',
     Seedance20MiniI2V: 'SEEDANCE_20_MINI_I2V',
     Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V',
@@ -147,6 +149,7 @@ export const ImageToVideoRequestResolutionEnum = {
     P480: 'P480',
     P720: 'P720',
     P1080: 'P1080',
+    P1440: 'P1440',
     P2160: 'P2160'
 } as const;
 export type ImageToVideoRequestResolutionEnum = typeof ImageToVideoRequestResolutionEnum[keyof typeof ImageToVideoRequestResolutionEnum];
