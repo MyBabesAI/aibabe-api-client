@@ -52,6 +52,12 @@ export interface PostGenerateImageRequest {
      * @memberof PostGenerateImageRequest
      */
     loras?: Array<LoraName> | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PostGenerateImageRequest
+     */
+    originalImageId?: string | null;
 }
 /**
  * Check if a given object implements the PostGenerateImageRequest interface.

@@ -107,6 +107,12 @@ export interface ImageToVideoRequest {
      * @memberof ImageToVideoRequest
      */
     shots?: Array<VideoShot> | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ImageToVideoRequest
+     */
+    remixedVideoId?: string | null;
 }
 /**
  * @export

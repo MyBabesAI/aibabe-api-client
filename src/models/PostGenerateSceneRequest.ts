@@ -95,6 +95,12 @@ export interface PostGenerateSceneRequest {
      * @memberof PostGenerateSceneRequest
      */
     chatbotId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostGenerateSceneRequest
+     */
+    originalImageId?: string | null;
 }
 
 
@@ -130,6 +136,7 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'artStyle': ArtStyleFromJSON(json['art_style']),
         'purpose': json['purpose'] == null ? undefined : ImagePurposeFromJSON(json['purpose']),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
+        'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
     };
 }
 
@@ -153,6 +160,7 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'art_style': ArtStyleToJSON(value['artStyle']),
         'purpose': ImagePurposeToJSON(value['purpose']),
         'chatbot_id': value['chatbotId'],
+        'original_image_id': value['originalImageId'],
     };
 }
 

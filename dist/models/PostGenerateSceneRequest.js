@@ -54,6 +54,7 @@ function PostGenerateSceneRequestFromJSONTyped(json, ignoreDiscriminator) {
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'purpose': json['purpose'] == null ? undefined : (0, ImagePurpose_1.ImagePurposeFromJSON)(json['purpose']),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
+        'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
     };
 }
 function PostGenerateSceneRequestToJSON(json) {
@@ -73,6 +74,7 @@ function PostGenerateSceneRequestToJSONTyped(value, ignoreDiscriminator = false)
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'purpose': (0, ImagePurpose_1.ImagePurposeToJSON)(value['purpose']),
         'chatbot_id': value['chatbotId'],
+        'original_image_id': value['originalImageId'],
     };
 }
 //# sourceMappingURL=PostGenerateSceneRequest.js.map

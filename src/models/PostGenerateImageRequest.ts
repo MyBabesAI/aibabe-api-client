@@ -63,6 +63,12 @@ export interface PostGenerateImageRequest {
      * @memberof PostGenerateImageRequest
      */
     loras?: Array<LoraName> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostGenerateImageRequest
+     */
+    originalImageId?: string | null;
 }
 
 /**
@@ -92,6 +98,7 @@ export function PostGenerateImageRequestFromJSONTyped(json: any, ignoreDiscrimin
         'requestId': json['request_id'],
         'numberOfImages': json['number_of_images'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(LoraNameFromJSON)),
+        'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
     };
 }
 
@@ -112,6 +119,7 @@ export function PostGenerateImageRequestFromJSONTyped(json: any, ignoreDiscrimin
         'request_id': value['requestId'],
         'number_of_images': value['numberOfImages'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(LoraNameToJSON)),
+        'original_image_id': value['originalImageId'],
     };
 }
 

@@ -72,6 +72,12 @@ export interface PostGenerateSceneRequest {
      * @memberof PostGenerateSceneRequest
      */
     chatbotId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PostGenerateSceneRequest
+     */
+    originalImageId?: string | null;
 }
 /**
  * Check if a given object implements the PostGenerateSceneRequest interface.

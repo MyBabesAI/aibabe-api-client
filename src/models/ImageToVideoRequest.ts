@@ -124,6 +124,12 @@ export interface ImageToVideoRequest {
      * @memberof ImageToVideoRequest
      */
     shots?: Array<VideoShot> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ImageToVideoRequest
+     */
+    remixedVideoId?: string | null;
 }
 
 
@@ -192,6 +198,7 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'seed': json['seed'] == null ? undefined : json['seed'],
         'audioGeneration': json['audio_generation'] == null ? undefined : json['audio_generation'],
         'shots': json['shots'] == null ? undefined : ((json['shots'] as Array<any>).map(VideoShotFromJSON)),
+        'remixedVideoId': json['remixed_video_id'] == null ? undefined : json['remixed_video_id'],
     };
 }
 
@@ -221,6 +228,7 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'seed': value['seed'],
         'audio_generation': value['audioGeneration'],
         'shots': value['shots'] == null ? undefined : ((value['shots'] as Array<any>).map(VideoShotToJSON)),
+        'remixed_video_id': value['remixedVideoId'],
     };
 }
 

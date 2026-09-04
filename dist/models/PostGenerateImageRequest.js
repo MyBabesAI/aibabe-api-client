@@ -47,6 +47,7 @@ function PostGenerateImageRequestFromJSONTyped(json, ignoreDiscriminator) {
         'requestId': json['request_id'],
         'numberOfImages': json['number_of_images'],
         'loras': json['loras'] == null ? undefined : (json['loras'].map(LoraName_1.LoraNameFromJSON)),
+        'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
     };
 }
 function PostGenerateImageRequestToJSON(json) {
@@ -63,6 +64,7 @@ function PostGenerateImageRequestToJSONTyped(value, ignoreDiscriminator = false)
         'request_id': value['requestId'],
         'number_of_images': value['numberOfImages'],
         'loras': value['loras'] == null ? undefined : (value['loras'].map(LoraName_1.LoraNameToJSON)),
+        'original_image_id': value['originalImageId'],
     };
 }
 //# sourceMappingURL=PostGenerateImageRequest.js.map

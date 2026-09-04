@@ -86,6 +86,7 @@ function ImageToVideoRequestFromJSONTyped(json, ignoreDiscriminator) {
         'seed': json['seed'] == null ? undefined : json['seed'],
         'audioGeneration': json['audio_generation'] == null ? undefined : json['audio_generation'],
         'shots': json['shots'] == null ? undefined : (json['shots'].map(VideoShot_1.VideoShotFromJSON)),
+        'remixedVideoId': json['remixed_video_id'] == null ? undefined : json['remixed_video_id'],
     };
 }
 function ImageToVideoRequestToJSON(json) {
@@ -111,6 +112,7 @@ function ImageToVideoRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'seed': value['seed'],
         'audio_generation': value['audioGeneration'],
         'shots': value['shots'] == null ? undefined : (value['shots'].map(VideoShot_1.VideoShotToJSON)),
+        'remixed_video_id': value['remixedVideoId'],
     };
 }
 //# sourceMappingURL=ImageToVideoRequest.js.map
