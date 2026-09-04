@@ -20,7 +20,6 @@ exports.VideoModelConfigFromJSONTyped = VideoModelConfigFromJSONTyped;
 exports.VideoModelConfigToJSON = VideoModelConfigToJSON;
 exports.VideoModelConfigToJSONTyped = VideoModelConfigToJSONTyped;
 const runtime_1 = require("../runtime");
-const PromotionSummary_1 = require("./PromotionSummary");
 const VideoDurationOptions_1 = require("./VideoDurationOptions");
 const VideoQualityConfig_1 = require("./VideoQualityConfig");
 /**
@@ -29,8 +28,6 @@ const VideoQualityConfig_1 = require("./VideoQualityConfig");
 exports.VideoModelConfigModelEnum = {
     Wan22I2V: 'WAN_22_I2V',
     Wan27I2V: 'WAN_27_I2V',
-    Wan30I2V: 'WAN_30_I2V',
-    Wan30ProI2V: 'WAN_30_PRO_I2V',
     Seedance20I2V: 'SEEDANCE_20_I2V',
     Seedance20MiniI2V: 'SEEDANCE_20_MINI_I2V',
     Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V',
@@ -75,7 +72,6 @@ function VideoModelConfigFromJSONTyped(json, ignoreDiscriminator) {
         'durations': (0, VideoDurationOptions_1.VideoDurationOptionsFromJSON)(json['durations']),
         'billedExtraSeconds': json['billed_extra_seconds'] == null ? undefined : json['billed_extra_seconds'],
         'qualities': ((0, runtime_1.mapValues)(json['qualities'], VideoQualityConfig_1.VideoQualityConfigFromJSON)),
-        'promotion': json['promotion'] == null ? undefined : (0, PromotionSummary_1.PromotionSummaryFromJSON)(json['promotion']),
         'audioGenerationAvailable': json['audio_generation_available'],
         'promptExtendAvailable': json['prompt_extend_available'],
         'lastFrameSupported': json['last_frame_supported'],
@@ -97,7 +93,6 @@ function VideoModelConfigToJSONTyped(value, ignoreDiscriminator = false) {
         'durations': (0, VideoDurationOptions_1.VideoDurationOptionsToJSON)(value['durations']),
         'billed_extra_seconds': value['billedExtraSeconds'],
         'qualities': ((0, runtime_1.mapValues)(value['qualities'], VideoQualityConfig_1.VideoQualityConfigToJSON)),
-        'promotion': (0, PromotionSummary_1.PromotionSummaryToJSON)(value['promotion']),
         'audio_generation_available': value['audioGenerationAvailable'],
         'prompt_extend_available': value['promptExtendAvailable'],
         'last_frame_supported': value['lastFrameSupported'],

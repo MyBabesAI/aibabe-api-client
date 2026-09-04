@@ -31,12 +31,6 @@ export interface VideoQualityConfig {
      * @memberof VideoQualityConfig
      */
     tokenCostPerSecond: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof VideoQualityConfig
-     */
-    originalTokenCostPerSecond?: number | null;
 }
 
 
@@ -47,7 +41,6 @@ export const VideoQualityConfigResolutionEnum = {
     P480: 'P480',
     P720: 'P720',
     P1080: 'P1080',
-    P1440: 'P1440',
     P2160: 'P2160'
 } as const;
 export type VideoQualityConfigResolutionEnum = typeof VideoQualityConfigResolutionEnum[keyof typeof VideoQualityConfigResolutionEnum];
@@ -74,7 +67,6 @@ export function VideoQualityConfigFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'resolution': json['resolution'],
         'tokenCostPerSecond': json['token_cost_per_second'],
-        'originalTokenCostPerSecond': json['original_token_cost_per_second'] == null ? undefined : json['original_token_cost_per_second'],
     };
 }
 
@@ -91,7 +83,6 @@ export function VideoQualityConfigFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'resolution': value['resolution'],
         'token_cost_per_second': value['tokenCostPerSecond'],
-        'original_token_cost_per_second': value['originalTokenCostPerSecond'],
     };
 }
 

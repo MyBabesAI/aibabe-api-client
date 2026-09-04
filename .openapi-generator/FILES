@@ -21,7 +21,6 @@ src/apis/LeaderboardsApi.ts
 src/apis/MemoryApi.ts
 src/apis/NotificationApi.ts
 src/apis/PostApi.ts
-src/apis/PromotionApi.ts
 src/apis/SEOApi.ts
 src/apis/ServerApi.ts
 src/apis/StoryCreatorApi.ts
@@ -41,15 +40,12 @@ src/models/AdminBadgeResponse.ts
 src/models/AdminCreatePricingProductRequest.ts
 src/models/AdminCreatePricingProductRequestBillingPeriod.ts
 src/models/AdminCreatePricingProductRequestSubscriptionTier.ts
-src/models/AdminCreatePromotionRequest.ts
 src/models/AdminCreateTokenUsageRequest.ts
 src/models/AdminCreateTokenUsageRequestResolution.ts
 src/models/AdminPricingGroupResponse.ts
 src/models/AdminPricingGroupRevisionsResponse.ts
 src/models/AdminPricingGroupsResponse.ts
 src/models/AdminPricingProductResponse.ts
-src/models/AdminPromotionListResponse.ts
-src/models/AdminPromotionResponse.ts
 src/models/AdminSavePricingGroupRequest.ts
 src/models/AdminSavePricingGroupRevisionsRequest.ts
 src/models/AdminSavePricingGroupRevisionsRequestPricingGroup.ts
@@ -58,7 +54,6 @@ src/models/AdminSaveTokenUsageGroupRequest.ts
 src/models/AdminSeedanceModel.ts
 src/models/AdminTokenUsageGroupResponse.ts
 src/models/AdminTokenUsageResponse.ts
-src/models/AdminUpdatePromotionRequest.ts
 src/models/AdminUserJourneyListItem.ts
 src/models/AdminUserJourneysResponse.ts
 src/models/AgeVerificationStatusResponse.ts
@@ -98,7 +93,6 @@ src/models/ChatbotCreatedOrigin.ts
 src/models/ChatbotInfo.ts
 src/models/ChatbotPreview.ts
 src/models/ChatbotType.ts
-src/models/Code.ts
 src/models/ConfirmAgeVerificationRequest.ts
 src/models/ConfirmAgeVerificationResponse.ts
 src/models/ContentItem.ts
@@ -123,8 +117,6 @@ src/models/DisplayDiscount.ts
 src/models/DonationNotification.ts
 src/models/DownscaleRequest.ts
 src/models/EffectiveEventStatus.ts
-src/models/Enabled.ts
-src/models/EndsAt.ts
 src/models/EpisodeContent.ts
 src/models/EpisodeCounts.ts
 src/models/EpisodePanelType.ts
@@ -282,7 +274,6 @@ src/models/PatchUserPreferenceProfileRequest.ts
 src/models/PatchUserRequest.ts
 src/models/PaymentCurrency.ts
 src/models/PaymentProviderType.ts
-src/models/PercentOff.ts
 src/models/PingRequest.ts
 src/models/PostAcceptOfferRequest.ts
 src/models/PostAcceptOfferResponse.ts
@@ -351,12 +342,8 @@ src/models/PostVerifyPublicUsernameRequest.ts
 src/models/PostVerifyPublicUsernameResponse.ts
 src/models/PreferenceOption.ts
 src/models/PricingDisplayContext.ts
-src/models/PricingModels.ts
 src/models/PricingVersionStatus.ts
 src/models/ProductType.ts
-src/models/PromotionListResponse.ts
-src/models/PromotionResponse.ts
-src/models/PromotionSummary.ts
 src/models/PublicUserInfo.ts
 src/models/PublicUserPreview.ts
 src/models/PublicUserPreviewWithFollow.ts
@@ -392,7 +379,6 @@ src/models/SpecialAddonOffer.ts
 src/models/SpecialFeatures.ts
 src/models/SpecialOffer.ts
 src/models/SpecialSubscriptionOffer.ts
-src/models/StartsAt.ts
 src/models/Status.ts
 src/models/StoryCounts.ts
 src/models/StoryCreatorActor.ts
@@ -450,7 +436,6 @@ src/models/TextToSpeechEnhanceResponse.ts
 src/models/TextToSpeechRequest.ts
 src/models/TextToSpeechResponse.ts
 src/models/TimedBadgeType.ts
-src/models/Title.ts
 src/models/TokenPriceConfig.ts
 src/models/TokenPricingConfigResponse.ts
 src/models/TokenReconciliationResponse.ts

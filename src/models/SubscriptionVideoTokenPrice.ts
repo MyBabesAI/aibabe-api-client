@@ -64,18 +64,6 @@ export interface SubscriptionVideoTokenPrice {
      * @memberof SubscriptionVideoTokenPrice
      */
     tokenCost: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof SubscriptionVideoTokenPrice
-     */
-    originalTokenCost?: number | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof SubscriptionVideoTokenPrice
-     */
-    promotionCode?: string | null;
 }
 
 
@@ -106,8 +94,6 @@ export function SubscriptionVideoTokenPriceFromJSONTyped(json: any, ignoreDiscri
         'resolution': VideoResolutionFromJSON(json['resolution']),
         'durationSeconds': json['duration_seconds'] == null ? undefined : json['duration_seconds'],
         'tokenCost': json['token_cost'],
-        'originalTokenCost': json['original_token_cost'] == null ? undefined : json['original_token_cost'],
-        'promotionCode': json['promotion_code'] == null ? undefined : json['promotion_code'],
     };
 }
 
@@ -127,8 +113,6 @@ export function SubscriptionVideoTokenPriceFromJSONTyped(json: any, ignoreDiscri
         'resolution': VideoResolutionToJSON(value['resolution']),
         'duration_seconds': value['durationSeconds'],
         'token_cost': value['tokenCost'],
-        'original_token_cost': value['originalTokenCost'],
-        'promotion_code': value['promotionCode'],
     };
 }
 

@@ -17,13 +17,9 @@ import * as runtime from '../runtime';
 import type {
   AdminAwardBadgeRequest,
   AdminBadgeResponse,
-  AdminCreatePromotionRequest,
   AdminPricingGroupRevisionsResponse,
   AdminPricingGroupsResponse,
-  AdminPromotionListResponse,
-  AdminPromotionResponse,
   AdminSavePricingGroupRevisionsRequest,
-  AdminUpdatePromotionRequest,
   AdminUserJourneysResponse,
   AuraSubcategory,
   BadgeCategory,
@@ -49,20 +45,12 @@ import {
     AdminAwardBadgeRequestToJSON,
     AdminBadgeResponseFromJSON,
     AdminBadgeResponseToJSON,
-    AdminCreatePromotionRequestFromJSON,
-    AdminCreatePromotionRequestToJSON,
     AdminPricingGroupRevisionsResponseFromJSON,
     AdminPricingGroupRevisionsResponseToJSON,
     AdminPricingGroupsResponseFromJSON,
     AdminPricingGroupsResponseToJSON,
-    AdminPromotionListResponseFromJSON,
-    AdminPromotionListResponseToJSON,
-    AdminPromotionResponseFromJSON,
-    AdminPromotionResponseToJSON,
     AdminSavePricingGroupRevisionsRequestFromJSON,
     AdminSavePricingGroupRevisionsRequestToJSON,
-    AdminUpdatePromotionRequestFromJSON,
-    AdminUpdatePromotionRequestToJSON,
     AdminUserJourneysResponseFromJSON,
     AdminUserJourneysResponseToJSON,
     AuraSubcategoryFromJSON,
@@ -130,10 +118,6 @@ export interface CreateBadgeAdminBadgesPostRequest {
     manuallyProvided?: boolean;
     usable?: boolean;
     visible?: boolean;
-}
-
-export interface CreatePromotionAdminPromotionPostRequest {
-    adminCreatePromotionRequest: AdminCreatePromotionRequest;
 }
 
 export interface DownscaleAdminDownscalePostRequest {
@@ -214,11 +198,6 @@ export interface UpdateBadgeAdminBadgesBadgeIdPatchRequest {
     manuallyProvided?: boolean | null;
     usable?: boolean | null;
     visible?: boolean | null;
-}
-
-export interface UpdatePromotionAdminPromotionPromotionIdPatchRequest {
-    promotionId: string;
-    adminUpdatePromotionRequest: AdminUpdatePromotionRequest;
 }
 
 /**
@@ -459,42 +438,6 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async createBadgeAdminBadgesPost(requestParameters: CreateBadgeAdminBadgesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminBadgeResponse> {
         const response = await this.createBadgeAdminBadgesPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Create Promotion
-     */
-    async createPromotionAdminPromotionPostRaw(requestParameters: CreatePromotionAdminPromotionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminPromotionResponse>> {
-        if (requestParameters['adminCreatePromotionRequest'] == null) {
-            throw new runtime.RequiredError(
-                'adminCreatePromotionRequest',
-                'Required parameter "adminCreatePromotionRequest" was null or undefined when calling createPromotionAdminPromotionPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/admin/promotion`,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AdminCreatePromotionRequestToJSON(requestParameters['adminCreatePromotionRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AdminPromotionResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Create Promotion
-     */
-    async createPromotionAdminPromotionPost(requestParameters: CreatePromotionAdminPromotionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPromotionResponse> {
-        const response = await this.createPromotionAdminPromotionPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -907,32 +850,6 @@ export class AdminApi extends runtime.BaseAPI {
     }
 
     /**
-     * List Promotions
-     */
-    async listPromotionsAdminPromotionGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminPromotionListResponse>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/admin/promotion`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AdminPromotionListResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * List Promotions
-     */
-    async listPromotionsAdminPromotionGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPromotionListResponse> {
-        const response = await this.listPromotionsAdminPromotionGetRaw(initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Provide Award
      */
     async provideAwardAdminBadgesAwardPostRaw(requestParameters: ProvideAwardAdminBadgesAwardPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -1229,49 +1146,6 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async updateBadgeAdminBadgesBadgeIdPatch(requestParameters: UpdateBadgeAdminBadgesBadgeIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.updateBadgeAdminBadgesBadgeIdPatchRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Update Promotion
-     */
-    async updatePromotionAdminPromotionPromotionIdPatchRaw(requestParameters: UpdatePromotionAdminPromotionPromotionIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminPromotionResponse>> {
-        if (requestParameters['promotionId'] == null) {
-            throw new runtime.RequiredError(
-                'promotionId',
-                'Required parameter "promotionId" was null or undefined when calling updatePromotionAdminPromotionPromotionIdPatch().'
-            );
-        }
-
-        if (requestParameters['adminUpdatePromotionRequest'] == null) {
-            throw new runtime.RequiredError(
-                'adminUpdatePromotionRequest',
-                'Required parameter "adminUpdatePromotionRequest" was null or undefined when calling updatePromotionAdminPromotionPromotionIdPatch().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/admin/promotion/{promotion_id}`.replace(`{${"promotion_id"}}`, encodeURIComponent(String(requestParameters['promotionId']))),
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AdminUpdatePromotionRequestToJSON(requestParameters['adminUpdatePromotionRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AdminPromotionResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Update Promotion
-     */
-    async updatePromotionAdminPromotionPromotionIdPatch(requestParameters: UpdatePromotionAdminPromotionPromotionIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPromotionResponse> {
-        const response = await this.updatePromotionAdminPromotionPromotionIdPatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

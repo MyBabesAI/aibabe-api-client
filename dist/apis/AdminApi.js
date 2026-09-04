@@ -232,32 +232,6 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Create Promotion
-     */
-    async createPromotionAdminPromotionPostRaw(requestParameters, initOverrides) {
-        if (requestParameters['adminCreatePromotionRequest'] == null) {
-            throw new runtime.RequiredError('adminCreatePromotionRequest', 'Required parameter "adminCreatePromotionRequest" was null or undefined when calling createPromotionAdminPromotionPost().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        headerParameters['Content-Type'] = 'application/json';
-        const response = await this.request({
-            path: `/admin/promotion`,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: (0, index_1.AdminCreatePromotionRequestToJSON)(requestParameters['adminCreatePromotionRequest']),
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminPromotionResponseFromJSON)(jsonValue));
-    }
-    /**
-     * Create Promotion
-     */
-    async createPromotionAdminPromotionPost(requestParameters, initOverrides) {
-        const response = await this.createPromotionAdminPromotionPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
      * Downscale
      */
     async downscaleAdminDownscalePostRaw(requestParameters, initOverrides) {
@@ -571,27 +545,6 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * List Promotions
-     */
-    async listPromotionsAdminPromotionGetRaw(initOverrides) {
-        const queryParameters = {};
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/admin/promotion`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminPromotionListResponseFromJSON)(jsonValue));
-    }
-    /**
-     * List Promotions
-     */
-    async listPromotionsAdminPromotionGet(initOverrides) {
-        const response = await this.listPromotionsAdminPromotionGetRaw(initOverrides);
-        return await response.value();
-    }
-    /**
      * Provide Award
      */
     async provideAwardAdminBadgesAwardPostRaw(requestParameters, initOverrides) {
@@ -818,35 +771,6 @@ class AdminApi extends runtime.BaseAPI {
      */
     async updateBadgeAdminBadgesBadgeIdPatch(requestParameters, initOverrides) {
         const response = await this.updateBadgeAdminBadgesBadgeIdPatchRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
-     * Update Promotion
-     */
-    async updatePromotionAdminPromotionPromotionIdPatchRaw(requestParameters, initOverrides) {
-        if (requestParameters['promotionId'] == null) {
-            throw new runtime.RequiredError('promotionId', 'Required parameter "promotionId" was null or undefined when calling updatePromotionAdminPromotionPromotionIdPatch().');
-        }
-        if (requestParameters['adminUpdatePromotionRequest'] == null) {
-            throw new runtime.RequiredError('adminUpdatePromotionRequest', 'Required parameter "adminUpdatePromotionRequest" was null or undefined when calling updatePromotionAdminPromotionPromotionIdPatch().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        headerParameters['Content-Type'] = 'application/json';
-        const response = await this.request({
-            path: `/admin/promotion/{promotion_id}`.replace(`{${"promotion_id"}}`, encodeURIComponent(String(requestParameters['promotionId']))),
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: (0, index_1.AdminUpdatePromotionRequestToJSON)(requestParameters['adminUpdatePromotionRequest']),
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminPromotionResponseFromJSON)(jsonValue));
-    }
-    /**
-     * Update Promotion
-     */
-    async updatePromotionAdminPromotionPromotionIdPatch(requestParameters, initOverrides) {
-        const response = await this.updatePromotionAdminPromotionPromotionIdPatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 }

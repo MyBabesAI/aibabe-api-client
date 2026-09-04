@@ -17,7 +17,6 @@ export declare const VideoResolution: {
     readonly P480: "P480";
     readonly P720: "P720";
     readonly P1080: "P1080";
-    readonly P1440: "P1440";
     readonly P2160: "P2160";
 };
 export type VideoResolution = typeof VideoResolution[keyof typeof VideoResolution];

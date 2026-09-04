@@ -47,18 +47,6 @@ export interface SubscriptionVideoTokenPrice {
      * @memberof SubscriptionVideoTokenPrice
      */
     tokenCost: number;
-    /**
-     *
-     * @type {number}
-     * @memberof SubscriptionVideoTokenPrice
-     */
-    originalTokenCost?: number | null;
-    /**
-     *
-     * @type {string}
-     * @memberof SubscriptionVideoTokenPrice
-     */
-    promotionCode?: string | null;
 }
 /**
  * Check if a given object implements the SubscriptionVideoTokenPrice interface.
