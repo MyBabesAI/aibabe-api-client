@@ -20,6 +20,7 @@
 export const SortFilter = {
     Trending: 'trending',
     Newest: 'newest',
+    Oldest: 'oldest',
     MostLiked: 'most_liked',
     HighestRating: 'highest_rating',
     MostViewed: 'most_viewed',

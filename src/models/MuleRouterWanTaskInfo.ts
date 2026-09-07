@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { MuleRouterWanTaskError } from './MuleRouterWanTaskError';
+import type { MuleRouterWanTaskInfoError } from './MuleRouterWanTaskInfoError';
 import {
-    MuleRouterWanTaskErrorFromJSON,
-    MuleRouterWanTaskErrorFromJSONTyped,
-    MuleRouterWanTaskErrorToJSON,
-    MuleRouterWanTaskErrorToJSONTyped,
-} from './MuleRouterWanTaskError';
+    MuleRouterWanTaskInfoErrorFromJSON,
+    MuleRouterWanTaskInfoErrorFromJSONTyped,
+    MuleRouterWanTaskInfoErrorToJSON,
+    MuleRouterWanTaskInfoErrorToJSONTyped,
+} from './MuleRouterWanTaskInfoError';
 
 /**
  * 
@@ -27,6 +27,7 @@ import {
  * @interface MuleRouterWanTaskInfo
  */
 export interface MuleRouterWanTaskInfo {
+    [key: string]: any | any;
     /**
      * 
      * @type {string}
@@ -53,10 +54,10 @@ export interface MuleRouterWanTaskInfo {
     updatedAt: string;
     /**
      * 
-     * @type {MuleRouterWanTaskError}
+     * @type {MuleRouterWanTaskInfoError}
      * @memberof MuleRouterWanTaskInfo
      */
-    error?: MuleRouterWanTaskError | null;
+    error?: MuleRouterWanTaskInfoError;
 }
 
 
@@ -93,11 +94,12 @@ export function MuleRouterWanTaskInfoFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
+            ...json,
         'id': json['id'],
         'status': json['status'],
         'createdAt': json['created_at'],
         'updatedAt': json['updated_at'],
-        'error': json['error'] == null ? undefined : MuleRouterWanTaskErrorFromJSON(json['error']),
+        'error': json['error'] == null ? undefined : MuleRouterWanTaskInfoErrorFromJSON(json['error']),
     };
 }
 
@@ -112,11 +114,12 @@ export function MuleRouterWanTaskInfoFromJSONTyped(json: any, ignoreDiscriminato
 
     return {
         
+            ...value,
         'id': value['id'],
         'status': value['status'],
         'created_at': value['createdAt'],
         'updated_at': value['updatedAt'],
-        'error': MuleRouterWanTaskErrorToJSON(value['error']),
+        'error': MuleRouterWanTaskInfoErrorToJSON(value['error']),
     };
 }
 

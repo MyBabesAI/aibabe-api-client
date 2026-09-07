@@ -9,13 +9,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { MuleRouterWanTaskError } from './MuleRouterWanTaskError';
+import type { MuleRouterWanTaskInfoError } from './MuleRouterWanTaskInfoError';
 /**
  *
  * @export
  * @interface MuleRouterWanTaskInfo
  */
 export interface MuleRouterWanTaskInfo {
+    [key: string]: any | any;
     /**
      *
      * @type {string}
@@ -42,10 +43,10 @@ export interface MuleRouterWanTaskInfo {
     updatedAt: string;
     /**
      *
-     * @type {MuleRouterWanTaskError}
+     * @type {MuleRouterWanTaskInfoError}
      * @memberof MuleRouterWanTaskInfo
      */
-    error?: MuleRouterWanTaskError | null;
+    error?: MuleRouterWanTaskInfoError;
 }
 /**
  * @export

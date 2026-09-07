@@ -209,6 +209,7 @@ exports.ExceptionCode = {
     LlmModelNotAvailable: 'llm_model_not_available',
     OpenSearchDisabled: 'open_search_disabled',
     OpenSearchNotSuportedSort: 'open_search_not_suported_sort',
+    InvalidPaginationToken: 'invalid_pagination_token',
     OpenSearchNotSuportedPostFiltering: 'open_search_not_suported_post_filtering',
     ExploreInvalidSortFilter: 'explore_invalid_sort_filter',
     ExploreEventFreeTextNotSupported: 'explore_event_free_text_not_supported',

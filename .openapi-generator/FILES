@@ -94,6 +94,7 @@ src/models/ChatbotCreatedOrigin.ts
 src/models/ChatbotInfo.ts
 src/models/ChatbotPreview.ts
 src/models/ChatbotType.ts
+src/models/Code.ts
 src/models/ConfirmAgeVerificationRequest.ts
 src/models/ConfirmAgeVerificationResponse.ts
 src/models/ContentItem.ts
@@ -114,6 +115,7 @@ src/models/CustomChatbotTheme.ts
 src/models/DateRangeFilter.ts
 src/models/DeleteBulkMemoryRequest.ts
 src/models/DeleteUserRequest.ts
+src/models/Detail.ts
 src/models/DetailedWallPost.ts
 src/models/DiscountOriginalPrice.ts
 src/models/DiscountOriginalTokens.ts
@@ -264,7 +266,9 @@ src/models/Model.ts
 src/models/MonthlyTokens.ts
 src/models/MuleRouterWanTaskError.ts
 src/models/MuleRouterWanTaskInfo.ts
+src/models/MuleRouterWanTaskInfoError.ts
 src/models/MuleRouterWanTaskResponse.ts
+src/models/MuleRouterWanTaskResponseTaskInfo.ts
 src/models/NewEpisodeNotification.ts
 src/models/NotificationResponse.ts
 src/models/NotificationResponseNotificationsInner.ts
@@ -442,6 +446,7 @@ src/models/TextToSpeechEnhanceResponse.ts
 src/models/TextToSpeechRequest.ts
 src/models/TextToSpeechResponse.ts
 src/models/TimedBadgeType.ts
+src/models/Title.ts
 src/models/TokenPriceConfig.ts
 src/models/TokenPricingConfigResponse.ts
 src/models/TokenReconciliationResponse.ts
@@ -480,6 +485,8 @@ src/models/VideoPricingModel.ts
 src/models/VideoQualityConfig.ts
 src/models/VideoResolution.ts
 src/models/VideoShot.ts
+src/models/Videos.ts
+src/models/VisibilityFilter.ts
 src/models/VisualType.ts
 src/models/WallPost.ts
 src/models/WanExtendVideoCompletionPayload.ts

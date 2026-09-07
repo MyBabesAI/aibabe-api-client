@@ -21,6 +21,8 @@ import type {
   GameAdventureCreatorUpdateRequest,
   GameAdventureSessionResponse,
   HTTPValidationError,
+  SortFilter,
+  VisibilityFilter,
 } from '../models/index';
 import {
     GameAdventureCreatorCreateRequestFromJSON,
@@ -35,6 +37,10 @@ import {
     GameAdventureSessionResponseToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
+    SortFilterFromJSON,
+    SortFilterToJSON,
+    VisibilityFilterFromJSON,
+    VisibilityFilterToJSON,
 } from '../models/index';
 
 export interface CreateGameAdventureCreatorPostRequest {
@@ -56,6 +62,8 @@ export interface GetGameAdventureCreatorGameAdventureIdGetRequest {
 export interface ListOwnGameAdventureCreatorGetRequest {
     excludeEventEntries?: boolean;
     freeTextSearch?: string | null;
+    sort?: SortFilter;
+    visibility?: VisibilityFilter;
 }
 
 export interface UnpublishGameAdventureCreatorGameAdventureIdPublishDeleteRequest {
@@ -222,6 +230,14 @@ export class GameAdventureCreatorApi extends runtime.BaseAPI {
 
         if (requestParameters['freeTextSearch'] != null) {
             queryParameters['free_text_search'] = requestParameters['freeTextSearch'];
+        }
+
+        if (requestParameters['sort'] != null) {
+            queryParameters['sort'] = requestParameters['sort'];
+        }
+
+        if (requestParameters['visibility'] != null) {
+            queryParameters['visibility'] = requestParameters['visibility'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

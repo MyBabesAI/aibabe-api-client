@@ -39,6 +39,7 @@ import type {
   PostCustomChatbotV2Payload,
   PostProfilePictureResponse,
   SortFilter,
+  VisibilityFilter,
 } from '../models/index';
 import {
     CharacterAboutPageReviewFromJSON,
@@ -89,6 +90,8 @@ import {
     PostProfilePictureResponseToJSON,
     SortFilterFromJSON,
     SortFilterToJSON,
+    VisibilityFilterFromJSON,
+    VisibilityFilterToJSON,
 } from '../models/index';
 
 export interface AttachmentChatbotChatbotIdAttachmentGetRequest {
@@ -139,6 +142,7 @@ export interface ListChatbotGetRequest {
     type?: ChatbotType | null;
     limit?: number;
     sort?: SortFilter;
+    visibility?: VisibilityFilter;
 }
 
 export interface ListRemixedChatbotsChatbotRemixedChatbotIdGetRequest {
@@ -568,6 +572,10 @@ export class ChatbotApi extends runtime.BaseAPI {
 
         if (requestParameters['sort'] != null) {
             queryParameters['sort'] = requestParameters['sort'];
+        }
+
+        if (requestParameters['visibility'] != null) {
+            queryParameters['visibility'] = requestParameters['visibility'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

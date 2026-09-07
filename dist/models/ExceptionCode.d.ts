@@ -199,6 +199,7 @@ export declare const ExceptionCode: {
     readonly LlmModelNotAvailable: "llm_model_not_available";
     readonly OpenSearchDisabled: "open_search_disabled";
     readonly OpenSearchNotSuportedSort: "open_search_not_suported_sort";
+    readonly InvalidPaginationToken: "invalid_pagination_token";
     readonly OpenSearchNotSuportedPostFiltering: "open_search_not_suported_post_filtering";
     readonly ExploreInvalidSortFilter: "explore_invalid_sort_filter";
     readonly ExploreEventFreeTextNotSupported: "explore_event_free_text_not_supported";

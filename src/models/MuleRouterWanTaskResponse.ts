@@ -13,13 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { MuleRouterWanTaskInfo } from './MuleRouterWanTaskInfo';
+import type { MuleRouterWanTaskResponseTaskInfo } from './MuleRouterWanTaskResponseTaskInfo';
 import {
-    MuleRouterWanTaskInfoFromJSON,
-    MuleRouterWanTaskInfoFromJSONTyped,
-    MuleRouterWanTaskInfoToJSON,
-    MuleRouterWanTaskInfoToJSONTyped,
-} from './MuleRouterWanTaskInfo';
+    MuleRouterWanTaskResponseTaskInfoFromJSON,
+    MuleRouterWanTaskResponseTaskInfoFromJSONTyped,
+    MuleRouterWanTaskResponseTaskInfoToJSON,
+    MuleRouterWanTaskResponseTaskInfoToJSONTyped,
+} from './MuleRouterWanTaskResponseTaskInfo';
+import type { Videos } from './Videos';
+import {
+    VideosFromJSON,
+    VideosFromJSONTyped,
+    VideosToJSON,
+    VideosToJSONTyped,
+} from './Videos';
 
 /**
  * 
@@ -27,18 +34,19 @@ import {
  * @interface MuleRouterWanTaskResponse
  */
 export interface MuleRouterWanTaskResponse {
+    [key: string]: any | any;
     /**
      * 
-     * @type {MuleRouterWanTaskInfo}
+     * @type {MuleRouterWanTaskResponseTaskInfo}
      * @memberof MuleRouterWanTaskResponse
      */
-    taskInfo?: MuleRouterWanTaskInfo | null;
+    taskInfo?: MuleRouterWanTaskResponseTaskInfo;
     /**
      * 
-     * @type {Array<string>}
+     * @type {Videos}
      * @memberof MuleRouterWanTaskResponse
      */
-    videos?: Array<string> | null;
+    videos?: Videos;
 }
 
 /**
@@ -58,8 +66,9 @@ export function MuleRouterWanTaskResponseFromJSONTyped(json: any, ignoreDiscrimi
     }
     return {
         
-        'taskInfo': json['task_info'] == null ? undefined : MuleRouterWanTaskInfoFromJSON(json['task_info']),
-        'videos': json['videos'] == null ? undefined : json['videos'],
+            ...json,
+        'taskInfo': json['task_info'] == null ? undefined : MuleRouterWanTaskResponseTaskInfoFromJSON(json['task_info']),
+        'videos': json['videos'] == null ? undefined : VideosFromJSON(json['videos']),
     };
 }
 
@@ -74,8 +83,9 @@ export function MuleRouterWanTaskResponseFromJSONTyped(json: any, ignoreDiscrimi
 
     return {
         
-        'task_info': MuleRouterWanTaskInfoToJSON(value['taskInfo']),
-        'videos': value['videos'],
+            ...value,
+        'task_info': MuleRouterWanTaskResponseTaskInfoToJSON(value['taskInfo']),
+        'videos': VideosToJSON(value['videos']),
     };
 }
 
