@@ -91,6 +91,18 @@ export interface GeneratedImages {
      * @memberof GeneratedImages
      */
     artStyle: ArtStyle;
+    /**
+     *
+     * @type {number}
+     * @memberof GeneratedImages
+     */
+    width?: number | null;
+    /**
+     *
+     * @type {number}
+     * @memberof GeneratedImages
+     */
+    height?: number | null;
 }
 /**
  * @export

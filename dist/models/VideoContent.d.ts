@@ -29,6 +29,18 @@ export interface VideoContent {
     url: string;
     /**
      *
+     * @type {number}
+     * @memberof VideoContent
+     */
+    width?: number | null;
+    /**
+     *
+     * @type {number}
+     * @memberof VideoContent
+     */
+    height?: number | null;
+    /**
+     *
      * @type {string}
      * @memberof VideoContent
      */

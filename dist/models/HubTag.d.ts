@@ -34,6 +34,12 @@ export interface HubTag {
      * @memberof HubTag
      */
     previewImageUrls?: Array<string>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof HubTag
+     */
+    indexable?: boolean;
 }
 /**
  * Check if a given object implements the HubTag interface.

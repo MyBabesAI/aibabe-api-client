@@ -11,6 +11,7 @@
  */
 import type { ArtStyle } from './ArtStyle';
 import type { ImagePurpose } from './ImagePurpose';
+import type { ImageAspectRatio } from './ImageAspectRatio';
 import type { LoraName } from './LoraName';
 /**
  *
@@ -54,6 +55,12 @@ export interface PostGenerateSceneRequest {
      * @memberof PostGenerateSceneRequest
      */
     loras?: Array<LoraName> | null;
+    /**
+     *
+     * @type {ImageAspectRatio}
+     * @memberof PostGenerateSceneRequest
+     */
+    aspectRatio?: ImageAspectRatio | null;
     /**
      *
      * @type {ArtStyle}

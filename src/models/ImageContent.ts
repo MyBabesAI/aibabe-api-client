@@ -31,6 +31,18 @@ export interface ImageContent {
      * @memberof ImageContent
      */
     url: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof ImageContent
+     */
+    width?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ImageContent
+     */
+    height?: number | null;
 }
 
 /**
@@ -54,6 +66,8 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'id': json['id'],
         'url': json['url'],
+        'width': json['width'] == null ? undefined : json['width'],
+        'height': json['height'] == null ? undefined : json['height'],
     };
 }
 
@@ -70,6 +84,8 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'id': value['id'],
         'url': value['url'],
+        'width': value['width'],
+        'height': value['height'],
     };
 }
 

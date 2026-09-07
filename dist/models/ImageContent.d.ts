@@ -27,6 +27,18 @@ export interface ImageContent {
      * @memberof ImageContent
      */
     url: string;
+    /**
+     *
+     * @type {number}
+     * @memberof ImageContent
+     */
+    width?: number | null;
+    /**
+     *
+     * @type {number}
+     * @memberof ImageContent
+     */
+    height?: number | null;
 }
 /**
  * Check if a given object implements the ImageContent interface.

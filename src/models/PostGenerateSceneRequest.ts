@@ -27,6 +27,13 @@ import {
     ImagePurposeToJSON,
     ImagePurposeToJSONTyped,
 } from './ImagePurpose';
+import type { ImageAspectRatio } from './ImageAspectRatio';
+import {
+    ImageAspectRatioFromJSON,
+    ImageAspectRatioFromJSONTyped,
+    ImageAspectRatioToJSON,
+    ImageAspectRatioToJSONTyped,
+} from './ImageAspectRatio';
 import type { LoraName } from './LoraName';
 import {
     LoraNameFromJSON,
@@ -77,6 +84,12 @@ export interface PostGenerateSceneRequest {
      * @memberof PostGenerateSceneRequest
      */
     loras?: Array<LoraName> | null;
+    /**
+     * 
+     * @type {ImageAspectRatio}
+     * @memberof PostGenerateSceneRequest
+     */
+    aspectRatio?: ImageAspectRatio | null;
     /**
      * 
      * @type {ArtStyle}
@@ -133,6 +146,7 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'requestId': json['request_id'],
         'numberOfImages': json['number_of_images'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(LoraNameFromJSON)),
+        'aspectRatio': json['aspect_ratio'] == null ? undefined : ImageAspectRatioFromJSON(json['aspect_ratio']),
         'artStyle': ArtStyleFromJSON(json['art_style']),
         'purpose': json['purpose'] == null ? undefined : ImagePurposeFromJSON(json['purpose']),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
@@ -157,6 +171,7 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'request_id': value['requestId'],
         'number_of_images': value['numberOfImages'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(LoraNameToJSON)),
+        'aspect_ratio': ImageAspectRatioToJSON(value['aspectRatio']),
         'art_style': ArtStyleToJSON(value['artStyle']),
         'purpose': ImagePurposeToJSON(value['purpose']),
         'chatbot_id': value['chatbotId'],

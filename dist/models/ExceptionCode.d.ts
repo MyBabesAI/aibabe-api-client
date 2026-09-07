@@ -159,6 +159,7 @@ export declare const ExceptionCode: {
     readonly ImageOrVideoNotFound: "image_or_video_not_found";
     readonly VideoUploadImageFailed: "video_upload_image_failed";
     readonly VideoSizeNotSupported: "video_size_not_supported";
+    readonly AspectRatioNotSupported: "aspect_ratio_not_supported";
     readonly VideoRetrieveFailed: "video_retrieve_failed";
     readonly VideoGenerationLimitReached: "video_generation_limit_reached";
     readonly GenerationTagsNotFound: "generation_tags_not_found";

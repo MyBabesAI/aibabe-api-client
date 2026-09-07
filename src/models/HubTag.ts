@@ -45,6 +45,12 @@ export interface HubTag {
      * @memberof HubTag
      */
     previewImageUrls?: Array<string>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof HubTag
+     */
+    indexable?: boolean;
 }
 
 
@@ -71,6 +77,7 @@ export function HubTagFromJSONTyped(json: any, ignoreDiscriminator: boolean): Hu
         'category': TagCategoryFromJSON(json['category']),
         'value': json['value'],
         'previewImageUrls': json['preview_image_urls'] == null ? undefined : json['preview_image_urls'],
+        'indexable': json['indexable'] == null ? undefined : json['indexable'],
     };
 }
 
@@ -88,6 +95,7 @@ export function HubTagFromJSONTyped(json: any, ignoreDiscriminator: boolean): Hu
         'category': TagCategoryToJSON(value['category']),
         'value': value['value'],
         'preview_image_urls': value['previewImageUrls'],
+        'indexable': value['indexable'],
     };
 }
 
