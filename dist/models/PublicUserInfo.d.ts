@@ -11,6 +11,7 @@
  */
 import type { BadgePreview } from './BadgePreview';
 import type { ContentType } from './ContentType';
+import type { ImageAspectRatio } from './ImageAspectRatio';
 /**
  *
  * @export
@@ -47,6 +48,18 @@ export interface PublicUserInfo {
      * @memberof PublicUserInfo
      */
     bio?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PublicUserInfo
+     */
+    coverUrl?: string | null;
+    /**
+     *
+     * @type {ImageAspectRatio}
+     * @memberof PublicUserInfo
+     */
+    coverAspectRatio?: ImageAspectRatio | null;
     /**
      *
      * @type {number}

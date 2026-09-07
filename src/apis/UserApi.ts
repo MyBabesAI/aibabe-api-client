@@ -181,6 +181,10 @@ export interface UploadPublicAvatarUserPublicAvatarPostRequest {
     image: Blob;
 }
 
+export interface UploadPublicCoverUserPublicCoverPostRequest {
+    image: Blob;
+}
+
 export interface VerifyPublicUsernameUserPublicVerifyPostRequest {
     postVerifyPublicUsernameRequest: PostVerifyPublicUsernameRequest;
 }
@@ -1077,6 +1081,64 @@ export class UserApi extends runtime.BaseAPI {
      */
     async uploadPublicAvatarUserPublicAvatarPost(requestParameters: UploadPublicAvatarUserPublicAvatarPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.uploadPublicAvatarUserPublicAvatarPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Upload Public Cover
+     */
+    async uploadPublicCoverUserPublicCoverPostRaw(requestParameters: UploadPublicCoverUserPublicCoverPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['image'] == null) {
+            throw new runtime.RequiredError(
+                'image',
+                'Required parameter "image" was null or undefined when calling uploadPublicCoverUserPublicCoverPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const consumes: runtime.Consume[] = [
+            { contentType: 'multipart/form-data' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+
+        let formParams: { append(param: string, value: any): any };
+        let useForm = false;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        if (useForm) {
+            formParams = new FormData();
+        } else {
+            formParams = new URLSearchParams();
+        }
+
+        if (requestParameters['image'] != null) {
+            formParams.append('image', requestParameters['image'] as any);
+        }
+
+        const response = await this.request({
+            path: `/user/public/cover`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Upload Public Cover
+     */
+    async uploadPublicCoverUserPublicCoverPost(requestParameters: UploadPublicCoverUserPublicCoverPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.uploadPublicCoverUserPublicCoverPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

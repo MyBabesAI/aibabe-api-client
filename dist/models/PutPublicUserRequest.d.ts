@@ -33,6 +33,18 @@ export interface PutPublicUserRequest {
      * @memberof PutPublicUserRequest
      */
     generatedPictureId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PutPublicUserRequest
+     */
+    coverGeneratedPictureId?: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PutPublicUserRequest
+     */
+    removeCover?: boolean;
 }
 /**
  * Check if a given object implements the PutPublicUserRequest interface.

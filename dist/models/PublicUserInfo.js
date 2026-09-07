@@ -20,6 +20,7 @@ exports.PublicUserInfoToJSON = PublicUserInfoToJSON;
 exports.PublicUserInfoToJSONTyped = PublicUserInfoToJSONTyped;
 const BadgePreview_1 = require("./BadgePreview");
 const ContentType_1 = require("./ContentType");
+const ImageAspectRatio_1 = require("./ImageAspectRatio");
 /**
  * Check if a given object implements the PublicUserInfo interface.
  */
@@ -63,6 +64,8 @@ function PublicUserInfoFromJSONTyped(json, ignoreDiscriminator) {
         'avatarUrl': json['avatar_url'],
         'selectedBadge': (0, BadgePreview_1.BadgePreviewFromJSON)(json['selected_badge']),
         'bio': json['bio'] == null ? undefined : json['bio'],
+        'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
+        'coverAspectRatio': json['cover_aspect_ratio'] == null ? undefined : (0, ImageAspectRatio_1.ImageAspectRatioFromJSON)(json['cover_aspect_ratio']),
         'following': json['following'],
         'followers': json['followers'],
         'videos': json['videos'],
@@ -87,6 +90,8 @@ function PublicUserInfoToJSONTyped(value, ignoreDiscriminator = false) {
         'avatar_url': value['avatarUrl'],
         'selected_badge': (0, BadgePreview_1.BadgePreviewToJSON)(value['selectedBadge']),
         'bio': value['bio'],
+        'cover_url': value['coverUrl'],
+        'cover_aspect_ratio': (0, ImageAspectRatio_1.ImageAspectRatioToJSON)(value['coverAspectRatio']),
         'following': value['following'],
         'followers': value['followers'],
         'videos': value['videos'],

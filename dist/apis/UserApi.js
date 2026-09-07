@@ -739,6 +739,54 @@ class UserApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Upload Public Cover
+     */
+    async uploadPublicCoverUserPublicCoverPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['image'] == null) {
+            throw new runtime.RequiredError('image', 'Required parameter "image" was null or undefined when calling uploadPublicCoverUserPublicCoverPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const consumes = [
+            { contentType: 'multipart/form-data' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+        let formParams;
+        let useForm = false;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        if (useForm) {
+            formParams = new FormData();
+        }
+        else {
+            formParams = new URLSearchParams();
+        }
+        if (requestParameters['image'] != null) {
+            formParams.append('image', requestParameters['image']);
+        }
+        const response = await this.request({
+            path: `/user/public/cover`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Upload Public Cover
+     */
+    async uploadPublicCoverUserPublicCoverPost(requestParameters, initOverrides) {
+        const response = await this.uploadPublicCoverUserPublicCoverPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Username Update Available
      */
     async usernameUpdateAvailableUserPublicLatestUpdateGetRaw(initOverrides) {

@@ -27,6 +27,13 @@ import {
     ContentTypeToJSON,
     ContentTypeToJSONTyped,
 } from './ContentType';
+import type { ImageAspectRatio } from './ImageAspectRatio';
+import {
+    ImageAspectRatioFromJSON,
+    ImageAspectRatioFromJSONTyped,
+    ImageAspectRatioToJSON,
+    ImageAspectRatioToJSONTyped,
+} from './ImageAspectRatio';
 
 /**
  * 
@@ -64,6 +71,18 @@ export interface PublicUserInfo {
      * @memberof PublicUserInfo
      */
     bio?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PublicUserInfo
+     */
+    coverUrl?: string | null;
+    /**
+     * 
+     * @type {ImageAspectRatio}
+     * @memberof PublicUserInfo
+     */
+    coverAspectRatio?: ImageAspectRatio | null;
     /**
      * 
      * @type {number}
@@ -120,6 +139,8 @@ export interface PublicUserInfo {
     notifyContentTypes?: Array<ContentType>;
 }
 
+
+
 /**
  * Check if a given object implements the PublicUserInfo interface.
  */
@@ -154,6 +175,8 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'avatarUrl': json['avatar_url'],
         'selectedBadge': BadgePreviewFromJSON(json['selected_badge']),
         'bio': json['bio'] == null ? undefined : json['bio'],
+        'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
+        'coverAspectRatio': json['cover_aspect_ratio'] == null ? undefined : ImageAspectRatioFromJSON(json['cover_aspect_ratio']),
         'following': json['following'],
         'followers': json['followers'],
         'videos': json['videos'],
@@ -182,6 +205,8 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'avatar_url': value['avatarUrl'],
         'selected_badge': BadgePreviewToJSON(value['selectedBadge']),
         'bio': value['bio'],
+        'cover_url': value['coverUrl'],
+        'cover_aspect_ratio': ImageAspectRatioToJSON(value['coverAspectRatio']),
         'following': value['following'],
         'followers': value['followers'],
         'videos': value['videos'],

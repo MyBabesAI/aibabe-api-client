@@ -76,6 +76,9 @@ export interface UpdateUsernameUserUsernamePutRequest {
 export interface UploadPublicAvatarUserPublicAvatarPostRequest {
     image: Blob;
 }
+export interface UploadPublicCoverUserPublicCoverPostRequest {
+    image: Blob;
+}
 export interface VerifyPublicUsernameUserPublicVerifyPostRequest {
     postVerifyPublicUsernameRequest: PostVerifyPublicUsernameRequest;
 }
@@ -275,6 +278,14 @@ export declare class UserApi extends runtime.BaseAPI {
      * Upload Public Avatar
      */
     uploadPublicAvatarUserPublicAvatarPost(requestParameters: UploadPublicAvatarUserPublicAvatarPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Upload Public Cover
+     */
+    uploadPublicCoverUserPublicCoverPostRaw(requestParameters: UploadPublicCoverUserPublicCoverPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Upload Public Cover
+     */
+    uploadPublicCoverUserPublicCoverPost(requestParameters: UploadPublicCoverUserPublicCoverPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Username Update Available
      */
