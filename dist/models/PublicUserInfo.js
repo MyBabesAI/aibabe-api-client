@@ -19,6 +19,7 @@ exports.PublicUserInfoFromJSONTyped = PublicUserInfoFromJSONTyped;
 exports.PublicUserInfoToJSON = PublicUserInfoToJSON;
 exports.PublicUserInfoToJSONTyped = PublicUserInfoToJSONTyped;
 const BadgePreview_1 = require("./BadgePreview");
+const ContentType_1 = require("./ContentType");
 /**
  * Check if a given object implements the PublicUserInfo interface.
  */
@@ -70,6 +71,7 @@ function PublicUserInfoFromJSONTyped(json, ignoreDiscriminator) {
         'stories': json['stories'],
         'adventures': json['adventures'],
         'followed': json['followed'],
+        'notifyContentTypes': json['notify_content_types'] == null ? undefined : (json['notify_content_types'].map(ContentType_1.ContentTypeFromJSON)),
     };
 }
 function PublicUserInfoToJSON(json) {
@@ -93,6 +95,7 @@ function PublicUserInfoToJSONTyped(value, ignoreDiscriminator = false) {
         'stories': value['stories'],
         'adventures': value['adventures'],
         'followed': value['followed'],
+        'notify_content_types': value['notifyContentTypes'] == null ? undefined : (value['notifyContentTypes'].map(ContentType_1.ContentTypeToJSON)),
     };
 }
 //# sourceMappingURL=PublicUserInfo.js.map

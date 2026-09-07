@@ -21,9 +21,9 @@ exports.NotificationResponseNotificationsInnerToJSONTyped = NotificationResponse
 const PublicUserPreview_1 = require("./PublicUserPreview");
 const PostType_1 = require("./PostType");
 const ContentType_1 = require("./ContentType");
+const WallPost_1 = require("./WallPost");
 const NotificationType_1 = require("./NotificationType");
 const BadgeModel_1 = require("./BadgeModel");
-const WallPost_1 = require("./WallPost");
 /**
  * Check if a given object implements the NotificationResponseNotificationsInner interface.
  */

@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { BadgePreview } from './BadgePreview';
+import type { ContentType } from './ContentType';
 /**
  *
  * @export
@@ -94,6 +95,12 @@ export interface PublicUserInfo {
      * @memberof PublicUserInfo
      */
     followed: boolean;
+    /**
+     *
+     * @type {Array<ContentType>}
+     * @memberof PublicUserInfo
+     */
+    notifyContentTypes?: Array<ContentType>;
 }
 /**
  * Check if a given object implements the PublicUserInfo interface.

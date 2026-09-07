@@ -20,6 +20,13 @@ import {
     BadgePreviewToJSON,
     BadgePreviewToJSONTyped,
 } from './BadgePreview';
+import type { ContentType } from './ContentType';
+import {
+    ContentTypeFromJSON,
+    ContentTypeFromJSONTyped,
+    ContentTypeToJSON,
+    ContentTypeToJSONTyped,
+} from './ContentType';
 
 /**
  * 
@@ -105,6 +112,12 @@ export interface PublicUserInfo {
      * @memberof PublicUserInfo
      */
     followed: boolean;
+    /**
+     * 
+     * @type {Array<ContentType>}
+     * @memberof PublicUserInfo
+     */
+    notifyContentTypes?: Array<ContentType>;
 }
 
 /**
@@ -149,6 +162,7 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'stories': json['stories'],
         'adventures': json['adventures'],
         'followed': json['followed'],
+        'notifyContentTypes': json['notify_content_types'] == null ? undefined : ((json['notify_content_types'] as Array<any>).map(ContentTypeFromJSON)),
     };
 }
 
@@ -176,6 +190,7 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'stories': value['stories'],
         'adventures': value['adventures'],
         'followed': value['followed'],
+        'notify_content_types': value['notifyContentTypes'] == null ? undefined : ((value['notifyContentTypes'] as Array<any>).map(ContentTypeToJSON)),
     };
 }
 

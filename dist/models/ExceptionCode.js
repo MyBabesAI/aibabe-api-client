@@ -47,6 +47,7 @@ exports.ExceptionCode = {
     EmailAddressUsed: 'email_address_used',
     EmailAddressUsedRecently: 'email_address_used_recently',
     PublicUserNotFound: 'public_user_not_found',
+    FollowNotFound: 'follow_not_found',
     PublicUsernameTaken: 'public_username_taken',
     PublicUsernameRequired: 'public_username_required',
     PublicUsernameUnavailable: 'public_username_unavailable',
@@ -238,7 +239,11 @@ exports.ExceptionCode = {
     GameAdventureAssetChatbotMismatch: 'game_adventure_asset_chatbot_mismatch',
     GameAdventureOwnRatingForbidden: 'game_adventure_own_rating_forbidden',
     GameAdventureRatingRequiresSession: 'game_adventure_rating_requires_session',
-    GameAdventureAdminOnly: 'game_adventure_admin_only'
+    GameAdventureAdminOnly: 'game_adventure_admin_only',
+    PromotionNotFound: 'promotion_not_found',
+    PromotionInvalidTime: 'promotion_invalid_time',
+    PromotionCodeConflict: 'promotion_code_conflict',
+    PromotionOverlap: 'promotion_overlap'
 };
 function instanceOfExceptionCode(value) {
     for (const key in exports.ExceptionCode) {

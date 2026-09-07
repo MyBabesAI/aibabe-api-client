@@ -34,6 +34,7 @@ import type {
   PostVerifyPublicUsernameRequest,
   PostVerifyPublicUsernameResponse,
   PublicUserInfo,
+  PutFollowNotificationsRequest,
   PutPasswordRequest,
   PutPublicUserRequest,
   PutUsernameRequest,
@@ -80,6 +81,8 @@ import {
     PostVerifyPublicUsernameResponseToJSON,
     PublicUserInfoFromJSON,
     PublicUserInfoToJSON,
+    PutFollowNotificationsRequestFromJSON,
+    PutFollowNotificationsRequestToJSON,
     PutPasswordRequestFromJSON,
     PutPasswordRequestToJSON,
     PutPublicUserRequestFromJSON,
@@ -114,6 +117,18 @@ export interface FollowUserUserFollowPostRequest {
     postFollowUserRequest: PostFollowUserRequest;
 }
 
+export interface GetPublicUserFollowersUserPublicUserIdFollowersGetRequest {
+    userId: string;
+    paginationToken?: string | null;
+    limit?: number;
+}
+
+export interface GetPublicUserFollowingUserPublicUserIdFollowingGetRequest {
+    userId: string;
+    paginationToken?: string | null;
+    limit?: number;
+}
+
 export interface GetPublicUserLikeUserPublicLikeGetRequest {
     publicUsername?: string | null;
     paginationToken?: string | null;
@@ -144,6 +159,10 @@ export interface PostRatingUserRatingPostRequest {
 export interface ReportUserUserUserIdReportPostRequest {
     userId: string;
     postReportUserRequest: PostReportUserRequest;
+}
+
+export interface UpdateFollowNotificationsUserFollowNotificationsPutRequest {
+    putFollowNotificationsRequest: PutFollowNotificationsRequest;
 }
 
 export interface UpdatePasswordUserPasswordPutRequest {
@@ -439,6 +458,88 @@ export class UserApi extends runtime.BaseAPI {
      */
     async getPreferencesUserPreferencesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPreferenceProfile> {
         const response = await this.getPreferencesUserPreferencesGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get Public User Followers
+     */
+    async getPublicUserFollowersUserPublicUserIdFollowersGetRaw(requestParameters: GetPublicUserFollowersUserPublicUserIdFollowersGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPublicUsersResponse>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getPublicUserFollowersUserPublicUserIdFollowersGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/user/public/{user_id}/followers`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetPublicUsersResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Public User Followers
+     */
+    async getPublicUserFollowersUserPublicUserIdFollowersGet(requestParameters: GetPublicUserFollowersUserPublicUserIdFollowersGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPublicUsersResponse> {
+        const response = await this.getPublicUserFollowersUserPublicUserIdFollowersGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get Public User Following
+     */
+    async getPublicUserFollowingUserPublicUserIdFollowingGetRaw(requestParameters: GetPublicUserFollowingUserPublicUserIdFollowingGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPublicUsersResponse>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getPublicUserFollowingUserPublicUserIdFollowingGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/user/public/{user_id}/following`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetPublicUsersResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Public User Following
+     */
+    async getPublicUserFollowingUserPublicUserIdFollowingGet(requestParameters: GetPublicUserFollowingUserPublicUserIdFollowingGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPublicUsersResponse> {
+        const response = await this.getPublicUserFollowingUserPublicUserIdFollowingGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -758,6 +859,46 @@ export class UserApi extends runtime.BaseAPI {
      */
     async reportUserUserUserIdReportPost(requestParameters: ReportUserUserUserIdReportPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.reportUserUserUserIdReportPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update Follow Notifications
+     */
+    async updateFollowNotificationsUserFollowNotificationsPutRaw(requestParameters: UpdateFollowNotificationsUserFollowNotificationsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['putFollowNotificationsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'putFollowNotificationsRequest',
+                'Required parameter "putFollowNotificationsRequest" was null or undefined when calling updateFollowNotificationsUserFollowNotificationsPut().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/user/follow/notifications`,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PutFollowNotificationsRequestToJSON(requestParameters['putFollowNotificationsRequest']),
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Update Follow Notifications
+     */
+    async updateFollowNotificationsUserFollowNotificationsPut(requestParameters: UpdateFollowNotificationsUserFollowNotificationsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.updateFollowNotificationsUserFollowNotificationsPutRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

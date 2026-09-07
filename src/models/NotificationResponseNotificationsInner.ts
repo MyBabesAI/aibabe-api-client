@@ -55,13 +55,6 @@ import {
     ContentTypeToJSON,
     ContentTypeToJSONTyped,
 } from './ContentType';
-import type { BadgeNotification } from './BadgeNotification';
-import {
-    BadgeNotificationFromJSON,
-    BadgeNotificationFromJSONTyped,
-    BadgeNotificationToJSON,
-    BadgeNotificationToJSONTyped,
-} from './BadgeNotification';
 import type { NewEpisodeNotification } from './NewEpisodeNotification';
 import {
     NewEpisodeNotificationFromJSON,
@@ -69,13 +62,13 @@ import {
     NewEpisodeNotificationToJSON,
     NewEpisodeNotificationToJSONTyped,
 } from './NewEpisodeNotification';
-import type { NotificationType } from './NotificationType';
+import type { NewPostNotification } from './NewPostNotification';
 import {
-    NotificationTypeFromJSON,
-    NotificationTypeFromJSONTyped,
-    NotificationTypeToJSON,
-    NotificationTypeToJSONTyped,
-} from './NotificationType';
+    NewPostNotificationFromJSON,
+    NewPostNotificationFromJSONTyped,
+    NewPostNotificationToJSON,
+    NewPostNotificationToJSONTyped,
+} from './NewPostNotification';
 import type { LikePostNotification } from './LikePostNotification';
 import {
     LikePostNotificationFromJSON,
@@ -83,13 +76,6 @@ import {
     LikePostNotificationToJSON,
     LikePostNotificationToJSONTyped,
 } from './LikePostNotification';
-import type { BadgeModel } from './BadgeModel';
-import {
-    BadgeModelFromJSON,
-    BadgeModelFromJSONTyped,
-    BadgeModelToJSON,
-    BadgeModelToJSONTyped,
-} from './BadgeModel';
 import type { WallPost } from './WallPost';
 import {
     WallPostFromJSON,
@@ -97,6 +83,27 @@ import {
     WallPostToJSON,
     WallPostToJSONTyped,
 } from './WallPost';
+import type { BadgeNotification } from './BadgeNotification';
+import {
+    BadgeNotificationFromJSON,
+    BadgeNotificationFromJSONTyped,
+    BadgeNotificationToJSON,
+    BadgeNotificationToJSONTyped,
+} from './BadgeNotification';
+import type { NotificationType } from './NotificationType';
+import {
+    NotificationTypeFromJSON,
+    NotificationTypeFromJSONTyped,
+    NotificationTypeToJSON,
+    NotificationTypeToJSONTyped,
+} from './NotificationType';
+import type { BadgeModel } from './BadgeModel';
+import {
+    BadgeModelFromJSON,
+    BadgeModelFromJSONTyped,
+    BadgeModelToJSON,
+    BadgeModelToJSONTyped,
+} from './BadgeModel';
 
 /**
  * 

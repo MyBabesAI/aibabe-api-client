@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { PromotionSummary } from './PromotionSummary';
 import type { VideoDurationOptions } from './VideoDurationOptions';
 import type { VideoQualityConfig } from './VideoQualityConfig';
 /**
@@ -49,6 +50,12 @@ export interface VideoModelConfig {
     qualities: {
         [key: string]: VideoQualityConfig;
     };
+    /**
+     *
+     * @type {PromotionSummary}
+     * @memberof VideoModelConfig
+     */
+    promotion?: PromotionSummary | null;
     /**
      *
      * @type {boolean}
@@ -92,6 +99,8 @@ export interface VideoModelConfig {
 export declare const VideoModelConfigModelEnum: {
     readonly Wan22I2V: "WAN_22_I2V";
     readonly Wan27I2V: "WAN_27_I2V";
+    readonly Wan30I2V: "WAN_30_I2V";
+    readonly Wan30ProI2V: "WAN_30_PRO_I2V";
     readonly Seedance20I2V: "SEEDANCE_20_I2V";
     readonly Seedance20MiniI2V: "SEEDANCE_20_MINI_I2V";
     readonly Seedance20FastI2V: "SEEDANCE_20_FAST_I2V";

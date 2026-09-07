@@ -26,6 +26,7 @@ exports.VideoQualityConfigResolutionEnum = {
     P480: 'P480',
     P720: 'P720',
     P1080: 'P1080',
+    P1440: 'P1440',
     P2160: 'P2160'
 };
 /**
@@ -48,6 +49,7 @@ function VideoQualityConfigFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'resolution': json['resolution'],
         'tokenCostPerSecond': json['token_cost_per_second'],
+        'originalTokenCostPerSecond': json['original_token_cost_per_second'] == null ? undefined : json['original_token_cost_per_second'],
     };
 }
 function VideoQualityConfigToJSON(json) {
@@ -60,6 +62,7 @@ function VideoQualityConfigToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'resolution': value['resolution'],
         'token_cost_per_second': value['tokenCostPerSecond'],
+        'original_token_cost_per_second': value['originalTokenCostPerSecond'],
     };
 }
 //# sourceMappingURL=VideoQualityConfig.js.map

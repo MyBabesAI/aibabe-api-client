@@ -13,20 +13,20 @@
  */
 
 import { mapValues } from '../runtime';
-import type { Title } from './Title';
+import type { Code1 } from './Code1';
 import {
-    TitleFromJSON,
-    TitleFromJSONTyped,
-    TitleToJSON,
-    TitleToJSONTyped,
-} from './Title';
-import type { Code } from './Code';
+    Code1FromJSON,
+    Code1FromJSONTyped,
+    Code1ToJSON,
+    Code1ToJSONTyped,
+} from './Code1';
+import type { Title1 } from './Title1';
 import {
-    CodeFromJSON,
-    CodeFromJSONTyped,
-    CodeToJSON,
-    CodeToJSONTyped,
-} from './Code';
+    Title1FromJSON,
+    Title1FromJSONTyped,
+    Title1ToJSON,
+    Title1ToJSONTyped,
+} from './Title1';
 import type { Detail } from './Detail';
 import {
     DetailFromJSON,
@@ -44,16 +44,16 @@ export interface MuleRouterWanTaskError {
     [key: string]: any | any;
     /**
      * 
-     * @type {Code}
+     * @type {Code1}
      * @memberof MuleRouterWanTaskError
      */
-    code?: Code;
+    code?: Code1;
     /**
      * 
-     * @type {Title}
+     * @type {Title1}
      * @memberof MuleRouterWanTaskError
      */
-    title?: Title;
+    title?: Title1;
     /**
      * 
      * @type {Detail}
@@ -80,8 +80,8 @@ export function MuleRouterWanTaskErrorFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
             ...json,
-        'code': json['code'] == null ? undefined : CodeFromJSON(json['code']),
-        'title': json['title'] == null ? undefined : TitleFromJSON(json['title']),
+        'code': json['code'] == null ? undefined : Code1FromJSON(json['code']),
+        'title': json['title'] == null ? undefined : Title1FromJSON(json['title']),
         'detail': json['detail'] == null ? undefined : DetailFromJSON(json['detail']),
     };
 }
@@ -98,8 +98,8 @@ export function MuleRouterWanTaskErrorFromJSONTyped(json: any, ignoreDiscriminat
     return {
         
             ...value,
-        'code': CodeToJSON(value['code']),
-        'title': TitleToJSON(value['title']),
+        'code': Code1ToJSON(value['code']),
+        'title': Title1ToJSON(value['title']),
         'detail': DetailToJSON(value['detail']),
     };
 }

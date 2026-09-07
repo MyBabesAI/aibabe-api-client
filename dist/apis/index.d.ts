@@ -16,6 +16,7 @@ export * from './LeaderboardsApi';
 export * from './MemoryApi';
 export * from './NotificationApi';
 export * from './PostApi';
+export * from './PromotionApi';
 export * from './SEOApi';
 export * from './ServerApi';
 export * from './StoryCreatorApi';

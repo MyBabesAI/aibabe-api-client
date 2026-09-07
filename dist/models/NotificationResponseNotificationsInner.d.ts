@@ -12,9 +12,9 @@
 import type { PublicUserPreview } from './PublicUserPreview';
 import type { PostType } from './PostType';
 import type { ContentType } from './ContentType';
+import type { WallPost } from './WallPost';
 import type { NotificationType } from './NotificationType';
 import type { BadgeModel } from './BadgeModel';
-import type { WallPost } from './WallPost';
 /**
  *
  * @export

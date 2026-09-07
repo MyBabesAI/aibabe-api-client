@@ -18,8 +18,8 @@ exports.MuleRouterWanTaskInfoErrorFromJSON = MuleRouterWanTaskInfoErrorFromJSON;
 exports.MuleRouterWanTaskInfoErrorFromJSONTyped = MuleRouterWanTaskInfoErrorFromJSONTyped;
 exports.MuleRouterWanTaskInfoErrorToJSON = MuleRouterWanTaskInfoErrorToJSON;
 exports.MuleRouterWanTaskInfoErrorToJSONTyped = MuleRouterWanTaskInfoErrorToJSONTyped;
-const Title_1 = require("./Title");
-const Code_1 = require("./Code");
+const Code1_1 = require("./Code1");
+const Title1_1 = require("./Title1");
 const Detail_1 = require("./Detail");
 /**
  * Check if a given object implements the MuleRouterWanTaskInfoError interface.
@@ -35,8 +35,8 @@ function MuleRouterWanTaskInfoErrorFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'code': json['code'] == null ? undefined : (0, Code_1.CodeFromJSON)(json['code']),
-        'title': json['title'] == null ? undefined : (0, Title_1.TitleFromJSON)(json['title']),
+        'code': json['code'] == null ? undefined : (0, Code1_1.Code1FromJSON)(json['code']),
+        'title': json['title'] == null ? undefined : (0, Title1_1.Title1FromJSON)(json['title']),
         'detail': json['detail'] == null ? undefined : (0, Detail_1.DetailFromJSON)(json['detail']),
     };
 }
@@ -48,8 +48,8 @@ function MuleRouterWanTaskInfoErrorToJSONTyped(value, ignoreDiscriminator = fals
         return value;
     }
     return {
-        'code': (0, Code_1.CodeToJSON)(value['code']),
-        'title': (0, Title_1.TitleToJSON)(value['title']),
+        'code': (0, Code1_1.Code1ToJSON)(value['code']),
+        'title': (0, Title1_1.Title1ToJSON)(value['title']),
         'detail': (0, Detail_1.DetailToJSON)(value['detail']),
     };
 }

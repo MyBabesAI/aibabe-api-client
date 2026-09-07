@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Title } from './Title';
-import type { Code } from './Code';
+import type { Code1 } from './Code1';
+import type { Title1 } from './Title1';
 import type { Detail } from './Detail';
 /**
  *
@@ -20,16 +20,16 @@ import type { Detail } from './Detail';
 export interface MuleRouterWanTaskInfoError {
     /**
      *
-     * @type {Code}
+     * @type {Code1}
      * @memberof MuleRouterWanTaskInfoError
      */
-    code?: Code;
+    code?: Code1;
     /**
      *
-     * @type {Title}
+     * @type {Title1}
      * @memberof MuleRouterWanTaskInfoError
      */
-    title?: Title;
+    title?: Title1;
     /**
      *
      * @type {Detail}

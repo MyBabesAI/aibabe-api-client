@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PromotionSummary } from './PromotionSummary';
+import {
+    PromotionSummaryFromJSON,
+    PromotionSummaryFromJSONTyped,
+    PromotionSummaryToJSON,
+    PromotionSummaryToJSONTyped,
+} from './PromotionSummary';
 import type { VideoDurationOptions } from './VideoDurationOptions';
 import {
     VideoDurationOptionsFromJSON,
@@ -66,6 +73,12 @@ export interface VideoModelConfig {
     qualities: { [key: string]: VideoQualityConfig; };
     /**
      * 
+     * @type {PromotionSummary}
+     * @memberof VideoModelConfig
+     */
+    promotion?: PromotionSummary | null;
+    /**
+     * 
      * @type {boolean}
      * @memberof VideoModelConfig
      */
@@ -109,6 +122,8 @@ export interface VideoModelConfig {
 export const VideoModelConfigModelEnum = {
     Wan22I2V: 'WAN_22_I2V',
     Wan27I2V: 'WAN_27_I2V',
+    Wan30I2V: 'WAN_30_I2V',
+    Wan30ProI2V: 'WAN_30_PRO_I2V',
     Seedance20I2V: 'SEEDANCE_20_I2V',
     Seedance20MiniI2V: 'SEEDANCE_20_MINI_I2V',
     Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V',
@@ -149,6 +164,7 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         'durations': VideoDurationOptionsFromJSON(json['durations']),
         'billedExtraSeconds': json['billed_extra_seconds'] == null ? undefined : json['billed_extra_seconds'],
         'qualities': (mapValues(json['qualities'], VideoQualityConfigFromJSON)),
+        'promotion': json['promotion'] == null ? undefined : PromotionSummaryFromJSON(json['promotion']),
         'audioGenerationAvailable': json['audio_generation_available'],
         'promptExtendAvailable': json['prompt_extend_available'],
         'lastFrameSupported': json['last_frame_supported'],
@@ -174,6 +190,7 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         'durations': VideoDurationOptionsToJSON(value['durations']),
         'billed_extra_seconds': value['billedExtraSeconds'],
         'qualities': (mapValues(value['qualities'], VideoQualityConfigToJSON)),
+        'promotion': PromotionSummaryToJSON(value['promotion']),
         'audio_generation_available': value['audioGenerationAvailable'],
         'prompt_extend_available': value['promptExtendAvailable'],
         'last_frame_supported': value['lastFrameSupported'],
