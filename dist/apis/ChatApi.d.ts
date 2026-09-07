@@ -215,12 +215,12 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     deleteChatChatChatbotIdDelete(requestParameters: DeleteChatChatChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
-     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards. Not counted against the per-IP burst limit: that limit paces reply generation, and a restart generates nothing, so resetting a whole series episode by episode must not eat into the replies that follow.
      * Delete Live Roleplay Conversation
      */
     deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRaw(requestParameters: DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
-     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards. Not counted against the per-IP burst limit: that limit paces reply generation, and a restart generates nothing, so resetting a whole series episode by episode must not eat into the replies that follow.
      * Delete Live Roleplay Conversation
      */
     deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete(requestParameters: DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
