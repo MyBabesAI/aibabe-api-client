@@ -71,6 +71,12 @@ export interface GameAdventureSessionMessage {
      * @type {string}
      * @memberof GameAdventureSessionMessage
      */
+    postId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GameAdventureSessionMessage
+     */
     audioUrl?: string | null;
     /**
      *

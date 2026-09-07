@@ -470,6 +470,7 @@ __exportStar(require("./UserRole"), exports);
 __exportStar(require("./UserScore"), exports);
 __exportStar(require("./ValidationError"), exports);
 __exportStar(require("./ValidationErrorLocInner"), exports);
+__exportStar(require("./VideoAspectRatio"), exports);
 __exportStar(require("./VideoConfigResponse"), exports);
 __exportStar(require("./VideoContent"), exports);
 __exportStar(require("./VideoDurationOptions"), exports);

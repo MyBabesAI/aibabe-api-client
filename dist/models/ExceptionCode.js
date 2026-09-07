@@ -171,6 +171,7 @@ exports.ExceptionCode = {
     VideoUploadImageFailed: 'video_upload_image_failed',
     VideoSizeNotSupported: 'video_size_not_supported',
     AspectRatioNotSupported: 'aspect_ratio_not_supported',
+    VideoCropWithoutRatio: 'video_crop_without_ratio',
     VideoRetrieveFailed: 'video_retrieve_failed',
     VideoGenerationLimitReached: 'video_generation_limit_reached',
     GenerationTagsNotFound: 'generation_tags_not_found',

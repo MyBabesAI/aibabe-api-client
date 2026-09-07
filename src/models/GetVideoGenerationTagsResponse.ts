@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { VideoAspectRatio } from './VideoAspectRatio';
+import {
+    VideoAspectRatioFromJSON,
+    VideoAspectRatioFromJSONTyped,
+    VideoAspectRatioToJSON,
+    VideoAspectRatioToJSONTyped,
+} from './VideoAspectRatio';
 import type { VideoLoraName } from './VideoLoraName';
 import {
     VideoLoraNameFromJSON,
@@ -70,6 +77,18 @@ export interface GetVideoGenerationTagsResponse {
      * @memberof GetVideoGenerationTagsResponse
      */
     model: ImageToVideoModel;
+    /**
+     * 
+     * @type {VideoAspectRatio}
+     * @memberof GetVideoGenerationTagsResponse
+     */
+    aspectRatio?: VideoAspectRatio;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetVideoGenerationTagsResponse
+     */
+    cropOffset?: number | null;
 }
 
 
@@ -103,6 +122,8 @@ export function GetVideoGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'originalImageId': json['original_image_id'],
         'loras': ((json['loras'] as Array<any>).map(VideoLoraNameFromJSON)),
         'model': ImageToVideoModelFromJSON(json['model']),
+        'aspectRatio': json['aspect_ratio'] == null ? undefined : VideoAspectRatioFromJSON(json['aspect_ratio']),
+        'cropOffset': json['crop_offset'] == null ? undefined : json['crop_offset'],
     };
 }
 
@@ -123,6 +144,8 @@ export function GetVideoGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'original_image_id': value['originalImageId'],
         'loras': ((value['loras'] as Array<any>).map(VideoLoraNameToJSON)),
         'model': ImageToVideoModelToJSON(value['model']),
+        'aspect_ratio': VideoAspectRatioToJSON(value['aspectRatio']),
+        'crop_offset': value['cropOffset'],
     };
 }
 

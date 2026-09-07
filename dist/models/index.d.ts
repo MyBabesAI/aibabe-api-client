@@ -452,6 +452,7 @@ export * from './UserRole';
 export * from './UserScore';
 export * from './ValidationError';
 export * from './ValidationErrorLocInner';
+export * from './VideoAspectRatio';
 export * from './VideoConfigResponse';
 export * from './VideoContent';
 export * from './VideoDurationOptions';

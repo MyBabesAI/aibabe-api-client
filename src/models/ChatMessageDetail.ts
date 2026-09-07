@@ -101,6 +101,12 @@ export interface ChatMessageDetail {
      * @type {string}
      * @memberof ChatMessageDetail
      */
+    postId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ChatMessageDetail
+     */
     audioUrl?: string | null;
     /**
      * 
@@ -156,6 +162,7 @@ export function ChatMessageDetailFromJSONTyped(json: any, ignoreDiscriminator: b
         'requestId': json['request_id'],
         'status': StatusFromJSON(json['status']),
         'contentId': json['content_id'] == null ? undefined : json['content_id'],
+        'postId': json['post_id'] == null ? undefined : json['post_id'],
         'audioUrl': json['audio_url'] == null ? undefined : json['audio_url'],
         'audioStatus': json['audio_status'] == null ? undefined : GeneratedAudioStatusFromJSON(json['audio_status']),
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
@@ -182,6 +189,7 @@ export function ChatMessageDetailFromJSONTyped(json: any, ignoreDiscriminator: b
         'request_id': value['requestId'],
         'status': StatusToJSON(value['status']),
         'content_id': value['contentId'],
+        'post_id': value['postId'],
         'audio_url': value['audioUrl'],
         'audio_status': GeneratedAudioStatusToJSON(value['audioStatus']),
         'original_image_id': value['originalImageId'],

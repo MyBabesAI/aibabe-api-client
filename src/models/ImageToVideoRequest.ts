@@ -20,6 +20,13 @@ import {
     VideoShotToJSON,
     VideoShotToJSONTyped,
 } from './VideoShot';
+import type { VideoAspectRatio } from './VideoAspectRatio';
+import {
+    VideoAspectRatioFromJSON,
+    VideoAspectRatioFromJSONTyped,
+    VideoAspectRatioToJSON,
+    VideoAspectRatioToJSONTyped,
+} from './VideoAspectRatio';
 import type { VideoLoraName } from './VideoLoraName';
 import {
     VideoLoraNameFromJSON,
@@ -130,6 +137,18 @@ export interface ImageToVideoRequest {
      * @memberof ImageToVideoRequest
      */
     remixedVideoId?: string | null;
+    /**
+     * 
+     * @type {VideoAspectRatio}
+     * @memberof ImageToVideoRequest
+     */
+    aspectRatio?: VideoAspectRatio;
+    /**
+     * 
+     * @type {number}
+     * @memberof ImageToVideoRequest
+     */
+    cropOffset?: number | null;
 }
 
 
@@ -202,6 +221,8 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'audioGeneration': json['audio_generation'] == null ? undefined : json['audio_generation'],
         'shots': json['shots'] == null ? undefined : ((json['shots'] as Array<any>).map(VideoShotFromJSON)),
         'remixedVideoId': json['remixed_video_id'] == null ? undefined : json['remixed_video_id'],
+        'aspectRatio': json['aspect_ratio'] == null ? undefined : VideoAspectRatioFromJSON(json['aspect_ratio']),
+        'cropOffset': json['crop_offset'] == null ? undefined : json['crop_offset'],
     };
 }
 
@@ -232,6 +253,8 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'audio_generation': value['audioGeneration'],
         'shots': value['shots'] == null ? undefined : ((value['shots'] as Array<any>).map(VideoShotToJSON)),
         'remixed_video_id': value['remixedVideoId'],
+        'aspect_ratio': VideoAspectRatioToJSON(value['aspectRatio']),
+        'crop_offset': value['cropOffset'],
     };
 }
 

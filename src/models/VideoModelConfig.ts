@@ -27,6 +27,13 @@ import {
     VideoDurationOptionsToJSON,
     VideoDurationOptionsToJSONTyped,
 } from './VideoDurationOptions';
+import type { VideoAspectRatio } from './VideoAspectRatio';
+import {
+    VideoAspectRatioFromJSON,
+    VideoAspectRatioFromJSONTyped,
+    VideoAspectRatioToJSON,
+    VideoAspectRatioToJSONTyped,
+} from './VideoAspectRatio';
 import type { VideoQualityConfig } from './VideoQualityConfig';
 import {
     VideoQualityConfigFromJSON,
@@ -113,6 +120,12 @@ export interface VideoModelConfig {
      * @memberof VideoModelConfig
      */
     multishotSupported: boolean;
+    /**
+     * 
+     * @type {Array<VideoAspectRatio>}
+     * @memberof VideoModelConfig
+     */
+    aspectRatios: Array<VideoAspectRatio>;
 }
 
 
@@ -146,6 +159,7 @@ export function instanceOfVideoModelConfig(value: object): value is VideoModelCo
     if (!('modsAvailable' in value) || value['modsAvailable'] === undefined) return false;
     if (!('templatesAvailable' in value) || value['templatesAvailable'] === undefined) return false;
     if (!('multishotSupported' in value) || value['multishotSupported'] === undefined) return false;
+    if (!('aspectRatios' in value) || value['aspectRatios'] === undefined) return false;
     return true;
 }
 
@@ -171,6 +185,7 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         'modsAvailable': json['mods_available'],
         'templatesAvailable': json['templates_available'],
         'multishotSupported': json['multishot_supported'],
+        'aspectRatios': ((json['aspect_ratios'] as Array<any>).map(VideoAspectRatioFromJSON)),
     };
 }
 
@@ -197,6 +212,7 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         'mods_available': value['modsAvailable'],
         'templates_available': value['templatesAvailable'],
         'multishot_supported': value['multishotSupported'],
+        'aspect_ratios': ((value['aspectRatios'] as Array<any>).map(VideoAspectRatioToJSON)),
     };
 }
 
