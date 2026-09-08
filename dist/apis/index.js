@@ -39,6 +39,7 @@ __exportStar(require("./SEOApi"), exports);
 __exportStar(require("./ServerApi"), exports);
 __exportStar(require("./StoryCreatorApi"), exports);
 __exportStar(require("./SubscriptionsApi"), exports);
+__exportStar(require("./TrackingApi"), exports);
 __exportStar(require("./UserApi"), exports);
 __exportStar(require("./UtilitiesApi"), exports);
 __exportStar(require("./VideoApi"), exports);
