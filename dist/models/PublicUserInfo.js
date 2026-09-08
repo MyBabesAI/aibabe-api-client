@@ -19,6 +19,8 @@ exports.PublicUserInfoFromJSONTyped = PublicUserInfoFromJSONTyped;
 exports.PublicUserInfoToJSON = PublicUserInfoToJSON;
 exports.PublicUserInfoToJSONTyped = PublicUserInfoToJSONTyped;
 const BadgePreview_1 = require("./BadgePreview");
+const ContentType_1 = require("./ContentType");
+const ImageAspectRatio_1 = require("./ImageAspectRatio");
 /**
  * Check if a given object implements the PublicUserInfo interface.
  */
@@ -41,6 +43,10 @@ function instanceOfPublicUserInfo(value) {
         return false;
     if (!('messages' in value) || value['messages'] === undefined)
         return false;
+    if (!('stories' in value) || value['stories'] === undefined)
+        return false;
+    if (!('adventures' in value) || value['adventures'] === undefined)
+        return false;
     if (!('followed' in value) || value['followed'] === undefined)
         return false;
     return true;
@@ -58,12 +64,17 @@ function PublicUserInfoFromJSONTyped(json, ignoreDiscriminator) {
         'avatarUrl': json['avatar_url'],
         'selectedBadge': (0, BadgePreview_1.BadgePreviewFromJSON)(json['selected_badge']),
         'bio': json['bio'] == null ? undefined : json['bio'],
+        'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
+        'coverAspectRatio': json['cover_aspect_ratio'] == null ? undefined : (0, ImageAspectRatio_1.ImageAspectRatioFromJSON)(json['cover_aspect_ratio']),
         'following': json['following'],
         'followers': json['followers'],
         'videos': json['videos'],
         'images': json['images'],
         'messages': json['messages'],
+        'stories': json['stories'],
+        'adventures': json['adventures'],
         'followed': json['followed'],
+        'notifyContentTypes': json['notify_content_types'] == null ? undefined : (json['notify_content_types'].map(ContentType_1.ContentTypeFromJSON)),
     };
 }
 function PublicUserInfoToJSON(json) {
@@ -79,12 +90,17 @@ function PublicUserInfoToJSONTyped(value, ignoreDiscriminator = false) {
         'avatar_url': value['avatarUrl'],
         'selected_badge': (0, BadgePreview_1.BadgePreviewToJSON)(value['selectedBadge']),
         'bio': value['bio'],
+        'cover_url': value['coverUrl'],
+        'cover_aspect_ratio': (0, ImageAspectRatio_1.ImageAspectRatioToJSON)(value['coverAspectRatio']),
         'following': value['following'],
         'followers': value['followers'],
         'videos': value['videos'],
         'images': value['images'],
         'messages': value['messages'],
+        'stories': value['stories'],
+        'adventures': value['adventures'],
         'followed': value['followed'],
+        'notify_content_types': value['notifyContentTypes'] == null ? undefined : (value['notifyContentTypes'].map(ContentType_1.ContentTypeToJSON)),
     };
 }
 //# sourceMappingURL=PublicUserInfo.js.map

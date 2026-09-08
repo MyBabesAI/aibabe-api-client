@@ -20,6 +20,20 @@ import {
     BadgePreviewToJSON,
     BadgePreviewToJSONTyped,
 } from './BadgePreview';
+import type { ContentType } from './ContentType';
+import {
+    ContentTypeFromJSON,
+    ContentTypeFromJSONTyped,
+    ContentTypeToJSON,
+    ContentTypeToJSONTyped,
+} from './ContentType';
+import type { ImageAspectRatio } from './ImageAspectRatio';
+import {
+    ImageAspectRatioFromJSON,
+    ImageAspectRatioFromJSONTyped,
+    ImageAspectRatioToJSON,
+    ImageAspectRatioToJSONTyped,
+} from './ImageAspectRatio';
 
 /**
  * 
@@ -59,6 +73,18 @@ export interface PublicUserInfo {
     bio?: string | null;
     /**
      * 
+     * @type {string}
+     * @memberof PublicUserInfo
+     */
+    coverUrl?: string | null;
+    /**
+     * 
+     * @type {ImageAspectRatio}
+     * @memberof PublicUserInfo
+     */
+    coverAspectRatio?: ImageAspectRatio | null;
+    /**
+     * 
      * @type {number}
      * @memberof PublicUserInfo
      */
@@ -89,11 +115,31 @@ export interface PublicUserInfo {
     messages: number;
     /**
      * 
+     * @type {number}
+     * @memberof PublicUserInfo
+     */
+    stories: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PublicUserInfo
+     */
+    adventures: number;
+    /**
+     * 
      * @type {boolean}
      * @memberof PublicUserInfo
      */
     followed: boolean;
+    /**
+     * 
+     * @type {Array<ContentType>}
+     * @memberof PublicUserInfo
+     */
+    notifyContentTypes?: Array<ContentType>;
 }
+
+
 
 /**
  * Check if a given object implements the PublicUserInfo interface.
@@ -108,6 +154,8 @@ export function instanceOfPublicUserInfo(value: object): value is PublicUserInfo
     if (!('videos' in value) || value['videos'] === undefined) return false;
     if (!('images' in value) || value['images'] === undefined) return false;
     if (!('messages' in value) || value['messages'] === undefined) return false;
+    if (!('stories' in value) || value['stories'] === undefined) return false;
+    if (!('adventures' in value) || value['adventures'] === undefined) return false;
     if (!('followed' in value) || value['followed'] === undefined) return false;
     return true;
 }
@@ -127,12 +175,17 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'avatarUrl': json['avatar_url'],
         'selectedBadge': BadgePreviewFromJSON(json['selected_badge']),
         'bio': json['bio'] == null ? undefined : json['bio'],
+        'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
+        'coverAspectRatio': json['cover_aspect_ratio'] == null ? undefined : ImageAspectRatioFromJSON(json['cover_aspect_ratio']),
         'following': json['following'],
         'followers': json['followers'],
         'videos': json['videos'],
         'images': json['images'],
         'messages': json['messages'],
+        'stories': json['stories'],
+        'adventures': json['adventures'],
         'followed': json['followed'],
+        'notifyContentTypes': json['notify_content_types'] == null ? undefined : ((json['notify_content_types'] as Array<any>).map(ContentTypeFromJSON)),
     };
 }
 
@@ -152,12 +205,17 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'avatar_url': value['avatarUrl'],
         'selected_badge': BadgePreviewToJSON(value['selectedBadge']),
         'bio': value['bio'],
+        'cover_url': value['coverUrl'],
+        'cover_aspect_ratio': ImageAspectRatioToJSON(value['coverAspectRatio']),
         'following': value['following'],
         'followers': value['followers'],
         'videos': value['videos'],
         'images': value['images'],
         'messages': value['messages'],
+        'stories': value['stories'],
+        'adventures': value['adventures'],
         'followed': value['followed'],
+        'notify_content_types': value['notifyContentTypes'] == null ? undefined : ((value['notifyContentTypes'] as Array<any>).map(ContentTypeToJSON)),
     };
 }
 

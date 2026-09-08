@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreatorGenerationCharge } from './CreatorGenerationCharge';
+import {
+    CreatorGenerationChargeFromJSON,
+    CreatorGenerationChargeFromJSONTyped,
+    CreatorGenerationChargeToJSON,
+    CreatorGenerationChargeToJSONTyped,
+} from './CreatorGenerationCharge';
 import type { CharacterAvatarReview } from './CharacterAvatarReview';
 import {
     CharacterAvatarReviewFromJSON,
@@ -39,6 +46,12 @@ export interface PostProfilePictureResponse {
      * @memberof PostProfilePictureResponse
      */
     generationStated?: boolean;
+    /**
+     * 
+     * @type {CreatorGenerationCharge}
+     * @memberof PostProfilePictureResponse
+     */
+    generationCharge?: CreatorGenerationCharge | null;
 }
 
 /**
@@ -61,6 +74,7 @@ export function PostProfilePictureResponseFromJSONTyped(json: any, ignoreDiscrim
         
         'review': CharacterAvatarReviewFromJSON(json['review']),
         'generationStated': json['generation_stated'] == null ? undefined : json['generation_stated'],
+        'generationCharge': json['generation_charge'] == null ? undefined : CreatorGenerationChargeFromJSON(json['generation_charge']),
     };
 }
 
@@ -77,6 +91,7 @@ export function PostProfilePictureResponseFromJSONTyped(json: any, ignoreDiscrim
         
         'review': CharacterAvatarReviewToJSON(value['review']),
         'generation_stated': value['generationStated'],
+        'generation_charge': CreatorGenerationChargeToJSON(value['generationCharge']),
     };
 }
 

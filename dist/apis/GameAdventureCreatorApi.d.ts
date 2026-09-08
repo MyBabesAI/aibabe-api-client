@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { GameAdventureCreatorCreateRequest, GameAdventureCreatorListResponse, GameAdventureCreatorResponse, GameAdventureCreatorUpdateRequest, GameAdventureSessionResponse } from '../models/index';
+import type { GameAdventureCreatorCreateRequest, GameAdventureCreatorListResponse, GameAdventureCreatorResponse, GameAdventureCreatorUpdateRequest, GameAdventureSessionResponse, SortFilter, VisibilityFilter } from '../models/index';
 export interface CreateGameAdventureCreatorPostRequest {
     gameAdventureCreatorCreateRequest: GameAdventureCreatorCreateRequest;
 }
@@ -25,6 +25,9 @@ export interface GetGameAdventureCreatorGameAdventureIdGetRequest {
 }
 export interface ListOwnGameAdventureCreatorGetRequest {
     excludeEventEntries?: boolean;
+    freeTextSearch?: string | null;
+    sort?: SortFilter;
+    visibility?: VisibilityFilter;
 }
 export interface UnpublishGameAdventureCreatorGameAdventureIdPublishDeleteRequest {
     gameAdventureId: string;

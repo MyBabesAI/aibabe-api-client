@@ -10,6 +10,8 @@
  * Do not edit the class manually.
  */
 import type { BadgePreview } from './BadgePreview';
+import type { ContentType } from './ContentType';
+import type { ImageAspectRatio } from './ImageAspectRatio';
 /**
  *
  * @export
@@ -48,6 +50,18 @@ export interface PublicUserInfo {
     bio?: string | null;
     /**
      *
+     * @type {string}
+     * @memberof PublicUserInfo
+     */
+    coverUrl?: string | null;
+    /**
+     *
+     * @type {ImageAspectRatio}
+     * @memberof PublicUserInfo
+     */
+    coverAspectRatio?: ImageAspectRatio | null;
+    /**
+     *
      * @type {number}
      * @memberof PublicUserInfo
      */
@@ -78,10 +92,28 @@ export interface PublicUserInfo {
     messages: number;
     /**
      *
+     * @type {number}
+     * @memberof PublicUserInfo
+     */
+    stories: number;
+    /**
+     *
+     * @type {number}
+     * @memberof PublicUserInfo
+     */
+    adventures: number;
+    /**
+     *
      * @type {boolean}
      * @memberof PublicUserInfo
      */
     followed: boolean;
+    /**
+     *
+     * @type {Array<ContentType>}
+     * @memberof PublicUserInfo
+     */
+    notifyContentTypes?: Array<ContentType>;
 }
 /**
  * Check if a given object implements the PublicUserInfo interface.

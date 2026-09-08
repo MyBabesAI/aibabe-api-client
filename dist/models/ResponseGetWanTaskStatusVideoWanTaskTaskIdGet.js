@@ -19,7 +19,8 @@ exports.ResponseGetWanTaskStatusVideoWanTaskTaskIdGetFromJSONTyped = ResponseGet
 exports.ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSON = ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSON;
 exports.ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSONTyped = ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSONTyped;
 const WanTaskOutput_1 = require("./WanTaskOutput");
-const MuleRouterWanTaskInfo_1 = require("./MuleRouterWanTaskInfo");
+const MuleRouterWanTaskResponseTaskInfo_1 = require("./MuleRouterWanTaskResponseTaskInfo");
+const Videos_1 = require("./Videos");
 /**
  * Check if a given object implements the ResponseGetWanTaskStatusVideoWanTaskTaskIdGet interface.
  */
@@ -34,8 +35,8 @@ function ResponseGetWanTaskStatusVideoWanTaskTaskIdGetFromJSONTyped(json, ignore
         return json;
     }
     return {
-        'taskInfo': json['task_info'] == null ? undefined : (0, MuleRouterWanTaskInfo_1.MuleRouterWanTaskInfoFromJSON)(json['task_info']),
-        'videos': json['videos'] == null ? undefined : json['videos'],
+        'taskInfo': json['task_info'] == null ? undefined : (0, MuleRouterWanTaskResponseTaskInfo_1.MuleRouterWanTaskResponseTaskInfoFromJSON)(json['task_info']),
+        'videos': json['videos'] == null ? undefined : (0, Videos_1.VideosFromJSON)(json['videos']),
         'requestId': json['request_id'] == null ? undefined : json['request_id'],
         'output': json['output'] == null ? undefined : (0, WanTaskOutput_1.WanTaskOutputFromJSON)(json['output']),
         'code': json['code'] == null ? undefined : json['code'],
@@ -50,8 +51,8 @@ function ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSONTyped(value, ignoreD
         return value;
     }
     return {
-        'task_info': (0, MuleRouterWanTaskInfo_1.MuleRouterWanTaskInfoToJSON)(value['taskInfo']),
-        'videos': value['videos'],
+        'task_info': (0, MuleRouterWanTaskResponseTaskInfo_1.MuleRouterWanTaskResponseTaskInfoToJSON)(value['taskInfo']),
+        'videos': (0, Videos_1.VideosToJSON)(value['videos']),
         'request_id': value['requestId'],
         'output': (0, WanTaskOutput_1.WanTaskOutputToJSON)(value['output']),
         'code': value['code'],

@@ -140,6 +140,22 @@ export const LoraName = {
     Krea2DarkromanceV2: 'krea2_darkromance_v2',
     Krea2RealismSlider: 'krea2_realism_slider',
     Krea2Manrotica: 'krea2_manrotica',
+    Krea2GayMissionaryPov: 'krea2_gay_missionary_pov',
+    Krea2GayPornMegapackV3: 'krea2_gay_porn_megapack_v3',
+    Krea2ReverseThroatFuckV2: 'krea2_reverse_throat_fuck_v2',
+    Krea269: 'krea2_69',
+    Krea2BondageGagsAio: 'krea2_bondage_gags_aio',
+    Krea2FemdomFacesitting: 'krea2_femdom_facesitting',
+    Krea2ArmGrabDoggystyle: 'krea2_arm_grab_doggystyle',
+    Krea2PovDoggyAnal: 'krea2_pov_doggy_anal',
+    Krea2MissionaryAnalV2: 'krea2_missionary_anal_v2',
+    Krea2PovReverseFellatio: 'krea2_pov_reverse_fellatio',
+    Krea2BulldogAnal: 'krea2_bulldog_anal',
+    Krea2Fingering: 'krea2_fingering',
+    Krea2BallsSucking: 'krea2_balls_sucking',
+    Krea2DeepthroatV2: 'krea2_deepthroat_v2',
+    Krea2CameltoeV3: 'krea2_cameltoe_v3',
+    Krea2PainExpression: 'krea2_pain_expression',
     None: 'none'
 } as const;
 export type LoraName = typeof LoraName[keyof typeof LoraName];

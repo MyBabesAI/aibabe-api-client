@@ -72,6 +72,12 @@ export interface ChatMessageDetail {
      * @type {string}
      * @memberof ChatMessageDetail
      */
+    postId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ChatMessageDetail
+     */
     audioUrl?: string | null;
     /**
      *

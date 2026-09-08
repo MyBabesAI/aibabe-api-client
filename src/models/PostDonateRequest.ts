@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ContentType } from './ContentType';
+import {
+    ContentTypeFromJSON,
+    ContentTypeFromJSONTyped,
+    ContentTypeToJSON,
+    ContentTypeToJSONTyped,
+} from './ContentType';
+
 /**
  * 
  * @export
@@ -43,7 +51,21 @@ export interface PostDonateRequest {
      * @memberof PostDonateRequest
      */
     message?: string | null;
+    /**
+     * 
+     * @type {ContentType}
+     * @memberof PostDonateRequest
+     */
+    contentType?: ContentType | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostDonateRequest
+     */
+    contentId?: string | null;
 }
+
+
 
 /**
  * Check if a given object implements the PostDonateRequest interface.
@@ -68,6 +90,8 @@ export function PostDonateRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         'tokens': json['tokens'],
         'anonymous': json['anonymous'] == null ? undefined : json['anonymous'],
         'message': json['message'] == null ? undefined : json['message'],
+        'contentType': json['content_type'] == null ? undefined : ContentTypeFromJSON(json['content_type']),
+        'contentId': json['content_id'] == null ? undefined : json['content_id'],
     };
 }
 
@@ -86,6 +110,8 @@ export function PostDonateRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         'tokens': value['tokens'],
         'anonymous': value['anonymous'],
         'message': value['message'],
+        'content_type': ContentTypeToJSON(value['contentType']),
+        'content_id': value['contentId'],
     };
 }
 

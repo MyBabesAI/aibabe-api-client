@@ -347,6 +347,9 @@ class ChatbotApi extends runtime.BaseAPI {
         if (requestParameters['sort'] != null) {
             queryParameters['sort'] = requestParameters['sort'];
         }
+        if (requestParameters['visibility'] != null) {
+            queryParameters['visibility'] = requestParameters['visibility'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/chatbot/`,

@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { VideoAspectRatio } from './VideoAspectRatio';
 import type { VideoLoraName } from './VideoLoraName';
 import type { ImageToVideoModel } from './ImageToVideoModel';
 /**
@@ -53,6 +54,18 @@ export interface GetVideoGenerationTagsResponse {
      * @memberof GetVideoGenerationTagsResponse
      */
     model: ImageToVideoModel;
+    /**
+     *
+     * @type {VideoAspectRatio}
+     * @memberof GetVideoGenerationTagsResponse
+     */
+    aspectRatio?: VideoAspectRatio;
+    /**
+     *
+     * @type {number}
+     * @memberof GetVideoGenerationTagsResponse
+     */
+    cropOffset?: number | null;
 }
 /**
  * Check if a given object implements the GetVideoGenerationTagsResponse interface.

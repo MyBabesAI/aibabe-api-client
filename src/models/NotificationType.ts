@@ -23,7 +23,11 @@ export const NotificationType = {
     Follow: 'follow',
     EpisodeUnlock: 'episode_unlock',
     Badge: 'badge',
-    NewEpisode: 'new_episode'
+    NewEpisode: 'new_episode',
+    NewPost: 'new_post',
+    NewEvent: 'new_event',
+    EventEnded: 'event_ended',
+    EventResult: 'event_result'
 } as const;
 export type NotificationType = typeof NotificationType[keyof typeof NotificationType];
 

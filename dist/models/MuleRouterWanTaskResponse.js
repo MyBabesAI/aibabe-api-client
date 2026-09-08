@@ -18,7 +18,8 @@ exports.MuleRouterWanTaskResponseFromJSON = MuleRouterWanTaskResponseFromJSON;
 exports.MuleRouterWanTaskResponseFromJSONTyped = MuleRouterWanTaskResponseFromJSONTyped;
 exports.MuleRouterWanTaskResponseToJSON = MuleRouterWanTaskResponseToJSON;
 exports.MuleRouterWanTaskResponseToJSONTyped = MuleRouterWanTaskResponseToJSONTyped;
-const MuleRouterWanTaskInfo_1 = require("./MuleRouterWanTaskInfo");
+const MuleRouterWanTaskResponseTaskInfo_1 = require("./MuleRouterWanTaskResponseTaskInfo");
+const Videos_1 = require("./Videos");
 /**
  * Check if a given object implements the MuleRouterWanTaskResponse interface.
  */
@@ -32,10 +33,7 @@ function MuleRouterWanTaskResponseFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
-    return {
-        'taskInfo': json['task_info'] == null ? undefined : (0, MuleRouterWanTaskInfo_1.MuleRouterWanTaskInfoFromJSON)(json['task_info']),
-        'videos': json['videos'] == null ? undefined : json['videos'],
-    };
+    return Object.assign(Object.assign({}, json), { 'taskInfo': json['task_info'] == null ? undefined : (0, MuleRouterWanTaskResponseTaskInfo_1.MuleRouterWanTaskResponseTaskInfoFromJSON)(json['task_info']), 'videos': json['videos'] == null ? undefined : (0, Videos_1.VideosFromJSON)(json['videos']) });
 }
 function MuleRouterWanTaskResponseToJSON(json) {
     return MuleRouterWanTaskResponseToJSONTyped(json, false);
@@ -44,9 +42,6 @@ function MuleRouterWanTaskResponseToJSONTyped(value, ignoreDiscriminator = false
     if (value == null) {
         return value;
     }
-    return {
-        'task_info': (0, MuleRouterWanTaskInfo_1.MuleRouterWanTaskInfoToJSON)(value['taskInfo']),
-        'videos': value['videos'],
-    };
+    return Object.assign(Object.assign({}, value), { 'task_info': (0, MuleRouterWanTaskResponseTaskInfo_1.MuleRouterWanTaskResponseTaskInfoToJSON)(value['taskInfo']), 'videos': (0, Videos_1.VideosToJSON)(value['videos']) });
 }
 //# sourceMappingURL=MuleRouterWanTaskResponse.js.map

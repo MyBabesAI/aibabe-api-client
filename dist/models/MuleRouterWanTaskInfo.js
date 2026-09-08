@@ -19,7 +19,7 @@ exports.MuleRouterWanTaskInfoFromJSON = MuleRouterWanTaskInfoFromJSON;
 exports.MuleRouterWanTaskInfoFromJSONTyped = MuleRouterWanTaskInfoFromJSONTyped;
 exports.MuleRouterWanTaskInfoToJSON = MuleRouterWanTaskInfoToJSON;
 exports.MuleRouterWanTaskInfoToJSONTyped = MuleRouterWanTaskInfoToJSONTyped;
-const MuleRouterWanTaskError_1 = require("./MuleRouterWanTaskError");
+const MuleRouterWanTaskInfoError_1 = require("./MuleRouterWanTaskInfoError");
 /**
  * @export
  */
@@ -50,13 +50,7 @@ function MuleRouterWanTaskInfoFromJSONTyped(json, ignoreDiscriminator) {
     if (json == null) {
         return json;
     }
-    return {
-        'id': json['id'],
-        'status': json['status'],
-        'createdAt': json['created_at'],
-        'updatedAt': json['updated_at'],
-        'error': json['error'] == null ? undefined : (0, MuleRouterWanTaskError_1.MuleRouterWanTaskErrorFromJSON)(json['error']),
-    };
+    return Object.assign(Object.assign({}, json), { 'id': json['id'], 'status': json['status'], 'createdAt': json['created_at'], 'updatedAt': json['updated_at'], 'error': json['error'] == null ? undefined : (0, MuleRouterWanTaskInfoError_1.MuleRouterWanTaskInfoErrorFromJSON)(json['error']) });
 }
 function MuleRouterWanTaskInfoToJSON(json) {
     return MuleRouterWanTaskInfoToJSONTyped(json, false);
@@ -65,12 +59,6 @@ function MuleRouterWanTaskInfoToJSONTyped(value, ignoreDiscriminator = false) {
     if (value == null) {
         return value;
     }
-    return {
-        'id': value['id'],
-        'status': value['status'],
-        'created_at': value['createdAt'],
-        'updated_at': value['updatedAt'],
-        'error': (0, MuleRouterWanTaskError_1.MuleRouterWanTaskErrorToJSON)(value['error']),
-    };
+    return Object.assign(Object.assign({}, value), { 'id': value['id'], 'status': value['status'], 'created_at': value['createdAt'], 'updated_at': value['updatedAt'], 'error': (0, MuleRouterWanTaskInfoError_1.MuleRouterWanTaskInfoErrorToJSON)(value['error']) });
 }
 //# sourceMappingURL=MuleRouterWanTaskInfo.js.map

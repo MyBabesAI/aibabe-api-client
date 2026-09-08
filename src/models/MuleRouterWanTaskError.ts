@@ -13,30 +13,53 @@
  */
 
 import { mapValues } from '../runtime';
+import type { Code1 } from './Code1';
+import {
+    Code1FromJSON,
+    Code1FromJSONTyped,
+    Code1ToJSON,
+    Code1ToJSONTyped,
+} from './Code1';
+import type { Title1 } from './Title1';
+import {
+    Title1FromJSON,
+    Title1FromJSONTyped,
+    Title1ToJSON,
+    Title1ToJSONTyped,
+} from './Title1';
+import type { Detail } from './Detail';
+import {
+    DetailFromJSON,
+    DetailFromJSONTyped,
+    DetailToJSON,
+    DetailToJSONTyped,
+} from './Detail';
+
 /**
  * 
  * @export
  * @interface MuleRouterWanTaskError
  */
 export interface MuleRouterWanTaskError {
+    [key: string]: any | any;
     /**
      * 
-     * @type {number}
+     * @type {Code1}
      * @memberof MuleRouterWanTaskError
      */
-    code?: number | null;
+    code?: Code1;
     /**
      * 
-     * @type {string}
+     * @type {Title1}
      * @memberof MuleRouterWanTaskError
      */
-    title?: string | null;
+    title?: Title1;
     /**
      * 
-     * @type {string}
+     * @type {Detail}
      * @memberof MuleRouterWanTaskError
      */
-    detail?: string | null;
+    detail?: Detail;
 }
 
 /**
@@ -56,9 +79,10 @@ export function MuleRouterWanTaskErrorFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'code': json['code'] == null ? undefined : json['code'],
-        'title': json['title'] == null ? undefined : json['title'],
-        'detail': json['detail'] == null ? undefined : json['detail'],
+            ...json,
+        'code': json['code'] == null ? undefined : Code1FromJSON(json['code']),
+        'title': json['title'] == null ? undefined : Title1FromJSON(json['title']),
+        'detail': json['detail'] == null ? undefined : DetailFromJSON(json['detail']),
     };
 }
 
@@ -73,9 +97,10 @@ export function MuleRouterWanTaskErrorFromJSONTyped(json: any, ignoreDiscriminat
 
     return {
         
-        'code': value['code'],
-        'title': value['title'],
-        'detail': value['detail'],
+            ...value,
+        'code': Code1ToJSON(value['code']),
+        'title': Title1ToJSON(value['title']),
+        'detail': DetailToJSON(value['detail']),
     };
 }
 

@@ -19,6 +19,7 @@ exports.DonationNotificationFromJSONTyped = DonationNotificationFromJSONTyped;
 exports.DonationNotificationToJSON = DonationNotificationToJSON;
 exports.DonationNotificationToJSONTyped = DonationNotificationToJSONTyped;
 const PublicUserPreview_1 = require("./PublicUserPreview");
+const ContentType_1 = require("./ContentType");
 const NotificationType_1 = require("./NotificationType");
 /**
  * Check if a given object implements the DonationNotification interface.
@@ -51,6 +52,10 @@ function DonationNotificationFromJSONTyped(json, ignoreDiscriminator) {
         'donationId': json['donation_id'],
         'tokens': json['tokens'],
         'message': json['message'],
+        'contentType': json['content_type'] == null ? undefined : (0, ContentType_1.ContentTypeFromJSON)(json['content_type']),
+        'contentId': json['content_id'] == null ? undefined : json['content_id'],
+        'contentTitle': json['content_title'] == null ? undefined : json['content_title'],
+        'contentCoverImage': json['content_cover_image'] == null ? undefined : json['content_cover_image'],
     };
 }
 function DonationNotificationToJSON(json) {
@@ -68,6 +73,10 @@ function DonationNotificationToJSONTyped(value, ignoreDiscriminator = false) {
         'donation_id': value['donationId'],
         'tokens': value['tokens'],
         'message': value['message'],
+        'content_type': (0, ContentType_1.ContentTypeToJSON)(value['contentType']),
+        'content_id': value['contentId'],
+        'content_title': value['contentTitle'],
+        'content_cover_image': value['contentCoverImage'],
     };
 }
 //# sourceMappingURL=DonationNotification.js.map

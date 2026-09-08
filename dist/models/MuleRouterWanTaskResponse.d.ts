@@ -9,25 +9,27 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { MuleRouterWanTaskInfo } from './MuleRouterWanTaskInfo';
+import type { MuleRouterWanTaskResponseTaskInfo } from './MuleRouterWanTaskResponseTaskInfo';
+import type { Videos } from './Videos';
 /**
  *
  * @export
  * @interface MuleRouterWanTaskResponse
  */
 export interface MuleRouterWanTaskResponse {
+    [key: string]: any | any;
     /**
      *
-     * @type {MuleRouterWanTaskInfo}
+     * @type {MuleRouterWanTaskResponseTaskInfo}
      * @memberof MuleRouterWanTaskResponse
      */
-    taskInfo?: MuleRouterWanTaskInfo | null;
+    taskInfo?: MuleRouterWanTaskResponseTaskInfo;
     /**
      *
-     * @type {Array<string>}
+     * @type {Videos}
      * @memberof MuleRouterWanTaskResponse
      */
-    videos?: Array<string> | null;
+    videos?: Videos;
 }
 /**
  * Check if a given object implements the MuleRouterWanTaskResponse interface.

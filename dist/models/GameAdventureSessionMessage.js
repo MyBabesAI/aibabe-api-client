@@ -55,6 +55,7 @@ function GameAdventureSessionMessageFromJSONTyped(json, ignoreDiscriminator) {
         'requestId': json['request_id'],
         'pictureId': json['picture_id'] == null ? undefined : json['picture_id'],
         'videoId': json['video_id'] == null ? undefined : json['video_id'],
+        'postId': json['post_id'] == null ? undefined : json['post_id'],
         'audioUrl': json['audio_url'] == null ? undefined : json['audio_url'],
         'audioStatus': json['audio_status'] == null ? undefined : (0, GeneratedAudioStatus_1.GeneratedAudioStatusFromJSON)(json['audio_status']),
     };
@@ -75,6 +76,7 @@ function GameAdventureSessionMessageToJSONTyped(value, ignoreDiscriminator = fal
         'request_id': value['requestId'],
         'picture_id': value['pictureId'],
         'video_id': value['videoId'],
+        'post_id': value['postId'],
         'audio_url': value['audioUrl'],
         'audio_status': (0, GeneratedAudioStatus_1.GeneratedAudioStatusToJSON)(value['audioStatus']),
     };

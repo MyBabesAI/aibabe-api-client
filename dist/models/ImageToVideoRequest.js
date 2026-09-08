@@ -20,6 +20,7 @@ exports.ImageToVideoRequestFromJSONTyped = ImageToVideoRequestFromJSONTyped;
 exports.ImageToVideoRequestToJSON = ImageToVideoRequestToJSON;
 exports.ImageToVideoRequestToJSONTyped = ImageToVideoRequestToJSONTyped;
 const VideoShot_1 = require("./VideoShot");
+const VideoAspectRatio_1 = require("./VideoAspectRatio");
 const VideoLoraName_1 = require("./VideoLoraName");
 /**
  * @export
@@ -89,6 +90,9 @@ function ImageToVideoRequestFromJSONTyped(json, ignoreDiscriminator) {
         'seed': json['seed'] == null ? undefined : json['seed'],
         'audioGeneration': json['audio_generation'] == null ? undefined : json['audio_generation'],
         'shots': json['shots'] == null ? undefined : (json['shots'].map(VideoShot_1.VideoShotFromJSON)),
+        'remixedVideoId': json['remixed_video_id'] == null ? undefined : json['remixed_video_id'],
+        'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, VideoAspectRatio_1.VideoAspectRatioFromJSON)(json['aspect_ratio']),
+        'cropOffset': json['crop_offset'] == null ? undefined : json['crop_offset'],
     };
 }
 function ImageToVideoRequestToJSON(json) {
@@ -114,6 +118,9 @@ function ImageToVideoRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'seed': value['seed'],
         'audio_generation': value['audioGeneration'],
         'shots': value['shots'] == null ? undefined : (value['shots'].map(VideoShot_1.VideoShotToJSON)),
+        'remixed_video_id': value['remixedVideoId'],
+        'aspect_ratio': (0, VideoAspectRatio_1.VideoAspectRatioToJSON)(value['aspectRatio']),
+        'crop_offset': value['cropOffset'],
     };
 }
 //# sourceMappingURL=ImageToVideoRequest.js.map

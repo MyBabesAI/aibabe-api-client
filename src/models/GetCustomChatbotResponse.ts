@@ -27,6 +27,13 @@ import {
     ChatbotCreatedOriginToJSON,
     ChatbotCreatedOriginToJSONTyped,
 } from './ChatbotCreatedOrigin';
+import type { ChatbotPreview } from './ChatbotPreview';
+import {
+    ChatbotPreviewFromJSON,
+    ChatbotPreviewFromJSONTyped,
+    ChatbotPreviewToJSON,
+    ChatbotPreviewToJSONTyped,
+} from './ChatbotPreview';
 import type { PostDetailsWithDate } from './PostDetailsWithDate';
 import {
     PostDetailsWithDateFromJSON,
@@ -34,6 +41,13 @@ import {
     PostDetailsWithDateToJSON,
     PostDetailsWithDateToJSONTyped,
 } from './PostDetailsWithDate';
+import type { ContentType } from './ContentType';
+import {
+    ContentTypeFromJSON,
+    ContentTypeFromJSONTyped,
+    ContentTypeToJSON,
+    ContentTypeToJSONTyped,
+} from './ContentType';
 import type { TagData } from './TagData';
 import {
     TagDataFromJSON,
@@ -66,6 +80,18 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     profileVideo: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetCustomChatbotResponse
+     */
+    coverUrl?: string | null;
+    /**
+     * 
+     * @type {ContentType}
+     * @memberof GetCustomChatbotResponse
+     */
+    coverContentType?: ContentType | null;
     /**
      * 
      * @type {string}
@@ -108,6 +134,12 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     postDetails?: PostDetailsWithDate | null;
+    /**
+     * 
+     * @type {ChatbotPreview}
+     * @memberof GetCustomChatbotResponse
+     */
+    origin?: ChatbotPreview | null;
 }
 
 
@@ -141,6 +173,8 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'displayName': json['display_name'],
         'profilePicture': json['profile_picture'],
         'profileVideo': json['profile_video'],
+        'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
+        'coverContentType': json['cover_content_type'] == null ? undefined : ContentTypeFromJSON(json['cover_content_type']),
         'fullBio': json['full_bio'],
         'characterAge': json['character_age'],
         'tags': ((json['tags'] as Array<any>).map(TagDataFromJSON)),
@@ -148,6 +182,7 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'createdFrom': ChatbotCreatedOriginFromJSON(json['created_from']),
         'creator': PublicUserPreviewWithFollowFromJSON(json['creator']),
         'postDetails': json['post_details'] == null ? undefined : PostDetailsWithDateFromJSON(json['post_details']),
+        'origin': json['origin'] == null ? undefined : ChatbotPreviewFromJSON(json['origin']),
     };
 }
 
@@ -165,6 +200,8 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'display_name': value['displayName'],
         'profile_picture': value['profilePicture'],
         'profile_video': value['profileVideo'],
+        'cover_url': value['coverUrl'],
+        'cover_content_type': ContentTypeToJSON(value['coverContentType']),
         'full_bio': value['fullBio'],
         'character_age': value['characterAge'],
         'tags': ((value['tags'] as Array<any>).map(TagDataToJSON)),
@@ -172,6 +209,7 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'created_from': ChatbotCreatedOriginToJSON(value['createdFrom']),
         'creator': PublicUserPreviewWithFollowToJSON(value['creator']),
         'post_details': PostDetailsWithDateToJSON(value['postDetails']),
+        'origin': ChatbotPreviewToJSON(value['origin']),
     };
 }
 

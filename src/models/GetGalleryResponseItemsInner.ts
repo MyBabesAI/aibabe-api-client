@@ -135,6 +135,12 @@ export interface GetGalleryResponseItemsInner {
     postDetails?: PostDetails;
     /**
      * 
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    isOriginal?: boolean;
+    /**
+     * 
      * @type {string}
      * @memberof GetGalleryResponseItemsInner
      */
@@ -163,6 +169,18 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     artStyle: ArtStyle;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    width?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    height?: number;
     /**
      * 
      * @type {string}
@@ -269,11 +287,14 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'createdAt': (new Date(json['created_at'])),
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'postDetails': json['post_details'] == null ? undefined : PostDetailsFromJSON(json['post_details']),
+        'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
         'eta': json['eta'],
         'status': VideoGenerationStatusFromJSON(json['status']),
         'generationId': json['generation_id'],
         'seenByUser': json['seen_by_user'],
         'artStyle': ArtStyleFromJSON(json['art_style']),
+        'width': json['width'] == null ? undefined : json['width'],
+        'height': json['height'] == null ? undefined : json['height'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'owner': json['owner'] == null ? undefined : PublicUserPreviewWithFollowFromJSON(json['owner']),
@@ -303,11 +324,14 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'created_at': ((value['createdAt']).toISOString()),
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'post_details': PostDetailsToJSON(value['postDetails']),
+        'is_original': value['isOriginal'],
         'eta': value['eta'],
         'status': VideoGenerationStatusToJSON(value['status']),
         'generation_id': value['generationId'],
         'seen_by_user': value['seenByUser'],
         'art_style': ArtStyleToJSON(value['artStyle']),
+        'width': value['width'],
+        'height': value['height'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'owner': PublicUserPreviewWithFollowToJSON(value['owner']),

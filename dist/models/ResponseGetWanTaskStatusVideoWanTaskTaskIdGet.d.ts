@@ -10,7 +10,8 @@
  * Do not edit the class manually.
  */
 import type { WanTaskOutput } from './WanTaskOutput';
-import type { MuleRouterWanTaskInfo } from './MuleRouterWanTaskInfo';
+import type { MuleRouterWanTaskResponseTaskInfo } from './MuleRouterWanTaskResponseTaskInfo';
+import type { Videos } from './Videos';
 /**
  *
  * @export
@@ -19,16 +20,16 @@ import type { MuleRouterWanTaskInfo } from './MuleRouterWanTaskInfo';
 export interface ResponseGetWanTaskStatusVideoWanTaskTaskIdGet {
     /**
      *
-     * @type {MuleRouterWanTaskInfo}
+     * @type {MuleRouterWanTaskResponseTaskInfo}
      * @memberof ResponseGetWanTaskStatusVideoWanTaskTaskIdGet
      */
-    taskInfo?: MuleRouterWanTaskInfo;
+    taskInfo?: MuleRouterWanTaskResponseTaskInfo;
     /**
      *
-     * @type {Array<string>}
+     * @type {Videos}
      * @memberof ResponseGetWanTaskStatusVideoWanTaskTaskIdGet
      */
-    videos?: Array<string>;
+    videos?: Videos;
     /**
      *
      * @type {string}

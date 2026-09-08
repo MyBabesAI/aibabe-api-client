@@ -20,13 +20,13 @@ import {
     WanTaskOutputToJSON,
     WanTaskOutputToJSONTyped,
 } from './WanTaskOutput';
-import type { MuleRouterWanTaskInfo } from './MuleRouterWanTaskInfo';
+import type { MuleRouterWanTaskResponseTaskInfo } from './MuleRouterWanTaskResponseTaskInfo';
 import {
-    MuleRouterWanTaskInfoFromJSON,
-    MuleRouterWanTaskInfoFromJSONTyped,
-    MuleRouterWanTaskInfoToJSON,
-    MuleRouterWanTaskInfoToJSONTyped,
-} from './MuleRouterWanTaskInfo';
+    MuleRouterWanTaskResponseTaskInfoFromJSON,
+    MuleRouterWanTaskResponseTaskInfoFromJSONTyped,
+    MuleRouterWanTaskResponseTaskInfoToJSON,
+    MuleRouterWanTaskResponseTaskInfoToJSONTyped,
+} from './MuleRouterWanTaskResponseTaskInfo';
 import type { WanTaskResponse } from './WanTaskResponse';
 import {
     WanTaskResponseFromJSON,
@@ -41,6 +41,13 @@ import {
     MuleRouterWanTaskResponseToJSON,
     MuleRouterWanTaskResponseToJSONTyped,
 } from './MuleRouterWanTaskResponse';
+import type { Videos } from './Videos';
+import {
+    VideosFromJSON,
+    VideosFromJSONTyped,
+    VideosToJSON,
+    VideosToJSONTyped,
+} from './Videos';
 
 /**
  * 
@@ -50,16 +57,16 @@ import {
 export interface ResponseGetWanTaskStatusVideoWanTaskTaskIdGet {
     /**
      * 
-     * @type {MuleRouterWanTaskInfo}
+     * @type {MuleRouterWanTaskResponseTaskInfo}
      * @memberof ResponseGetWanTaskStatusVideoWanTaskTaskIdGet
      */
-    taskInfo?: MuleRouterWanTaskInfo;
+    taskInfo?: MuleRouterWanTaskResponseTaskInfo;
     /**
      * 
-     * @type {Array<string>}
+     * @type {Videos}
      * @memberof ResponseGetWanTaskStatusVideoWanTaskTaskIdGet
      */
-    videos?: Array<string>;
+    videos?: Videos;
     /**
      * 
      * @type {string}
@@ -103,8 +110,8 @@ export function ResponseGetWanTaskStatusVideoWanTaskTaskIdGetFromJSONTyped(json:
     }
     return {
         
-        'taskInfo': json['task_info'] == null ? undefined : MuleRouterWanTaskInfoFromJSON(json['task_info']),
-        'videos': json['videos'] == null ? undefined : json['videos'],
+        'taskInfo': json['task_info'] == null ? undefined : MuleRouterWanTaskResponseTaskInfoFromJSON(json['task_info']),
+        'videos': json['videos'] == null ? undefined : VideosFromJSON(json['videos']),
         'requestId': json['request_id'] == null ? undefined : json['request_id'],
         'output': json['output'] == null ? undefined : WanTaskOutputFromJSON(json['output']),
         'code': json['code'] == null ? undefined : json['code'],
@@ -123,8 +130,8 @@ export function ResponseGetWanTaskStatusVideoWanTaskTaskIdGetFromJSONTyped(json:
 
     return {
         
-        'task_info': MuleRouterWanTaskInfoToJSON(value['taskInfo']),
-        'videos': value['videos'],
+        'task_info': MuleRouterWanTaskResponseTaskInfoToJSON(value['taskInfo']),
+        'videos': VideosToJSON(value['videos']),
         'request_id': value['requestId'],
         'output': WanTaskOutputToJSON(value['output']),
         'code': value['code'],

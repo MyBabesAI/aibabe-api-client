@@ -10,6 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ArtStyle } from './ArtStyle';
+import type { ImagePurpose } from './ImagePurpose';
+import type { ImageAspectRatio } from './ImageAspectRatio';
 import type { LoraName } from './LoraName';
 /**
  *
@@ -55,16 +57,34 @@ export interface PostGenerateSceneRequest {
     loras?: Array<LoraName> | null;
     /**
      *
+     * @type {ImageAspectRatio}
+     * @memberof PostGenerateSceneRequest
+     */
+    aspectRatio?: ImageAspectRatio | null;
+    /**
+     *
      * @type {ArtStyle}
      * @memberof PostGenerateSceneRequest
      */
     artStyle: ArtStyle;
     /**
      *
+     * @type {ImagePurpose}
+     * @memberof PostGenerateSceneRequest
+     */
+    purpose?: ImagePurpose | null;
+    /**
+     *
      * @type {string}
      * @memberof PostGenerateSceneRequest
      */
     chatbotId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PostGenerateSceneRequest
+     */
+    originalImageId?: string | null;
 }
 /**
  * Check if a given object implements the PostGenerateSceneRequest interface.

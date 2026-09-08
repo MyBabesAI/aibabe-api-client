@@ -19,6 +19,8 @@ import type {
   GetGalleryResponse,
   HTTPValidationError,
   PostType,
+  SortFilter,
+  VisibilityFilter,
 } from '../models/index';
 import {
     BulkDeleteContentRequestFromJSON,
@@ -29,6 +31,10 @@ import {
     HTTPValidationErrorToJSON,
     PostTypeFromJSON,
     PostTypeToJSON,
+    SortFilterFromJSON,
+    SortFilterToJSON,
+    VisibilityFilterFromJSON,
+    VisibilityFilterToJSON,
 } from '../models/index';
 
 export interface BulkDeleteContentGalleryBulkDeleteRequest {
@@ -42,6 +48,8 @@ export interface GetGalleryGalleryGetRequest {
     chatbotId?: string | null;
     freeTextSearch?: string | null;
     excludeEventEntries?: boolean;
+    sort?: SortFilter;
+    visibility?: VisibilityFilter;
 }
 
 /**
@@ -112,6 +120,14 @@ export class GalleryApi extends runtime.BaseAPI {
 
         if (requestParameters['excludeEventEntries'] != null) {
             queryParameters['exclude_event_entries'] = requestParameters['excludeEventEntries'];
+        }
+
+        if (requestParameters['sort'] != null) {
+            queryParameters['sort'] = requestParameters['sort'];
+        }
+
+        if (requestParameters['visibility'] != null) {
+            queryParameters['visibility'] = requestParameters['visibility'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

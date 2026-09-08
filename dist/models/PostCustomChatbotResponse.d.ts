@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CreatorGenerationCharge } from './CreatorGenerationCharge';
 /**
  *
  * @export
@@ -27,6 +28,12 @@ export interface PostCustomChatbotResponse {
      * @memberof PostCustomChatbotResponse
      */
     isoEta: string;
+    /**
+     *
+     * @type {CreatorGenerationCharge}
+     * @memberof PostCustomChatbotResponse
+     */
+    generationCharge?: CreatorGenerationCharge | null;
 }
 /**
  * Check if a given object implements the PostCustomChatbotResponse interface.

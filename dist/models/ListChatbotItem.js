@@ -57,6 +57,7 @@ function ListChatbotItemFromJSONTyped(json, ignoreDiscriminator) {
         'profileVideo': json['profile_video'],
         'bio': json['bio'],
         'messageCount': json['message_count'],
+        'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
         'lastMessageAt': json['last_message_at'] == null ? undefined : (new Date(json['last_message_at'])),
         'postDetails': json['post_details'] == null ? undefined : (0, PostDetails_1.PostDetailsFromJSON)(json['post_details']),
     };
@@ -77,6 +78,7 @@ function ListChatbotItemToJSONTyped(value, ignoreDiscriminator = false) {
         'profile_video': value['profileVideo'],
         'bio': value['bio'],
         'message_count': value['messageCount'],
+        'is_original': value['isOriginal'],
         'last_message_at': value['lastMessageAt'] == null ? undefined : (value['lastMessageAt'].toISOString()),
         'post_details': (0, PostDetails_1.PostDetailsToJSON)(value['postDetails']),
     };

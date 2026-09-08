@@ -19,6 +19,8 @@ exports.PostGenerateSceneRequestFromJSONTyped = PostGenerateSceneRequestFromJSON
 exports.PostGenerateSceneRequestToJSON = PostGenerateSceneRequestToJSON;
 exports.PostGenerateSceneRequestToJSONTyped = PostGenerateSceneRequestToJSONTyped;
 const ArtStyle_1 = require("./ArtStyle");
+const ImagePurpose_1 = require("./ImagePurpose");
+const ImageAspectRatio_1 = require("./ImageAspectRatio");
 const LoraName_1 = require("./LoraName");
 /**
  * Check if a given object implements the PostGenerateSceneRequest interface.
@@ -50,8 +52,11 @@ function PostGenerateSceneRequestFromJSONTyped(json, ignoreDiscriminator) {
         'requestId': json['request_id'],
         'numberOfImages': json['number_of_images'],
         'loras': json['loras'] == null ? undefined : (json['loras'].map(LoraName_1.LoraNameFromJSON)),
+        'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, ImageAspectRatio_1.ImageAspectRatioFromJSON)(json['aspect_ratio']),
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
+        'purpose': json['purpose'] == null ? undefined : (0, ImagePurpose_1.ImagePurposeFromJSON)(json['purpose']),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
+        'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
     };
 }
 function PostGenerateSceneRequestToJSON(json) {
@@ -68,8 +73,11 @@ function PostGenerateSceneRequestToJSONTyped(value, ignoreDiscriminator = false)
         'request_id': value['requestId'],
         'number_of_images': value['numberOfImages'],
         'loras': value['loras'] == null ? undefined : (value['loras'].map(LoraName_1.LoraNameToJSON)),
+        'aspect_ratio': (0, ImageAspectRatio_1.ImageAspectRatioToJSON)(value['aspectRatio']),
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
+        'purpose': (0, ImagePurpose_1.ImagePurposeToJSON)(value['purpose']),
         'chatbot_id': value['chatbotId'],
+        'original_image_id': value['originalImageId'],
     };
 }
 //# sourceMappingURL=PostGenerateSceneRequest.js.map

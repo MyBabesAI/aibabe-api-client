@@ -57,6 +57,24 @@ export interface PatchCustomChatbotRequest {
      * @memberof PatchCustomChatbotRequest
      */
     tags: Array<TagData> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PatchCustomChatbotRequest
+     */
+    coverPictureId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PatchCustomChatbotRequest
+     */
+    coverVideoId?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PatchCustomChatbotRequest
+     */
+    removeCover?: boolean;
 }
 
 /**
@@ -86,6 +104,9 @@ export function PatchCustomChatbotRequestFromJSONTyped(json: any, ignoreDiscrimi
         'profileVideoId': json['profile_video_id'],
         'bio': json['bio'],
         'tags': (json['tags'] == null ? null : (json['tags'] as Array<any>).map(TagDataFromJSON)),
+        'coverPictureId': json['cover_picture_id'] == null ? undefined : json['cover_picture_id'],
+        'coverVideoId': json['cover_video_id'] == null ? undefined : json['cover_video_id'],
+        'removeCover': json['remove_cover'] == null ? undefined : json['remove_cover'],
     };
 }
 
@@ -105,6 +126,9 @@ export function PatchCustomChatbotRequestFromJSONTyped(json: any, ignoreDiscrimi
         'profile_video_id': value['profileVideoId'],
         'bio': value['bio'],
         'tags': (value['tags'] == null ? null : (value['tags'] as Array<any>).map(TagDataToJSON)),
+        'cover_picture_id': value['coverPictureId'],
+        'cover_video_id': value['coverVideoId'],
+        'remove_cover': value['removeCover'],
     };
 }
 

@@ -238,6 +238,9 @@ class ChatApi extends runtime.BaseAPI {
         if (requestParameters['limit'] != null) {
             queryParameters['limit'] = requestParameters['limit'];
         }
+        if (requestParameters['includeAdmin'] != null) {
+            queryParameters['include_admin'] = requestParameters['includeAdmin'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/chat/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
@@ -398,7 +401,7 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards. Not counted against the per-IP burst limit: that limit paces reply generation, and a restart generates nothing, so resetting a whole series episode by episode must not eat into the replies that follow.
      * Delete Live Roleplay Conversation
      */
     async deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRaw(requestParameters, initOverrides) {
@@ -416,7 +419,7 @@ class ChatApi extends runtime.BaseAPI {
         return new runtime.VoidApiResponse(response);
     }
     /**
-     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards.
+     * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards. Not counted against the per-IP burst limit: that limit paces reply generation, and a restart generates nothing, so resetting a whole series episode by episode must not eat into the replies that follow.
      * Delete Live Roleplay Conversation
      */
     async deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete(requestParameters, initOverrides) {

@@ -18,6 +18,7 @@ exports.PostProfilePictureResponseFromJSON = PostProfilePictureResponseFromJSON;
 exports.PostProfilePictureResponseFromJSONTyped = PostProfilePictureResponseFromJSONTyped;
 exports.PostProfilePictureResponseToJSON = PostProfilePictureResponseToJSON;
 exports.PostProfilePictureResponseToJSONTyped = PostProfilePictureResponseToJSONTyped;
+const CreatorGenerationCharge_1 = require("./CreatorGenerationCharge");
 const CharacterAvatarReview_1 = require("./CharacterAvatarReview");
 /**
  * Check if a given object implements the PostProfilePictureResponse interface.
@@ -37,6 +38,7 @@ function PostProfilePictureResponseFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'review': (0, CharacterAvatarReview_1.CharacterAvatarReviewFromJSON)(json['review']),
         'generationStated': json['generation_stated'] == null ? undefined : json['generation_stated'],
+        'generationCharge': json['generation_charge'] == null ? undefined : (0, CreatorGenerationCharge_1.CreatorGenerationChargeFromJSON)(json['generation_charge']),
     };
 }
 function PostProfilePictureResponseToJSON(json) {
@@ -49,6 +51,7 @@ function PostProfilePictureResponseToJSONTyped(value, ignoreDiscriminator = fals
     return {
         'review': (0, CharacterAvatarReview_1.CharacterAvatarReviewToJSON)(value['review']),
         'generation_stated': value['generationStated'],
+        'generation_charge': (0, CreatorGenerationCharge_1.CreatorGenerationChargeToJSON)(value['generationCharge']),
     };
 }
 //# sourceMappingURL=PostProfilePictureResponse.js.map

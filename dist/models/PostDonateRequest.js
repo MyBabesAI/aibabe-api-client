@@ -18,6 +18,7 @@ exports.PostDonateRequestFromJSON = PostDonateRequestFromJSON;
 exports.PostDonateRequestFromJSONTyped = PostDonateRequestFromJSONTyped;
 exports.PostDonateRequestToJSON = PostDonateRequestToJSON;
 exports.PostDonateRequestToJSONTyped = PostDonateRequestToJSONTyped;
+const ContentType_1 = require("./ContentType");
 /**
  * Check if a given object implements the PostDonateRequest interface.
  */
@@ -40,6 +41,8 @@ function PostDonateRequestFromJSONTyped(json, ignoreDiscriminator) {
         'tokens': json['tokens'],
         'anonymous': json['anonymous'] == null ? undefined : json['anonymous'],
         'message': json['message'] == null ? undefined : json['message'],
+        'contentType': json['content_type'] == null ? undefined : (0, ContentType_1.ContentTypeFromJSON)(json['content_type']),
+        'contentId': json['content_id'] == null ? undefined : json['content_id'],
     };
 }
 function PostDonateRequestToJSON(json) {
@@ -54,6 +57,8 @@ function PostDonateRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'tokens': value['tokens'],
         'anonymous': value['anonymous'],
         'message': value['message'],
+        'content_type': (0, ContentType_1.ContentTypeToJSON)(value['contentType']),
+        'content_id': value['contentId'],
     };
 }
 //# sourceMappingURL=PostDonateRequest.js.map

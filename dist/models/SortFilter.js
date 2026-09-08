@@ -26,11 +26,14 @@ exports.SortFilterToJSONTyped = SortFilterToJSONTyped;
 exports.SortFilter = {
     Trending: 'trending',
     Newest: 'newest',
+    Oldest: 'oldest',
     MostLiked: 'most_liked',
     HighestRating: 'highest_rating',
     MostViewed: 'most_viewed',
     MostMessages: 'most_messages',
     LatestMessage: 'latest_message',
+    Longest: 'longest',
+    Shortest: 'shortest',
     Shuffled: 'shuffled'
 };
 function instanceOfSortFilter(value) {

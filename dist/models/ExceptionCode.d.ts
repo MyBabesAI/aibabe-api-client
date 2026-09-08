@@ -37,6 +37,7 @@ export declare const ExceptionCode: {
     readonly EmailAddressUsed: "email_address_used";
     readonly EmailAddressUsedRecently: "email_address_used_recently";
     readonly PublicUserNotFound: "public_user_not_found";
+    readonly FollowNotFound: "follow_not_found";
     readonly PublicUsernameTaken: "public_username_taken";
     readonly PublicUsernameRequired: "public_username_required";
     readonly PublicUsernameUnavailable: "public_username_unavailable";
@@ -159,6 +160,8 @@ export declare const ExceptionCode: {
     readonly ImageOrVideoNotFound: "image_or_video_not_found";
     readonly VideoUploadImageFailed: "video_upload_image_failed";
     readonly VideoSizeNotSupported: "video_size_not_supported";
+    readonly AspectRatioNotSupported: "aspect_ratio_not_supported";
+    readonly VideoCropWithoutRatio: "video_crop_without_ratio";
     readonly VideoRetrieveFailed: "video_retrieve_failed";
     readonly VideoGenerationLimitReached: "video_generation_limit_reached";
     readonly GenerationTagsNotFound: "generation_tags_not_found";
@@ -198,6 +201,7 @@ export declare const ExceptionCode: {
     readonly LlmModelNotAvailable: "llm_model_not_available";
     readonly OpenSearchDisabled: "open_search_disabled";
     readonly OpenSearchNotSuportedSort: "open_search_not_suported_sort";
+    readonly InvalidPaginationToken: "invalid_pagination_token";
     readonly OpenSearchNotSuportedPostFiltering: "open_search_not_suported_post_filtering";
     readonly ExploreInvalidSortFilter: "explore_invalid_sort_filter";
     readonly ExploreEventFreeTextNotSupported: "explore_event_free_text_not_supported";

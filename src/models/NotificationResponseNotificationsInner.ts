@@ -48,13 +48,13 @@ import {
     PostTypeToJSON,
     PostTypeToJSONTyped,
 } from './PostType';
-import type { BadgeNotification } from './BadgeNotification';
+import type { ContentType } from './ContentType';
 import {
-    BadgeNotificationFromJSON,
-    BadgeNotificationFromJSONTyped,
-    BadgeNotificationToJSON,
-    BadgeNotificationToJSONTyped,
-} from './BadgeNotification';
+    ContentTypeFromJSON,
+    ContentTypeFromJSONTyped,
+    ContentTypeToJSON,
+    ContentTypeToJSONTyped,
+} from './ContentType';
 import type { NewEpisodeNotification } from './NewEpisodeNotification';
 import {
     NewEpisodeNotificationFromJSON,
@@ -62,13 +62,13 @@ import {
     NewEpisodeNotificationToJSON,
     NewEpisodeNotificationToJSONTyped,
 } from './NewEpisodeNotification';
-import type { NotificationType } from './NotificationType';
+import type { NewPostNotification } from './NewPostNotification';
 import {
-    NotificationTypeFromJSON,
-    NotificationTypeFromJSONTyped,
-    NotificationTypeToJSON,
-    NotificationTypeToJSONTyped,
-} from './NotificationType';
+    NewPostNotificationFromJSON,
+    NewPostNotificationFromJSONTyped,
+    NewPostNotificationToJSON,
+    NewPostNotificationToJSONTyped,
+} from './NewPostNotification';
 import type { LikePostNotification } from './LikePostNotification';
 import {
     LikePostNotificationFromJSON,
@@ -76,13 +76,6 @@ import {
     LikePostNotificationToJSON,
     LikePostNotificationToJSONTyped,
 } from './LikePostNotification';
-import type { BadgeModel } from './BadgeModel';
-import {
-    BadgeModelFromJSON,
-    BadgeModelFromJSONTyped,
-    BadgeModelToJSON,
-    BadgeModelToJSONTyped,
-} from './BadgeModel';
 import type { WallPost } from './WallPost';
 import {
     WallPostFromJSON,
@@ -90,6 +83,55 @@ import {
     WallPostToJSON,
     WallPostToJSONTyped,
 } from './WallPost';
+import type { EventResultType } from './EventResultType';
+import {
+    EventResultTypeFromJSON,
+    EventResultTypeFromJSONTyped,
+    EventResultTypeToJSON,
+    EventResultTypeToJSONTyped,
+} from './EventResultType';
+import type { BadgeNotification } from './BadgeNotification';
+import {
+    BadgeNotificationFromJSON,
+    BadgeNotificationFromJSONTyped,
+    BadgeNotificationToJSON,
+    BadgeNotificationToJSONTyped,
+} from './BadgeNotification';
+import type { NotificationType } from './NotificationType';
+import {
+    NotificationTypeFromJSON,
+    NotificationTypeFromJSONTyped,
+    NotificationTypeToJSON,
+    NotificationTypeToJSONTyped,
+} from './NotificationType';
+import type { BadgeModel } from './BadgeModel';
+import {
+    BadgeModelFromJSON,
+    BadgeModelFromJSONTyped,
+    BadgeModelToJSON,
+    BadgeModelToJSONTyped,
+} from './BadgeModel';
+import type { NewEventNotification } from './NewEventNotification';
+import {
+    NewEventNotificationFromJSON,
+    NewEventNotificationFromJSONTyped,
+    NewEventNotificationToJSON,
+    NewEventNotificationToJSONTyped,
+} from './NewEventNotification';
+import type { EventEndedNotification } from './EventEndedNotification';
+import {
+    EventEndedNotificationFromJSON,
+    EventEndedNotificationFromJSONTyped,
+    EventEndedNotificationToJSON,
+    EventEndedNotificationToJSONTyped,
+} from './EventEndedNotification';
+import type { EventResultNotification } from './EventResultNotification';
+import {
+    EventResultNotificationFromJSON,
+    EventResultNotificationFromJSONTyped,
+    EventResultNotificationToJSON,
+    EventResultNotificationToJSONTyped,
+} from './EventResultNotification';
 
 /**
  * 
@@ -165,6 +207,30 @@ export interface NotificationResponseNotificationsInner {
     message: string;
     /**
      * 
+     * @type {ContentType}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentType?: ContentType;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentTitle?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentCoverImage?: string;
+    /**
+     * 
      * @type {string}
      * @memberof NotificationResponseNotificationsInner
      */
@@ -187,6 +253,36 @@ export interface NotificationResponseNotificationsInner {
      * @memberof NotificationResponseNotificationsInner
      */
     badge: BadgeModel;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    eventId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    eventName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    eventBackgroundImage?: string;
+    /**
+     * 
+     * @type {EventResultType}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    resultType: EventResultType;
+    /**
+     * 
+     * @type {number}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    rank?: number;
 }
 
 
@@ -208,6 +304,9 @@ export function instanceOfNotificationResponseNotificationsInner(value: object):
     if (!('episodeTitle' in value) || value['episodeTitle'] === undefined) return false;
     if (!('coverImage' in value) || value['coverImage'] === undefined) return false;
     if (!('badge' in value) || value['badge'] === undefined) return false;
+    if (!('eventId' in value) || value['eventId'] === undefined) return false;
+    if (!('eventName' in value) || value['eventName'] === undefined) return false;
+    if (!('resultType' in value) || value['resultType'] === undefined) return false;
     return true;
 }
 
@@ -232,10 +331,19 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
         'donationId': json['donation_id'],
         'tokens': json['tokens'],
         'message': json['message'],
+        'contentType': json['content_type'] == null ? undefined : ContentTypeFromJSON(json['content_type']),
+        'contentId': json['content_id'] == null ? undefined : json['content_id'],
+        'contentTitle': json['content_title'] == null ? undefined : json['content_title'],
+        'contentCoverImage': json['content_cover_image'] == null ? undefined : json['content_cover_image'],
         'episodeId': json['episode_id'],
         'episodeTitle': json['episode_title'],
         'coverImage': json['cover_image'],
         'badge': BadgeModelFromJSON(json['badge']),
+        'eventId': json['event_id'],
+        'eventName': json['event_name'],
+        'eventBackgroundImage': json['event_background_image'] == null ? undefined : json['event_background_image'],
+        'resultType': EventResultTypeFromJSON(json['result_type']),
+        'rank': json['rank'] == null ? undefined : json['rank'],
     };
 }
 
@@ -261,10 +369,19 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
         'donation_id': value['donationId'],
         'tokens': value['tokens'],
         'message': value['message'],
+        'content_type': ContentTypeToJSON(value['contentType']),
+        'content_id': value['contentId'],
+        'content_title': value['contentTitle'],
+        'content_cover_image': value['contentCoverImage'],
         'episode_id': value['episodeId'],
         'episode_title': value['episodeTitle'],
         'cover_image': value['coverImage'],
         'badge': BadgeModelToJSON(value['badge']),
+        'event_id': value['eventId'],
+        'event_name': value['eventName'],
+        'event_background_image': value['eventBackgroundImage'],
+        'result_type': EventResultTypeToJSON(value['resultType']),
+        'rank': value['rank'],
     };
 }
 

@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { VideoShot } from './VideoShot';
+import type { VideoAspectRatio } from './VideoAspectRatio';
 import type { VideoLoraName } from './VideoLoraName';
 /**
  *
@@ -107,6 +108,24 @@ export interface ImageToVideoRequest {
      * @memberof ImageToVideoRequest
      */
     shots?: Array<VideoShot> | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ImageToVideoRequest
+     */
+    remixedVideoId?: string | null;
+    /**
+     *
+     * @type {VideoAspectRatio}
+     * @memberof ImageToVideoRequest
+     */
+    aspectRatio?: VideoAspectRatio;
+    /**
+     *
+     * @type {number}
+     * @memberof ImageToVideoRequest
+     */
+    cropOffset?: number | null;
 }
 /**
  * @export

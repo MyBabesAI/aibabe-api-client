@@ -18,6 +18,7 @@ exports.RemainingFreeUsesResponseFromJSON = RemainingFreeUsesResponseFromJSON;
 exports.RemainingFreeUsesResponseFromJSONTyped = RemainingFreeUsesResponseFromJSONTyped;
 exports.RemainingFreeUsesResponseToJSON = RemainingFreeUsesResponseToJSON;
 exports.RemainingFreeUsesResponseToJSONTyped = RemainingFreeUsesResponseToJSONTyped;
+const CreatorGenerationQuotaStatus_1 = require("./CreatorGenerationQuotaStatus");
 /**
  * Check if a given object implements the RemainingFreeUsesResponse interface.
  */
@@ -35,6 +36,7 @@ function RemainingFreeUsesResponseFromJSONTyped(json, ignoreDiscriminator) {
         'remainingFreeMessages': json['remaining_free_messages'] == null ? undefined : json['remaining_free_messages'],
         'remainingFreeImages': json['remaining_free_images'] == null ? undefined : json['remaining_free_images'],
         'resetAt': json['reset_at'] == null ? undefined : json['reset_at'],
+        'creatorGenerations': json['creator_generations'] == null ? undefined : (0, CreatorGenerationQuotaStatus_1.CreatorGenerationQuotaStatusFromJSON)(json['creator_generations']),
     };
 }
 function RemainingFreeUsesResponseToJSON(json) {
@@ -48,6 +50,7 @@ function RemainingFreeUsesResponseToJSONTyped(value, ignoreDiscriminator = false
         'remaining_free_messages': value['remainingFreeMessages'],
         'remaining_free_images': value['remainingFreeImages'],
         'reset_at': value['resetAt'],
+        'creator_generations': (0, CreatorGenerationQuotaStatus_1.CreatorGenerationQuotaStatusToJSON)(value['creatorGenerations']),
     };
 }
 //# sourceMappingURL=RemainingFreeUsesResponse.js.map

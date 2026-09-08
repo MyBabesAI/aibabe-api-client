@@ -37,6 +37,8 @@ function PutPublicUserRequestFromJSONTyped(json, ignoreDiscriminator) {
         'publicUsername': json['public_username'],
         'bio': json['bio'] == null ? undefined : json['bio'],
         'generatedPictureId': json['generated_picture_id'] == null ? undefined : json['generated_picture_id'],
+        'coverGeneratedPictureId': json['cover_generated_picture_id'] == null ? undefined : json['cover_generated_picture_id'],
+        'removeCover': json['remove_cover'] == null ? undefined : json['remove_cover'],
     };
 }
 function PutPublicUserRequestToJSON(json) {
@@ -50,6 +52,8 @@ function PutPublicUserRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'public_username': value['publicUsername'],
         'bio': value['bio'],
         'generated_picture_id': value['generatedPictureId'],
+        'cover_generated_picture_id': value['coverGeneratedPictureId'],
+        'remove_cover': value['removeCover'],
     };
 }
 //# sourceMappingURL=PutPublicUserRequest.js.map

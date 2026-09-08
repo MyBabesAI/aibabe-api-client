@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BulkDeleteContentRequest, GetGalleryResponse, PostType } from '../models/index';
+import type { BulkDeleteContentRequest, GetGalleryResponse, PostType, SortFilter, VisibilityFilter } from '../models/index';
 export interface BulkDeleteContentGalleryBulkDeleteRequest {
     bulkDeleteContentRequest: BulkDeleteContentRequest;
 }
@@ -21,6 +21,8 @@ export interface GetGalleryGalleryGetRequest {
     chatbotId?: string | null;
     freeTextSearch?: string | null;
     excludeEventEntries?: boolean;
+    sort?: SortFilter;
+    visibility?: VisibilityFilter;
 }
 /**
  *

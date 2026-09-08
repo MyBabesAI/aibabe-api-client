@@ -101,6 +101,12 @@ class GalleryApi extends runtime.BaseAPI {
         if (requestParameters['excludeEventEntries'] != null) {
             queryParameters['exclude_event_entries'] = requestParameters['excludeEventEntries'];
         }
+        if (requestParameters['sort'] != null) {
+            queryParameters['sort'] = requestParameters['sort'];
+        }
+        if (requestParameters['visibility'] != null) {
+            queryParameters['visibility'] = requestParameters['visibility'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/gallery/`,

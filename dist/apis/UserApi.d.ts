@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { DeleteUserRequest, GetClaimablesResponse, GetFollowedUsersResponse, GetPublicLatestUpdateResponse, GetPublicUsersResponse, PatchUserPreferenceProfileRequest, PatchUserRequest, PostClaimRequest, PostDonateRequest, PostDonateResponse, PostFollowUserRequest, PostRatingRequest, PostRatingResponse, PostReportUserRequest, PostUserPreferencesOnboardingRequest, PostVerifyPublicUsernameRequest, PostVerifyPublicUsernameResponse, PublicUserInfo, PutPasswordRequest, PutPublicUserRequest, PutUsernameRequest, RemainingFreeUsesResponse, UserPreferenceProfile, UserPreferenceTaxonomyResponse } from '../models/index';
+import type { DeleteUserRequest, GetClaimablesResponse, GetFollowedUsersResponse, GetPublicLatestUpdateResponse, GetPublicUsersResponse, PatchUserPreferenceProfileRequest, PatchUserRequest, PostClaimRequest, PostDonateRequest, PostDonateResponse, PostFollowUserRequest, PostRatingRequest, PostRatingResponse, PostReportUserRequest, PostUserPreferencesOnboardingRequest, PostVerifyPublicUsernameRequest, PostVerifyPublicUsernameResponse, PublicUserInfo, PutFollowNotificationsRequest, PutPasswordRequest, PutPublicUserRequest, PutUsernameRequest, RemainingFreeUsesResponse, UserPreferenceProfile, UserPreferenceTaxonomyResponse } from '../models/index';
 export interface BlacklistUserUserBlacklistUserIdPatchRequest {
     userId: string;
 }
@@ -25,6 +25,16 @@ export interface DonateUserDonatePostRequest {
 }
 export interface FollowUserUserFollowPostRequest {
     postFollowUserRequest: PostFollowUserRequest;
+}
+export interface GetPublicUserFollowersUserPublicUserIdFollowersGetRequest {
+    userId: string;
+    paginationToken?: string | null;
+    limit?: number;
+}
+export interface GetPublicUserFollowingUserPublicUserIdFollowingGetRequest {
+    userId: string;
+    paginationToken?: string | null;
+    limit?: number;
 }
 export interface GetPublicUserLikeUserPublicLikeGetRequest {
     publicUsername?: string | null;
@@ -51,6 +61,9 @@ export interface ReportUserUserUserIdReportPostRequest {
     userId: string;
     postReportUserRequest: PostReportUserRequest;
 }
+export interface UpdateFollowNotificationsUserFollowNotificationsPutRequest {
+    putFollowNotificationsRequest: PutFollowNotificationsRequest;
+}
 export interface UpdatePasswordUserPasswordPutRequest {
     putPasswordRequest: PutPasswordRequest;
 }
@@ -61,6 +74,9 @@ export interface UpdateUsernameUserUsernamePutRequest {
     putUsernameRequest: PutUsernameRequest;
 }
 export interface UploadPublicAvatarUserPublicAvatarPostRequest {
+    image: Blob;
+}
+export interface UploadPublicCoverUserPublicCoverPostRequest {
     image: Blob;
 }
 export interface VerifyPublicUsernameUserPublicVerifyPostRequest {
@@ -135,6 +151,22 @@ export declare class UserApi extends runtime.BaseAPI {
      */
     getPreferencesUserPreferencesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPreferenceProfile>;
     /**
+     * Get Public User Followers
+     */
+    getPublicUserFollowersUserPublicUserIdFollowersGetRaw(requestParameters: GetPublicUserFollowersUserPublicUserIdFollowersGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPublicUsersResponse>>;
+    /**
+     * Get Public User Followers
+     */
+    getPublicUserFollowersUserPublicUserIdFollowersGet(requestParameters: GetPublicUserFollowersUserPublicUserIdFollowersGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPublicUsersResponse>;
+    /**
+     * Get Public User Following
+     */
+    getPublicUserFollowingUserPublicUserIdFollowingGetRaw(requestParameters: GetPublicUserFollowingUserPublicUserIdFollowingGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPublicUsersResponse>>;
+    /**
+     * Get Public User Following
+     */
+    getPublicUserFollowingUserPublicUserIdFollowingGet(requestParameters: GetPublicUserFollowingUserPublicUserIdFollowingGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPublicUsersResponse>;
+    /**
      * Get Public User Like
      */
     getPublicUserLikeUserPublicLikeGetRaw(requestParameters: GetPublicUserLikeUserPublicLikeGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPublicUsersResponse>>;
@@ -207,6 +239,14 @@ export declare class UserApi extends runtime.BaseAPI {
      */
     reportUserUserUserIdReportPost(requestParameters: ReportUserUserUserIdReportPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
+     * Update Follow Notifications
+     */
+    updateFollowNotificationsUserFollowNotificationsPutRaw(requestParameters: UpdateFollowNotificationsUserFollowNotificationsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Update Follow Notifications
+     */
+    updateFollowNotificationsUserFollowNotificationsPut(requestParameters: UpdateFollowNotificationsUserFollowNotificationsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
      * Update Password
      */
     updatePasswordUserPasswordPutRaw(requestParameters: UpdatePasswordUserPasswordPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
@@ -238,6 +278,14 @@ export declare class UserApi extends runtime.BaseAPI {
      * Upload Public Avatar
      */
     uploadPublicAvatarUserPublicAvatarPost(requestParameters: UploadPublicAvatarUserPublicAvatarPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Upload Public Cover
+     */
+    uploadPublicCoverUserPublicCoverPostRaw(requestParameters: UploadPublicCoverUserPublicCoverPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Upload Public Cover
+     */
+    uploadPublicCoverUserPublicCoverPost(requestParameters: UploadPublicCoverUserPublicCoverPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Username Update Available
      */

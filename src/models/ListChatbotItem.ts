@@ -77,6 +77,12 @@ export interface ListChatbotItem {
     messageCount: number;
     /**
      * 
+     * @type {boolean}
+     * @memberof ListChatbotItem
+     */
+    isOriginal?: boolean | null;
+    /**
+     * 
      * @type {Date}
      * @memberof ListChatbotItem
      */
@@ -122,6 +128,7 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'profileVideo': json['profile_video'],
         'bio': json['bio'],
         'messageCount': json['message_count'],
+        'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
         'lastMessageAt': json['last_message_at'] == null ? undefined : (new Date(json['last_message_at'])),
         'postDetails': json['post_details'] == null ? undefined : PostDetailsFromJSON(json['post_details']),
     };
@@ -146,6 +153,7 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'profile_video': value['profileVideo'],
         'bio': value['bio'],
         'message_count': value['messageCount'],
+        'is_original': value['isOriginal'],
         'last_message_at': value['lastMessageAt'] == null ? undefined : ((value['lastMessageAt'] as any).toISOString()),
         'post_details': PostDetailsToJSON(value['postDetails']),
     };

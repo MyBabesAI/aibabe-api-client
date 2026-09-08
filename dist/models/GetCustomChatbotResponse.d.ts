@@ -11,7 +11,9 @@
  */
 import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
 import type { ChatbotCreatedOrigin } from './ChatbotCreatedOrigin';
+import type { ChatbotPreview } from './ChatbotPreview';
 import type { PostDetailsWithDate } from './PostDetailsWithDate';
+import type { ContentType } from './ContentType';
 import type { TagData } from './TagData';
 /**
  *
@@ -37,6 +39,18 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     profileVideo: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GetCustomChatbotResponse
+     */
+    coverUrl?: string | null;
+    /**
+     *
+     * @type {ContentType}
+     * @memberof GetCustomChatbotResponse
+     */
+    coverContentType?: ContentType | null;
     /**
      *
      * @type {string}
@@ -79,6 +93,12 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     postDetails?: PostDetailsWithDate | null;
+    /**
+     *
+     * @type {ChatbotPreview}
+     * @memberof GetCustomChatbotResponse
+     */
+    origin?: ChatbotPreview | null;
 }
 /**
  * Check if a given object implements the GetCustomChatbotResponse interface.

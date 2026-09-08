@@ -33,6 +33,18 @@ export interface VideoContent {
     url: string;
     /**
      * 
+     * @type {number}
+     * @memberof VideoContent
+     */
+    width?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof VideoContent
+     */
+    height?: number | null;
+    /**
+     * 
      * @type {string}
      * @memberof VideoContent
      */
@@ -81,6 +93,8 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'id': json['id'],
         'url': json['url'],
+        'width': json['width'] == null ? undefined : json['width'],
+        'height': json['height'] == null ? undefined : json['height'],
         'generationId': json['generation_id'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
@@ -101,6 +115,8 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'id': value['id'],
         'url': value['url'],
+        'width': value['width'],
+        'height': value['height'],
         'generation_id': value['generationId'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],

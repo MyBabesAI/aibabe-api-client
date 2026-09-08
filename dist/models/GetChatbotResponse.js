@@ -18,6 +18,7 @@ exports.GetChatbotResponseFromJSON = GetChatbotResponseFromJSON;
 exports.GetChatbotResponseFromJSONTyped = GetChatbotResponseFromJSONTyped;
 exports.GetChatbotResponseToJSON = GetChatbotResponseToJSON;
 exports.GetChatbotResponseToJSONTyped = GetChatbotResponseToJSONTyped;
+const ContentType_1 = require("./ContentType");
 const GalleryItem_1 = require("./GalleryItem");
 const WallPost_1 = require("./WallPost");
 /**
@@ -53,6 +54,8 @@ function GetChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'displayName': json['display_name'],
         'profilePicture': json['profile_picture'],
         'profileVideo': json['profile_video'],
+        'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
+        'coverContentType': json['cover_content_type'] == null ? undefined : (0, ContentType_1.ContentTypeFromJSON)(json['cover_content_type']),
         'fullBio': json['full_bio'],
         'characterAge': json['character_age'],
         'posts': (json['posts'].map(WallPost_1.WallPostFromJSON)),
@@ -71,6 +74,8 @@ function GetChatbotResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'display_name': value['displayName'],
         'profile_picture': value['profilePicture'],
         'profile_video': value['profileVideo'],
+        'cover_url': value['coverUrl'],
+        'cover_content_type': (0, ContentType_1.ContentTypeToJSON)(value['coverContentType']),
         'full_bio': value['fullBio'],
         'character_age': value['characterAge'],
         'posts': (value['posts'].map(WallPost_1.WallPostToJSON)),

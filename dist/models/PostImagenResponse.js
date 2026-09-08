@@ -18,6 +18,7 @@ exports.PostImagenResponseFromJSON = PostImagenResponseFromJSON;
 exports.PostImagenResponseFromJSONTyped = PostImagenResponseFromJSONTyped;
 exports.PostImagenResponseToJSON = PostImagenResponseToJSON;
 exports.PostImagenResponseToJSONTyped = PostImagenResponseToJSONTyped;
+const CreatorGenerationCharge_1 = require("./CreatorGenerationCharge");
 /**
  * Check if a given object implements the PostImagenResponse interface.
  */
@@ -35,6 +36,7 @@ function PostImagenResponseFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'eta': json['eta'],
+        'generationCharge': json['generation_charge'] == null ? undefined : (0, CreatorGenerationCharge_1.CreatorGenerationChargeFromJSON)(json['generation_charge']),
     };
 }
 function PostImagenResponseToJSON(json) {
@@ -46,6 +48,7 @@ function PostImagenResponseToJSONTyped(value, ignoreDiscriminator = false) {
     }
     return {
         'eta': value['eta'],
+        'generation_charge': (0, CreatorGenerationCharge_1.CreatorGenerationChargeToJSON)(value['generationCharge']),
     };
 }
 //# sourceMappingURL=PostImagenResponse.js.map

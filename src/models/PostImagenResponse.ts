@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CreatorGenerationCharge } from './CreatorGenerationCharge';
+import {
+    CreatorGenerationChargeFromJSON,
+    CreatorGenerationChargeFromJSONTyped,
+    CreatorGenerationChargeToJSON,
+    CreatorGenerationChargeToJSONTyped,
+} from './CreatorGenerationCharge';
+
 /**
  * 
  * @export
@@ -25,6 +33,12 @@ export interface PostImagenResponse {
      * @memberof PostImagenResponse
      */
     eta: string;
+    /**
+     * 
+     * @type {CreatorGenerationCharge}
+     * @memberof PostImagenResponse
+     */
+    generationCharge?: CreatorGenerationCharge | null;
 }
 
 /**
@@ -46,6 +60,7 @@ export function PostImagenResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'eta': json['eta'],
+        'generationCharge': json['generation_charge'] == null ? undefined : CreatorGenerationChargeFromJSON(json['generation_charge']),
     };
 }
 
@@ -61,6 +76,7 @@ export function PostImagenResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     return {
         
         'eta': value['eta'],
+        'generation_charge': CreatorGenerationChargeToJSON(value['generationCharge']),
     };
 }
 

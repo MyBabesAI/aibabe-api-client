@@ -18,6 +18,7 @@ exports.PostGenerateImageRequestFromJSON = PostGenerateImageRequestFromJSON;
 exports.PostGenerateImageRequestFromJSONTyped = PostGenerateImageRequestFromJSONTyped;
 exports.PostGenerateImageRequestToJSON = PostGenerateImageRequestToJSON;
 exports.PostGenerateImageRequestToJSONTyped = PostGenerateImageRequestToJSONTyped;
+const ImageAspectRatio_1 = require("./ImageAspectRatio");
 const LoraName_1 = require("./LoraName");
 /**
  * Check if a given object implements the PostGenerateImageRequest interface.
@@ -47,6 +48,8 @@ function PostGenerateImageRequestFromJSONTyped(json, ignoreDiscriminator) {
         'requestId': json['request_id'],
         'numberOfImages': json['number_of_images'],
         'loras': json['loras'] == null ? undefined : (json['loras'].map(LoraName_1.LoraNameFromJSON)),
+        'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, ImageAspectRatio_1.ImageAspectRatioFromJSON)(json['aspect_ratio']),
+        'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
     };
 }
 function PostGenerateImageRequestToJSON(json) {
@@ -63,6 +66,8 @@ function PostGenerateImageRequestToJSONTyped(value, ignoreDiscriminator = false)
         'request_id': value['requestId'],
         'number_of_images': value['numberOfImages'],
         'loras': value['loras'] == null ? undefined : (value['loras'].map(LoraName_1.LoraNameToJSON)),
+        'aspect_ratio': (0, ImageAspectRatio_1.ImageAspectRatioToJSON)(value['aspectRatio']),
+        'original_image_id': value['originalImageId'],
     };
 }
 //# sourceMappingURL=PostGenerateImageRequest.js.map

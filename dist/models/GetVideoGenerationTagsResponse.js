@@ -18,6 +18,7 @@ exports.GetVideoGenerationTagsResponseFromJSON = GetVideoGenerationTagsResponseF
 exports.GetVideoGenerationTagsResponseFromJSONTyped = GetVideoGenerationTagsResponseFromJSONTyped;
 exports.GetVideoGenerationTagsResponseToJSON = GetVideoGenerationTagsResponseToJSON;
 exports.GetVideoGenerationTagsResponseToJSONTyped = GetVideoGenerationTagsResponseToJSONTyped;
+const VideoAspectRatio_1 = require("./VideoAspectRatio");
 const VideoLoraName_1 = require("./VideoLoraName");
 const ImageToVideoModel_1 = require("./ImageToVideoModel");
 /**
@@ -52,6 +53,8 @@ function GetVideoGenerationTagsResponseFromJSONTyped(json, ignoreDiscriminator) 
         'originalImageId': json['original_image_id'],
         'loras': (json['loras'].map(VideoLoraName_1.VideoLoraNameFromJSON)),
         'model': (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
+        'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, VideoAspectRatio_1.VideoAspectRatioFromJSON)(json['aspect_ratio']),
+        'cropOffset': json['crop_offset'] == null ? undefined : json['crop_offset'],
     };
 }
 function GetVideoGenerationTagsResponseToJSON(json) {
@@ -68,6 +71,8 @@ function GetVideoGenerationTagsResponseToJSONTyped(value, ignoreDiscriminator = 
         'original_image_id': value['originalImageId'],
         'loras': (value['loras'].map(VideoLoraName_1.VideoLoraNameToJSON)),
         'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
+        'aspect_ratio': (0, VideoAspectRatio_1.VideoAspectRatioToJSON)(value['aspectRatio']),
+        'crop_offset': value['cropOffset'],
     };
 }
 //# sourceMappingURL=GetVideoGenerationTagsResponse.js.map

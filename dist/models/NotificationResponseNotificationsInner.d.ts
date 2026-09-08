@@ -11,9 +11,11 @@
  */
 import type { PublicUserPreview } from './PublicUserPreview';
 import type { PostType } from './PostType';
+import type { ContentType } from './ContentType';
+import type { WallPost } from './WallPost';
+import type { EventResultType } from './EventResultType';
 import type { NotificationType } from './NotificationType';
 import type { BadgeModel } from './BadgeModel';
-import type { WallPost } from './WallPost';
 /**
  *
  * @export
@@ -88,6 +90,30 @@ export interface NotificationResponseNotificationsInner {
     message: string;
     /**
      *
+     * @type {ContentType}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentType?: ContentType;
+    /**
+     *
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentTitle?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    contentCoverImage?: string;
+    /**
+     *
      * @type {string}
      * @memberof NotificationResponseNotificationsInner
      */
@@ -110,6 +136,36 @@ export interface NotificationResponseNotificationsInner {
      * @memberof NotificationResponseNotificationsInner
      */
     badge: BadgeModel;
+    /**
+     *
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    eventId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    eventName: string;
+    /**
+     *
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    eventBackgroundImage?: string;
+    /**
+     *
+     * @type {EventResultType}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    resultType: EventResultType;
+    /**
+     *
+     * @type {number}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    rank?: number;
 }
 /**
  * Check if a given object implements the NotificationResponseNotificationsInner interface.

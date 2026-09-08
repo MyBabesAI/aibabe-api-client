@@ -48,6 +48,9 @@ function PatchCustomChatbotRequestFromJSONTyped(json, ignoreDiscriminator) {
         'profileVideoId': json['profile_video_id'],
         'bio': json['bio'],
         'tags': (json['tags'] == null ? null : json['tags'].map(TagData_1.TagDataFromJSON)),
+        'coverPictureId': json['cover_picture_id'] == null ? undefined : json['cover_picture_id'],
+        'coverVideoId': json['cover_video_id'] == null ? undefined : json['cover_video_id'],
+        'removeCover': json['remove_cover'] == null ? undefined : json['remove_cover'],
     };
 }
 function PatchCustomChatbotRequestToJSON(json) {
@@ -63,6 +66,9 @@ function PatchCustomChatbotRequestToJSONTyped(value, ignoreDiscriminator = false
         'profile_video_id': value['profileVideoId'],
         'bio': value['bio'],
         'tags': (value['tags'] == null ? null : value['tags'].map(TagData_1.TagDataToJSON)),
+        'cover_picture_id': value['coverPictureId'],
+        'cover_video_id': value['coverVideoId'],
+        'remove_cover': value['removeCover'],
     };
 }
 //# sourceMappingURL=PatchCustomChatbotRequest.js.map

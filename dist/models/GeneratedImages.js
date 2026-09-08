@@ -70,11 +70,14 @@ function GeneratedImagesFromJSONTyped(json, ignoreDiscriminator) {
         'createdAt': (new Date(json['created_at'])),
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['chatbot']),
         'postDetails': json['post_details'] == null ? undefined : (0, PostDetails_1.PostDetailsFromJSON)(json['post_details']),
+        'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
         'eta': json['eta'],
         'status': (0, ImageGenerationStatus_1.ImageGenerationStatusFromJSON)(json['status']),
         'generationId': json['generation_id'],
         'seenByUser': json['seen_by_user'],
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
+        'width': json['width'] == null ? undefined : json['width'],
+        'height': json['height'] == null ? undefined : json['height'],
     };
 }
 function GeneratedImagesToJSON(json) {
@@ -91,11 +94,14 @@ function GeneratedImagesToJSONTyped(value, ignoreDiscriminator = false) {
         'created_at': ((value['createdAt']).toISOString()),
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['chatbot']),
         'post_details': (0, PostDetails_1.PostDetailsToJSON)(value['postDetails']),
+        'is_original': value['isOriginal'],
         'eta': value['eta'],
         'status': (0, ImageGenerationStatus_1.ImageGenerationStatusToJSON)(value['status']),
         'generation_id': value['generationId'],
         'seen_by_user': value['seenByUser'],
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
+        'width': value['width'],
+        'height': value['height'],
     };
 }
 //# sourceMappingURL=GeneratedImages.js.map

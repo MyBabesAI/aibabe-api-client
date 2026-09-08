@@ -11,6 +11,7 @@
  */
 import type { ChatbotInfo } from './ChatbotInfo';
 import type { PostDetails } from './PostDetails';
+import type { ChatAdminDetails } from './ChatAdminDetails';
 import type { ChatMessageDetail } from './ChatMessageDetail';
 import type { ConversationSettings } from './ConversationSettings';
 /**
@@ -61,6 +62,12 @@ export interface GetConversationResponse {
      * @memberof GetConversationResponse
      */
     paginationToken?: string | null;
+    /**
+     *
+     * @type {ChatAdminDetails}
+     * @memberof GetConversationResponse
+     */
+    admin?: ChatAdminDetails | null;
 }
 /**
  * Check if a given object implements the GetConversationResponse interface.

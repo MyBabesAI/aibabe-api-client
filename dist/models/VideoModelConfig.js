@@ -22,6 +22,7 @@ exports.VideoModelConfigToJSONTyped = VideoModelConfigToJSONTyped;
 const runtime_1 = require("../runtime");
 const PromotionSummary_1 = require("./PromotionSummary");
 const VideoDurationOptions_1 = require("./VideoDurationOptions");
+const VideoAspectRatio_1 = require("./VideoAspectRatio");
 const VideoQualityConfig_1 = require("./VideoQualityConfig");
 /**
  * @export
@@ -60,6 +61,8 @@ function instanceOfVideoModelConfig(value) {
         return false;
     if (!('multishotSupported' in value) || value['multishotSupported'] === undefined)
         return false;
+    if (!('aspectRatios' in value) || value['aspectRatios'] === undefined)
+        return false;
     return true;
 }
 function VideoModelConfigFromJSON(json) {
@@ -82,6 +85,7 @@ function VideoModelConfigFromJSONTyped(json, ignoreDiscriminator) {
         'modsAvailable': json['mods_available'],
         'templatesAvailable': json['templates_available'],
         'multishotSupported': json['multishot_supported'],
+        'aspectRatios': (json['aspect_ratios'].map(VideoAspectRatio_1.VideoAspectRatioFromJSON)),
     };
 }
 function VideoModelConfigToJSON(json) {
@@ -104,6 +108,7 @@ function VideoModelConfigToJSONTyped(value, ignoreDiscriminator = false) {
         'mods_available': value['modsAvailable'],
         'templates_available': value['templatesAvailable'],
         'multishot_supported': value['multishotSupported'],
+        'aspect_ratios': (value['aspectRatios'].map(VideoAspectRatio_1.VideoAspectRatioToJSON)),
     };
 }
 //# sourceMappingURL=VideoModelConfig.js.map

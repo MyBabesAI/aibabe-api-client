@@ -66,6 +66,12 @@ export interface ListChatbotItem {
     messageCount: number;
     /**
      *
+     * @type {boolean}
+     * @memberof ListChatbotItem
+     */
+    isOriginal?: boolean | null;
+    /**
+     *
      * @type {Date}
      * @memberof ListChatbotItem
      */

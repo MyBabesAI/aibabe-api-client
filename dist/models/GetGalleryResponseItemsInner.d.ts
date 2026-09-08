@@ -61,6 +61,12 @@ export interface GetGalleryResponseItemsInner {
     postDetails?: PostDetails;
     /**
      *
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    isOriginal?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof GetGalleryResponseItemsInner
      */
@@ -89,6 +95,18 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     artStyle: ArtStyle;
+    /**
+     *
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    width?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    height?: number;
     /**
      *
      * @type {string}

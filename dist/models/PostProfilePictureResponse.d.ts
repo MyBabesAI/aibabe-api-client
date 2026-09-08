@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CreatorGenerationCharge } from './CreatorGenerationCharge';
 import type { CharacterAvatarReview } from './CharacterAvatarReview';
 /**
  *
@@ -28,6 +29,12 @@ export interface PostProfilePictureResponse {
      * @memberof PostProfilePictureResponse
      */
     generationStated?: boolean;
+    /**
+     *
+     * @type {CreatorGenerationCharge}
+     * @memberof PostProfilePictureResponse
+     */
+    generationCharge?: CreatorGenerationCharge | null;
 }
 /**
  * Check if a given object implements the PostProfilePictureResponse interface.

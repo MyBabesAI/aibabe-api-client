@@ -16,11 +16,14 @@
 export declare const SortFilter: {
     readonly Trending: "trending";
     readonly Newest: "newest";
+    readonly Oldest: "oldest";
     readonly MostLiked: "most_liked";
     readonly HighestRating: "highest_rating";
     readonly MostViewed: "most_viewed";
     readonly MostMessages: "most_messages";
     readonly LatestMessage: "latest_message";
+    readonly Longest: "longest";
+    readonly Shortest: "shortest";
     readonly Shuffled: "shuffled";
 };
 export type SortFilter = typeof SortFilter[keyof typeof SortFilter];

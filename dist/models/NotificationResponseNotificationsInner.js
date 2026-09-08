@@ -20,9 +20,11 @@ exports.NotificationResponseNotificationsInnerToJSON = NotificationResponseNotif
 exports.NotificationResponseNotificationsInnerToJSONTyped = NotificationResponseNotificationsInnerToJSONTyped;
 const PublicUserPreview_1 = require("./PublicUserPreview");
 const PostType_1 = require("./PostType");
+const ContentType_1 = require("./ContentType");
+const WallPost_1 = require("./WallPost");
+const EventResultType_1 = require("./EventResultType");
 const NotificationType_1 = require("./NotificationType");
 const BadgeModel_1 = require("./BadgeModel");
-const WallPost_1 = require("./WallPost");
 /**
  * Check if a given object implements the NotificationResponseNotificationsInner interface.
  */
@@ -53,6 +55,12 @@ function instanceOfNotificationResponseNotificationsInner(value) {
         return false;
     if (!('badge' in value) || value['badge'] === undefined)
         return false;
+    if (!('eventId' in value) || value['eventId'] === undefined)
+        return false;
+    if (!('eventName' in value) || value['eventName'] === undefined)
+        return false;
+    if (!('resultType' in value) || value['resultType'] === undefined)
+        return false;
     return true;
 }
 function NotificationResponseNotificationsInnerFromJSON(json) {
@@ -74,10 +82,19 @@ function NotificationResponseNotificationsInnerFromJSONTyped(json, ignoreDiscrim
         'donationId': json['donation_id'],
         'tokens': json['tokens'],
         'message': json['message'],
+        'contentType': json['content_type'] == null ? undefined : (0, ContentType_1.ContentTypeFromJSON)(json['content_type']),
+        'contentId': json['content_id'] == null ? undefined : json['content_id'],
+        'contentTitle': json['content_title'] == null ? undefined : json['content_title'],
+        'contentCoverImage': json['content_cover_image'] == null ? undefined : json['content_cover_image'],
         'episodeId': json['episode_id'],
         'episodeTitle': json['episode_title'],
         'coverImage': json['cover_image'],
         'badge': (0, BadgeModel_1.BadgeModelFromJSON)(json['badge']),
+        'eventId': json['event_id'],
+        'eventName': json['event_name'],
+        'eventBackgroundImage': json['event_background_image'] == null ? undefined : json['event_background_image'],
+        'resultType': (0, EventResultType_1.EventResultTypeFromJSON)(json['result_type']),
+        'rank': json['rank'] == null ? undefined : json['rank'],
     };
 }
 function NotificationResponseNotificationsInnerToJSON(json) {
@@ -99,10 +116,19 @@ function NotificationResponseNotificationsInnerToJSONTyped(value, ignoreDiscrimi
         'donation_id': value['donationId'],
         'tokens': value['tokens'],
         'message': value['message'],
+        'content_type': (0, ContentType_1.ContentTypeToJSON)(value['contentType']),
+        'content_id': value['contentId'],
+        'content_title': value['contentTitle'],
+        'content_cover_image': value['contentCoverImage'],
         'episode_id': value['episodeId'],
         'episode_title': value['episodeTitle'],
         'cover_image': value['coverImage'],
         'badge': (0, BadgeModel_1.BadgeModelToJSON)(value['badge']),
+        'event_id': value['eventId'],
+        'event_name': value['eventName'],
+        'event_background_image': value['eventBackgroundImage'],
+        'result_type': (0, EventResultType_1.EventResultTypeToJSON)(value['resultType']),
+        'rank': value['rank'],
     };
 }
 //# sourceMappingURL=NotificationResponseNotificationsInner.js.map

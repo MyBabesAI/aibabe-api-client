@@ -20,6 +20,20 @@ import {
     ArtStyleToJSON,
     ArtStyleToJSONTyped,
 } from './ArtStyle';
+import type { ImagePurpose } from './ImagePurpose';
+import {
+    ImagePurposeFromJSON,
+    ImagePurposeFromJSONTyped,
+    ImagePurposeToJSON,
+    ImagePurposeToJSONTyped,
+} from './ImagePurpose';
+import type { ImageAspectRatio } from './ImageAspectRatio';
+import {
+    ImageAspectRatioFromJSON,
+    ImageAspectRatioFromJSONTyped,
+    ImageAspectRatioToJSON,
+    ImageAspectRatioToJSONTyped,
+} from './ImageAspectRatio';
 import type { LoraName } from './LoraName';
 import {
     LoraNameFromJSON,
@@ -72,16 +86,34 @@ export interface PostGenerateSceneRequest {
     loras?: Array<LoraName> | null;
     /**
      * 
+     * @type {ImageAspectRatio}
+     * @memberof PostGenerateSceneRequest
+     */
+    aspectRatio?: ImageAspectRatio | null;
+    /**
+     * 
      * @type {ArtStyle}
      * @memberof PostGenerateSceneRequest
      */
     artStyle: ArtStyle;
     /**
      * 
+     * @type {ImagePurpose}
+     * @memberof PostGenerateSceneRequest
+     */
+    purpose?: ImagePurpose | null;
+    /**
+     * 
      * @type {string}
      * @memberof PostGenerateSceneRequest
      */
     chatbotId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostGenerateSceneRequest
+     */
+    originalImageId?: string | null;
 }
 
 
@@ -114,8 +146,11 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'requestId': json['request_id'],
         'numberOfImages': json['number_of_images'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(LoraNameFromJSON)),
+        'aspectRatio': json['aspect_ratio'] == null ? undefined : ImageAspectRatioFromJSON(json['aspect_ratio']),
         'artStyle': ArtStyleFromJSON(json['art_style']),
+        'purpose': json['purpose'] == null ? undefined : ImagePurposeFromJSON(json['purpose']),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
+        'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
     };
 }
 
@@ -136,8 +171,11 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'request_id': value['requestId'],
         'number_of_images': value['numberOfImages'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(LoraNameToJSON)),
+        'aspect_ratio': ImageAspectRatioToJSON(value['aspectRatio']),
         'art_style': ArtStyleToJSON(value['artStyle']),
+        'purpose': ImagePurposeToJSON(value['purpose']),
         'chatbot_id': value['chatbotId'],
+        'original_image_id': value['originalImageId'],
     };
 }
 

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ImageAspectRatio } from './ImageAspectRatio';
+import {
+    ImageAspectRatioFromJSON,
+    ImageAspectRatioFromJSONTyped,
+    ImageAspectRatioToJSON,
+    ImageAspectRatioToJSONTyped,
+} from './ImageAspectRatio';
 import type { LoraName } from './LoraName';
 import {
     LoraNameFromJSON,
@@ -63,7 +70,21 @@ export interface PostGenerateImageRequest {
      * @memberof PostGenerateImageRequest
      */
     loras?: Array<LoraName> | null;
+    /**
+     * 
+     * @type {ImageAspectRatio}
+     * @memberof PostGenerateImageRequest
+     */
+    aspectRatio?: ImageAspectRatio | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostGenerateImageRequest
+     */
+    originalImageId?: string | null;
 }
+
+
 
 /**
  * Check if a given object implements the PostGenerateImageRequest interface.
@@ -92,6 +113,8 @@ export function PostGenerateImageRequestFromJSONTyped(json: any, ignoreDiscrimin
         'requestId': json['request_id'],
         'numberOfImages': json['number_of_images'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(LoraNameFromJSON)),
+        'aspectRatio': json['aspect_ratio'] == null ? undefined : ImageAspectRatioFromJSON(json['aspect_ratio']),
+        'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
     };
 }
 
@@ -112,6 +135,8 @@ export function PostGenerateImageRequestFromJSONTyped(json: any, ignoreDiscrimin
         'request_id': value['requestId'],
         'number_of_images': value['numberOfImages'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(LoraNameToJSON)),
+        'aspect_ratio': ImageAspectRatioToJSON(value['aspectRatio']),
+        'original_image_id': value['originalImageId'],
     };
 }
 

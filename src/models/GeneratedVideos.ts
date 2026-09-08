@@ -79,6 +79,12 @@ export interface GeneratedVideos {
     postDetails?: PostDetails | null;
     /**
      * 
+     * @type {boolean}
+     * @memberof GeneratedVideos
+     */
+    isOriginal?: boolean | null;
+    /**
+     * 
      * @type {string}
      * @memberof GeneratedVideos
      */
@@ -101,6 +107,18 @@ export interface GeneratedVideos {
      * @memberof GeneratedVideos
      */
     seenByUser: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof GeneratedVideos
+     */
+    width?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GeneratedVideos
+     */
+    height?: number | null;
     /**
      * 
      * @type {string}
@@ -160,10 +178,13 @@ export function GeneratedVideosFromJSONTyped(json: any, ignoreDiscriminator: boo
         'createdAt': (new Date(json['created_at'])),
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'postDetails': json['post_details'] == null ? undefined : PostDetailsFromJSON(json['post_details']),
+        'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
         'eta': json['eta'],
         'status': VideoGenerationStatusFromJSON(json['status']),
         'generationId': json['generation_id'],
         'seenByUser': json['seen_by_user'],
+        'width': json['width'] == null ? undefined : json['width'],
+        'height': json['height'] == null ? undefined : json['height'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
     };
@@ -186,10 +207,13 @@ export function GeneratedVideosFromJSONTyped(json: any, ignoreDiscriminator: boo
         'created_at': ((value['createdAt']).toISOString()),
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'post_details': PostDetailsToJSON(value['postDetails']),
+        'is_original': value['isOriginal'],
         'eta': value['eta'],
         'status': VideoGenerationStatusToJSON(value['status']),
         'generation_id': value['generationId'],
         'seen_by_user': value['seenByUser'],
+        'width': value['width'],
+        'height': value['height'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
     };

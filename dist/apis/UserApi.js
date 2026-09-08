@@ -265,6 +265,66 @@ class UserApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Get Public User Followers
+     */
+    async getPublicUserFollowersUserPublicUserIdFollowersGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError('userId', 'Required parameter "userId" was null or undefined when calling getPublicUserFollowersUserPublicUserIdFollowersGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/user/public/{user_id}/followers`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetPublicUsersResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get Public User Followers
+     */
+    async getPublicUserFollowersUserPublicUserIdFollowersGet(requestParameters, initOverrides) {
+        const response = await this.getPublicUserFollowersUserPublicUserIdFollowersGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Get Public User Following
+     */
+    async getPublicUserFollowingUserPublicUserIdFollowingGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError('userId', 'Required parameter "userId" was null or undefined when calling getPublicUserFollowingUserPublicUserIdFollowingGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/user/public/{user_id}/following`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetPublicUsersResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get Public User Following
+     */
+    async getPublicUserFollowingUserPublicUserIdFollowingGet(requestParameters, initOverrides) {
+        const response = await this.getPublicUserFollowingUserPublicUserIdFollowingGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Public User Like
      */
     async getPublicUserLikeUserPublicLikeGetRaw(requestParameters, initOverrides) {
@@ -507,6 +567,37 @@ class UserApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Update Follow Notifications
+     */
+    async updateFollowNotificationsUserFollowNotificationsPutRaw(requestParameters, initOverrides) {
+        if (requestParameters['putFollowNotificationsRequest'] == null) {
+            throw new runtime.RequiredError('putFollowNotificationsRequest', 'Required parameter "putFollowNotificationsRequest" was null or undefined when calling updateFollowNotificationsUserFollowNotificationsPut().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/user/follow/notifications`,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PutFollowNotificationsRequestToJSON)(requestParameters['putFollowNotificationsRequest']),
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Update Follow Notifications
+     */
+    async updateFollowNotificationsUserFollowNotificationsPut(requestParameters, initOverrides) {
+        const response = await this.updateFollowNotificationsUserFollowNotificationsPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Update Password
      */
     async updatePasswordUserPasswordPutRaw(requestParameters, initOverrides) {
@@ -645,6 +736,54 @@ class UserApi extends runtime.BaseAPI {
      */
     async uploadPublicAvatarUserPublicAvatarPost(requestParameters, initOverrides) {
         const response = await this.uploadPublicAvatarUserPublicAvatarPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Upload Public Cover
+     */
+    async uploadPublicCoverUserPublicCoverPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['image'] == null) {
+            throw new runtime.RequiredError('image', 'Required parameter "image" was null or undefined when calling uploadPublicCoverUserPublicCoverPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const consumes = [
+            { contentType: 'multipart/form-data' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+        let formParams;
+        let useForm = false;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        if (useForm) {
+            formParams = new FormData();
+        }
+        else {
+            formParams = new URLSearchParams();
+        }
+        if (requestParameters['image'] != null) {
+            formParams.append('image', requestParameters['image']);
+        }
+        const response = await this.request({
+            path: `/user/public/cover`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Upload Public Cover
+     */
+    async uploadPublicCoverUserPublicCoverPost(requestParameters, initOverrides) {
+        const response = await this.uploadPublicCoverUserPublicCoverPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

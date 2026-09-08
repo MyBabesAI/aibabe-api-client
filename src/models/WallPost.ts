@@ -166,6 +166,12 @@ export interface WallPost {
      * @memberof WallPost
      */
     creator?: PublicUserPreview | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WallPost
+     */
+    isOriginal?: boolean | null;
 }
 
 
@@ -215,6 +221,7 @@ export function WallPostFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'type': ContentTypeFromJSON(json['type']),
         'eventSubmissionPreviews': ((json['event_submission_previews'] as Array<any>).map(EventSubmissionPreviewFromJSON)),
         'creator': json['creator'] == null ? undefined : PublicUserPreviewFromJSON(json['creator']),
+        'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
     };
 }
 
@@ -244,6 +251,7 @@ export function WallPostFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'type': ContentTypeToJSON(value['type']),
         'event_submission_previews': ((value['eventSubmissionPreviews'] as Array<any>).map(EventSubmissionPreviewToJSON)),
         'creator': PublicUserPreviewToJSON(value['creator']),
+        'is_original': value['isOriginal'],
     };
 }
 

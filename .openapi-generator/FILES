@@ -91,6 +91,7 @@ src/models/CharacterAvatarReview.ts
 src/models/CharacterBuilderSuggestionField.ts
 src/models/CharacterIdentityPageReview.ts
 src/models/CharacterPersonalityPageReview.ts
+src/models/ChatAdminDetails.ts
 src/models/ChatMessageDetail.ts
 src/models/ChatMode.ts
 src/models/ChatReponse.ts
@@ -100,9 +101,11 @@ src/models/ChatbotInfo.ts
 src/models/ChatbotPreview.ts
 src/models/ChatbotType.ts
 src/models/Code.ts
+src/models/Code1.ts
 src/models/ConfirmAgeVerificationRequest.ts
 src/models/ConfirmAgeVerificationResponse.ts
 src/models/ContentItem.ts
+src/models/ContentOrigin.ts
 src/models/ContentReportReason.ts
 src/models/ContentType.ts
 src/models/ContentTypes.ts
@@ -114,10 +117,13 @@ src/models/CreateAnonymousConversationMessageRequest.ts
 src/models/CreateAnonymousConversationRequest.ts
 src/models/CreateAnonymousConversationResponse.ts
 src/models/CreateAssistantChatSessionRequest.ts
+src/models/CreatorGenerationCharge.ts
+src/models/CreatorGenerationQuotaStatus.ts
 src/models/CustomChatbotTheme.ts
 src/models/DateRangeFilter.ts
 src/models/DeleteBulkMemoryRequest.ts
 src/models/DeleteUserRequest.ts
+src/models/Detail.ts
 src/models/DetailedWallPost.ts
 src/models/DiscountOriginalPrice.ts
 src/models/DiscountOriginalTokens.ts
@@ -135,12 +141,14 @@ src/models/EpisodeRating.ts
 src/models/EpisodeUnlockNotification.ts
 src/models/EpisodeVisibility.ts
 src/models/Ethnicity.ts
+src/models/EventEndedNotification.ts
 src/models/EventListFilter.ts
 src/models/EventListResponse.ts
 src/models/EventPreview.ts
 src/models/EventPriceType.ts
 src/models/EventResponse.ts
 src/models/EventResult.ts
+src/models/EventResultNotification.ts
 src/models/EventResultType.ts
 src/models/EventResults.ts
 src/models/EventSubmissionPreview.ts
@@ -230,6 +238,7 @@ src/models/HairStyle.ts
 src/models/HubTag.ts
 src/models/HubTagsResponse.ts
 src/models/Id.ts
+src/models/ImageAspectRatio.ts
 src/models/ImageContent.ts
 src/models/ImageGenerationSource.ts
 src/models/ImageGenerationStatus.ts
@@ -237,6 +246,7 @@ src/models/ImageMod.ts
 src/models/ImageModCategory.ts
 src/models/ImagePreset.ts
 src/models/ImagePresetCategory.ts
+src/models/ImagePurpose.ts
 src/models/ImageSendingMode.ts
 src/models/ImageToVideoFromChatPayload.ts
 src/models/ImageToVideoModel.ts
@@ -268,8 +278,12 @@ src/models/Model.ts
 src/models/MonthlyTokens.ts
 src/models/MuleRouterWanTaskError.ts
 src/models/MuleRouterWanTaskInfo.ts
+src/models/MuleRouterWanTaskInfoError.ts
 src/models/MuleRouterWanTaskResponse.ts
+src/models/MuleRouterWanTaskResponseTaskInfo.ts
 src/models/NewEpisodeNotification.ts
+src/models/NewEventNotification.ts
+src/models/NewPostNotification.ts
 src/models/NotificationResponse.ts
 src/models/NotificationResponseNotificationsInner.ts
 src/models/NotificationType.ts
@@ -363,6 +377,7 @@ src/models/PublicUserInfo.ts
 src/models/PublicUserPreview.ts
 src/models/PublicUserPreviewWithFollow.ts
 src/models/PublicUserReportReason.ts
+src/models/PutFollowNotificationsRequest.ts
 src/models/PutPasswordRequest.ts
 src/models/PutPublicUserRequest.ts
 src/models/PutUsernameRequest.ts
@@ -453,6 +468,7 @@ src/models/TextToSpeechRequest.ts
 src/models/TextToSpeechResponse.ts
 src/models/TimedBadgeType.ts
 src/models/Title.ts
+src/models/Title1.ts
 src/models/TokenPriceConfig.ts
 src/models/TokenPricingConfigResponse.ts
 src/models/TokenReconciliationResponse.ts
@@ -478,12 +494,14 @@ src/models/UserRole.ts
 src/models/UserScore.ts
 src/models/ValidationError.ts
 src/models/ValidationErrorLocInner.ts
+src/models/VideoAspectRatio.ts
 src/models/VideoConfigResponse.ts
 src/models/VideoContent.ts
 src/models/VideoDurationOptions.ts
 src/models/VideoFromChatResponse.ts
 src/models/VideoGenerationStatus.ts
 src/models/VideoLoraName.ts
+src/models/VideoMergeResult.ts
 src/models/VideoMod.ts
 src/models/VideoModCategory.ts
 src/models/VideoModelConfig.ts
@@ -493,6 +511,8 @@ src/models/VideoPricingModel.ts
 src/models/VideoQualityConfig.ts
 src/models/VideoResolution.ts
 src/models/VideoShot.ts
+src/models/Videos.ts
+src/models/VisibilityFilter.ts
 src/models/VisualType.ts
 src/models/WallPost.ts
 src/models/WanExtendVideoCompletionPayload.ts

@@ -11,6 +11,7 @@
  */
 import type { PromotionSummary } from './PromotionSummary';
 import type { VideoDurationOptions } from './VideoDurationOptions';
+import type { VideoAspectRatio } from './VideoAspectRatio';
 import type { VideoQualityConfig } from './VideoQualityConfig';
 /**
  *
@@ -92,6 +93,12 @@ export interface VideoModelConfig {
      * @memberof VideoModelConfig
      */
     multishotSupported: boolean;
+    /**
+     *
+     * @type {Array<VideoAspectRatio>}
+     * @memberof VideoModelConfig
+     */
+    aspectRatios: Array<VideoAspectRatio>;
 }
 /**
  * @export

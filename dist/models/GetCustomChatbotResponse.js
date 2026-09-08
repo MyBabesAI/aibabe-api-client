@@ -20,7 +20,9 @@ exports.GetCustomChatbotResponseToJSON = GetCustomChatbotResponseToJSON;
 exports.GetCustomChatbotResponseToJSONTyped = GetCustomChatbotResponseToJSONTyped;
 const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
 const ChatbotCreatedOrigin_1 = require("./ChatbotCreatedOrigin");
+const ChatbotPreview_1 = require("./ChatbotPreview");
 const PostDetailsWithDate_1 = require("./PostDetailsWithDate");
+const ContentType_1 = require("./ContentType");
 const TagData_1 = require("./TagData");
 /**
  * Check if a given object implements the GetCustomChatbotResponse interface.
@@ -57,6 +59,8 @@ function GetCustomChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'displayName': json['display_name'],
         'profilePicture': json['profile_picture'],
         'profileVideo': json['profile_video'],
+        'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
+        'coverContentType': json['cover_content_type'] == null ? undefined : (0, ContentType_1.ContentTypeFromJSON)(json['cover_content_type']),
         'fullBio': json['full_bio'],
         'characterAge': json['character_age'],
         'tags': (json['tags'].map(TagData_1.TagDataFromJSON)),
@@ -64,6 +68,7 @@ function GetCustomChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'createdFrom': (0, ChatbotCreatedOrigin_1.ChatbotCreatedOriginFromJSON)(json['created_from']),
         'creator': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowFromJSON)(json['creator']),
         'postDetails': json['post_details'] == null ? undefined : (0, PostDetailsWithDate_1.PostDetailsWithDateFromJSON)(json['post_details']),
+        'origin': json['origin'] == null ? undefined : (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['origin']),
     };
 }
 function GetCustomChatbotResponseToJSON(json) {
@@ -77,6 +82,8 @@ function GetCustomChatbotResponseToJSONTyped(value, ignoreDiscriminator = false)
         'display_name': value['displayName'],
         'profile_picture': value['profilePicture'],
         'profile_video': value['profileVideo'],
+        'cover_url': value['coverUrl'],
+        'cover_content_type': (0, ContentType_1.ContentTypeToJSON)(value['coverContentType']),
         'full_bio': value['fullBio'],
         'character_age': value['characterAge'],
         'tags': (value['tags'].map(TagData_1.TagDataToJSON)),
@@ -84,6 +91,7 @@ function GetCustomChatbotResponseToJSONTyped(value, ignoreDiscriminator = false)
         'created_from': (0, ChatbotCreatedOrigin_1.ChatbotCreatedOriginToJSON)(value['createdFrom']),
         'creator': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowToJSON)(value['creator']),
         'post_details': (0, PostDetailsWithDate_1.PostDetailsWithDateToJSON)(value['postDetails']),
+        'origin': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['origin']),
     };
 }
 //# sourceMappingURL=GetCustomChatbotResponse.js.map

@@ -56,6 +56,12 @@ export interface GeneratedVideos {
     postDetails?: PostDetails | null;
     /**
      *
+     * @type {boolean}
+     * @memberof GeneratedVideos
+     */
+    isOriginal?: boolean | null;
+    /**
+     *
      * @type {string}
      * @memberof GeneratedVideos
      */
@@ -78,6 +84,18 @@ export interface GeneratedVideos {
      * @memberof GeneratedVideos
      */
     seenByUser: boolean;
+    /**
+     *
+     * @type {number}
+     * @memberof GeneratedVideos
+     */
+    width?: number | null;
+    /**
+     *
+     * @type {number}
+     * @memberof GeneratedVideos
+     */
+    height?: number | null;
     /**
      *
      * @type {string}

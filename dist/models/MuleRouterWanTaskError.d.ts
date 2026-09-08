@@ -9,30 +9,34 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { Code1 } from './Code1';
+import type { Title1 } from './Title1';
+import type { Detail } from './Detail';
 /**
  *
  * @export
  * @interface MuleRouterWanTaskError
  */
 export interface MuleRouterWanTaskError {
+    [key: string]: any | any;
     /**
      *
-     * @type {number}
+     * @type {Code1}
      * @memberof MuleRouterWanTaskError
      */
-    code?: number | null;
+    code?: Code1;
     /**
      *
-     * @type {string}
+     * @type {Title1}
      * @memberof MuleRouterWanTaskError
      */
-    title?: string | null;
+    title?: Title1;
     /**
      *
-     * @type {string}
+     * @type {Detail}
      * @memberof MuleRouterWanTaskError
      */
-    detail?: string | null;
+    detail?: Detail;
 }
 /**
  * Check if a given object implements the MuleRouterWanTaskError interface.

@@ -33,6 +33,14 @@ export interface WanImageToVideoCompletionPayload {
      * @memberof WanImageToVideoCompletionPayload
      */
     audioGeneration?: boolean;
+    /**
+     *
+     * @type {{ [key: string]: any; }}
+     * @memberof WanImageToVideoCompletionPayload
+     */
+    providerTask?: {
+        [key: string]: any;
+    } | null;
 }
 /**
  * Check if a given object implements the WanImageToVideoCompletionPayload interface.

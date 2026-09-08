@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CreatorGenerationCharge } from './CreatorGenerationCharge';
 /**
  *
  * @export
@@ -21,6 +22,12 @@ export interface PostImagenResponse {
      * @memberof PostImagenResponse
      */
     eta: string;
+    /**
+     *
+     * @type {CreatorGenerationCharge}
+     * @memberof PostImagenResponse
+     */
+    generationCharge?: CreatorGenerationCharge | null;
 }
 /**
  * Check if a given object implements the PostImagenResponse interface.
