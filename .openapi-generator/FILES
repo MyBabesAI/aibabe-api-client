@@ -26,6 +26,7 @@ src/apis/SEOApi.ts
 src/apis/ServerApi.ts
 src/apis/StoryCreatorApi.ts
 src/apis/SubscriptionsApi.ts
+src/apis/TrackingApi.ts
 src/apis/UserApi.ts
 src/apis/UtilitiesApi.ts
 src/apis/VideoApi.ts
@@ -108,6 +109,7 @@ src/models/ContentTypes.ts
 src/models/ConversationListItem.ts
 src/models/ConversationMessageFeedback.ts
 src/models/ConversationSettings.ts
+src/models/ConversionEvent.ts
 src/models/CreateAnonymousConversationMessageRequest.ts
 src/models/CreateAnonymousConversationRequest.ts
 src/models/CreateAnonymousConversationResponse.ts
@@ -456,6 +458,8 @@ src/models/TokenPricingConfigResponse.ts
 src/models/TokenReconciliationResponse.ts
 src/models/TokenUsageCalculationMode.ts
 src/models/TokenUsageType.ts
+src/models/TrackConversionEventRequest.ts
+src/models/TrackConversionEventResponse.ts
 src/models/Type.ts
 src/models/UserBadge.ts
 src/models/UserBadgeClaimResponse.ts

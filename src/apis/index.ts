@@ -23,6 +23,7 @@ export * from './SEOApi';
 export * from './ServerApi';
 export * from './StoryCreatorApi';
 export * from './SubscriptionsApi';
+export * from './TrackingApi';
 export * from './UserApi';
 export * from './UtilitiesApi';
 export * from './VideoApi';
