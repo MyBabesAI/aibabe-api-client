@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ContentType } from './ContentType';
+import {
+    ContentTypeFromJSON,
+    ContentTypeFromJSONTyped,
+    ContentTypeToJSON,
+    ContentTypeToJSONTyped,
+} from './ContentType';
 import type { GalleryItem } from './GalleryItem';
 import {
     GalleryItemFromJSON,
@@ -57,6 +64,18 @@ export interface GetChatbotResponse {
      * @type {string}
      * @memberof GetChatbotResponse
      */
+    coverUrl?: string | null;
+    /**
+     * 
+     * @type {ContentType}
+     * @memberof GetChatbotResponse
+     */
+    coverContentType?: ContentType | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetChatbotResponse
+     */
     fullBio: string;
     /**
      * 
@@ -83,6 +102,8 @@ export interface GetChatbotResponse {
      */
     unlockAllPrice: number;
 }
+
+
 
 /**
  * Check if a given object implements the GetChatbotResponse interface.
@@ -112,6 +133,8 @@ export function GetChatbotResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         'displayName': json['display_name'],
         'profilePicture': json['profile_picture'],
         'profileVideo': json['profile_video'],
+        'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
+        'coverContentType': json['cover_content_type'] == null ? undefined : ContentTypeFromJSON(json['cover_content_type']),
         'fullBio': json['full_bio'],
         'characterAge': json['character_age'],
         'posts': ((json['posts'] as Array<any>).map(WallPostFromJSON)),
@@ -134,6 +157,8 @@ export function GetChatbotResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         'display_name': value['displayName'],
         'profile_picture': value['profilePicture'],
         'profile_video': value['profileVideo'],
+        'cover_url': value['coverUrl'],
+        'cover_content_type': ContentTypeToJSON(value['coverContentType']),
         'full_bio': value['fullBio'],
         'character_age': value['characterAge'],
         'posts': ((value['posts'] as Array<any>).map(WallPostToJSON)),

@@ -46,6 +46,24 @@ export interface PatchCustomChatbotRequest {
      * @memberof PatchCustomChatbotRequest
      */
     tags: Array<TagData> | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PatchCustomChatbotRequest
+     */
+    coverPictureId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PatchCustomChatbotRequest
+     */
+    coverVideoId?: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PatchCustomChatbotRequest
+     */
+    removeCover?: boolean;
 }
 /**
  * Check if a given object implements the PatchCustomChatbotRequest interface.

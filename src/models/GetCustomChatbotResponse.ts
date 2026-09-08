@@ -41,6 +41,13 @@ import {
     PostDetailsWithDateToJSON,
     PostDetailsWithDateToJSONTyped,
 } from './PostDetailsWithDate';
+import type { ContentType } from './ContentType';
+import {
+    ContentTypeFromJSON,
+    ContentTypeFromJSONTyped,
+    ContentTypeToJSON,
+    ContentTypeToJSONTyped,
+} from './ContentType';
 import type { TagData } from './TagData';
 import {
     TagDataFromJSON,
@@ -73,6 +80,18 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     profileVideo: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetCustomChatbotResponse
+     */
+    coverUrl?: string | null;
+    /**
+     * 
+     * @type {ContentType}
+     * @memberof GetCustomChatbotResponse
+     */
+    coverContentType?: ContentType | null;
     /**
      * 
      * @type {string}
@@ -154,6 +173,8 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'displayName': json['display_name'],
         'profilePicture': json['profile_picture'],
         'profileVideo': json['profile_video'],
+        'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
+        'coverContentType': json['cover_content_type'] == null ? undefined : ContentTypeFromJSON(json['cover_content_type']),
         'fullBio': json['full_bio'],
         'characterAge': json['character_age'],
         'tags': ((json['tags'] as Array<any>).map(TagDataFromJSON)),
@@ -179,6 +200,8 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'display_name': value['displayName'],
         'profile_picture': value['profilePicture'],
         'profile_video': value['profileVideo'],
+        'cover_url': value['coverUrl'],
+        'cover_content_type': ContentTypeToJSON(value['coverContentType']),
         'full_bio': value['fullBio'],
         'character_age': value['characterAge'],
         'tags': ((value['tags'] as Array<any>).map(TagDataToJSON)),
