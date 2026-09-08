@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminSeedanceModel, ExtendVideoPayload, GetVideoGenerationTagsResponse, ImageToVideoFromChatPayload, ImageToVideoRecommendationPayload, ImageToVideoRequest, LastVideoFrameResponse, ResponseGetWanTaskStatusVideoWanTaskTaskIdGet, SeedanceImageToVideoCompletionPayload, SeedanceImageToVideoResponse, VideoConfigResponse, VideoFromChatResponse, VideoResolution, WanExtendVideoCompletionPayload, WanImageToVideoCompletionPayload, WanImageToVideoResponse } from '../models/index';
+import type { AdminSeedanceModel, ExtendVideoPayload, GetVideoGenerationTagsResponse, ImageToVideoFromChatPayload, ImageToVideoRecommendationPayload, ImageToVideoRequest, LastVideoFrameResponse, ResponseGetWanTaskStatusVideoWanTaskTaskIdGet, SeedanceImageToVideoCompletionPayload, SeedanceImageToVideoResponse, VideoConfigResponse, VideoFromChatResponse, VideoMergeResult, VideoResolution, WanExtendVideoCompletionPayload, WanImageToVideoCompletionPayload, WanImageToVideoResponse } from '../models/index';
 export interface AttachmentVideoVideoIdAttachmentGetRequest {
     videoId: string;
     videoName: string;
@@ -30,6 +30,9 @@ export interface CompleteSeedanceExtendVideoVideoSeedanceExtendCompletePostReque
 }
 export interface CompleteSeedanceVideoVideoSeedanceCompletePostRequest {
     seedanceImageToVideoCompletionPayload: SeedanceImageToVideoCompletionPayload;
+}
+export interface CompleteVideoMergeVideoMergeCompletePostRequest {
+    videoMergeResult: VideoMergeResult;
 }
 export interface CompleteWanExtendVideoVideoWanExtendCompletePostRequest {
     wanExtendVideoCompletionPayload: WanExtendVideoCompletionPayload;
@@ -146,6 +149,14 @@ export declare class VideoApi extends runtime.BaseAPI {
      * Complete Seedance Video
      */
     completeSeedanceVideoVideoSeedanceCompletePost(requestParameters: CompleteSeedanceVideoVideoSeedanceCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Complete Video Merge
+     */
+    completeVideoMergeVideoMergeCompletePostRaw(requestParameters: CompleteVideoMergeVideoMergeCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Complete Video Merge
+     */
+    completeVideoMergeVideoMergeCompletePost(requestParameters: CompleteVideoMergeVideoMergeCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Complete Wan Extend Video
      */

@@ -497,6 +497,7 @@ src/models/VideoDurationOptions.ts
 src/models/VideoFromChatResponse.ts
 src/models/VideoGenerationStatus.ts
 src/models/VideoLoraName.ts
+src/models/VideoMergeResult.ts
 src/models/VideoMod.ts
 src/models/VideoModCategory.ts
 src/models/VideoModelConfig.ts

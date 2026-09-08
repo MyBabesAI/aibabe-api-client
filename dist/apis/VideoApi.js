@@ -255,6 +255,37 @@ class VideoApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Complete Video Merge
+     */
+    async completeVideoMergeVideoMergeCompletePostRaw(requestParameters, initOverrides) {
+        if (requestParameters['videoMergeResult'] == null) {
+            throw new runtime.RequiredError('videoMergeResult', 'Required parameter "videoMergeResult" was null or undefined when calling completeVideoMergeVideoMergeCompletePost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/video/merge/complete`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.VideoMergeResultToJSON)(requestParameters['videoMergeResult']),
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Complete Video Merge
+     */
+    async completeVideoMergeVideoMergeCompletePost(requestParameters, initOverrides) {
+        const response = await this.completeVideoMergeVideoMergeCompletePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Complete Wan Extend Video
      */
     async completeWanExtendVideoVideoWanExtendCompletePostRaw(requestParameters, initOverrides) {

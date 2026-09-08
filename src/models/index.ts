@@ -464,6 +464,7 @@ export * from './VideoDurationOptions';
 export * from './VideoFromChatResponse';
 export * from './VideoGenerationStatus';
 export * from './VideoLoraName';
+export * from './VideoMergeResult';
 export * from './VideoMod';
 export * from './VideoModCategory';
 export * from './VideoModelConfig';

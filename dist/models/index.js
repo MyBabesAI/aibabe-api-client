@@ -480,6 +480,7 @@ __exportStar(require("./VideoDurationOptions"), exports);
 __exportStar(require("./VideoFromChatResponse"), exports);
 __exportStar(require("./VideoGenerationStatus"), exports);
 __exportStar(require("./VideoLoraName"), exports);
+__exportStar(require("./VideoMergeResult"), exports);
 __exportStar(require("./VideoMod"), exports);
 __exportStar(require("./VideoModCategory"), exports);
 __exportStar(require("./VideoModelConfig"), exports);

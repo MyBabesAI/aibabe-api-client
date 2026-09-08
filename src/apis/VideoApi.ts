@@ -28,6 +28,7 @@ import type {
   SeedanceImageToVideoResponse,
   VideoConfigResponse,
   VideoFromChatResponse,
+  VideoMergeResult,
   VideoResolution,
   WanExtendVideoCompletionPayload,
   WanImageToVideoCompletionPayload,
@@ -60,6 +61,8 @@ import {
     VideoConfigResponseToJSON,
     VideoFromChatResponseFromJSON,
     VideoFromChatResponseToJSON,
+    VideoMergeResultFromJSON,
+    VideoMergeResultToJSON,
     VideoResolutionFromJSON,
     VideoResolutionToJSON,
     WanExtendVideoCompletionPayloadFromJSON,
@@ -93,6 +96,10 @@ export interface CompleteSeedanceExtendVideoVideoSeedanceExtendCompletePostReque
 
 export interface CompleteSeedanceVideoVideoSeedanceCompletePostRequest {
     seedanceImageToVideoCompletionPayload: SeedanceImageToVideoCompletionPayload;
+}
+
+export interface CompleteVideoMergeVideoMergeCompletePostRequest {
+    videoMergeResult: VideoMergeResult;
 }
 
 export interface CompleteWanExtendVideoVideoWanExtendCompletePostRequest {
@@ -443,6 +450,46 @@ export class VideoApi extends runtime.BaseAPI {
      */
     async completeSeedanceVideoVideoSeedanceCompletePost(requestParameters: CompleteSeedanceVideoVideoSeedanceCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.completeSeedanceVideoVideoSeedanceCompletePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Complete Video Merge
+     */
+    async completeVideoMergeVideoMergeCompletePostRaw(requestParameters: CompleteVideoMergeVideoMergeCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['videoMergeResult'] == null) {
+            throw new runtime.RequiredError(
+                'videoMergeResult',
+                'Required parameter "videoMergeResult" was null or undefined when calling completeVideoMergeVideoMergeCompletePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/video/merge/complete`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: VideoMergeResultToJSON(requestParameters['videoMergeResult']),
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Complete Video Merge
+     */
+    async completeVideoMergeVideoMergeCompletePost(requestParameters: CompleteVideoMergeVideoMergeCompletePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.completeVideoMergeVideoMergeCompletePostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
