@@ -139,12 +139,14 @@ src/models/EpisodeRating.ts
 src/models/EpisodeUnlockNotification.ts
 src/models/EpisodeVisibility.ts
 src/models/Ethnicity.ts
+src/models/EventEndedNotification.ts
 src/models/EventListFilter.ts
 src/models/EventListResponse.ts
 src/models/EventPreview.ts
 src/models/EventPriceType.ts
 src/models/EventResponse.ts
 src/models/EventResult.ts
+src/models/EventResultNotification.ts
 src/models/EventResultType.ts
 src/models/EventResults.ts
 src/models/EventSubmissionPreview.ts
@@ -278,6 +280,7 @@ src/models/MuleRouterWanTaskInfoError.ts
 src/models/MuleRouterWanTaskResponse.ts
 src/models/MuleRouterWanTaskResponseTaskInfo.ts
 src/models/NewEpisodeNotification.ts
+src/models/NewEventNotification.ts
 src/models/NewPostNotification.ts
 src/models/NotificationResponse.ts
 src/models/NotificationResponseNotificationsInner.ts

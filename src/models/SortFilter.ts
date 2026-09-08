@@ -26,6 +26,8 @@ export const SortFilter = {
     MostViewed: 'most_viewed',
     MostMessages: 'most_messages',
     LatestMessage: 'latest_message',
+    Longest: 'longest',
+    Shortest: 'shortest',
     Shuffled: 'shuffled'
 } as const;
 export type SortFilter = typeof SortFilter[keyof typeof SortFilter];

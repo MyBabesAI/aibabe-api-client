@@ -73,6 +73,9 @@ class NotificationApi extends runtime.BaseAPI {
         if (requestParameters['followUserId'] != null) {
             queryParameters['follow_user_id'] = requestParameters['followUserId'];
         }
+        if (requestParameters['eventId'] != null) {
+            queryParameters['event_id'] = requestParameters['eventId'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/notification/clear`,

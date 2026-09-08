@@ -21,6 +21,9 @@ export declare const NotificationType: {
     readonly Badge: "badge";
     readonly NewEpisode: "new_episode";
     readonly NewPost: "new_post";
+    readonly NewEvent: "new_event";
+    readonly EventEnded: "event_ended";
+    readonly EventResult: "event_result";
 };
 export type NotificationType = typeof NotificationType[keyof typeof NotificationType];
 export declare function instanceOfNotificationType(value: any): boolean;

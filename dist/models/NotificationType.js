@@ -30,7 +30,10 @@ exports.NotificationType = {
     EpisodeUnlock: 'episode_unlock',
     Badge: 'badge',
     NewEpisode: 'new_episode',
-    NewPost: 'new_post'
+    NewPost: 'new_post',
+    NewEvent: 'new_event',
+    EventEnded: 'event_ended',
+    EventResult: 'event_result'
 };
 function instanceOfNotificationType(value) {
     for (const key in exports.NotificationType) {

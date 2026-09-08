@@ -31,6 +31,7 @@ export interface ClearNotificationsNotificationClearPatchRequest {
     episodeId?: string | null;
     badgeId?: string | null;
     followUserId?: string | null;
+    eventId?: string | null;
 }
 
 export interface GetNotificationsNotificationGetRequest {
@@ -67,6 +68,10 @@ export class NotificationApi extends runtime.BaseAPI {
 
         if (requestParameters['followUserId'] != null) {
             queryParameters['follow_user_id'] = requestParameters['followUserId'];
+        }
+
+        if (requestParameters['eventId'] != null) {
+            queryParameters['event_id'] = requestParameters['eventId'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

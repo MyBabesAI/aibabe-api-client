@@ -32,6 +32,8 @@ exports.SortFilter = {
     MostViewed: 'most_viewed',
     MostMessages: 'most_messages',
     LatestMessage: 'latest_message',
+    Longest: 'longest',
+    Shortest: 'shortest',
     Shuffled: 'shuffled'
 };
 function instanceOfSortFilter(value) {
