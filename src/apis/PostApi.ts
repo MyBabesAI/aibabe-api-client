@@ -76,6 +76,11 @@ export interface BoostTrendingPostsPostLikeBoostPostRequest {
     awardAura?: boolean;
 }
 
+export interface BoostUserFollowersPostFollowBoostUserIdPostRequest {
+    userId: string;
+    followersCount: number;
+}
+
 export interface CategoriesPostCategoriesGetRequest {
     postType?: PostType | null;
 }
@@ -263,6 +268,56 @@ export class PostApi extends runtime.BaseAPI {
      */
     async boostTrendingPostsPostLikeBoostPost(requestParameters: BoostTrendingPostsPostLikeBoostPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.boostTrendingPostsPostLikeBoostPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * **Adds bot followers from accounts that do not follow the user yet. Dynamically creates additional bot accounts if needed.**
+     * Boost a specific user with bot followers
+     */
+    async boostUserFollowersPostFollowBoostUserIdPostRaw(requestParameters: BoostUserFollowersPostFollowBoostUserIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling boostUserFollowersPostFollowBoostUserIdPost().'
+            );
+        }
+
+        if (requestParameters['followersCount'] == null) {
+            throw new runtime.RequiredError(
+                'followersCount',
+                'Required parameter "followersCount" was null or undefined when calling boostUserFollowersPostFollowBoostUserIdPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['followersCount'] != null) {
+            queryParameters['followers_count'] = requestParameters['followersCount'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/post/follow/boost/{user_id}`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * **Adds bot followers from accounts that do not follow the user yet. Dynamically creates additional bot accounts if needed.**
+     * Boost a specific user with bot followers
+     */
+    async boostUserFollowersPostFollowBoostUserIdPost(requestParameters: BoostUserFollowersPostFollowBoostUserIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.boostUserFollowersPostFollowBoostUserIdPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

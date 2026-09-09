@@ -26,6 +26,10 @@ export interface BoostTrendingPostsPostLikeBoostPostRequest {
     boostAlreadyBoosted?: boolean;
     awardAura?: boolean;
 }
+export interface BoostUserFollowersPostFollowBoostUserIdPostRequest {
+    userId: string;
+    followersCount: number;
+}
 export interface CategoriesPostCategoriesGetRequest {
     postType?: PostType | null;
 }
@@ -94,6 +98,16 @@ export declare class PostApi extends runtime.BaseAPI {
      * Boost trending posts with bot likes
      */
     boostTrendingPostsPostLikeBoostPost(requestParameters?: BoostTrendingPostsPostLikeBoostPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * **Adds bot followers from accounts that do not follow the user yet. Dynamically creates additional bot accounts if needed.**
+     * Boost a specific user with bot followers
+     */
+    boostUserFollowersPostFollowBoostUserIdPostRaw(requestParameters: BoostUserFollowersPostFollowBoostUserIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * **Adds bot followers from accounts that do not follow the user yet. Dynamically creates additional bot accounts if needed.**
+     * Boost a specific user with bot followers
+     */
+    boostUserFollowersPostFollowBoostUserIdPost(requestParameters: BoostUserFollowersPostFollowBoostUserIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Categories
      */
