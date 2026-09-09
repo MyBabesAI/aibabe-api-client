@@ -171,6 +171,7 @@ export const ExceptionCode = {
     GenerationTagsNotFound: 'generation_tags_not_found',
     OriginalImageNotFound: 'original_image_not_found',
     ArtStyleNotFound: 'art_style_not_found',
+    ImageModelUnavailable: 'image_model_unavailable',
     VerificationCodeExprired: 'verification_code_exprired',
     VerificationCodeInvalid: 'verification_code_invalid',
     VerificationCodeNotSet: 'verification_code_not_set',
