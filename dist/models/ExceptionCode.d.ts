@@ -167,6 +167,7 @@ export declare const ExceptionCode: {
     readonly GenerationTagsNotFound: "generation_tags_not_found";
     readonly OriginalImageNotFound: "original_image_not_found";
     readonly ArtStyleNotFound: "art_style_not_found";
+    readonly ImageModelUnavailable: "image_model_unavailable";
     readonly VerificationCodeExprired: "verification_code_exprired";
     readonly VerificationCodeInvalid: "verification_code_invalid";
     readonly VerificationCodeNotSet: "verification_code_not_set";
