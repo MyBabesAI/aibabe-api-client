@@ -161,6 +161,43 @@ class PostApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * **Adds bot followers from accounts that do not follow the user yet. Dynamically creates additional bot accounts if needed.**
+     * Boost a specific user with bot followers
+     */
+    async boostUserFollowersPostFollowBoostUserIdPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError('userId', 'Required parameter "userId" was null or undefined when calling boostUserFollowersPostFollowBoostUserIdPost().');
+        }
+        if (requestParameters['followersCount'] == null) {
+            throw new runtime.RequiredError('followersCount', 'Required parameter "followersCount" was null or undefined when calling boostUserFollowersPostFollowBoostUserIdPost().');
+        }
+        const queryParameters = {};
+        if (requestParameters['followersCount'] != null) {
+            queryParameters['followers_count'] = requestParameters['followersCount'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/post/follow/boost/{user_id}`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * **Adds bot followers from accounts that do not follow the user yet. Dynamically creates additional bot accounts if needed.**
+     * Boost a specific user with bot followers
+     */
+    async boostUserFollowersPostFollowBoostUserIdPost(requestParameters, initOverrides) {
+        const response = await this.boostUserFollowersPostFollowBoostUserIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Categories
      */
     async categoriesPostCategoriesGetRaw(requestParameters, initOverrides) {
