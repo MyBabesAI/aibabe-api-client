@@ -19,6 +19,7 @@ export interface GetGalleryGalleryGetRequest {
     type?: PostType;
     limit?: number;
     chatbotId?: string | null;
+    withoutChatbot?: boolean;
     freeTextSearch?: string | null;
     excludeEventEntries?: boolean;
     sort?: SortFilter;
