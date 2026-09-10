@@ -123,6 +123,12 @@ export interface UserInfoResponse {
     featureFlags: Array<FeatureFlagName>;
     /**
      * 
+     * @type {number}
+     * @memberof UserInfoResponse
+     */
+    lastTokenPack?: number | null;
+    /**
+     * 
      * @type {Subscription}
      * @memberof UserInfoResponse
      */
@@ -177,6 +183,7 @@ export function UserInfoResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'firstLogin': json['first_login'],
         'feedbackGiven': json['feedback_given'],
         'featureFlags': ((json['feature_flags'] as Array<any>).map(FeatureFlagNameFromJSON)),
+        'lastTokenPack': json['last_token_pack'] == null ? undefined : json['last_token_pack'],
         'subscription': SubscriptionFromJSON(json['subscription']),
         'preferenceProfile': json['preference_profile'] == null ? undefined : UserPreferenceProfileFromJSON(json['preference_profile']),
     };
@@ -204,6 +211,7 @@ export function UserInfoResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'first_login': value['firstLogin'],
         'feedback_given': value['feedbackGiven'],
         'feature_flags': ((value['featureFlags'] as Array<any>).map(FeatureFlagNameToJSON)),
+        'last_token_pack': value['lastTokenPack'],
         'subscription': SubscriptionToJSON(value['subscription']),
         'preference_profile': UserPreferenceProfileToJSON(value['preferenceProfile']),
     };

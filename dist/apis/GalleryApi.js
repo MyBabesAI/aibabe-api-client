@@ -95,6 +95,9 @@ class GalleryApi extends runtime.BaseAPI {
         if (requestParameters['chatbotId'] != null) {
             queryParameters['chatbot_id'] = requestParameters['chatbotId'];
         }
+        if (requestParameters['withoutChatbot'] != null) {
+            queryParameters['without_chatbot'] = requestParameters['withoutChatbot'];
+        }
         if (requestParameters['freeTextSearch'] != null) {
             queryParameters['free_text_search'] = requestParameters['freeTextSearch'];
         }

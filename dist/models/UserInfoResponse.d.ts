@@ -88,6 +88,12 @@ export interface UserInfoResponse {
     featureFlags: Array<FeatureFlagName>;
     /**
      *
+     * @type {number}
+     * @memberof UserInfoResponse
+     */
+    lastTokenPack?: number | null;
+    /**
+     *
      * @type {Subscription}
      * @memberof UserInfoResponse
      */

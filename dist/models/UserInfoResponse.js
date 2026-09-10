@@ -72,6 +72,7 @@ function UserInfoResponseFromJSONTyped(json, ignoreDiscriminator) {
         'firstLogin': json['first_login'],
         'feedbackGiven': json['feedback_given'],
         'featureFlags': (json['feature_flags'].map(FeatureFlagName_1.FeatureFlagNameFromJSON)),
+        'lastTokenPack': json['last_token_pack'] == null ? undefined : json['last_token_pack'],
         'subscription': (0, Subscription_1.SubscriptionFromJSON)(json['subscription']),
         'preferenceProfile': json['preference_profile'] == null ? undefined : (0, UserPreferenceProfile_1.UserPreferenceProfileFromJSON)(json['preference_profile']),
     };
@@ -95,6 +96,7 @@ function UserInfoResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'first_login': value['firstLogin'],
         'feedback_given': value['feedbackGiven'],
         'feature_flags': (value['featureFlags'].map(FeatureFlagName_1.FeatureFlagNameToJSON)),
+        'last_token_pack': value['lastTokenPack'],
         'subscription': (0, Subscription_1.SubscriptionToJSON)(value['subscription']),
         'preference_profile': (0, UserPreferenceProfile_1.UserPreferenceProfileToJSON)(value['preferenceProfile']),
     };

@@ -245,7 +245,8 @@ exports.ExceptionCode = {
     PromotionNotFound: 'promotion_not_found',
     PromotionInvalidTime: 'promotion_invalid_time',
     PromotionCodeConflict: 'promotion_code_conflict',
-    PromotionOverlap: 'promotion_overlap'
+    PromotionOverlap: 'promotion_overlap',
+    GalleryChatbotFilterConflict: 'gallery_chatbot_filter_conflict'
 };
 function instanceOfExceptionCode(value) {
     for (const key in exports.ExceptionCode) {
