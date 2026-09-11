@@ -11,15 +11,16 @@
  */
 import type { FantasyRace } from './FantasyRace';
 import type { SpecialFeatures } from './SpecialFeatures';
-import type { Ethnicity } from './Ethnicity';
 import type { ArtStyle } from './ArtStyle';
 import type { FurryVisualType } from './FurryVisualType';
 import type { RoleplayType } from './RoleplayType';
-import type { CustomChatbotTheme } from './CustomChatbotTheme';
 import type { VisualType } from './VisualType';
 import type { Gender } from './Gender';
 import type { SeduceDifficulty } from './SeduceDifficulty';
 import type { AvatarLooksV2 } from './AvatarLooksV2';
+import type { Ethnicity } from './Ethnicity';
+import type { Language } from './Language';
+import type { CustomChatbotTheme } from './CustomChatbotTheme';
 import type { SexualOrientation } from './SexualOrientation';
 /**
  *
@@ -111,6 +112,12 @@ export interface PostCustomChatbotV2Payload {
      * @memberof PostCustomChatbotV2Payload
      */
     scenario?: string;
+    /**
+     *
+     * @type {Language}
+     * @memberof PostCustomChatbotV2Payload
+     */
+    language?: Language | null;
     /**
      *
      * @type {string}

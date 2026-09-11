@@ -20,15 +20,16 @@ exports.PostCustomChatbotV2PayloadToJSON = PostCustomChatbotV2PayloadToJSON;
 exports.PostCustomChatbotV2PayloadToJSONTyped = PostCustomChatbotV2PayloadToJSONTyped;
 const FantasyRace_1 = require("./FantasyRace");
 const SpecialFeatures_1 = require("./SpecialFeatures");
-const Ethnicity_1 = require("./Ethnicity");
 const ArtStyle_1 = require("./ArtStyle");
 const FurryVisualType_1 = require("./FurryVisualType");
 const RoleplayType_1 = require("./RoleplayType");
-const CustomChatbotTheme_1 = require("./CustomChatbotTheme");
 const VisualType_1 = require("./VisualType");
 const Gender_1 = require("./Gender");
 const SeduceDifficulty_1 = require("./SeduceDifficulty");
 const AvatarLooksV2_1 = require("./AvatarLooksV2");
+const Ethnicity_1 = require("./Ethnicity");
+const Language_1 = require("./Language");
+const CustomChatbotTheme_1 = require("./CustomChatbotTheme");
 const SexualOrientation_1 = require("./SexualOrientation");
 /**
  * Check if a given object implements the PostCustomChatbotV2Payload interface.
@@ -72,6 +73,7 @@ function PostCustomChatbotV2PayloadFromJSONTyped(json, ignoreDiscriminator) {
         'looks': (0, AvatarLooksV2_1.AvatarLooksV2FromJSON)(json['looks']),
         'difficulty': (0, SeduceDifficulty_1.SeduceDifficultyFromJSON)(json['difficulty']),
         'scenario': json['scenario'] == null ? undefined : json['scenario'],
+        'language': json['language'] == null ? undefined : (0, Language_1.LanguageFromJSON)(json['language']),
         'clientId': json['client_id'],
         'name': json['name'] == null ? undefined : json['name'],
         'referenceAudioId': json['reference_audio_id'] == null ? undefined : json['reference_audio_id'],
@@ -100,6 +102,7 @@ function PostCustomChatbotV2PayloadToJSONTyped(value, ignoreDiscriminator = fals
         'looks': (0, AvatarLooksV2_1.AvatarLooksV2ToJSON)(value['looks']),
         'difficulty': (0, SeduceDifficulty_1.SeduceDifficultyToJSON)(value['difficulty']),
         'scenario': value['scenario'],
+        'language': (0, Language_1.LanguageToJSON)(value['language']),
         'client_id': value['clientId'],
         'name': value['name'],
         'reference_audio_id': value['referenceAudioId'],

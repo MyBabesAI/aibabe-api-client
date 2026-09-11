@@ -27,13 +27,6 @@ import {
     SpecialFeaturesToJSON,
     SpecialFeaturesToJSONTyped,
 } from './SpecialFeatures';
-import type { Ethnicity } from './Ethnicity';
-import {
-    EthnicityFromJSON,
-    EthnicityFromJSONTyped,
-    EthnicityToJSON,
-    EthnicityToJSONTyped,
-} from './Ethnicity';
 import type { ArtStyle } from './ArtStyle';
 import {
     ArtStyleFromJSON,
@@ -55,13 +48,6 @@ import {
     RoleplayTypeToJSON,
     RoleplayTypeToJSONTyped,
 } from './RoleplayType';
-import type { CustomChatbotTheme } from './CustomChatbotTheme';
-import {
-    CustomChatbotThemeFromJSON,
-    CustomChatbotThemeFromJSONTyped,
-    CustomChatbotThemeToJSON,
-    CustomChatbotThemeToJSONTyped,
-} from './CustomChatbotTheme';
 import type { VisualType } from './VisualType';
 import {
     VisualTypeFromJSON,
@@ -90,6 +76,27 @@ import {
     AvatarLooksV2ToJSON,
     AvatarLooksV2ToJSONTyped,
 } from './AvatarLooksV2';
+import type { Ethnicity } from './Ethnicity';
+import {
+    EthnicityFromJSON,
+    EthnicityFromJSONTyped,
+    EthnicityToJSON,
+    EthnicityToJSONTyped,
+} from './Ethnicity';
+import type { Language } from './Language';
+import {
+    LanguageFromJSON,
+    LanguageFromJSONTyped,
+    LanguageToJSON,
+    LanguageToJSONTyped,
+} from './Language';
+import type { CustomChatbotTheme } from './CustomChatbotTheme';
+import {
+    CustomChatbotThemeFromJSON,
+    CustomChatbotThemeFromJSONTyped,
+    CustomChatbotThemeToJSON,
+    CustomChatbotThemeToJSONTyped,
+} from './CustomChatbotTheme';
 import type { SexualOrientation } from './SexualOrientation';
 import {
     SexualOrientationFromJSON,
@@ -190,6 +197,12 @@ export interface PostCustomChatbotV2Payload {
     scenario?: string;
     /**
      * 
+     * @type {Language}
+     * @memberof PostCustomChatbotV2Payload
+     */
+    language?: Language | null;
+    /**
+     * 
      * @type {string}
      * @memberof PostCustomChatbotV2Payload
      */
@@ -254,6 +267,7 @@ export function PostCustomChatbotV2PayloadFromJSONTyped(json: any, ignoreDiscrim
         'looks': AvatarLooksV2FromJSON(json['looks']),
         'difficulty': SeduceDifficultyFromJSON(json['difficulty']),
         'scenario': json['scenario'] == null ? undefined : json['scenario'],
+        'language': json['language'] == null ? undefined : LanguageFromJSON(json['language']),
         'clientId': json['client_id'],
         'name': json['name'] == null ? undefined : json['name'],
         'referenceAudioId': json['reference_audio_id'] == null ? undefined : json['reference_audio_id'],
@@ -286,6 +300,7 @@ export function PostCustomChatbotV2PayloadFromJSONTyped(json: any, ignoreDiscrim
         'looks': AvatarLooksV2ToJSON(value['looks']),
         'difficulty': SeduceDifficultyToJSON(value['difficulty']),
         'scenario': value['scenario'],
+        'language': LanguageToJSON(value['language']),
         'client_id': value['clientId'],
         'name': value['name'],
         'reference_audio_id': value['referenceAudioId'],
