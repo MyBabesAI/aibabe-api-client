@@ -197,12 +197,6 @@ export interface PostCustomChatbotV2Payload {
     scenario?: string;
     /**
      * 
-     * @type {Language}
-     * @memberof PostCustomChatbotV2Payload
-     */
-    language?: Language | null;
-    /**
-     * 
      * @type {string}
      * @memberof PostCustomChatbotV2Payload
      */
@@ -225,6 +219,12 @@ export interface PostCustomChatbotV2Payload {
      * @memberof PostCustomChatbotV2Payload
      */
     userId?: string | null;
+    /**
+     * 
+     * @type {Language}
+     * @memberof PostCustomChatbotV2Payload
+     */
+    language?: Language | null;
 }
 
 
@@ -267,11 +267,11 @@ export function PostCustomChatbotV2PayloadFromJSONTyped(json: any, ignoreDiscrim
         'looks': AvatarLooksV2FromJSON(json['looks']),
         'difficulty': SeduceDifficultyFromJSON(json['difficulty']),
         'scenario': json['scenario'] == null ? undefined : json['scenario'],
-        'language': json['language'] == null ? undefined : LanguageFromJSON(json['language']),
         'clientId': json['client_id'],
         'name': json['name'] == null ? undefined : json['name'],
         'referenceAudioId': json['reference_audio_id'] == null ? undefined : json['reference_audio_id'],
         'userId': json['user_id'] == null ? undefined : json['user_id'],
+        'language': json['language'] == null ? undefined : LanguageFromJSON(json['language']),
     };
 }
 
@@ -300,11 +300,11 @@ export function PostCustomChatbotV2PayloadFromJSONTyped(json: any, ignoreDiscrim
         'looks': AvatarLooksV2ToJSON(value['looks']),
         'difficulty': SeduceDifficultyToJSON(value['difficulty']),
         'scenario': value['scenario'],
-        'language': LanguageToJSON(value['language']),
         'client_id': value['clientId'],
         'name': value['name'],
         'reference_audio_id': value['referenceAudioId'],
         'user_id': value['userId'],
+        'language': LanguageToJSON(value['language']),
     };
 }
 

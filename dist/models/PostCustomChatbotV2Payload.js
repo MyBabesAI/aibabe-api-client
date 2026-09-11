@@ -73,11 +73,11 @@ function PostCustomChatbotV2PayloadFromJSONTyped(json, ignoreDiscriminator) {
         'looks': (0, AvatarLooksV2_1.AvatarLooksV2FromJSON)(json['looks']),
         'difficulty': (0, SeduceDifficulty_1.SeduceDifficultyFromJSON)(json['difficulty']),
         'scenario': json['scenario'] == null ? undefined : json['scenario'],
-        'language': json['language'] == null ? undefined : (0, Language_1.LanguageFromJSON)(json['language']),
         'clientId': json['client_id'],
         'name': json['name'] == null ? undefined : json['name'],
         'referenceAudioId': json['reference_audio_id'] == null ? undefined : json['reference_audio_id'],
         'userId': json['user_id'] == null ? undefined : json['user_id'],
+        'language': json['language'] == null ? undefined : (0, Language_1.LanguageFromJSON)(json['language']),
     };
 }
 function PostCustomChatbotV2PayloadToJSON(json) {
@@ -102,11 +102,11 @@ function PostCustomChatbotV2PayloadToJSONTyped(value, ignoreDiscriminator = fals
         'looks': (0, AvatarLooksV2_1.AvatarLooksV2ToJSON)(value['looks']),
         'difficulty': (0, SeduceDifficulty_1.SeduceDifficultyToJSON)(value['difficulty']),
         'scenario': value['scenario'],
-        'language': (0, Language_1.LanguageToJSON)(value['language']),
         'client_id': value['clientId'],
         'name': value['name'],
         'reference_audio_id': value['referenceAudioId'],
         'user_id': value['userId'],
+        'language': (0, Language_1.LanguageToJSON)(value['language']),
     };
 }
 //# sourceMappingURL=PostCustomChatbotV2Payload.js.map

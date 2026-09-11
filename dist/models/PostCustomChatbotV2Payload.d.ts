@@ -114,12 +114,6 @@ export interface PostCustomChatbotV2Payload {
     scenario?: string;
     /**
      *
-     * @type {Language}
-     * @memberof PostCustomChatbotV2Payload
-     */
-    language?: Language | null;
-    /**
-     *
      * @type {string}
      * @memberof PostCustomChatbotV2Payload
      */
@@ -142,6 +136,12 @@ export interface PostCustomChatbotV2Payload {
      * @memberof PostCustomChatbotV2Payload
      */
     userId?: string | null;
+    /**
+     *
+     * @type {Language}
+     * @memberof PostCustomChatbotV2Payload
+     */
+    language?: Language | null;
 }
 /**
  * Check if a given object implements the PostCustomChatbotV2Payload interface.

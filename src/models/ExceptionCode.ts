@@ -51,6 +51,7 @@ export const ExceptionCode = {
     ChatbotBlueprintNotFound: 'chatbot_blueprint_not_found',
     AdvancedChatbotBuilderInProgressNotFound: 'advanced_chatbot_builder_in_progress_not_found',
     AdvancedChatbotBuilderInconsistentData: 'advanced_chatbot_builder_inconsistent_data',
+    AdvancedCharacterBuilderBusy: 'advanced_character_builder_busy',
     AdvancedCharacterBuilderDataMissing: 'advanced_character_builder_data_missing',
     AdvancedCharacterBuilderFailedToCreateTags: 'advanced_character_builder_failed_to_create_tags',
     AdvancedCharacterBuilderProfileModerationException: 'advanced_character_builder_profile_moderation_exception',
