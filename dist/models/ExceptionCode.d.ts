@@ -47,6 +47,7 @@ export declare const ExceptionCode: {
     readonly ChatbotBlueprintNotFound: "chatbot_blueprint_not_found";
     readonly AdvancedChatbotBuilderInProgressNotFound: "advanced_chatbot_builder_in_progress_not_found";
     readonly AdvancedChatbotBuilderInconsistentData: "advanced_chatbot_builder_inconsistent_data";
+    readonly AdvancedCharacterBuilderBusy: "advanced_character_builder_busy";
     readonly AdvancedCharacterBuilderDataMissing: "advanced_character_builder_data_missing";
     readonly AdvancedCharacterBuilderFailedToCreateTags: "advanced_character_builder_failed_to_create_tags";
     readonly AdvancedCharacterBuilderProfileModerationException: "advanced_character_builder_profile_moderation_exception";
