@@ -34,6 +34,12 @@ export interface ImagePreset {
      * @memberof ImagePreset
      */
     loras?: Array<LoraName>;
+    /**
+     *
+     * @type {string}
+     * @memberof ImagePreset
+     */
+    url?: string | null;
 }
 /**
  * Check if a given object implements the ImagePreset interface.

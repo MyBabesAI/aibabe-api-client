@@ -19,6 +19,10 @@
  */
 export const Ethnicity = {
     Asian: 'asian',
+    Korean: 'korean',
+    Japanese: 'japanese',
+    Chinese: 'chinese',
+    Vietnamese: 'vietnamese',
     Black: 'black',
     Caucasian: 'caucasian',
     Arab: 'arab',

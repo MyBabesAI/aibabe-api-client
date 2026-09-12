@@ -152,6 +152,15 @@ export declare const LoraName: {
     readonly Krea2DeepthroatV2: "krea2_deepthroat_v2";
     readonly Krea2CameltoeV3: "krea2_cameltoe_v3";
     readonly Krea2PainExpression: "krea2_pain_expression";
+    readonly Krea2GaySucking: "krea2_gay_sucking";
+    readonly Krea2GayRimming: "krea2_gay_rimming";
+    readonly Krea2GayAnalSex: "krea2_gay_anal_sex";
+    readonly Krea2SloppyBlowjob: "krea2_sloppy_blowjob";
+    readonly Krea2NsfwFacialExpressions: "krea2_nsfw_facial_expressions";
+    readonly Krea2BeautyEyesEnhancer: "krea2_beauty_eyes_enhancer";
+    readonly Krea2GayTribes: "krea2_gay_tribes";
+    readonly Krea2SkinDetailEnhancer: "krea2_skin_detail_enhancer";
+    readonly Krea2HandsomeMaleFace: "krea2_handsome_male_face";
     readonly None: "none";
 };
 export type LoraName = typeof LoraName[keyof typeof LoraName];

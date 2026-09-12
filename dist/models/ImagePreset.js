@@ -40,6 +40,7 @@ function ImagePresetFromJSONTyped(json, ignoreDiscriminator) {
         'name': json['name'],
         'prompt': json['prompt'],
         'loras': json['loras'] == null ? undefined : (json['loras'].map(LoraName_1.LoraNameFromJSON)),
+        'url': json['url'] == null ? undefined : json['url'],
     };
 }
 function ImagePresetToJSON(json) {
@@ -53,6 +54,7 @@ function ImagePresetToJSONTyped(value, ignoreDiscriminator = false) {
         'name': value['name'],
         'prompt': value['prompt'],
         'loras': value['loras'] == null ? undefined : (value['loras'].map(LoraName_1.LoraNameToJSON)),
+        'url': value['url'],
     };
 }
 //# sourceMappingURL=ImagePreset.js.map

@@ -162,6 +162,15 @@ exports.LoraName = {
     Krea2DeepthroatV2: 'krea2_deepthroat_v2',
     Krea2CameltoeV3: 'krea2_cameltoe_v3',
     Krea2PainExpression: 'krea2_pain_expression',
+    Krea2GaySucking: 'krea2_gay_sucking',
+    Krea2GayRimming: 'krea2_gay_rimming',
+    Krea2GayAnalSex: 'krea2_gay_anal_sex',
+    Krea2SloppyBlowjob: 'krea2_sloppy_blowjob',
+    Krea2NsfwFacialExpressions: 'krea2_nsfw_facial_expressions',
+    Krea2BeautyEyesEnhancer: 'krea2_beauty_eyes_enhancer',
+    Krea2GayTribes: 'krea2_gay_tribes',
+    Krea2SkinDetailEnhancer: 'krea2_skin_detail_enhancer',
+    Krea2HandsomeMaleFace: 'krea2_handsome_male_face',
     None: 'none'
 };
 function instanceOfLoraName(value) {

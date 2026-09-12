@@ -75,6 +75,12 @@ export interface PatchCustomChatbotRequest {
      * @memberof PatchCustomChatbotRequest
      */
     removeCover?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PatchCustomChatbotRequest
+     */
+    removeProfileVideo?: boolean;
 }
 
 /**
@@ -107,6 +113,7 @@ export function PatchCustomChatbotRequestFromJSONTyped(json: any, ignoreDiscrimi
         'coverPictureId': json['cover_picture_id'] == null ? undefined : json['cover_picture_id'],
         'coverVideoId': json['cover_video_id'] == null ? undefined : json['cover_video_id'],
         'removeCover': json['remove_cover'] == null ? undefined : json['remove_cover'],
+        'removeProfileVideo': json['remove_profile_video'] == null ? undefined : json['remove_profile_video'],
     };
 }
 
@@ -129,6 +136,7 @@ export function PatchCustomChatbotRequestFromJSONTyped(json: any, ignoreDiscrimi
         'cover_picture_id': value['coverPictureId'],
         'cover_video_id': value['coverVideoId'],
         'remove_cover': value['removeCover'],
+        'remove_profile_video': value['removeProfileVideo'],
     };
 }
 
