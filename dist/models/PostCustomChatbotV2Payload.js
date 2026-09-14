@@ -20,15 +20,16 @@ exports.PostCustomChatbotV2PayloadToJSON = PostCustomChatbotV2PayloadToJSON;
 exports.PostCustomChatbotV2PayloadToJSONTyped = PostCustomChatbotV2PayloadToJSONTyped;
 const FantasyRace_1 = require("./FantasyRace");
 const SpecialFeatures_1 = require("./SpecialFeatures");
-const Ethnicity_1 = require("./Ethnicity");
 const ArtStyle_1 = require("./ArtStyle");
 const FurryVisualType_1 = require("./FurryVisualType");
 const RoleplayType_1 = require("./RoleplayType");
-const CustomChatbotTheme_1 = require("./CustomChatbotTheme");
 const VisualType_1 = require("./VisualType");
 const Gender_1 = require("./Gender");
 const SeduceDifficulty_1 = require("./SeduceDifficulty");
 const AvatarLooksV2_1 = require("./AvatarLooksV2");
+const Ethnicity_1 = require("./Ethnicity");
+const Language_1 = require("./Language");
+const CustomChatbotTheme_1 = require("./CustomChatbotTheme");
 const SexualOrientation_1 = require("./SexualOrientation");
 /**
  * Check if a given object implements the PostCustomChatbotV2Payload interface.
@@ -76,6 +77,7 @@ function PostCustomChatbotV2PayloadFromJSONTyped(json, ignoreDiscriminator) {
         'name': json['name'] == null ? undefined : json['name'],
         'referenceAudioId': json['reference_audio_id'] == null ? undefined : json['reference_audio_id'],
         'userId': json['user_id'] == null ? undefined : json['user_id'],
+        'language': json['language'] == null ? undefined : (0, Language_1.LanguageFromJSON)(json['language']),
     };
 }
 function PostCustomChatbotV2PayloadToJSON(json) {
@@ -104,6 +106,7 @@ function PostCustomChatbotV2PayloadToJSONTyped(value, ignoreDiscriminator = fals
         'name': value['name'],
         'reference_audio_id': value['referenceAudioId'],
         'user_id': value['userId'],
+        'language': (0, Language_1.LanguageToJSON)(value['language']),
     };
 }
 //# sourceMappingURL=PostCustomChatbotV2Payload.js.map

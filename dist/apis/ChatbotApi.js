@@ -556,6 +556,32 @@ class ChatbotApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Reset Advanced Chatbot Builder
+     */
+    async resetAdvancedChatbotBuilderChatbotAdvancedDeleteRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chatbot/advanced`,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Reset Advanced Chatbot Builder
+     */
+    async resetAdvancedChatbotBuilderChatbotAdvancedDelete(initOverrides) {
+        const response = await this.resetAdvancedChatbotBuilderChatbotAdvancedDeleteRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Update Custom Chatbot
      */
     async updateCustomChatbotChatbotCustomChatbotIdPatchRaw(requestParameters, initOverrides) {

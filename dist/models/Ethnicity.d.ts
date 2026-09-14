@@ -15,6 +15,10 @@
  */
 export declare const Ethnicity: {
     readonly Asian: "asian";
+    readonly Korean: "korean";
+    readonly Japanese: "japanese";
+    readonly Chinese: "chinese";
+    readonly Vietnamese: "vietnamese";
     readonly Black: "black";
     readonly Caucasian: "caucasian";
     readonly Arab: "arab";

@@ -24,7 +24,12 @@ export const Language = {
     Es: 'es',
     It: 'it',
     Cs: 'cs',
-    Pl: 'pl'
+    Pl: 'pl',
+    Ko: 'ko',
+    Ja: 'ja',
+    Vi: 'vi',
+    ZhHans: 'zh_hans',
+    ZhHant: 'zh_hant'
 } as const;
 export type Language = typeof Language[keyof typeof Language];
 

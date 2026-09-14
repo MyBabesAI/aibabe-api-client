@@ -30,7 +30,12 @@ exports.Language = {
     Es: 'es',
     It: 'it',
     Cs: 'cs',
-    Pl: 'pl'
+    Pl: 'pl',
+    Ko: 'ko',
+    Ja: 'ja',
+    Vi: 'vi',
+    ZhHans: 'zh_hans',
+    ZhHant: 'zh_hant'
 };
 function instanceOfLanguage(value) {
     for (const key in exports.Language) {

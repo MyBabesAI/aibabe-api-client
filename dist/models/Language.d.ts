@@ -21,6 +21,11 @@ export declare const Language: {
     readonly It: "it";
     readonly Cs: "cs";
     readonly Pl: "pl";
+    readonly Ko: "ko";
+    readonly Ja: "ja";
+    readonly Vi: "vi";
+    readonly ZhHans: "zh_hans";
+    readonly ZhHant: "zh_hant";
 };
 export type Language = typeof Language[keyof typeof Language];
 export declare function instanceOfLanguage(value: any): boolean;

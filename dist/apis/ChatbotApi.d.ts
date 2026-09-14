@@ -228,6 +228,14 @@ export declare class ChatbotApi extends runtime.BaseAPI {
      */
     publishAdvancedChatbotChatbotAdvancedPublishPost(requestParameters: PublishAdvancedChatbotChatbotAdvancedPublishPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAdvancedChatbotPublishResponse>;
     /**
+     * Reset Advanced Chatbot Builder
+     */
+    resetAdvancedChatbotBuilderChatbotAdvancedDeleteRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Reset Advanced Chatbot Builder
+     */
+    resetAdvancedChatbotBuilderChatbotAdvancedDelete(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
      * Update Custom Chatbot
      */
     updateCustomChatbotChatbotCustomChatbotIdPatchRaw(requestParameters: UpdateCustomChatbotChatbotCustomChatbotIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;

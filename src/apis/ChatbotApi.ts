@@ -860,6 +860,36 @@ export class ChatbotApi extends runtime.BaseAPI {
     }
 
     /**
+     * Reset Advanced Chatbot Builder
+     */
+    async resetAdvancedChatbotBuilderChatbotAdvancedDeleteRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chatbot/advanced`,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Reset Advanced Chatbot Builder
+     */
+    async resetAdvancedChatbotBuilderChatbotAdvancedDelete(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.resetAdvancedChatbotBuilderChatbotAdvancedDeleteRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Update Custom Chatbot
      */
     async updateCustomChatbotChatbotCustomChatbotIdPatchRaw(requestParameters: UpdateCustomChatbotChatbotCustomChatbotIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {

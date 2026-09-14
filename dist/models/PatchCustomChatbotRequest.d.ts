@@ -64,6 +64,12 @@ export interface PatchCustomChatbotRequest {
      * @memberof PatchCustomChatbotRequest
      */
     removeCover?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PatchCustomChatbotRequest
+     */
+    removeProfileVideo?: boolean;
 }
 /**
  * Check if a given object implements the PatchCustomChatbotRequest interface.

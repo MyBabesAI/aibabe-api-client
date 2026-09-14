@@ -27,13 +27,6 @@ import {
     SpecialFeaturesToJSON,
     SpecialFeaturesToJSONTyped,
 } from './SpecialFeatures';
-import type { Ethnicity } from './Ethnicity';
-import {
-    EthnicityFromJSON,
-    EthnicityFromJSONTyped,
-    EthnicityToJSON,
-    EthnicityToJSONTyped,
-} from './Ethnicity';
 import type { ArtStyle } from './ArtStyle';
 import {
     ArtStyleFromJSON,
@@ -55,13 +48,6 @@ import {
     RoleplayTypeToJSON,
     RoleplayTypeToJSONTyped,
 } from './RoleplayType';
-import type { CustomChatbotTheme } from './CustomChatbotTheme';
-import {
-    CustomChatbotThemeFromJSON,
-    CustomChatbotThemeFromJSONTyped,
-    CustomChatbotThemeToJSON,
-    CustomChatbotThemeToJSONTyped,
-} from './CustomChatbotTheme';
 import type { VisualType } from './VisualType';
 import {
     VisualTypeFromJSON,
@@ -90,6 +76,27 @@ import {
     AvatarLooksV2ToJSON,
     AvatarLooksV2ToJSONTyped,
 } from './AvatarLooksV2';
+import type { Ethnicity } from './Ethnicity';
+import {
+    EthnicityFromJSON,
+    EthnicityFromJSONTyped,
+    EthnicityToJSON,
+    EthnicityToJSONTyped,
+} from './Ethnicity';
+import type { Language } from './Language';
+import {
+    LanguageFromJSON,
+    LanguageFromJSONTyped,
+    LanguageToJSON,
+    LanguageToJSONTyped,
+} from './Language';
+import type { CustomChatbotTheme } from './CustomChatbotTheme';
+import {
+    CustomChatbotThemeFromJSON,
+    CustomChatbotThemeFromJSONTyped,
+    CustomChatbotThemeToJSON,
+    CustomChatbotThemeToJSONTyped,
+} from './CustomChatbotTheme';
 import type { SexualOrientation } from './SexualOrientation';
 import {
     SexualOrientationFromJSON,
@@ -212,6 +219,12 @@ export interface PostCustomChatbotV2Payload {
      * @memberof PostCustomChatbotV2Payload
      */
     userId?: string | null;
+    /**
+     * 
+     * @type {Language}
+     * @memberof PostCustomChatbotV2Payload
+     */
+    language?: Language | null;
 }
 
 
@@ -258,6 +271,7 @@ export function PostCustomChatbotV2PayloadFromJSONTyped(json: any, ignoreDiscrim
         'name': json['name'] == null ? undefined : json['name'],
         'referenceAudioId': json['reference_audio_id'] == null ? undefined : json['reference_audio_id'],
         'userId': json['user_id'] == null ? undefined : json['user_id'],
+        'language': json['language'] == null ? undefined : LanguageFromJSON(json['language']),
     };
 }
 
@@ -290,6 +304,7 @@ export function PostCustomChatbotV2PayloadFromJSONTyped(json: any, ignoreDiscrim
         'name': value['name'],
         'reference_audio_id': value['referenceAudioId'],
         'user_id': value['userId'],
+        'language': LanguageToJSON(value['language']),
     };
 }
 
