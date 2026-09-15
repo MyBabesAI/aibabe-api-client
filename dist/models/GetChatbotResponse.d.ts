@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { BlacklistCard } from './BlacklistCard';
 import type { ContentType } from './ContentType';
 import type { GalleryItem } from './GalleryItem';
 import type { WallPost } from './WallPost';
@@ -36,6 +37,12 @@ export interface GetChatbotResponse {
      * @memberof GetChatbotResponse
      */
     profileVideo: string;
+    /**
+     *
+     * @type {BlacklistCard}
+     * @memberof GetChatbotResponse
+     */
+    blacklist?: BlacklistCard | null;
     /**
      *
      * @type {string}

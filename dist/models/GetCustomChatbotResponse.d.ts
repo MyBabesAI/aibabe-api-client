@@ -11,6 +11,7 @@
  */
 import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
 import type { ChatbotCreatedOrigin } from './ChatbotCreatedOrigin';
+import type { BlacklistCard } from './BlacklistCard';
 import type { ChatbotPreview } from './ChatbotPreview';
 import type { PostDetailsWithDate } from './PostDetailsWithDate';
 import type { ContentType } from './ContentType';
@@ -39,6 +40,12 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     profileVideo: string;
+    /**
+     *
+     * @type {BlacklistCard}
+     * @memberof GetCustomChatbotResponse
+     */
+    blacklist?: BlacklistCard | null;
     /**
      *
      * @type {string}

@@ -33,7 +33,8 @@ exports.NotificationType = {
     NewPost: 'new_post',
     NewEvent: 'new_event',
     EventEnded: 'event_ended',
-    EventResult: 'event_result'
+    EventResult: 'event_result',
+    BlacklistWarning: 'blacklist_warning'
 };
 function instanceOfNotificationType(value) {
     for (const key in exports.NotificationType) {

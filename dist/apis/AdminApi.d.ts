@@ -10,13 +10,18 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminUpdatePromotionRequest, AdminUserJourneysResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse } from '../models/index';
+import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminUpdatePromotionRequest, AdminUserJourneysResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
 }
 export interface AdminDeleteAdminUserEmailDeleteRequest {
     email: string;
+}
+export interface BlacklistContentAdminBlacklistContentTypeContentIdPatchRequest {
+    contentType: ContentType;
+    contentId: string;
+    blacklistRequest: BlacklistRequest;
 }
 export interface CreateBadgeAdminBadgesPostRequest {
     code: string;
@@ -58,6 +63,18 @@ export interface GetQualityControlImagesAdminImageQualityControlPostRequest {
 export interface GetTokenBalanceAdminTokenBalanceEmailGetRequest {
     email: string;
 }
+export interface GetUserGalleryAdminGalleryUserIdGetRequest {
+    userId: string;
+    paginationToken?: string | null;
+    type?: PostType;
+    limit?: number;
+    chatbotId?: string | null;
+    withoutChatbot?: boolean;
+    freeTextSearch?: string | null;
+    excludeEventEntries?: boolean;
+    sort?: SortFilter;
+    visibility?: VisibilityFilter;
+}
 export interface GetUserJourneyAdminUserJourneyUserIdGetRequest {
     userId: string;
     eventTypes?: Array<UserJourneyEventType> | null;
@@ -84,7 +101,7 @@ export interface SavePricingGroupRevisionsAdminPricingPostRequest {
 export interface SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest {
     setUserFeatureFlagsRequest: SetUserFeatureFlagsRequest;
 }
-export interface ToggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRequest {
+export interface UnblacklistContentAdminBlacklistContentTypeContentIdDeleteRequest {
     contentType: ContentType;
     contentId: string;
 }
@@ -131,6 +148,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Admin Delete
      */
     adminDeleteAdminUserEmailDelete(requestParameters: AdminDeleteAdminUserEmailDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Blacklist Content
+     */
+    blacklistContentAdminBlacklistContentTypeContentIdPatchRaw(requestParameters: BlacklistContentAdminBlacklistContentTypeContentIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlacklistResponse>>;
+    /**
+     * Blacklist Content
+     */
+    blacklistContentAdminBlacklistContentTypeContentIdPatch(requestParameters: BlacklistContentAdminBlacklistContentTypeContentIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlacklistResponse>;
     /**
      * Create Badge
      */
@@ -195,6 +220,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Get Token Balance
      */
     getTokenBalanceAdminTokenBalanceEmailGet(requestParameters: GetTokenBalanceAdminTokenBalanceEmailGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<number>;
+    /**
+     * Get User Gallery
+     */
+    getUserGalleryAdminGalleryUserIdGetRaw(requestParameters: GetUserGalleryAdminGalleryUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGalleryResponse>>;
+    /**
+     * Get User Gallery
+     */
+    getUserGalleryAdminGalleryUserIdGet(requestParameters: GetUserGalleryAdminGalleryUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGalleryResponse>;
     /**
      * Get User Journey
      */
@@ -268,13 +301,13 @@ export declare class AdminApi extends runtime.BaseAPI {
      */
     setUserFeatureFlagsAdminUserFeatureFlagsPut(requestParameters: SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetUserFeatureFlagsResponse>;
     /**
-     * Toggle Content Blacklist
+     * Unblacklist Content
      */
-    toggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRaw(requestParameters: ToggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlacklistResponse>>;
+    unblacklistContentAdminBlacklistContentTypeContentIdDeleteRaw(requestParameters: UnblacklistContentAdminBlacklistContentTypeContentIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlacklistResponse>>;
     /**
-     * Toggle Content Blacklist
+     * Unblacklist Content
      */
-    toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch(requestParameters: ToggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlacklistResponse>;
+    unblacklistContentAdminBlacklistContentTypeContentIdDelete(requestParameters: UnblacklistContentAdminBlacklistContentTypeContentIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlacklistResponse>;
     /**
      * Update Badge
      */

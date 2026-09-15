@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { Status } from './Status';
+import type { BlacklistCard } from './BlacklistCard';
 import type { GeneratedAudioStatus } from './GeneratedAudioStatus';
 import type { Type } from './Type';
 import type { ChatRole } from './ChatRole';
@@ -97,6 +98,12 @@ export interface ChatMessageDetail {
      * @memberof ChatMessageDetail
      */
     originalImageUrl?: string | null;
+    /**
+     *
+     * @type {BlacklistCard}
+     * @memberof ChatMessageDetail
+     */
+    blacklist?: BlacklistCard | null;
 }
 /**
  * Check if a given object implements the ChatMessageDetail interface.

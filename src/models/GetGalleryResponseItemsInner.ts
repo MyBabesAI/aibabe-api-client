@@ -27,6 +27,13 @@ import {
     StoryCountsToJSON,
     StoryCountsToJSONTyped,
 } from './StoryCounts';
+import type { BlacklistCard } from './BlacklistCard';
+import {
+    BlacklistCardFromJSON,
+    BlacklistCardFromJSONTyped,
+    BlacklistCardToJSON,
+    BlacklistCardToJSONTyped,
+} from './BlacklistCard';
 import type { ArtStyle } from './ArtStyle';
 import {
     ArtStyleFromJSON,
@@ -115,6 +122,12 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     url: string;
+    /**
+     * 
+     * @type {BlacklistCard}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    blacklist?: BlacklistCard;
     /**
      * 
      * @type {Date}
@@ -284,6 +297,7 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'type': json['type'],
         'id': json['id'],
         'url': json['url'],
+        'blacklist': json['blacklist'] == null ? undefined : BlacklistCardFromJSON(json['blacklist']),
         'createdAt': (new Date(json['created_at'])),
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'postDetails': json['post_details'] == null ? undefined : PostDetailsFromJSON(json['post_details']),
@@ -321,6 +335,7 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'type': value['type'],
         'id': value['id'],
         'url': value['url'],
+        'blacklist': BlacklistCardToJSON(value['blacklist']),
         'created_at': ((value['createdAt']).toISOString()),
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'post_details': PostDetailsToJSON(value['postDetails']),

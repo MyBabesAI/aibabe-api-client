@@ -19,9 +19,12 @@ exports.NotificationResponseNotificationsInnerFromJSONTyped = NotificationRespon
 exports.NotificationResponseNotificationsInnerToJSON = NotificationResponseNotificationsInnerToJSON;
 exports.NotificationResponseNotificationsInnerToJSONTyped = NotificationResponseNotificationsInnerToJSONTyped;
 const PublicUserPreview_1 = require("./PublicUserPreview");
+const BlacklistCard_1 = require("./BlacklistCard");
 const PostType_1 = require("./PostType");
 const ContentType_1 = require("./ContentType");
+const GalleryTab_1 = require("./GalleryTab");
 const WallPost_1 = require("./WallPost");
+const BlacklistTarget_1 = require("./BlacklistTarget");
 const EventResultType_1 = require("./EventResultType");
 const NotificationType_1 = require("./NotificationType");
 const BadgeModel_1 = require("./BadgeModel");
@@ -61,6 +64,16 @@ function instanceOfNotificationResponseNotificationsInner(value) {
         return false;
     if (!('resultType' in value) || value['resultType'] === undefined)
         return false;
+    if (!('blacklistId' in value) || value['blacklistId'] === undefined)
+        return false;
+    if (!('targetType' in value) || value['targetType'] === undefined)
+        return false;
+    if (!('targetId' in value) || value['targetId'] === undefined)
+        return false;
+    if (!('galleryTab' in value) || value['galleryTab'] === undefined)
+        return false;
+    if (!('card' in value) || value['card'] === undefined)
+        return false;
     return true;
 }
 function NotificationResponseNotificationsInnerFromJSON(json) {
@@ -95,6 +108,11 @@ function NotificationResponseNotificationsInnerFromJSONTyped(json, ignoreDiscrim
         'eventBackgroundImage': json['event_background_image'] == null ? undefined : json['event_background_image'],
         'resultType': (0, EventResultType_1.EventResultTypeFromJSON)(json['result_type']),
         'rank': json['rank'] == null ? undefined : json['rank'],
+        'blacklistId': json['blacklist_id'],
+        'targetType': (0, BlacklistTarget_1.BlacklistTargetFromJSON)(json['target_type']),
+        'targetId': json['target_id'],
+        'galleryTab': (0, GalleryTab_1.GalleryTabFromJSON)(json['gallery_tab']),
+        'card': (0, BlacklistCard_1.BlacklistCardFromJSON)(json['card']),
     };
 }
 function NotificationResponseNotificationsInnerToJSON(json) {
@@ -129,6 +147,11 @@ function NotificationResponseNotificationsInnerToJSONTyped(value, ignoreDiscrimi
         'event_background_image': value['eventBackgroundImage'],
         'result_type': (0, EventResultType_1.EventResultTypeToJSON)(value['resultType']),
         'rank': value['rank'],
+        'blacklist_id': value['blacklistId'],
+        'target_type': (0, BlacklistTarget_1.BlacklistTargetToJSON)(value['targetType']),
+        'target_id': value['targetId'],
+        'gallery_tab': (0, GalleryTab_1.GalleryTabToJSON)(value['galleryTab']),
+        'card': (0, BlacklistCard_1.BlacklistCardToJSON)(value['card']),
     };
 }
 //# sourceMappingURL=NotificationResponseNotificationsInner.js.map

@@ -10,9 +10,12 @@
  * Do not edit the class manually.
  */
 import type { PublicUserPreview } from './PublicUserPreview';
+import type { BlacklistCard } from './BlacklistCard';
 import type { PostType } from './PostType';
 import type { ContentType } from './ContentType';
+import type { GalleryTab } from './GalleryTab';
 import type { WallPost } from './WallPost';
+import type { BlacklistTarget } from './BlacklistTarget';
 import type { EventResultType } from './EventResultType';
 import type { NotificationType } from './NotificationType';
 import type { BadgeModel } from './BadgeModel';
@@ -166,6 +169,36 @@ export interface NotificationResponseNotificationsInner {
      * @memberof NotificationResponseNotificationsInner
      */
     rank?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    blacklistId: string;
+    /**
+     *
+     * @type {BlacklistTarget}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    targetType: BlacklistTarget;
+    /**
+     *
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    targetId: string;
+    /**
+     *
+     * @type {GalleryTab}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    galleryTab: GalleryTab;
+    /**
+     *
+     * @type {BlacklistCard}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    card: BlacklistCard;
 }
 /**
  * Check if a given object implements the NotificationResponseNotificationsInner interface.

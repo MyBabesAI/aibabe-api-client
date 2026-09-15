@@ -18,6 +18,7 @@ exports.GameAdventureCreatorResponseFromJSON = GameAdventureCreatorResponseFromJ
 exports.GameAdventureCreatorResponseFromJSONTyped = GameAdventureCreatorResponseFromJSONTyped;
 exports.GameAdventureCreatorResponseToJSON = GameAdventureCreatorResponseToJSON;
 exports.GameAdventureCreatorResponseToJSONTyped = GameAdventureCreatorResponseToJSONTyped;
+const BlacklistCard_1 = require("./BlacklistCard");
 const GameAdventureTarget_1 = require("./GameAdventureTarget");
 const GameAdventureDifficulty_1 = require("./GameAdventureDifficulty");
 const GameAdventurePrize_1 = require("./GameAdventurePrize");
@@ -86,6 +87,8 @@ function GameAdventureCreatorResponseFromJSONTyped(json, ignoreDiscriminator) {
         'rating': (0, GameAdventureRating_1.GameAdventureRatingFromJSON)(json['rating']),
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
         'playersCount': json['players_count'] == null ? undefined : json['players_count'],
+        'posterBlacklist': json['poster_blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['poster_blacklist']),
+        'greetingBlacklist': json['greeting_blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['greeting_blacklist']),
     };
 }
 function GameAdventureCreatorResponseToJSON(json) {
@@ -120,6 +123,8 @@ function GameAdventureCreatorResponseToJSONTyped(value, ignoreDiscriminator = fa
         'rating': (0, GameAdventureRating_1.GameAdventureRatingToJSON)(value['rating']),
         'winners_count': value['winnersCount'],
         'players_count': value['playersCount'],
+        'poster_blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['posterBlacklist']),
+        'greeting_blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['greetingBlacklist']),
     };
 }
 //# sourceMappingURL=GameAdventureCreatorResponse.js.map

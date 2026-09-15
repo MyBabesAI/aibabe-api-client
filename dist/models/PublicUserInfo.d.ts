@@ -114,6 +114,12 @@ export interface PublicUserInfo {
      * @memberof PublicUserInfo
      */
     notifyContentTypes?: Array<ContentType>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PublicUserInfo
+     */
+    blacklist?: boolean;
 }
 /**
  * Check if a given object implements the PublicUserInfo interface.

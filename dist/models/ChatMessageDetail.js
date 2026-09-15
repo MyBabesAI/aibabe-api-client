@@ -19,6 +19,7 @@ exports.ChatMessageDetailFromJSONTyped = ChatMessageDetailFromJSONTyped;
 exports.ChatMessageDetailToJSON = ChatMessageDetailToJSON;
 exports.ChatMessageDetailToJSONTyped = ChatMessageDetailToJSONTyped;
 const Status_1 = require("./Status");
+const BlacklistCard_1 = require("./BlacklistCard");
 const GeneratedAudioStatus_1 = require("./GeneratedAudioStatus");
 const Type_1 = require("./Type");
 const ChatRole_1 = require("./ChatRole");
@@ -63,6 +64,7 @@ function ChatMessageDetailFromJSONTyped(json, ignoreDiscriminator) {
         'audioStatus': json['audio_status'] == null ? undefined : (0, GeneratedAudioStatus_1.GeneratedAudioStatusFromJSON)(json['audio_status']),
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
         'originalImageUrl': json['original_image_url'] == null ? undefined : json['original_image_url'],
+        'blacklist': json['blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['blacklist']),
     };
 }
 function ChatMessageDetailToJSON(json) {
@@ -86,6 +88,7 @@ function ChatMessageDetailToJSONTyped(value, ignoreDiscriminator = false) {
         'audio_status': (0, GeneratedAudioStatus_1.GeneratedAudioStatusToJSON)(value['audioStatus']),
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
+        'blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['blacklist']),
     };
 }
 //# sourceMappingURL=ChatMessageDetail.js.map

@@ -20,6 +20,13 @@ import {
     StatusToJSON,
     StatusToJSONTyped,
 } from './Status';
+import type { BlacklistCard } from './BlacklistCard';
+import {
+    BlacklistCardFromJSON,
+    BlacklistCardFromJSONTyped,
+    BlacklistCardToJSON,
+    BlacklistCardToJSONTyped,
+} from './BlacklistCard';
 import type { GeneratedAudioStatus } from './GeneratedAudioStatus';
 import {
     GeneratedAudioStatusFromJSON,
@@ -126,6 +133,12 @@ export interface ChatMessageDetail {
      * @memberof ChatMessageDetail
      */
     originalImageUrl?: string | null;
+    /**
+     * 
+     * @type {BlacklistCard}
+     * @memberof ChatMessageDetail
+     */
+    blacklist?: BlacklistCard | null;
 }
 
 
@@ -167,6 +180,7 @@ export function ChatMessageDetailFromJSONTyped(json: any, ignoreDiscriminator: b
         'audioStatus': json['audio_status'] == null ? undefined : GeneratedAudioStatusFromJSON(json['audio_status']),
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
         'originalImageUrl': json['original_image_url'] == null ? undefined : json['original_image_url'],
+        'blacklist': json['blacklist'] == null ? undefined : BlacklistCardFromJSON(json['blacklist']),
     };
 }
 
@@ -194,6 +208,7 @@ export function ChatMessageDetailFromJSONTyped(json: any, ignoreDiscriminator: b
         'audio_status': GeneratedAudioStatusToJSON(value['audioStatus']),
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
+        'blacklist': BlacklistCardToJSON(value['blacklist']),
     };
 }
 

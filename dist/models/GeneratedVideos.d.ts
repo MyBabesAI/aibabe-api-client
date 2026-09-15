@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { BlacklistCard } from './BlacklistCard';
 import type { ChatbotPreview } from './ChatbotPreview';
 import type { PostDetails } from './PostDetails';
 import type { VideoGenerationStatus } from './VideoGenerationStatus';
@@ -36,6 +37,12 @@ export interface GeneratedVideos {
      * @memberof GeneratedVideos
      */
     url: string | null;
+    /**
+     *
+     * @type {BlacklistCard}
+     * @memberof GeneratedVideos
+     */
+    blacklist?: BlacklistCard | null;
     /**
      *
      * @type {Date}

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { BlacklistCard } from './BlacklistCard';
+import {
+    BlacklistCardFromJSON,
+    BlacklistCardFromJSONTyped,
+    BlacklistCardToJSON,
+    BlacklistCardToJSONTyped,
+} from './BlacklistCard';
 import type { ContentType } from './ContentType';
 import {
     ContentTypeFromJSON,
@@ -59,6 +66,12 @@ export interface GetChatbotResponse {
      * @memberof GetChatbotResponse
      */
     profileVideo: string;
+    /**
+     * 
+     * @type {BlacklistCard}
+     * @memberof GetChatbotResponse
+     */
+    blacklist?: BlacklistCard | null;
     /**
      * 
      * @type {string}
@@ -133,6 +146,7 @@ export function GetChatbotResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         'displayName': json['display_name'],
         'profilePicture': json['profile_picture'],
         'profileVideo': json['profile_video'],
+        'blacklist': json['blacklist'] == null ? undefined : BlacklistCardFromJSON(json['blacklist']),
         'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
         'coverContentType': json['cover_content_type'] == null ? undefined : ContentTypeFromJSON(json['cover_content_type']),
         'fullBio': json['full_bio'],
@@ -157,6 +171,7 @@ export function GetChatbotResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         'display_name': value['displayName'],
         'profile_picture': value['profilePicture'],
         'profile_video': value['profileVideo'],
+        'blacklist': BlacklistCardToJSON(value['blacklist']),
         'cover_url': value['coverUrl'],
         'cover_content_type': ContentTypeToJSON(value['coverContentType']),
         'full_bio': value['fullBio'],

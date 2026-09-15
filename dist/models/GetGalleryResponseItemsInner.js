@@ -21,6 +21,7 @@ exports.GetGalleryResponseItemsInnerToJSON = GetGalleryResponseItemsInnerToJSON;
 exports.GetGalleryResponseItemsInnerToJSONTyped = GetGalleryResponseItemsInnerToJSONTyped;
 const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
 const StoryCounts_1 = require("./StoryCounts");
+const BlacklistCard_1 = require("./BlacklistCard");
 const ArtStyle_1 = require("./ArtStyle");
 const ChatbotPreview_1 = require("./ChatbotPreview");
 const PostDetails_1 = require("./PostDetails");
@@ -82,6 +83,7 @@ function GetGalleryResponseItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
         'type': json['type'],
         'id': json['id'],
         'url': json['url'],
+        'blacklist': json['blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['blacklist']),
         'createdAt': (new Date(json['created_at'])),
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['chatbot']),
         'postDetails': json['post_details'] == null ? undefined : (0, PostDetails_1.PostDetailsFromJSON)(json['post_details']),
@@ -115,6 +117,7 @@ function GetGalleryResponseItemsInnerToJSONTyped(value, ignoreDiscriminator = fa
         'type': value['type'],
         'id': value['id'],
         'url': value['url'],
+        'blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['blacklist']),
         'created_at': ((value['createdAt']).toISOString()),
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['chatbot']),
         'post_details': (0, PostDetails_1.PostDetailsToJSON)(value['postDetails']),

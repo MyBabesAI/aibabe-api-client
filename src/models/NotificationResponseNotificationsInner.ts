@@ -34,6 +34,13 @@ import {
     FollowNotificationToJSON,
     FollowNotificationToJSONTyped,
 } from './FollowNotification';
+import type { BlacklistCard } from './BlacklistCard';
+import {
+    BlacklistCardFromJSON,
+    BlacklistCardFromJSONTyped,
+    BlacklistCardToJSON,
+    BlacklistCardToJSONTyped,
+} from './BlacklistCard';
 import type { EpisodeUnlockNotification } from './EpisodeUnlockNotification';
 import {
     EpisodeUnlockNotificationFromJSON,
@@ -55,6 +62,13 @@ import {
     ContentTypeToJSON,
     ContentTypeToJSONTyped,
 } from './ContentType';
+import type { GalleryTab } from './GalleryTab';
+import {
+    GalleryTabFromJSON,
+    GalleryTabFromJSONTyped,
+    GalleryTabToJSON,
+    GalleryTabToJSONTyped,
+} from './GalleryTab';
 import type { NewEpisodeNotification } from './NewEpisodeNotification';
 import {
     NewEpisodeNotificationFromJSON,
@@ -83,6 +97,13 @@ import {
     WallPostToJSON,
     WallPostToJSONTyped,
 } from './WallPost';
+import type { BlacklistTarget } from './BlacklistTarget';
+import {
+    BlacklistTargetFromJSON,
+    BlacklistTargetFromJSONTyped,
+    BlacklistTargetToJSON,
+    BlacklistTargetToJSONTyped,
+} from './BlacklistTarget';
 import type { EventResultType } from './EventResultType';
 import {
     EventResultTypeFromJSON,
@@ -90,6 +111,13 @@ import {
     EventResultTypeToJSON,
     EventResultTypeToJSONTyped,
 } from './EventResultType';
+import type { BlacklistWarningNotification } from './BlacklistWarningNotification';
+import {
+    BlacklistWarningNotificationFromJSON,
+    BlacklistWarningNotificationFromJSONTyped,
+    BlacklistWarningNotificationToJSON,
+    BlacklistWarningNotificationToJSONTyped,
+} from './BlacklistWarningNotification';
 import type { BadgeNotification } from './BadgeNotification';
 import {
     BadgeNotificationFromJSON,
@@ -283,6 +311,36 @@ export interface NotificationResponseNotificationsInner {
      * @memberof NotificationResponseNotificationsInner
      */
     rank?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    blacklistId: string;
+    /**
+     * 
+     * @type {BlacklistTarget}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    targetType: BlacklistTarget;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    targetId: string;
+    /**
+     * 
+     * @type {GalleryTab}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    galleryTab: GalleryTab;
+    /**
+     * 
+     * @type {BlacklistCard}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    card: BlacklistCard;
 }
 
 
@@ -307,6 +365,11 @@ export function instanceOfNotificationResponseNotificationsInner(value: object):
     if (!('eventId' in value) || value['eventId'] === undefined) return false;
     if (!('eventName' in value) || value['eventName'] === undefined) return false;
     if (!('resultType' in value) || value['resultType'] === undefined) return false;
+    if (!('blacklistId' in value) || value['blacklistId'] === undefined) return false;
+    if (!('targetType' in value) || value['targetType'] === undefined) return false;
+    if (!('targetId' in value) || value['targetId'] === undefined) return false;
+    if (!('galleryTab' in value) || value['galleryTab'] === undefined) return false;
+    if (!('card' in value) || value['card'] === undefined) return false;
     return true;
 }
 
@@ -344,6 +407,11 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
         'eventBackgroundImage': json['event_background_image'] == null ? undefined : json['event_background_image'],
         'resultType': EventResultTypeFromJSON(json['result_type']),
         'rank': json['rank'] == null ? undefined : json['rank'],
+        'blacklistId': json['blacklist_id'],
+        'targetType': BlacklistTargetFromJSON(json['target_type']),
+        'targetId': json['target_id'],
+        'galleryTab': GalleryTabFromJSON(json['gallery_tab']),
+        'card': BlacklistCardFromJSON(json['card']),
     };
 }
 
@@ -382,6 +450,11 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
         'event_background_image': value['eventBackgroundImage'],
         'result_type': EventResultTypeToJSON(value['resultType']),
         'rank': value['rank'],
+        'blacklist_id': value['blacklistId'],
+        'target_type': BlacklistTargetToJSON(value['targetType']),
+        'target_id': value['targetId'],
+        'gallery_tab': GalleryTabToJSON(value['galleryTab']),
+        'card': BlacklistCardToJSON(value['card']),
     };
 }
 

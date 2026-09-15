@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { BlacklistCard } from './BlacklistCard';
+import {
+    BlacklistCardFromJSON,
+    BlacklistCardFromJSONTyped,
+    BlacklistCardToJSON,
+    BlacklistCardToJSONTyped,
+} from './BlacklistCard';
 import type { ArtStyle } from './ArtStyle';
 import {
     ArtStyleFromJSON,
@@ -66,6 +73,12 @@ export interface GeneratedImages {
      * @memberof GeneratedImages
      */
     url: string | null;
+    /**
+     * 
+     * @type {BlacklistCard}
+     * @memberof GeneratedImages
+     */
+    blacklist?: BlacklistCard | null;
     /**
      * 
      * @type {Date}
@@ -175,6 +188,7 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'type': json['type'],
         'id': json['id'],
         'url': json['url'],
+        'blacklist': json['blacklist'] == null ? undefined : BlacklistCardFromJSON(json['blacklist']),
         'createdAt': (new Date(json['created_at'])),
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'postDetails': json['post_details'] == null ? undefined : PostDetailsFromJSON(json['post_details']),
@@ -203,6 +217,7 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'type': value['type'],
         'id': value['id'],
         'url': value['url'],
+        'blacklist': BlacklistCardToJSON(value['blacklist']),
         'created_at': ((value['createdAt']).toISOString()),
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'post_details': PostDetailsToJSON(value['postDetails']),

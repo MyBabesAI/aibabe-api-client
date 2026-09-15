@@ -10,9 +10,10 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlacklistResponse, GetDetailedPostsResponse, GetPostsResponse, PatchPostTitleRequest, PostCategoryValues, PostPublishResponse, PostReportRequest, PostSearchRequest, PostShareGetTagsRequest, PostSharePublishRequest, PostShareTagsResponse, PostType } from '../models/index';
+import type { BlacklistRequest, BlacklistResponse, GetDetailedPostsResponse, GetPostsResponse, PatchPostTitleRequest, PostCategoryValues, PostPublishResponse, PostReportRequest, PostSearchRequest, PostShareGetTagsRequest, PostSharePublishRequest, PostShareTagsResponse, PostType } from '../models/index';
 export interface BlacklistPostPostBlacklistPostIdPatchRequest {
     postId: string;
+    blacklistRequest: BlacklistRequest;
 }
 export interface BoostPostPostLikeBoostPostIdPostRequest {
     postId: string;
@@ -65,6 +66,9 @@ export interface SearchPostsPostSearchPostRequest {
 export interface SharePostShareContentIdPublishPostRequest {
     contentId: string;
     postSharePublishRequest: PostSharePublishRequest;
+}
+export interface UnblacklistPostPostBlacklistPostIdDeleteRequest {
+    postId: string;
 }
 /**
  *
@@ -190,5 +194,13 @@ export declare class PostApi extends runtime.BaseAPI {
      * Share
      */
     sharePostShareContentIdPublishPost(requestParameters: SharePostShareContentIdPublishPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostPublishResponse>;
+    /**
+     * Unblacklist Post
+     */
+    unblacklistPostPostBlacklistPostIdDeleteRaw(requestParameters: UnblacklistPostPostBlacklistPostIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlacklistResponse>>;
+    /**
+     * Unblacklist Post
+     */
+    unblacklistPostPostBlacklistPostIdDelete(requestParameters: UnblacklistPostPostBlacklistPostIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlacklistResponse>;
 }
 //# sourceMappingURL=PostApi.d.ts.map

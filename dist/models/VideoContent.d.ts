@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { MediaOrigin } from './MediaOrigin';
 /**
  *
  * @export
@@ -27,6 +28,12 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     url: string;
+    /**
+     *
+     * @type {MediaOrigin}
+     * @memberof VideoContent
+     */
+    origin?: MediaOrigin | null;
     /**
      *
      * @type {number}

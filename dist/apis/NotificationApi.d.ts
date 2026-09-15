@@ -18,6 +18,7 @@ export interface ClearNotificationsNotificationClearPatchRequest {
     badgeId?: string | null;
     followUserId?: string | null;
     eventId?: string | null;
+    blacklistId?: string | null;
 }
 export interface GetNotificationsNotificationGetRequest {
     paginationToken?: string | null;

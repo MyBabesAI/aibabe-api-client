@@ -19,7 +19,10 @@
  */
 export const ImageGenerationSource = {
     Chat: 'chat',
-    Generator: 'generator'
+    Generator: 'generator',
+    ChatRequest: 'chat_request',
+    ChatAuto: 'chat_auto',
+    Adventure: 'adventure'
 } as const;
 export type ImageGenerationSource = typeof ImageGenerationSource[keyof typeof ImageGenerationSource];
 
