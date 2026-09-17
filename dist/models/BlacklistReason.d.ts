@@ -20,6 +20,7 @@ export declare const BlacklistReason: {
     readonly Violence: "violence";
     readonly NonConsent: "non_consent";
     readonly Incest: "incest";
+    readonly Abuse: "abuse";
     readonly SelfHarm: "self_harm";
     readonly Illicit: "illicit";
     readonly Harassment: "harassment";

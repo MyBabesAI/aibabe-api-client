@@ -30,6 +30,7 @@ exports.BlacklistReason = {
     Violence: 'violence',
     NonConsent: 'non_consent',
     Incest: 'incest',
+    Abuse: 'abuse',
     SelfHarm: 'self_harm',
     Illicit: 'illicit',
     Harassment: 'harassment',
