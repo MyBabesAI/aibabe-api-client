@@ -137,6 +137,12 @@ export interface PublicUserInfo {
      * @memberof PublicUserInfo
      */
     notifyContentTypes?: Array<ContentType>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PublicUserInfo
+     */
+    blacklist?: boolean;
 }
 
 
@@ -186,6 +192,7 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'adventures': json['adventures'],
         'followed': json['followed'],
         'notifyContentTypes': json['notify_content_types'] == null ? undefined : ((json['notify_content_types'] as Array<any>).map(ContentTypeFromJSON)),
+        'blacklist': json['blacklist'] == null ? undefined : json['blacklist'],
     };
 }
 
@@ -216,6 +223,7 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'adventures': value['adventures'],
         'followed': value['followed'],
         'notify_content_types': value['notifyContentTypes'] == null ? undefined : ((value['notifyContentTypes'] as Array<any>).map(ContentTypeToJSON)),
+        'blacklist': value['blacklist'],
     };
 }
 

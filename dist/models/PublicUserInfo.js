@@ -75,6 +75,7 @@ function PublicUserInfoFromJSONTyped(json, ignoreDiscriminator) {
         'adventures': json['adventures'],
         'followed': json['followed'],
         'notifyContentTypes': json['notify_content_types'] == null ? undefined : (json['notify_content_types'].map(ContentType_1.ContentTypeFromJSON)),
+        'blacklist': json['blacklist'] == null ? undefined : json['blacklist'],
     };
 }
 function PublicUserInfoToJSON(json) {
@@ -101,6 +102,7 @@ function PublicUserInfoToJSONTyped(value, ignoreDiscriminator = false) {
         'adventures': value['adventures'],
         'followed': value['followed'],
         'notify_content_types': value['notifyContentTypes'] == null ? undefined : (value['notifyContentTypes'].map(ContentType_1.ContentTypeToJSON)),
+        'blacklist': value['blacklist'],
     };
 }
 //# sourceMappingURL=PublicUserInfo.js.map

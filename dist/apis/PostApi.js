@@ -60,13 +60,18 @@ class PostApi extends runtime.BaseAPI {
         if (requestParameters['postId'] == null) {
             throw new runtime.RequiredError('postId', 'Required parameter "postId" was null or undefined when calling blacklistPostPostBlacklistPostIdPatch().');
         }
+        if (requestParameters['blacklistRequest'] == null) {
+            throw new runtime.RequiredError('blacklistRequest', 'Required parameter "blacklistRequest" was null or undefined when calling blacklistPostPostBlacklistPostIdPatch().');
+        }
         const queryParameters = {};
         const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
         const response = await this.request({
             path: `/post/blacklist/{post_id}/`.replace(`{${"post_id"}}`, encodeURIComponent(String(requestParameters['postId']))),
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
+            body: (0, index_1.BlacklistRequestToJSON)(requestParameters['blacklistRequest']),
         }, initOverrides);
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.BlacklistResponseFromJSON)(jsonValue));
     }
@@ -490,6 +495,30 @@ class PostApi extends runtime.BaseAPI {
      */
     async sharePostShareContentIdPublishPost(requestParameters, initOverrides) {
         const response = await this.sharePostShareContentIdPublishPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Unblacklist Post
+     */
+    async unblacklistPostPostBlacklistPostIdDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['postId'] == null) {
+            throw new runtime.RequiredError('postId', 'Required parameter "postId" was null or undefined when calling unblacklistPostPostBlacklistPostIdDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/post/blacklist/{post_id}/`.replace(`{${"post_id"}}`, encodeURIComponent(String(requestParameters['postId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.BlacklistResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Unblacklist Post
+     */
+    async unblacklistPostPostBlacklistPostIdDelete(requestParameters, initOverrides) {
+        const response = await this.unblacklistPostPostBlacklistPostIdDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 }

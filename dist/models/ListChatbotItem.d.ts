@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { BlacklistCard } from './BlacklistCard';
 import type { PostDetails } from './PostDetails';
 /**
  *
@@ -52,6 +53,12 @@ export interface ListChatbotItem {
      * @memberof ListChatbotItem
      */
     profileVideo: string;
+    /**
+     *
+     * @type {BlacklistCard}
+     * @memberof ListChatbotItem
+     */
+    blacklist?: BlacklistCard | null;
     /**
      *
      * @type {string}

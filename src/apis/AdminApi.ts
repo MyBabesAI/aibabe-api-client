@@ -28,21 +28,26 @@ import type {
   AuraSubcategory,
   BadgeCategory,
   BadgeTimePeriod,
+  BlacklistRequest,
   BlacklistResponse,
   ContentType,
   DownscaleRequest,
   GetConversationMessagesResponse,
+  GetGalleryResponse,
   GetQualityControlImage,
   GetQualityControlRequest,
   GiftCodeType,
   HTTPValidationError,
+  PostType,
   ScoreCategory,
   SetUserFeatureFlagsRequest,
   SetUserFeatureFlagsResponse,
+  SortFilter,
   SubscriptionStatus,
   UserInfoResponse,
   UserJourneyEventType,
   UserJourneyResponse,
+  VisibilityFilter,
 } from '../models/index';
 import {
     AdminAwardBadgeRequestFromJSON,
@@ -71,6 +76,8 @@ import {
     BadgeCategoryToJSON,
     BadgeTimePeriodFromJSON,
     BadgeTimePeriodToJSON,
+    BlacklistRequestFromJSON,
+    BlacklistRequestToJSON,
     BlacklistResponseFromJSON,
     BlacklistResponseToJSON,
     ContentTypeFromJSON,
@@ -79,6 +86,8 @@ import {
     DownscaleRequestToJSON,
     GetConversationMessagesResponseFromJSON,
     GetConversationMessagesResponseToJSON,
+    GetGalleryResponseFromJSON,
+    GetGalleryResponseToJSON,
     GetQualityControlImageFromJSON,
     GetQualityControlImageToJSON,
     GetQualityControlRequestFromJSON,
@@ -87,12 +96,16 @@ import {
     GiftCodeTypeToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
+    PostTypeFromJSON,
+    PostTypeToJSON,
     ScoreCategoryFromJSON,
     ScoreCategoryToJSON,
     SetUserFeatureFlagsRequestFromJSON,
     SetUserFeatureFlagsRequestToJSON,
     SetUserFeatureFlagsResponseFromJSON,
     SetUserFeatureFlagsResponseToJSON,
+    SortFilterFromJSON,
+    SortFilterToJSON,
     SubscriptionStatusFromJSON,
     SubscriptionStatusToJSON,
     UserInfoResponseFromJSON,
@@ -101,6 +114,8 @@ import {
     UserJourneyEventTypeToJSON,
     UserJourneyResponseFromJSON,
     UserJourneyResponseToJSON,
+    VisibilityFilterFromJSON,
+    VisibilityFilterToJSON,
 } from '../models/index';
 
 export interface AddTokensAdminAddTokensPutRequest {
@@ -110,6 +125,12 @@ export interface AddTokensAdminAddTokensPutRequest {
 
 export interface AdminDeleteAdminUserEmailDeleteRequest {
     email: string;
+}
+
+export interface BlacklistContentAdminBlacklistContentTypeContentIdPatchRequest {
+    contentType: ContentType;
+    contentId: string;
+    blacklistRequest: BlacklistRequest;
 }
 
 export interface CreateBadgeAdminBadgesPostRequest {
@@ -159,6 +180,19 @@ export interface GetTokenBalanceAdminTokenBalanceEmailGetRequest {
     email: string;
 }
 
+export interface GetUserGalleryAdminGalleryUserIdGetRequest {
+    userId: string;
+    paginationToken?: string | null;
+    type?: PostType;
+    limit?: number;
+    chatbotId?: string | null;
+    withoutChatbot?: boolean;
+    freeTextSearch?: string | null;
+    excludeEventEntries?: boolean;
+    sort?: SortFilter;
+    visibility?: VisibilityFilter;
+}
+
 export interface GetUserJourneyAdminUserJourneyUserIdGetRequest {
     userId: string;
     eventTypes?: Array<UserJourneyEventType> | null;
@@ -191,7 +225,7 @@ export interface SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest {
     setUserFeatureFlagsRequest: SetUserFeatureFlagsRequest;
 }
 
-export interface ToggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRequest {
+export interface UnblacklistContentAdminBlacklistContentTypeContentIdDeleteRequest {
     contentType: ContentType;
     contentId: string;
 }
@@ -327,6 +361,56 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async adminDeleteAdminUserEmailDelete(requestParameters: AdminDeleteAdminUserEmailDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.adminDeleteAdminUserEmailDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Blacklist Content
+     */
+    async blacklistContentAdminBlacklistContentTypeContentIdPatchRaw(requestParameters: BlacklistContentAdminBlacklistContentTypeContentIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlacklistResponse>> {
+        if (requestParameters['contentType'] == null) {
+            throw new runtime.RequiredError(
+                'contentType',
+                'Required parameter "contentType" was null or undefined when calling blacklistContentAdminBlacklistContentTypeContentIdPatch().'
+            );
+        }
+
+        if (requestParameters['contentId'] == null) {
+            throw new runtime.RequiredError(
+                'contentId',
+                'Required parameter "contentId" was null or undefined when calling blacklistContentAdminBlacklistContentTypeContentIdPatch().'
+            );
+        }
+
+        if (requestParameters['blacklistRequest'] == null) {
+            throw new runtime.RequiredError(
+                'blacklistRequest',
+                'Required parameter "blacklistRequest" was null or undefined when calling blacklistContentAdminBlacklistContentTypeContentIdPatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/admin/blacklist/{content_type}/{content_id}`.replace(`{${"content_type"}}`, encodeURIComponent(String(requestParameters['contentType']))).replace(`{${"content_id"}}`, encodeURIComponent(String(requestParameters['contentId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: BlacklistRequestToJSON(requestParameters['blacklistRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BlacklistResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Blacklist Content
+     */
+    async blacklistContentAdminBlacklistContentTypeContentIdPatch(requestParameters: BlacklistContentAdminBlacklistContentTypeContentIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlacklistResponse> {
+        const response = await this.blacklistContentAdminBlacklistContentTypeContentIdPatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -753,6 +837,75 @@ export class AdminApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get User Gallery
+     */
+    async getUserGalleryAdminGalleryUserIdGetRaw(requestParameters: GetUserGalleryAdminGalleryUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGalleryResponse>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling getUserGalleryAdminGalleryUserIdGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['chatbotId'] != null) {
+            queryParameters['chatbot_id'] = requestParameters['chatbotId'];
+        }
+
+        if (requestParameters['withoutChatbot'] != null) {
+            queryParameters['without_chatbot'] = requestParameters['withoutChatbot'];
+        }
+
+        if (requestParameters['freeTextSearch'] != null) {
+            queryParameters['free_text_search'] = requestParameters['freeTextSearch'];
+        }
+
+        if (requestParameters['excludeEventEntries'] != null) {
+            queryParameters['exclude_event_entries'] = requestParameters['excludeEventEntries'];
+        }
+
+        if (requestParameters['sort'] != null) {
+            queryParameters['sort'] = requestParameters['sort'];
+        }
+
+        if (requestParameters['visibility'] != null) {
+            queryParameters['visibility'] = requestParameters['visibility'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/admin/gallery/{user_id}`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetGalleryResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get User Gallery
+     */
+    async getUserGalleryAdminGalleryUserIdGet(requestParameters: GetUserGalleryAdminGalleryUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGalleryResponse> {
+        const response = await this.getUserGalleryAdminGalleryUserIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Get User Journey
      */
     async getUserJourneyAdminUserJourneyUserIdGetRaw(requestParameters: GetUserJourneyAdminUserJourneyUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserJourneyResponse>> {
@@ -1075,20 +1228,20 @@ export class AdminApi extends runtime.BaseAPI {
     }
 
     /**
-     * Toggle Content Blacklist
+     * Unblacklist Content
      */
-    async toggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRaw(requestParameters: ToggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlacklistResponse>> {
+    async unblacklistContentAdminBlacklistContentTypeContentIdDeleteRaw(requestParameters: UnblacklistContentAdminBlacklistContentTypeContentIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlacklistResponse>> {
         if (requestParameters['contentType'] == null) {
             throw new runtime.RequiredError(
                 'contentType',
-                'Required parameter "contentType" was null or undefined when calling toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch().'
+                'Required parameter "contentType" was null or undefined when calling unblacklistContentAdminBlacklistContentTypeContentIdDelete().'
             );
         }
 
         if (requestParameters['contentId'] == null) {
             throw new runtime.RequiredError(
                 'contentId',
-                'Required parameter "contentId" was null or undefined when calling toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch().'
+                'Required parameter "contentId" was null or undefined when calling unblacklistContentAdminBlacklistContentTypeContentIdDelete().'
             );
         }
 
@@ -1098,7 +1251,7 @@ export class AdminApi extends runtime.BaseAPI {
 
         const response = await this.request({
             path: `/admin/blacklist/{content_type}/{content_id}`.replace(`{${"content_type"}}`, encodeURIComponent(String(requestParameters['contentType']))).replace(`{${"content_id"}}`, encodeURIComponent(String(requestParameters['contentId']))),
-            method: 'PATCH',
+            method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
@@ -1107,10 +1260,10 @@ export class AdminApi extends runtime.BaseAPI {
     }
 
     /**
-     * Toggle Content Blacklist
+     * Unblacklist Content
      */
-    async toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch(requestParameters: ToggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlacklistResponse> {
-        const response = await this.toggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRaw(requestParameters, initOverrides);
+    async unblacklistContentAdminBlacklistContentTypeContentIdDelete(requestParameters: UnblacklistContentAdminBlacklistContentTypeContentIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlacklistResponse> {
+        const response = await this.unblacklistContentAdminBlacklistContentTypeContentIdDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

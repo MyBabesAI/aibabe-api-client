@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { BlacklistCard } from './BlacklistCard';
+import {
+    BlacklistCardFromJSON,
+    BlacklistCardFromJSONTyped,
+    BlacklistCardToJSON,
+    BlacklistCardToJSONTyped,
+} from './BlacklistCard';
 import type { GameAdventureSessionSummary } from './GameAdventureSessionSummary';
 import {
     GameAdventureSessionSummaryFromJSON,
@@ -135,6 +142,12 @@ export interface GameAdventureDetailResponse {
     posterPictureId?: string | null;
     /**
      * 
+     * @type {BlacklistCard}
+     * @memberof GameAdventureDetailResponse
+     */
+    posterBlacklist?: BlacklistCard | null;
+    /**
+     * 
      * @type {number}
      * @memberof GameAdventureDetailResponse
      */
@@ -207,6 +220,7 @@ export function GameAdventureDetailResponseFromJSONTyped(json: any, ignoreDiscri
         'recommendedLlm': json['recommended_llm'] == null ? undefined : LLMFromJSON(json['recommended_llm']),
         'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
+        'posterBlacklist': json['poster_blacklist'] == null ? undefined : BlacklistCardFromJSON(json['poster_blacklist']),
         'prizesCount': json['prizes_count'],
         'rating': GameAdventureRatingFromJSON(json['rating']),
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
@@ -239,6 +253,7 @@ export function GameAdventureDetailResponseFromJSONTyped(json: any, ignoreDiscri
         'recommended_llm': LLMToJSON(value['recommendedLlm']),
         'suggestions_enabled': value['suggestionsEnabled'],
         'poster_picture_id': value['posterPictureId'],
+        'poster_blacklist': BlacklistCardToJSON(value['posterBlacklist']),
         'prizes_count': value['prizesCount'],
         'rating': GameAdventureRatingToJSON(value['rating']),
         'winners_count': value['winnersCount'],

@@ -10,9 +10,10 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { DeleteUserRequest, GetClaimablesResponse, GetFollowedUsersResponse, GetPublicLatestUpdateResponse, GetPublicUsersResponse, PatchUserPreferenceProfileRequest, PatchUserRequest, PostClaimRequest, PostDonateRequest, PostDonateResponse, PostFollowUserRequest, PostRatingRequest, PostRatingResponse, PostReportUserRequest, PostUserPreferencesOnboardingRequest, PostVerifyPublicUsernameRequest, PostVerifyPublicUsernameResponse, PublicUserInfo, PutFollowNotificationsRequest, PutPasswordRequest, PutPublicUserRequest, PutUsernameRequest, RemainingFreeUsesResponse, UserPreferenceProfile, UserPreferenceTaxonomyResponse } from '../models/index';
+import type { BlacklistRequest, DeleteUserRequest, GetClaimablesResponse, GetFollowedUsersResponse, GetPublicLatestUpdateResponse, GetPublicUsersResponse, PatchUserPreferenceProfileRequest, PatchUserRequest, PostClaimRequest, PostDonateRequest, PostDonateResponse, PostFollowUserRequest, PostRatingRequest, PostRatingResponse, PostReportUserRequest, PostUserPreferencesOnboardingRequest, PostVerifyPublicUsernameRequest, PostVerifyPublicUsernameResponse, PublicUserInfo, PutFollowNotificationsRequest, PutPasswordRequest, PutPublicUserRequest, PutUsernameRequest, RemainingFreeUsesResponse, UserPreferenceProfile, UserPreferenceTaxonomyResponse } from '../models/index';
 export interface BlacklistUserUserBlacklistUserIdPatchRequest {
     userId: string;
+    blacklistRequest: BlacklistRequest;
 }
 export interface ClaimUserClaimPostRequest {
     postClaimRequest: PostClaimRequest;
@@ -60,6 +61,9 @@ export interface PostRatingUserRatingPostRequest {
 export interface ReportUserUserUserIdReportPostRequest {
     userId: string;
     postReportUserRequest: PostReportUserRequest;
+}
+export interface UnblacklistUserUserBlacklistUserIdDeleteRequest {
+    userId: string;
 }
 export interface UpdateFollowNotificationsUserFollowNotificationsPutRequest {
     putFollowNotificationsRequest: PutFollowNotificationsRequest;
@@ -238,6 +242,14 @@ export declare class UserApi extends runtime.BaseAPI {
      * Report User
      */
     reportUserUserUserIdReportPost(requestParameters: ReportUserUserUserIdReportPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Unblacklist User
+     */
+    unblacklistUserUserBlacklistUserIdDeleteRaw(requestParameters: UnblacklistUserUserBlacklistUserIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Unblacklist User
+     */
+    unblacklistUserUserBlacklistUserIdDelete(requestParameters: UnblacklistUserUserBlacklistUserIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Update Follow Notifications
      */

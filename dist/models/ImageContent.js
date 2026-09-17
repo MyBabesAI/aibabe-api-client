@@ -18,6 +18,7 @@ exports.ImageContentFromJSON = ImageContentFromJSON;
 exports.ImageContentFromJSONTyped = ImageContentFromJSONTyped;
 exports.ImageContentToJSON = ImageContentToJSON;
 exports.ImageContentToJSONTyped = ImageContentToJSONTyped;
+const MediaOrigin_1 = require("./MediaOrigin");
 /**
  * Check if a given object implements the ImageContent interface.
  */
@@ -38,6 +39,7 @@ function ImageContentFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'id': json['id'],
         'url': json['url'],
+        'origin': json['origin'] == null ? undefined : (0, MediaOrigin_1.MediaOriginFromJSON)(json['origin']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
     };
@@ -52,6 +54,7 @@ function ImageContentToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'id': value['id'],
         'url': value['url'],
+        'origin': (0, MediaOrigin_1.MediaOriginToJSON)(value['origin']),
         'width': value['width'],
         'height': value['height'],
     };

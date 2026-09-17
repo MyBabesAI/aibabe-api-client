@@ -18,6 +18,7 @@ exports.VideoContentFromJSON = VideoContentFromJSON;
 exports.VideoContentFromJSONTyped = VideoContentFromJSONTyped;
 exports.VideoContentToJSON = VideoContentToJSON;
 exports.VideoContentToJSONTyped = VideoContentToJSONTyped;
+const MediaOrigin_1 = require("./MediaOrigin");
 /**
  * Check if a given object implements the VideoContent interface.
  */
@@ -44,6 +45,7 @@ function VideoContentFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'id': json['id'],
         'url': json['url'],
+        'origin': json['origin'] == null ? undefined : (0, MediaOrigin_1.MediaOriginFromJSON)(json['origin']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
         'generationId': json['generation_id'],
@@ -62,6 +64,7 @@ function VideoContentToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'id': value['id'],
         'url': value['url'],
+        'origin': (0, MediaOrigin_1.MediaOriginToJSON)(value['origin']),
         'width': value['width'],
         'height': value['height'],
         'generation_id': value['generationId'],

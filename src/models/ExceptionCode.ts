@@ -77,6 +77,7 @@ export const ExceptionCode = {
     AboutUserTooLong: 'about_user_too_long',
     AboutUserModerationException: 'about_user_moderation_exception',
     MessageModerationFlagged: 'message_moderation_flagged',
+    ContentBlacklisted: 'content_blacklisted',
     PinnedMemoryCharLimitExceeded: 'pinned_memory_char_limit_exceeded',
     TokensInsufficient: 'tokens_insufficient',
     TokensInvalidAmount: 'tokens_invalid_amount',

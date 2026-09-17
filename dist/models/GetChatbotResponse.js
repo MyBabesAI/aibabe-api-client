@@ -18,6 +18,7 @@ exports.GetChatbotResponseFromJSON = GetChatbotResponseFromJSON;
 exports.GetChatbotResponseFromJSONTyped = GetChatbotResponseFromJSONTyped;
 exports.GetChatbotResponseToJSON = GetChatbotResponseToJSON;
 exports.GetChatbotResponseToJSONTyped = GetChatbotResponseToJSONTyped;
+const BlacklistCard_1 = require("./BlacklistCard");
 const ContentType_1 = require("./ContentType");
 const GalleryItem_1 = require("./GalleryItem");
 const WallPost_1 = require("./WallPost");
@@ -54,6 +55,7 @@ function GetChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'displayName': json['display_name'],
         'profilePicture': json['profile_picture'],
         'profileVideo': json['profile_video'],
+        'blacklist': json['blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['blacklist']),
         'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
         'coverContentType': json['cover_content_type'] == null ? undefined : (0, ContentType_1.ContentTypeFromJSON)(json['cover_content_type']),
         'fullBio': json['full_bio'],
@@ -74,6 +76,7 @@ function GetChatbotResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'display_name': value['displayName'],
         'profile_picture': value['profilePicture'],
         'profile_video': value['profileVideo'],
+        'blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['blacklist']),
         'cover_url': value['coverUrl'],
         'cover_content_type': (0, ContentType_1.ContentTypeToJSON)(value['coverContentType']),
         'full_bio': value['fullBio'],

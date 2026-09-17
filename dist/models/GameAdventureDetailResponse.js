@@ -18,6 +18,7 @@ exports.GameAdventureDetailResponseFromJSON = GameAdventureDetailResponseFromJSO
 exports.GameAdventureDetailResponseFromJSONTyped = GameAdventureDetailResponseFromJSONTyped;
 exports.GameAdventureDetailResponseToJSON = GameAdventureDetailResponseToJSON;
 exports.GameAdventureDetailResponseToJSONTyped = GameAdventureDetailResponseToJSONTyped;
+const BlacklistCard_1 = require("./BlacklistCard");
 const GameAdventureSessionSummary_1 = require("./GameAdventureSessionSummary");
 const GameAdventureDifficulty_1 = require("./GameAdventureDifficulty");
 const GameAdventureStatus_1 = require("./GameAdventureStatus");
@@ -70,6 +71,7 @@ function GameAdventureDetailResponseFromJSONTyped(json, ignoreDiscriminator) {
         'recommendedLlm': json['recommended_llm'] == null ? undefined : (0, LLM_1.LLMFromJSON)(json['recommended_llm']),
         'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
+        'posterBlacklist': json['poster_blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['poster_blacklist']),
         'prizesCount': json['prizes_count'],
         'rating': (0, GameAdventureRating_1.GameAdventureRatingFromJSON)(json['rating']),
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
@@ -98,6 +100,7 @@ function GameAdventureDetailResponseToJSONTyped(value, ignoreDiscriminator = fal
         'recommended_llm': (0, LLM_1.LLMToJSON)(value['recommendedLlm']),
         'suggestions_enabled': value['suggestionsEnabled'],
         'poster_picture_id': value['posterPictureId'],
+        'poster_blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['posterBlacklist']),
         'prizes_count': value['prizesCount'],
         'rating': (0, GameAdventureRating_1.GameAdventureRatingToJSON)(value['rating']),
         'winners_count': value['winnersCount'],

@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { BlacklistCard } from './BlacklistCard';
 import type { GameAdventureSessionSummary } from './GameAdventureSessionSummary';
 import type { GameAdventureDifficulty } from './GameAdventureDifficulty';
 import type { GameAdventureStatus } from './GameAdventureStatus';
@@ -98,6 +99,12 @@ export interface GameAdventureDetailResponse {
      * @memberof GameAdventureDetailResponse
      */
     posterPictureId?: string | null;
+    /**
+     *
+     * @type {BlacklistCard}
+     * @memberof GameAdventureDetailResponse
+     */
+    posterBlacklist?: BlacklistCard | null;
     /**
      *
      * @type {number}

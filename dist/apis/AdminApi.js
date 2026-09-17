@@ -135,6 +135,38 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Blacklist Content
+     */
+    async blacklistContentAdminBlacklistContentTypeContentIdPatchRaw(requestParameters, initOverrides) {
+        if (requestParameters['contentType'] == null) {
+            throw new runtime.RequiredError('contentType', 'Required parameter "contentType" was null or undefined when calling blacklistContentAdminBlacklistContentTypeContentIdPatch().');
+        }
+        if (requestParameters['contentId'] == null) {
+            throw new runtime.RequiredError('contentId', 'Required parameter "contentId" was null or undefined when calling blacklistContentAdminBlacklistContentTypeContentIdPatch().');
+        }
+        if (requestParameters['blacklistRequest'] == null) {
+            throw new runtime.RequiredError('blacklistRequest', 'Required parameter "blacklistRequest" was null or undefined when calling blacklistContentAdminBlacklistContentTypeContentIdPatch().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/admin/blacklist/{content_type}/{content_id}`.replace(`{${"content_type"}}`, encodeURIComponent(String(requestParameters['contentType']))).replace(`{${"content_id"}}`, encodeURIComponent(String(requestParameters['contentId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.BlacklistRequestToJSON)(requestParameters['blacklistRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.BlacklistResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Blacklist Content
+     */
+    async blacklistContentAdminBlacklistContentTypeContentIdPatch(requestParameters, initOverrides) {
+        const response = await this.blacklistContentAdminBlacklistContentTypeContentIdPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Create Badge
      */
     async createBadgeAdminBadgesPostRaw(requestParameters, initOverrides) {
@@ -454,6 +486,57 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Get User Gallery
+     */
+    async getUserGalleryAdminGalleryUserIdGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError('userId', 'Required parameter "userId" was null or undefined when calling getUserGalleryAdminGalleryUserIdGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        if (requestParameters['chatbotId'] != null) {
+            queryParameters['chatbot_id'] = requestParameters['chatbotId'];
+        }
+        if (requestParameters['withoutChatbot'] != null) {
+            queryParameters['without_chatbot'] = requestParameters['withoutChatbot'];
+        }
+        if (requestParameters['freeTextSearch'] != null) {
+            queryParameters['free_text_search'] = requestParameters['freeTextSearch'];
+        }
+        if (requestParameters['excludeEventEntries'] != null) {
+            queryParameters['exclude_event_entries'] = requestParameters['excludeEventEntries'];
+        }
+        if (requestParameters['sort'] != null) {
+            queryParameters['sort'] = requestParameters['sort'];
+        }
+        if (requestParameters['visibility'] != null) {
+            queryParameters['visibility'] = requestParameters['visibility'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/gallery/{user_id}`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetGalleryResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get User Gallery
+     */
+    async getUserGalleryAdminGalleryUserIdGet(requestParameters, initOverrides) {
+        const response = await this.getUserGalleryAdminGalleryUserIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Get User Journey
      */
     async getUserJourneyAdminUserJourneyUserIdGetRaw(requestParameters, initOverrides) {
@@ -701,30 +784,30 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Toggle Content Blacklist
+     * Unblacklist Content
      */
-    async toggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRaw(requestParameters, initOverrides) {
+    async unblacklistContentAdminBlacklistContentTypeContentIdDeleteRaw(requestParameters, initOverrides) {
         if (requestParameters['contentType'] == null) {
-            throw new runtime.RequiredError('contentType', 'Required parameter "contentType" was null or undefined when calling toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch().');
+            throw new runtime.RequiredError('contentType', 'Required parameter "contentType" was null or undefined when calling unblacklistContentAdminBlacklistContentTypeContentIdDelete().');
         }
         if (requestParameters['contentId'] == null) {
-            throw new runtime.RequiredError('contentId', 'Required parameter "contentId" was null or undefined when calling toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch().');
+            throw new runtime.RequiredError('contentId', 'Required parameter "contentId" was null or undefined when calling unblacklistContentAdminBlacklistContentTypeContentIdDelete().');
         }
         const queryParameters = {};
         const headerParameters = {};
         const response = await this.request({
             path: `/admin/blacklist/{content_type}/{content_id}`.replace(`{${"content_type"}}`, encodeURIComponent(String(requestParameters['contentType']))).replace(`{${"content_id"}}`, encodeURIComponent(String(requestParameters['contentId']))),
-            method: 'PATCH',
+            method: 'DELETE',
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.BlacklistResponseFromJSON)(jsonValue));
     }
     /**
-     * Toggle Content Blacklist
+     * Unblacklist Content
      */
-    async toggleContentBlacklistAdminBlacklistContentTypeContentIdPatch(requestParameters, initOverrides) {
-        const response = await this.toggleContentBlacklistAdminBlacklistContentTypeContentIdPatchRaw(requestParameters, initOverrides);
+    async unblacklistContentAdminBlacklistContentTypeContentIdDelete(requestParameters, initOverrides) {
+        const response = await this.unblacklistContentAdminBlacklistContentTypeContentIdDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { MediaOrigin } from './MediaOrigin';
+import {
+    MediaOriginFromJSON,
+    MediaOriginFromJSONTyped,
+    MediaOriginToJSON,
+    MediaOriginToJSONTyped,
+} from './MediaOrigin';
+
 /**
  * 
  * @export
@@ -31,6 +39,12 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     url: string;
+    /**
+     * 
+     * @type {MediaOrigin}
+     * @memberof VideoContent
+     */
+    origin?: MediaOrigin | null;
     /**
      * 
      * @type {number}
@@ -69,6 +83,8 @@ export interface VideoContent {
     durationSeconds?: number | null;
 }
 
+
+
 /**
  * Check if a given object implements the VideoContent interface.
  */
@@ -93,6 +109,7 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'id': json['id'],
         'url': json['url'],
+        'origin': json['origin'] == null ? undefined : MediaOriginFromJSON(json['origin']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
         'generationId': json['generation_id'],
@@ -115,6 +132,7 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'id': value['id'],
         'url': value['url'],
+        'origin': MediaOriginToJSON(value['origin']),
         'width': value['width'],
         'height': value['height'],
         'generation_id': value['generationId'],

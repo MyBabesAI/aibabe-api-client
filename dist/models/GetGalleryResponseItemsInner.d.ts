@@ -11,6 +11,7 @@
  */
 import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
 import type { StoryCounts } from './StoryCounts';
+import type { BlacklistCard } from './BlacklistCard';
 import type { ArtStyle } from './ArtStyle';
 import type { ChatbotPreview } from './ChatbotPreview';
 import type { PostDetails } from './PostDetails';
@@ -41,6 +42,12 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     url: string;
+    /**
+     *
+     * @type {BlacklistCard}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    blacklist?: BlacklistCard;
     /**
      *
      * @type {Date}

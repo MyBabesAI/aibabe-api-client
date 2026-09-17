@@ -73,6 +73,7 @@ export declare const ExceptionCode: {
     readonly AboutUserTooLong: "about_user_too_long";
     readonly AboutUserModerationException: "about_user_moderation_exception";
     readonly MessageModerationFlagged: "message_moderation_flagged";
+    readonly ContentBlacklisted: "content_blacklisted";
     readonly PinnedMemoryCharLimitExceeded: "pinned_memory_char_limit_exceeded";
     readonly TokensInsufficient: "tokens_insufficient";
     readonly TokensInvalidAmount: "tokens_invalid_amount";

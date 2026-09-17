@@ -15,6 +15,7 @@
 
 import * as runtime from '../runtime';
 import type {
+  BlacklistRequest,
   DeleteUserRequest,
   GetClaimablesResponse,
   GetFollowedUsersResponse,
@@ -43,6 +44,8 @@ import type {
   UserPreferenceTaxonomyResponse,
 } from '../models/index';
 import {
+    BlacklistRequestFromJSON,
+    BlacklistRequestToJSON,
     DeleteUserRequestFromJSON,
     DeleteUserRequestToJSON,
     GetClaimablesResponseFromJSON,
@@ -99,6 +102,7 @@ import {
 
 export interface BlacklistUserUserBlacklistUserIdPatchRequest {
     userId: string;
+    blacklistRequest: BlacklistRequest;
 }
 
 export interface ClaimUserClaimPostRequest {
@@ -161,6 +165,10 @@ export interface ReportUserUserUserIdReportPostRequest {
     postReportUserRequest: PostReportUserRequest;
 }
 
+export interface UnblacklistUserUserBlacklistUserIdDeleteRequest {
+    userId: string;
+}
+
 export interface UpdateFollowNotificationsUserFollowNotificationsPutRequest {
     putFollowNotificationsRequest: PutFollowNotificationsRequest;
 }
@@ -205,15 +213,25 @@ export class UserApi extends runtime.BaseAPI {
             );
         }
 
+        if (requestParameters['blacklistRequest'] == null) {
+            throw new runtime.RequiredError(
+                'blacklistRequest',
+                'Required parameter "blacklistRequest" was null or undefined when calling blacklistUserUserBlacklistUserIdPatch().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
             path: `/user/blacklist/{user_id}`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
+            body: BlacklistRequestToJSON(requestParameters['blacklistRequest']),
         }, initOverrides);
 
         if (this.isJsonMime(response.headers.get('content-type'))) {
@@ -863,6 +881,43 @@ export class UserApi extends runtime.BaseAPI {
      */
     async reportUserUserUserIdReportPost(requestParameters: ReportUserUserUserIdReportPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.reportUserUserUserIdReportPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Unblacklist User
+     */
+    async unblacklistUserUserBlacklistUserIdDeleteRaw(requestParameters: UnblacklistUserUserBlacklistUserIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError(
+                'userId',
+                'Required parameter "userId" was null or undefined when calling unblacklistUserUserBlacklistUserIdDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/user/blacklist/{user_id}`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Unblacklist User
+     */
+    async unblacklistUserUserBlacklistUserIdDelete(requestParameters: UnblacklistUserUserBlacklistUserIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.unblacklistUserUserBlacklistUserIdDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

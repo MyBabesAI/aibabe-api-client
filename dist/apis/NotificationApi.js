@@ -76,6 +76,9 @@ class NotificationApi extends runtime.BaseAPI {
         if (requestParameters['eventId'] != null) {
             queryParameters['event_id'] = requestParameters['eventId'];
         }
+        if (requestParameters['blacklistId'] != null) {
+            queryParameters['blacklist_id'] = requestParameters['blacklistId'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/notification/clear`,

@@ -25,7 +25,10 @@ exports.ImageGenerationSourceToJSONTyped = ImageGenerationSourceToJSONTyped;
  */
 exports.ImageGenerationSource = {
     Chat: 'chat',
-    Generator: 'generator'
+    Generator: 'generator',
+    ChatRequest: 'chat_request',
+    ChatAuto: 'chat_auto',
+    Adventure: 'adventure'
 };
 function instanceOfImageGenerationSource(value) {
     for (const key in exports.ImageGenerationSource) {

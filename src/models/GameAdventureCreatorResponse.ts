@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { BlacklistCard } from './BlacklistCard';
+import {
+    BlacklistCardFromJSON,
+    BlacklistCardFromJSONTyped,
+    BlacklistCardToJSON,
+    BlacklistCardToJSONTyped,
+} from './BlacklistCard';
 import type { GameAdventureTarget } from './GameAdventureTarget';
 import {
     GameAdventureTargetFromJSON,
@@ -206,6 +213,18 @@ export interface GameAdventureCreatorResponse {
      * @memberof GameAdventureCreatorResponse
      */
     playersCount?: number;
+    /**
+     * 
+     * @type {BlacklistCard}
+     * @memberof GameAdventureCreatorResponse
+     */
+    posterBlacklist?: BlacklistCard | null;
+    /**
+     * 
+     * @type {BlacklistCard}
+     * @memberof GameAdventureCreatorResponse
+     */
+    greetingBlacklist?: BlacklistCard | null;
 }
 
 
@@ -263,6 +282,8 @@ export function GameAdventureCreatorResponseFromJSONTyped(json: any, ignoreDiscr
         'rating': GameAdventureRatingFromJSON(json['rating']),
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
         'playersCount': json['players_count'] == null ? undefined : json['players_count'],
+        'posterBlacklist': json['poster_blacklist'] == null ? undefined : BlacklistCardFromJSON(json['poster_blacklist']),
+        'greetingBlacklist': json['greeting_blacklist'] == null ? undefined : BlacklistCardFromJSON(json['greeting_blacklist']),
     };
 }
 
@@ -301,6 +322,8 @@ export function GameAdventureCreatorResponseFromJSONTyped(json: any, ignoreDiscr
         'rating': GameAdventureRatingToJSON(value['rating']),
         'winners_count': value['winnersCount'],
         'players_count': value['playersCount'],
+        'poster_blacklist': BlacklistCardToJSON(value['posterBlacklist']),
+        'greeting_blacklist': BlacklistCardToJSON(value['greetingBlacklist']),
     };
 }
 

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { BlacklistCard } from './BlacklistCard';
+import {
+    BlacklistCardFromJSON,
+    BlacklistCardFromJSONTyped,
+    BlacklistCardToJSON,
+    BlacklistCardToJSONTyped,
+} from './BlacklistCard';
 import type { PostDetails } from './PostDetails';
 import {
     PostDetailsFromJSON,
@@ -63,6 +70,12 @@ export interface ListChatbotItem {
      * @memberof ListChatbotItem
      */
     profileVideo: string;
+    /**
+     * 
+     * @type {BlacklistCard}
+     * @memberof ListChatbotItem
+     */
+    blacklist?: BlacklistCard | null;
     /**
      * 
      * @type {string}
@@ -126,6 +139,7 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
         'profileVideo': json['profile_video'],
+        'blacklist': json['blacklist'] == null ? undefined : BlacklistCardFromJSON(json['blacklist']),
         'bio': json['bio'],
         'messageCount': json['message_count'],
         'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
@@ -151,6 +165,7 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'created_at': ((value['createdAt']).toISOString()),
         'updated_at': ((value['updatedAt']).toISOString()),
         'profile_video': value['profileVideo'],
+        'blacklist': BlacklistCardToJSON(value['blacklist']),
         'bio': value['bio'],
         'message_count': value['messageCount'],
         'is_original': value['isOriginal'],

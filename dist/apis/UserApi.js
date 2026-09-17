@@ -60,13 +60,18 @@ class UserApi extends runtime.BaseAPI {
         if (requestParameters['userId'] == null) {
             throw new runtime.RequiredError('userId', 'Required parameter "userId" was null or undefined when calling blacklistUserUserBlacklistUserIdPatch().');
         }
+        if (requestParameters['blacklistRequest'] == null) {
+            throw new runtime.RequiredError('blacklistRequest', 'Required parameter "blacklistRequest" was null or undefined when calling blacklistUserUserBlacklistUserIdPatch().');
+        }
         const queryParameters = {};
         const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
         const response = await this.request({
             path: `/user/blacklist/{user_id}`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
             method: 'PATCH',
             headers: headerParameters,
             query: queryParameters,
+            body: (0, index_1.BlacklistRequestToJSON)(requestParameters['blacklistRequest']),
         }, initOverrides);
         if (this.isJsonMime(response.headers.get('content-type'))) {
             return new runtime.JSONApiResponse(response);
@@ -564,6 +569,35 @@ class UserApi extends runtime.BaseAPI {
      */
     async reportUserUserUserIdReportPost(requestParameters, initOverrides) {
         const response = await this.reportUserUserUserIdReportPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Unblacklist User
+     */
+    async unblacklistUserUserBlacklistUserIdDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError('userId', 'Required parameter "userId" was null or undefined when calling unblacklistUserUserBlacklistUserIdDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/user/blacklist/{user_id}`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Unblacklist User
+     */
+    async unblacklistUserUserBlacklistUserIdDelete(requestParameters, initOverrides) {
+        const response = await this.unblacklistUserUserBlacklistUserIdDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { MediaOrigin } from './MediaOrigin';
+import {
+    MediaOriginFromJSON,
+    MediaOriginFromJSONTyped,
+    MediaOriginToJSON,
+    MediaOriginToJSONTyped,
+} from './MediaOrigin';
+
 /**
  * 
  * @export
@@ -33,6 +41,12 @@ export interface ImageContent {
     url: string;
     /**
      * 
+     * @type {MediaOrigin}
+     * @memberof ImageContent
+     */
+    origin?: MediaOrigin | null;
+    /**
+     * 
      * @type {number}
      * @memberof ImageContent
      */
@@ -44,6 +58,8 @@ export interface ImageContent {
      */
     height?: number | null;
 }
+
+
 
 /**
  * Check if a given object implements the ImageContent interface.
@@ -66,6 +82,7 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'id': json['id'],
         'url': json['url'],
+        'origin': json['origin'] == null ? undefined : MediaOriginFromJSON(json['origin']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
     };
@@ -84,6 +101,7 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'id': value['id'],
         'url': value['url'],
+        'origin': MediaOriginToJSON(value['origin']),
         'width': value['width'],
         'height': value['height'],
     };

@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { BlacklistCard } from './BlacklistCard';
 import type { GameAdventureTarget } from './GameAdventureTarget';
 import type { GameAdventureDifficulty } from './GameAdventureDifficulty';
 import type { GameAdventurePrize } from './GameAdventurePrize';
@@ -165,6 +166,18 @@ export interface GameAdventureCreatorResponse {
      * @memberof GameAdventureCreatorResponse
      */
     playersCount?: number;
+    /**
+     *
+     * @type {BlacklistCard}
+     * @memberof GameAdventureCreatorResponse
+     */
+    posterBlacklist?: BlacklistCard | null;
+    /**
+     *
+     * @type {BlacklistCard}
+     * @memberof GameAdventureCreatorResponse
+     */
+    greetingBlacklist?: BlacklistCard | null;
 }
 /**
  * Check if a given object implements the GameAdventureCreatorResponse interface.

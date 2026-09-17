@@ -32,6 +32,7 @@ export interface ClearNotificationsNotificationClearPatchRequest {
     badgeId?: string | null;
     followUserId?: string | null;
     eventId?: string | null;
+    blacklistId?: string | null;
 }
 
 export interface GetNotificationsNotificationGetRequest {
@@ -72,6 +73,10 @@ export class NotificationApi extends runtime.BaseAPI {
 
         if (requestParameters['eventId'] != null) {
             queryParameters['event_id'] = requestParameters['eventId'];
+        }
+
+        if (requestParameters['blacklistId'] != null) {
+            queryParameters['blacklist_id'] = requestParameters['blacklistId'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

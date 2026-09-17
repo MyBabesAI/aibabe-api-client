@@ -27,6 +27,13 @@ import {
     ChatbotCreatedOriginToJSON,
     ChatbotCreatedOriginToJSONTyped,
 } from './ChatbotCreatedOrigin';
+import type { BlacklistCard } from './BlacklistCard';
+import {
+    BlacklistCardFromJSON,
+    BlacklistCardFromJSONTyped,
+    BlacklistCardToJSON,
+    BlacklistCardToJSONTyped,
+} from './BlacklistCard';
 import type { ChatbotPreview } from './ChatbotPreview';
 import {
     ChatbotPreviewFromJSON,
@@ -80,6 +87,12 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     profileVideo: string;
+    /**
+     * 
+     * @type {BlacklistCard}
+     * @memberof GetCustomChatbotResponse
+     */
+    blacklist?: BlacklistCard | null;
     /**
      * 
      * @type {string}
@@ -173,6 +186,7 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'displayName': json['display_name'],
         'profilePicture': json['profile_picture'],
         'profileVideo': json['profile_video'],
+        'blacklist': json['blacklist'] == null ? undefined : BlacklistCardFromJSON(json['blacklist']),
         'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
         'coverContentType': json['cover_content_type'] == null ? undefined : ContentTypeFromJSON(json['cover_content_type']),
         'fullBio': json['full_bio'],
@@ -200,6 +214,7 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'display_name': value['displayName'],
         'profile_picture': value['profilePicture'],
         'profile_video': value['profileVideo'],
+        'blacklist': BlacklistCardToJSON(value['blacklist']),
         'cover_url': value['coverUrl'],
         'cover_content_type': ContentTypeToJSON(value['coverContentType']),
         'full_bio': value['fullBio'],
