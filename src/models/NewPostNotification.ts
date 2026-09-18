@@ -50,6 +50,12 @@ import {
 export interface NewPostNotification {
     /**
      * 
+     * @type {string}
+     * @memberof NewPostNotification
+     */
+    id: string;
+    /**
+     * 
      * @type {NotificationType}
      * @memberof NewPostNotification
      */
@@ -98,6 +104,7 @@ export interface NewPostNotification {
  * Check if a given object implements the NewPostNotification interface.
  */
 export function instanceOfNewPostNotification(value: object): value is NewPostNotification {
+    if (!('id' in value) || value['id'] === undefined) return false;
     if (!('isRead' in value) || value['isRead'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('post' in value) || value['post'] === undefined) return false;
@@ -116,6 +123,7 @@ export function NewPostNotificationFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
+        'id': json['id'],
         'notificationType': json['notification_type'] == null ? undefined : NotificationTypeFromJSON(json['notification_type']),
         'isRead': json['is_read'],
         'createdAt': (new Date(json['created_at'])),
@@ -137,6 +145,7 @@ export function NewPostNotificationFromJSONTyped(json: any, ignoreDiscriminator:
 
     return {
         
+        'id': value['id'],
         'notification_type': NotificationTypeToJSON(value['notificationType']),
         'is_read': value['isRead'],
         'created_at': ((value['createdAt']).toISOString()),

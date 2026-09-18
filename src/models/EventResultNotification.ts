@@ -43,6 +43,12 @@ import {
 export interface EventResultNotification {
     /**
      * 
+     * @type {string}
+     * @memberof EventResultNotification
+     */
+    id: string;
+    /**
+     * 
      * @type {NotificationType}
      * @memberof EventResultNotification
      */
@@ -103,6 +109,7 @@ export interface EventResultNotification {
  * Check if a given object implements the EventResultNotification interface.
  */
 export function instanceOfEventResultNotification(value: object): value is EventResultNotification {
+    if (!('id' in value) || value['id'] === undefined) return false;
     if (!('isRead' in value) || value['isRead'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('eventId' in value) || value['eventId'] === undefined) return false;
@@ -121,6 +128,7 @@ export function EventResultNotificationFromJSONTyped(json: any, ignoreDiscrimina
     }
     return {
         
+        'id': json['id'],
         'notificationType': json['notification_type'] == null ? undefined : NotificationTypeFromJSON(json['notification_type']),
         'isRead': json['is_read'],
         'createdAt': (new Date(json['created_at'])),
@@ -144,6 +152,7 @@ export function EventResultNotificationFromJSONTyped(json: any, ignoreDiscrimina
 
     return {
         
+        'id': value['id'],
         'notification_type': NotificationTypeToJSON(value['notificationType']),
         'is_read': value['isRead'],
         'created_at': ((value['createdAt']).toISOString()),

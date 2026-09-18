@@ -21,6 +21,12 @@ import type { WallPost } from './WallPost';
 export interface NewPostNotification {
     /**
      *
+     * @type {string}
+     * @memberof NewPostNotification
+     */
+    id: string;
+    /**
+     *
      * @type {NotificationType}
      * @memberof NewPostNotification
      */

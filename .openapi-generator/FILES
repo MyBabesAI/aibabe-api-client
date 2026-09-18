@@ -134,6 +134,7 @@ src/models/DiscountOriginalPrice.ts
 src/models/DiscountOriginalTokens.ts
 src/models/DisplayDiscount.ts
 src/models/DonationNotification.ts
+src/models/DonationsGroupNotification.ts
 src/models/DownscaleRequest.ts
 src/models/EffectiveEventStatus.ts
 src/models/Enabled.ts
@@ -165,8 +166,10 @@ src/models/ExploreSearchRequest.ts
 src/models/ExtendVideoPayload.ts
 src/models/FantasyRace.ts
 src/models/FeatureFlagName.ts
+src/models/FeedGroupNotification.ts
 src/models/FixedDurationSeconds.ts
 src/models/FollowNotification.ts
+src/models/FollowersGroupNotification.ts
 src/models/FurryVisualType.ts
 src/models/GalleryItem.ts
 src/models/GalleryStory.ts
@@ -267,6 +270,8 @@ src/models/Language.ts
 src/models/LastVideoFrameResponse.ts
 src/models/LeaderboardEntry.ts
 src/models/LikePostNotification.ts
+src/models/LikedPostNotification.ts
+src/models/LikesGroupNotification.ts
 src/models/ListAssistantChatSessionsResponse.ts
 src/models/ListChatbotItem.ts
 src/models/ListConversationsResponse.ts
@@ -291,6 +296,13 @@ src/models/MuleRouterWanTaskResponseTaskInfo.ts
 src/models/NewEpisodeNotification.ts
 src/models/NewEventNotification.ts
 src/models/NewPostNotification.ts
+src/models/NotificationCategory.ts
+src/models/NotificationGroup.ts
+src/models/NotificationItemsResponse.ts
+src/models/NotificationItemsResponseNotificationsInner.ts
+src/models/NotificationKind.ts
+src/models/NotificationKindCount.ts
+src/models/NotificationPostsResponse.ts
 src/models/NotificationResponse.ts
 src/models/NotificationResponseNotificationsInner.ts
 src/models/NotificationType.ts
