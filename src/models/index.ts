@@ -11,6 +11,8 @@ export * from './AdminCreatePricingProductRequestSubscriptionTier';
 export * from './AdminCreatePromotionRequest';
 export * from './AdminCreateTokenUsageRequest';
 export * from './AdminCreateTokenUsageRequestResolution';
+export * from './AdminModeratedImage';
+export * from './AdminModeratedImagesResponse';
 export * from './AdminPricingGroupResponse';
 export * from './AdminPricingGroupRevisionsResponse';
 export * from './AdminPricingGroupsResponse';

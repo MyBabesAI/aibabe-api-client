@@ -27,6 +27,8 @@ __exportStar(require("./AdminCreatePricingProductRequestSubscriptionTier"), expo
 __exportStar(require("./AdminCreatePromotionRequest"), exports);
 __exportStar(require("./AdminCreateTokenUsageRequest"), exports);
 __exportStar(require("./AdminCreateTokenUsageRequestResolution"), exports);
+__exportStar(require("./AdminModeratedImage"), exports);
+__exportStar(require("./AdminModeratedImagesResponse"), exports);
 __exportStar(require("./AdminPricingGroupResponse"), exports);
 __exportStar(require("./AdminPricingGroupRevisionsResponse"), exports);
 __exportStar(require("./AdminPricingGroupsResponse"), exports);

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminUpdatePromotionRequest, AdminUserJourneysResponse, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
+import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -51,6 +51,13 @@ export interface DownscaleAdminDownscalePostRequest {
 export interface GenerateCodesAdminGiftCodesGeneratePostRequest {
     count: number;
     codeType: GiftCodeType;
+}
+export interface GetModeratedImagesAdminModerationImagesGetRequest {
+    userId?: string | null;
+    artStyle?: ArtStyle | null;
+    createdAfter?: Date | null;
+    paginationToken?: string | null;
+    limit?: number;
 }
 export interface GetQualityControlConversationAdminChatQualityControlConversationIdGetRequest {
     conversationId: string;
@@ -188,6 +195,16 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Generate Codes
      */
     generateCodesAdminGiftCodesGeneratePost(requestParameters: GenerateCodesAdminGiftCodesGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Audit log of generated images withheld by the apparent-age screening, newest first.
+     * Get Moderated Images
+     */
+    getModeratedImagesAdminModerationImagesGetRaw(requestParameters: GetModeratedImagesAdminModerationImagesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminModeratedImagesResponse>>;
+    /**
+     * Audit log of generated images withheld by the apparent-age screening, newest first.
+     * Get Moderated Images
+     */
+    getModeratedImagesAdminModerationImagesGet(requestParameters?: GetModeratedImagesAdminModerationImagesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminModeratedImagesResponse>;
     /**
      * Get Pricing
      */

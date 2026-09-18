@@ -18,6 +18,7 @@ import type {
   AdminAwardBadgeRequest,
   AdminBadgeResponse,
   AdminCreatePromotionRequest,
+  AdminModeratedImagesResponse,
   AdminPricingGroupRevisionsResponse,
   AdminPricingGroupsResponse,
   AdminPromotionListResponse,
@@ -25,6 +26,7 @@ import type {
   AdminSavePricingGroupRevisionsRequest,
   AdminUpdatePromotionRequest,
   AdminUserJourneysResponse,
+  ArtStyle,
   AuraSubcategory,
   BadgeCategory,
   BadgeTimePeriod,
@@ -56,6 +58,8 @@ import {
     AdminBadgeResponseToJSON,
     AdminCreatePromotionRequestFromJSON,
     AdminCreatePromotionRequestToJSON,
+    AdminModeratedImagesResponseFromJSON,
+    AdminModeratedImagesResponseToJSON,
     AdminPricingGroupRevisionsResponseFromJSON,
     AdminPricingGroupRevisionsResponseToJSON,
     AdminPricingGroupsResponseFromJSON,
@@ -70,6 +74,8 @@ import {
     AdminUpdatePromotionRequestToJSON,
     AdminUserJourneysResponseFromJSON,
     AdminUserJourneysResponseToJSON,
+    ArtStyleFromJSON,
+    ArtStyleToJSON,
     AuraSubcategoryFromJSON,
     AuraSubcategoryToJSON,
     BadgeCategoryFromJSON,
@@ -164,6 +170,14 @@ export interface DownscaleAdminDownscalePostRequest {
 export interface GenerateCodesAdminGiftCodesGeneratePostRequest {
     count: number;
     codeType: GiftCodeType;
+}
+
+export interface GetModeratedImagesAdminModerationImagesGetRequest {
+    userId?: string | null;
+    artStyle?: ArtStyle | null;
+    createdAfter?: Date | null;
+    paginationToken?: string | null;
+    limit?: number;
 }
 
 export interface GetQualityControlConversationAdminChatQualityControlConversationIdGetRequest {
@@ -693,6 +707,54 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async generateCodesAdminGiftCodesGeneratePost(requestParameters: GenerateCodesAdminGiftCodesGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.generateCodesAdminGiftCodesGeneratePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Audit log of generated images withheld by the apparent-age screening, newest first.
+     * Get Moderated Images
+     */
+    async getModeratedImagesAdminModerationImagesGetRaw(requestParameters: GetModeratedImagesAdminModerationImagesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminModeratedImagesResponse>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['userId'] != null) {
+            queryParameters['user_id'] = requestParameters['userId'];
+        }
+
+        if (requestParameters['artStyle'] != null) {
+            queryParameters['art_style'] = requestParameters['artStyle'];
+        }
+
+        if (requestParameters['createdAfter'] != null) {
+            queryParameters['created_after'] = (requestParameters['createdAfter'] as any).toISOString();
+        }
+
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/admin/moderation/images`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminModeratedImagesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Audit log of generated images withheld by the apparent-age screening, newest first.
+     * Get Moderated Images
+     */
+    async getModeratedImagesAdminModerationImagesGet(requestParameters: GetModeratedImagesAdminModerationImagesGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminModeratedImagesResponse> {
+        const response = await this.getModeratedImagesAdminModerationImagesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

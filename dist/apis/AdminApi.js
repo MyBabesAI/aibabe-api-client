@@ -380,6 +380,44 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Audit log of generated images withheld by the apparent-age screening, newest first.
+     * Get Moderated Images
+     */
+    async getModeratedImagesAdminModerationImagesGetRaw(requestParameters, initOverrides) {
+        const queryParameters = {};
+        if (requestParameters['userId'] != null) {
+            queryParameters['user_id'] = requestParameters['userId'];
+        }
+        if (requestParameters['artStyle'] != null) {
+            queryParameters['art_style'] = requestParameters['artStyle'];
+        }
+        if (requestParameters['createdAfter'] != null) {
+            queryParameters['created_after'] = requestParameters['createdAfter'].toISOString();
+        }
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/moderation/images`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminModeratedImagesResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Audit log of generated images withheld by the apparent-age screening, newest first.
+     * Get Moderated Images
+     */
+    async getModeratedImagesAdminModerationImagesGet(requestParameters = {}, initOverrides) {
+        const response = await this.getModeratedImagesAdminModerationImagesGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Pricing
      */
     async getPricingAdminPricingGetRaw(initOverrides) {
