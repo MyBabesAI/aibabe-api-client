@@ -21,7 +21,6 @@ import type {
   NotificationGroup,
   NotificationItemsResponse,
   NotificationKind,
-  NotificationPostsResponse,
   NotificationResponse,
 } from '../models/index';
 import {
@@ -37,8 +36,6 @@ import {
     NotificationItemsResponseToJSON,
     NotificationKindFromJSON,
     NotificationKindToJSON,
-    NotificationPostsResponseFromJSON,
-    NotificationPostsResponseToJSON,
     NotificationResponseFromJSON,
     NotificationResponseToJSON,
 } from '../models/index';
@@ -53,8 +50,6 @@ export interface ClearNotificationsNotificationClearPatchRequest {
     blacklistId?: string | null;
     group?: NotificationGroup | null;
     senderId?: string | null;
-    chatbotId?: string | null;
-    noChatbot?: boolean;
     kind?: NotificationKind | null;
 }
 
@@ -62,19 +57,9 @@ export interface DeleteNotificationNotificationNotificationIdDeleteRequest {
     notificationId: string;
 }
 
-export interface GetLikedPostsNotificationPostsGetRequest {
-    chatbotId?: string | null;
-    noChatbot?: boolean;
-    kind?: NotificationKind | null;
-    paginationToken?: string | null;
-    limit?: number;
-}
-
 export interface GetNotificationItemsNotificationItemsGetRequest {
     group: NotificationGroup;
     senderId?: string | null;
-    chatbotId?: string | null;
-    noChatbot?: boolean;
     kind?: NotificationKind | null;
     postId?: string | null;
     paginationToken?: string | null;
@@ -132,14 +117,6 @@ export class NotificationApi extends runtime.BaseAPI {
 
         if (requestParameters['senderId'] != null) {
             queryParameters['sender_id'] = requestParameters['senderId'];
-        }
-
-        if (requestParameters['chatbotId'] != null) {
-            queryParameters['chatbot_id'] = requestParameters['chatbotId'];
-        }
-
-        if (requestParameters['noChatbot'] != null) {
-            queryParameters['no_chatbot'] = requestParameters['noChatbot'];
         }
 
         if (requestParameters['kind'] != null) {
@@ -259,52 +236,6 @@ export class NotificationApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get Liked Posts
-     */
-    async getLikedPostsNotificationPostsGetRaw(requestParameters: GetLikedPostsNotificationPostsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationPostsResponse>> {
-        const queryParameters: any = {};
-
-        if (requestParameters['chatbotId'] != null) {
-            queryParameters['chatbot_id'] = requestParameters['chatbotId'];
-        }
-
-        if (requestParameters['noChatbot'] != null) {
-            queryParameters['no_chatbot'] = requestParameters['noChatbot'];
-        }
-
-        if (requestParameters['kind'] != null) {
-            queryParameters['kind'] = requestParameters['kind'];
-        }
-
-        if (requestParameters['paginationToken'] != null) {
-            queryParameters['pagination_token'] = requestParameters['paginationToken'];
-        }
-
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/notification/posts`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => NotificationPostsResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Get Liked Posts
-     */
-    async getLikedPostsNotificationPostsGet(requestParameters: GetLikedPostsNotificationPostsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NotificationPostsResponse> {
-        const response = await this.getLikedPostsNotificationPostsGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Get Notification Items
      */
     async getNotificationItemsNotificationItemsGetRaw(requestParameters: GetNotificationItemsNotificationItemsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationItemsResponse>> {
@@ -323,14 +254,6 @@ export class NotificationApi extends runtime.BaseAPI {
 
         if (requestParameters['senderId'] != null) {
             queryParameters['sender_id'] = requestParameters['senderId'];
-        }
-
-        if (requestParameters['chatbotId'] != null) {
-            queryParameters['chatbot_id'] = requestParameters['chatbotId'];
-        }
-
-        if (requestParameters['noChatbot'] != null) {
-            queryParameters['no_chatbot'] = requestParameters['noChatbot'];
         }
 
         if (requestParameters['kind'] != null) {

@@ -273,7 +273,6 @@ src/models/LastVideoFrameResponse.ts
 src/models/LeaderboardEntry.ts
 src/models/LikePostNotification.ts
 src/models/LikedPostNotification.ts
-src/models/LikesGroupNotification.ts
 src/models/ListAssistantChatSessionsResponse.ts
 src/models/ListChatbotItem.ts
 src/models/ListConversationsResponse.ts
@@ -305,7 +304,6 @@ src/models/NotificationItemsResponse.ts
 src/models/NotificationItemsResponseNotificationsInner.ts
 src/models/NotificationKind.ts
 src/models/NotificationKindCount.ts
-src/models/NotificationPostsResponse.ts
 src/models/NotificationResponse.ts
 src/models/NotificationResponseNotificationsInner.ts
 src/models/NotificationType.ts

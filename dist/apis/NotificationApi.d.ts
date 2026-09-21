@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { NotificationCategory, NotificationCountsResponse, NotificationGroup, NotificationItemsResponse, NotificationKind, NotificationPostsResponse, NotificationResponse } from '../models/index';
+import type { NotificationCategory, NotificationCountsResponse, NotificationGroup, NotificationItemsResponse, NotificationKind, NotificationResponse } from '../models/index';
 export interface ClearNotificationsNotificationClearPatchRequest {
     postId?: string | null;
     donationId?: string | null;
@@ -21,25 +21,14 @@ export interface ClearNotificationsNotificationClearPatchRequest {
     blacklistId?: string | null;
     group?: NotificationGroup | null;
     senderId?: string | null;
-    chatbotId?: string | null;
-    noChatbot?: boolean;
     kind?: NotificationKind | null;
 }
 export interface DeleteNotificationNotificationNotificationIdDeleteRequest {
     notificationId: string;
 }
-export interface GetLikedPostsNotificationPostsGetRequest {
-    chatbotId?: string | null;
-    noChatbot?: boolean;
-    kind?: NotificationKind | null;
-    paginationToken?: string | null;
-    limit?: number;
-}
 export interface GetNotificationItemsNotificationItemsGetRequest {
     group: NotificationGroup;
     senderId?: string | null;
-    chatbotId?: string | null;
-    noChatbot?: boolean;
     kind?: NotificationKind | null;
     postId?: string | null;
     paginationToken?: string | null;
@@ -86,14 +75,6 @@ export declare class NotificationApi extends runtime.BaseAPI {
      * Delete Notification
      */
     deleteNotificationNotificationNotificationIdDelete(requestParameters: DeleteNotificationNotificationNotificationIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
-    /**
-     * Get Liked Posts
-     */
-    getLikedPostsNotificationPostsGetRaw(requestParameters: GetLikedPostsNotificationPostsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationPostsResponse>>;
-    /**
-     * Get Liked Posts
-     */
-    getLikedPostsNotificationPostsGet(requestParameters?: GetLikedPostsNotificationPostsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NotificationPostsResponse>;
     /**
      * Get Notification Items
      */

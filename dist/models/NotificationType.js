@@ -36,7 +36,6 @@ exports.NotificationType = {
     EventResult: 'event_result',
     BlacklistWarning: 'blacklist_warning',
     FeedGroup: 'feed_group',
-    LikesGroup: 'likes_group',
     FollowersGroup: 'followers_group',
     DonationsGroup: 'donations_group',
     LikedPost: 'liked_post'
