@@ -13,6 +13,7 @@ export * from './AdminCreatePromotionRequest';
 export * from './AdminCreateTokenUsageRequest';
 export * from './AdminCreateTokenUsageRequestResolution';
 export * from './AdminFaceAgeEstimate';
+export * from './AdminFaceBox';
 export * from './AdminModeratedImage';
 export * from './AdminModeratedImagesResponse';
 export * from './AdminPricingGroupResponse';

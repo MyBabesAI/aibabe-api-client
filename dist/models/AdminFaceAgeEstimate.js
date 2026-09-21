@@ -18,6 +18,7 @@ exports.AdminFaceAgeEstimateFromJSON = AdminFaceAgeEstimateFromJSON;
 exports.AdminFaceAgeEstimateFromJSONTyped = AdminFaceAgeEstimateFromJSONTyped;
 exports.AdminFaceAgeEstimateToJSON = AdminFaceAgeEstimateToJSON;
 exports.AdminFaceAgeEstimateToJSONTyped = AdminFaceAgeEstimateToJSONTyped;
+const AdminFaceBox_1 = require("./AdminFaceBox");
 /**
  * Check if a given object implements the AdminFaceAgeEstimate interface.
  */
@@ -41,6 +42,7 @@ function AdminFaceAgeEstimateFromJSONTyped(json, ignoreDiscriminator) {
         'faceIndex': json['face_index'],
         'apparentAge': json['apparent_age'],
         'detectionConfidence': json['detection_confidence'],
+        'boundingBox': json['bounding_box'] == null ? undefined : (0, AdminFaceBox_1.AdminFaceBoxFromJSON)(json['bounding_box']),
     };
 }
 function AdminFaceAgeEstimateToJSON(json) {
@@ -54,6 +56,7 @@ function AdminFaceAgeEstimateToJSONTyped(value, ignoreDiscriminator = false) {
         'face_index': value['faceIndex'],
         'apparent_age': value['apparentAge'],
         'detection_confidence': value['detectionConfidence'],
+        'bounding_box': (0, AdminFaceBox_1.AdminFaceBoxToJSON)(value['boundingBox']),
     };
 }
 //# sourceMappingURL=AdminFaceAgeEstimate.js.map

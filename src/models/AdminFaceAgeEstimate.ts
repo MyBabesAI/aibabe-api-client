@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { AdminFaceBox } from './AdminFaceBox';
+import {
+    AdminFaceBoxFromJSON,
+    AdminFaceBoxFromJSONTyped,
+    AdminFaceBoxToJSON,
+    AdminFaceBoxToJSONTyped,
+} from './AdminFaceBox';
+
 /**
  * 
  * @export
@@ -37,6 +45,12 @@ export interface AdminFaceAgeEstimate {
      * @memberof AdminFaceAgeEstimate
      */
     detectionConfidence: number;
+    /**
+     * 
+     * @type {AdminFaceBox}
+     * @memberof AdminFaceAgeEstimate
+     */
+    boundingBox?: AdminFaceBox | null;
 }
 
 /**
@@ -62,6 +76,7 @@ export function AdminFaceAgeEstimateFromJSONTyped(json: any, ignoreDiscriminator
         'faceIndex': json['face_index'],
         'apparentAge': json['apparent_age'],
         'detectionConfidence': json['detection_confidence'],
+        'boundingBox': json['bounding_box'] == null ? undefined : AdminFaceBoxFromJSON(json['bounding_box']),
     };
 }
 
@@ -79,6 +94,7 @@ export function AdminFaceAgeEstimateFromJSONTyped(json: any, ignoreDiscriminator
         'face_index': value['faceIndex'],
         'apparent_age': value['apparentAge'],
         'detection_confidence': value['detectionConfidence'],
+        'bounding_box': AdminFaceBoxToJSON(value['boundingBox']),
     };
 }
 

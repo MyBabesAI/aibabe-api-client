@@ -29,6 +29,7 @@ __exportStar(require("./AdminCreatePromotionRequest"), exports);
 __exportStar(require("./AdminCreateTokenUsageRequest"), exports);
 __exportStar(require("./AdminCreateTokenUsageRequestResolution"), exports);
 __exportStar(require("./AdminFaceAgeEstimate"), exports);
+__exportStar(require("./AdminFaceBox"), exports);
 __exportStar(require("./AdminModeratedImage"), exports);
 __exportStar(require("./AdminModeratedImagesResponse"), exports);
 __exportStar(require("./AdminPricingGroupResponse"), exports);

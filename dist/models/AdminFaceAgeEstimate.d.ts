@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { AdminFaceBox } from './AdminFaceBox';
 /**
  *
  * @export
@@ -33,6 +34,12 @@ export interface AdminFaceAgeEstimate {
      * @memberof AdminFaceAgeEstimate
      */
     detectionConfidence: number;
+    /**
+     *
+     * @type {AdminFaceBox}
+     * @memberof AdminFaceAgeEstimate
+     */
+    boundingBox?: AdminFaceBox | null;
 }
 /**
  * Check if a given object implements the AdminFaceAgeEstimate interface.
