@@ -51,6 +51,8 @@ function instanceOfAdminModeratedImage(value) {
         return false;
     if (!('faceCount' in value) || value['faceCount'] === undefined)
         return false;
+    if (!('charged' in value) || value['charged'] === undefined)
+        return false;
     if (!('prompt' in value) || value['prompt'] === undefined)
         return false;
     if (!('generationSource' in value) || value['generationSource'] === undefined)
@@ -83,6 +85,7 @@ function AdminModeratedImageFromJSONTyped(json, ignoreDiscriminator) {
         'minApparentAge': json['min_apparent_age'],
         'threshold': json['threshold'],
         'faceCount': json['face_count'],
+        'charged': json['charged'],
         'prompt': json['prompt'],
         'generationSource': (0, ImageGenerationSource_1.ImageGenerationSourceFromJSON)(json['generation_source']),
         'pictureStatus': json['picture_status'],
@@ -111,6 +114,7 @@ function AdminModeratedImageToJSONTyped(value, ignoreDiscriminator = false) {
         'min_apparent_age': value['minApparentAge'],
         'threshold': value['threshold'],
         'face_count': value['faceCount'],
+        'charged': value['charged'],
         'prompt': value['prompt'],
         'generation_source': (0, ImageGenerationSource_1.ImageGenerationSourceToJSON)(value['generationSource']),
         'picture_status': value['pictureStatus'],

@@ -1,6 +1,7 @@
 export * from './AccessType';
 export * from './ActorRole';
 export * from './AddonProductPrice';
+export * from './AdminAgeEstimation';
 export * from './AdminAwardBadgeRequest';
 export * from './AdminBadgeResponse';
 export * from './AdminCreatePricingProductRequest';
@@ -9,6 +10,7 @@ export * from './AdminCreatePricingProductRequestSubscriptionTier';
 export * from './AdminCreatePromotionRequest';
 export * from './AdminCreateTokenUsageRequest';
 export * from './AdminCreateTokenUsageRequestResolution';
+export * from './AdminFaceAgeEstimate';
 export * from './AdminModeratedImage';
 export * from './AdminModeratedImagesResponse';
 export * from './AdminPricingGroupResponse';

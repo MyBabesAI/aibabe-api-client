@@ -102,6 +102,12 @@ export interface AdminModeratedImage {
     faceCount: number;
     /**
      *
+     * @type {boolean}
+     * @memberof AdminModeratedImage
+     */
+    charged: boolean;
+    /**
+     *
      * @type {string}
      * @memberof AdminModeratedImage
      */

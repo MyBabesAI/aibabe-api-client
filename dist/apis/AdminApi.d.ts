@@ -10,13 +10,19 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
+import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
 }
 export interface AdminDeleteAdminUserEmailDeleteRequest {
     email: string;
+}
+export interface AgeCheckPictureAdminModerationAgeCheckPicturePictureIdPostRequest {
+    pictureId: string;
+}
+export interface AgeCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPostRequest {
+    chatbotId: string;
 }
 export interface BlacklistContentAdminBlacklistContentTypeContentIdPatchRequest {
     contentType: ContentType;
@@ -155,6 +161,26 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Admin Delete
      */
     adminDeleteAdminUserEmailDelete(requestParameters: AdminDeleteAdminUserEmailDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Run the apparent-age estimator on a generated picture now and cache the result on it.
+     * Age Check Picture
+     */
+    ageCheckPictureAdminModerationAgeCheckPicturePictureIdPostRaw(requestParameters: AgeCheckPictureAdminModerationAgeCheckPicturePictureIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminAgeEstimation>>;
+    /**
+     * Run the apparent-age estimator on a generated picture now and cache the result on it.
+     * Age Check Picture
+     */
+    ageCheckPictureAdminModerationAgeCheckPicturePictureIdPost(requestParameters: AgeCheckPictureAdminModerationAgeCheckPicturePictureIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminAgeEstimation>;
+    /**
+     * Run the apparent-age estimator on a babe\'s current profile picture now (nothing is stored).
+     * Age Check Profile Picture
+     */
+    ageCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPostRaw(requestParameters: AgeCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminAgeEstimation>>;
+    /**
+     * Run the apparent-age estimator on a babe\'s current profile picture now (nothing is stored).
+     * Age Check Profile Picture
+     */
+    ageCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPost(requestParameters: AgeCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminAgeEstimation>;
     /**
      * Blacklist Content
      */

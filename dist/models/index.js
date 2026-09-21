@@ -19,6 +19,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./AccessType"), exports);
 __exportStar(require("./ActorRole"), exports);
 __exportStar(require("./AddonProductPrice"), exports);
+__exportStar(require("./AdminAgeEstimation"), exports);
 __exportStar(require("./AdminAwardBadgeRequest"), exports);
 __exportStar(require("./AdminBadgeResponse"), exports);
 __exportStar(require("./AdminCreatePricingProductRequest"), exports);
@@ -27,6 +28,7 @@ __exportStar(require("./AdminCreatePricingProductRequestSubscriptionTier"), expo
 __exportStar(require("./AdminCreatePromotionRequest"), exports);
 __exportStar(require("./AdminCreateTokenUsageRequest"), exports);
 __exportStar(require("./AdminCreateTokenUsageRequestResolution"), exports);
+__exportStar(require("./AdminFaceAgeEstimate"), exports);
 __exportStar(require("./AdminModeratedImage"), exports);
 __exportStar(require("./AdminModeratedImagesResponse"), exports);
 __exportStar(require("./AdminPricingGroupResponse"), exports);

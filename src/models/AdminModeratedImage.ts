@@ -113,6 +113,12 @@ export interface AdminModeratedImage {
     faceCount: number;
     /**
      * 
+     * @type {boolean}
+     * @memberof AdminModeratedImage
+     */
+    charged: boolean;
+    /**
+     * 
      * @type {string}
      * @memberof AdminModeratedImage
      */
@@ -157,6 +163,7 @@ export function instanceOfAdminModeratedImage(value: object): value is AdminMode
     if (!('minApparentAge' in value) || value['minApparentAge'] === undefined) return false;
     if (!('threshold' in value) || value['threshold'] === undefined) return false;
     if (!('faceCount' in value) || value['faceCount'] === undefined) return false;
+    if (!('charged' in value) || value['charged'] === undefined) return false;
     if (!('prompt' in value) || value['prompt'] === undefined) return false;
     if (!('generationSource' in value) || value['generationSource'] === undefined) return false;
     if (!('pictureStatus' in value) || value['pictureStatus'] === undefined) return false;
@@ -188,6 +195,7 @@ export function AdminModeratedImageFromJSONTyped(json: any, ignoreDiscriminator:
         'minApparentAge': json['min_apparent_age'],
         'threshold': json['threshold'],
         'faceCount': json['face_count'],
+        'charged': json['charged'],
         'prompt': json['prompt'],
         'generationSource': ImageGenerationSourceFromJSON(json['generation_source']),
         'pictureStatus': json['picture_status'],
@@ -220,6 +228,7 @@ export function AdminModeratedImageFromJSONTyped(json: any, ignoreDiscriminator:
         'min_apparent_age': value['minApparentAge'],
         'threshold': value['threshold'],
         'face_count': value['faceCount'],
+        'charged': value['charged'],
         'prompt': value['prompt'],
         'generation_source': ImageGenerationSourceToJSON(value['generationSource']),
         'picture_status': value['pictureStatus'],

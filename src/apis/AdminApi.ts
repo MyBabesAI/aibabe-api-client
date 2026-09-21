@@ -15,6 +15,7 @@
 
 import * as runtime from '../runtime';
 import type {
+  AdminAgeEstimation,
   AdminAwardBadgeRequest,
   AdminBadgeResponse,
   AdminCreatePromotionRequest,
@@ -52,6 +53,8 @@ import type {
   VisibilityFilter,
 } from '../models/index';
 import {
+    AdminAgeEstimationFromJSON,
+    AdminAgeEstimationToJSON,
     AdminAwardBadgeRequestFromJSON,
     AdminAwardBadgeRequestToJSON,
     AdminBadgeResponseFromJSON,
@@ -131,6 +134,14 @@ export interface AddTokensAdminAddTokensPutRequest {
 
 export interface AdminDeleteAdminUserEmailDeleteRequest {
     email: string;
+}
+
+export interface AgeCheckPictureAdminModerationAgeCheckPicturePictureIdPostRequest {
+    pictureId: string;
+}
+
+export interface AgeCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPostRequest {
+    chatbotId: string;
 }
 
 export interface BlacklistContentAdminBlacklistContentTypeContentIdPatchRequest {
@@ -375,6 +386,76 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async adminDeleteAdminUserEmailDelete(requestParameters: AdminDeleteAdminUserEmailDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.adminDeleteAdminUserEmailDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Run the apparent-age estimator on a generated picture now and cache the result on it.
+     * Age Check Picture
+     */
+    async ageCheckPictureAdminModerationAgeCheckPicturePictureIdPostRaw(requestParameters: AgeCheckPictureAdminModerationAgeCheckPicturePictureIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminAgeEstimation>> {
+        if (requestParameters['pictureId'] == null) {
+            throw new runtime.RequiredError(
+                'pictureId',
+                'Required parameter "pictureId" was null or undefined when calling ageCheckPictureAdminModerationAgeCheckPicturePictureIdPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/admin/moderation/age-check/picture/{picture_id}`.replace(`{${"picture_id"}}`, encodeURIComponent(String(requestParameters['pictureId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminAgeEstimationFromJSON(jsonValue));
+    }
+
+    /**
+     * Run the apparent-age estimator on a generated picture now and cache the result on it.
+     * Age Check Picture
+     */
+    async ageCheckPictureAdminModerationAgeCheckPicturePictureIdPost(requestParameters: AgeCheckPictureAdminModerationAgeCheckPicturePictureIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminAgeEstimation> {
+        const response = await this.ageCheckPictureAdminModerationAgeCheckPicturePictureIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Run the apparent-age estimator on a babe\'s current profile picture now (nothing is stored).
+     * Age Check Profile Picture
+     */
+    async ageCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPostRaw(requestParameters: AgeCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminAgeEstimation>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling ageCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/admin/moderation/age-check/chatbot/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminAgeEstimationFromJSON(jsonValue));
+    }
+
+    /**
+     * Run the apparent-age estimator on a babe\'s current profile picture now (nothing is stored).
+     * Age Check Profile Picture
+     */
+    async ageCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPost(requestParameters: AgeCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminAgeEstimation> {
+        const response = await this.ageCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

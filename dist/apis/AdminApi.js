@@ -135,6 +135,58 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Run the apparent-age estimator on a generated picture now and cache the result on it.
+     * Age Check Picture
+     */
+    async ageCheckPictureAdminModerationAgeCheckPicturePictureIdPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['pictureId'] == null) {
+            throw new runtime.RequiredError('pictureId', 'Required parameter "pictureId" was null or undefined when calling ageCheckPictureAdminModerationAgeCheckPicturePictureIdPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/moderation/age-check/picture/{picture_id}`.replace(`{${"picture_id"}}`, encodeURIComponent(String(requestParameters['pictureId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminAgeEstimationFromJSON)(jsonValue));
+    }
+    /**
+     * Run the apparent-age estimator on a generated picture now and cache the result on it.
+     * Age Check Picture
+     */
+    async ageCheckPictureAdminModerationAgeCheckPicturePictureIdPost(requestParameters, initOverrides) {
+        const response = await this.ageCheckPictureAdminModerationAgeCheckPicturePictureIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Run the apparent-age estimator on a babe\'s current profile picture now (nothing is stored).
+     * Age Check Profile Picture
+     */
+    async ageCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling ageCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/moderation/age-check/chatbot/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminAgeEstimationFromJSON)(jsonValue));
+    }
+    /**
+     * Run the apparent-age estimator on a babe\'s current profile picture now (nothing is stored).
+     * Age Check Profile Picture
+     */
+    async ageCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPost(requestParameters, initOverrides) {
+        const response = await this.ageCheckProfilePictureAdminModerationAgeCheckChatbotChatbotIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Blacklist Content
      */
     async blacklistContentAdminBlacklistContentTypeContentIdPatchRaw(requestParameters, initOverrides) {
