@@ -19,6 +19,12 @@ import type { NotificationType } from './NotificationType';
 export interface FollowNotification {
     /**
      *
+     * @type {string}
+     * @memberof FollowNotification
+     */
+    id: string;
+    /**
+     *
      * @type {NotificationType}
      * @memberof FollowNotification
      */

@@ -16,11 +16,26 @@
 import * as runtime from '../runtime';
 import type {
   HTTPValidationError,
+  NotificationCategory,
+  NotificationGroup,
+  NotificationItemsResponse,
+  NotificationKind,
+  NotificationPostsResponse,
   NotificationResponse,
 } from '../models/index';
 import {
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
+    NotificationCategoryFromJSON,
+    NotificationCategoryToJSON,
+    NotificationGroupFromJSON,
+    NotificationGroupToJSON,
+    NotificationItemsResponseFromJSON,
+    NotificationItemsResponseToJSON,
+    NotificationKindFromJSON,
+    NotificationKindToJSON,
+    NotificationPostsResponseFromJSON,
+    NotificationPostsResponseToJSON,
     NotificationResponseFromJSON,
     NotificationResponseToJSON,
 } from '../models/index';
@@ -33,9 +48,38 @@ export interface ClearNotificationsNotificationClearPatchRequest {
     followUserId?: string | null;
     eventId?: string | null;
     blacklistId?: string | null;
+    group?: NotificationGroup | null;
+    senderId?: string | null;
+    chatbotId?: string | null;
+    noChatbot?: boolean;
+    kind?: NotificationKind | null;
+}
+
+export interface DeleteNotificationNotificationNotificationIdDeleteRequest {
+    notificationId: string;
+}
+
+export interface GetLikedPostsNotificationPostsGetRequest {
+    chatbotId?: string | null;
+    noChatbot?: boolean;
+    kind?: NotificationKind | null;
+    paginationToken?: string | null;
+    limit?: number;
+}
+
+export interface GetNotificationItemsNotificationItemsGetRequest {
+    group: NotificationGroup;
+    senderId?: string | null;
+    chatbotId?: string | null;
+    noChatbot?: boolean;
+    kind?: NotificationKind | null;
+    postId?: string | null;
+    paginationToken?: string | null;
+    limit?: number;
 }
 
 export interface GetNotificationsNotificationGetRequest {
+    category?: NotificationCategory;
     paginationToken?: string | null;
     limit?: number;
 }
@@ -77,6 +121,26 @@ export class NotificationApi extends runtime.BaseAPI {
 
         if (requestParameters['blacklistId'] != null) {
             queryParameters['blacklist_id'] = requestParameters['blacklistId'];
+        }
+
+        if (requestParameters['group'] != null) {
+            queryParameters['group'] = requestParameters['group'];
+        }
+
+        if (requestParameters['senderId'] != null) {
+            queryParameters['sender_id'] = requestParameters['senderId'];
+        }
+
+        if (requestParameters['chatbotId'] != null) {
+            queryParameters['chatbot_id'] = requestParameters['chatbotId'];
+        }
+
+        if (requestParameters['noChatbot'] != null) {
+            queryParameters['no_chatbot'] = requestParameters['noChatbot'];
+        }
+
+        if (requestParameters['kind'] != null) {
+            queryParameters['kind'] = requestParameters['kind'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -134,10 +198,157 @@ export class NotificationApi extends runtime.BaseAPI {
     }
 
     /**
+     * Delete Notification
+     */
+    async deleteNotificationNotificationNotificationIdDeleteRaw(requestParameters: DeleteNotificationNotificationNotificationIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['notificationId'] == null) {
+            throw new runtime.RequiredError(
+                'notificationId',
+                'Required parameter "notificationId" was null or undefined when calling deleteNotificationNotificationNotificationIdDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/notification/{notification_id}`.replace(`{${"notification_id"}}`, encodeURIComponent(String(requestParameters['notificationId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete Notification
+     */
+    async deleteNotificationNotificationNotificationIdDelete(requestParameters: DeleteNotificationNotificationNotificationIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteNotificationNotificationNotificationIdDeleteRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Get Liked Posts
+     */
+    async getLikedPostsNotificationPostsGetRaw(requestParameters: GetLikedPostsNotificationPostsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationPostsResponse>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['chatbotId'] != null) {
+            queryParameters['chatbot_id'] = requestParameters['chatbotId'];
+        }
+
+        if (requestParameters['noChatbot'] != null) {
+            queryParameters['no_chatbot'] = requestParameters['noChatbot'];
+        }
+
+        if (requestParameters['kind'] != null) {
+            queryParameters['kind'] = requestParameters['kind'];
+        }
+
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/notification/posts`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => NotificationPostsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Liked Posts
+     */
+    async getLikedPostsNotificationPostsGet(requestParameters: GetLikedPostsNotificationPostsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NotificationPostsResponse> {
+        const response = await this.getLikedPostsNotificationPostsGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get Notification Items
+     */
+    async getNotificationItemsNotificationItemsGetRaw(requestParameters: GetNotificationItemsNotificationItemsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationItemsResponse>> {
+        if (requestParameters['group'] == null) {
+            throw new runtime.RequiredError(
+                'group',
+                'Required parameter "group" was null or undefined when calling getNotificationItemsNotificationItemsGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['group'] != null) {
+            queryParameters['group'] = requestParameters['group'];
+        }
+
+        if (requestParameters['senderId'] != null) {
+            queryParameters['sender_id'] = requestParameters['senderId'];
+        }
+
+        if (requestParameters['chatbotId'] != null) {
+            queryParameters['chatbot_id'] = requestParameters['chatbotId'];
+        }
+
+        if (requestParameters['noChatbot'] != null) {
+            queryParameters['no_chatbot'] = requestParameters['noChatbot'];
+        }
+
+        if (requestParameters['kind'] != null) {
+            queryParameters['kind'] = requestParameters['kind'];
+        }
+
+        if (requestParameters['postId'] != null) {
+            queryParameters['post_id'] = requestParameters['postId'];
+        }
+
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/notification/items`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => NotificationItemsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Notification Items
+     */
+    async getNotificationItemsNotificationItemsGet(requestParameters: GetNotificationItemsNotificationItemsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NotificationItemsResponse> {
+        const response = await this.getNotificationItemsNotificationItemsGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Get Notifications
      */
     async getNotificationsNotificationGetRaw(requestParameters: GetNotificationsNotificationGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationResponse>> {
         const queryParameters: any = {};
+
+        if (requestParameters['category'] != null) {
+            queryParameters['category'] = requestParameters['category'];
+        }
 
         if (requestParameters['paginationToken'] != null) {
             queryParameters['pagination_token'] = requestParameters['paginationToken'];

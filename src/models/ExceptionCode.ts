@@ -224,6 +224,8 @@ export const ExceptionCode = {
     PurchasedEpisodeAndVersionMismatch: 'purchased_episode_and_version_mismatch',
     PurchasedEpisodeVersionNotFound: 'purchased_episode_version_not_found',
     NotificationNotCreated: 'notification_not_created',
+    NotificationNotFound: 'notification_not_found',
+    NotificationNotDeletable: 'notification_not_deletable',
     AgeVerificationDisabled: 'age_verification_disabled',
     AgeVerificationInvalidPayload: 'age_verification_invalid_payload',
     AgeVerificationTicketNotFound: 'age_verification_ticket_not_found',

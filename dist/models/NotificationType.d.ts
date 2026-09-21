@@ -25,6 +25,11 @@ export declare const NotificationType: {
     readonly EventEnded: "event_ended";
     readonly EventResult: "event_result";
     readonly BlacklistWarning: "blacklist_warning";
+    readonly FeedGroup: "feed_group";
+    readonly LikesGroup: "likes_group";
+    readonly FollowersGroup: "followers_group";
+    readonly DonationsGroup: "donations_group";
+    readonly LikedPost: "liked_post";
 };
 export type NotificationType = typeof NotificationType[keyof typeof NotificationType];
 export declare function instanceOfNotificationType(value: any): boolean;

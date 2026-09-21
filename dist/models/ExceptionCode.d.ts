@@ -220,6 +220,8 @@ export declare const ExceptionCode: {
     readonly PurchasedEpisodeAndVersionMismatch: "purchased_episode_and_version_mismatch";
     readonly PurchasedEpisodeVersionNotFound: "purchased_episode_version_not_found";
     readonly NotificationNotCreated: "notification_not_created";
+    readonly NotificationNotFound: "notification_not_found";
+    readonly NotificationNotDeletable: "notification_not_deletable";
     readonly AgeVerificationDisabled: "age_verification_disabled";
     readonly AgeVerificationInvalidPayload: "age_verification_invalid_payload";
     readonly AgeVerificationTicketNotFound: "age_verification_ticket_not_found";
