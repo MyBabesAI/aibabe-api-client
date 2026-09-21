@@ -55,8 +55,7 @@ exports.ArtStyle = {
     Realtemptation: 'realtemptation',
     Midnightstudio: 'midnightstudio',
     Forbiddenfairytale: 'forbiddenfairytale',
-    Truelookv2: 'truelookv2',
-    Gayze: 'gayze'
+    Truelookv2: 'truelookv2'
 };
 function instanceOfArtStyle(value) {
     for (const key in exports.ArtStyle) {
