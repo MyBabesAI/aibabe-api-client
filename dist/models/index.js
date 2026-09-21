@@ -281,6 +281,7 @@ __exportStar(require("./NewEpisodeNotification"), exports);
 __exportStar(require("./NewEventNotification"), exports);
 __exportStar(require("./NewPostNotification"), exports);
 __exportStar(require("./NotificationCategory"), exports);
+__exportStar(require("./NotificationCountsResponse"), exports);
 __exportStar(require("./NotificationGroup"), exports);
 __exportStar(require("./NotificationItemsResponse"), exports);
 __exportStar(require("./NotificationItemsResponseNotificationsInner"), exports);

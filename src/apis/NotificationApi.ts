@@ -17,6 +17,7 @@ import * as runtime from '../runtime';
 import type {
   HTTPValidationError,
   NotificationCategory,
+  NotificationCountsResponse,
   NotificationGroup,
   NotificationItemsResponse,
   NotificationKind,
@@ -28,6 +29,8 @@ import {
     HTTPValidationErrorToJSON,
     NotificationCategoryFromJSON,
     NotificationCategoryToJSON,
+    NotificationCountsResponseFromJSON,
+    NotificationCountsResponseToJSON,
     NotificationGroupFromJSON,
     NotificationGroupToJSON,
     NotificationItemsResponseFromJSON,
@@ -164,6 +167,32 @@ export class NotificationApi extends runtime.BaseAPI {
      */
     async clearNotificationsNotificationClearPatch(requestParameters: ClearNotificationsNotificationClearPatchRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.clearNotificationsNotificationClearPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Count Unread Notifications By Category
+     */
+    async countUnreadNotificationsByCategoryNotificationCountCategoriesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationCountsResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/notification/count/categories`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => NotificationCountsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Count Unread Notifications By Category
+     */
+    async countUnreadNotificationsByCategoryNotificationCountCategoriesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NotificationCountsResponse> {
+        const response = await this.countUnreadNotificationsByCategoryNotificationCountCategoriesGetRaw(initOverrides);
         return await response.value();
     }
 

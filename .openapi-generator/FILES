@@ -299,6 +299,7 @@ src/models/NewEpisodeNotification.ts
 src/models/NewEventNotification.ts
 src/models/NewPostNotification.ts
 src/models/NotificationCategory.ts
+src/models/NotificationCountsResponse.ts
 src/models/NotificationGroup.ts
 src/models/NotificationItemsResponse.ts
 src/models/NotificationItemsResponseNotificationsInner.ts
