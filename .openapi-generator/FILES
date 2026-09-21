@@ -169,6 +169,8 @@ src/models/FeatureFlagName.ts
 src/models/FeedGroupNotification.ts
 src/models/FixedDurationSeconds.ts
 src/models/FollowNotification.ts
+src/models/FollowNotificationState.ts
+src/models/FollowNotificationStatesResponse.ts
 src/models/FollowersGroupNotification.ts
 src/models/FurryVisualType.ts
 src/models/GalleryItem.ts
@@ -311,6 +313,7 @@ src/models/OneTimeTokens.ts
 src/models/OwnerFilter.ts
 src/models/PatchChatMessageRequest.ts
 src/models/PatchCustomChatbotRequest.ts
+src/models/PatchFollowNotificationsRequest.ts
 src/models/PatchImageModerationPromptRequest.ts
 src/models/PatchPostTitleRequest.ts
 src/models/PatchUserPreferenceProfileRequest.ts

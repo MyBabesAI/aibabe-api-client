@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlacklistRequest, DeleteUserRequest, GetClaimablesResponse, GetFollowedUsersResponse, GetPublicLatestUpdateResponse, GetPublicUsersResponse, PatchUserPreferenceProfileRequest, PatchUserRequest, PostClaimRequest, PostDonateRequest, PostDonateResponse, PostFollowUserRequest, PostRatingRequest, PostRatingResponse, PostReportUserRequest, PostUserPreferencesOnboardingRequest, PostVerifyPublicUsernameRequest, PostVerifyPublicUsernameResponse, PublicUserInfo, PutFollowNotificationsRequest, PutPasswordRequest, PutPublicUserRequest, PutUsernameRequest, RemainingFreeUsesResponse, UserPreferenceProfile, UserPreferenceTaxonomyResponse } from '../models/index';
+import type { BlacklistRequest, DeleteUserRequest, FollowNotificationStatesResponse, GetClaimablesResponse, GetFollowedUsersResponse, GetPublicLatestUpdateResponse, GetPublicUsersResponse, PatchFollowNotificationsRequest, PatchUserPreferenceProfileRequest, PatchUserRequest, PostClaimRequest, PostDonateRequest, PostDonateResponse, PostFollowUserRequest, PostRatingRequest, PostRatingResponse, PostReportUserRequest, PostUserPreferencesOnboardingRequest, PostVerifyPublicUsernameRequest, PostVerifyPublicUsernameResponse, PublicUserInfo, PutFollowNotificationsRequest, PutPasswordRequest, PutPublicUserRequest, PutUsernameRequest, RemainingFreeUsesResponse, UserPreferenceProfile, UserPreferenceTaxonomyResponse } from '../models/index';
 export interface BlacklistUserUserBlacklistUserIdPatchRequest {
     userId: string;
     blacklistRequest: BlacklistRequest;
@@ -64,6 +64,9 @@ export interface ReportUserUserUserIdReportPostRequest {
 }
 export interface UnblacklistUserUserBlacklistUserIdDeleteRequest {
     userId: string;
+}
+export interface UpdateAllFollowNotificationsUserFollowNotificationsAllPatchRequest {
+    patchFollowNotificationsRequest: PatchFollowNotificationsRequest;
 }
 export interface UpdateFollowNotificationsUserFollowNotificationsPutRequest {
     putFollowNotificationsRequest: PutFollowNotificationsRequest;
@@ -138,6 +141,14 @@ export declare class UserApi extends runtime.BaseAPI {
      * Get Claimables
      */
     getClaimablesUserClaimablesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetClaimablesResponse>;
+    /**
+     * Get Follow Notification States
+     */
+    getFollowNotificationStatesUserFollowNotificationsAllGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowNotificationStatesResponse>>;
+    /**
+     * Get Follow Notification States
+     */
+    getFollowNotificationStatesUserFollowNotificationsAllGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowNotificationStatesResponse>;
     /**
      * Get Followed Users
      */
@@ -250,6 +261,14 @@ export declare class UserApi extends runtime.BaseAPI {
      * Unblacklist User
      */
     unblacklistUserUserBlacklistUserIdDelete(requestParameters: UnblacklistUserUserBlacklistUserIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Update All Follow Notifications
+     */
+    updateAllFollowNotificationsUserFollowNotificationsAllPatchRaw(requestParameters: UpdateAllFollowNotificationsUserFollowNotificationsAllPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowNotificationStatesResponse>>;
+    /**
+     * Update All Follow Notifications
+     */
+    updateAllFollowNotificationsUserFollowNotificationsAllPatch(requestParameters: UpdateAllFollowNotificationsUserFollowNotificationsAllPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowNotificationStatesResponse>;
     /**
      * Update Follow Notifications
      */
