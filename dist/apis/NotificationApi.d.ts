@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { NotificationCategory, NotificationGroup, NotificationItemsResponse, NotificationKind, NotificationPostsResponse, NotificationResponse } from '../models/index';
+import type { NotificationCategory, NotificationCountsResponse, NotificationGroup, NotificationItemsResponse, NotificationKind, NotificationPostsResponse, NotificationResponse } from '../models/index';
 export interface ClearNotificationsNotificationClearPatchRequest {
     postId?: string | null;
     donationId?: string | null;
@@ -62,6 +62,14 @@ export declare class NotificationApi extends runtime.BaseAPI {
      * Clear Notifications
      */
     clearNotificationsNotificationClearPatch(requestParameters?: ClearNotificationsNotificationClearPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Count Unread Notifications By Category
+     */
+    countUnreadNotificationsByCategoryNotificationCountCategoriesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationCountsResponse>>;
+    /**
+     * Count Unread Notifications By Category
+     */
+    countUnreadNotificationsByCategoryNotificationCountCategoriesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NotificationCountsResponse>;
     /**
      * Count Unread Notifications
      */

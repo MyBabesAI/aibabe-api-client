@@ -116,6 +116,27 @@ class NotificationApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Count Unread Notifications By Category
+     */
+    async countUnreadNotificationsByCategoryNotificationCountCategoriesGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/notification/count/categories`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.NotificationCountsResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Count Unread Notifications By Category
+     */
+    async countUnreadNotificationsByCategoryNotificationCountCategoriesGet(initOverrides) {
+        const response = await this.countUnreadNotificationsByCategoryNotificationCountCategoriesGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Count Unread Notifications
      */
     async countUnreadNotificationsNotificationCountGetRaw(initOverrides) {

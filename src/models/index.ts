@@ -265,6 +265,7 @@ export * from './NewEpisodeNotification';
 export * from './NewEventNotification';
 export * from './NewPostNotification';
 export * from './NotificationCategory';
+export * from './NotificationCountsResponse';
 export * from './NotificationGroup';
 export * from './NotificationItemsResponse';
 export * from './NotificationItemsResponseNotificationsInner';
