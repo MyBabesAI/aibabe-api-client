@@ -39,8 +39,6 @@ function instanceOfNotificationResponseNotificationsInner(value) {
         return false;
     if (!('sender' in value) || value['sender'] === undefined)
         return false;
-    if (!('kinds' in value) || value['kinds'] === undefined)
-        return false;
     if (!('chatbot' in value) || value['chatbot'] === undefined)
         return false;
     if (!('tokens' in value) || value['tokens'] === undefined)
@@ -88,7 +86,7 @@ function NotificationResponseNotificationsInnerFromJSONTyped(json, ignoreDiscrim
         'total': json['total'],
         'unseen': json['unseen'],
         'sender': (0, PublicUserPreview_1.PublicUserPreviewFromJSON)(json['sender']),
-        'kinds': (json['kinds'].map(NotificationKindCount_1.NotificationKindCountFromJSON)),
+        'kinds': json['kinds'] == null ? undefined : (json['kinds'].map(NotificationKindCount_1.NotificationKindCountFromJSON)),
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['chatbot']),
         'tokens': json['tokens'],
         'id': json['id'],
@@ -122,7 +120,7 @@ function NotificationResponseNotificationsInnerToJSONTyped(value, ignoreDiscrimi
         'total': value['total'],
         'unseen': value['unseen'],
         'sender': (0, PublicUserPreview_1.PublicUserPreviewToJSON)(value['sender']),
-        'kinds': (value['kinds'].map(NotificationKindCount_1.NotificationKindCountToJSON)),
+        'kinds': value['kinds'] == null ? undefined : (value['kinds'].map(NotificationKindCount_1.NotificationKindCountToJSON)),
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['chatbot']),
         'tokens': value['tokens'],
         'id': value['id'],

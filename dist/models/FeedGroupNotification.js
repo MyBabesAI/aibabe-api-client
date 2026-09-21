@@ -33,8 +33,6 @@ function instanceOfFeedGroupNotification(value) {
         return false;
     if (!('sender' in value) || value['sender'] === undefined)
         return false;
-    if (!('kinds' in value) || value['kinds'] === undefined)
-        return false;
     return true;
 }
 function FeedGroupNotificationFromJSON(json) {
@@ -50,7 +48,7 @@ function FeedGroupNotificationFromJSONTyped(json, ignoreDiscriminator) {
         'total': json['total'],
         'unseen': json['unseen'],
         'sender': (0, PublicUserPreview_1.PublicUserPreviewFromJSON)(json['sender']),
-        'kinds': (json['kinds'].map(NotificationKindCount_1.NotificationKindCountFromJSON)),
+        'kinds': json['kinds'] == null ? undefined : (json['kinds'].map(NotificationKindCount_1.NotificationKindCountFromJSON)),
     };
 }
 function FeedGroupNotificationToJSON(json) {
@@ -66,7 +64,7 @@ function FeedGroupNotificationToJSONTyped(value, ignoreDiscriminator = false) {
         'total': value['total'],
         'unseen': value['unseen'],
         'sender': (0, PublicUserPreview_1.PublicUserPreviewToJSON)(value['sender']),
-        'kinds': (value['kinds'].map(NotificationKindCount_1.NotificationKindCountToJSON)),
+        'kinds': value['kinds'] == null ? undefined : (value['kinds'].map(NotificationKindCount_1.NotificationKindCountToJSON)),
     };
 }
 //# sourceMappingURL=FeedGroupNotification.js.map

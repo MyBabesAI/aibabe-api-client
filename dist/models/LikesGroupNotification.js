@@ -33,8 +33,6 @@ function instanceOfLikesGroupNotification(value) {
         return false;
     if (!('chatbot' in value) || value['chatbot'] === undefined)
         return false;
-    if (!('kinds' in value) || value['kinds'] === undefined)
-        return false;
     return true;
 }
 function LikesGroupNotificationFromJSON(json) {
@@ -50,7 +48,7 @@ function LikesGroupNotificationFromJSONTyped(json, ignoreDiscriminator) {
         'total': json['total'],
         'unseen': json['unseen'],
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['chatbot']),
-        'kinds': (json['kinds'].map(NotificationKindCount_1.NotificationKindCountFromJSON)),
+        'kinds': json['kinds'] == null ? undefined : (json['kinds'].map(NotificationKindCount_1.NotificationKindCountFromJSON)),
     };
 }
 function LikesGroupNotificationToJSON(json) {
@@ -66,7 +64,7 @@ function LikesGroupNotificationToJSONTyped(value, ignoreDiscriminator = false) {
         'total': value['total'],
         'unseen': value['unseen'],
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['chatbot']),
-        'kinds': (value['kinds'].map(NotificationKindCount_1.NotificationKindCountToJSON)),
+        'kinds': value['kinds'] == null ? undefined : (value['kinds'].map(NotificationKindCount_1.NotificationKindCountToJSON)),
     };
 }
 //# sourceMappingURL=LikesGroupNotification.js.map

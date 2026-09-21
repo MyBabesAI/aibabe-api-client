@@ -53,7 +53,7 @@ export interface FeedGroupNotification {
      * @type {Array<NotificationKindCount>}
      * @memberof FeedGroupNotification
      */
-    kinds: Array<NotificationKindCount>;
+    kinds?: Array<NotificationKindCount>;
 }
 /**
  * Check if a given object implements the FeedGroupNotification interface.

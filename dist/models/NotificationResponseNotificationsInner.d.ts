@@ -59,7 +59,7 @@ export interface NotificationResponseNotificationsInner {
      * @type {Array<NotificationKindCount>}
      * @memberof NotificationResponseNotificationsInner
      */
-    kinds: Array<NotificationKindCount>;
+    kinds?: Array<NotificationKindCount>;
     /**
      *
      * @type {ChatbotPreview}

@@ -188,7 +188,7 @@ export interface NotificationResponseNotificationsInner {
      * @type {Array<NotificationKindCount>}
      * @memberof NotificationResponseNotificationsInner
      */
-    kinds: Array<NotificationKindCount>;
+    kinds?: Array<NotificationKindCount>;
     /**
      * 
      * @type {ChatbotPreview}
@@ -309,7 +309,6 @@ export function instanceOfNotificationResponseNotificationsInner(value: object):
     if (!('total' in value) || value['total'] === undefined) return false;
     if (!('unseen' in value) || value['unseen'] === undefined) return false;
     if (!('sender' in value) || value['sender'] === undefined) return false;
-    if (!('kinds' in value) || value['kinds'] === undefined) return false;
     if (!('chatbot' in value) || value['chatbot'] === undefined) return false;
     if (!('tokens' in value) || value['tokens'] === undefined) return false;
     if (!('id' in value) || value['id'] === undefined) return false;
@@ -344,7 +343,7 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
         'total': json['total'],
         'unseen': json['unseen'],
         'sender': PublicUserPreviewFromJSON(json['sender']),
-        'kinds': ((json['kinds'] as Array<any>).map(NotificationKindCountFromJSON)),
+        'kinds': json['kinds'] == null ? undefined : ((json['kinds'] as Array<any>).map(NotificationKindCountFromJSON)),
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'tokens': json['tokens'],
         'id': json['id'],
@@ -382,7 +381,7 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
         'total': value['total'],
         'unseen': value['unseen'],
         'sender': PublicUserPreviewToJSON(value['sender']),
-        'kinds': ((value['kinds'] as Array<any>).map(NotificationKindCountToJSON)),
+        'kinds': value['kinds'] == null ? undefined : ((value['kinds'] as Array<any>).map(NotificationKindCountToJSON)),
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'tokens': value['tokens'],
         'id': value['id'],

@@ -76,7 +76,7 @@ export interface FeedGroupNotification {
      * @type {Array<NotificationKindCount>}
      * @memberof FeedGroupNotification
      */
-    kinds: Array<NotificationKindCount>;
+    kinds?: Array<NotificationKindCount>;
 }
 
 
@@ -89,7 +89,6 @@ export function instanceOfFeedGroupNotification(value: object): value is FeedGro
     if (!('total' in value) || value['total'] === undefined) return false;
     if (!('unseen' in value) || value['unseen'] === undefined) return false;
     if (!('sender' in value) || value['sender'] === undefined) return false;
-    if (!('kinds' in value) || value['kinds'] === undefined) return false;
     return true;
 }
 
@@ -108,7 +107,7 @@ export function FeedGroupNotificationFromJSONTyped(json: any, ignoreDiscriminato
         'total': json['total'],
         'unseen': json['unseen'],
         'sender': PublicUserPreviewFromJSON(json['sender']),
-        'kinds': ((json['kinds'] as Array<any>).map(NotificationKindCountFromJSON)),
+        'kinds': json['kinds'] == null ? undefined : ((json['kinds'] as Array<any>).map(NotificationKindCountFromJSON)),
     };
 }
 
@@ -128,7 +127,7 @@ export function FeedGroupNotificationFromJSONTyped(json: any, ignoreDiscriminato
         'total': value['total'],
         'unseen': value['unseen'],
         'sender': PublicUserPreviewToJSON(value['sender']),
-        'kinds': ((value['kinds'] as Array<any>).map(NotificationKindCountToJSON)),
+        'kinds': value['kinds'] == null ? undefined : ((value['kinds'] as Array<any>).map(NotificationKindCountToJSON)),
     };
 }
 

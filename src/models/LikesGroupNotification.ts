@@ -76,7 +76,7 @@ export interface LikesGroupNotification {
      * @type {Array<NotificationKindCount>}
      * @memberof LikesGroupNotification
      */
-    kinds: Array<NotificationKindCount>;
+    kinds?: Array<NotificationKindCount>;
 }
 
 
@@ -89,7 +89,6 @@ export function instanceOfLikesGroupNotification(value: object): value is LikesG
     if (!('total' in value) || value['total'] === undefined) return false;
     if (!('unseen' in value) || value['unseen'] === undefined) return false;
     if (!('chatbot' in value) || value['chatbot'] === undefined) return false;
-    if (!('kinds' in value) || value['kinds'] === undefined) return false;
     return true;
 }
 
@@ -108,7 +107,7 @@ export function LikesGroupNotificationFromJSONTyped(json: any, ignoreDiscriminat
         'total': json['total'],
         'unseen': json['unseen'],
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
-        'kinds': ((json['kinds'] as Array<any>).map(NotificationKindCountFromJSON)),
+        'kinds': json['kinds'] == null ? undefined : ((json['kinds'] as Array<any>).map(NotificationKindCountFromJSON)),
     };
 }
 
@@ -128,7 +127,7 @@ export function LikesGroupNotificationFromJSONTyped(json: any, ignoreDiscriminat
         'total': value['total'],
         'unseen': value['unseen'],
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
-        'kinds': ((value['kinds'] as Array<any>).map(NotificationKindCountToJSON)),
+        'kinds': value['kinds'] == null ? undefined : ((value['kinds'] as Array<any>).map(NotificationKindCountToJSON)),
     };
 }
 

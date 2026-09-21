@@ -53,7 +53,7 @@ export interface LikesGroupNotification {
      * @type {Array<NotificationKindCount>}
      * @memberof LikesGroupNotification
      */
-    kinds: Array<NotificationKindCount>;
+    kinds?: Array<NotificationKindCount>;
 }
 /**
  * Check if a given object implements the LikesGroupNotification interface.
