@@ -54,6 +54,35 @@ const index_1 = require("../models/index");
  */
 class GalleryApi extends runtime.BaseAPI {
     /**
+     * Add Gallery Folder Items
+     */
+    async addGalleryFolderItemsGalleryFoldersFolderIdItemsPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['folderId'] == null) {
+            throw new runtime.RequiredError('folderId', 'Required parameter "folderId" was null or undefined when calling addGalleryFolderItemsGalleryFoldersFolderIdItemsPost().');
+        }
+        if (requestParameters['galleryFolderItemsRequest'] == null) {
+            throw new runtime.RequiredError('galleryFolderItemsRequest', 'Required parameter "galleryFolderItemsRequest" was null or undefined when calling addGalleryFolderItemsGalleryFoldersFolderIdItemsPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/gallery/folders/{folder_id}/items`.replace(`{${"folder_id"}}`, encodeURIComponent(String(requestParameters['folderId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.GalleryFolderItemsRequestToJSON)(requestParameters['galleryFolderItemsRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GalleryFolderFromJSON)(jsonValue));
+    }
+    /**
+     * Add Gallery Folder Items
+     */
+    async addGalleryFolderItemsGalleryFoldersFolderIdItemsPost(requestParameters, initOverrides) {
+        const response = await this.addGalleryFolderItemsGalleryFoldersFolderIdItemsPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Bulk Delete Content
      */
     async bulkDeleteContentGalleryBulkDeleteRaw(requestParameters, initOverrides) {
@@ -77,6 +106,55 @@ class GalleryApi extends runtime.BaseAPI {
      */
     async bulkDeleteContentGalleryBulkDelete(requestParameters, initOverrides) {
         await this.bulkDeleteContentGalleryBulkDeleteRaw(requestParameters, initOverrides);
+    }
+    /**
+     * Create Gallery Folder
+     */
+    async createGalleryFolderGalleryFoldersPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['createGalleryFolderRequest'] == null) {
+            throw new runtime.RequiredError('createGalleryFolderRequest', 'Required parameter "createGalleryFolderRequest" was null or undefined when calling createGalleryFolderGalleryFoldersPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/gallery/folders`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.CreateGalleryFolderRequestToJSON)(requestParameters['createGalleryFolderRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GalleryFolderFromJSON)(jsonValue));
+    }
+    /**
+     * Create Gallery Folder
+     */
+    async createGalleryFolderGalleryFoldersPost(requestParameters, initOverrides) {
+        const response = await this.createGalleryFolderGalleryFoldersPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Delete Gallery Folder
+     */
+    async deleteGalleryFolderGalleryFoldersFolderIdDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['folderId'] == null) {
+            throw new runtime.RequiredError('folderId', 'Required parameter "folderId" was null or undefined when calling deleteGalleryFolderGalleryFoldersFolderIdDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/gallery/folders/{folder_id}`.replace(`{${"folder_id"}}`, encodeURIComponent(String(requestParameters['folderId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.VoidApiResponse(response);
+    }
+    /**
+     * Delete Gallery Folder
+     */
+    async deleteGalleryFolderGalleryFoldersFolderIdDelete(requestParameters, initOverrides) {
+        await this.deleteGalleryFolderGalleryFoldersFolderIdDeleteRaw(requestParameters, initOverrides);
     }
     /**
      * Get Gallery
@@ -110,6 +188,9 @@ class GalleryApi extends runtime.BaseAPI {
         if (requestParameters['visibility'] != null) {
             queryParameters['visibility'] = requestParameters['visibility'];
         }
+        if (requestParameters['folderId'] != null) {
+            queryParameters['folder_id'] = requestParameters['folderId'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/gallery/`,
@@ -124,6 +205,85 @@ class GalleryApi extends runtime.BaseAPI {
      */
     async getGalleryGalleryGet(requestParameters = {}, initOverrides) {
         const response = await this.getGalleryGalleryGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * List Gallery Folders
+     */
+    async listGalleryFoldersGalleryFoldersGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/gallery/folders`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetGalleryFoldersResponseFromJSON)(jsonValue));
+    }
+    /**
+     * List Gallery Folders
+     */
+    async listGalleryFoldersGalleryFoldersGet(initOverrides) {
+        const response = await this.listGalleryFoldersGalleryFoldersGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
+     * Remove Gallery Folder Items
+     */
+    async removeGalleryFolderItemsGalleryFoldersFolderIdItemsDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['folderId'] == null) {
+            throw new runtime.RequiredError('folderId', 'Required parameter "folderId" was null or undefined when calling removeGalleryFolderItemsGalleryFoldersFolderIdItemsDelete().');
+        }
+        if (requestParameters['galleryFolderItemsRequest'] == null) {
+            throw new runtime.RequiredError('galleryFolderItemsRequest', 'Required parameter "galleryFolderItemsRequest" was null or undefined when calling removeGalleryFolderItemsGalleryFoldersFolderIdItemsDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/gallery/folders/{folder_id}/items`.replace(`{${"folder_id"}}`, encodeURIComponent(String(requestParameters['folderId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.GalleryFolderItemsRequestToJSON)(requestParameters['galleryFolderItemsRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GalleryFolderFromJSON)(jsonValue));
+    }
+    /**
+     * Remove Gallery Folder Items
+     */
+    async removeGalleryFolderItemsGalleryFoldersFolderIdItemsDelete(requestParameters, initOverrides) {
+        const response = await this.removeGalleryFolderItemsGalleryFoldersFolderIdItemsDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Update Gallery Folder
+     */
+    async updateGalleryFolderGalleryFoldersFolderIdPatchRaw(requestParameters, initOverrides) {
+        if (requestParameters['folderId'] == null) {
+            throw new runtime.RequiredError('folderId', 'Required parameter "folderId" was null or undefined when calling updateGalleryFolderGalleryFoldersFolderIdPatch().');
+        }
+        if (requestParameters['updateGalleryFolderRequest'] == null) {
+            throw new runtime.RequiredError('updateGalleryFolderRequest', 'Required parameter "updateGalleryFolderRequest" was null or undefined when calling updateGalleryFolderGalleryFoldersFolderIdPatch().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/gallery/folders/{folder_id}`.replace(`{${"folder_id"}}`, encodeURIComponent(String(requestParameters['folderId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.UpdateGalleryFolderRequestToJSON)(requestParameters['updateGalleryFolderRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GalleryFolderFromJSON)(jsonValue));
+    }
+    /**
+     * Update Gallery Folder
+     */
+    async updateGalleryFolderGalleryFoldersFolderIdPatch(requestParameters, initOverrides) {
+        const response = await this.updateGalleryFolderGalleryFoldersFolderIdPatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 }

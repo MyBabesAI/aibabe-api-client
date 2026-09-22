@@ -241,6 +241,7 @@ export declare const ExceptionCode: {
     readonly PromotionCodeConflict: "promotion_code_conflict";
     readonly PromotionOverlap: "promotion_overlap";
     readonly GalleryChatbotFilterConflict: "gallery_chatbot_filter_conflict";
+    readonly GalleryFolderNotFound: "gallery_folder_not_found";
 };
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 export declare function instanceOfExceptionCode(value: any): boolean;

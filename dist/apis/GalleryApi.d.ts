@@ -10,9 +10,19 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BulkDeleteContentRequest, GetGalleryResponse, PostType, SortFilter, VisibilityFilter } from '../models/index';
+import type { BulkDeleteContentRequest, CreateGalleryFolderRequest, GalleryFolder, GalleryFolderItemsRequest, GetGalleryFoldersResponse, GetGalleryResponse, PostType, SortFilter, UpdateGalleryFolderRequest, VisibilityFilter } from '../models/index';
+export interface AddGalleryFolderItemsGalleryFoldersFolderIdItemsPostRequest {
+    folderId: string;
+    galleryFolderItemsRequest: GalleryFolderItemsRequest;
+}
 export interface BulkDeleteContentGalleryBulkDeleteRequest {
     bulkDeleteContentRequest: BulkDeleteContentRequest;
+}
+export interface CreateGalleryFolderGalleryFoldersPostRequest {
+    createGalleryFolderRequest: CreateGalleryFolderRequest;
+}
+export interface DeleteGalleryFolderGalleryFoldersFolderIdDeleteRequest {
+    folderId: string;
 }
 export interface GetGalleryGalleryGetRequest {
     paginationToken?: string | null;
@@ -24,11 +34,28 @@ export interface GetGalleryGalleryGetRequest {
     excludeEventEntries?: boolean;
     sort?: SortFilter;
     visibility?: VisibilityFilter;
+    folderId?: string | null;
+}
+export interface RemoveGalleryFolderItemsGalleryFoldersFolderIdItemsDeleteRequest {
+    folderId: string;
+    galleryFolderItemsRequest: GalleryFolderItemsRequest;
+}
+export interface UpdateGalleryFolderGalleryFoldersFolderIdPatchRequest {
+    folderId: string;
+    updateGalleryFolderRequest: UpdateGalleryFolderRequest;
 }
 /**
  *
  */
 export declare class GalleryApi extends runtime.BaseAPI {
+    /**
+     * Add Gallery Folder Items
+     */
+    addGalleryFolderItemsGalleryFoldersFolderIdItemsPostRaw(requestParameters: AddGalleryFolderItemsGalleryFoldersFolderIdItemsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GalleryFolder>>;
+    /**
+     * Add Gallery Folder Items
+     */
+    addGalleryFolderItemsGalleryFoldersFolderIdItemsPost(requestParameters: AddGalleryFolderItemsGalleryFoldersFolderIdItemsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GalleryFolder>;
     /**
      * Bulk Delete Content
      */
@@ -38,6 +65,22 @@ export declare class GalleryApi extends runtime.BaseAPI {
      */
     bulkDeleteContentGalleryBulkDelete(requestParameters: BulkDeleteContentGalleryBulkDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
+     * Create Gallery Folder
+     */
+    createGalleryFolderGalleryFoldersPostRaw(requestParameters: CreateGalleryFolderGalleryFoldersPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GalleryFolder>>;
+    /**
+     * Create Gallery Folder
+     */
+    createGalleryFolderGalleryFoldersPost(requestParameters: CreateGalleryFolderGalleryFoldersPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GalleryFolder>;
+    /**
+     * Delete Gallery Folder
+     */
+    deleteGalleryFolderGalleryFoldersFolderIdDeleteRaw(requestParameters: DeleteGalleryFolderGalleryFoldersFolderIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Delete Gallery Folder
+     */
+    deleteGalleryFolderGalleryFoldersFolderIdDelete(requestParameters: DeleteGalleryFolderGalleryFoldersFolderIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
      * Get Gallery
      */
     getGalleryGalleryGetRaw(requestParameters: GetGalleryGalleryGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGalleryResponse>>;
@@ -45,5 +88,29 @@ export declare class GalleryApi extends runtime.BaseAPI {
      * Get Gallery
      */
     getGalleryGalleryGet(requestParameters?: GetGalleryGalleryGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGalleryResponse>;
+    /**
+     * List Gallery Folders
+     */
+    listGalleryFoldersGalleryFoldersGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGalleryFoldersResponse>>;
+    /**
+     * List Gallery Folders
+     */
+    listGalleryFoldersGalleryFoldersGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGalleryFoldersResponse>;
+    /**
+     * Remove Gallery Folder Items
+     */
+    removeGalleryFolderItemsGalleryFoldersFolderIdItemsDeleteRaw(requestParameters: RemoveGalleryFolderItemsGalleryFoldersFolderIdItemsDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GalleryFolder>>;
+    /**
+     * Remove Gallery Folder Items
+     */
+    removeGalleryFolderItemsGalleryFoldersFolderIdItemsDelete(requestParameters: RemoveGalleryFolderItemsGalleryFoldersFolderIdItemsDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GalleryFolder>;
+    /**
+     * Update Gallery Folder
+     */
+    updateGalleryFolderGalleryFoldersFolderIdPatchRaw(requestParameters: UpdateGalleryFolderGalleryFoldersFolderIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GalleryFolder>>;
+    /**
+     * Update Gallery Folder
+     */
+    updateGalleryFolderGalleryFoldersFolderIdPatch(requestParameters: UpdateGalleryFolderGalleryFoldersFolderIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GalleryFolder>;
 }
 //# sourceMappingURL=GalleryApi.d.ts.map

@@ -244,7 +244,8 @@ export const ExceptionCode = {
     PromotionInvalidTime: 'promotion_invalid_time',
     PromotionCodeConflict: 'promotion_code_conflict',
     PromotionOverlap: 'promotion_overlap',
-    GalleryChatbotFilterConflict: 'gallery_chatbot_filter_conflict'
+    GalleryChatbotFilterConflict: 'gallery_chatbot_filter_conflict',
+    GalleryFolderNotFound: 'gallery_folder_not_found'
 } as const;
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 

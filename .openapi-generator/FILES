@@ -122,6 +122,7 @@ src/models/CreateAnonymousConversationMessageRequest.ts
 src/models/CreateAnonymousConversationRequest.ts
 src/models/CreateAnonymousConversationResponse.ts
 src/models/CreateAssistantChatSessionRequest.ts
+src/models/CreateGalleryFolderRequest.ts
 src/models/CreatorGenerationCharge.ts
 src/models/CreatorGenerationQuotaStatus.ts
 src/models/CustomChatbotTheme.ts
@@ -173,6 +174,9 @@ src/models/FollowNotificationState.ts
 src/models/FollowNotificationStatesResponse.ts
 src/models/FollowersGroupNotification.ts
 src/models/FurryVisualType.ts
+src/models/GalleryFolder.ts
+src/models/GalleryFolderCounts.ts
+src/models/GalleryFolderItemsRequest.ts
 src/models/GalleryItem.ts
 src/models/GalleryStory.ts
 src/models/GalleryTab.ts
@@ -221,6 +225,7 @@ src/models/GetCustomChatbotResponse.ts
 src/models/GetDetailedPostsResponse.ts
 src/models/GetExceptionsResponse.ts
 src/models/GetFollowedUsersResponse.ts
+src/models/GetGalleryFoldersResponse.ts
 src/models/GetGalleryResponse.ts
 src/models/GetGalleryResponseItemsInner.ts
 src/models/GetGeneratedAudioResponse.ts
@@ -498,6 +503,7 @@ src/models/TokenUsageType.ts
 src/models/TrackConversionEventRequest.ts
 src/models/TrackConversionEventResponse.ts
 src/models/Type.ts
+src/models/UpdateGalleryFolderRequest.ts
 src/models/UserBadge.ts
 src/models/UserBadgeClaimResponse.ts
 src/models/UserBadgeListResponse.ts

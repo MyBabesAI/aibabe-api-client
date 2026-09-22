@@ -143,6 +143,7 @@ export interface ListChatbotGetRequest {
     limit?: number;
     sort?: SortFilter;
     visibility?: VisibilityFilter;
+    folderId?: string | null;
 }
 
 export interface ListRemixedChatbotsChatbotRemixedChatbotIdGetRequest {
@@ -576,6 +577,10 @@ export class ChatbotApi extends runtime.BaseAPI {
 
         if (requestParameters['visibility'] != null) {
             queryParameters['visibility'] = requestParameters['visibility'];
+        }
+
+        if (requestParameters['folderId'] != null) {
+            queryParameters['folder_id'] = requestParameters['folderId'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
