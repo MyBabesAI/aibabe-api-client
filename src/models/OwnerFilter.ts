@@ -22,7 +22,9 @@ export const OwnerFilter = {
     Own: 'own',
     Liked: 'liked',
     Community: 'community',
-    Followed: 'followed'
+    Followed: 'followed',
+    BabeCreator: 'babe_creator',
+    BabeCommunity: 'babe_community'
 } as const;
 export type OwnerFilter = typeof OwnerFilter[keyof typeof OwnerFilter];
 
