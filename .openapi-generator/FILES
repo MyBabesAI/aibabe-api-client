@@ -37,6 +37,7 @@ src/index.ts
 src/models/AccessType.ts
 src/models/ActorRole.ts
 src/models/AddonProductPrice.ts
+src/models/AdminAgeEstimation.ts
 src/models/AdminAwardBadgeRequest.ts
 src/models/AdminBadgeResponse.ts
 src/models/AdminCreatePricingProductRequest.ts
@@ -45,6 +46,10 @@ src/models/AdminCreatePricingProductRequestSubscriptionTier.ts
 src/models/AdminCreatePromotionRequest.ts
 src/models/AdminCreateTokenUsageRequest.ts
 src/models/AdminCreateTokenUsageRequestResolution.ts
+src/models/AdminFaceAgeEstimate.ts
+src/models/AdminFaceBox.ts
+src/models/AdminModeratedImage.ts
+src/models/AdminModeratedImagesResponse.ts
 src/models/AdminPricingGroupResponse.ts
 src/models/AdminPricingGroupRevisionsResponse.ts
 src/models/AdminPricingGroupsResponse.ts

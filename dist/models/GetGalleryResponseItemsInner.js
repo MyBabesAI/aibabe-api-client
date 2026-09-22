@@ -19,15 +19,16 @@ exports.GetGalleryResponseItemsInnerFromJSON = GetGalleryResponseItemsInnerFromJ
 exports.GetGalleryResponseItemsInnerFromJSONTyped = GetGalleryResponseItemsInnerFromJSONTyped;
 exports.GetGalleryResponseItemsInnerToJSON = GetGalleryResponseItemsInnerToJSON;
 exports.GetGalleryResponseItemsInnerToJSONTyped = GetGalleryResponseItemsInnerToJSONTyped;
-const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
 const StoryCounts_1 = require("./StoryCounts");
 const BlacklistCard_1 = require("./BlacklistCard");
 const ArtStyle_1 = require("./ArtStyle");
-const ChatbotPreview_1 = require("./ChatbotPreview");
 const PostDetails_1 = require("./PostDetails");
 const StoryVisibility_1 = require("./StoryVisibility");
-const StoryRating_1 = require("./StoryRating");
+const AdminAgeEstimation_1 = require("./AdminAgeEstimation");
 const VideoGenerationStatus_1 = require("./VideoGenerationStatus");
+const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
+const ChatbotPreview_1 = require("./ChatbotPreview");
+const StoryRating_1 = require("./StoryRating");
 /**
  * @export
  */
@@ -95,6 +96,7 @@ function GetGalleryResponseItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
+        'ageEstimation': json['age_estimation'] == null ? undefined : (0, AdminAgeEstimation_1.AdminAgeEstimationFromJSON)(json['age_estimation']),
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'owner': json['owner'] == null ? undefined : (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowFromJSON)(json['owner']),
@@ -129,6 +131,7 @@ function GetGalleryResponseItemsInnerToJSONTyped(value, ignoreDiscriminator = fa
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'width': value['width'],
         'height': value['height'],
+        'age_estimation': (0, AdminAgeEstimation_1.AdminAgeEstimationToJSON)(value['ageEstimation']),
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'owner': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowToJSON)(value['owner']),

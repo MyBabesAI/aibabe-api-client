@@ -9,15 +9,16 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
 import type { StoryCounts } from './StoryCounts';
 import type { BlacklistCard } from './BlacklistCard';
 import type { ArtStyle } from './ArtStyle';
-import type { ChatbotPreview } from './ChatbotPreview';
 import type { PostDetails } from './PostDetails';
 import type { StoryVisibility } from './StoryVisibility';
-import type { StoryRating } from './StoryRating';
+import type { AdminAgeEstimation } from './AdminAgeEstimation';
 import type { VideoGenerationStatus } from './VideoGenerationStatus';
+import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
+import type { ChatbotPreview } from './ChatbotPreview';
+import type { StoryRating } from './StoryRating';
 /**
  *
  * @export
@@ -114,6 +115,12 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     height?: number;
+    /**
+     *
+     * @type {AdminAgeEstimation}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    ageEstimation?: AdminAgeEstimation;
     /**
      *
      * @type {string}

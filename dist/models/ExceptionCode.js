@@ -180,6 +180,7 @@ exports.ExceptionCode = {
     OriginalImageNotFound: 'original_image_not_found',
     ArtStyleNotFound: 'art_style_not_found',
     ImageModelUnavailable: 'image_model_unavailable',
+    AgeCheckServerUnavailable: 'age_check_server_unavailable',
     VerificationCodeExprired: 'verification_code_exprired',
     VerificationCodeInvalid: 'verification_code_invalid',
     VerificationCodeNotSet: 'verification_code_not_set',
