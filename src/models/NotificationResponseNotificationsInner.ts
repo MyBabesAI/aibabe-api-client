@@ -41,6 +41,13 @@ import {
     EpisodeUnlockNotificationToJSON,
     EpisodeUnlockNotificationToJSONTyped,
 } from './EpisodeUnlockNotification';
+import type { PostType } from './PostType';
+import {
+    PostTypeFromJSON,
+    PostTypeFromJSONTyped,
+    PostTypeToJSON,
+    PostTypeToJSONTyped,
+} from './PostType';
 import type { DonationsGroupNotification } from './DonationsGroupNotification';
 import {
     DonationsGroupNotificationFromJSON,
@@ -62,13 +69,27 @@ import {
     GalleryTabToJSON,
     GalleryTabToJSONTyped,
 } from './GalleryTab';
-import type { LikesGroupNotification } from './LikesGroupNotification';
+import type { LikePostNotification } from './LikePostNotification';
 import {
-    LikesGroupNotificationFromJSON,
-    LikesGroupNotificationFromJSONTyped,
-    LikesGroupNotificationToJSON,
-    LikesGroupNotificationToJSONTyped,
-} from './LikesGroupNotification';
+    LikePostNotificationFromJSON,
+    LikePostNotificationFromJSONTyped,
+    LikePostNotificationToJSON,
+    LikePostNotificationToJSONTyped,
+} from './LikePostNotification';
+import type { WallPost } from './WallPost';
+import {
+    WallPostFromJSON,
+    WallPostFromJSONTyped,
+    WallPostToJSON,
+    WallPostToJSONTyped,
+} from './WallPost';
+import type { LikedPostNotification } from './LikedPostNotification';
+import {
+    LikedPostNotificationFromJSON,
+    LikedPostNotificationFromJSONTyped,
+    LikedPostNotificationToJSON,
+    LikedPostNotificationToJSONTyped,
+} from './LikedPostNotification';
 import type { BlacklistTarget } from './BlacklistTarget';
 import {
     BlacklistTargetFromJSON,
@@ -76,13 +97,6 @@ import {
     BlacklistTargetToJSON,
     BlacklistTargetToJSONTyped,
 } from './BlacklistTarget';
-import type { ChatbotPreview } from './ChatbotPreview';
-import {
-    ChatbotPreviewFromJSON,
-    ChatbotPreviewFromJSONTyped,
-    ChatbotPreviewToJSON,
-    ChatbotPreviewToJSONTyped,
-} from './ChatbotPreview';
 import type { EventResultType } from './EventResultType';
 import {
     EventResultTypeFromJSON,
@@ -191,16 +205,22 @@ export interface NotificationResponseNotificationsInner {
     kinds?: Array<NotificationKindCount>;
     /**
      * 
-     * @type {ChatbotPreview}
+     * @type {WallPost}
      * @memberof NotificationResponseNotificationsInner
      */
-    chatbot: ChatbotPreview;
+    post: WallPost;
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof NotificationResponseNotificationsInner
      */
-    tokens: number;
+    chatbotName: string;
+    /**
+     * 
+     * @type {PostType}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    type: PostType;
     /**
      * 
      * @type {string}
@@ -213,6 +233,12 @@ export interface NotificationResponseNotificationsInner {
      * @memberof NotificationResponseNotificationsInner
      */
     isRead: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    tokens: number;
     /**
      * 
      * @type {string}
@@ -309,10 +335,12 @@ export function instanceOfNotificationResponseNotificationsInner(value: object):
     if (!('total' in value) || value['total'] === undefined) return false;
     if (!('unseen' in value) || value['unseen'] === undefined) return false;
     if (!('sender' in value) || value['sender'] === undefined) return false;
-    if (!('chatbot' in value) || value['chatbot'] === undefined) return false;
-    if (!('tokens' in value) || value['tokens'] === undefined) return false;
+    if (!('post' in value) || value['post'] === undefined) return false;
+    if (!('chatbotName' in value) || value['chatbotName'] === undefined) return false;
+    if (!('type' in value) || value['type'] === undefined) return false;
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('isRead' in value) || value['isRead'] === undefined) return false;
+    if (!('tokens' in value) || value['tokens'] === undefined) return false;
     if (!('episodeId' in value) || value['episodeId'] === undefined) return false;
     if (!('episodeTitle' in value) || value['episodeTitle'] === undefined) return false;
     if (!('coverImage' in value) || value['coverImage'] === undefined) return false;
@@ -344,10 +372,12 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
         'unseen': json['unseen'],
         'sender': PublicUserPreviewFromJSON(json['sender']),
         'kinds': json['kinds'] == null ? undefined : ((json['kinds'] as Array<any>).map(NotificationKindCountFromJSON)),
-        'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
-        'tokens': json['tokens'],
+        'post': WallPostFromJSON(json['post']),
+        'chatbotName': json['chatbot_name'],
+        'type': PostTypeFromJSON(json['type']),
         'id': json['id'],
         'isRead': json['is_read'],
+        'tokens': json['tokens'],
         'episodeId': json['episode_id'],
         'episodeTitle': json['episode_title'],
         'coverImage': json['cover_image'],
@@ -382,10 +412,12 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
         'unseen': value['unseen'],
         'sender': PublicUserPreviewToJSON(value['sender']),
         'kinds': value['kinds'] == null ? undefined : ((value['kinds'] as Array<any>).map(NotificationKindCountToJSON)),
-        'chatbot': ChatbotPreviewToJSON(value['chatbot']),
-        'tokens': value['tokens'],
+        'post': WallPostToJSON(value['post']),
+        'chatbot_name': value['chatbotName'],
+        'type': PostTypeToJSON(value['type']),
         'id': value['id'],
         'is_read': value['isRead'],
+        'tokens': value['tokens'],
         'episode_id': value['episodeId'],
         'episode_title': value['episodeTitle'],
         'cover_image': value['coverImage'],

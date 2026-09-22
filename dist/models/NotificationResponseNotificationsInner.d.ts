@@ -11,9 +11,10 @@
  */
 import type { PublicUserPreview } from './PublicUserPreview';
 import type { BlacklistCard } from './BlacklistCard';
+import type { PostType } from './PostType';
 import type { GalleryTab } from './GalleryTab';
+import type { WallPost } from './WallPost';
 import type { BlacklistTarget } from './BlacklistTarget';
-import type { ChatbotPreview } from './ChatbotPreview';
 import type { EventResultType } from './EventResultType';
 import type { NotificationType } from './NotificationType';
 import type { BadgeModel } from './BadgeModel';
@@ -62,16 +63,22 @@ export interface NotificationResponseNotificationsInner {
     kinds?: Array<NotificationKindCount>;
     /**
      *
-     * @type {ChatbotPreview}
+     * @type {WallPost}
      * @memberof NotificationResponseNotificationsInner
      */
-    chatbot: ChatbotPreview;
+    post: WallPost;
     /**
      *
-     * @type {number}
+     * @type {string}
      * @memberof NotificationResponseNotificationsInner
      */
-    tokens: number;
+    chatbotName: string;
+    /**
+     *
+     * @type {PostType}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    type: PostType;
     /**
      *
      * @type {string}
@@ -84,6 +91,12 @@ export interface NotificationResponseNotificationsInner {
      * @memberof NotificationResponseNotificationsInner
      */
     isRead: boolean;
+    /**
+     *
+     * @type {number}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    tokens: number;
     /**
      *
      * @type {string}

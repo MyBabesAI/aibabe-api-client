@@ -20,9 +20,10 @@ exports.NotificationResponseNotificationsInnerToJSON = NotificationResponseNotif
 exports.NotificationResponseNotificationsInnerToJSONTyped = NotificationResponseNotificationsInnerToJSONTyped;
 const PublicUserPreview_1 = require("./PublicUserPreview");
 const BlacklistCard_1 = require("./BlacklistCard");
+const PostType_1 = require("./PostType");
 const GalleryTab_1 = require("./GalleryTab");
+const WallPost_1 = require("./WallPost");
 const BlacklistTarget_1 = require("./BlacklistTarget");
-const ChatbotPreview_1 = require("./ChatbotPreview");
 const EventResultType_1 = require("./EventResultType");
 const NotificationType_1 = require("./NotificationType");
 const BadgeModel_1 = require("./BadgeModel");
@@ -39,13 +40,17 @@ function instanceOfNotificationResponseNotificationsInner(value) {
         return false;
     if (!('sender' in value) || value['sender'] === undefined)
         return false;
-    if (!('chatbot' in value) || value['chatbot'] === undefined)
+    if (!('post' in value) || value['post'] === undefined)
         return false;
-    if (!('tokens' in value) || value['tokens'] === undefined)
+    if (!('chatbotName' in value) || value['chatbotName'] === undefined)
+        return false;
+    if (!('type' in value) || value['type'] === undefined)
         return false;
     if (!('id' in value) || value['id'] === undefined)
         return false;
     if (!('isRead' in value) || value['isRead'] === undefined)
+        return false;
+    if (!('tokens' in value) || value['tokens'] === undefined)
         return false;
     if (!('episodeId' in value) || value['episodeId'] === undefined)
         return false;
@@ -87,10 +92,12 @@ function NotificationResponseNotificationsInnerFromJSONTyped(json, ignoreDiscrim
         'unseen': json['unseen'],
         'sender': (0, PublicUserPreview_1.PublicUserPreviewFromJSON)(json['sender']),
         'kinds': json['kinds'] == null ? undefined : (json['kinds'].map(NotificationKindCount_1.NotificationKindCountFromJSON)),
-        'chatbot': (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['chatbot']),
-        'tokens': json['tokens'],
+        'post': (0, WallPost_1.WallPostFromJSON)(json['post']),
+        'chatbotName': json['chatbot_name'],
+        'type': (0, PostType_1.PostTypeFromJSON)(json['type']),
         'id': json['id'],
         'isRead': json['is_read'],
+        'tokens': json['tokens'],
         'episodeId': json['episode_id'],
         'episodeTitle': json['episode_title'],
         'coverImage': json['cover_image'],
@@ -121,10 +128,12 @@ function NotificationResponseNotificationsInnerToJSONTyped(value, ignoreDiscrimi
         'unseen': value['unseen'],
         'sender': (0, PublicUserPreview_1.PublicUserPreviewToJSON)(value['sender']),
         'kinds': value['kinds'] == null ? undefined : (value['kinds'].map(NotificationKindCount_1.NotificationKindCountToJSON)),
-        'chatbot': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['chatbot']),
-        'tokens': value['tokens'],
+        'post': (0, WallPost_1.WallPostToJSON)(value['post']),
+        'chatbot_name': value['chatbotName'],
+        'type': (0, PostType_1.PostTypeToJSON)(value['type']),
         'id': value['id'],
         'is_read': value['isRead'],
+        'tokens': value['tokens'],
         'episode_id': value['episodeId'],
         'episode_title': value['episodeTitle'],
         'cover_image': value['coverImage'],

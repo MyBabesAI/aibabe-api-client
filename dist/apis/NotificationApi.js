@@ -85,12 +85,6 @@ class NotificationApi extends runtime.BaseAPI {
         if (requestParameters['senderId'] != null) {
             queryParameters['sender_id'] = requestParameters['senderId'];
         }
-        if (requestParameters['chatbotId'] != null) {
-            queryParameters['chatbot_id'] = requestParameters['chatbotId'];
-        }
-        if (requestParameters['noChatbot'] != null) {
-            queryParameters['no_chatbot'] = requestParameters['noChatbot'];
-        }
         if (requestParameters['kind'] != null) {
             queryParameters['kind'] = requestParameters['kind'];
         }
@@ -186,42 +180,6 @@ class NotificationApi extends runtime.BaseAPI {
         await this.deleteNotificationNotificationNotificationIdDeleteRaw(requestParameters, initOverrides);
     }
     /**
-     * Get Liked Posts
-     */
-    async getLikedPostsNotificationPostsGetRaw(requestParameters, initOverrides) {
-        const queryParameters = {};
-        if (requestParameters['chatbotId'] != null) {
-            queryParameters['chatbot_id'] = requestParameters['chatbotId'];
-        }
-        if (requestParameters['noChatbot'] != null) {
-            queryParameters['no_chatbot'] = requestParameters['noChatbot'];
-        }
-        if (requestParameters['kind'] != null) {
-            queryParameters['kind'] = requestParameters['kind'];
-        }
-        if (requestParameters['paginationToken'] != null) {
-            queryParameters['pagination_token'] = requestParameters['paginationToken'];
-        }
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/notification/posts`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.NotificationPostsResponseFromJSON)(jsonValue));
-    }
-    /**
-     * Get Liked Posts
-     */
-    async getLikedPostsNotificationPostsGet(requestParameters = {}, initOverrides) {
-        const response = await this.getLikedPostsNotificationPostsGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
      * Get Notification Items
      */
     async getNotificationItemsNotificationItemsGetRaw(requestParameters, initOverrides) {
@@ -234,12 +192,6 @@ class NotificationApi extends runtime.BaseAPI {
         }
         if (requestParameters['senderId'] != null) {
             queryParameters['sender_id'] = requestParameters['senderId'];
-        }
-        if (requestParameters['chatbotId'] != null) {
-            queryParameters['chatbot_id'] = requestParameters['chatbotId'];
-        }
-        if (requestParameters['noChatbot'] != null) {
-            queryParameters['no_chatbot'] = requestParameters['noChatbot'];
         }
         if (requestParameters['kind'] != null) {
             queryParameters['kind'] = requestParameters['kind'];

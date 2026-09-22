@@ -50,6 +50,7 @@ export interface ListChatbotGetRequest {
     limit?: number;
     sort?: SortFilter;
     visibility?: VisibilityFilter;
+    folderId?: string | null;
 }
 export interface ListRemixedChatbotsChatbotRemixedChatbotIdGetRequest {
     chatbotId: string;
