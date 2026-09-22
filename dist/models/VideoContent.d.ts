@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { MediaOrigin } from './MediaOrigin';
+import type { AdminAgeEstimation } from './AdminAgeEstimation';
 /**
  *
  * @export
@@ -46,6 +47,12 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     height?: number | null;
+    /**
+     *
+     * @type {AdminAgeEstimation}
+     * @memberof VideoContent
+     */
+    ageEstimation?: AdminAgeEstimation | null;
     /**
      *
      * @type {string}
