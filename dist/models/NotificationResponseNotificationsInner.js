@@ -20,35 +20,32 @@ exports.NotificationResponseNotificationsInnerToJSON = NotificationResponseNotif
 exports.NotificationResponseNotificationsInnerToJSONTyped = NotificationResponseNotificationsInnerToJSONTyped;
 const PublicUserPreview_1 = require("./PublicUserPreview");
 const BlacklistCard_1 = require("./BlacklistCard");
-const PostType_1 = require("./PostType");
-const ContentType_1 = require("./ContentType");
 const GalleryTab_1 = require("./GalleryTab");
-const WallPost_1 = require("./WallPost");
 const BlacklistTarget_1 = require("./BlacklistTarget");
+const ChatbotPreview_1 = require("./ChatbotPreview");
 const EventResultType_1 = require("./EventResultType");
 const NotificationType_1 = require("./NotificationType");
 const BadgeModel_1 = require("./BadgeModel");
+const NotificationKindCount_1 = require("./NotificationKindCount");
 /**
  * Check if a given object implements the NotificationResponseNotificationsInner interface.
  */
 function instanceOfNotificationResponseNotificationsInner(value) {
-    if (!('isRead' in value) || value['isRead'] === undefined)
-        return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
-    if (!('post' in value) || value['post'] === undefined)
+    if (!('total' in value) || value['total'] === undefined)
         return false;
-    if (!('totalCount' in value) || value['totalCount'] === undefined)
+    if (!('unseen' in value) || value['unseen'] === undefined)
         return false;
-    if (!('chatbotName' in value) || value['chatbotName'] === undefined)
+    if (!('sender' in value) || value['sender'] === undefined)
         return false;
-    if (!('type' in value) || value['type'] === undefined)
-        return false;
-    if (!('donationId' in value) || value['donationId'] === undefined)
+    if (!('chatbot' in value) || value['chatbot'] === undefined)
         return false;
     if (!('tokens' in value) || value['tokens'] === undefined)
         return false;
-    if (!('message' in value) || value['message'] === undefined)
+    if (!('id' in value) || value['id'] === undefined)
+        return false;
+    if (!('isRead' in value) || value['isRead'] === undefined)
         return false;
     if (!('episodeId' in value) || value['episodeId'] === undefined)
         return false;
@@ -85,20 +82,15 @@ function NotificationResponseNotificationsInnerFromJSONTyped(json, ignoreDiscrim
     }
     return {
         'notificationType': json['notification_type'] == null ? undefined : (0, NotificationType_1.NotificationTypeFromJSON)(json['notification_type']),
-        'isRead': json['is_read'],
         'createdAt': (new Date(json['created_at'])),
-        'sender': json['sender'] == null ? undefined : (0, PublicUserPreview_1.PublicUserPreviewFromJSON)(json['sender']),
-        'post': (0, WallPost_1.WallPostFromJSON)(json['post']),
-        'totalCount': json['total_count'],
-        'chatbotName': json['chatbot_name'],
-        'type': (0, PostType_1.PostTypeFromJSON)(json['type']),
-        'donationId': json['donation_id'],
+        'total': json['total'],
+        'unseen': json['unseen'],
+        'sender': (0, PublicUserPreview_1.PublicUserPreviewFromJSON)(json['sender']),
+        'kinds': json['kinds'] == null ? undefined : (json['kinds'].map(NotificationKindCount_1.NotificationKindCountFromJSON)),
+        'chatbot': (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['chatbot']),
         'tokens': json['tokens'],
-        'message': json['message'],
-        'contentType': json['content_type'] == null ? undefined : (0, ContentType_1.ContentTypeFromJSON)(json['content_type']),
-        'contentId': json['content_id'] == null ? undefined : json['content_id'],
-        'contentTitle': json['content_title'] == null ? undefined : json['content_title'],
-        'contentCoverImage': json['content_cover_image'] == null ? undefined : json['content_cover_image'],
+        'id': json['id'],
+        'isRead': json['is_read'],
         'episodeId': json['episode_id'],
         'episodeTitle': json['episode_title'],
         'coverImage': json['cover_image'],
@@ -124,20 +116,15 @@ function NotificationResponseNotificationsInnerToJSONTyped(value, ignoreDiscrimi
     }
     return {
         'notification_type': (0, NotificationType_1.NotificationTypeToJSON)(value['notificationType']),
-        'is_read': value['isRead'],
         'created_at': ((value['createdAt']).toISOString()),
+        'total': value['total'],
+        'unseen': value['unseen'],
         'sender': (0, PublicUserPreview_1.PublicUserPreviewToJSON)(value['sender']),
-        'post': (0, WallPost_1.WallPostToJSON)(value['post']),
-        'total_count': value['totalCount'],
-        'chatbot_name': value['chatbotName'],
-        'type': (0, PostType_1.PostTypeToJSON)(value['type']),
-        'donation_id': value['donationId'],
+        'kinds': value['kinds'] == null ? undefined : (value['kinds'].map(NotificationKindCount_1.NotificationKindCountToJSON)),
+        'chatbot': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['chatbot']),
         'tokens': value['tokens'],
-        'message': value['message'],
-        'content_type': (0, ContentType_1.ContentTypeToJSON)(value['contentType']),
-        'content_id': value['contentId'],
-        'content_title': value['contentTitle'],
-        'content_cover_image': value['contentCoverImage'],
+        'id': value['id'],
+        'is_read': value['isRead'],
         'episode_id': value['episodeId'],
         'episode_title': value['episodeTitle'],
         'cover_image': value['coverImage'],

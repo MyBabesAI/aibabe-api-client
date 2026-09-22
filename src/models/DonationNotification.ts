@@ -43,6 +43,12 @@ import {
 export interface DonationNotification {
     /**
      * 
+     * @type {string}
+     * @memberof DonationNotification
+     */
+    id: string;
+    /**
+     * 
      * @type {NotificationType}
      * @memberof DonationNotification
      */
@@ -115,6 +121,7 @@ export interface DonationNotification {
  * Check if a given object implements the DonationNotification interface.
  */
 export function instanceOfDonationNotification(value: object): value is DonationNotification {
+    if (!('id' in value) || value['id'] === undefined) return false;
     if (!('isRead' in value) || value['isRead'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('donationId' in value) || value['donationId'] === undefined) return false;
@@ -133,6 +140,7 @@ export function DonationNotificationFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
+        'id': json['id'],
         'notificationType': json['notification_type'] == null ? undefined : NotificationTypeFromJSON(json['notification_type']),
         'isRead': json['is_read'],
         'createdAt': (new Date(json['created_at'])),
@@ -158,6 +166,7 @@ export function DonationNotificationFromJSONTyped(json: any, ignoreDiscriminator
 
     return {
         
+        'id': value['id'],
         'notification_type': NotificationTypeToJSON(value['notificationType']),
         'is_read': value['isRead'],
         'created_at': ((value['createdAt']).toISOString()),

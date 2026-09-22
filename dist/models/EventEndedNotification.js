@@ -24,6 +24,8 @@ const NotificationType_1 = require("./NotificationType");
  * Check if a given object implements the EventEndedNotification interface.
  */
 function instanceOfEventEndedNotification(value) {
+    if (!('id' in value) || value['id'] === undefined)
+        return false;
     if (!('isRead' in value) || value['isRead'] === undefined)
         return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
@@ -42,6 +44,7 @@ function EventEndedNotificationFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
+        'id': json['id'],
         'notificationType': json['notification_type'] == null ? undefined : (0, NotificationType_1.NotificationTypeFromJSON)(json['notification_type']),
         'isRead': json['is_read'],
         'createdAt': (new Date(json['created_at'])),
@@ -59,6 +62,7 @@ function EventEndedNotificationToJSONTyped(value, ignoreDiscriminator = false) {
         return value;
     }
     return {
+        'id': value['id'],
         'notification_type': (0, NotificationType_1.NotificationTypeToJSON)(value['notificationType']),
         'is_read': value['isRead'],
         'created_at': ((value['createdAt']).toISOString()),

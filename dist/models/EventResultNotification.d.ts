@@ -20,6 +20,12 @@ import type { NotificationType } from './NotificationType';
 export interface EventResultNotification {
     /**
      *
+     * @type {string}
+     * @memberof EventResultNotification
+     */
+    id: string;
+    /**
+     *
      * @type {NotificationType}
      * @memberof EventResultNotification
      */

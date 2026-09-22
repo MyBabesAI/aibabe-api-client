@@ -228,6 +228,27 @@ class UserApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Get Follow Notification States
+     */
+    async getFollowNotificationStatesUserFollowNotificationsAllGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/user/follow/notifications/all`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.FollowNotificationStatesResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get Follow Notification States
+     */
+    async getFollowNotificationStatesUserFollowNotificationsAllGet(initOverrides) {
+        const response = await this.getFollowNotificationStatesUserFollowNotificationsAllGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Followed Users
      */
     async getFollowedUsersUserFollowedGetRaw(initOverrides) {
@@ -598,6 +619,32 @@ class UserApi extends runtime.BaseAPI {
      */
     async unblacklistUserUserBlacklistUserIdDelete(requestParameters, initOverrides) {
         const response = await this.unblacklistUserUserBlacklistUserIdDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Update All Follow Notifications
+     */
+    async updateAllFollowNotificationsUserFollowNotificationsAllPatchRaw(requestParameters, initOverrides) {
+        if (requestParameters['patchFollowNotificationsRequest'] == null) {
+            throw new runtime.RequiredError('patchFollowNotificationsRequest', 'Required parameter "patchFollowNotificationsRequest" was null or undefined when calling updateAllFollowNotificationsUserFollowNotificationsAllPatch().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/user/follow/notifications/all`,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PatchFollowNotificationsRequestToJSON)(requestParameters['patchFollowNotificationsRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.FollowNotificationStatesResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Update All Follow Notifications
+     */
+    async updateAllFollowNotificationsUserFollowNotificationsAllPatch(requestParameters, initOverrides) {
+        const response = await this.updateAllFollowNotificationsUserFollowNotificationsAllPatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

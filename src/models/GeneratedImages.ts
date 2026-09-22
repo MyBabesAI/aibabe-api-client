@@ -41,6 +41,13 @@ import {
     PostDetailsToJSON,
     PostDetailsToJSONTyped,
 } from './PostDetails';
+import type { AdminAgeEstimation } from './AdminAgeEstimation';
+import {
+    AdminAgeEstimationFromJSON,
+    AdminAgeEstimationFromJSONTyped,
+    AdminAgeEstimationToJSON,
+    AdminAgeEstimationToJSONTyped,
+} from './AdminAgeEstimation';
 import type { ImageGenerationStatus } from './ImageGenerationStatus';
 import {
     ImageGenerationStatusFromJSON,
@@ -145,6 +152,12 @@ export interface GeneratedImages {
      * @memberof GeneratedImages
      */
     height?: number | null;
+    /**
+     * 
+     * @type {AdminAgeEstimation}
+     * @memberof GeneratedImages
+     */
+    ageEstimation?: AdminAgeEstimation | null;
 }
 
 
@@ -200,6 +213,7 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'artStyle': ArtStyleFromJSON(json['art_style']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
+        'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
     };
 }
 
@@ -229,6 +243,7 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'art_style': ArtStyleToJSON(value['artStyle']),
         'width': value['width'],
         'height': value['height'],
+        'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
     };
 }
 

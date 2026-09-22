@@ -170,6 +170,7 @@ export declare const ExceptionCode: {
     readonly OriginalImageNotFound: "original_image_not_found";
     readonly ArtStyleNotFound: "art_style_not_found";
     readonly ImageModelUnavailable: "image_model_unavailable";
+    readonly AgeCheckServerUnavailable: "age_check_server_unavailable";
     readonly VerificationCodeExprired: "verification_code_exprired";
     readonly VerificationCodeInvalid: "verification_code_invalid";
     readonly VerificationCodeNotSet: "verification_code_not_set";
@@ -220,6 +221,8 @@ export declare const ExceptionCode: {
     readonly PurchasedEpisodeAndVersionMismatch: "purchased_episode_and_version_mismatch";
     readonly PurchasedEpisodeVersionNotFound: "purchased_episode_version_not_found";
     readonly NotificationNotCreated: "notification_not_created";
+    readonly NotificationNotFound: "notification_not_found";
+    readonly NotificationNotDeletable: "notification_not_deletable";
     readonly AgeVerificationDisabled: "age_verification_disabled";
     readonly AgeVerificationInvalidPayload: "age_verification_invalid_payload";
     readonly AgeVerificationTicketNotFound: "age_verification_ticket_not_found";

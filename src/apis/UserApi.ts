@@ -17,11 +17,13 @@ import * as runtime from '../runtime';
 import type {
   BlacklistRequest,
   DeleteUserRequest,
+  FollowNotificationStatesResponse,
   GetClaimablesResponse,
   GetFollowedUsersResponse,
   GetPublicLatestUpdateResponse,
   GetPublicUsersResponse,
   HTTPValidationError,
+  PatchFollowNotificationsRequest,
   PatchUserPreferenceProfileRequest,
   PatchUserRequest,
   PostClaimRequest,
@@ -48,6 +50,8 @@ import {
     BlacklistRequestToJSON,
     DeleteUserRequestFromJSON,
     DeleteUserRequestToJSON,
+    FollowNotificationStatesResponseFromJSON,
+    FollowNotificationStatesResponseToJSON,
     GetClaimablesResponseFromJSON,
     GetClaimablesResponseToJSON,
     GetFollowedUsersResponseFromJSON,
@@ -58,6 +62,8 @@ import {
     GetPublicUsersResponseToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
+    PatchFollowNotificationsRequestFromJSON,
+    PatchFollowNotificationsRequestToJSON,
     PatchUserPreferenceProfileRequestFromJSON,
     PatchUserPreferenceProfileRequestToJSON,
     PatchUserRequestFromJSON,
@@ -167,6 +173,10 @@ export interface ReportUserUserUserIdReportPostRequest {
 
 export interface UnblacklistUserUserBlacklistUserIdDeleteRequest {
     userId: string;
+}
+
+export interface UpdateAllFollowNotificationsUserFollowNotificationsAllPatchRequest {
+    patchFollowNotificationsRequest: PatchFollowNotificationsRequest;
 }
 
 export interface UpdateFollowNotificationsUserFollowNotificationsPutRequest {
@@ -428,6 +438,32 @@ export class UserApi extends runtime.BaseAPI {
      */
     async getClaimablesUserClaimablesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetClaimablesResponse> {
         const response = await this.getClaimablesUserClaimablesGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get Follow Notification States
+     */
+    async getFollowNotificationStatesUserFollowNotificationsAllGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowNotificationStatesResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/user/follow/notifications/all`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FollowNotificationStatesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Follow Notification States
+     */
+    async getFollowNotificationStatesUserFollowNotificationsAllGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowNotificationStatesResponse> {
+        const response = await this.getFollowNotificationStatesUserFollowNotificationsAllGetRaw(initOverrides);
         return await response.value();
     }
 
@@ -918,6 +954,42 @@ export class UserApi extends runtime.BaseAPI {
      */
     async unblacklistUserUserBlacklistUserIdDelete(requestParameters: UnblacklistUserUserBlacklistUserIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.unblacklistUserUserBlacklistUserIdDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Update All Follow Notifications
+     */
+    async updateAllFollowNotificationsUserFollowNotificationsAllPatchRaw(requestParameters: UpdateAllFollowNotificationsUserFollowNotificationsAllPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FollowNotificationStatesResponse>> {
+        if (requestParameters['patchFollowNotificationsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'patchFollowNotificationsRequest',
+                'Required parameter "patchFollowNotificationsRequest" was null or undefined when calling updateAllFollowNotificationsUserFollowNotificationsAllPatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/user/follow/notifications/all`,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchFollowNotificationsRequestToJSON(requestParameters['patchFollowNotificationsRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FollowNotificationStatesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Update All Follow Notifications
+     */
+    async updateAllFollowNotificationsUserFollowNotificationsAllPatch(requestParameters: UpdateAllFollowNotificationsUserFollowNotificationsAllPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FollowNotificationStatesResponse> {
+        const response = await this.updateAllFollowNotificationsUserFollowNotificationsAllPatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

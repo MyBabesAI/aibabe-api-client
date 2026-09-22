@@ -19,6 +19,12 @@ import type { NotificationType } from './NotificationType';
 export interface NewEpisodeNotification {
     /**
      *
+     * @type {string}
+     * @memberof NewEpisodeNotification
+     */
+    id: string;
+    /**
+     *
      * @type {NotificationType}
      * @memberof NewEpisodeNotification
      */

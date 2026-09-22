@@ -36,6 +36,12 @@ import {
 export interface NewEpisodeNotification {
     /**
      * 
+     * @type {string}
+     * @memberof NewEpisodeNotification
+     */
+    id: string;
+    /**
+     * 
      * @type {NotificationType}
      * @memberof NewEpisodeNotification
      */
@@ -84,6 +90,7 @@ export interface NewEpisodeNotification {
  * Check if a given object implements the NewEpisodeNotification interface.
  */
 export function instanceOfNewEpisodeNotification(value: object): value is NewEpisodeNotification {
+    if (!('id' in value) || value['id'] === undefined) return false;
     if (!('isRead' in value) || value['isRead'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('episodeId' in value) || value['episodeId'] === undefined) return false;
@@ -102,6 +109,7 @@ export function NewEpisodeNotificationFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
+        'id': json['id'],
         'notificationType': json['notification_type'] == null ? undefined : NotificationTypeFromJSON(json['notification_type']),
         'isRead': json['is_read'],
         'createdAt': (new Date(json['created_at'])),
@@ -123,6 +131,7 @@ export function NewEpisodeNotificationFromJSONTyped(json: any, ignoreDiscriminat
 
     return {
         
+        'id': value['id'],
         'notification_type': NotificationTypeToJSON(value['notificationType']),
         'is_read': value['isRead'],
         'created_at': ((value['createdAt']).toISOString()),

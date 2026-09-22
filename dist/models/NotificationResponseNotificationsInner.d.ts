@@ -11,14 +11,13 @@
  */
 import type { PublicUserPreview } from './PublicUserPreview';
 import type { BlacklistCard } from './BlacklistCard';
-import type { PostType } from './PostType';
-import type { ContentType } from './ContentType';
 import type { GalleryTab } from './GalleryTab';
-import type { WallPost } from './WallPost';
 import type { BlacklistTarget } from './BlacklistTarget';
+import type { ChatbotPreview } from './ChatbotPreview';
 import type { EventResultType } from './EventResultType';
 import type { NotificationType } from './NotificationType';
 import type { BadgeModel } from './BadgeModel';
+import type { NotificationKindCount } from './NotificationKindCount';
 /**
  *
  * @export
@@ -33,52 +32,40 @@ export interface NotificationResponseNotificationsInner {
     notificationType?: NotificationType;
     /**
      *
-     * @type {boolean}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    isRead: boolean;
-    /**
-     *
      * @type {Date}
      * @memberof NotificationResponseNotificationsInner
      */
     createdAt: Date;
     /**
      *
-     * @type {PublicUserPreview}
+     * @type {number}
      * @memberof NotificationResponseNotificationsInner
      */
-    sender?: PublicUserPreview;
-    /**
-     *
-     * @type {WallPost}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    post: WallPost;
+    total: number;
     /**
      *
      * @type {number}
      * @memberof NotificationResponseNotificationsInner
      */
-    totalCount: number;
+    unseen: number;
     /**
      *
-     * @type {string}
+     * @type {PublicUserPreview}
      * @memberof NotificationResponseNotificationsInner
      */
-    chatbotName: string;
+    sender: PublicUserPreview;
     /**
      *
-     * @type {PostType}
+     * @type {Array<NotificationKindCount>}
      * @memberof NotificationResponseNotificationsInner
      */
-    type: PostType;
+    kinds?: Array<NotificationKindCount>;
     /**
      *
-     * @type {string}
+     * @type {ChatbotPreview}
      * @memberof NotificationResponseNotificationsInner
      */
-    donationId: string;
+    chatbot: ChatbotPreview;
     /**
      *
      * @type {number}
@@ -90,31 +77,13 @@ export interface NotificationResponseNotificationsInner {
      * @type {string}
      * @memberof NotificationResponseNotificationsInner
      */
-    message: string;
+    id: string;
     /**
      *
-     * @type {ContentType}
+     * @type {boolean}
      * @memberof NotificationResponseNotificationsInner
      */
-    contentType?: ContentType;
-    /**
-     *
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    contentId?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    contentTitle?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    contentCoverImage?: string;
+    isRead: boolean;
     /**
      *
      * @type {string}

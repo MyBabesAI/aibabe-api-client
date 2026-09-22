@@ -13,6 +13,7 @@ import type { BlacklistCard } from './BlacklistCard';
 import type { ArtStyle } from './ArtStyle';
 import type { ChatbotPreview } from './ChatbotPreview';
 import type { PostDetails } from './PostDetails';
+import type { AdminAgeEstimation } from './AdminAgeEstimation';
 import type { ImageGenerationStatus } from './ImageGenerationStatus';
 /**
  *
@@ -110,6 +111,12 @@ export interface GeneratedImages {
      * @memberof GeneratedImages
      */
     height?: number | null;
+    /**
+     *
+     * @type {AdminAgeEstimation}
+     * @memberof GeneratedImages
+     */
+    ageEstimation?: AdminAgeEstimation | null;
 }
 /**
  * @export

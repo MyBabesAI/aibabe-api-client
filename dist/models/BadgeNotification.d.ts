@@ -20,6 +20,12 @@ import type { BadgeModel } from './BadgeModel';
 export interface BadgeNotification {
     /**
      *
+     * @type {string}
+     * @memberof BadgeNotification
+     */
+    id: string;
+    /**
+     *
      * @type {NotificationType}
      * @memberof BadgeNotification
      */

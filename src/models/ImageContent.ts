@@ -20,6 +20,13 @@ import {
     MediaOriginToJSON,
     MediaOriginToJSONTyped,
 } from './MediaOrigin';
+import type { AdminAgeEstimation } from './AdminAgeEstimation';
+import {
+    AdminAgeEstimationFromJSON,
+    AdminAgeEstimationFromJSONTyped,
+    AdminAgeEstimationToJSON,
+    AdminAgeEstimationToJSONTyped,
+} from './AdminAgeEstimation';
 
 /**
  * 
@@ -57,6 +64,12 @@ export interface ImageContent {
      * @memberof ImageContent
      */
     height?: number | null;
+    /**
+     * 
+     * @type {AdminAgeEstimation}
+     * @memberof ImageContent
+     */
+    ageEstimation?: AdminAgeEstimation | null;
 }
 
 
@@ -85,6 +98,7 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'origin': json['origin'] == null ? undefined : MediaOriginFromJSON(json['origin']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
+        'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
     };
 }
 
@@ -104,6 +118,7 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'origin': MediaOriginToJSON(value['origin']),
         'width': value['width'],
         'height': value['height'],
+        'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
     };
 }
 
