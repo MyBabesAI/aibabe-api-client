@@ -144,6 +144,18 @@ export interface NotificationItemsResponseNotificationsInner {
      * @type {string}
      * @memberof NotificationItemsResponseNotificationsInner
      */
+    sourceEventId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof NotificationItemsResponseNotificationsInner
+     */
+    sourceEventName?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof NotificationItemsResponseNotificationsInner
+     */
     eventId: string;
     /**
      *

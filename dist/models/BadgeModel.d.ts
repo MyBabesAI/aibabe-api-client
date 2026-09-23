@@ -129,6 +129,12 @@ export interface BadgeModel {
      * @memberof BadgeModel
      */
     visible?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof BadgeModel
+     */
+    autoAwarded?: boolean;
 }
 /**
  * Check if a given object implements the BadgeModel interface.
