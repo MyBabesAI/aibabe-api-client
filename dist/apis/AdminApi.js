@@ -299,6 +299,9 @@ class AdminApi extends runtime.BaseAPI {
         if (requestParameters['visible'] != null) {
             formParams.append('visible', requestParameters['visible']);
         }
+        if (requestParameters['autoAwarded'] != null) {
+            formParams.append('auto_awarded', requestParameters['autoAwarded']);
+        }
         const response = await this.request({
             path: `/admin/badges`,
             method: 'POST',
@@ -971,6 +974,9 @@ class AdminApi extends runtime.BaseAPI {
         }
         if (requestParameters['visible'] != null) {
             formParams.append('visible', requestParameters['visible']);
+        }
+        if (requestParameters['autoAwarded'] != null) {
+            formParams.append('auto_awarded', requestParameters['autoAwarded']);
         }
         const response = await this.request({
             path: `/admin/badges/{badge_id}`.replace(`{${"badge_id"}}`, encodeURIComponent(String(requestParameters['badgeId']))),
