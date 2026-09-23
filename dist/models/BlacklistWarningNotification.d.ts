@@ -22,6 +22,12 @@ import type { NotificationType } from './NotificationType';
 export interface BlacklistWarningNotification {
     /**
      *
+     * @type {string}
+     * @memberof BlacklistWarningNotification
+     */
+    id: string;
+    /**
+     *
      * @type {NotificationType}
      * @memberof BlacklistWarningNotification
      */

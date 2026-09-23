@@ -50,6 +50,12 @@ import {
 export interface LikePostNotification {
     /**
      * 
+     * @type {string}
+     * @memberof LikePostNotification
+     */
+    id: string;
+    /**
+     * 
      * @type {NotificationType}
      * @memberof LikePostNotification
      */
@@ -80,12 +86,6 @@ export interface LikePostNotification {
     post: WallPost;
     /**
      * 
-     * @type {number}
-     * @memberof LikePostNotification
-     */
-    totalCount: number;
-    /**
-     * 
      * @type {string}
      * @memberof LikePostNotification
      */
@@ -104,10 +104,10 @@ export interface LikePostNotification {
  * Check if a given object implements the LikePostNotification interface.
  */
 export function instanceOfLikePostNotification(value: object): value is LikePostNotification {
+    if (!('id' in value) || value['id'] === undefined) return false;
     if (!('isRead' in value) || value['isRead'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('post' in value) || value['post'] === undefined) return false;
-    if (!('totalCount' in value) || value['totalCount'] === undefined) return false;
     if (!('chatbotName' in value) || value['chatbotName'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
     return true;
@@ -123,12 +123,12 @@ export function LikePostNotificationFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
+        'id': json['id'],
         'notificationType': json['notification_type'] == null ? undefined : NotificationTypeFromJSON(json['notification_type']),
         'isRead': json['is_read'],
         'createdAt': (new Date(json['created_at'])),
         'sender': json['sender'] == null ? undefined : PublicUserPreviewFromJSON(json['sender']),
         'post': WallPostFromJSON(json['post']),
-        'totalCount': json['total_count'],
         'chatbotName': json['chatbot_name'],
         'type': PostTypeFromJSON(json['type']),
     };
@@ -145,12 +145,12 @@ export function LikePostNotificationFromJSONTyped(json: any, ignoreDiscriminator
 
     return {
         
+        'id': value['id'],
         'notification_type': NotificationTypeToJSON(value['notificationType']),
         'is_read': value['isRead'],
         'created_at': ((value['createdAt']).toISOString()),
         'sender': PublicUserPreviewToJSON(value['sender']),
         'post': WallPostToJSON(value['post']),
-        'total_count': value['totalCount'],
         'chatbot_name': value['chatbotName'],
         'type': PostTypeToJSON(value['type']),
     };

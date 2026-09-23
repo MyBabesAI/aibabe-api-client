@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { MediaOrigin } from './MediaOrigin';
+import type { AdminAgeEstimation } from './AdminAgeEstimation';
 /**
  *
  * @export
@@ -46,6 +47,12 @@ export interface ImageContent {
      * @memberof ImageContent
      */
     height?: number | null;
+    /**
+     *
+     * @type {AdminAgeEstimation}
+     * @memberof ImageContent
+     */
+    ageEstimation?: AdminAgeEstimation | null;
 }
 /**
  * Check if a given object implements the ImageContent interface.

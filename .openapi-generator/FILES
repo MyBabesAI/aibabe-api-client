@@ -37,6 +37,7 @@ src/index.ts
 src/models/AccessType.ts
 src/models/ActorRole.ts
 src/models/AddonProductPrice.ts
+src/models/AdminAgeEstimation.ts
 src/models/AdminAwardBadgeRequest.ts
 src/models/AdminBadgeResponse.ts
 src/models/AdminCreatePricingProductRequest.ts
@@ -45,6 +46,10 @@ src/models/AdminCreatePricingProductRequestSubscriptionTier.ts
 src/models/AdminCreatePromotionRequest.ts
 src/models/AdminCreateTokenUsageRequest.ts
 src/models/AdminCreateTokenUsageRequestResolution.ts
+src/models/AdminFaceAgeEstimate.ts
+src/models/AdminFaceBox.ts
+src/models/AdminModeratedImage.ts
+src/models/AdminModeratedImagesResponse.ts
 src/models/AdminPricingGroupResponse.ts
 src/models/AdminPricingGroupRevisionsResponse.ts
 src/models/AdminPricingGroupsResponse.ts
@@ -122,6 +127,7 @@ src/models/CreateAnonymousConversationMessageRequest.ts
 src/models/CreateAnonymousConversationRequest.ts
 src/models/CreateAnonymousConversationResponse.ts
 src/models/CreateAssistantChatSessionRequest.ts
+src/models/CreateGalleryFolderRequest.ts
 src/models/CreatorGenerationCharge.ts
 src/models/CreatorGenerationQuotaStatus.ts
 src/models/CustomChatbotTheme.ts
@@ -134,6 +140,7 @@ src/models/DiscountOriginalPrice.ts
 src/models/DiscountOriginalTokens.ts
 src/models/DisplayDiscount.ts
 src/models/DonationNotification.ts
+src/models/DonationsGroupNotification.ts
 src/models/DownscaleRequest.ts
 src/models/EffectiveEventStatus.ts
 src/models/Enabled.ts
@@ -165,9 +172,16 @@ src/models/ExploreSearchRequest.ts
 src/models/ExtendVideoPayload.ts
 src/models/FantasyRace.ts
 src/models/FeatureFlagName.ts
+src/models/FeedGroupNotification.ts
 src/models/FixedDurationSeconds.ts
 src/models/FollowNotification.ts
+src/models/FollowNotificationState.ts
+src/models/FollowNotificationStatesResponse.ts
+src/models/FollowersGroupNotification.ts
 src/models/FurryVisualType.ts
+src/models/GalleryFolder.ts
+src/models/GalleryFolderCounts.ts
+src/models/GalleryFolderItemsRequest.ts
 src/models/GalleryItem.ts
 src/models/GalleryStory.ts
 src/models/GalleryTab.ts
@@ -216,6 +230,7 @@ src/models/GetCustomChatbotResponse.ts
 src/models/GetDetailedPostsResponse.ts
 src/models/GetExceptionsResponse.ts
 src/models/GetFollowedUsersResponse.ts
+src/models/GetGalleryFoldersResponse.ts
 src/models/GetGalleryResponse.ts
 src/models/GetGalleryResponseItemsInner.ts
 src/models/GetGeneratedAudioResponse.ts
@@ -267,6 +282,7 @@ src/models/Language.ts
 src/models/LastVideoFrameResponse.ts
 src/models/LeaderboardEntry.ts
 src/models/LikePostNotification.ts
+src/models/LikedPostNotification.ts
 src/models/ListAssistantChatSessionsResponse.ts
 src/models/ListChatbotItem.ts
 src/models/ListConversationsResponse.ts
@@ -291,6 +307,13 @@ src/models/MuleRouterWanTaskResponseTaskInfo.ts
 src/models/NewEpisodeNotification.ts
 src/models/NewEventNotification.ts
 src/models/NewPostNotification.ts
+src/models/NotificationCategory.ts
+src/models/NotificationCountsResponse.ts
+src/models/NotificationGroup.ts
+src/models/NotificationItemsResponse.ts
+src/models/NotificationItemsResponseNotificationsInner.ts
+src/models/NotificationKind.ts
+src/models/NotificationKindCount.ts
 src/models/NotificationResponse.ts
 src/models/NotificationResponseNotificationsInner.ts
 src/models/NotificationType.ts
@@ -299,6 +322,7 @@ src/models/OneTimeTokens.ts
 src/models/OwnerFilter.ts
 src/models/PatchChatMessageRequest.ts
 src/models/PatchCustomChatbotRequest.ts
+src/models/PatchFollowNotificationsRequest.ts
 src/models/PatchImageModerationPromptRequest.ts
 src/models/PatchPostTitleRequest.ts
 src/models/PatchUserPreferenceProfileRequest.ts
@@ -484,6 +508,7 @@ src/models/TokenUsageType.ts
 src/models/TrackConversionEventRequest.ts
 src/models/TrackConversionEventResponse.ts
 src/models/Type.ts
+src/models/UpdateGalleryFolderRequest.ts
 src/models/UserBadge.ts
 src/models/UserBadgeClaimResponse.ts
 src/models/UserBadgeListResponse.ts

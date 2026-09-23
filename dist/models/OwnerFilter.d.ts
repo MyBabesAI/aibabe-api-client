@@ -19,6 +19,8 @@ export declare const OwnerFilter: {
     readonly Liked: "liked";
     readonly Community: "community";
     readonly Followed: "followed";
+    readonly BabeCreator: "babe_creator";
+    readonly BabeCommunity: "babe_community";
 };
 export type OwnerFilter = typeof OwnerFilter[keyof typeof OwnerFilter];
 export declare function instanceOfOwnerFilter(value: any): boolean;

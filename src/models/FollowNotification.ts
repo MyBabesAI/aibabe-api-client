@@ -36,6 +36,12 @@ import {
 export interface FollowNotification {
     /**
      * 
+     * @type {string}
+     * @memberof FollowNotification
+     */
+    id: string;
+    /**
+     * 
      * @type {NotificationType}
      * @memberof FollowNotification
      */
@@ -66,6 +72,7 @@ export interface FollowNotification {
  * Check if a given object implements the FollowNotification interface.
  */
 export function instanceOfFollowNotification(value: object): value is FollowNotification {
+    if (!('id' in value) || value['id'] === undefined) return false;
     if (!('isRead' in value) || value['isRead'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     return true;
@@ -81,6 +88,7 @@ export function FollowNotificationFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
+        'id': json['id'],
         'notificationType': json['notification_type'] == null ? undefined : NotificationTypeFromJSON(json['notification_type']),
         'isRead': json['is_read'],
         'createdAt': (new Date(json['created_at'])),
@@ -99,6 +107,7 @@ export function FollowNotificationFromJSONTyped(json: any, ignoreDiscriminator: 
 
     return {
         
+        'id': value['id'],
         'notification_type': NotificationTypeToJSON(value['notificationType']),
         'is_read': value['isRead'],
         'created_at': ((value['createdAt']).toISOString()),

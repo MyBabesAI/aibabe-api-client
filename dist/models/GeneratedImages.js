@@ -23,6 +23,7 @@ const BlacklistCard_1 = require("./BlacklistCard");
 const ArtStyle_1 = require("./ArtStyle");
 const ChatbotPreview_1 = require("./ChatbotPreview");
 const PostDetails_1 = require("./PostDetails");
+const AdminAgeEstimation_1 = require("./AdminAgeEstimation");
 const ImageGenerationStatus_1 = require("./ImageGenerationStatus");
 /**
  * @export
@@ -80,6 +81,7 @@ function GeneratedImagesFromJSONTyped(json, ignoreDiscriminator) {
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
+        'ageEstimation': json['age_estimation'] == null ? undefined : (0, AdminAgeEstimation_1.AdminAgeEstimationFromJSON)(json['age_estimation']),
     };
 }
 function GeneratedImagesToJSON(json) {
@@ -105,6 +107,7 @@ function GeneratedImagesToJSONTyped(value, ignoreDiscriminator = false) {
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'width': value['width'],
         'height': value['height'],
+        'age_estimation': (0, AdminAgeEstimation_1.AdminAgeEstimationToJSON)(value['ageEstimation']),
     };
 }
 //# sourceMappingURL=GeneratedImages.js.map

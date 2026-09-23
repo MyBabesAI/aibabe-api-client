@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { DonationNotification } from './DonationNotification';
+import type { FollowersGroupNotification } from './FollowersGroupNotification';
 import {
-    DonationNotificationFromJSON,
-    DonationNotificationFromJSONTyped,
-    DonationNotificationToJSON,
-    DonationNotificationToJSONTyped,
-} from './DonationNotification';
+    FollowersGroupNotificationFromJSON,
+    FollowersGroupNotificationFromJSONTyped,
+    FollowersGroupNotificationToJSON,
+    FollowersGroupNotificationToJSONTyped,
+} from './FollowersGroupNotification';
 import type { PublicUserPreview } from './PublicUserPreview';
 import {
     PublicUserPreviewFromJSON,
@@ -27,13 +27,6 @@ import {
     PublicUserPreviewToJSON,
     PublicUserPreviewToJSONTyped,
 } from './PublicUserPreview';
-import type { FollowNotification } from './FollowNotification';
-import {
-    FollowNotificationFromJSON,
-    FollowNotificationFromJSONTyped,
-    FollowNotificationToJSON,
-    FollowNotificationToJSONTyped,
-} from './FollowNotification';
 import type { BlacklistCard } from './BlacklistCard';
 import {
     BlacklistCardFromJSON,
@@ -55,13 +48,20 @@ import {
     PostTypeToJSON,
     PostTypeToJSONTyped,
 } from './PostType';
-import type { ContentType } from './ContentType';
+import type { DonationsGroupNotification } from './DonationsGroupNotification';
 import {
-    ContentTypeFromJSON,
-    ContentTypeFromJSONTyped,
-    ContentTypeToJSON,
-    ContentTypeToJSONTyped,
-} from './ContentType';
+    DonationsGroupNotificationFromJSON,
+    DonationsGroupNotificationFromJSONTyped,
+    DonationsGroupNotificationToJSON,
+    DonationsGroupNotificationToJSONTyped,
+} from './DonationsGroupNotification';
+import type { FeedGroupNotification } from './FeedGroupNotification';
+import {
+    FeedGroupNotificationFromJSON,
+    FeedGroupNotificationFromJSONTyped,
+    FeedGroupNotificationToJSON,
+    FeedGroupNotificationToJSONTyped,
+} from './FeedGroupNotification';
 import type { GalleryTab } from './GalleryTab';
 import {
     GalleryTabFromJSON,
@@ -69,20 +69,6 @@ import {
     GalleryTabToJSON,
     GalleryTabToJSONTyped,
 } from './GalleryTab';
-import type { NewEpisodeNotification } from './NewEpisodeNotification';
-import {
-    NewEpisodeNotificationFromJSON,
-    NewEpisodeNotificationFromJSONTyped,
-    NewEpisodeNotificationToJSON,
-    NewEpisodeNotificationToJSONTyped,
-} from './NewEpisodeNotification';
-import type { NewPostNotification } from './NewPostNotification';
-import {
-    NewPostNotificationFromJSON,
-    NewPostNotificationFromJSONTyped,
-    NewPostNotificationToJSON,
-    NewPostNotificationToJSONTyped,
-} from './NewPostNotification';
 import type { LikePostNotification } from './LikePostNotification';
 import {
     LikePostNotificationFromJSON,
@@ -97,6 +83,13 @@ import {
     WallPostToJSON,
     WallPostToJSONTyped,
 } from './WallPost';
+import type { LikedPostNotification } from './LikedPostNotification';
+import {
+    LikedPostNotificationFromJSON,
+    LikedPostNotificationFromJSONTyped,
+    LikedPostNotificationToJSON,
+    LikedPostNotificationToJSONTyped,
+} from './LikedPostNotification';
 import type { BlacklistTarget } from './BlacklistTarget';
 import {
     BlacklistTargetFromJSON,
@@ -139,6 +132,13 @@ import {
     BadgeModelToJSON,
     BadgeModelToJSONTyped,
 } from './BadgeModel';
+import type { NotificationKindCount } from './NotificationKindCount';
+import {
+    NotificationKindCountFromJSON,
+    NotificationKindCountFromJSONTyped,
+    NotificationKindCountToJSON,
+    NotificationKindCountToJSONTyped,
+} from './NotificationKindCount';
 import type { NewEventNotification } from './NewEventNotification';
 import {
     NewEventNotificationFromJSON,
@@ -175,34 +175,40 @@ export interface NotificationResponseNotificationsInner {
     notificationType?: NotificationType;
     /**
      * 
-     * @type {boolean}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    isRead: boolean;
-    /**
-     * 
      * @type {Date}
      * @memberof NotificationResponseNotificationsInner
      */
     createdAt: Date;
     /**
      * 
+     * @type {number}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    total: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    unseen: number;
+    /**
+     * 
      * @type {PublicUserPreview}
      * @memberof NotificationResponseNotificationsInner
      */
-    sender?: PublicUserPreview;
+    sender: PublicUserPreview;
+    /**
+     * 
+     * @type {Array<NotificationKindCount>}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    kinds?: Array<NotificationKindCount>;
     /**
      * 
      * @type {WallPost}
      * @memberof NotificationResponseNotificationsInner
      */
     post: WallPost;
-    /**
-     * 
-     * @type {number}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    totalCount: number;
     /**
      * 
      * @type {string}
@@ -220,43 +226,19 @@ export interface NotificationResponseNotificationsInner {
      * @type {string}
      * @memberof NotificationResponseNotificationsInner
      */
-    donationId: string;
+    id: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    isRead: boolean;
     /**
      * 
      * @type {number}
      * @memberof NotificationResponseNotificationsInner
      */
     tokens: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    message: string;
-    /**
-     * 
-     * @type {ContentType}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    contentType?: ContentType;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    contentId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    contentTitle?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    contentCoverImage?: string;
     /**
      * 
      * @type {string}
@@ -349,15 +331,16 @@ export interface NotificationResponseNotificationsInner {
  * Check if a given object implements the NotificationResponseNotificationsInner interface.
  */
 export function instanceOfNotificationResponseNotificationsInner(value: object): value is NotificationResponseNotificationsInner {
-    if (!('isRead' in value) || value['isRead'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
+    if (!('total' in value) || value['total'] === undefined) return false;
+    if (!('unseen' in value) || value['unseen'] === undefined) return false;
+    if (!('sender' in value) || value['sender'] === undefined) return false;
     if (!('post' in value) || value['post'] === undefined) return false;
-    if (!('totalCount' in value) || value['totalCount'] === undefined) return false;
     if (!('chatbotName' in value) || value['chatbotName'] === undefined) return false;
     if (!('type' in value) || value['type'] === undefined) return false;
-    if (!('donationId' in value) || value['donationId'] === undefined) return false;
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('isRead' in value) || value['isRead'] === undefined) return false;
     if (!('tokens' in value) || value['tokens'] === undefined) return false;
-    if (!('message' in value) || value['message'] === undefined) return false;
     if (!('episodeId' in value) || value['episodeId'] === undefined) return false;
     if (!('episodeTitle' in value) || value['episodeTitle'] === undefined) return false;
     if (!('coverImage' in value) || value['coverImage'] === undefined) return false;
@@ -384,20 +367,17 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
     return {
         
         'notificationType': json['notification_type'] == null ? undefined : NotificationTypeFromJSON(json['notification_type']),
-        'isRead': json['is_read'],
         'createdAt': (new Date(json['created_at'])),
-        'sender': json['sender'] == null ? undefined : PublicUserPreviewFromJSON(json['sender']),
+        'total': json['total'],
+        'unseen': json['unseen'],
+        'sender': PublicUserPreviewFromJSON(json['sender']),
+        'kinds': json['kinds'] == null ? undefined : ((json['kinds'] as Array<any>).map(NotificationKindCountFromJSON)),
         'post': WallPostFromJSON(json['post']),
-        'totalCount': json['total_count'],
         'chatbotName': json['chatbot_name'],
         'type': PostTypeFromJSON(json['type']),
-        'donationId': json['donation_id'],
+        'id': json['id'],
+        'isRead': json['is_read'],
         'tokens': json['tokens'],
-        'message': json['message'],
-        'contentType': json['content_type'] == null ? undefined : ContentTypeFromJSON(json['content_type']),
-        'contentId': json['content_id'] == null ? undefined : json['content_id'],
-        'contentTitle': json['content_title'] == null ? undefined : json['content_title'],
-        'contentCoverImage': json['content_cover_image'] == null ? undefined : json['content_cover_image'],
         'episodeId': json['episode_id'],
         'episodeTitle': json['episode_title'],
         'coverImage': json['cover_image'],
@@ -427,20 +407,17 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
     return {
         
         'notification_type': NotificationTypeToJSON(value['notificationType']),
-        'is_read': value['isRead'],
         'created_at': ((value['createdAt']).toISOString()),
+        'total': value['total'],
+        'unseen': value['unseen'],
         'sender': PublicUserPreviewToJSON(value['sender']),
+        'kinds': value['kinds'] == null ? undefined : ((value['kinds'] as Array<any>).map(NotificationKindCountToJSON)),
         'post': WallPostToJSON(value['post']),
-        'total_count': value['totalCount'],
         'chatbot_name': value['chatbotName'],
         'type': PostTypeToJSON(value['type']),
-        'donation_id': value['donationId'],
+        'id': value['id'],
+        'is_read': value['isRead'],
         'tokens': value['tokens'],
-        'message': value['message'],
-        'content_type': ContentTypeToJSON(value['contentType']),
-        'content_id': value['contentId'],
-        'content_title': value['contentTitle'],
-        'content_cover_image': value['contentCoverImage'],
         'episode_id': value['episodeId'],
         'episode_title': value['episodeTitle'],
         'cover_image': value['coverImage'],

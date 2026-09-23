@@ -57,6 +57,12 @@ import {
 export interface BlacklistWarningNotification {
     /**
      * 
+     * @type {string}
+     * @memberof BlacklistWarningNotification
+     */
+    id: string;
+    /**
+     * 
      * @type {NotificationType}
      * @memberof BlacklistWarningNotification
      */
@@ -117,6 +123,7 @@ export interface BlacklistWarningNotification {
  * Check if a given object implements the BlacklistWarningNotification interface.
  */
 export function instanceOfBlacklistWarningNotification(value: object): value is BlacklistWarningNotification {
+    if (!('id' in value) || value['id'] === undefined) return false;
     if (!('isRead' in value) || value['isRead'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('blacklistId' in value) || value['blacklistId'] === undefined) return false;
@@ -137,6 +144,7 @@ export function BlacklistWarningNotificationFromJSONTyped(json: any, ignoreDiscr
     }
     return {
         
+        'id': json['id'],
         'notificationType': json['notification_type'] == null ? undefined : NotificationTypeFromJSON(json['notification_type']),
         'isRead': json['is_read'],
         'createdAt': (new Date(json['created_at'])),
@@ -160,6 +168,7 @@ export function BlacklistWarningNotificationFromJSONTyped(json: any, ignoreDiscr
 
     return {
         
+        'id': value['id'],
         'notification_type': NotificationTypeToJSON(value['notificationType']),
         'is_read': value['isRead'],
         'created_at': ((value['createdAt']).toISOString()),

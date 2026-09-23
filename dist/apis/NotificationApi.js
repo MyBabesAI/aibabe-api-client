@@ -79,6 +79,15 @@ class NotificationApi extends runtime.BaseAPI {
         if (requestParameters['blacklistId'] != null) {
             queryParameters['blacklist_id'] = requestParameters['blacklistId'];
         }
+        if (requestParameters['group'] != null) {
+            queryParameters['group'] = requestParameters['group'];
+        }
+        if (requestParameters['senderId'] != null) {
+            queryParameters['sender_id'] = requestParameters['senderId'];
+        }
+        if (requestParameters['kind'] != null) {
+            queryParameters['kind'] = requestParameters['kind'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/notification/clear`,
@@ -98,6 +107,27 @@ class NotificationApi extends runtime.BaseAPI {
      */
     async clearNotificationsNotificationClearPatch(requestParameters = {}, initOverrides) {
         const response = await this.clearNotificationsNotificationClearPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Count Unread Notifications By Category
+     */
+    async countUnreadNotificationsByCategoryNotificationCountCategoriesGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/notification/count/categories`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.NotificationCountsResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Count Unread Notifications By Category
+     */
+    async countUnreadNotificationsByCategoryNotificationCountCategoriesGet(initOverrides) {
+        const response = await this.countUnreadNotificationsByCategoryNotificationCountCategoriesGetRaw(initOverrides);
         return await response.value();
     }
     /**
@@ -127,10 +157,78 @@ class NotificationApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Delete Notification
+     */
+    async deleteNotificationNotificationNotificationIdDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['notificationId'] == null) {
+            throw new runtime.RequiredError('notificationId', 'Required parameter "notificationId" was null or undefined when calling deleteNotificationNotificationNotificationIdDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/notification/{notification_id}`.replace(`{${"notification_id"}}`, encodeURIComponent(String(requestParameters['notificationId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.VoidApiResponse(response);
+    }
+    /**
+     * Delete Notification
+     */
+    async deleteNotificationNotificationNotificationIdDelete(requestParameters, initOverrides) {
+        await this.deleteNotificationNotificationNotificationIdDeleteRaw(requestParameters, initOverrides);
+    }
+    /**
+     * Get Notification Items
+     */
+    async getNotificationItemsNotificationItemsGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['group'] == null) {
+            throw new runtime.RequiredError('group', 'Required parameter "group" was null or undefined when calling getNotificationItemsNotificationItemsGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['group'] != null) {
+            queryParameters['group'] = requestParameters['group'];
+        }
+        if (requestParameters['senderId'] != null) {
+            queryParameters['sender_id'] = requestParameters['senderId'];
+        }
+        if (requestParameters['kind'] != null) {
+            queryParameters['kind'] = requestParameters['kind'];
+        }
+        if (requestParameters['postId'] != null) {
+            queryParameters['post_id'] = requestParameters['postId'];
+        }
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/notification/items`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.NotificationItemsResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get Notification Items
+     */
+    async getNotificationItemsNotificationItemsGet(requestParameters, initOverrides) {
+        const response = await this.getNotificationItemsNotificationItemsGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Notifications
      */
     async getNotificationsNotificationGetRaw(requestParameters, initOverrides) {
         const queryParameters = {};
+        if (requestParameters['category'] != null) {
+            queryParameters['category'] = requestParameters['category'];
+        }
         if (requestParameters['paginationToken'] != null) {
             queryParameters['pagination_token'] = requestParameters['paginationToken'];
         }

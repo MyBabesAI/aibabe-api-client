@@ -12,13 +12,13 @@
 import type { PublicUserPreview } from './PublicUserPreview';
 import type { BlacklistCard } from './BlacklistCard';
 import type { PostType } from './PostType';
-import type { ContentType } from './ContentType';
 import type { GalleryTab } from './GalleryTab';
 import type { WallPost } from './WallPost';
 import type { BlacklistTarget } from './BlacklistTarget';
 import type { EventResultType } from './EventResultType';
 import type { NotificationType } from './NotificationType';
 import type { BadgeModel } from './BadgeModel';
+import type { NotificationKindCount } from './NotificationKindCount';
 /**
  *
  * @export
@@ -33,34 +33,40 @@ export interface NotificationResponseNotificationsInner {
     notificationType?: NotificationType;
     /**
      *
-     * @type {boolean}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    isRead: boolean;
-    /**
-     *
      * @type {Date}
      * @memberof NotificationResponseNotificationsInner
      */
     createdAt: Date;
     /**
      *
+     * @type {number}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    total: number;
+    /**
+     *
+     * @type {number}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    unseen: number;
+    /**
+     *
      * @type {PublicUserPreview}
      * @memberof NotificationResponseNotificationsInner
      */
-    sender?: PublicUserPreview;
+    sender: PublicUserPreview;
+    /**
+     *
+     * @type {Array<NotificationKindCount>}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    kinds?: Array<NotificationKindCount>;
     /**
      *
      * @type {WallPost}
      * @memberof NotificationResponseNotificationsInner
      */
     post: WallPost;
-    /**
-     *
-     * @type {number}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    totalCount: number;
     /**
      *
      * @type {string}
@@ -78,43 +84,19 @@ export interface NotificationResponseNotificationsInner {
      * @type {string}
      * @memberof NotificationResponseNotificationsInner
      */
-    donationId: string;
+    id: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    isRead: boolean;
     /**
      *
      * @type {number}
      * @memberof NotificationResponseNotificationsInner
      */
     tokens: number;
-    /**
-     *
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    message: string;
-    /**
-     *
-     * @type {ContentType}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    contentType?: ContentType;
-    /**
-     *
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    contentId?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    contentTitle?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    contentCoverImage?: string;
     /**
      *
      * @type {string}

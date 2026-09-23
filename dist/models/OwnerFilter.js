@@ -28,7 +28,9 @@ exports.OwnerFilter = {
     Own: 'own',
     Liked: 'liked',
     Community: 'community',
-    Followed: 'followed'
+    Followed: 'followed',
+    BabeCreator: 'babe_creator',
+    BabeCommunity: 'babe_community'
 };
 function instanceOfOwnerFilter(value) {
     for (const key in exports.OwnerFilter) {

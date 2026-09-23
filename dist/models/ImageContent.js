@@ -19,6 +19,7 @@ exports.ImageContentFromJSONTyped = ImageContentFromJSONTyped;
 exports.ImageContentToJSON = ImageContentToJSON;
 exports.ImageContentToJSONTyped = ImageContentToJSONTyped;
 const MediaOrigin_1 = require("./MediaOrigin");
+const AdminAgeEstimation_1 = require("./AdminAgeEstimation");
 /**
  * Check if a given object implements the ImageContent interface.
  */
@@ -42,6 +43,7 @@ function ImageContentFromJSONTyped(json, ignoreDiscriminator) {
         'origin': json['origin'] == null ? undefined : (0, MediaOrigin_1.MediaOriginFromJSON)(json['origin']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
+        'ageEstimation': json['age_estimation'] == null ? undefined : (0, AdminAgeEstimation_1.AdminAgeEstimationFromJSON)(json['age_estimation']),
     };
 }
 function ImageContentToJSON(json) {
@@ -57,6 +59,7 @@ function ImageContentToJSONTyped(value, ignoreDiscriminator = false) {
         'origin': (0, MediaOrigin_1.MediaOriginToJSON)(value['origin']),
         'width': value['width'],
         'height': value['height'],
+        'age_estimation': (0, AdminAgeEstimation_1.AdminAgeEstimationToJSON)(value['ageEstimation']),
     };
 }
 //# sourceMappingURL=ImageContent.js.map

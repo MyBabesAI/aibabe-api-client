@@ -180,6 +180,7 @@ exports.ExceptionCode = {
     OriginalImageNotFound: 'original_image_not_found',
     ArtStyleNotFound: 'art_style_not_found',
     ImageModelUnavailable: 'image_model_unavailable',
+    AgeCheckServerUnavailable: 'age_check_server_unavailable',
     VerificationCodeExprired: 'verification_code_exprired',
     VerificationCodeInvalid: 'verification_code_invalid',
     VerificationCodeNotSet: 'verification_code_not_set',
@@ -230,6 +231,8 @@ exports.ExceptionCode = {
     PurchasedEpisodeAndVersionMismatch: 'purchased_episode_and_version_mismatch',
     PurchasedEpisodeVersionNotFound: 'purchased_episode_version_not_found',
     NotificationNotCreated: 'notification_not_created',
+    NotificationNotFound: 'notification_not_found',
+    NotificationNotDeletable: 'notification_not_deletable',
     AgeVerificationDisabled: 'age_verification_disabled',
     AgeVerificationInvalidPayload: 'age_verification_invalid_payload',
     AgeVerificationTicketNotFound: 'age_verification_ticket_not_found',
@@ -248,7 +251,8 @@ exports.ExceptionCode = {
     PromotionInvalidTime: 'promotion_invalid_time',
     PromotionCodeConflict: 'promotion_code_conflict',
     PromotionOverlap: 'promotion_overlap',
-    GalleryChatbotFilterConflict: 'gallery_chatbot_filter_conflict'
+    GalleryChatbotFilterConflict: 'gallery_chatbot_filter_conflict',
+    GalleryFolderNotFound: 'gallery_folder_not_found'
 };
 function instanceOfExceptionCode(value) {
     for (const key in exports.ExceptionCode) {

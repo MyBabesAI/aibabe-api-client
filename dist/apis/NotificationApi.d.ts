@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { NotificationResponse } from '../models/index';
+import type { NotificationCategory, NotificationCountsResponse, NotificationGroup, NotificationItemsResponse, NotificationKind, NotificationResponse } from '../models/index';
 export interface ClearNotificationsNotificationClearPatchRequest {
     postId?: string | null;
     donationId?: string | null;
@@ -19,8 +19,23 @@ export interface ClearNotificationsNotificationClearPatchRequest {
     followUserId?: string | null;
     eventId?: string | null;
     blacklistId?: string | null;
+    group?: NotificationGroup | null;
+    senderId?: string | null;
+    kind?: NotificationKind | null;
+}
+export interface DeleteNotificationNotificationNotificationIdDeleteRequest {
+    notificationId: string;
+}
+export interface GetNotificationItemsNotificationItemsGetRequest {
+    group: NotificationGroup;
+    senderId?: string | null;
+    kind?: NotificationKind | null;
+    postId?: string | null;
+    paginationToken?: string | null;
+    limit?: number;
 }
 export interface GetNotificationsNotificationGetRequest {
+    category?: NotificationCategory;
     paginationToken?: string | null;
     limit?: number;
 }
@@ -37,6 +52,14 @@ export declare class NotificationApi extends runtime.BaseAPI {
      */
     clearNotificationsNotificationClearPatch(requestParameters?: ClearNotificationsNotificationClearPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
+     * Count Unread Notifications By Category
+     */
+    countUnreadNotificationsByCategoryNotificationCountCategoriesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationCountsResponse>>;
+    /**
+     * Count Unread Notifications By Category
+     */
+    countUnreadNotificationsByCategoryNotificationCountCategoriesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NotificationCountsResponse>;
+    /**
      * Count Unread Notifications
      */
     countUnreadNotificationsNotificationCountGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<number>>;
@@ -44,6 +67,22 @@ export declare class NotificationApi extends runtime.BaseAPI {
      * Count Unread Notifications
      */
     countUnreadNotificationsNotificationCountGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<number>;
+    /**
+     * Delete Notification
+     */
+    deleteNotificationNotificationNotificationIdDeleteRaw(requestParameters: DeleteNotificationNotificationNotificationIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Delete Notification
+     */
+    deleteNotificationNotificationNotificationIdDelete(requestParameters: DeleteNotificationNotificationNotificationIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Get Notification Items
+     */
+    getNotificationItemsNotificationItemsGetRaw(requestParameters: GetNotificationItemsNotificationItemsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NotificationItemsResponse>>;
+    /**
+     * Get Notification Items
+     */
+    getNotificationItemsNotificationItemsGet(requestParameters: GetNotificationItemsNotificationItemsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NotificationItemsResponse>;
     /**
      * Get Notifications
      */

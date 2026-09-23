@@ -21,6 +21,12 @@ import type { WallPost } from './WallPost';
 export interface LikePostNotification {
     /**
      *
+     * @type {string}
+     * @memberof LikePostNotification
+     */
+    id: string;
+    /**
+     *
      * @type {NotificationType}
      * @memberof LikePostNotification
      */
@@ -49,12 +55,6 @@ export interface LikePostNotification {
      * @memberof LikePostNotification
      */
     post: WallPost;
-    /**
-     *
-     * @type {number}
-     * @memberof LikePostNotification
-     */
-    totalCount: number;
     /**
      *
      * @type {string}

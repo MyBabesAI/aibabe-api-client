@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
-import {
-    PublicUserPreviewWithFollowFromJSON,
-    PublicUserPreviewWithFollowFromJSONTyped,
-    PublicUserPreviewWithFollowToJSON,
-    PublicUserPreviewWithFollowToJSONTyped,
-} from './PublicUserPreviewWithFollow';
 import type { StoryCounts } from './StoryCounts';
 import {
     StoryCountsFromJSON,
@@ -41,13 +34,6 @@ import {
     ArtStyleToJSON,
     ArtStyleToJSONTyped,
 } from './ArtStyle';
-import type { ChatbotPreview } from './ChatbotPreview';
-import {
-    ChatbotPreviewFromJSON,
-    ChatbotPreviewFromJSONTyped,
-    ChatbotPreviewToJSON,
-    ChatbotPreviewToJSONTyped,
-} from './ChatbotPreview';
 import type { GalleryStory } from './GalleryStory';
 import {
     GalleryStoryFromJSON,
@@ -62,13 +48,6 @@ import {
     PostDetailsToJSON,
     PostDetailsToJSONTyped,
 } from './PostDetails';
-import type { GeneratedImages } from './GeneratedImages';
-import {
-    GeneratedImagesFromJSON,
-    GeneratedImagesFromJSONTyped,
-    GeneratedImagesToJSON,
-    GeneratedImagesToJSONTyped,
-} from './GeneratedImages';
 import type { StoryVisibility } from './StoryVisibility';
 import {
     StoryVisibilityFromJSON,
@@ -76,13 +55,13 @@ import {
     StoryVisibilityToJSON,
     StoryVisibilityToJSONTyped,
 } from './StoryVisibility';
-import type { StoryRating } from './StoryRating';
+import type { AdminAgeEstimation } from './AdminAgeEstimation';
 import {
-    StoryRatingFromJSON,
-    StoryRatingFromJSONTyped,
-    StoryRatingToJSON,
-    StoryRatingToJSONTyped,
-} from './StoryRating';
+    AdminAgeEstimationFromJSON,
+    AdminAgeEstimationFromJSONTyped,
+    AdminAgeEstimationToJSON,
+    AdminAgeEstimationToJSONTyped,
+} from './AdminAgeEstimation';
 import type { VideoGenerationStatus } from './VideoGenerationStatus';
 import {
     VideoGenerationStatusFromJSON,
@@ -97,6 +76,34 @@ import {
     GeneratedVideosToJSON,
     GeneratedVideosToJSONTyped,
 } from './GeneratedVideos';
+import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
+import {
+    PublicUserPreviewWithFollowFromJSON,
+    PublicUserPreviewWithFollowFromJSONTyped,
+    PublicUserPreviewWithFollowToJSON,
+    PublicUserPreviewWithFollowToJSONTyped,
+} from './PublicUserPreviewWithFollow';
+import type { ChatbotPreview } from './ChatbotPreview';
+import {
+    ChatbotPreviewFromJSON,
+    ChatbotPreviewFromJSONTyped,
+    ChatbotPreviewToJSON,
+    ChatbotPreviewToJSONTyped,
+} from './ChatbotPreview';
+import type { GeneratedImages } from './GeneratedImages';
+import {
+    GeneratedImagesFromJSON,
+    GeneratedImagesFromJSONTyped,
+    GeneratedImagesToJSON,
+    GeneratedImagesToJSONTyped,
+} from './GeneratedImages';
+import type { StoryRating } from './StoryRating';
+import {
+    StoryRatingFromJSON,
+    StoryRatingFromJSONTyped,
+    StoryRatingToJSON,
+    StoryRatingToJSONTyped,
+} from './StoryRating';
 
 /**
  * 
@@ -194,6 +201,12 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     height?: number;
+    /**
+     * 
+     * @type {AdminAgeEstimation}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    ageEstimation?: AdminAgeEstimation;
     /**
      * 
      * @type {string}
@@ -309,6 +322,7 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'artStyle': ArtStyleFromJSON(json['art_style']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
+        'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'owner': json['owner'] == null ? undefined : PublicUserPreviewWithFollowFromJSON(json['owner']),
@@ -347,6 +361,7 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'art_style': ArtStyleToJSON(value['artStyle']),
         'width': value['width'],
         'height': value['height'],
+        'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'owner': PublicUserPreviewWithFollowToJSON(value['owner']),

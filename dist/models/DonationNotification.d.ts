@@ -20,6 +20,12 @@ import type { NotificationType } from './NotificationType';
 export interface DonationNotification {
     /**
      *
+     * @type {string}
+     * @memberof DonationNotification
+     */
+    id: string;
+    /**
+     *
      * @type {NotificationType}
      * @memberof DonationNotification
      */

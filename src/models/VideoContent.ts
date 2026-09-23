@@ -20,6 +20,13 @@ import {
     MediaOriginToJSON,
     MediaOriginToJSONTyped,
 } from './MediaOrigin';
+import type { AdminAgeEstimation } from './AdminAgeEstimation';
+import {
+    AdminAgeEstimationFromJSON,
+    AdminAgeEstimationFromJSONTyped,
+    AdminAgeEstimationToJSON,
+    AdminAgeEstimationToJSONTyped,
+} from './AdminAgeEstimation';
 
 /**
  * 
@@ -57,6 +64,12 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     height?: number | null;
+    /**
+     * 
+     * @type {AdminAgeEstimation}
+     * @memberof VideoContent
+     */
+    ageEstimation?: AdminAgeEstimation | null;
     /**
      * 
      * @type {string}
@@ -112,6 +125,7 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'origin': json['origin'] == null ? undefined : MediaOriginFromJSON(json['origin']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
+        'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
         'generationId': json['generation_id'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
@@ -135,6 +149,7 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'origin': MediaOriginToJSON(value['origin']),
         'width': value['width'],
         'height': value['height'],
+        'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
         'generation_id': value['generationId'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
