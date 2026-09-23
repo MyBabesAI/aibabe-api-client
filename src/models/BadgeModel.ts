@@ -133,12 +133,6 @@ export interface BadgeModel {
      * @memberof BadgeModel
      */
     visible?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof BadgeModel
-     */
-    autoAwarded?: boolean;
 }
 
 /**
@@ -180,7 +174,6 @@ export function BadgeModelFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'manuallyProvided': json['manually_provided'] == null ? undefined : json['manually_provided'],
         'usable': json['usable'] == null ? undefined : json['usable'],
         'visible': json['visible'] == null ? undefined : json['visible'],
-        'autoAwarded': json['auto_awarded'] == null ? undefined : json['auto_awarded'],
     };
 }
 
@@ -214,7 +207,6 @@ export function BadgeModelFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'manually_provided': value['manuallyProvided'],
         'usable': value['usable'],
         'visible': value['visible'],
-        'auto_awarded': value['autoAwarded'],
     };
 }
 

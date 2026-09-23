@@ -134,12 +134,6 @@ export interface AdminBadgeResponse {
      * @memberof AdminBadgeResponse
      */
     visible: boolean;
-    /**
-     *
-     * @type {boolean}
-     * @memberof AdminBadgeResponse
-     */
-    autoAwarded: boolean;
 }
 /**
  * Check if a given object implements the AdminBadgeResponse interface.

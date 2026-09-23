@@ -51,8 +51,6 @@ function instanceOfAdminBadgeResponse(value) {
         return false;
     if (!('visible' in value) || value['visible'] === undefined)
         return false;
-    if (!('autoAwarded' in value) || value['autoAwarded'] === undefined)
-        return false;
     return true;
 }
 function AdminBadgeResponseFromJSON(json) {
@@ -82,7 +80,6 @@ function AdminBadgeResponseFromJSONTyped(json, ignoreDiscriminator) {
         'manuallyProvided': json['manually_provided'],
         'usable': json['usable'],
         'visible': json['visible'],
-        'autoAwarded': json['auto_awarded'],
     };
 }
 function AdminBadgeResponseToJSON(json) {
@@ -112,7 +109,6 @@ function AdminBadgeResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'manually_provided': value['manuallyProvided'],
         'usable': value['usable'],
         'visible': value['visible'],
-        'auto_awarded': value['autoAwarded'],
     };
 }
 //# sourceMappingURL=AdminBadgeResponse.js.map

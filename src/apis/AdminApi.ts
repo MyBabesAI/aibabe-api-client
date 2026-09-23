@@ -168,7 +168,6 @@ export interface CreateBadgeAdminBadgesPostRequest {
     manuallyProvided?: boolean;
     usable?: boolean;
     visible?: boolean;
-    autoAwarded?: boolean;
 }
 
 export interface CreatePromotionAdminPromotionPostRequest {
@@ -274,7 +273,6 @@ export interface UpdateBadgeAdminBadgesBadgeIdPatchRequest {
     manuallyProvided?: boolean | null;
     usable?: boolean | null;
     visible?: boolean | null;
-    autoAwarded?: boolean | null;
 }
 
 export interface UpdatePromotionAdminPromotionPromotionIdPatchRequest {
@@ -622,10 +620,6 @@ export class AdminApi extends runtime.BaseAPI {
 
         if (requestParameters['visible'] != null) {
             formParams.append('visible', requestParameters['visible'] as any);
-        }
-
-        if (requestParameters['autoAwarded'] != null) {
-            formParams.append('auto_awarded', requestParameters['autoAwarded'] as any);
         }
 
         const response = await this.request({
@@ -1509,10 +1503,6 @@ export class AdminApi extends runtime.BaseAPI {
 
         if (requestParameters['visible'] != null) {
             formParams.append('visible', requestParameters['visible'] as any);
-        }
-
-        if (requestParameters['autoAwarded'] != null) {
-            formParams.append('auto_awarded', requestParameters['autoAwarded'] as any);
         }
 
         const response = await this.request({

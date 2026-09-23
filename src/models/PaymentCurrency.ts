@@ -19,7 +19,15 @@
  */
 export const PaymentCurrency = {
     Usd: 'USD',
-    Eur: 'EUR'
+    Eur: 'EUR',
+    Jpy: 'JPY',
+    Krw: 'KRW',
+    Cad: 'CAD',
+    Aud: 'AUD',
+    Gbp: 'GBP',
+    Pln: 'PLN',
+    Sek: 'SEK',
+    Sgd: 'SGD'
 } as const;
 export type PaymentCurrency = typeof PaymentCurrency[keyof typeof PaymentCurrency];
 

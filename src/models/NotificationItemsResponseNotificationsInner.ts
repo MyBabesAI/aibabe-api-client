@@ -62,13 +62,6 @@ import {
     ContentTypeToJSON,
     ContentTypeToJSONTyped,
 } from './ContentType';
-import type { BadgeAwardedNotification } from './BadgeAwardedNotification';
-import {
-    BadgeAwardedNotificationFromJSON,
-    BadgeAwardedNotificationFromJSONTyped,
-    BadgeAwardedNotificationToJSON,
-    BadgeAwardedNotificationToJSONTyped,
-} from './BadgeAwardedNotification';
 import type { GalleryTab } from './GalleryTab';
 import {
     GalleryTabFromJSON,
@@ -293,18 +286,6 @@ export interface NotificationItemsResponseNotificationsInner {
      * @type {string}
      * @memberof NotificationItemsResponseNotificationsInner
      */
-    sourceEventId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotificationItemsResponseNotificationsInner
-     */
-    sourceEventName?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof NotificationItemsResponseNotificationsInner
-     */
     eventId: string;
     /**
      * 
@@ -421,8 +402,6 @@ export function NotificationItemsResponseNotificationsInnerFromJSONTyped(json: a
         'episodeTitle': json['episode_title'],
         'coverImage': json['cover_image'],
         'badge': BadgeModelFromJSON(json['badge']),
-        'sourceEventId': json['source_event_id'] == null ? undefined : json['source_event_id'],
-        'sourceEventName': json['source_event_name'] == null ? undefined : json['source_event_name'],
         'eventId': json['event_id'],
         'eventName': json['event_name'],
         'eventBackgroundImage': json['event_background_image'] == null ? undefined : json['event_background_image'],
@@ -466,8 +445,6 @@ export function NotificationItemsResponseNotificationsInnerFromJSONTyped(json: a
         'episode_title': value['episodeTitle'],
         'cover_image': value['coverImage'],
         'badge': BadgeModelToJSON(value['badge']),
-        'source_event_id': value['sourceEventId'],
-        'source_event_name': value['sourceEventName'],
         'event_id': value['eventId'],
         'event_name': value['eventName'],
         'event_background_image': value['eventBackgroundImage'],

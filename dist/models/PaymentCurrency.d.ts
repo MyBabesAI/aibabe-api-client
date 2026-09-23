@@ -16,6 +16,14 @@
 export declare const PaymentCurrency: {
     readonly Usd: "USD";
     readonly Eur: "EUR";
+    readonly Jpy: "JPY";
+    readonly Krw: "KRW";
+    readonly Cad: "CAD";
+    readonly Aud: "AUD";
+    readonly Gbp: "GBP";
+    readonly Pln: "PLN";
+    readonly Sek: "SEK";
+    readonly Sgd: "SGD";
 };
 export type PaymentCurrency = typeof PaymentCurrency[keyof typeof PaymentCurrency];
 export declare function instanceOfPaymentCurrency(value: any): boolean;
