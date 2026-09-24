@@ -49,6 +49,7 @@ __exportStar(require("./AdminTokenUsageResponse"), exports);
 __exportStar(require("./AdminUpdatePromotionRequest"), exports);
 __exportStar(require("./AdminUserJourneyListItem"), exports);
 __exportStar(require("./AdminUserJourneysResponse"), exports);
+__exportStar(require("./AgeVerificationAlternativeProvider"), exports);
 __exportStar(require("./AgeVerificationStatusResponse"), exports);
 __exportStar(require("./ArtStyle"), exports);
 __exportStar(require("./AssistantChatMessageDetail"), exports);
