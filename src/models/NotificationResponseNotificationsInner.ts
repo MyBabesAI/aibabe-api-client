@@ -55,6 +55,13 @@ import {
     DonationsGroupNotificationToJSON,
     DonationsGroupNotificationToJSONTyped,
 } from './DonationsGroupNotification';
+import type { BadgeAwardedNotification } from './BadgeAwardedNotification';
+import {
+    BadgeAwardedNotificationFromJSON,
+    BadgeAwardedNotificationFromJSONTyped,
+    BadgeAwardedNotificationToJSON,
+    BadgeAwardedNotificationToJSONTyped,
+} from './BadgeAwardedNotification';
 import type { FeedGroupNotification } from './FeedGroupNotification';
 import {
     FeedGroupNotificationFromJSON,
@@ -268,6 +275,18 @@ export interface NotificationResponseNotificationsInner {
      * @type {string}
      * @memberof NotificationResponseNotificationsInner
      */
+    sourceEventId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
+    sourceEventName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationResponseNotificationsInner
+     */
     eventId: string;
     /**
      * 
@@ -382,6 +401,8 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
         'episodeTitle': json['episode_title'],
         'coverImage': json['cover_image'],
         'badge': BadgeModelFromJSON(json['badge']),
+        'sourceEventId': json['source_event_id'] == null ? undefined : json['source_event_id'],
+        'sourceEventName': json['source_event_name'] == null ? undefined : json['source_event_name'],
         'eventId': json['event_id'],
         'eventName': json['event_name'],
         'eventBackgroundImage': json['event_background_image'] == null ? undefined : json['event_background_image'],
@@ -422,6 +443,8 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
         'episode_title': value['episodeTitle'],
         'cover_image': value['coverImage'],
         'badge': BadgeModelToJSON(value['badge']),
+        'source_event_id': value['sourceEventId'],
+        'source_event_name': value['sourceEventName'],
         'event_id': value['eventId'],
         'event_name': value['eventName'],
         'event_background_image': value['eventBackgroundImage'],

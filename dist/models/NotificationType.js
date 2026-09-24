@@ -29,6 +29,7 @@ exports.NotificationType = {
     Follow: 'follow',
     EpisodeUnlock: 'episode_unlock',
     Badge: 'badge',
+    BadgeAwarded: 'badge_awarded',
     NewEpisode: 'new_episode',
     NewPost: 'new_post',
     NewEvent: 'new_event',

@@ -106,6 +106,12 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     origin?: ChatbotPreview | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GetCustomChatbotResponse
+     */
+    greeting?: string;
 }
 /**
  * Check if a given object implements the GetCustomChatbotResponse interface.

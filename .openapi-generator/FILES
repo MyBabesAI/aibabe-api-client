@@ -78,6 +78,7 @@ src/models/AvatarFieldValue.ts
 src/models/AvatarLooksV2.ts
 src/models/AvatarOptionalField.ts
 src/models/AvatarRequiredField.ts
+src/models/BadgeAwardedNotification.ts
 src/models/BadgeCategory.ts
 src/models/BadgeModel.ts
 src/models/BadgeNotification.ts
