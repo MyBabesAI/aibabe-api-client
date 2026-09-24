@@ -25,7 +25,15 @@ exports.PaymentCurrencyToJSONTyped = PaymentCurrencyToJSONTyped;
  */
 exports.PaymentCurrency = {
     Usd: 'USD',
-    Eur: 'EUR'
+    Eur: 'EUR',
+    Jpy: 'JPY',
+    Krw: 'KRW',
+    Cad: 'CAD',
+    Aud: 'AUD',
+    Gbp: 'GBP',
+    Pln: 'PLN',
+    Sek: 'SEK',
+    Sgd: 'SGD'
 };
 function instanceOfPaymentCurrency(value) {
     for (const key in exports.PaymentCurrency) {
