@@ -169,6 +169,12 @@ export interface AdminBadgeResponse {
      * @memberof AdminBadgeResponse
      */
     visible: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof AdminBadgeResponse
+     */
+    autoAwarded: boolean;
 }
 
 
@@ -189,6 +195,7 @@ export function instanceOfAdminBadgeResponse(value: object): value is AdminBadge
     if (!('manuallyProvided' in value) || value['manuallyProvided'] === undefined) return false;
     if (!('usable' in value) || value['usable'] === undefined) return false;
     if (!('visible' in value) || value['visible'] === undefined) return false;
+    if (!('autoAwarded' in value) || value['autoAwarded'] === undefined) return false;
     return true;
 }
 
@@ -221,6 +228,7 @@ export function AdminBadgeResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         'manuallyProvided': json['manually_provided'],
         'usable': json['usable'],
         'visible': json['visible'],
+        'autoAwarded': json['auto_awarded'],
     };
 }
 
@@ -254,6 +262,7 @@ export function AdminBadgeResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         'manually_provided': value['manuallyProvided'],
         'usable': value['usable'],
         'visible': value['visible'],
+        'auto_awarded': value['autoAwarded'],
     };
 }
 

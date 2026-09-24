@@ -60,6 +60,7 @@ __exportStar(require("./AvatarFieldValue"), exports);
 __exportStar(require("./AvatarLooksV2"), exports);
 __exportStar(require("./AvatarOptionalField"), exports);
 __exportStar(require("./AvatarRequiredField"), exports);
+__exportStar(require("./BadgeAwardedNotification"), exports);
 __exportStar(require("./BadgeCategory"), exports);
 __exportStar(require("./BadgeModel"), exports);
 __exportStar(require("./BadgeNotification"), exports);

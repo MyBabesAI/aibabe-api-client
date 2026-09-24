@@ -57,6 +57,7 @@ function BadgeModelFromJSONTyped(json, ignoreDiscriminator) {
         'manuallyProvided': json['manually_provided'] == null ? undefined : json['manually_provided'],
         'usable': json['usable'] == null ? undefined : json['usable'],
         'visible': json['visible'] == null ? undefined : json['visible'],
+        'autoAwarded': json['auto_awarded'] == null ? undefined : json['auto_awarded'],
     };
 }
 function BadgeModelToJSON(json) {
@@ -86,6 +87,7 @@ function BadgeModelToJSONTyped(value, ignoreDiscriminator = false) {
         'manually_provided': value['manuallyProvided'],
         'usable': value['usable'],
         'visible': value['visible'],
+        'auto_awarded': value['autoAwarded'],
     };
 }
 //# sourceMappingURL=BadgeModel.js.map

@@ -47,6 +47,7 @@ export interface CreateBadgeAdminBadgesPostRequest {
     manuallyProvided?: boolean;
     usable?: boolean;
     visible?: boolean;
+    autoAwarded?: boolean;
 }
 export interface CreatePromotionAdminPromotionPostRequest {
     adminCreatePromotionRequest: AdminCreatePromotionRequest;
@@ -136,6 +137,7 @@ export interface UpdateBadgeAdminBadgesBadgeIdPatchRequest {
     manuallyProvided?: boolean | null;
     usable?: boolean | null;
     visible?: boolean | null;
+    autoAwarded?: boolean | null;
 }
 export interface UpdatePromotionAdminPromotionPromotionIdPatchRequest {
     promotionId: string;
