@@ -104,6 +104,12 @@ export interface UserInfoResponse {
      * @memberof UserInfoResponse
      */
     preferenceProfile?: UserPreferenceProfile | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UserInfoResponse
+     */
+    ageVerificationPending?: boolean;
 }
 /**
  * Check if a given object implements the UserInfoResponse interface.
