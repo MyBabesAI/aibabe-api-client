@@ -139,6 +139,12 @@ export interface UserInfoResponse {
      * @memberof UserInfoResponse
      */
     preferenceProfile?: UserPreferenceProfile | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UserInfoResponse
+     */
+    ageVerificationPending?: boolean;
 }
 
 
@@ -186,6 +192,7 @@ export function UserInfoResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'lastTokenPack': json['last_token_pack'] == null ? undefined : json['last_token_pack'],
         'subscription': SubscriptionFromJSON(json['subscription']),
         'preferenceProfile': json['preference_profile'] == null ? undefined : UserPreferenceProfileFromJSON(json['preference_profile']),
+        'ageVerificationPending': json['age_verification_pending'] == null ? undefined : json['age_verification_pending'],
     };
 }
 
@@ -214,6 +221,7 @@ export function UserInfoResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'last_token_pack': value['lastTokenPack'],
         'subscription': SubscriptionToJSON(value['subscription']),
         'preference_profile': UserPreferenceProfileToJSON(value['preferenceProfile']),
+        'age_verification_pending': value['ageVerificationPending'],
     };
 }
 

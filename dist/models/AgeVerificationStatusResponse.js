@@ -18,6 +18,7 @@ exports.AgeVerificationStatusResponseFromJSON = AgeVerificationStatusResponseFro
 exports.AgeVerificationStatusResponseFromJSONTyped = AgeVerificationStatusResponseFromJSONTyped;
 exports.AgeVerificationStatusResponseToJSON = AgeVerificationStatusResponseToJSON;
 exports.AgeVerificationStatusResponseToJSONTyped = AgeVerificationStatusResponseToJSONTyped;
+const AgeVerificationAlternativeProvider_1 = require("./AgeVerificationAlternativeProvider");
 /**
  * Check if a given object implements the AgeVerificationStatusResponse interface.
  */
@@ -43,6 +44,7 @@ function AgeVerificationStatusResponseFromJSONTyped(json, ignoreDiscriminator) {
         'country': json['country'],
         'iframeUrl': json['iframe_url'] == null ? undefined : json['iframe_url'],
         'redirectUrl': json['redirect_url'] == null ? undefined : json['redirect_url'],
+        'alternativeProviders': json['alternative_providers'] == null ? undefined : (json['alternative_providers'].map(AgeVerificationAlternativeProvider_1.AgeVerificationAlternativeProviderFromJSON)),
     };
 }
 function AgeVerificationStatusResponseToJSON(json) {
@@ -58,6 +60,7 @@ function AgeVerificationStatusResponseToJSONTyped(value, ignoreDiscriminator = f
         'country': value['country'],
         'iframe_url': value['iframeUrl'],
         'redirect_url': value['redirectUrl'],
+        'alternative_providers': value['alternativeProviders'] == null ? undefined : (value['alternativeProviders'].map(AgeVerificationAlternativeProvider_1.AgeVerificationAlternativeProviderToJSON)),
     };
 }
 //# sourceMappingURL=AgeVerificationStatusResponse.js.map

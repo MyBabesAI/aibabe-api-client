@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { AgeVerificationAlternativeProvider } from './AgeVerificationAlternativeProvider';
 /**
  *
  * @export
@@ -45,6 +46,12 @@ export interface AgeVerificationStatusResponse {
      * @memberof AgeVerificationStatusResponse
      */
     redirectUrl?: string | null;
+    /**
+     *
+     * @type {Array<AgeVerificationAlternativeProvider>}
+     * @memberof AgeVerificationStatusResponse
+     */
+    alternativeProviders?: Array<AgeVerificationAlternativeProvider>;
 }
 /**
  * Check if a given object implements the AgeVerificationStatusResponse interface.

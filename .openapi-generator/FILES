@@ -67,6 +67,7 @@ src/models/AdminTokenUsageResponse.ts
 src/models/AdminUpdatePromotionRequest.ts
 src/models/AdminUserJourneyListItem.ts
 src/models/AdminUserJourneysResponse.ts
+src/models/AgeVerificationAlternativeProvider.ts
 src/models/AgeVerificationStatusResponse.ts
 src/models/ArtStyle.ts
 src/models/AssistantChatMessageDetail.ts
