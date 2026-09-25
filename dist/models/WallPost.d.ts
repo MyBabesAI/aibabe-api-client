@@ -79,12 +79,6 @@ export interface WallPost {
     description: string;
     /**
      *
-     * @type {string}
-     * @memberof WallPost
-     */
-    caption?: string;
-    /**
-     *
      * @type {Date}
      * @memberof WallPost
      */
