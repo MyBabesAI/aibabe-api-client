@@ -20,24 +20,10 @@ export interface GetStatusAgeVerificationStatusGetRequest {
 export interface RedeemAgeVerificationRedeemPostRequest {
     redeemAgeVerificationRequest: RedeemAgeVerificationRequest;
 }
-export interface YotiReturnAgeVerificationReturnYotiGetRequest {
-    nonce: string;
-}
-export interface YotiStartAgeVerificationStartYotiGetRequest {
-    nonce: string;
-}
 /**
  *
  */
 export declare class AgeVerificationApi extends runtime.BaseAPI {
-    /**
-     * Agego Return
-     */
-    agegoReturnAgeVerificationReturnAgegoGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
-    /**
-     * Agego Return
-     */
-    agegoReturnAgeVerificationReturnAgegoGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Callback
      */
@@ -78,21 +64,5 @@ export declare class AgeVerificationApi extends runtime.BaseAPI {
      * Redeem
      */
     redeemAgeVerificationRedeemPost(requestParameters: RedeemAgeVerificationRedeemPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RedeemAgeVerificationResponse>;
-    /**
-     * Yoti Return
-     */
-    yotiReturnAgeVerificationReturnYotiGetRaw(requestParameters: YotiReturnAgeVerificationReturnYotiGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
-    /**
-     * Yoti Return
-     */
-    yotiReturnAgeVerificationReturnYotiGet(requestParameters: YotiReturnAgeVerificationReturnYotiGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
-    /**
-     * Yoti Start
-     */
-    yotiStartAgeVerificationStartYotiGetRaw(requestParameters: YotiStartAgeVerificationStartYotiGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
-    /**
-     * Yoti Start
-     */
-    yotiStartAgeVerificationStartYotiGet(requestParameters: YotiStartAgeVerificationStartYotiGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
 }
 //# sourceMappingURL=AgeVerificationApi.d.ts.map

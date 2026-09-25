@@ -88,12 +88,6 @@ export interface PatchUserPreferenceProfileRequest {
      * @type {boolean}
      * @memberof PatchUserPreferenceProfileRequest
      */
-    badgeAnimationsEnabled?: boolean | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof PatchUserPreferenceProfileRequest
-     */
     adventureOnlySoloImages?: boolean | null;
     /**
      *

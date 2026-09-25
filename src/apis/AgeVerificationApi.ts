@@ -49,48 +49,10 @@ export interface RedeemAgeVerificationRedeemPostRequest {
     redeemAgeVerificationRequest: RedeemAgeVerificationRequest;
 }
 
-export interface YotiReturnAgeVerificationReturnYotiGetRequest {
-    nonce: string;
-}
-
-export interface YotiStartAgeVerificationStartYotiGetRequest {
-    nonce: string;
-}
-
 /**
  * 
  */
 export class AgeVerificationApi extends runtime.BaseAPI {
-
-    /**
-     * Agego Return
-     */
-    async agegoReturnAgeVerificationReturnAgegoGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/age-verification/return/agego/`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * Agego Return
-     */
-    async agegoReturnAgeVerificationReturnAgegoGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
-        const response = await this.agegoReturnAgeVerificationReturnAgegoGetRaw(initOverrides);
-        return await response.value();
-    }
 
     /**
      * Callback
@@ -251,88 +213,6 @@ export class AgeVerificationApi extends runtime.BaseAPI {
      */
     async redeemAgeVerificationRedeemPost(requestParameters: RedeemAgeVerificationRedeemPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RedeemAgeVerificationResponse> {
         const response = await this.redeemAgeVerificationRedeemPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Yoti Return
-     */
-    async yotiReturnAgeVerificationReturnYotiGetRaw(requestParameters: YotiReturnAgeVerificationReturnYotiGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['nonce'] == null) {
-            throw new runtime.RequiredError(
-                'nonce',
-                'Required parameter "nonce" was null or undefined when calling yotiReturnAgeVerificationReturnYotiGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['nonce'] != null) {
-            queryParameters['nonce'] = requestParameters['nonce'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/age-verification/return/yoti/`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * Yoti Return
-     */
-    async yotiReturnAgeVerificationReturnYotiGet(requestParameters: YotiReturnAgeVerificationReturnYotiGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
-        const response = await this.yotiReturnAgeVerificationReturnYotiGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Yoti Start
-     */
-    async yotiStartAgeVerificationStartYotiGetRaw(requestParameters: YotiStartAgeVerificationStartYotiGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['nonce'] == null) {
-            throw new runtime.RequiredError(
-                'nonce',
-                'Required parameter "nonce" was null or undefined when calling yotiStartAgeVerificationStartYotiGet().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters['nonce'] != null) {
-            queryParameters['nonce'] = requestParameters['nonce'];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/age-verification/start/yoti/`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * Yoti Start
-     */
-    async yotiStartAgeVerificationStartYotiGet(requestParameters: YotiStartAgeVerificationStartYotiGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
-        const response = await this.yotiStartAgeVerificationStartYotiGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

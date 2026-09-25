@@ -71,7 +71,6 @@ function GetCustomChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'creator': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowFromJSON)(json['creator']),
         'postDetails': json['post_details'] == null ? undefined : (0, PostDetailsWithDate_1.PostDetailsWithDateFromJSON)(json['post_details']),
         'origin': json['origin'] == null ? undefined : (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['origin']),
-        'greeting': json['greeting'] == null ? undefined : json['greeting'],
     };
 }
 function GetCustomChatbotResponseToJSON(json) {
@@ -96,7 +95,6 @@ function GetCustomChatbotResponseToJSONTyped(value, ignoreDiscriminator = false)
         'creator': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowToJSON)(value['creator']),
         'post_details': (0, PostDetailsWithDate_1.PostDetailsWithDateToJSON)(value['postDetails']),
         'origin': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['origin']),
-        'greeting': value['greeting'],
     };
 }
 //# sourceMappingURL=GetCustomChatbotResponse.js.map

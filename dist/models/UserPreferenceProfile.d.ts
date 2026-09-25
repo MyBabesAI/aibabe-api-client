@@ -88,12 +88,6 @@ export interface UserPreferenceProfile {
      * @type {boolean}
      * @memberof UserPreferenceProfile
      */
-    badgeAnimationsEnabled?: boolean;
-    /**
-     *
-     * @type {boolean}
-     * @memberof UserPreferenceProfile
-     */
     adventureOnlySoloImages?: boolean;
     /**
      *

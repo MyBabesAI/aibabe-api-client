@@ -105,12 +105,6 @@ export interface UserPreferenceProfile {
      * @type {boolean}
      * @memberof UserPreferenceProfile
      */
-    badgeAnimationsEnabled?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UserPreferenceProfile
-     */
     adventureOnlySoloImages?: boolean;
     /**
      * 
@@ -162,7 +156,6 @@ export function UserPreferenceProfileFromJSONTyped(json: any, ignoreDiscriminato
         'videoPromptExpansion': json['video_prompt_expansion'] == null ? undefined : json['video_prompt_expansion'],
         'chatGlassStyle': json['chat_glass_style'] == null ? undefined : json['chat_glass_style'],
         'chatSuggestionPanel': json['chat_suggestion_panel'] == null ? undefined : json['chat_suggestion_panel'],
-        'badgeAnimationsEnabled': json['badge_animations_enabled'] == null ? undefined : json['badge_animations_enabled'],
         'adventureOnlySoloImages': json['adventure_only_solo_images'] == null ? undefined : json['adventure_only_solo_images'],
         'adventureSfwFilterOn': json['adventure_sfw_filter_on'] == null ? undefined : json['adventure_sfw_filter_on'],
         'adventureImageMode': json['adventure_image_mode'] == null ? undefined : ImageSendingModeFromJSON(json['adventure_image_mode']),
@@ -192,7 +185,6 @@ export function UserPreferenceProfileFromJSONTyped(json: any, ignoreDiscriminato
         'video_prompt_expansion': value['videoPromptExpansion'],
         'chat_glass_style': value['chatGlassStyle'],
         'chat_suggestion_panel': value['chatSuggestionPanel'],
-        'badge_animations_enabled': value['badgeAnimationsEnabled'],
         'adventure_only_solo_images': value['adventureOnlySoloImages'],
         'adventure_sfw_filter_on': value['adventureSfwFilterOn'],
         'adventure_image_mode': ImageSendingModeToJSON(value['adventureImageMode']),

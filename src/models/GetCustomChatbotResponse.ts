@@ -153,12 +153,6 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     origin?: ChatbotPreview | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GetCustomChatbotResponse
-     */
-    greeting?: string;
 }
 
 
@@ -203,7 +197,6 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'creator': PublicUserPreviewWithFollowFromJSON(json['creator']),
         'postDetails': json['post_details'] == null ? undefined : PostDetailsWithDateFromJSON(json['post_details']),
         'origin': json['origin'] == null ? undefined : ChatbotPreviewFromJSON(json['origin']),
-        'greeting': json['greeting'] == null ? undefined : json['greeting'],
     };
 }
 
@@ -232,7 +225,6 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'creator': PublicUserPreviewWithFollowToJSON(value['creator']),
         'post_details': PostDetailsWithDateToJSON(value['postDetails']),
         'origin': ChatbotPreviewToJSON(value['origin']),
-        'greeting': value['greeting'],
     };
 }
 

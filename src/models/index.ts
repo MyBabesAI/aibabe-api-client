@@ -33,7 +33,6 @@ export * from './AdminTokenUsageResponse';
 export * from './AdminUpdatePromotionRequest';
 export * from './AdminUserJourneyListItem';
 export * from './AdminUserJourneysResponse';
-export * from './AgeVerificationAlternativeProvider';
 export * from './AgeVerificationStatusResponse';
 export * from './ArtStyle';
 export * from './AssistantChatMessageDetail';

@@ -13,14 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { AgeVerificationAlternativeProvider } from './AgeVerificationAlternativeProvider';
-import {
-    AgeVerificationAlternativeProviderFromJSON,
-    AgeVerificationAlternativeProviderFromJSONTyped,
-    AgeVerificationAlternativeProviderToJSON,
-    AgeVerificationAlternativeProviderToJSONTyped,
-} from './AgeVerificationAlternativeProvider';
-
 /**
  * 
  * @export
@@ -57,12 +49,6 @@ export interface AgeVerificationStatusResponse {
      * @memberof AgeVerificationStatusResponse
      */
     redirectUrl?: string | null;
-    /**
-     * 
-     * @type {Array<AgeVerificationAlternativeProvider>}
-     * @memberof AgeVerificationStatusResponse
-     */
-    alternativeProviders?: Array<AgeVerificationAlternativeProvider>;
 }
 
 /**
@@ -90,7 +76,6 @@ export function AgeVerificationStatusResponseFromJSONTyped(json: any, ignoreDisc
         'country': json['country'],
         'iframeUrl': json['iframe_url'] == null ? undefined : json['iframe_url'],
         'redirectUrl': json['redirect_url'] == null ? undefined : json['redirect_url'],
-        'alternativeProviders': json['alternative_providers'] == null ? undefined : ((json['alternative_providers'] as Array<any>).map(AgeVerificationAlternativeProviderFromJSON)),
     };
 }
 
@@ -110,7 +95,6 @@ export function AgeVerificationStatusResponseFromJSONTyped(json: any, ignoreDisc
         'country': value['country'],
         'iframe_url': value['iframeUrl'],
         'redirect_url': value['redirectUrl'],
-        'alternative_providers': value['alternativeProviders'] == null ? undefined : ((value['alternativeProviders'] as Array<any>).map(AgeVerificationAlternativeProviderToJSON)),
     };
 }
 

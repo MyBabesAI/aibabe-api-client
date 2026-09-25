@@ -54,32 +54,6 @@ const index_1 = require("../models/index");
  */
 class AgeVerificationApi extends runtime.BaseAPI {
     /**
-     * Agego Return
-     */
-    async agegoReturnAgeVerificationReturnAgegoGetRaw(initOverrides) {
-        const queryParameters = {};
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/age-verification/return/agego/`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse(response);
-        }
-        else {
-            return new runtime.TextApiResponse(response);
-        }
-    }
-    /**
-     * Agego Return
-     */
-    async agegoReturnAgeVerificationReturnAgegoGet(initOverrides) {
-        const response = await this.agegoReturnAgeVerificationReturnAgegoGetRaw(initOverrides);
-        return await response.value();
-    }
-    /**
      * Callback
      */
     async callbackAgeVerificationCallbackPostRaw(initOverrides) {
@@ -205,70 +179,6 @@ class AgeVerificationApi extends runtime.BaseAPI {
      */
     async redeemAgeVerificationRedeemPost(requestParameters, initOverrides) {
         const response = await this.redeemAgeVerificationRedeemPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
-     * Yoti Return
-     */
-    async yotiReturnAgeVerificationReturnYotiGetRaw(requestParameters, initOverrides) {
-        if (requestParameters['nonce'] == null) {
-            throw new runtime.RequiredError('nonce', 'Required parameter "nonce" was null or undefined when calling yotiReturnAgeVerificationReturnYotiGet().');
-        }
-        const queryParameters = {};
-        if (requestParameters['nonce'] != null) {
-            queryParameters['nonce'] = requestParameters['nonce'];
-        }
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/age-verification/return/yoti/`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse(response);
-        }
-        else {
-            return new runtime.TextApiResponse(response);
-        }
-    }
-    /**
-     * Yoti Return
-     */
-    async yotiReturnAgeVerificationReturnYotiGet(requestParameters, initOverrides) {
-        const response = await this.yotiReturnAgeVerificationReturnYotiGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
-     * Yoti Start
-     */
-    async yotiStartAgeVerificationStartYotiGetRaw(requestParameters, initOverrides) {
-        if (requestParameters['nonce'] == null) {
-            throw new runtime.RequiredError('nonce', 'Required parameter "nonce" was null or undefined when calling yotiStartAgeVerificationStartYotiGet().');
-        }
-        const queryParameters = {};
-        if (requestParameters['nonce'] != null) {
-            queryParameters['nonce'] = requestParameters['nonce'];
-        }
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/age-verification/start/yoti/`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse(response);
-        }
-        else {
-            return new runtime.TextApiResponse(response);
-        }
-    }
-    /**
-     * Yoti Start
-     */
-    async yotiStartAgeVerificationStartYotiGet(requestParameters, initOverrides) {
-        const response = await this.yotiStartAgeVerificationStartYotiGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 }
