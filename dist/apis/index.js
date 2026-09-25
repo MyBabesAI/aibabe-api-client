@@ -31,6 +31,7 @@ __exportStar(require("./GameAdventuresApi"), exports);
 __exportStar(require("./HeartbeatApi"), exports);
 __exportStar(require("./ImageApi"), exports);
 __exportStar(require("./LeaderboardsApi"), exports);
+__exportStar(require("./LiveApi"), exports);
 __exportStar(require("./MemoryApi"), exports);
 __exportStar(require("./NotificationApi"), exports);
 __exportStar(require("./PostApi"), exports);

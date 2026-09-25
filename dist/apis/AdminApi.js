@@ -383,6 +383,33 @@ class AdminApi extends runtime.BaseAPI {
         }
     }
     /**
+     * Decide the current round\'s winner ahead of the lock.
+     * Force Winner
+     */
+    async forceWinnerAdminLiveWinnerPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['liveAdminForceWinnerRequest'] == null) {
+            throw new runtime.RequiredError('liveAdminForceWinnerRequest', 'Required parameter "liveAdminForceWinnerRequest" was null or undefined when calling forceWinnerAdminLiveWinnerPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/admin/live/winner`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.LiveAdminForceWinnerRequestToJSON)(requestParameters['liveAdminForceWinnerRequest']),
+        }, initOverrides);
+        return new runtime.VoidApiResponse(response);
+    }
+    /**
+     * Decide the current round\'s winner ahead of the lock.
+     * Force Winner
+     */
+    async forceWinnerAdminLiveWinnerPost(requestParameters, initOverrides) {
+        await this.forceWinnerAdminLiveWinnerPostRaw(requestParameters, initOverrides);
+    }
+    /**
      * Generate Codes
      */
     async generateCodesAdminGiftCodesGeneratePostRaw(requestParameters, initOverrides) {
@@ -547,6 +574,29 @@ class AdminApi extends runtime.BaseAPI {
      */
     async getQualityControlImagesAdminImageQualityControlPost(requestParameters, initOverrides) {
         const response = await this.getQualityControlImagesAdminImageQualityControlPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Everything an operator wants at a glance: channel, round, heat, queue, ledger backlog, engine heartbeat.
+     * Get Status
+     */
+    async getStatusAdminLiveGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/live`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.LiveAdminStatusFromJSON)(jsonValue));
+    }
+    /**
+     * Everything an operator wants at a glance: channel, round, heat, queue, ledger backlog, engine heartbeat.
+     * Get Status
+     */
+    async getStatusAdminLiveGet(initOverrides) {
+        const response = await this.getStatusAdminLiveGetRaw(initOverrides);
         return await response.value();
     }
     /**
@@ -768,6 +818,29 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Stop opening rounds and refuse spends; other processes follow within their settings refresh.
+     * Pause
+     */
+    async pauseAdminLivePausePostRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/live/pause`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.LiveAdminChannelFromJSON)(jsonValue));
+    }
+    /**
+     * Stop opening rounds and refuse spends; other processes follow within their settings refresh.
+     * Pause
+     */
+    async pauseAdminLivePausePost(initOverrides) {
+        const response = await this.pauseAdminLivePausePostRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Provide Award
      */
     async provideAwardAdminBadgesAwardPostRaw(requestParameters, initOverrides) {
@@ -799,6 +872,29 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Run the ledger reconciliation now and return what it found.
+     * Reconciliation
+     */
+    async reconciliationAdminLiveReconciliationGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/live/reconciliation`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.LiveAdminReconciliationReportFromJSON)(jsonValue));
+    }
+    /**
+     * Run the ledger reconciliation now and return what it found.
+     * Reconciliation
+     */
+    async reconciliationAdminLiveReconciliationGet(initOverrides) {
+        const response = await this.reconciliationAdminLiveReconciliationGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Reset User Claimables
      */
     async resetUserClaimablesAdminUserResetClaimablesPostRaw(initOverrides) {
@@ -822,6 +918,27 @@ class AdminApi extends runtime.BaseAPI {
      */
     async resetUserClaimablesAdminUserResetClaimablesPost(initOverrides) {
         const response = await this.resetUserClaimablesAdminUserResetClaimablesPostRaw(initOverrides);
+        return await response.value();
+    }
+    /**
+     * Resume
+     */
+    async resumeAdminLiveResumePostRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/live/resume`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.LiveAdminChannelFromJSON)(jsonValue));
+    }
+    /**
+     * Resume
+     */
+    async resumeAdminLiveResumePost(initOverrides) {
+        const response = await this.resumeAdminLiveResumePostRaw(initOverrides);
         return await response.value();
     }
     /**
@@ -875,6 +992,28 @@ class AdminApi extends runtime.BaseAPI {
     async setUserFeatureFlagsAdminUserFeatureFlagsPut(requestParameters, initOverrides) {
         const response = await this.setUserFeatureFlagsAdminUserFeatureFlagsPutRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+    /**
+     * End the current phase at the engine\'s next tick.
+     * Skip Round
+     */
+    async skipRoundAdminLiveSkipPostRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/live/skip`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.VoidApiResponse(response);
+    }
+    /**
+     * End the current phase at the engine\'s next tick.
+     * Skip Round
+     */
+    async skipRoundAdminLiveSkipPost(initOverrides) {
+        await this.skipRoundAdminLiveSkipPostRaw(initOverrides);
     }
     /**
      * Unblacklist Content
@@ -1026,6 +1165,34 @@ class AdminApi extends runtime.BaseAPI {
      */
     async updatePromotionAdminPromotionPromotionIdPatch(requestParameters, initOverrides) {
         const response = await this.updatePromotionAdminPromotionPromotionIdPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Replace the channel\'s tunables and bump its version.
+     * Update Settings
+     */
+    async updateSettingsAdminLiveSettingsPutRaw(requestParameters, initOverrides) {
+        if (requestParameters['liveAdminSettingsRequest'] == null) {
+            throw new runtime.RequiredError('liveAdminSettingsRequest', 'Required parameter "liveAdminSettingsRequest" was null or undefined when calling updateSettingsAdminLiveSettingsPut().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/admin/live/settings`,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.LiveAdminSettingsRequestToJSON)(requestParameters['liveAdminSettingsRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.LiveAdminChannelFromJSON)(jsonValue));
+    }
+    /**
+     * Replace the channel\'s tunables and bump its version.
+     * Update Settings
+     */
+    async updateSettingsAdminLiveSettingsPut(requestParameters, initOverrides) {
+        const response = await this.updateSettingsAdminLiveSettingsPutRaw(requestParameters, initOverrides);
         return await response.value();
     }
 }

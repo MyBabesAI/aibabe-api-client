@@ -247,7 +247,25 @@ export const ExceptionCode = {
     PromotionCodeConflict: 'promotion_code_conflict',
     PromotionOverlap: 'promotion_overlap',
     GalleryChatbotFilterConflict: 'gallery_chatbot_filter_conflict',
-    GalleryFolderNotFound: 'gallery_folder_not_found'
+    GalleryFolderNotFound: 'gallery_folder_not_found',
+    LiveChannelNotFound: 'live_channel_not_found',
+    LiveChannelPaused: 'live_channel_paused',
+    LiveRoundNotOpen: 'live_round_not_open',
+    LiveConversionBelowMinimum: 'live_conversion_below_minimum',
+    LiveWrongPhase: 'live_wrong_phase',
+    LiveStaleRound: 'live_stale_round',
+    LiveOptionNotFound: 'live_option_not_found',
+    LiveStripsInsufficient: 'live_strips_insufficient',
+    LiveBoostCapReached: 'live_boost_cap_reached',
+    LiveInvalidAmount: 'live_invalid_amount',
+    LiveReactionUnknown: 'live_reaction_unknown',
+    LiveCandidateNotFound: 'live_candidate_not_found',
+    LiveCandidateNotOwned: 'live_candidate_not_owned',
+    LiveCandidateNotQueued: 'live_candidate_not_queued',
+    LiveCandidateExists: 'live_candidate_exists',
+    LiveOpeningVotesBelowMinimum: 'live_opening_votes_below_minimum',
+    LiveChatbotNotOwned: 'live_chatbot_not_owned',
+    LiveSettingsInvalid: 'live_settings_invalid'
 } as const;
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 

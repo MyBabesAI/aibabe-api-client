@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
+import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, LiveAdminChannel, LiveAdminForceWinnerRequest, LiveAdminReconciliationReport, LiveAdminSettingsRequest, LiveAdminStatus, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -54,6 +54,9 @@ export interface CreatePromotionAdminPromotionPostRequest {
 }
 export interface DownscaleAdminDownscalePostRequest {
     downscaleRequest: DownscaleRequest;
+}
+export interface ForceWinnerAdminLiveWinnerPostRequest {
+    liveAdminForceWinnerRequest: LiveAdminForceWinnerRequest;
 }
 export interface GenerateCodesAdminGiftCodesGeneratePostRequest {
     count: number;
@@ -143,6 +146,9 @@ export interface UpdatePromotionAdminPromotionPromotionIdPatchRequest {
     promotionId: string;
     adminUpdatePromotionRequest: AdminUpdatePromotionRequest;
 }
+export interface UpdateSettingsAdminLiveSettingsPutRequest {
+    liveAdminSettingsRequest: LiveAdminSettingsRequest;
+}
 /**
  *
  */
@@ -216,6 +222,16 @@ export declare class AdminApi extends runtime.BaseAPI {
      */
     downscaleAdminDownscalePost(requestParameters: DownscaleAdminDownscalePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any | null | undefined>;
     /**
+     * Decide the current round\'s winner ahead of the lock.
+     * Force Winner
+     */
+    forceWinnerAdminLiveWinnerPostRaw(requestParameters: ForceWinnerAdminLiveWinnerPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Decide the current round\'s winner ahead of the lock.
+     * Force Winner
+     */
+    forceWinnerAdminLiveWinnerPost(requestParameters: ForceWinnerAdminLiveWinnerPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
      * Generate Codes
      */
     generateCodesAdminGiftCodesGeneratePostRaw(requestParameters: GenerateCodesAdminGiftCodesGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
@@ -257,6 +273,16 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Get Quality Control Images
      */
     getQualityControlImagesAdminImageQualityControlPost(requestParameters: GetQualityControlImagesAdminImageQualityControlPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<GetQualityControlImage>>;
+    /**
+     * Everything an operator wants at a glance: channel, round, heat, queue, ledger backlog, engine heartbeat.
+     * Get Status
+     */
+    getStatusAdminLiveGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveAdminStatus>>;
+    /**
+     * Everything an operator wants at a glance: channel, round, heat, queue, ledger backlog, engine heartbeat.
+     * Get Status
+     */
+    getStatusAdminLiveGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveAdminStatus>;
     /**
      * Get Token Balance
      */
@@ -314,6 +340,16 @@ export declare class AdminApi extends runtime.BaseAPI {
      */
     listPromotionsAdminPromotionGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPromotionListResponse>;
     /**
+     * Stop opening rounds and refuse spends; other processes follow within their settings refresh.
+     * Pause
+     */
+    pauseAdminLivePausePostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveAdminChannel>>;
+    /**
+     * Stop opening rounds and refuse spends; other processes follow within their settings refresh.
+     * Pause
+     */
+    pauseAdminLivePausePost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveAdminChannel>;
+    /**
      * Provide Award
      */
     provideAwardAdminBadgesAwardPostRaw(requestParameters: ProvideAwardAdminBadgesAwardPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
@@ -322,6 +358,16 @@ export declare class AdminApi extends runtime.BaseAPI {
      */
     provideAwardAdminBadgesAwardPost(requestParameters: ProvideAwardAdminBadgesAwardPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
+     * Run the ledger reconciliation now and return what it found.
+     * Reconciliation
+     */
+    reconciliationAdminLiveReconciliationGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveAdminReconciliationReport>>;
+    /**
+     * Run the ledger reconciliation now and return what it found.
+     * Reconciliation
+     */
+    reconciliationAdminLiveReconciliationGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveAdminReconciliationReport>;
+    /**
      * Reset User Claimables
      */
     resetUserClaimablesAdminUserResetClaimablesPostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
@@ -329,6 +375,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Reset User Claimables
      */
     resetUserClaimablesAdminUserResetClaimablesPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Resume
+     */
+    resumeAdminLiveResumePostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveAdminChannel>>;
+    /**
+     * Resume
+     */
+    resumeAdminLiveResumePost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveAdminChannel>;
     /**
      * Save Pricing Group Revisions
      */
@@ -345,6 +399,16 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Set User Feature Flags
      */
     setUserFeatureFlagsAdminUserFeatureFlagsPut(requestParameters: SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetUserFeatureFlagsResponse>;
+    /**
+     * End the current phase at the engine\'s next tick.
+     * Skip Round
+     */
+    skipRoundAdminLiveSkipPostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * End the current phase at the engine\'s next tick.
+     * Skip Round
+     */
+    skipRoundAdminLiveSkipPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      * Unblacklist Content
      */
@@ -369,5 +433,15 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Update Promotion
      */
     updatePromotionAdminPromotionPromotionIdPatch(requestParameters: UpdatePromotionAdminPromotionPromotionIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPromotionResponse>;
+    /**
+     * Replace the channel\'s tunables and bump its version.
+     * Update Settings
+     */
+    updateSettingsAdminLiveSettingsPutRaw(requestParameters: UpdateSettingsAdminLiveSettingsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveAdminChannel>>;
+    /**
+     * Replace the channel\'s tunables and bump its version.
+     * Update Settings
+     */
+    updateSettingsAdminLiveSettingsPut(requestParameters: UpdateSettingsAdminLiveSettingsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveAdminChannel>;
 }
 //# sourceMappingURL=AdminApi.d.ts.map

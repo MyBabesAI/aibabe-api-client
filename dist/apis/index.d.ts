@@ -13,6 +13,7 @@ export * from './GameAdventuresApi';
 export * from './HeartbeatApi';
 export * from './ImageApi';
 export * from './LeaderboardsApi';
+export * from './LiveApi';
 export * from './MemoryApi';
 export * from './NotificationApi';
 export * from './PostApi';
