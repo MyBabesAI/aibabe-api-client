@@ -27,7 +27,8 @@ export const LLM = {
     Scarlett: 'scarlett',
     ScarlettPremium: 'scarlett_premium',
     LemonadePremium: 'lemonade_premium',
-    GemmaPremium: 'gemma_premium'
+    GemmaPremium: 'gemma_premium',
+    Shieldstral: 'shieldstral'
 } as const;
 export type LLM = typeof LLM[keyof typeof LLM];
 

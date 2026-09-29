@@ -24,6 +24,7 @@ export declare const LLM: {
     readonly ScarlettPremium: "scarlett_premium";
     readonly LemonadePremium: "lemonade_premium";
     readonly GemmaPremium: "gemma_premium";
+    readonly Shieldstral: "shieldstral";
 };
 export type LLM = typeof LLM[keyof typeof LLM];
 export declare function instanceOfLLM(value: any): boolean;

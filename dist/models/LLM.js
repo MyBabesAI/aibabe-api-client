@@ -33,7 +33,8 @@ exports.LLM = {
     Scarlett: 'scarlett',
     ScarlettPremium: 'scarlett_premium',
     LemonadePremium: 'lemonade_premium',
-    GemmaPremium: 'gemma_premium'
+    GemmaPremium: 'gemma_premium',
+    Shieldstral: 'shieldstral'
 };
 function instanceOfLLM(value) {
     for (const key in exports.LLM) {
