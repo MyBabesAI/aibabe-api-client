@@ -67,12 +67,12 @@ export declare class LiveApi extends runtime.BaseAPI {
      */
     buyVotesLiveQueueCandidateIdVotesPost(requestParameters: BuyVotesLiveQueueCandidateIdVotesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveSpendResponse>;
     /**
-     * Post a reaction from the catalog to the room.
+     * Post a reaction (a slug id from the frontend\'s catalog) to the room.
      * Chat
      */
     chatLiveChatPostRaw(requestParameters: ChatLiveChatPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveChatMessage>>;
     /**
-     * Post a reaction from the catalog to the room.
+     * Post a reaction (a slug id from the frontend\'s catalog) to the room.
      * Chat
      */
     chatLiveChatPost(requestParameters: ChatLiveChatPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveChatMessage>;

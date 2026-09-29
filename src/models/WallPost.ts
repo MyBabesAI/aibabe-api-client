@@ -132,6 +132,12 @@ export interface WallPost {
     description: string;
     /**
      * 
+     * @type {string}
+     * @memberof WallPost
+     */
+    caption?: string;
+    /**
+     * 
      * @type {Date}
      * @memberof WallPost
      */
@@ -215,6 +221,7 @@ export function WallPostFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'likes': json['likes'],
         'messageCount': json['message_count'],
         'description': json['description'],
+        'caption': json['caption'] == null ? undefined : json['caption'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
         'liked': json['liked'],
@@ -245,6 +252,7 @@ export function WallPostFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'likes': value['likes'],
         'message_count': value['messageCount'],
         'description': value['description'],
+        'caption': value['caption'],
         'created_at': ((value['createdAt']).toISOString()),
         'updated_at': ((value['updatedAt']).toISOString()),
         'liked': value['liked'],

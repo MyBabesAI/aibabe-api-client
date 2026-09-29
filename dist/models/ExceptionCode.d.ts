@@ -254,7 +254,6 @@ export declare const ExceptionCode: {
     readonly LiveStripsInsufficient: "live_strips_insufficient";
     readonly LiveBoostCapReached: "live_boost_cap_reached";
     readonly LiveInvalidAmount: "live_invalid_amount";
-    readonly LiveReactionUnknown: "live_reaction_unknown";
     readonly LiveCandidateNotFound: "live_candidate_not_found";
     readonly LiveCandidateNotOwned: "live_candidate_not_owned";
     readonly LiveCandidateNotQueued: "live_candidate_not_queued";

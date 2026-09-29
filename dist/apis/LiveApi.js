@@ -116,7 +116,7 @@ class LiveApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Post a reaction from the catalog to the room.
+     * Post a reaction (a slug id from the frontend\'s catalog) to the room.
      * Chat
      */
     async chatLiveChatPostRaw(requestParameters, initOverrides) {
@@ -136,7 +136,7 @@ class LiveApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.LiveChatMessageFromJSON)(jsonValue));
     }
     /**
-     * Post a reaction from the catalog to the room.
+     * Post a reaction (a slug id from the frontend\'s catalog) to the room.
      * Chat
      */
     async chatLiveChatPost(requestParameters, initOverrides) {

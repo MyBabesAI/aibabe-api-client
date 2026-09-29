@@ -22,7 +22,11 @@ import {
 } from './LiveReactionType';
 
 /**
- * A pick from the fixed chat vocabulary; the catalog lives in `service/live/reactions.py`.
+ * A pick from the chat vocabulary.
+ * 
+ * The catalog (notes, emojis, sticker packs) lives in the frontend only, in `liveReactions.ts`;
+ * the backend does not mirror it. It enforces the one rule that matters here, no free text: an id
+ * is a short slug, and the row's text is that slug.
  * @export
  * @interface LiveReaction
  */

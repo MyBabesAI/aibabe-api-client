@@ -81,6 +81,12 @@ export interface DetailedWallPost {
     description: string;
     /**
      *
+     * @type {string}
+     * @memberof DetailedWallPost
+     */
+    caption?: string;
+    /**
+     *
      * @type {Date}
      * @memberof DetailedWallPost
      */

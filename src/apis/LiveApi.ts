@@ -209,7 +209,7 @@ export class LiveApi extends runtime.BaseAPI {
     }
 
     /**
-     * Post a reaction from the catalog to the room.
+     * Post a reaction (a slug id from the frontend\'s catalog) to the room.
      * Chat
      */
     async chatLiveChatPostRaw(requestParameters: ChatLiveChatPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveChatMessage>> {
@@ -238,7 +238,7 @@ export class LiveApi extends runtime.BaseAPI {
     }
 
     /**
-     * Post a reaction from the catalog to the room.
+     * Post a reaction (a slug id from the frontend\'s catalog) to the room.
      * Chat
      */
     async chatLiveChatPost(requestParameters: ChatLiveChatPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveChatMessage> {

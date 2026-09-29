@@ -258,7 +258,6 @@ export const ExceptionCode = {
     LiveStripsInsufficient: 'live_strips_insufficient',
     LiveBoostCapReached: 'live_boost_cap_reached',
     LiveInvalidAmount: 'live_invalid_amount',
-    LiveReactionUnknown: 'live_reaction_unknown',
     LiveCandidateNotFound: 'live_candidate_not_found',
     LiveCandidateNotOwned: 'live_candidate_not_owned',
     LiveCandidateNotQueued: 'live_candidate_not_queued',
