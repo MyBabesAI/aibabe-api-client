@@ -17,7 +17,7 @@ export declare const FeatureFlagName: {
     readonly DoubleTokenUsage: "DOUBLE_TOKEN_USAGE";
     readonly MarketingBanners: "MARKETING_BANNERS";
     readonly Qwen3: "QWEN3";
-    readonly Rapyd: "RAPYD";
+    readonly Truevo: "TRUEVO";
 };
 export type FeatureFlagName = typeof FeatureFlagName[keyof typeof FeatureFlagName];
 export declare function instanceOfFeatureFlagName(value: any): boolean;

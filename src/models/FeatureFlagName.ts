@@ -21,7 +21,7 @@ export const FeatureFlagName = {
     DoubleTokenUsage: 'DOUBLE_TOKEN_USAGE',
     MarketingBanners: 'MARKETING_BANNERS',
     Qwen3: 'QWEN3',
-    Rapyd: 'RAPYD'
+    Truevo: 'TRUEVO'
 } as const;
 export type FeatureFlagName = typeof FeatureFlagName[keyof typeof FeatureFlagName];
 
