@@ -312,6 +312,9 @@ src/models/LiveMeState.ts
 src/models/LiveOption.ts
 src/models/LiveOptionKind.ts
 src/models/LivePhaseDurations.ts
+src/models/LivePlatform.ts
+src/models/LivePlayerTransport.ts
+src/models/LivePresenceRequest.ts
 src/models/LivePresenceResponse.ts
 src/models/LiveQueueBuyRequest.ts
 src/models/LiveQueueState.ts

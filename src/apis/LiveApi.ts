@@ -22,6 +22,7 @@ import type {
   LiveConvertRequest,
   LiveConvertResponse,
   LiveDonateRequest,
+  LivePresenceRequest,
   LivePresenceResponse,
   LiveQueueBuyRequest,
   LiveQueueState,
@@ -49,6 +50,8 @@ import {
     LiveConvertResponseToJSON,
     LiveDonateRequestFromJSON,
     LiveDonateRequestToJSON,
+    LivePresenceRequestFromJSON,
+    LivePresenceRequestToJSON,
     LivePresenceResponseFromJSON,
     LivePresenceResponseToJSON,
     LiveQueueBuyRequestFromJSON,
@@ -93,6 +96,10 @@ export interface ConvertTokensLiveWalletConvertPostRequest {
 
 export interface DonateLiveHeatPostRequest {
     liveDonateRequest: LiveDonateRequest;
+}
+
+export interface PresenceLivePresencePostRequest {
+    livePresenceRequest?: LivePresenceRequest;
 }
 
 export interface SubmitCandidateLiveQueuePostRequest {
@@ -405,35 +412,38 @@ export class LiveApi extends runtime.BaseAPI {
     }
 
     /**
-     * A watching heartbeat; guests are counted by their guest cookie.
+     * A watching heartbeat, with the player\'s report when the client sends one; guests are counted by their guest cookie.
      * Presence
      */
-    async presenceLivePresencePostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LivePresenceResponse>> {
+    async presenceLivePresencePostRaw(requestParameters: PresenceLivePresencePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LivePresenceResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
             path: `/live/presence`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: LivePresenceRequestToJSON(requestParameters['livePresenceRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => LivePresenceResponseFromJSON(jsonValue));
     }
 
     /**
-     * A watching heartbeat; guests are counted by their guest cookie.
+     * A watching heartbeat, with the player\'s report when the client sends one; guests are counted by their guest cookie.
      * Presence
      */
-    async presenceLivePresencePost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LivePresenceResponse> {
-        const response = await this.presenceLivePresencePostRaw(initOverrides);
+    async presenceLivePresencePost(requestParameters: PresenceLivePresencePostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LivePresenceResponse> {
+        const response = await this.presenceLivePresencePostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Enter one of your babes with her opening votes; the same key enters her once.
+     * Enter one of your babes with her opening votes; the same key enters her once. The storyline is moderated.
      * Submit Candidate
      */
     async submitCandidateLiveQueuePostRaw(requestParameters: SubmitCandidateLiveQueuePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveQueueSubmitResponse>> {
@@ -462,7 +472,7 @@ export class LiveApi extends runtime.BaseAPI {
     }
 
     /**
-     * Enter one of your babes with her opening votes; the same key enters her once.
+     * Enter one of your babes with her opening votes; the same key enters her once. The storyline is moderated.
      * Submit Candidate
      */
     async submitCandidateLiveQueuePost(requestParameters: SubmitCandidateLiveQueuePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveQueueSubmitResponse> {

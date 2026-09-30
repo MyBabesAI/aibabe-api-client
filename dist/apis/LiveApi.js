@@ -267,30 +267,32 @@ class LiveApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * A watching heartbeat; guests are counted by their guest cookie.
+     * A watching heartbeat, with the player\'s report when the client sends one; guests are counted by their guest cookie.
      * Presence
      */
-    async presenceLivePresencePostRaw(initOverrides) {
+    async presenceLivePresencePostRaw(requestParameters, initOverrides) {
         const queryParameters = {};
         const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
         const response = await this.request({
             path: `/live/presence`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: (0, index_1.LivePresenceRequestToJSON)(requestParameters['livePresenceRequest']),
         }, initOverrides);
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.LivePresenceResponseFromJSON)(jsonValue));
     }
     /**
-     * A watching heartbeat; guests are counted by their guest cookie.
+     * A watching heartbeat, with the player\'s report when the client sends one; guests are counted by their guest cookie.
      * Presence
      */
-    async presenceLivePresencePost(initOverrides) {
-        const response = await this.presenceLivePresencePostRaw(initOverrides);
+    async presenceLivePresencePost(requestParameters = {}, initOverrides) {
+        const response = await this.presenceLivePresencePostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
-     * Enter one of your babes with her opening votes; the same key enters her once.
+     * Enter one of your babes with her opening votes; the same key enters her once. The storyline is moderated.
      * Submit Candidate
      */
     async submitCandidateLiveQueuePostRaw(requestParameters, initOverrides) {
@@ -310,7 +312,7 @@ class LiveApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.LiveQueueSubmitResponseFromJSON)(jsonValue));
     }
     /**
-     * Enter one of your babes with her opening votes; the same key enters her once.
+     * Enter one of your babes with her opening votes; the same key enters her once. The storyline is moderated.
      * Submit Candidate
      */
     async submitCandidateLiveQueuePost(requestParameters, initOverrides) {

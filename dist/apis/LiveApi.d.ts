@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { LiveBoostRequest, LiveChatMessage, LiveChatRequest, LiveConvertRequest, LiveConvertResponse, LiveDonateRequest, LivePresenceResponse, LiveQueueBuyRequest, LiveQueueState, LiveQueueSubmitRequest, LiveQueueSubmitResponse, LiveQueueUpvoteRequest, LiveQueueUpvoteResponse, LiveSpendResponse, LiveStateResponse, LiveVoteRequest, LiveWalletResponse } from '../models/index';
+import type { LiveBoostRequest, LiveChatMessage, LiveChatRequest, LiveConvertRequest, LiveConvertResponse, LiveDonateRequest, LivePresenceRequest, LivePresenceResponse, LiveQueueBuyRequest, LiveQueueState, LiveQueueSubmitRequest, LiveQueueSubmitResponse, LiveQueueUpvoteRequest, LiveQueueUpvoteResponse, LiveSpendResponse, LiveStateResponse, LiveVoteRequest, LiveWalletResponse } from '../models/index';
 export interface BoostLiveRoundsSeqBoostPostRequest {
     seq: number;
     liveBoostRequest: LiveBoostRequest;
@@ -27,6 +27,9 @@ export interface ConvertTokensLiveWalletConvertPostRequest {
 }
 export interface DonateLiveHeatPostRequest {
     liveDonateRequest: LiveDonateRequest;
+}
+export interface PresenceLivePresencePostRequest {
+    livePresenceRequest?: LivePresenceRequest;
 }
 export interface SubmitCandidateLiveQueuePostRequest {
     liveQueueSubmitRequest: LiveQueueSubmitRequest;
@@ -125,22 +128,22 @@ export declare class LiveApi extends runtime.BaseAPI {
      */
     getWalletLiveWalletGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveWalletResponse>;
     /**
-     * A watching heartbeat; guests are counted by their guest cookie.
+     * A watching heartbeat, with the player\'s report when the client sends one; guests are counted by their guest cookie.
      * Presence
      */
-    presenceLivePresencePostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LivePresenceResponse>>;
+    presenceLivePresencePostRaw(requestParameters: PresenceLivePresencePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LivePresenceResponse>>;
     /**
-     * A watching heartbeat; guests are counted by their guest cookie.
+     * A watching heartbeat, with the player\'s report when the client sends one; guests are counted by their guest cookie.
      * Presence
      */
-    presenceLivePresencePost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LivePresenceResponse>;
+    presenceLivePresencePost(requestParameters?: PresenceLivePresencePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LivePresenceResponse>;
     /**
-     * Enter one of your babes with her opening votes; the same key enters her once.
+     * Enter one of your babes with her opening votes; the same key enters her once. The storyline is moderated.
      * Submit Candidate
      */
     submitCandidateLiveQueuePostRaw(requestParameters: SubmitCandidateLiveQueuePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveQueueSubmitResponse>>;
     /**
-     * Enter one of your babes with her opening votes; the same key enters her once.
+     * Enter one of your babes with her opening votes; the same key enters her once. The storyline is moderated.
      * Submit Candidate
      */
     submitCandidateLiveQueuePost(requestParameters: SubmitCandidateLiveQueuePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveQueueSubmitResponse>;
