@@ -37,6 +37,16 @@ export interface GetLorasResponse {
     };
     /**
      *
+     * @type {{ [key: string]: { [key: string]: Array<VideoMod>; }; }}
+     * @memberof GetLorasResponse
+     */
+    videoModsByModel?: {
+        [key: string]: {
+            [key: string]: Array<VideoMod>;
+        };
+    };
+    /**
+     *
      * @type {{ [key: string]: Array<ImagePreset>; }}
      * @memberof GetLorasResponse
      */
