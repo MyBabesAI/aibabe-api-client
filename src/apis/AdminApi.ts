@@ -46,6 +46,7 @@ import type {
   LiveAdminReconciliationReport,
   LiveAdminSettingsRequest,
   LiveAdminStatus,
+  LiveAdminStory,
   PostType,
   ScoreCategory,
   SetUserFeatureFlagsRequest,
@@ -120,6 +121,8 @@ import {
     LiveAdminSettingsRequestToJSON,
     LiveAdminStatusFromJSON,
     LiveAdminStatusToJSON,
+    LiveAdminStoryFromJSON,
+    LiveAdminStoryToJSON,
     PostTypeFromJSON,
     PostTypeToJSON,
     ScoreCategoryFromJSON,
@@ -1033,6 +1036,34 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async getStatusAdminLiveGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveAdminStatus> {
         const response = await this.getStatusAdminLiveGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * The story engine\'s snapshot: episode, scene, treatments, windows and the box, as it last wrote it.
+     * Get Story
+     */
+    async getStoryAdminLiveStoryGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveAdminStory>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/admin/live/story`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => LiveAdminStoryFromJSON(jsonValue));
+    }
+
+    /**
+     * The story engine\'s snapshot: episode, scene, treatments, windows and the box, as it last wrote it.
+     * Get Story
+     */
+    async getStoryAdminLiveStoryGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveAdminStory> {
+        const response = await this.getStoryAdminLiveStoryGetRaw(initOverrides);
         return await response.value();
     }
 

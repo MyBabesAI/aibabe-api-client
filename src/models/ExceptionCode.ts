@@ -49,7 +49,6 @@ export const ExceptionCode = {
     DonorNotFound: 'donor_not_found',
     RecipientNotFound: 'recipient_not_found',
     ChatbotNotFound: 'chatbot_not_found',
-    ChatbotBlueprintNotFound: 'chatbot_blueprint_not_found',
     AdvancedChatbotBuilderInProgressNotFound: 'advanced_chatbot_builder_in_progress_not_found',
     AdvancedChatbotBuilderInconsistentData: 'advanced_chatbot_builder_inconsistent_data',
     AdvancedCharacterBuilderBusy: 'advanced_character_builder_busy',

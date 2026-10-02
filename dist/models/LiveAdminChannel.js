@@ -27,8 +27,6 @@ function instanceOfLiveAdminChannel(value) {
         return false;
     if (!('status' in value) || value['status'] === undefined)
         return false;
-    if (!('deliveryMode' in value) || value['deliveryMode'] === undefined)
-        return false;
     if (!('configVersion' in value) || value['configVersion'] === undefined)
         return false;
     if (!('settings' in value) || value['settings'] === undefined)
@@ -45,7 +43,6 @@ function LiveAdminChannelFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'slug': json['slug'],
         'status': (0, LiveChannelState_1.LiveChannelStateFromJSON)(json['status']),
-        'deliveryMode': json['delivery_mode'],
         'configVersion': json['config_version'],
         'settings': json['settings'],
     };
@@ -60,7 +57,6 @@ function LiveAdminChannelToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'slug': value['slug'],
         'status': (0, LiveChannelState_1.LiveChannelStateToJSON)(value['status']),
-        'delivery_mode': value['deliveryMode'],
         'config_version': value['configVersion'],
         'settings': value['settings'],
     };

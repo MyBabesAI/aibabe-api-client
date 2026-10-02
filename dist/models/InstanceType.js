@@ -27,7 +27,8 @@ exports.InstanceType = {
     Automatic1111: 'automatic1111',
     Tgi: 'tgi',
     Video: 'video',
-    Audio: 'audio'
+    Audio: 'audio',
+    Live: 'live'
 };
 function instanceOfInstanceType(value) {
     for (const key in exports.InstanceType) {

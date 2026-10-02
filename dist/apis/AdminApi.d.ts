@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, LiveAdminChannel, LiveAdminForceWinnerRequest, LiveAdminReconciliationReport, LiveAdminSettingsRequest, LiveAdminStatus, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
+import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, LiveAdminChannel, LiveAdminForceWinnerRequest, LiveAdminReconciliationReport, LiveAdminSettingsRequest, LiveAdminStatus, LiveAdminStory, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -283,6 +283,16 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Get Status
      */
     getStatusAdminLiveGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveAdminStatus>;
+    /**
+     * The story engine\'s snapshot: episode, scene, treatments, windows and the box, as it last wrote it.
+     * Get Story
+     */
+    getStoryAdminLiveStoryGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<LiveAdminStory>>;
+    /**
+     * The story engine\'s snapshot: episode, scene, treatments, windows and the box, as it last wrote it.
+     * Get Story
+     */
+    getStoryAdminLiveStoryGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<LiveAdminStory>;
     /**
      * Get Token Balance
      */

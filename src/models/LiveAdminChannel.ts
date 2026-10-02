@@ -41,12 +41,6 @@ export interface LiveAdminChannel {
     status: LiveChannelState;
     /**
      * 
-     * @type {string}
-     * @memberof LiveAdminChannel
-     */
-    deliveryMode: string;
-    /**
-     * 
      * @type {number}
      * @memberof LiveAdminChannel
      */
@@ -67,7 +61,6 @@ export interface LiveAdminChannel {
 export function instanceOfLiveAdminChannel(value: object): value is LiveAdminChannel {
     if (!('slug' in value) || value['slug'] === undefined) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
-    if (!('deliveryMode' in value) || value['deliveryMode'] === undefined) return false;
     if (!('configVersion' in value) || value['configVersion'] === undefined) return false;
     if (!('settings' in value) || value['settings'] === undefined) return false;
     return true;
@@ -85,7 +78,6 @@ export function LiveAdminChannelFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'slug': json['slug'],
         'status': LiveChannelStateFromJSON(json['status']),
-        'deliveryMode': json['delivery_mode'],
         'configVersion': json['config_version'],
         'settings': json['settings'],
     };
@@ -104,7 +96,6 @@ export function LiveAdminChannelFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'slug': value['slug'],
         'status': LiveChannelStateToJSON(value['status']),
-        'delivery_mode': value['deliveryMode'],
         'config_version': value['configVersion'],
         'settings': value['settings'],
     };

@@ -276,6 +276,7 @@ __exportStar(require("./LiveAdminReconciliationReport"), exports);
 __exportStar(require("./LiveAdminSettingsRequest"), exports);
 __exportStar(require("./LiveAdminSpendHealth"), exports);
 __exportStar(require("./LiveAdminStatus"), exports);
+__exportStar(require("./LiveAdminStory"), exports);
 __exportStar(require("./LiveBabe"), exports);
 __exportStar(require("./LiveBoostRequest"), exports);
 __exportStar(require("./LiveCandidate"), exports);

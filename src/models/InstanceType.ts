@@ -21,7 +21,8 @@ export const InstanceType = {
     Automatic1111: 'automatic1111',
     Tgi: 'tgi',
     Video: 'video',
-    Audio: 'audio'
+    Audio: 'audio',
+    Live: 'live'
 } as const;
 export type InstanceType = typeof InstanceType[keyof typeof InstanceType];
 

@@ -258,6 +258,7 @@ export * from './LiveAdminReconciliationReport';
 export * from './LiveAdminSettingsRequest';
 export * from './LiveAdminSpendHealth';
 export * from './LiveAdminStatus';
+export * from './LiveAdminStory';
 export * from './LiveBabe';
 export * from './LiveBoostRequest';
 export * from './LiveCandidate';

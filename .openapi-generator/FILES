@@ -295,6 +295,7 @@ src/models/LiveAdminReconciliationReport.ts
 src/models/LiveAdminSettingsRequest.ts
 src/models/LiveAdminSpendHealth.ts
 src/models/LiveAdminStatus.ts
+src/models/LiveAdminStory.ts
 src/models/LiveBabe.ts
 src/models/LiveBoostRequest.ts
 src/models/LiveCandidate.ts

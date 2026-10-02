@@ -600,6 +600,29 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * The story engine\'s snapshot: episode, scene, treatments, windows and the box, as it last wrote it.
+     * Get Story
+     */
+    async getStoryAdminLiveStoryGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/live/story`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.LiveAdminStoryFromJSON)(jsonValue));
+    }
+    /**
+     * The story engine\'s snapshot: episode, scene, treatments, windows and the box, as it last wrote it.
+     * Get Story
+     */
+    async getStoryAdminLiveStoryGet(initOverrides) {
+        const response = await this.getStoryAdminLiveStoryGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Token Balance
      */
     async getTokenBalanceAdminTokenBalanceEmailGetRaw(requestParameters, initOverrides) {

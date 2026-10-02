@@ -30,12 +30,6 @@ export interface LiveAdminChannel {
     status: LiveChannelState;
     /**
      *
-     * @type {string}
-     * @memberof LiveAdminChannel
-     */
-    deliveryMode: string;
-    /**
-     *
      * @type {number}
      * @memberof LiveAdminChannel
      */

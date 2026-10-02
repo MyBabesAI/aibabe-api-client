@@ -18,6 +18,7 @@ export declare const InstanceType: {
     readonly Tgi: "tgi";
     readonly Video: "video";
     readonly Audio: "audio";
+    readonly Live: "live";
 };
 export type InstanceType = typeof InstanceType[keyof typeof InstanceType];
 export declare function instanceOfInstanceType(value: any): boolean;
