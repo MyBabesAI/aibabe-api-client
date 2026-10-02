@@ -62,6 +62,12 @@ export interface GetLorasResponse {
     videoMods: { [key: string]: Array<VideoMod>; };
     /**
      * 
+     * @type {{ [key: string]: { [key: string]: Array<VideoMod>; }; }}
+     * @memberof GetLorasResponse
+     */
+    videoModsByModel?: { [key: string]: { [key: string]: Array<VideoMod>; }; };
+    /**
+     * 
      * @type {{ [key: string]: Array<ImagePreset>; }}
      * @memberof GetLorasResponse
      */
@@ -97,6 +103,7 @@ export function GetLorasResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'imageMods': json['image_mods'],
         'videoMods': json['video_mods'],
+        'videoModsByModel': json['video_mods_by_model'] == null ? undefined : json['video_mods_by_model'],
         'imagePresets': json['image_presets'],
         'videoPresets': json['video_presets'],
     };
@@ -115,6 +122,7 @@ export function GetLorasResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'image_mods': value['imageMods'],
         'video_mods': value['videoMods'],
+        'video_mods_by_model': value['videoModsByModel'],
         'image_presets': value['imagePresets'],
         'video_presets': value['videoPresets'],
     };

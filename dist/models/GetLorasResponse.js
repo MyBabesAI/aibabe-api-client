@@ -42,6 +42,7 @@ function GetLorasResponseFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'imageMods': json['image_mods'],
         'videoMods': json['video_mods'],
+        'videoModsByModel': json['video_mods_by_model'] == null ? undefined : json['video_mods_by_model'],
         'imagePresets': json['image_presets'],
         'videoPresets': json['video_presets'],
     };
@@ -56,6 +57,7 @@ function GetLorasResponseToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'image_mods': value['imageMods'],
         'video_mods': value['videoMods'],
+        'video_mods_by_model': value['videoModsByModel'],
         'image_presets': value['imagePresets'],
         'video_presets': value['videoPresets'],
     };
