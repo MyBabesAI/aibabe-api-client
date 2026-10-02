@@ -49,6 +49,12 @@ export interface GetPricesResponse {
     addons: {
         [key: string]: Array<AddonProductPrice>;
     };
+    /**
+     *
+     * @type {Date}
+     * @memberof GetPricesResponse
+     */
+    addonBonusEndsAt?: Date | null;
 }
 /**
  * Check if a given object implements the GetPricesResponse interface.
