@@ -18,7 +18,6 @@ exports.ImageToVideoFromChatPayloadFromJSON = ImageToVideoFromChatPayloadFromJSO
 exports.ImageToVideoFromChatPayloadFromJSONTyped = ImageToVideoFromChatPayloadFromJSONTyped;
 exports.ImageToVideoFromChatPayloadToJSON = ImageToVideoFromChatPayloadToJSON;
 exports.ImageToVideoFromChatPayloadToJSONTyped = ImageToVideoFromChatPayloadToJSONTyped;
-const VideoResolution_1 = require("./VideoResolution");
 /**
  * Check if a given object implements the ImageToVideoFromChatPayload interface.
  */
@@ -51,9 +50,6 @@ function ImageToVideoFromChatPayloadFromJSONTyped(json, ignoreDiscriminator) {
         'requestId': json['request_id'],
         'generationId': json['generation_id'],
         'conversationId': json['conversation_id'],
-        'duration': json['duration'] == null ? undefined : json['duration'],
-        'resolution': json['resolution'] == null ? undefined : (0, VideoResolution_1.VideoResolutionFromJSON)(json['resolution']),
-        'audioGeneration': json['audio_generation'] == null ? undefined : json['audio_generation'],
     };
 }
 function ImageToVideoFromChatPayloadToJSON(json) {
@@ -70,9 +66,6 @@ function ImageToVideoFromChatPayloadToJSONTyped(value, ignoreDiscriminator = fal
         'request_id': value['requestId'],
         'generation_id': value['generationId'],
         'conversation_id': value['conversationId'],
-        'duration': value['duration'],
-        'resolution': (0, VideoResolution_1.VideoResolutionToJSON)(value['resolution']),
-        'audio_generation': value['audioGeneration'],
     };
 }
 //# sourceMappingURL=ImageToVideoFromChatPayload.js.map

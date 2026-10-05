@@ -47,7 +47,6 @@ function GetPricesResponseFromJSONTyped(json, ignoreDiscriminator) {
         'tokenUsage': ((0, runtime_1.mapValues)(json['token_usage'], SubscriptionTokenUsage_1.SubscriptionTokenUsageFromJSON)),
         'subscriptions': json['subscriptions'],
         'addons': json['addons'],
-        'addonBonusEndsAt': json['addon_bonus_ends_at'] == null ? undefined : (new Date(json['addon_bonus_ends_at'])),
     };
 }
 function GetPricesResponseToJSON(json) {
@@ -62,7 +61,6 @@ function GetPricesResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'token_usage': ((0, runtime_1.mapValues)(value['tokenUsage'], SubscriptionTokenUsage_1.SubscriptionTokenUsageToJSON)),
         'subscriptions': value['subscriptions'],
         'addons': value['addons'],
-        'addon_bonus_ends_at': value['addonBonusEndsAt'] == null ? undefined : (value['addonBonusEndsAt'].toISOString()),
     };
 }
 //# sourceMappingURL=GetPricesResponse.js.map

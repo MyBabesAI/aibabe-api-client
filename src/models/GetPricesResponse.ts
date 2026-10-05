@@ -72,12 +72,6 @@ export interface GetPricesResponse {
      * @memberof GetPricesResponse
      */
     addons: { [key: string]: Array<AddonProductPrice>; };
-    /**
-     * 
-     * @type {Date}
-     * @memberof GetPricesResponse
-     */
-    addonBonusEndsAt?: Date | null;
 }
 
 
@@ -107,7 +101,6 @@ export function GetPricesResponseFromJSONTyped(json: any, ignoreDiscriminator: b
         'tokenUsage': (mapValues(json['token_usage'], SubscriptionTokenUsageFromJSON)),
         'subscriptions': json['subscriptions'],
         'addons': json['addons'],
-        'addonBonusEndsAt': json['addon_bonus_ends_at'] == null ? undefined : (new Date(json['addon_bonus_ends_at'])),
     };
 }
 
@@ -126,7 +119,6 @@ export function GetPricesResponseFromJSONTyped(json: any, ignoreDiscriminator: b
         'token_usage': (mapValues(value['tokenUsage'], SubscriptionTokenUsageToJSON)),
         'subscriptions': value['subscriptions'],
         'addons': value['addons'],
-        'addon_bonus_ends_at': value['addonBonusEndsAt'] == null ? undefined : ((value['addonBonusEndsAt'] as any).toISOString()),
     };
 }
 

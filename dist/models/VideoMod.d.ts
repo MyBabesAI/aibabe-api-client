@@ -27,7 +27,7 @@ export interface VideoMod {
      * @type {string}
      * @memberof VideoMod
      */
-    url?: string | null;
+    url: string;
     /**
      *
      * @type {VideoLoraName}

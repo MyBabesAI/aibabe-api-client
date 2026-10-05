@@ -139,7 +139,6 @@ export declare const ImageToVideoRequestModelEnum: {
     readonly Seedance20MiniI2V: "SEEDANCE_20_MINI_I2V";
     readonly Seedance20FastI2V: "SEEDANCE_20_FAST_I2V";
     readonly Seedance25I2V: "SEEDANCE_25_I2V";
-    readonly MybabesV2I2V: "MYBABES_V2_I2V";
 };
 export type ImageToVideoRequestModelEnum = typeof ImageToVideoRequestModelEnum[keyof typeof ImageToVideoRequestModelEnum];
 /**

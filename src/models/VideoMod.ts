@@ -38,7 +38,7 @@ export interface VideoMod {
      * @type {string}
      * @memberof VideoMod
      */
-    url?: string | null;
+    url: string;
     /**
      * 
      * @type {VideoLoraName}
@@ -54,6 +54,7 @@ export interface VideoMod {
  */
 export function instanceOfVideoMod(value: object): value is VideoMod {
     if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('url' in value) || value['url'] === undefined) return false;
     if (!('lora' in value) || value['lora'] === undefined) return false;
     return true;
 }
@@ -69,7 +70,7 @@ export function VideoModFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     return {
         
         'name': json['name'],
-        'url': json['url'] == null ? undefined : json['url'],
+        'url': json['url'],
         'lora': VideoLoraNameFromJSON(json['lora']),
     };
 }

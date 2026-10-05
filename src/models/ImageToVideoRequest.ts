@@ -163,8 +163,7 @@ export const ImageToVideoRequestModelEnum = {
     Seedance20I2V: 'SEEDANCE_20_I2V',
     Seedance20MiniI2V: 'SEEDANCE_20_MINI_I2V',
     Seedance20FastI2V: 'SEEDANCE_20_FAST_I2V',
-    Seedance25I2V: 'SEEDANCE_25_I2V',
-    MybabesV2I2V: 'MYBABES_V2_I2V'
+    Seedance25I2V: 'SEEDANCE_25_I2V'
 } as const;
 export type ImageToVideoRequestModelEnum = typeof ImageToVideoRequestModelEnum[keyof typeof ImageToVideoRequestModelEnum];
 

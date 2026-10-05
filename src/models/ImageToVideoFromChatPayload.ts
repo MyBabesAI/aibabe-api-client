@@ -13,14 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { VideoResolution } from './VideoResolution';
-import {
-    VideoResolutionFromJSON,
-    VideoResolutionFromJSONTyped,
-    VideoResolutionToJSON,
-    VideoResolutionToJSONTyped,
-} from './VideoResolution';
-
 /**
  * 
  * @export
@@ -63,27 +55,7 @@ export interface ImageToVideoFromChatPayload {
      * @memberof ImageToVideoFromChatPayload
      */
     conversationId: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ImageToVideoFromChatPayload
-     */
-    duration?: number | null;
-    /**
-     * 
-     * @type {VideoResolution}
-     * @memberof ImageToVideoFromChatPayload
-     */
-    resolution?: VideoResolution | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ImageToVideoFromChatPayload
-     */
-    audioGeneration?: boolean | null;
 }
-
-
 
 /**
  * Check if a given object implements the ImageToVideoFromChatPayload interface.
@@ -114,9 +86,6 @@ export function ImageToVideoFromChatPayloadFromJSONTyped(json: any, ignoreDiscri
         'requestId': json['request_id'],
         'generationId': json['generation_id'],
         'conversationId': json['conversation_id'],
-        'duration': json['duration'] == null ? undefined : json['duration'],
-        'resolution': json['resolution'] == null ? undefined : VideoResolutionFromJSON(json['resolution']),
-        'audioGeneration': json['audio_generation'] == null ? undefined : json['audio_generation'],
     };
 }
 
@@ -137,9 +106,6 @@ export function ImageToVideoFromChatPayloadFromJSONTyped(json: any, ignoreDiscri
         'request_id': value['requestId'],
         'generation_id': value['generationId'],
         'conversation_id': value['conversationId'],
-        'duration': value['duration'],
-        'resolution': VideoResolutionToJSON(value['resolution']),
-        'audio_generation': value['audioGeneration'],
     };
 }
 

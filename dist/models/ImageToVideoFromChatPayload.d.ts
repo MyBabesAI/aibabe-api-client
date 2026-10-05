@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { VideoResolution } from './VideoResolution';
 /**
  *
  * @export
@@ -52,24 +51,6 @@ export interface ImageToVideoFromChatPayload {
      * @memberof ImageToVideoFromChatPayload
      */
     conversationId: string;
-    /**
-     *
-     * @type {number}
-     * @memberof ImageToVideoFromChatPayload
-     */
-    duration?: number | null;
-    /**
-     *
-     * @type {VideoResolution}
-     * @memberof ImageToVideoFromChatPayload
-     */
-    resolution?: VideoResolution | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof ImageToVideoFromChatPayload
-     */
-    audioGeneration?: boolean | null;
 }
 /**
  * Check if a given object implements the ImageToVideoFromChatPayload interface.
