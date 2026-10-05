@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { FurryVisualType } from './FurryVisualType';
+import {
+    FurryVisualTypeFromJSON,
+    FurryVisualTypeFromJSONTyped,
+    FurryVisualTypeToJSON,
+    FurryVisualTypeToJSONTyped,
+} from './FurryVisualType';
 import type { CharacterBuilderSuggestionField } from './CharacterBuilderSuggestionField';
 import {
     CharacterBuilderSuggestionFieldFromJSON,
@@ -52,6 +59,12 @@ export interface PostAdvancedCharacterBuilderSuggestionPayload {
      * @memberof PostAdvancedCharacterBuilderSuggestionPayload
      */
     currentGender?: Gender | null;
+    /**
+     * 
+     * @type {FurryVisualType}
+     * @memberof PostAdvancedCharacterBuilderSuggestionPayload
+     */
+    furryVisualType?: FurryVisualType | null;
     /**
      * 
      * @type {string}
@@ -101,6 +114,7 @@ export function PostAdvancedCharacterBuilderSuggestionPayloadFromJSONTyped(json:
         'fieldName': CharacterBuilderSuggestionFieldFromJSON(json['field_name']),
         'currentName': json['current_name'] == null ? undefined : json['current_name'],
         'currentGender': json['current_gender'] == null ? undefined : GenderFromJSON(json['current_gender']),
+        'furryVisualType': json['furry_visual_type'] == null ? undefined : FurryVisualTypeFromJSON(json['furry_visual_type']),
         'currentBio': json['current_bio'] == null ? undefined : json['current_bio'],
         'currentGreetings': json['current_greetings'] == null ? undefined : json['current_greetings'],
         'currentStory': json['current_story'] == null ? undefined : json['current_story'],
@@ -122,6 +136,7 @@ export function PostAdvancedCharacterBuilderSuggestionPayloadFromJSONTyped(json:
         'field_name': CharacterBuilderSuggestionFieldToJSON(value['fieldName']),
         'current_name': value['currentName'],
         'current_gender': GenderToJSON(value['currentGender']),
+        'furry_visual_type': FurryVisualTypeToJSON(value['furryVisualType']),
         'current_bio': value['currentBio'],
         'current_greetings': value['currentGreetings'],
         'current_story': value['currentStory'],

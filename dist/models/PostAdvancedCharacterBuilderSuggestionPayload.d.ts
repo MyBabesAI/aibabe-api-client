@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { FurryVisualType } from './FurryVisualType';
 import type { CharacterBuilderSuggestionField } from './CharacterBuilderSuggestionField';
 import type { Gender } from './Gender';
 /**
@@ -35,6 +36,12 @@ export interface PostAdvancedCharacterBuilderSuggestionPayload {
      * @memberof PostAdvancedCharacterBuilderSuggestionPayload
      */
     currentGender?: Gender | null;
+    /**
+     *
+     * @type {FurryVisualType}
+     * @memberof PostAdvancedCharacterBuilderSuggestionPayload
+     */
+    furryVisualType?: FurryVisualType | null;
     /**
      *
      * @type {string}

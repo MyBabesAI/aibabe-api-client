@@ -18,6 +18,7 @@ exports.PostAdvancedCharacterBuilderSuggestionPayloadFromJSON = PostAdvancedChar
 exports.PostAdvancedCharacterBuilderSuggestionPayloadFromJSONTyped = PostAdvancedCharacterBuilderSuggestionPayloadFromJSONTyped;
 exports.PostAdvancedCharacterBuilderSuggestionPayloadToJSON = PostAdvancedCharacterBuilderSuggestionPayloadToJSON;
 exports.PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped = PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped;
+const FurryVisualType_1 = require("./FurryVisualType");
 const CharacterBuilderSuggestionField_1 = require("./CharacterBuilderSuggestionField");
 const Gender_1 = require("./Gender");
 /**
@@ -39,6 +40,7 @@ function PostAdvancedCharacterBuilderSuggestionPayloadFromJSONTyped(json, ignore
         'fieldName': (0, CharacterBuilderSuggestionField_1.CharacterBuilderSuggestionFieldFromJSON)(json['field_name']),
         'currentName': json['current_name'] == null ? undefined : json['current_name'],
         'currentGender': json['current_gender'] == null ? undefined : (0, Gender_1.GenderFromJSON)(json['current_gender']),
+        'furryVisualType': json['furry_visual_type'] == null ? undefined : (0, FurryVisualType_1.FurryVisualTypeFromJSON)(json['furry_visual_type']),
         'currentBio': json['current_bio'] == null ? undefined : json['current_bio'],
         'currentGreetings': json['current_greetings'] == null ? undefined : json['current_greetings'],
         'currentStory': json['current_story'] == null ? undefined : json['current_story'],
@@ -56,6 +58,7 @@ function PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped(value, ignoreD
         'field_name': (0, CharacterBuilderSuggestionField_1.CharacterBuilderSuggestionFieldToJSON)(value['fieldName']),
         'current_name': value['currentName'],
         'current_gender': (0, Gender_1.GenderToJSON)(value['currentGender']),
+        'furry_visual_type': (0, FurryVisualType_1.FurryVisualTypeToJSON)(value['furryVisualType']),
         'current_bio': value['currentBio'],
         'current_greetings': value['currentGreetings'],
         'current_story': value['currentStory'],
