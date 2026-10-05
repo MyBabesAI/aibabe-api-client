@@ -25,8 +25,6 @@ const VideoLoraName_1 = require("./VideoLoraName");
 function instanceOfVideoMod(value) {
     if (!('name' in value) || value['name'] === undefined)
         return false;
-    if (!('url' in value) || value['url'] === undefined)
-        return false;
     if (!('lora' in value) || value['lora'] === undefined)
         return false;
     return true;
@@ -40,7 +38,7 @@ function VideoModFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'name': json['name'],
-        'url': json['url'],
+        'url': json['url'] == null ? undefined : json['url'],
         'lora': (0, VideoLoraName_1.VideoLoraNameFromJSON)(json['lora']),
     };
 }
