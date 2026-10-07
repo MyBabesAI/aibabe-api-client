@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { FurryVisualType } from './FurryVisualType';
 import type { Gender } from './Gender';
 import type { SexualOrientation } from './SexualOrientation';
 /**
@@ -41,6 +42,12 @@ export interface GetIdentityChatbotResponse {
      * @memberof GetIdentityChatbotResponse
      */
     sexualOrientation: SexualOrientation | null;
+    /**
+     *
+     * @type {FurryVisualType}
+     * @memberof GetIdentityChatbotResponse
+     */
+    furryVisualType?: FurryVisualType | null;
     /**
      *
      * @type {string}

@@ -47,6 +47,12 @@ export interface AgeVerificationStatusResponse {
     country: string;
     /**
      * 
+     * @type {boolean}
+     * @memberof AgeVerificationStatusResponse
+     */
+    countryDetected?: boolean;
+    /**
+     * 
      * @type {string}
      * @memberof AgeVerificationStatusResponse
      */
@@ -88,6 +94,7 @@ export function AgeVerificationStatusResponseFromJSONTyped(json: any, ignoreDisc
         'verificationRequired': json['verification_required'],
         'verified': json['verified'],
         'country': json['country'],
+        'countryDetected': json['country_detected'] == null ? undefined : json['country_detected'],
         'iframeUrl': json['iframe_url'] == null ? undefined : json['iframe_url'],
         'redirectUrl': json['redirect_url'] == null ? undefined : json['redirect_url'],
         'alternativeProviders': json['alternative_providers'] == null ? undefined : ((json['alternative_providers'] as Array<any>).map(AgeVerificationAlternativeProviderFromJSON)),
@@ -108,6 +115,7 @@ export function AgeVerificationStatusResponseFromJSONTyped(json: any, ignoreDisc
         'verification_required': value['verificationRequired'],
         'verified': value['verified'],
         'country': value['country'],
+        'country_detected': value['countryDetected'],
         'iframe_url': value['iframeUrl'],
         'redirect_url': value['redirectUrl'],
         'alternative_providers': value['alternativeProviders'] == null ? undefined : ((value['alternativeProviders'] as Array<any>).map(AgeVerificationAlternativeProviderToJSON)),

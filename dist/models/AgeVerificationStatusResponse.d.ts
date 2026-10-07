@@ -36,6 +36,12 @@ export interface AgeVerificationStatusResponse {
     country: string;
     /**
      *
+     * @type {boolean}
+     * @memberof AgeVerificationStatusResponse
+     */
+    countryDetected?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof AgeVerificationStatusResponse
      */

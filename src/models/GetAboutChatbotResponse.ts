@@ -20,6 +20,13 @@ import {
     ArtStyleToJSON,
     ArtStyleToJSONTyped,
 } from './ArtStyle';
+import type { FurryVisualType } from './FurryVisualType';
+import {
+    FurryVisualTypeFromJSON,
+    FurryVisualTypeFromJSONTyped,
+    FurryVisualTypeToJSON,
+    FurryVisualTypeToJSONTyped,
+} from './FurryVisualType';
 import type { Gender } from './Gender';
 import {
     GenderFromJSON,
@@ -72,6 +79,12 @@ export interface GetAboutChatbotResponse {
      * @memberof GetAboutChatbotResponse
      */
     sexualOrientation: SexualOrientation | null;
+    /**
+     * 
+     * @type {FurryVisualType}
+     * @memberof GetAboutChatbotResponse
+     */
+    furryVisualType?: FurryVisualType | null;
     /**
      * 
      * @type {string}
@@ -164,6 +177,7 @@ export function GetAboutChatbotResponseFromJSONTyped(json: any, ignoreDiscrimina
         'name': json['name'],
         'gender': GenderFromJSON(json['gender']),
         'sexualOrientation': SexualOrientationFromJSON(json['sexual_orientation']),
+        'furryVisualType': json['furry_visual_type'] == null ? undefined : FurryVisualTypeFromJSON(json['furry_visual_type']),
         'story': json['story'],
         'bio': json['bio'],
         'exampleConversation': json['example_conversation'],
@@ -191,6 +205,7 @@ export function GetAboutChatbotResponseFromJSONTyped(json: any, ignoreDiscrimina
         'name': value['name'],
         'gender': GenderToJSON(value['gender']),
         'sexual_orientation': SexualOrientationToJSON(value['sexualOrientation']),
+        'furry_visual_type': FurryVisualTypeToJSON(value['furryVisualType']),
         'story': value['story'],
         'bio': value['bio'],
         'example_conversation': value['exampleConversation'],

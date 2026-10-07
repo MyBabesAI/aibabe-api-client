@@ -20,6 +20,13 @@ import {
     ArtStyleToJSON,
     ArtStyleToJSONTyped,
 } from './ArtStyle';
+import type { FurryVisualType } from './FurryVisualType';
+import {
+    FurryVisualTypeFromJSON,
+    FurryVisualTypeFromJSONTyped,
+    FurryVisualTypeToJSON,
+    FurryVisualTypeToJSONTyped,
+} from './FurryVisualType';
 import type { LoraName } from './LoraName';
 import {
     LoraNameFromJSON,
@@ -52,6 +59,12 @@ export interface PostAdvancedChatbotProfilePicture {
      * @memberof PostAdvancedChatbotProfilePicture
      */
     mods?: Array<LoraName>;
+    /**
+     * 
+     * @type {FurryVisualType}
+     * @memberof PostAdvancedChatbotProfilePicture
+     */
+    furryVisualType?: FurryVisualType | null;
 }
 
 
@@ -78,6 +91,7 @@ export function PostAdvancedChatbotProfilePictureFromJSONTyped(json: any, ignore
         'description': json['description'],
         'artStyle': ArtStyleFromJSON(json['art_style']),
         'mods': json['mods'] == null ? undefined : ((json['mods'] as Array<any>).map(LoraNameFromJSON)),
+        'furryVisualType': json['furry_visual_type'] == null ? undefined : FurryVisualTypeFromJSON(json['furry_visual_type']),
     };
 }
 
@@ -95,6 +109,7 @@ export function PostAdvancedChatbotProfilePictureFromJSONTyped(json: any, ignore
         'description': value['description'],
         'art_style': ArtStyleToJSON(value['artStyle']),
         'mods': value['mods'] == null ? undefined : ((value['mods'] as Array<any>).map(LoraNameToJSON)),
+        'furry_visual_type': FurryVisualTypeToJSON(value['furryVisualType']),
     };
 }
 

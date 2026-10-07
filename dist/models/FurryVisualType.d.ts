@@ -22,6 +22,18 @@ export declare const FurryVisualType: {
     readonly Sharkgirl: "sharkgirl";
     readonly Tigergirl: "tigergirl";
     readonly Dragoness: "dragoness";
+    readonly Mare: "mare";
+    readonly Zebragirl: "zebragirl";
+    readonly Squirrelgirl: "squirrelgirl";
+    readonly Snakegirl: "snakegirl";
+    readonly Deergirl: "deergirl";
+    readonly Lioness: "lioness";
+    readonly Snowleopardgirl: "snowleopardgirl";
+    readonly Redpandagirl: "redpandagirl";
+    readonly Raccoongirl: "raccoongirl";
+    readonly Ottergirl: "ottergirl";
+    readonly Bat: "bat";
+    readonly Hyenagirl: "hyenagirl";
     readonly Panther: "panther";
     readonly Wolf: "wolf";
     readonly Fox: "fox";

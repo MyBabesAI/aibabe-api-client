@@ -18,6 +18,7 @@ exports.GetIdentityChatbotResponseFromJSON = GetIdentityChatbotResponseFromJSON;
 exports.GetIdentityChatbotResponseFromJSONTyped = GetIdentityChatbotResponseFromJSONTyped;
 exports.GetIdentityChatbotResponseToJSON = GetIdentityChatbotResponseToJSON;
 exports.GetIdentityChatbotResponseToJSONTyped = GetIdentityChatbotResponseToJSONTyped;
+const FurryVisualType_1 = require("./FurryVisualType");
 const Gender_1 = require("./Gender");
 const SexualOrientation_1 = require("./SexualOrientation");
 /**
@@ -50,6 +51,7 @@ function GetIdentityChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'name': json['name'],
         'gender': (0, Gender_1.GenderFromJSON)(json['gender']),
         'sexualOrientation': (0, SexualOrientation_1.SexualOrientationFromJSON)(json['sexual_orientation']),
+        'furryVisualType': json['furry_visual_type'] == null ? undefined : (0, FurryVisualType_1.FurryVisualTypeFromJSON)(json['furry_visual_type']),
         'bio': json['bio'],
         'greetings': json['greetings'],
     };
@@ -66,6 +68,7 @@ function GetIdentityChatbotResponseToJSONTyped(value, ignoreDiscriminator = fals
         'name': value['name'],
         'gender': (0, Gender_1.GenderToJSON)(value['gender']),
         'sexual_orientation': (0, SexualOrientation_1.SexualOrientationToJSON)(value['sexualOrientation']),
+        'furry_visual_type': (0, FurryVisualType_1.FurryVisualTypeToJSON)(value['furryVisualType']),
         'bio': value['bio'],
         'greetings': value['greetings'],
     };
