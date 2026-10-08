@@ -51,6 +51,18 @@ export interface HubTag {
      * @memberof HubTag
      */
     indexable?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof HubTag
+     */
+    indexableVideos?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof HubTag
+     */
+    indexableImages?: boolean;
 }
 
 
@@ -78,6 +90,8 @@ export function HubTagFromJSONTyped(json: any, ignoreDiscriminator: boolean): Hu
         'value': json['value'],
         'previewImageUrls': json['preview_image_urls'] == null ? undefined : json['preview_image_urls'],
         'indexable': json['indexable'] == null ? undefined : json['indexable'],
+        'indexableVideos': json['indexable_videos'] == null ? undefined : json['indexable_videos'],
+        'indexableImages': json['indexable_images'] == null ? undefined : json['indexable_images'],
     };
 }
 
@@ -96,6 +110,8 @@ export function HubTagFromJSONTyped(json: any, ignoreDiscriminator: boolean): Hu
         'value': value['value'],
         'preview_image_urls': value['previewImageUrls'],
         'indexable': value['indexable'],
+        'indexable_videos': value['indexableVideos'],
+        'indexable_images': value['indexableImages'],
     };
 }
 

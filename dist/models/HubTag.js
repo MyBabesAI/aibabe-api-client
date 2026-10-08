@@ -41,6 +41,8 @@ function HubTagFromJSONTyped(json, ignoreDiscriminator) {
         'value': json['value'],
         'previewImageUrls': json['preview_image_urls'] == null ? undefined : json['preview_image_urls'],
         'indexable': json['indexable'] == null ? undefined : json['indexable'],
+        'indexableVideos': json['indexable_videos'] == null ? undefined : json['indexable_videos'],
+        'indexableImages': json['indexable_images'] == null ? undefined : json['indexable_images'],
     };
 }
 function HubTagToJSON(json) {
@@ -55,6 +57,8 @@ function HubTagToJSONTyped(value, ignoreDiscriminator = false) {
         'value': value['value'],
         'preview_image_urls': value['previewImageUrls'],
         'indexable': value['indexable'],
+        'indexable_videos': value['indexableVideos'],
+        'indexable_images': value['indexableImages'],
     };
 }
 //# sourceMappingURL=HubTag.js.map
