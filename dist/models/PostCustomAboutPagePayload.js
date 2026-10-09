@@ -18,6 +18,7 @@ exports.PostCustomAboutPagePayloadFromJSON = PostCustomAboutPagePayloadFromJSON;
 exports.PostCustomAboutPagePayloadFromJSONTyped = PostCustomAboutPagePayloadFromJSONTyped;
 exports.PostCustomAboutPagePayloadToJSON = PostCustomAboutPagePayloadToJSON;
 exports.PostCustomAboutPagePayloadToJSONTyped = PostCustomAboutPagePayloadToJSONTyped;
+const FurryVisualType_1 = require("./FurryVisualType");
 const Gender_1 = require("./Gender");
 const SexualOrientation_1 = require("./SexualOrientation");
 /**
@@ -47,6 +48,7 @@ function PostCustomAboutPagePayloadFromJSONTyped(json, ignoreDiscriminator) {
         'name': json['name'],
         'gender': json['gender'] == null ? undefined : (0, Gender_1.GenderFromJSON)(json['gender']),
         'sexualOrientation': json['sexual_orientation'] == null ? undefined : (0, SexualOrientation_1.SexualOrientationFromJSON)(json['sexual_orientation']),
+        'furryVisualType': json['furry_visual_type'] == null ? undefined : (0, FurryVisualType_1.FurryVisualTypeFromJSON)(json['furry_visual_type']),
         'bio': json['bio'],
         'greetings': json['greetings'],
         'story': json['story'],
@@ -64,6 +66,7 @@ function PostCustomAboutPagePayloadToJSONTyped(value, ignoreDiscriminator = fals
         'name': value['name'],
         'gender': (0, Gender_1.GenderToJSON)(value['gender']),
         'sexual_orientation': (0, SexualOrientation_1.SexualOrientationToJSON)(value['sexualOrientation']),
+        'furry_visual_type': (0, FurryVisualType_1.FurryVisualTypeToJSON)(value['furryVisualType']),
         'bio': value['bio'],
         'greetings': value['greetings'],
         'story': value['story'],
