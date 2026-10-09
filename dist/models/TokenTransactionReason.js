@@ -46,7 +46,8 @@ exports.TokenTransactionReason = {
     SocialFollowBonus: 'social_follow_bonus',
     DailyLoginBonus: 'daily_login_bonus',
     AdminAdjustment: 'admin_adjustment',
-    OpeningBalance: 'opening_balance'
+    OpeningBalance: 'opening_balance',
+    Reconciliation: 'reconciliation'
 };
 function instanceOfTokenTransactionReason(value) {
     for (const key in exports.TokenTransactionReason) {

@@ -37,6 +37,7 @@ export declare const TokenTransactionReason: {
     readonly DailyLoginBonus: "daily_login_bonus";
     readonly AdminAdjustment: "admin_adjustment";
     readonly OpeningBalance: "opening_balance";
+    readonly Reconciliation: "reconciliation";
 };
 export type TokenTransactionReason = typeof TokenTransactionReason[keyof typeof TokenTransactionReason];
 export declare function instanceOfTokenTransactionReason(value: any): boolean;
