@@ -19,7 +19,6 @@ exports.PostAdvancedChatbotProfilePictureFromJSONTyped = PostAdvancedChatbotProf
 exports.PostAdvancedChatbotProfilePictureToJSON = PostAdvancedChatbotProfilePictureToJSON;
 exports.PostAdvancedChatbotProfilePictureToJSONTyped = PostAdvancedChatbotProfilePictureToJSONTyped;
 const ArtStyle_1 = require("./ArtStyle");
-const FurryVisualType_1 = require("./FurryVisualType");
 const LoraName_1 = require("./LoraName");
 /**
  * Check if a given object implements the PostAdvancedChatbotProfilePicture interface.
@@ -42,7 +41,6 @@ function PostAdvancedChatbotProfilePictureFromJSONTyped(json, ignoreDiscriminato
         'description': json['description'],
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'mods': json['mods'] == null ? undefined : (json['mods'].map(LoraName_1.LoraNameFromJSON)),
-        'furryVisualType': json['furry_visual_type'] == null ? undefined : (0, FurryVisualType_1.FurryVisualTypeFromJSON)(json['furry_visual_type']),
     };
 }
 function PostAdvancedChatbotProfilePictureToJSON(json) {
@@ -56,7 +54,6 @@ function PostAdvancedChatbotProfilePictureToJSONTyped(value, ignoreDiscriminator
         'description': value['description'],
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'mods': value['mods'] == null ? undefined : (value['mods'].map(LoraName_1.LoraNameToJSON)),
-        'furry_visual_type': (0, FurryVisualType_1.FurryVisualTypeToJSON)(value['furryVisualType']),
     };
 }
 //# sourceMappingURL=PostAdvancedChatbotProfilePicture.js.map

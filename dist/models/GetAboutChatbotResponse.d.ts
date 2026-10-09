@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { ArtStyle } from './ArtStyle';
-import type { FurryVisualType } from './FurryVisualType';
 import type { Gender } from './Gender';
 import type { LoraName } from './LoraName';
 import type { SexualOrientation } from './SexualOrientation';
@@ -44,12 +43,6 @@ export interface GetAboutChatbotResponse {
      * @memberof GetAboutChatbotResponse
      */
     sexualOrientation: SexualOrientation | null;
-    /**
-     *
-     * @type {FurryVisualType}
-     * @memberof GetAboutChatbotResponse
-     */
-    furryVisualType?: FurryVisualType | null;
     /**
      *
      * @type {string}

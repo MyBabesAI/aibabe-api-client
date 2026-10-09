@@ -25,6 +25,7 @@ import type {
   AdminPromotionListResponse,
   AdminPromotionResponse,
   AdminSavePricingGroupRevisionsRequest,
+  AdminTokenHistoryResponse,
   AdminUpdatePromotionRequest,
   AdminUserJourneysResponse,
   ArtStyle,
@@ -73,6 +74,8 @@ import {
     AdminPromotionResponseToJSON,
     AdminSavePricingGroupRevisionsRequestFromJSON,
     AdminSavePricingGroupRevisionsRequestToJSON,
+    AdminTokenHistoryResponseFromJSON,
+    AdminTokenHistoryResponseToJSON,
     AdminUpdatePromotionRequestFromJSON,
     AdminUpdatePromotionRequestToJSON,
     AdminUserJourneysResponseFromJSON,
@@ -204,6 +207,12 @@ export interface GetQualityControlImagesAdminImageQualityControlPostRequest {
 
 export interface GetTokenBalanceAdminTokenBalanceEmailGetRequest {
     email: string;
+}
+
+export interface GetTokenHistoryAdminTokenHistoryEmailGetRequest {
+    email: string;
+    paginationToken?: string | null;
+    limit?: number;
 }
 
 export interface GetUserGalleryAdminGalleryUserIdGetRequest {
@@ -982,6 +991,47 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async getTokenBalanceAdminTokenBalanceEmailGet(requestParameters: GetTokenBalanceAdminTokenBalanceEmailGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<number> {
         const response = await this.getTokenBalanceAdminTokenBalanceEmailGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get Token History
+     */
+    async getTokenHistoryAdminTokenHistoryEmailGetRaw(requestParameters: GetTokenHistoryAdminTokenHistoryEmailGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminTokenHistoryResponse>> {
+        if (requestParameters['email'] == null) {
+            throw new runtime.RequiredError(
+                'email',
+                'Required parameter "email" was null or undefined when calling getTokenHistoryAdminTokenHistoryEmailGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/admin/token-history/{email}`.replace(`{${"email"}}`, encodeURIComponent(String(requestParameters['email']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminTokenHistoryResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Token History
+     */
+    async getTokenHistoryAdminTokenHistoryEmailGet(requestParameters: GetTokenHistoryAdminTokenHistoryEmailGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminTokenHistoryResponse> {
+        const response = await this.getTokenHistoryAdminTokenHistoryEmailGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

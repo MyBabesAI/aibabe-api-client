@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { FurryVisualType } from './FurryVisualType';
 import type { Gender } from './Gender';
 import type { SexualOrientation } from './SexualOrientation';
 /**
@@ -36,12 +35,6 @@ export interface PostCustomAboutPagePayload {
      * @memberof PostCustomAboutPagePayload
      */
     sexualOrientation?: SexualOrientation | null;
-    /**
-     *
-     * @type {FurryVisualType}
-     * @memberof PostCustomAboutPagePayload
-     */
-    furryVisualType?: FurryVisualType | null;
     /**
      *
      * @type {string}

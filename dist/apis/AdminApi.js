@@ -579,6 +579,36 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Get Token History
+     */
+    async getTokenHistoryAdminTokenHistoryEmailGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['email'] == null) {
+            throw new runtime.RequiredError('email', 'Required parameter "email" was null or undefined when calling getTokenHistoryAdminTokenHistoryEmailGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/token-history/{email}`.replace(`{${"email"}}`, encodeURIComponent(String(requestParameters['email']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminTokenHistoryResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get Token History
+     */
+    async getTokenHistoryAdminTokenHistoryEmailGet(requestParameters, initOverrides) {
+        const response = await this.getTokenHistoryAdminTokenHistoryEmailGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Get User Gallery
      */
     async getUserGalleryAdminGalleryUserIdGetRaw(requestParameters, initOverrides) {

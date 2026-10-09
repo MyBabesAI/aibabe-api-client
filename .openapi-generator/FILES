@@ -62,6 +62,7 @@ src/models/AdminSavePricingGroupRevisionsRequestPricingGroup.ts
 src/models/AdminSavePricingGroupRevisionsRequestTokenUsageGroup.ts
 src/models/AdminSaveTokenUsageGroupRequest.ts
 src/models/AdminSeedanceModel.ts
+src/models/AdminTokenHistoryResponse.ts
 src/models/AdminTokenUsageGroupResponse.ts
 src/models/AdminTokenUsageResponse.ts
 src/models/AdminUpdatePromotionRequest.ts
@@ -505,6 +506,8 @@ src/models/Title1.ts
 src/models/TokenPriceConfig.ts
 src/models/TokenPricingConfigResponse.ts
 src/models/TokenReconciliationResponse.ts
+src/models/TokenTransactionEntry.ts
+src/models/TokenTransactionReason.ts
 src/models/TokenUsageCalculationMode.ts
 src/models/TokenUsageType.ts
 src/models/TrackConversionEventRequest.ts

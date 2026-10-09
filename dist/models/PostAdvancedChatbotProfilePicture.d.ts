@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { ArtStyle } from './ArtStyle';
-import type { FurryVisualType } from './FurryVisualType';
 import type { LoraName } from './LoraName';
 /**
  *
@@ -36,12 +35,6 @@ export interface PostAdvancedChatbotProfilePicture {
      * @memberof PostAdvancedChatbotProfilePicture
      */
     mods?: Array<LoraName>;
-    /**
-     *
-     * @type {FurryVisualType}
-     * @memberof PostAdvancedChatbotProfilePicture
-     */
-    furryVisualType?: FurryVisualType | null;
 }
 /**
  * Check if a given object implements the PostAdvancedChatbotProfilePicture interface.

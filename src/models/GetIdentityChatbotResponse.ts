@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { FurryVisualType } from './FurryVisualType';
-import {
-    FurryVisualTypeFromJSON,
-    FurryVisualTypeFromJSONTyped,
-    FurryVisualTypeToJSON,
-    FurryVisualTypeToJSONTyped,
-} from './FurryVisualType';
 import type { Gender } from './Gender';
 import {
     GenderFromJSON,
@@ -67,12 +60,6 @@ export interface GetIdentityChatbotResponse {
     sexualOrientation: SexualOrientation | null;
     /**
      * 
-     * @type {FurryVisualType}
-     * @memberof GetIdentityChatbotResponse
-     */
-    furryVisualType?: FurryVisualType | null;
-    /**
-     * 
      * @type {string}
      * @memberof GetIdentityChatbotResponse
      */
@@ -114,7 +101,6 @@ export function GetIdentityChatbotResponseFromJSONTyped(json: any, ignoreDiscrim
         'name': json['name'],
         'gender': GenderFromJSON(json['gender']),
         'sexualOrientation': SexualOrientationFromJSON(json['sexual_orientation']),
-        'furryVisualType': json['furry_visual_type'] == null ? undefined : FurryVisualTypeFromJSON(json['furry_visual_type']),
         'bio': json['bio'],
         'greetings': json['greetings'],
     };
@@ -135,7 +121,6 @@ export function GetIdentityChatbotResponseFromJSONTyped(json: any, ignoreDiscrim
         'name': value['name'],
         'gender': GenderToJSON(value['gender']),
         'sexual_orientation': SexualOrientationToJSON(value['sexualOrientation']),
-        'furry_visual_type': FurryVisualTypeToJSON(value['furryVisualType']),
         'bio': value['bio'],
         'greetings': value['greetings'],
     };

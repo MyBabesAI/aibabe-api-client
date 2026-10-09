@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { FurryVisualType } from './FurryVisualType';
-import {
-    FurryVisualTypeFromJSON,
-    FurryVisualTypeFromJSONTyped,
-    FurryVisualTypeToJSON,
-    FurryVisualTypeToJSONTyped,
-} from './FurryVisualType';
 import type { Gender } from './Gender';
 import {
     GenderFromJSON,
@@ -59,12 +52,6 @@ export interface PostCustomAboutPagePayload {
      * @memberof PostCustomAboutPagePayload
      */
     sexualOrientation?: SexualOrientation | null;
-    /**
-     * 
-     * @type {FurryVisualType}
-     * @memberof PostCustomAboutPagePayload
-     */
-    furryVisualType?: FurryVisualType | null;
     /**
      * 
      * @type {string}
@@ -118,7 +105,6 @@ export function PostCustomAboutPagePayloadFromJSONTyped(json: any, ignoreDiscrim
         'name': json['name'],
         'gender': json['gender'] == null ? undefined : GenderFromJSON(json['gender']),
         'sexualOrientation': json['sexual_orientation'] == null ? undefined : SexualOrientationFromJSON(json['sexual_orientation']),
-        'furryVisualType': json['furry_visual_type'] == null ? undefined : FurryVisualTypeFromJSON(json['furry_visual_type']),
         'bio': json['bio'],
         'greetings': json['greetings'],
         'story': json['story'],
@@ -140,7 +126,6 @@ export function PostCustomAboutPagePayloadFromJSONTyped(json: any, ignoreDiscrim
         'name': value['name'],
         'gender': GenderToJSON(value['gender']),
         'sexual_orientation': SexualOrientationToJSON(value['sexualOrientation']),
-        'furry_visual_type': FurryVisualTypeToJSON(value['furryVisualType']),
         'bio': value['bio'],
         'greetings': value['greetings'],
         'story': value['story'],

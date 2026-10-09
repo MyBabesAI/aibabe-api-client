@@ -171,8 +171,6 @@ exports.LoraName = {
     Krea2GayTribes: 'krea2_gay_tribes',
     Krea2SkinDetailEnhancer: 'krea2_skin_detail_enhancer',
     Krea2HandsomeMaleFace: 'krea2_handsome_male_face',
-    Krea2EleptorFurryAnthro: 'krea2_eleptor_furry_anthro',
-    Krea2Furrytoonmix: 'krea2_furrytoonmix',
     None: 'none'
 };
 function instanceOfLoraName(value) {

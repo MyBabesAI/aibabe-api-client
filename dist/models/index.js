@@ -44,6 +44,7 @@ __exportStar(require("./AdminSavePricingGroupRevisionsRequestPricingGroup"), exp
 __exportStar(require("./AdminSavePricingGroupRevisionsRequestTokenUsageGroup"), exports);
 __exportStar(require("./AdminSaveTokenUsageGroupRequest"), exports);
 __exportStar(require("./AdminSeedanceModel"), exports);
+__exportStar(require("./AdminTokenHistoryResponse"), exports);
 __exportStar(require("./AdminTokenUsageGroupResponse"), exports);
 __exportStar(require("./AdminTokenUsageResponse"), exports);
 __exportStar(require("./AdminUpdatePromotionRequest"), exports);
@@ -487,6 +488,8 @@ __exportStar(require("./Title1"), exports);
 __exportStar(require("./TokenPriceConfig"), exports);
 __exportStar(require("./TokenPricingConfigResponse"), exports);
 __exportStar(require("./TokenReconciliationResponse"), exports);
+__exportStar(require("./TokenTransactionEntry"), exports);
+__exportStar(require("./TokenTransactionReason"), exports);
 __exportStar(require("./TokenUsageCalculationMode"), exports);
 __exportStar(require("./TokenUsageType"), exports);
 __exportStar(require("./TrackConversionEventRequest"), exports);
