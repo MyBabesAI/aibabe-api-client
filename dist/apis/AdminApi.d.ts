@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
+import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminTokenHistoryResponse, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -76,6 +76,11 @@ export interface GetQualityControlImagesAdminImageQualityControlPostRequest {
 }
 export interface GetTokenBalanceAdminTokenBalanceEmailGetRequest {
     email: string;
+}
+export interface GetTokenHistoryAdminTokenHistoryEmailGetRequest {
+    email: string;
+    paginationToken?: string | null;
+    limit?: number;
 }
 export interface GetUserGalleryAdminGalleryUserIdGetRequest {
     userId: string;
@@ -265,6 +270,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Get Token Balance
      */
     getTokenBalanceAdminTokenBalanceEmailGet(requestParameters: GetTokenBalanceAdminTokenBalanceEmailGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<number>;
+    /**
+     * Get Token History
+     */
+    getTokenHistoryAdminTokenHistoryEmailGetRaw(requestParameters: GetTokenHistoryAdminTokenHistoryEmailGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminTokenHistoryResponse>>;
+    /**
+     * Get Token History
+     */
+    getTokenHistoryAdminTokenHistoryEmailGet(requestParameters: GetTokenHistoryAdminTokenHistoryEmailGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminTokenHistoryResponse>;
     /**
      * Get User Gallery
      */
