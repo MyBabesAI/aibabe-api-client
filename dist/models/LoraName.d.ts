@@ -163,6 +163,8 @@ export declare const LoraName: {
     readonly Krea2HandsomeMaleFace: "krea2_handsome_male_face";
     readonly Krea2EleptorFurryAnthro: "krea2_eleptor_furry_anthro";
     readonly Krea2Furrytoonmix: "krea2_furrytoonmix";
+    readonly Krea2BulgeDegenerator: "krea2_bulge_degenerator";
+    readonly Krea2PenisSizeSlider: "krea2_penis_size_slider";
     readonly None: "none";
 };
 export type LoraName = typeof LoraName[keyof typeof LoraName];
