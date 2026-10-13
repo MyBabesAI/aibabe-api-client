@@ -323,6 +323,7 @@ src/models/PatchUserPreferenceProfileRequest.ts
 src/models/PatchUserRequest.ts
 src/models/PaymentCurrency.ts
 src/models/PaymentProviderType.ts
+src/models/PenisSize.ts
 src/models/PercentOff.ts
 src/models/PingRequest.ts
 src/models/PostAcceptOfferRequest.ts

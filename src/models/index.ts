@@ -290,6 +290,7 @@ export * from './PatchUserPreferenceProfileRequest';
 export * from './PatchUserRequest';
 export * from './PaymentCurrency';
 export * from './PaymentProviderType';
+export * from './PenisSize';
 export * from './PercentOff';
 export * from './PingRequest';
 export * from './PostAcceptOfferRequest';

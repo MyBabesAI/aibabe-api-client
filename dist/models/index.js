@@ -306,6 +306,7 @@ __exportStar(require("./PatchUserPreferenceProfileRequest"), exports);
 __exportStar(require("./PatchUserRequest"), exports);
 __exportStar(require("./PaymentCurrency"), exports);
 __exportStar(require("./PaymentProviderType"), exports);
+__exportStar(require("./PenisSize"), exports);
 __exportStar(require("./PercentOff"), exports);
 __exportStar(require("./PingRequest"), exports);
 __exportStar(require("./PostAcceptOfferRequest"), exports);
