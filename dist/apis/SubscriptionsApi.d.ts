@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BillingReconciliationResponse, CancelSubscriptionRequest, GetPricesResponse, GetSaleOffersResponse, PostAcceptOfferRequest, PostAcceptOfferResponse, PostCheckoutResponse, PostCheckoutSessionRequest, PostResumeSubscriptionResponse, PostSaleOfferEventRequest, RedeemGiftCodeRequest, RedeemGiftCodeResponse, SaleOfferResponse, TokenReconciliationResponse } from '../models/index';
+import type { BillingReconciliationResponse, CancelSubscriptionRequest, GetPricesResponse, GetSaleOffersResponse, PostAcceptOfferRequest, PostAcceptOfferResponse, PostCheckoutResponse, PostCheckoutSessionRequest, PostResumeSubscriptionResponse, PostSaleOfferEventRequest, PutAdminSaleOfferRequest, RedeemGiftCodeRequest, RedeemGiftCodeResponse, SaleOfferResponse, TokenReconciliationResponse } from '../models/index';
 export interface AcceptOfferSubscriptionOfferAcceptPostRequest {
     postAcceptOfferRequest: PostAcceptOfferRequest;
 }
@@ -37,6 +37,9 @@ export interface CheckoutSubscriptionCheckoutPostRequest {
 }
 export interface DeclineSaleOfferSubscriptionOffersOfferIdDeclinePostRequest {
     offerId: string;
+}
+export interface ForceSaleOfferSubscriptionOffersAdminPutRequest {
+    putAdminSaleOfferRequest: PutAdminSaleOfferRequest;
 }
 export interface PauseSubscriptionPausePatchRequest {
     cancelSubscriptionRequest: CancelSubscriptionRequest;
@@ -139,6 +142,16 @@ export declare class SubscriptionsApi extends runtime.BaseAPI {
      * Decline Sale Offer
      */
     declineSaleOfferSubscriptionOffersOfferIdDeclinePost(requestParameters: DeclineSaleOfferSubscriptionOffersOfferIdDeclinePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SaleOfferResponse>;
+    /**
+     * Admins only, own account only: force one offer open (or clear all) to test the upsell flows.
+     * Force Sale Offer
+     */
+    forceSaleOfferSubscriptionOffersAdminPutRaw(requestParameters: ForceSaleOfferSubscriptionOffersAdminPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSaleOffersResponse>>;
+    /**
+     * Admins only, own account only: force one offer open (or clear all) to test the upsell flows.
+     * Force Sale Offer
+     */
+    forceSaleOfferSubscriptionOffersAdminPut(requestParameters: ForceSaleOfferSubscriptionOffersAdminPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSaleOffersResponse>;
     /**
      * Get Prices
      */

@@ -309,6 +309,34 @@ class SubscriptionsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Admins only, own account only: force one offer open (or clear all) to test the upsell flows.
+     * Force Sale Offer
+     */
+    async forceSaleOfferSubscriptionOffersAdminPutRaw(requestParameters, initOverrides) {
+        if (requestParameters['putAdminSaleOfferRequest'] == null) {
+            throw new runtime.RequiredError('putAdminSaleOfferRequest', 'Required parameter "putAdminSaleOfferRequest" was null or undefined when calling forceSaleOfferSubscriptionOffersAdminPut().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/subscription/offers/admin`,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PutAdminSaleOfferRequestToJSON)(requestParameters['putAdminSaleOfferRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetSaleOffersResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Admins only, own account only: force one offer open (or clear all) to test the upsell flows.
+     * Force Sale Offer
+     */
+    async forceSaleOfferSubscriptionOffersAdminPut(requestParameters, initOverrides) {
+        const response = await this.forceSaleOfferSubscriptionOffersAdminPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Prices
      */
     async getPricesSubscriptionPricesGetRaw(initOverrides) {

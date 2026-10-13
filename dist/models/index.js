@@ -397,6 +397,7 @@ __exportStar(require("./PublicUserInfo"), exports);
 __exportStar(require("./PublicUserPreview"), exports);
 __exportStar(require("./PublicUserPreviewWithFollow"), exports);
 __exportStar(require("./PublicUserReportReason"), exports);
+__exportStar(require("./PutAdminSaleOfferRequest"), exports);
 __exportStar(require("./PutFollowNotificationsRequest"), exports);
 __exportStar(require("./PutPasswordRequest"), exports);
 __exportStar(require("./PutPublicUserRequest"), exports);

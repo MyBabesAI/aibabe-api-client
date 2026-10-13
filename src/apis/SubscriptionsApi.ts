@@ -26,6 +26,7 @@ import type {
   PostCheckoutSessionRequest,
   PostResumeSubscriptionResponse,
   PostSaleOfferEventRequest,
+  PutAdminSaleOfferRequest,
   RedeemGiftCodeRequest,
   RedeemGiftCodeResponse,
   SaleOfferResponse,
@@ -54,6 +55,8 @@ import {
     PostResumeSubscriptionResponseToJSON,
     PostSaleOfferEventRequestFromJSON,
     PostSaleOfferEventRequestToJSON,
+    PutAdminSaleOfferRequestFromJSON,
+    PutAdminSaleOfferRequestToJSON,
     RedeemGiftCodeRequestFromJSON,
     RedeemGiftCodeRequestToJSON,
     RedeemGiftCodeResponseFromJSON,
@@ -98,6 +101,10 @@ export interface CheckoutSubscriptionCheckoutPostRequest {
 
 export interface DeclineSaleOfferSubscriptionOffersOfferIdDeclinePostRequest {
     offerId: string;
+}
+
+export interface ForceSaleOfferSubscriptionOffersAdminPutRequest {
+    putAdminSaleOfferRequest: PutAdminSaleOfferRequest;
 }
 
 export interface PauseSubscriptionPausePatchRequest {
@@ -471,6 +478,44 @@ export class SubscriptionsApi extends runtime.BaseAPI {
      */
     async declineSaleOfferSubscriptionOffersOfferIdDeclinePost(requestParameters: DeclineSaleOfferSubscriptionOffersOfferIdDeclinePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SaleOfferResponse> {
         const response = await this.declineSaleOfferSubscriptionOffersOfferIdDeclinePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Admins only, own account only: force one offer open (or clear all) to test the upsell flows.
+     * Force Sale Offer
+     */
+    async forceSaleOfferSubscriptionOffersAdminPutRaw(requestParameters: ForceSaleOfferSubscriptionOffersAdminPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSaleOffersResponse>> {
+        if (requestParameters['putAdminSaleOfferRequest'] == null) {
+            throw new runtime.RequiredError(
+                'putAdminSaleOfferRequest',
+                'Required parameter "putAdminSaleOfferRequest" was null or undefined when calling forceSaleOfferSubscriptionOffersAdminPut().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/subscription/offers/admin`,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PutAdminSaleOfferRequestToJSON(requestParameters['putAdminSaleOfferRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetSaleOffersResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Admins only, own account only: force one offer open (or clear all) to test the upsell flows.
+     * Force Sale Offer
+     */
+    async forceSaleOfferSubscriptionOffersAdminPut(requestParameters: ForceSaleOfferSubscriptionOffersAdminPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSaleOffersResponse> {
+        const response = await this.forceSaleOfferSubscriptionOffersAdminPutRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

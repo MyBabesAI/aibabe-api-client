@@ -379,6 +379,7 @@ export * from './PublicUserInfo';
 export * from './PublicUserPreview';
 export * from './PublicUserPreviewWithFollow';
 export * from './PublicUserReportReason';
+export * from './PutAdminSaleOfferRequest';
 export * from './PutFollowNotificationsRequest';
 export * from './PutPasswordRequest';
 export * from './PutPublicUserRequest';
