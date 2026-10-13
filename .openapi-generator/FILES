@@ -5,7 +5,6 @@ README.md
 package.json
 src/apis/AdminApi.ts
 src/apis/AgeVerificationApi.ts
-src/apis/AssistantChatApi.ts
 src/apis/AuthenticationApi.ts
 src/apis/BadgesApi.ts
 src/apis/ChatApi.ts
@@ -71,10 +70,6 @@ src/models/AdminUserJourneysResponse.ts
 src/models/AgeVerificationAlternativeProvider.ts
 src/models/AgeVerificationStatusResponse.ts
 src/models/ArtStyle.ts
-src/models/AssistantChatMessageDetail.ts
-src/models/AssistantChatResponse.ts
-src/models/AssistantChatRoute.ts
-src/models/AssistantChatSessionDetail.ts
 src/models/AuraSubcategory.ts
 src/models/AvatarFieldValue.ts
 src/models/AvatarLooksV2.ts
@@ -129,7 +124,6 @@ src/models/ConversionEvent.ts
 src/models/CreateAnonymousConversationMessageRequest.ts
 src/models/CreateAnonymousConversationRequest.ts
 src/models/CreateAnonymousConversationResponse.ts
-src/models/CreateAssistantChatSessionRequest.ts
 src/models/CreateGalleryFolderRequest.ts
 src/models/CreatorGenerationCharge.ts
 src/models/CreatorGenerationQuotaStatus.ts
@@ -148,7 +142,6 @@ src/models/DownscaleRequest.ts
 src/models/EffectiveEventStatus.ts
 src/models/Enabled.ts
 src/models/EndsAt.ts
-src/models/EpisodeContent.ts
 src/models/EpisodeCounts.ts
 src/models/EpisodePanelType.ts
 src/models/EpisodePaymentType.ts
@@ -223,7 +216,6 @@ src/models/GeneratedImages.ts
 src/models/GeneratedVideos.ts
 src/models/GetAboutChatbotResponse.ts
 src/models/GetAnonymousConversationResponse.ts
-src/models/GetAssistantChatMessagesResponse.ts
 src/models/GetChatbotListResponse.ts
 src/models/GetChatbotResponse.ts
 src/models/GetClaimablesResponse.ts
@@ -286,7 +278,6 @@ src/models/LastVideoFrameResponse.ts
 src/models/LeaderboardEntry.ts
 src/models/LikePostNotification.ts
 src/models/LikedPostNotification.ts
-src/models/ListAssistantChatSessionsResponse.ts
 src/models/ListChatbotItem.ts
 src/models/ListConversationsResponse.ts
 src/models/LiveRoleplayHistoryMessage.ts
@@ -345,7 +336,6 @@ src/models/PostAdvancedIdentityPayload.ts
 src/models/PostAdvancedPersonalityPayload.ts
 src/models/PostAnonymousChatRequest.ts
 src/models/PostAnonymousChatResponse.ts
-src/models/PostAssistantChatMessageRequest.ts
 src/models/PostCategoryValues.ts
 src/models/PostChatRequest.ts
 src/models/PostChatSuggestionRequest.ts

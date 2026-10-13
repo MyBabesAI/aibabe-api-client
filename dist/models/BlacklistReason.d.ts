@@ -25,6 +25,7 @@ export declare const BlacklistReason: {
     readonly Illicit: "illicit";
     readonly Harassment: "harassment";
     readonly RealPerson: "real_person";
+    readonly Deepfake: "deepfake";
     readonly Copyright: "copyright";
     readonly Spam: "spam";
     readonly Other: "other";
