@@ -18,13 +18,17 @@ import type {
   BillingReconciliationResponse,
   CancelSubscriptionRequest,
   GetPricesResponse,
+  GetSaleOffersResponse,
   HTTPValidationError,
   PostAcceptOfferRequest,
   PostAcceptOfferResponse,
   PostCheckoutResponse,
   PostCheckoutSessionRequest,
+  PostResumeSubscriptionResponse,
+  PostSaleOfferEventRequest,
   RedeemGiftCodeRequest,
   RedeemGiftCodeResponse,
+  SaleOfferResponse,
   TokenReconciliationResponse,
 } from '../models/index';
 import {
@@ -34,6 +38,8 @@ import {
     CancelSubscriptionRequestToJSON,
     GetPricesResponseFromJSON,
     GetPricesResponseToJSON,
+    GetSaleOffersResponseFromJSON,
+    GetSaleOffersResponseToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
     PostAcceptOfferRequestFromJSON,
@@ -44,16 +50,26 @@ import {
     PostCheckoutResponseToJSON,
     PostCheckoutSessionRequestFromJSON,
     PostCheckoutSessionRequestToJSON,
+    PostResumeSubscriptionResponseFromJSON,
+    PostResumeSubscriptionResponseToJSON,
+    PostSaleOfferEventRequestFromJSON,
+    PostSaleOfferEventRequestToJSON,
     RedeemGiftCodeRequestFromJSON,
     RedeemGiftCodeRequestToJSON,
     RedeemGiftCodeResponseFromJSON,
     RedeemGiftCodeResponseToJSON,
+    SaleOfferResponseFromJSON,
+    SaleOfferResponseToJSON,
     TokenReconciliationResponseFromJSON,
     TokenReconciliationResponseToJSON,
 } from '../models/index';
 
 export interface AcceptOfferSubscriptionOfferAcceptPostRequest {
     postAcceptOfferRequest: PostAcceptOfferRequest;
+}
+
+export interface AcceptSaleOfferSubscriptionOffersOfferIdAcceptPostRequest {
+    offerId: string;
 }
 
 export interface CallbackAddonSubscriptionAddonsCallbackSuccessGetRequest {
@@ -80,6 +96,14 @@ export interface CheckoutSubscriptionCheckoutPostRequest {
     postCheckoutSessionRequest: PostCheckoutSessionRequest;
 }
 
+export interface DeclineSaleOfferSubscriptionOffersOfferIdDeclinePostRequest {
+    offerId: string;
+}
+
+export interface PauseSubscriptionPausePatchRequest {
+    cancelSubscriptionRequest: CancelSubscriptionRequest;
+}
+
 export interface RapydCallbackDeclinedSubscriptionRapydCallbackDeclinedGetRequest {
     txnRef?: string | null;
     merchantReferenceId?: string | null;
@@ -100,6 +124,10 @@ export interface ReconcileTokensSubscriptionReconcileTokensPostRequest {
 
 export interface RedeemCodeSubscriptionGiftCodeRedeeemPostRequest {
     redeemGiftCodeRequest: RedeemGiftCodeRequest;
+}
+
+export interface SaleOfferEventSubscriptionOffersEventsPostRequest {
+    postSaleOfferEventRequest: PostSaleOfferEventRequest;
 }
 
 /**
@@ -140,6 +168,41 @@ export class SubscriptionsApi extends runtime.BaseAPI {
      */
     async acceptOfferSubscriptionOfferAcceptPost(requestParameters: AcceptOfferSubscriptionOfferAcceptPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAcceptOfferResponse> {
         const response = await this.acceptOfferSubscriptionOfferAcceptPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Take a retention discount: the subscription stays on and the next payment is charged at the discount.
+     * Accept Sale Offer
+     */
+    async acceptSaleOfferSubscriptionOffersOfferIdAcceptPostRaw(requestParameters: AcceptSaleOfferSubscriptionOffersOfferIdAcceptPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SaleOfferResponse>> {
+        if (requestParameters['offerId'] == null) {
+            throw new runtime.RequiredError(
+                'offerId',
+                'Required parameter "offerId" was null or undefined when calling acceptSaleOfferSubscriptionOffersOfferIdAcceptPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/subscription/offers/{offer_id}/accept`.replace(`{${"offer_id"}}`, encodeURIComponent(String(requestParameters['offerId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SaleOfferResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Take a retention discount: the subscription stays on and the next payment is charged at the discount.
+     * Accept Sale Offer
+     */
+    async acceptSaleOfferSubscriptionOffersOfferIdAcceptPost(requestParameters: AcceptSaleOfferSubscriptionOffersOfferIdAcceptPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SaleOfferResponse> {
+        const response = await this.acceptSaleOfferSubscriptionOffersOfferIdAcceptPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -379,6 +442,39 @@ export class SubscriptionsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Decline Sale Offer
+     */
+    async declineSaleOfferSubscriptionOffersOfferIdDeclinePostRaw(requestParameters: DeclineSaleOfferSubscriptionOffersOfferIdDeclinePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SaleOfferResponse>> {
+        if (requestParameters['offerId'] == null) {
+            throw new runtime.RequiredError(
+                'offerId',
+                'Required parameter "offerId" was null or undefined when calling declineSaleOfferSubscriptionOffersOfferIdDeclinePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/subscription/offers/{offer_id}/decline`.replace(`{${"offer_id"}}`, encodeURIComponent(String(requestParameters['offerId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SaleOfferResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Decline Sale Offer
+     */
+    async declineSaleOfferSubscriptionOffersOfferIdDeclinePost(requestParameters: DeclineSaleOfferSubscriptionOffersOfferIdDeclinePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SaleOfferResponse> {
+        const response = await this.declineSaleOfferSubscriptionOffersOfferIdDeclinePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Get Prices
      */
     async getPricesSubscriptionPricesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPricesResponse>> {
@@ -401,6 +497,48 @@ export class SubscriptionsApi extends runtime.BaseAPI {
      */
     async getPricesSubscriptionPricesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPricesResponse> {
         const response = await this.getPricesSubscriptionPricesGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Rapyd only: stop rebilling at the end of the paid period while keeping the subscription resumable.
+     * Pause
+     */
+    async pauseSubscriptionPausePatchRaw(requestParameters: PauseSubscriptionPausePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['cancelSubscriptionRequest'] == null) {
+            throw new runtime.RequiredError(
+                'cancelSubscriptionRequest',
+                'Required parameter "cancelSubscriptionRequest" was null or undefined when calling pauseSubscriptionPausePatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/subscription/pause`,
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CancelSubscriptionRequestToJSON(requestParameters['cancelSubscriptionRequest']),
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Rapyd only: stop rebilling at the end of the paid period while keeping the subscription resumable.
+     * Pause
+     */
+    async pauseSubscriptionPausePatch(requestParameters: PauseSubscriptionPausePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.pauseSubscriptionPausePatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -573,6 +711,100 @@ export class SubscriptionsApi extends runtime.BaseAPI {
      */
     async redeemCodeSubscriptionGiftCodeRedeeemPost(requestParameters: RedeemCodeSubscriptionGiftCodeRedeeemPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RedeemGiftCodeResponse> {
         const response = await this.redeemCodeSubscriptionGiftCodeRedeeemPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Rapyd only: switch a paused subscription back on, or charge the saved card to restart an expired one.
+     * Resume
+     */
+    async resumeSubscriptionResumePostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostResumeSubscriptionResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/subscription/resume`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostResumeSubscriptionResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Rapyd only: switch a paused subscription back on, or charge the saved card to restart an expired one.
+     * Resume
+     */
+    async resumeSubscriptionResumePost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostResumeSubscriptionResponse> {
+        const response = await this.resumeSubscriptionResumePostRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * A moment that can open an offer (leaving the pricing page, starting a pause); returns the open offers.
+     * Sale Offer Event
+     */
+    async saleOfferEventSubscriptionOffersEventsPostRaw(requestParameters: SaleOfferEventSubscriptionOffersEventsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSaleOffersResponse>> {
+        if (requestParameters['postSaleOfferEventRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postSaleOfferEventRequest',
+                'Required parameter "postSaleOfferEventRequest" was null or undefined when calling saleOfferEventSubscriptionOffersEventsPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/subscription/offers/events`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostSaleOfferEventRequestToJSON(requestParameters['postSaleOfferEventRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetSaleOffersResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * A moment that can open an offer (leaving the pricing page, starting a pause); returns the open offers.
+     * Sale Offer Event
+     */
+    async saleOfferEventSubscriptionOffersEventsPost(requestParameters: SaleOfferEventSubscriptionOffersEventsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSaleOffersResponse> {
+        const response = await this.saleOfferEventSubscriptionOffersEventsPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * The viewer\'s open upsells (Rapyd users), opening any balance-triggered one that is due.
+     * Sale Offers
+     */
+    async saleOffersSubscriptionOffersGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSaleOffersResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/subscription/offers`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetSaleOffersResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * The viewer\'s open upsells (Rapyd users), opening any balance-triggered one that is due.
+     * Sale Offers
+     */
+    async saleOffersSubscriptionOffersGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSaleOffersResponse> {
+        const response = await this.saleOffersSubscriptionOffersGetRaw(initOverrides);
         return await response.value();
     }
 

@@ -173,6 +173,7 @@ src/models/ExploreOffsetSearchRequest.ts
 src/models/ExploreOffsetSearchResponse.ts
 src/models/ExploreSearchRequest.ts
 src/models/ExtendVideoPayload.ts
+src/models/ExtraMonthlyTokensOffer.ts
 src/models/FantasyRace.ts
 src/models/FeatureFlagName.ts
 src/models/FeedGroupNotification.ts
@@ -254,6 +255,7 @@ src/models/GetPublicLatestUpdateResponse.ts
 src/models/GetPublicUsersResponse.ts
 src/models/GetQualityControlImage.ts
 src/models/GetQualityControlRequest.ts
+src/models/GetSaleOffersResponse.ts
 src/models/GetVideoGenerationTagsResponse.ts
 src/models/GiftCodeType.ts
 src/models/HTTPValidationError.ts
@@ -389,6 +391,8 @@ src/models/PostReportRequest.ts
 src/models/PostReportUserRequest.ts
 src/models/PostResendEmailRequest.ts
 src/models/PostRestartServersRequest.ts
+src/models/PostResumeSubscriptionResponse.ts
+src/models/PostSaleOfferEventRequest.ts
 src/models/PostSearchRequest.ts
 src/models/PostShareGetTagsRequest.ts
 src/models/PostSharePublishRequest.ts
@@ -423,6 +427,11 @@ src/models/RemainingFreeUsesResponse.ts
 src/models/ResponseGetWanTaskStatusVideoWanTaskTaskIdGet.ts
 src/models/ReviewCharacterFieldStatus.ts
 src/models/RoleplayType.ts
+src/models/SaleOfferCode.ts
+src/models/SaleOfferEvent.ts
+src/models/SaleOfferProductPrice.ts
+src/models/SaleOfferResponse.ts
+src/models/SaleOfferStatus.ts
 src/models/ScoreCategory.ts
 src/models/ScoreTimePeriods.ts
 src/models/ScoreType.ts

@@ -115,6 +115,30 @@ export interface SubscriptionModel {
      * @memberof SubscriptionModel
      */
     tier: SubscriptionTier | null;
+    /**
+     *
+     * @type {number}
+     * @memberof SubscriptionModel
+     */
+    extraMonthlyTokens?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SubscriptionModel
+     */
+    extraMonthlyPrice?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SubscriptionModel
+     */
+    carryoverRenewals?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SubscriptionModel
+     */
+    carryoverMonthlyTokens?: number;
 }
 /**
  * Check if a given object implements the SubscriptionModel interface.

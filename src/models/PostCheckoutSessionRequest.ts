@@ -37,6 +37,18 @@ export interface PostCheckoutSessionRequest {
      * @memberof PostCheckoutSessionRequest
      */
     declinedUrl: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof PostCheckoutSessionRequest
+     */
+    extraMonthlyTokens?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostCheckoutSessionRequest
+     */
+    saleOfferId?: string | null;
 }
 
 /**
@@ -62,6 +74,8 @@ export function PostCheckoutSessionRequestFromJSONTyped(json: any, ignoreDiscrim
         'planId': json['plan_id'],
         'successUrl': json['success_url'],
         'declinedUrl': json['declined_url'],
+        'extraMonthlyTokens': json['extra_monthly_tokens'] == null ? undefined : json['extra_monthly_tokens'],
+        'saleOfferId': json['sale_offer_id'] == null ? undefined : json['sale_offer_id'],
     };
 }
 
@@ -79,6 +93,8 @@ export function PostCheckoutSessionRequestFromJSONTyped(json: any, ignoreDiscrim
         'plan_id': value['planId'],
         'success_url': value['successUrl'],
         'declined_url': value['declinedUrl'],
+        'extra_monthly_tokens': value['extraMonthlyTokens'],
+        'sale_offer_id': value['saleOfferId'],
     };
 }
 

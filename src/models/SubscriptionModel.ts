@@ -144,6 +144,30 @@ export interface SubscriptionModel {
      * @memberof SubscriptionModel
      */
     tier: SubscriptionTier | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof SubscriptionModel
+     */
+    extraMonthlyTokens?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SubscriptionModel
+     */
+    extraMonthlyPrice?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SubscriptionModel
+     */
+    carryoverRenewals?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SubscriptionModel
+     */
+    carryoverMonthlyTokens?: number;
 }
 
 
@@ -188,6 +212,10 @@ export function SubscriptionModelFromJSONTyped(json: any, ignoreDiscriminator: b
         'renewalDate': (json['renewal_date'] == null ? null : new Date(json['renewal_date'])),
         'monthlyTokens': json['monthly_tokens'] == null ? undefined : json['monthly_tokens'],
         'tier': SubscriptionTierFromJSON(json['tier']),
+        'extraMonthlyTokens': json['extra_monthly_tokens'] == null ? undefined : json['extra_monthly_tokens'],
+        'extraMonthlyPrice': json['extra_monthly_price'] == null ? undefined : json['extra_monthly_price'],
+        'carryoverRenewals': json['carryover_renewals'] == null ? undefined : json['carryover_renewals'],
+        'carryoverMonthlyTokens': json['carryover_monthly_tokens'] == null ? undefined : json['carryover_monthly_tokens'],
     };
 }
 
@@ -218,6 +246,10 @@ export function SubscriptionModelFromJSONTyped(json: any, ignoreDiscriminator: b
         'renewal_date': (value['renewalDate'] == null ? null : (value['renewalDate'] as any).toISOString()),
         'monthly_tokens': value['monthlyTokens'],
         'tier': SubscriptionTierToJSON(value['tier']),
+        'extra_monthly_tokens': value['extraMonthlyTokens'],
+        'extra_monthly_price': value['extraMonthlyPrice'],
+        'carryover_renewals': value['carryoverRenewals'],
+        'carryover_monthly_tokens': value['carryoverMonthlyTokens'],
     };
 }
 
