@@ -139,6 +139,12 @@ export interface SubscriptionModel {
      * @memberof SubscriptionModel
      */
     carryoverMonthlyTokens?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SubscriptionModel
+     */
+    nextGrantBonusTokens?: number;
 }
 /**
  * Check if a given object implements the SubscriptionModel interface.

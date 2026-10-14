@@ -70,6 +70,7 @@ function SubscriptionModelFromJSONTyped(json, ignoreDiscriminator) {
         'extraMonthlyPrice': json['extra_monthly_price'] == null ? undefined : json['extra_monthly_price'],
         'carryoverRenewals': json['carryover_renewals'] == null ? undefined : json['carryover_renewals'],
         'carryoverMonthlyTokens': json['carryover_monthly_tokens'] == null ? undefined : json['carryover_monthly_tokens'],
+        'nextGrantBonusTokens': json['next_grant_bonus_tokens'] == null ? undefined : json['next_grant_bonus_tokens'],
     };
 }
 function SubscriptionModelToJSON(json) {
@@ -100,6 +101,7 @@ function SubscriptionModelToJSONTyped(value, ignoreDiscriminator = false) {
         'extra_monthly_price': value['extraMonthlyPrice'],
         'carryover_renewals': value['carryoverRenewals'],
         'carryover_monthly_tokens': value['carryoverMonthlyTokens'],
+        'next_grant_bonus_tokens': value['nextGrantBonusTokens'],
     };
 }
 //# sourceMappingURL=SubscriptionModel.js.map
