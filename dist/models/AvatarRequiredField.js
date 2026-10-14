@@ -19,6 +19,7 @@ exports.AvatarRequiredFieldFromJSONTyped = AvatarRequiredFieldFromJSONTyped;
 exports.AvatarRequiredFieldToJSON = AvatarRequiredFieldToJSON;
 exports.AvatarRequiredFieldToJSONTyped = AvatarRequiredFieldToJSONTyped;
 const ReviewCharacterFieldStatus_1 = require("./ReviewCharacterFieldStatus");
+const ModerationReason_1 = require("./ModerationReason");
 const AvatarFieldValue_1 = require("./AvatarFieldValue");
 /**
  * Check if a given object implements the AvatarRequiredField interface.
@@ -38,6 +39,7 @@ function AvatarRequiredFieldFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'value': json['value'] == null ? undefined : (0, AvatarFieldValue_1.AvatarFieldValueFromJSON)(json['value']),
         'status': (0, ReviewCharacterFieldStatus_1.ReviewCharacterFieldStatusFromJSON)(json['status']),
+        'reason': json['reason'] == null ? undefined : (0, ModerationReason_1.ModerationReasonFromJSON)(json['reason']),
         'required': json['required'] == null ? undefined : json['required'],
     };
 }
@@ -51,6 +53,7 @@ function AvatarRequiredFieldToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'value': (0, AvatarFieldValue_1.AvatarFieldValueToJSON)(value['value']),
         'status': (0, ReviewCharacterFieldStatus_1.ReviewCharacterFieldStatusToJSON)(value['status']),
+        'reason': (0, ModerationReason_1.ModerationReasonToJSON)(value['reason']),
         'required': value['required'],
     };
 }

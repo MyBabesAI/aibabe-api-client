@@ -275,6 +275,7 @@ __exportStar(require("./MemoryUpdateReponse"), exports);
 __exportStar(require("./MessageCheckResponse"), exports);
 __exportStar(require("./MessageType"), exports);
 __exportStar(require("./Model"), exports);
+__exportStar(require("./ModerationReason"), exports);
 __exportStar(require("./MonthlyTokens"), exports);
 __exportStar(require("./MuleRouterWanTaskError"), exports);
 __exportStar(require("./MuleRouterWanTaskInfo"), exports);

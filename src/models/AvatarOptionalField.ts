@@ -20,6 +20,13 @@ import {
     ReviewCharacterFieldStatusToJSON,
     ReviewCharacterFieldStatusToJSONTyped,
 } from './ReviewCharacterFieldStatus';
+import type { ModerationReason } from './ModerationReason';
+import {
+    ModerationReasonFromJSON,
+    ModerationReasonFromJSONTyped,
+    ModerationReasonToJSON,
+    ModerationReasonToJSONTyped,
+} from './ModerationReason';
 import type { AvatarFieldValue } from './AvatarFieldValue';
 import {
     AvatarFieldValueFromJSON,
@@ -46,6 +53,12 @@ export interface AvatarOptionalField {
      * @memberof AvatarOptionalField
      */
     status: ReviewCharacterFieldStatus;
+    /**
+     * 
+     * @type {ModerationReason}
+     * @memberof AvatarOptionalField
+     */
+    reason?: ModerationReason | null;
     /**
      * 
      * @type {boolean}
@@ -76,6 +89,7 @@ export function AvatarOptionalFieldFromJSONTyped(json: any, ignoreDiscriminator:
         
         'value': json['value'] == null ? undefined : AvatarFieldValueFromJSON(json['value']),
         'status': ReviewCharacterFieldStatusFromJSON(json['status']),
+        'reason': json['reason'] == null ? undefined : ModerationReasonFromJSON(json['reason']),
         'required': json['required'] == null ? undefined : json['required'],
     };
 }
@@ -93,6 +107,7 @@ export function AvatarOptionalFieldFromJSONTyped(json: any, ignoreDiscriminator:
         
         'value': AvatarFieldValueToJSON(value['value']),
         'status': ReviewCharacterFieldStatusToJSON(value['status']),
+        'reason': ModerationReasonToJSON(value['reason']),
         'required': value['required'],
     };
 }

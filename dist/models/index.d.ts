@@ -257,6 +257,7 @@ export * from './MemoryUpdateReponse';
 export * from './MessageCheckResponse';
 export * from './MessageType';
 export * from './Model';
+export * from './ModerationReason';
 export * from './MonthlyTokens';
 export * from './MuleRouterWanTaskError';
 export * from './MuleRouterWanTaskInfo';

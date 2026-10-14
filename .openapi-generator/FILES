@@ -292,6 +292,7 @@ src/models/MemoryUpdateReponse.ts
 src/models/MessageCheckResponse.ts
 src/models/MessageType.ts
 src/models/Model.ts
+src/models/ModerationReason.ts
 src/models/MonthlyTokens.ts
 src/models/MuleRouterWanTaskError.ts
 src/models/MuleRouterWanTaskInfo.ts
