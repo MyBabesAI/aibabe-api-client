@@ -66,6 +66,14 @@ export interface SaleOfferResponse {
      * @memberof SaleOfferResponse
      */
     products: Array<SaleOfferProductPrice>;
+    /**
+     *
+     * @type {{ [key: string]: any; }}
+     * @memberof SaleOfferResponse
+     */
+    params?: {
+        [key: string]: any;
+    };
 }
 /**
  * Check if a given object implements the SaleOfferResponse interface.

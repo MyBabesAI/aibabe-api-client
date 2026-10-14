@@ -59,6 +59,7 @@ function SaleOfferResponseFromJSONTyped(json, ignoreDiscriminator) {
         'discountPercent': json['discount_percent'],
         'bonusTokens': json['bonus_tokens'],
         'products': (json['products'].map(SaleOfferProductPrice_1.SaleOfferProductPriceFromJSON)),
+        'params': json['params'] == null ? undefined : json['params'],
     };
 }
 function SaleOfferResponseToJSON(json) {
@@ -77,6 +78,7 @@ function SaleOfferResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'discount_percent': value['discountPercent'],
         'bonus_tokens': value['bonusTokens'],
         'products': (value['products'].map(SaleOfferProductPrice_1.SaleOfferProductPriceToJSON)),
+        'params': value['params'],
     };
 }
 //# sourceMappingURL=SaleOfferResponse.js.map

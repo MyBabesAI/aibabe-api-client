@@ -89,6 +89,12 @@ export interface SaleOfferResponse {
      * @memberof SaleOfferResponse
      */
     products: Array<SaleOfferProductPrice>;
+    /**
+     * 
+     * @type {{ [key: string]: any; }}
+     * @memberof SaleOfferResponse
+     */
+    params?: { [key: string]: any; };
 }
 
 
@@ -126,6 +132,7 @@ export function SaleOfferResponseFromJSONTyped(json: any, ignoreDiscriminator: b
         'discountPercent': json['discount_percent'],
         'bonusTokens': json['bonus_tokens'],
         'products': ((json['products'] as Array<any>).map(SaleOfferProductPriceFromJSON)),
+        'params': json['params'] == null ? undefined : json['params'],
     };
 }
 
@@ -148,6 +155,7 @@ export function SaleOfferResponseFromJSONTyped(json: any, ignoreDiscriminator: b
         'discount_percent': value['discountPercent'],
         'bonus_tokens': value['bonusTokens'],
         'products': ((value['products'] as Array<any>).map(SaleOfferProductPriceToJSON)),
+        'params': value['params'],
     };
 }
 
