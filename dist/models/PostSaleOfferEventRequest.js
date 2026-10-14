@@ -36,6 +36,7 @@ function PostSaleOfferEventRequestFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'event': (0, SaleOfferEvent_1.SaleOfferEventFromJSON)(json['event']),
+        'reason': json['reason'] == null ? undefined : json['reason'],
     };
 }
 function PostSaleOfferEventRequestToJSON(json) {
@@ -47,6 +48,7 @@ function PostSaleOfferEventRequestToJSONTyped(value, ignoreDiscriminator = false
     }
     return {
         'event': (0, SaleOfferEvent_1.SaleOfferEventToJSON)(value['event']),
+        'reason': value['reason'],
     };
 }
 //# sourceMappingURL=PostSaleOfferEventRequest.js.map

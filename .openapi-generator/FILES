@@ -48,6 +48,7 @@ src/models/AdminCreateTokenUsageRequest.ts
 src/models/AdminCreateTokenUsageRequestResolution.ts
 src/models/AdminFaceAgeEstimate.ts
 src/models/AdminFaceBox.ts
+src/models/AdminFeatureFlagsResponse.ts
 src/models/AdminModeratedImage.ts
 src/models/AdminModeratedImagesResponse.ts
 src/models/AdminPricingGroupResponse.ts
@@ -415,6 +416,7 @@ src/models/PublicUserInfo.ts
 src/models/PublicUserPreview.ts
 src/models/PublicUserPreviewWithFollow.ts
 src/models/PublicUserReportReason.ts
+src/models/PutAdminFeatureFlagsRequest.ts
 src/models/PutAdminSaleOfferRequest.ts
 src/models/PutFollowNotificationsRequest.ts
 src/models/PutPasswordRequest.ts

@@ -25,6 +25,8 @@ exports.SaleOfferCodeToJSONTyped = SaleOfferCodeToJSONTyped;
  */
 exports.SaleOfferCode = {
     RetentionHalfOff: 'retention_half_off',
+    RetentionGenerationTokens: 'retention_generation_tokens',
+    RetentionStandardPricing: 'retention_standard_pricing',
     PostPurchaseAddonDiscount: 'post_purchase_addon_discount',
     LowBalanceBonusHighValue: 'low_balance_bonus_high_value',
     LowBalanceBonusNewPayer: 'low_balance_bonus_new_payer',

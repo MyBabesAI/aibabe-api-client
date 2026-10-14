@@ -15,6 +15,8 @@
  */
 export declare const SaleOfferCode: {
     readonly RetentionHalfOff: "retention_half_off";
+    readonly RetentionGenerationTokens: "retention_generation_tokens";
+    readonly RetentionStandardPricing: "retention_standard_pricing";
     readonly PostPurchaseAddonDiscount: "post_purchase_addon_discount";
     readonly LowBalanceBonusHighValue: "low_balance_bonus_high_value";
     readonly LowBalanceBonusNewPayer: "low_balance_bonus_new_payer";

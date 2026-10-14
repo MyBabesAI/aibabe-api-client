@@ -22,6 +22,12 @@ export interface PostSaleOfferEventRequest {
      * @memberof PostSaleOfferEventRequest
      */
     event: SaleOfferEvent;
+    /**
+     *
+     * @type {string}
+     * @memberof PostSaleOfferEventRequest
+     */
+    reason?: string | null;
 }
 /**
  * Check if a given object implements the PostSaleOfferEventRequest interface.

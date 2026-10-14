@@ -33,6 +33,12 @@ export interface PostSaleOfferEventRequest {
      * @memberof PostSaleOfferEventRequest
      */
     event: SaleOfferEvent;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostSaleOfferEventRequest
+     */
+    reason?: string | null;
 }
 
 
@@ -56,6 +62,7 @@ export function PostSaleOfferEventRequestFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'event': SaleOfferEventFromJSON(json['event']),
+        'reason': json['reason'] == null ? undefined : json['reason'],
     };
 }
 
@@ -71,6 +78,7 @@ export function PostSaleOfferEventRequestFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'event': SaleOfferEventToJSON(value['event']),
+        'reason': value['reason'],
     };
 }
 
