@@ -20,8 +20,8 @@ exports.PenisSizeFromJSONTyped = PenisSizeFromJSONTyped;
 exports.PenisSizeToJSON = PenisSizeToJSON;
 exports.PenisSizeToJSONTyped = PenisSizeToJSONTyped;
 /**
- * Size trait of a futa character. Maps to Loraholic's Krea 2 penis size slider strength (2026-10-09
- * evaluation: -3 / 0 / +3 / +4 all rated 4.4-4.9 of 5); "average" and an unset trait leave the slider out.
+ * Size trait of a futa character. Stored but not rendered since 2026-10-14: the penis size slider it drove
+ * (small -3 / large +3 / huge +4) erased the penis in spread-leg poses, see disabled_loras.
  * @export
  */
 exports.PenisSize = {
