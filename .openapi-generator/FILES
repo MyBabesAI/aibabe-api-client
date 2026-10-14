@@ -363,6 +363,7 @@ src/models/PostDetails.ts
 src/models/PostDetailsWithDate.ts
 src/models/PostDonateRequest.ts
 src/models/PostDonateResponse.ts
+src/models/PostFastForwardSubscriptionResponse.ts
 src/models/PostFollowUserRequest.ts
 src/models/PostGameAdventureAdminActionRequest.ts
 src/models/PostGameAdventureAdminActionResponse.ts

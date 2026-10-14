@@ -329,6 +329,7 @@ export * from './PostDetails';
 export * from './PostDetailsWithDate';
 export * from './PostDonateRequest';
 export * from './PostDonateResponse';
+export * from './PostFastForwardSubscriptionResponse';
 export * from './PostFollowUserRequest';
 export * from './PostGameAdventureAdminActionRequest';
 export * from './PostGameAdventureAdminActionResponse';

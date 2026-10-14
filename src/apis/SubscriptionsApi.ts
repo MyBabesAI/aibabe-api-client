@@ -24,6 +24,7 @@ import type {
   PostAcceptOfferResponse,
   PostCheckoutResponse,
   PostCheckoutSessionRequest,
+  PostFastForwardSubscriptionResponse,
   PostResumeSubscriptionResponse,
   PostSaleOfferEventRequest,
   PutAdminSaleOfferRequest,
@@ -51,6 +52,8 @@ import {
     PostCheckoutResponseToJSON,
     PostCheckoutSessionRequestFromJSON,
     PostCheckoutSessionRequestToJSON,
+    PostFastForwardSubscriptionResponseFromJSON,
+    PostFastForwardSubscriptionResponseToJSON,
     PostResumeSubscriptionResponseFromJSON,
     PostResumeSubscriptionResponseToJSON,
     PostSaleOfferEventRequestFromJSON,
@@ -478,6 +481,34 @@ export class SubscriptionsApi extends runtime.BaseAPI {
      */
     async declineSaleOfferSubscriptionOffersOfferIdDeclinePost(requestParameters: DeclineSaleOfferSubscriptionOffersOfferIdDeclinePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SaleOfferResponse> {
         const response = await this.declineSaleOfferSubscriptionOffersOfferIdDeclinePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Admins only, own account only: move the subscription to one minute before its rebill to test it.
+     * Fast Forward Subscription
+     */
+    async fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostFastForwardSubscriptionResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/subscription/admin/fast-forward`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostFastForwardSubscriptionResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Admins only, own account only: move the subscription to one minute before its rebill to test it.
+     * Fast Forward Subscription
+     */
+    async fastForwardSubscriptionSubscriptionAdminFastForwardPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostFastForwardSubscriptionResponse> {
+        const response = await this.fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(initOverrides);
         return await response.value();
     }
 

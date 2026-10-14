@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BillingReconciliationResponse, CancelSubscriptionRequest, GetPricesResponse, GetSaleOffersResponse, PostAcceptOfferRequest, PostAcceptOfferResponse, PostCheckoutResponse, PostCheckoutSessionRequest, PostResumeSubscriptionResponse, PostSaleOfferEventRequest, PutAdminSaleOfferRequest, RedeemGiftCodeRequest, RedeemGiftCodeResponse, SaleOfferResponse, TokenReconciliationResponse } from '../models/index';
+import type { BillingReconciliationResponse, CancelSubscriptionRequest, GetPricesResponse, GetSaleOffersResponse, PostAcceptOfferRequest, PostAcceptOfferResponse, PostCheckoutResponse, PostCheckoutSessionRequest, PostFastForwardSubscriptionResponse, PostResumeSubscriptionResponse, PostSaleOfferEventRequest, PutAdminSaleOfferRequest, RedeemGiftCodeRequest, RedeemGiftCodeResponse, SaleOfferResponse, TokenReconciliationResponse } from '../models/index';
 export interface AcceptOfferSubscriptionOfferAcceptPostRequest {
     postAcceptOfferRequest: PostAcceptOfferRequest;
 }
@@ -142,6 +142,16 @@ export declare class SubscriptionsApi extends runtime.BaseAPI {
      * Decline Sale Offer
      */
     declineSaleOfferSubscriptionOffersOfferIdDeclinePost(requestParameters: DeclineSaleOfferSubscriptionOffersOfferIdDeclinePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SaleOfferResponse>;
+    /**
+     * Admins only, own account only: move the subscription to one minute before its rebill to test it.
+     * Fast Forward Subscription
+     */
+    fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostFastForwardSubscriptionResponse>>;
+    /**
+     * Admins only, own account only: move the subscription to one minute before its rebill to test it.
+     * Fast Forward Subscription
+     */
+    fastForwardSubscriptionSubscriptionAdminFastForwardPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostFastForwardSubscriptionResponse>;
     /**
      * Admins only, own account only: force one offer open (or clear all) to test the upsell flows.
      * Force Sale Offer

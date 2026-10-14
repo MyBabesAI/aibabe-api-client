@@ -309,6 +309,29 @@ class SubscriptionsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Admins only, own account only: move the subscription to one minute before its rebill to test it.
+     * Fast Forward Subscription
+     */
+    async fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/subscription/admin/fast-forward`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostFastForwardSubscriptionResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Admins only, own account only: move the subscription to one minute before its rebill to test it.
+     * Fast Forward Subscription
+     */
+    async fastForwardSubscriptionSubscriptionAdminFastForwardPost(initOverrides) {
+        const response = await this.fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Admins only, own account only: force one offer open (or clear all) to test the upsell flows.
      * Force Sale Offer
      */
