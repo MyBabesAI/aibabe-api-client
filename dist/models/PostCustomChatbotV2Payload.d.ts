@@ -16,6 +16,7 @@ import type { FurryVisualType } from './FurryVisualType';
 import type { RoleplayType } from './RoleplayType';
 import type { VisualType } from './VisualType';
 import type { Gender } from './Gender';
+import type { PenisSize } from './PenisSize';
 import type { SeduceDifficulty } from './SeduceDifficulty';
 import type { AvatarLooksV2 } from './AvatarLooksV2';
 import type { Ethnicity } from './Ethnicity';
@@ -82,6 +83,12 @@ export interface PostCustomChatbotV2Payload {
      * @memberof PostCustomChatbotV2Payload
      */
     furryVisualType?: FurryVisualType | null;
+    /**
+     *
+     * @type {PenisSize}
+     * @memberof PostCustomChatbotV2Payload
+     */
+    penisSize?: PenisSize | null;
     /**
      *
      * @type {RoleplayType}

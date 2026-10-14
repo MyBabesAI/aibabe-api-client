@@ -62,6 +62,13 @@ import {
     GenderToJSON,
     GenderToJSONTyped,
 } from './Gender';
+import type { PenisSize } from './PenisSize';
+import {
+    PenisSizeFromJSON,
+    PenisSizeFromJSONTyped,
+    PenisSizeToJSON,
+    PenisSizeToJSONTyped,
+} from './PenisSize';
 import type { SeduceDifficulty } from './SeduceDifficulty';
 import {
     SeduceDifficultyFromJSON,
@@ -167,6 +174,12 @@ export interface PostCustomChatbotV2Payload {
     furryVisualType?: FurryVisualType | null;
     /**
      * 
+     * @type {PenisSize}
+     * @memberof PostCustomChatbotV2Payload
+     */
+    penisSize?: PenisSize | null;
+    /**
+     * 
      * @type {RoleplayType}
      * @memberof PostCustomChatbotV2Payload
      */
@@ -262,6 +275,7 @@ export function PostCustomChatbotV2PayloadFromJSONTyped(json: any, ignoreDiscrim
         'fantasyRace': json['fantasy_race'] == null ? undefined : FantasyRaceFromJSON(json['fantasy_race']),
         'visualType': json['visual_type'] == null ? undefined : VisualTypeFromJSON(json['visual_type']),
         'furryVisualType': json['furry_visual_type'] == null ? undefined : FurryVisualTypeFromJSON(json['furry_visual_type']),
+        'penisSize': json['penis_size'] == null ? undefined : PenisSizeFromJSON(json['penis_size']),
         'roleplayType': json['roleplay_type'] == null ? undefined : RoleplayTypeFromJSON(json['roleplay_type']),
         'theme': json['theme'] == null ? undefined : CustomChatbotThemeFromJSON(json['theme']),
         'looks': AvatarLooksV2FromJSON(json['looks']),
@@ -295,6 +309,7 @@ export function PostCustomChatbotV2PayloadFromJSONTyped(json: any, ignoreDiscrim
         'fantasy_race': FantasyRaceToJSON(value['fantasyRace']),
         'visual_type': VisualTypeToJSON(value['visualType']),
         'furry_visual_type': FurryVisualTypeToJSON(value['furryVisualType']),
+        'penis_size': PenisSizeToJSON(value['penisSize']),
         'roleplay_type': RoleplayTypeToJSON(value['roleplayType']),
         'theme': CustomChatbotThemeToJSON(value['theme']),
         'looks': AvatarLooksV2ToJSON(value['looks']),
