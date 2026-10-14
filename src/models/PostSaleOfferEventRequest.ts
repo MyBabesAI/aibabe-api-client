@@ -39,6 +39,12 @@ export interface PostSaleOfferEventRequest {
      * @memberof PostSaleOfferEventRequest
      */
     reason?: string | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof PostSaleOfferEventRequest
+     */
+    comeback?: Array<string>;
 }
 
 
@@ -63,6 +69,7 @@ export function PostSaleOfferEventRequestFromJSONTyped(json: any, ignoreDiscrimi
         
         'event': SaleOfferEventFromJSON(json['event']),
         'reason': json['reason'] == null ? undefined : json['reason'],
+        'comeback': json['comeback'] == null ? undefined : json['comeback'],
     };
 }
 
@@ -79,6 +86,7 @@ export function PostSaleOfferEventRequestFromJSONTyped(json: any, ignoreDiscrimi
         
         'event': SaleOfferEventToJSON(value['event']),
         'reason': value['reason'],
+        'comeback': value['comeback'],
     };
 }
 

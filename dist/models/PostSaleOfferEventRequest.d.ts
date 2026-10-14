@@ -28,6 +28,12 @@ export interface PostSaleOfferEventRequest {
      * @memberof PostSaleOfferEventRequest
      */
     reason?: string | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof PostSaleOfferEventRequest
+     */
+    comeback?: Array<string>;
 }
 /**
  * Check if a given object implements the PostSaleOfferEventRequest interface.
