@@ -198,6 +198,7 @@ export declare const ExceptionCode: {
     readonly SubscriptionNotPausable: "subscription_not_pausable";
     readonly SubscriptionNotResumable: "subscription_not_resumable";
     readonly SubscriptionResumePaymentDeclined: "subscription_resume_payment_declined";
+    readonly SubscriptionFastForwardNoRenewal: "subscription_fast_forward_no_renewal";
     readonly ExtraMonthlyTokensNotAvailable: "extra_monthly_tokens_not_available";
     readonly ExtraMonthlyTokensInvalid: "extra_monthly_tokens_invalid";
     readonly SaleOfferNotFound: "sale_offer_not_found";

@@ -24,6 +24,7 @@ import type {
   PostAcceptOfferResponse,
   PostCheckoutResponse,
   PostCheckoutSessionRequest,
+  PostFastForwardSubscriptionRequest,
   PostFastForwardSubscriptionResponse,
   PostResumeSubscriptionResponse,
   PostSaleOfferEventRequest,
@@ -52,6 +53,8 @@ import {
     PostCheckoutResponseToJSON,
     PostCheckoutSessionRequestFromJSON,
     PostCheckoutSessionRequestToJSON,
+    PostFastForwardSubscriptionRequestFromJSON,
+    PostFastForwardSubscriptionRequestToJSON,
     PostFastForwardSubscriptionResponseFromJSON,
     PostFastForwardSubscriptionResponseToJSON,
     PostResumeSubscriptionResponseFromJSON,
@@ -104,6 +107,10 @@ export interface CheckoutSubscriptionCheckoutPostRequest {
 
 export interface DeclineSaleOfferSubscriptionOffersOfferIdDeclinePostRequest {
     offerId: string;
+}
+
+export interface FastForwardSubscriptionSubscriptionAdminFastForwardPostRequest {
+    postFastForwardSubscriptionRequest: PostFastForwardSubscriptionRequest;
 }
 
 export interface ForceSaleOfferSubscriptionOffersAdminPutRequest {
@@ -485,30 +492,40 @@ export class SubscriptionsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Admins only, own account only: move the subscription to one minute before its rebill to test it.
+     * Admins only, own account only: move the subscription to one minute before its rebill or its next mid-period token renewal, to test either.
      * Fast Forward Subscription
      */
-    async fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostFastForwardSubscriptionResponse>> {
+    async fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(requestParameters: FastForwardSubscriptionSubscriptionAdminFastForwardPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostFastForwardSubscriptionResponse>> {
+        if (requestParameters['postFastForwardSubscriptionRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postFastForwardSubscriptionRequest',
+                'Required parameter "postFastForwardSubscriptionRequest" was null or undefined when calling fastForwardSubscriptionSubscriptionAdminFastForwardPost().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
 
         const response = await this.request({
             path: `/subscription/admin/fast-forward`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: PostFastForwardSubscriptionRequestToJSON(requestParameters['postFastForwardSubscriptionRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PostFastForwardSubscriptionResponseFromJSON(jsonValue));
     }
 
     /**
-     * Admins only, own account only: move the subscription to one minute before its rebill to test it.
+     * Admins only, own account only: move the subscription to one minute before its rebill or its next mid-period token renewal, to test either.
      * Fast Forward Subscription
      */
-    async fastForwardSubscriptionSubscriptionAdminFastForwardPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostFastForwardSubscriptionResponse> {
-        const response = await this.fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(initOverrides);
+    async fastForwardSubscriptionSubscriptionAdminFastForwardPost(requestParameters: FastForwardSubscriptionSubscriptionAdminFastForwardPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostFastForwardSubscriptionResponse> {
+        const response = await this.fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

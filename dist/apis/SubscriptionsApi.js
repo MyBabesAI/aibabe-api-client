@@ -309,26 +309,31 @@ class SubscriptionsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Admins only, own account only: move the subscription to one minute before its rebill to test it.
+     * Admins only, own account only: move the subscription to one minute before its rebill or its next mid-period token renewal, to test either.
      * Fast Forward Subscription
      */
-    async fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(initOverrides) {
+    async fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['postFastForwardSubscriptionRequest'] == null) {
+            throw new runtime.RequiredError('postFastForwardSubscriptionRequest', 'Required parameter "postFastForwardSubscriptionRequest" was null or undefined when calling fastForwardSubscriptionSubscriptionAdminFastForwardPost().');
+        }
         const queryParameters = {};
         const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
         const response = await this.request({
             path: `/subscription/admin/fast-forward`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: (0, index_1.PostFastForwardSubscriptionRequestToJSON)(requestParameters['postFastForwardSubscriptionRequest']),
         }, initOverrides);
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostFastForwardSubscriptionResponseFromJSON)(jsonValue));
     }
     /**
-     * Admins only, own account only: move the subscription to one minute before its rebill to test it.
+     * Admins only, own account only: move the subscription to one minute before its rebill or its next mid-period token renewal, to test either.
      * Fast Forward Subscription
      */
-    async fastForwardSubscriptionSubscriptionAdminFastForwardPost(initOverrides) {
-        const response = await this.fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(initOverrides);
+    async fastForwardSubscriptionSubscriptionAdminFastForwardPost(requestParameters, initOverrides) {
+        const response = await this.fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

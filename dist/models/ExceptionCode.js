@@ -208,6 +208,7 @@ exports.ExceptionCode = {
     SubscriptionNotPausable: 'subscription_not_pausable',
     SubscriptionNotResumable: 'subscription_not_resumable',
     SubscriptionResumePaymentDeclined: 'subscription_resume_payment_declined',
+    SubscriptionFastForwardNoRenewal: 'subscription_fast_forward_no_renewal',
     ExtraMonthlyTokensNotAvailable: 'extra_monthly_tokens_not_available',
     ExtraMonthlyTokensInvalid: 'extra_monthly_tokens_invalid',
     SaleOfferNotFound: 'sale_offer_not_found',

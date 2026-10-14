@@ -9,12 +9,19 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { FastForwardTarget } from './FastForwardTarget';
 /**
  * Admin testing aid: where the subscription's dates were moved to.
  * @export
  * @interface PostFastForwardSubscriptionResponse
  */
 export interface PostFastForwardSubscriptionResponse {
+    /**
+     *
+     * @type {FastForwardTarget}
+     * @memberof PostFastForwardSubscriptionResponse
+     */
+    target: FastForwardTarget;
     /**
      *
      * @type {Date}
@@ -27,6 +34,12 @@ export interface PostFastForwardSubscriptionResponse {
      * @memberof PostFastForwardSubscriptionResponse
      */
     renewalDate: Date | null;
+    /**
+     *
+     * @type {number}
+     * @memberof PostFastForwardSubscriptionResponse
+     */
+    remainingRenewals: number;
 }
 /**
  * Check if a given object implements the PostFastForwardSubscriptionResponse interface.

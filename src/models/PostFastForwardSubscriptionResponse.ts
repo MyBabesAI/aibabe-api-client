@@ -13,12 +13,26 @@
  */
 
 import { mapValues } from '../runtime';
+import type { FastForwardTarget } from './FastForwardTarget';
+import {
+    FastForwardTargetFromJSON,
+    FastForwardTargetFromJSONTyped,
+    FastForwardTargetToJSON,
+    FastForwardTargetToJSONTyped,
+} from './FastForwardTarget';
+
 /**
  * Admin testing aid: where the subscription's dates were moved to.
  * @export
  * @interface PostFastForwardSubscriptionResponse
  */
 export interface PostFastForwardSubscriptionResponse {
+    /**
+     * 
+     * @type {FastForwardTarget}
+     * @memberof PostFastForwardSubscriptionResponse
+     */
+    target: FastForwardTarget;
     /**
      * 
      * @type {Date}
@@ -31,14 +45,24 @@ export interface PostFastForwardSubscriptionResponse {
      * @memberof PostFastForwardSubscriptionResponse
      */
     renewalDate: Date | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof PostFastForwardSubscriptionResponse
+     */
+    remainingRenewals: number;
 }
+
+
 
 /**
  * Check if a given object implements the PostFastForwardSubscriptionResponse interface.
  */
 export function instanceOfPostFastForwardSubscriptionResponse(value: object): value is PostFastForwardSubscriptionResponse {
+    if (!('target' in value) || value['target'] === undefined) return false;
     if (!('nextBillingDate' in value) || value['nextBillingDate'] === undefined) return false;
     if (!('renewalDate' in value) || value['renewalDate'] === undefined) return false;
+    if (!('remainingRenewals' in value) || value['remainingRenewals'] === undefined) return false;
     return true;
 }
 
@@ -52,8 +76,10 @@ export function PostFastForwardSubscriptionResponseFromJSONTyped(json: any, igno
     }
     return {
         
+        'target': FastForwardTargetFromJSON(json['target']),
         'nextBillingDate': (new Date(json['next_billing_date'])),
         'renewalDate': (json['renewal_date'] == null ? null : new Date(json['renewal_date'])),
+        'remainingRenewals': json['remaining_renewals'],
     };
 }
 
@@ -68,8 +94,10 @@ export function PostFastForwardSubscriptionResponseFromJSONTyped(json: any, igno
 
     return {
         
+        'target': FastForwardTargetToJSON(value['target']),
         'next_billing_date': ((value['nextBillingDate']).toISOString()),
         'renewal_date': (value['renewalDate'] == null ? null : (value['renewalDate'] as any).toISOString()),
+        'remaining_renewals': value['remainingRenewals'],
     };
 }
 

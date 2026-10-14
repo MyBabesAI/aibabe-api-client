@@ -18,13 +18,18 @@ exports.PostFastForwardSubscriptionResponseFromJSON = PostFastForwardSubscriptio
 exports.PostFastForwardSubscriptionResponseFromJSONTyped = PostFastForwardSubscriptionResponseFromJSONTyped;
 exports.PostFastForwardSubscriptionResponseToJSON = PostFastForwardSubscriptionResponseToJSON;
 exports.PostFastForwardSubscriptionResponseToJSONTyped = PostFastForwardSubscriptionResponseToJSONTyped;
+const FastForwardTarget_1 = require("./FastForwardTarget");
 /**
  * Check if a given object implements the PostFastForwardSubscriptionResponse interface.
  */
 function instanceOfPostFastForwardSubscriptionResponse(value) {
+    if (!('target' in value) || value['target'] === undefined)
+        return false;
     if (!('nextBillingDate' in value) || value['nextBillingDate'] === undefined)
         return false;
     if (!('renewalDate' in value) || value['renewalDate'] === undefined)
+        return false;
+    if (!('remainingRenewals' in value) || value['remainingRenewals'] === undefined)
         return false;
     return true;
 }
@@ -36,8 +41,10 @@ function PostFastForwardSubscriptionResponseFromJSONTyped(json, ignoreDiscrimina
         return json;
     }
     return {
+        'target': (0, FastForwardTarget_1.FastForwardTargetFromJSON)(json['target']),
         'nextBillingDate': (new Date(json['next_billing_date'])),
         'renewalDate': (json['renewal_date'] == null ? null : new Date(json['renewal_date'])),
+        'remainingRenewals': json['remaining_renewals'],
     };
 }
 function PostFastForwardSubscriptionResponseToJSON(json) {
@@ -48,8 +55,10 @@ function PostFastForwardSubscriptionResponseToJSONTyped(value, ignoreDiscriminat
         return value;
     }
     return {
+        'target': (0, FastForwardTarget_1.FastForwardTargetToJSON)(value['target']),
         'next_billing_date': ((value['nextBillingDate']).toISOString()),
         'renewal_date': (value['renewalDate'] == null ? null : value['renewalDate'].toISOString()),
+        'remaining_renewals': value['remainingRenewals'],
     };
 }
 //# sourceMappingURL=PostFastForwardSubscriptionResponse.js.map
