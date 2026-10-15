@@ -114,7 +114,6 @@ src/models/ConfirmAgeVerificationRequest.ts
 src/models/ConfirmAgeVerificationResponse.ts
 src/models/ContentItem.ts
 src/models/ContentOrigin.ts
-src/models/ContentReportReason.ts
 src/models/ContentType.ts
 src/models/ContentTypes.ts
 src/models/ConversationListItem.ts
@@ -402,7 +401,6 @@ src/models/PromotionSummary.ts
 src/models/PublicUserInfo.ts
 src/models/PublicUserPreview.ts
 src/models/PublicUserPreviewWithFollow.ts
-src/models/PublicUserReportReason.ts
 src/models/PutFollowNotificationsRequest.ts
 src/models/PutPasswordRequest.ts
 src/models/PutPublicUserRequest.ts
