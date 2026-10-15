@@ -11,6 +11,7 @@
  */
 import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
 import type { StoryCounts } from './StoryCounts';
+import type { BlacklistCard } from './BlacklistCard';
 import type { StoryVisibility } from './StoryVisibility';
 import type { StoryRating } from './StoryRating';
 /**
@@ -55,6 +56,12 @@ export interface GalleryStory {
      * @memberof GalleryStory
      */
     coverImage?: string | null;
+    /**
+     *
+     * @type {BlacklistCard}
+     * @memberof GalleryStory
+     */
+    blacklist?: BlacklistCard | null;
     /**
      *
      * @type {Date}
