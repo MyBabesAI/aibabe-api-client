@@ -409,6 +409,45 @@ class PostApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Reports content shown without a post (a story or adventure page, a babe).
+     * Report Content
+     */
+    async reportContentPostReportContentTypeContentIdPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['contentType'] == null) {
+            throw new runtime.RequiredError('contentType', 'Required parameter "contentType" was null or undefined when calling reportContentPostReportContentTypeContentIdPost().');
+        }
+        if (requestParameters['contentId'] == null) {
+            throw new runtime.RequiredError('contentId', 'Required parameter "contentId" was null or undefined when calling reportContentPostReportContentTypeContentIdPost().');
+        }
+        if (requestParameters['postReportRequest'] == null) {
+            throw new runtime.RequiredError('postReportRequest', 'Required parameter "postReportRequest" was null or undefined when calling reportContentPostReportContentTypeContentIdPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/post/report/{content_type}/{content_id}`.replace(`{${"content_type"}}`, encodeURIComponent(String(requestParameters['contentType']))).replace(`{${"content_id"}}`, encodeURIComponent(String(requestParameters['contentId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostReportRequestToJSON)(requestParameters['postReportRequest']),
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Reports content shown without a post (a story or adventure page, a babe).
+     * Report Content
+     */
+    async reportContentPostReportContentTypeContentIdPost(requestParameters, initOverrides) {
+        const response = await this.reportContentPostReportContentTypeContentIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Report Post
      */
     async reportPostPostPostIdReportPostRaw(requestParameters, initOverrides) {

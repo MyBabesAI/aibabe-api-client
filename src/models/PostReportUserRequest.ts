@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { PublicUserReportReason } from './PublicUserReportReason';
+import type { BlacklistReason } from './BlacklistReason';
 import {
-    PublicUserReportReasonFromJSON,
-    PublicUserReportReasonFromJSONTyped,
-    PublicUserReportReasonToJSON,
-    PublicUserReportReasonToJSONTyped,
-} from './PublicUserReportReason';
+    BlacklistReasonFromJSON,
+    BlacklistReasonFromJSONTyped,
+    BlacklistReasonToJSON,
+    BlacklistReasonToJSONTyped,
+} from './BlacklistReason';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface PostReportUserRequest {
     /**
      * 
-     * @type {Array<PublicUserReportReason>}
+     * @type {Array<BlacklistReason>}
      * @memberof PostReportUserRequest
      */
-    reason: Array<PublicUserReportReason>;
+    reason: Array<BlacklistReason>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function PostReportUserRequestFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'reason': ((json['reason'] as Array<any>).map(PublicUserReportReasonFromJSON)),
+        'reason': ((json['reason'] as Array<any>).map(BlacklistReasonFromJSON)),
     };
 }
 
@@ -68,7 +68,7 @@ export function PostReportUserRequestFromJSONTyped(json: any, ignoreDiscriminato
 
     return {
         
-        'reason': ((value['reason'] as Array<any>).map(PublicUserReportReasonToJSON)),
+        'reason': ((value['reason'] as Array<any>).map(BlacklistReasonToJSON)),
     };
 }
 

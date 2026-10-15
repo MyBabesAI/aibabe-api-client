@@ -17,6 +17,7 @@ import * as runtime from '../runtime';
 import type {
   BlacklistRequest,
   BlacklistResponse,
+  ContentType,
   GetDetailedPostsResponse,
   GetPostsResponse,
   HTTPValidationError,
@@ -35,6 +36,8 @@ import {
     BlacklistRequestToJSON,
     BlacklistResponseFromJSON,
     BlacklistResponseToJSON,
+    ContentTypeFromJSON,
+    ContentTypeToJSON,
     GetDetailedPostsResponseFromJSON,
     GetDetailedPostsResponseToJSON,
     GetPostsResponseFromJSON,
@@ -115,6 +118,12 @@ export interface LikeRandomNewPostsPostLikeRandomPostRequest {
 export interface PatchPostTitlePostPostIdTitlePatchRequest {
     postId: string;
     patchPostTitleRequest: PatchPostTitleRequest;
+}
+
+export interface ReportContentPostReportContentTypeContentIdPostRequest {
+    contentType: ContentType;
+    contentId: string;
+    postReportRequest: PostReportRequest;
 }
 
 export interface ReportPostPostPostIdReportPostRequest {
@@ -607,6 +616,62 @@ export class PostApi extends runtime.BaseAPI {
      */
     async patchPostTitlePostPostIdTitlePatch(requestParameters: PatchPostTitlePostPostIdTitlePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.patchPostTitlePostPostIdTitlePatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Reports content shown without a post (a story or adventure page, a babe).
+     * Report Content
+     */
+    async reportContentPostReportContentTypeContentIdPostRaw(requestParameters: ReportContentPostReportContentTypeContentIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['contentType'] == null) {
+            throw new runtime.RequiredError(
+                'contentType',
+                'Required parameter "contentType" was null or undefined when calling reportContentPostReportContentTypeContentIdPost().'
+            );
+        }
+
+        if (requestParameters['contentId'] == null) {
+            throw new runtime.RequiredError(
+                'contentId',
+                'Required parameter "contentId" was null or undefined when calling reportContentPostReportContentTypeContentIdPost().'
+            );
+        }
+
+        if (requestParameters['postReportRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postReportRequest',
+                'Required parameter "postReportRequest" was null or undefined when calling reportContentPostReportContentTypeContentIdPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/post/report/{content_type}/{content_id}`.replace(`{${"content_type"}}`, encodeURIComponent(String(requestParameters['contentType']))).replace(`{${"content_id"}}`, encodeURIComponent(String(requestParameters['contentId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostReportRequestToJSON(requestParameters['postReportRequest']),
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Reports content shown without a post (a story or adventure page, a babe).
+     * Report Content
+     */
+    async reportContentPostReportContentTypeContentIdPost(requestParameters: ReportContentPostReportContentTypeContentIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.reportContentPostReportContentTypeContentIdPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
