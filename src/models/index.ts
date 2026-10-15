@@ -52,6 +52,7 @@ export * from './BeardStyle';
 export * from './BillingPeriod';
 export * from './BillingReconciliationResponse';
 export * from './BlacklistCard';
+export * from './BlacklistMode';
 export * from './BlacklistReason';
 export * from './BlacklistRequest';
 export * from './BlacklistResponse';

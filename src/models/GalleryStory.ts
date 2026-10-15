@@ -27,6 +27,13 @@ import {
     StoryCountsToJSON,
     StoryCountsToJSONTyped,
 } from './StoryCounts';
+import type { BlacklistCard } from './BlacklistCard';
+import {
+    BlacklistCardFromJSON,
+    BlacklistCardFromJSONTyped,
+    BlacklistCardToJSON,
+    BlacklistCardToJSONTyped,
+} from './BlacklistCard';
 import type { StoryVisibility } from './StoryVisibility';
 import {
     StoryVisibilityFromJSON,
@@ -84,6 +91,12 @@ export interface GalleryStory {
      * @memberof GalleryStory
      */
     coverImage?: string | null;
+    /**
+     * 
+     * @type {BlacklistCard}
+     * @memberof GalleryStory
+     */
+    blacklist?: BlacklistCard | null;
     /**
      * 
      * @type {Date}
@@ -149,6 +162,7 @@ export function GalleryStoryFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
+        'blacklist': json['blacklist'] == null ? undefined : BlacklistCardFromJSON(json['blacklist']),
         'createdAt': (new Date(json['created_at'])),
         'visibility': StoryVisibilityFromJSON(json['visibility']),
         'rating': json['rating'] == null ? undefined : StoryRatingFromJSON(json['rating']),
@@ -173,6 +187,7 @@ export function GalleryStoryFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'title': value['title'],
         'description': value['description'],
         'cover_image': value['coverImage'],
+        'blacklist': BlacklistCardToJSON(value['blacklist']),
         'created_at': ((value['createdAt']).toISOString()),
         'visibility': StoryVisibilityToJSON(value['visibility']),
         'rating': StoryRatingToJSON(value['rating']),

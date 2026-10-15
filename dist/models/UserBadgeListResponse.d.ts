@@ -29,6 +29,18 @@ export interface UserBadgeListResponse {
      * @memberof UserBadgeListResponse
      */
     scores: Array<UserScore>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UserBadgeListResponse
+     */
+    canEquipAll: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UserBadgeListResponse
+     */
+    receivesTokenAwards: boolean;
 }
 /**
  * Check if a given object implements the UserBadgeListResponse interface.

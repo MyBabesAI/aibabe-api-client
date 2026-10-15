@@ -21,6 +21,7 @@ exports.GalleryStoryToJSON = GalleryStoryToJSON;
 exports.GalleryStoryToJSONTyped = GalleryStoryToJSONTyped;
 const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
 const StoryCounts_1 = require("./StoryCounts");
+const BlacklistCard_1 = require("./BlacklistCard");
 const StoryVisibility_1 = require("./StoryVisibility");
 const StoryRating_1 = require("./StoryRating");
 /**
@@ -61,6 +62,7 @@ function GalleryStoryFromJSONTyped(json, ignoreDiscriminator) {
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
+        'blacklist': json['blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['blacklist']),
         'createdAt': (new Date(json['created_at'])),
         'visibility': (0, StoryVisibility_1.StoryVisibilityFromJSON)(json['visibility']),
         'rating': json['rating'] == null ? undefined : (0, StoryRating_1.StoryRatingFromJSON)(json['rating']),
@@ -81,6 +83,7 @@ function GalleryStoryToJSONTyped(value, ignoreDiscriminator = false) {
         'title': value['title'],
         'description': value['description'],
         'cover_image': value['coverImage'],
+        'blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['blacklist']),
         'created_at': ((value['createdAt']).toISOString()),
         'visibility': (0, StoryVisibility_1.StoryVisibilityToJSON)(value['visibility']),
         'rating': (0, StoryRating_1.StoryRatingToJSON)(value['rating']),

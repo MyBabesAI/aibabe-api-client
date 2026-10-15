@@ -46,6 +46,18 @@ export interface UserBadgeListResponse {
      * @memberof UserBadgeListResponse
      */
     scores: Array<UserScore>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UserBadgeListResponse
+     */
+    canEquipAll: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UserBadgeListResponse
+     */
+    receivesTokenAwards: boolean;
 }
 
 /**
@@ -54,6 +66,8 @@ export interface UserBadgeListResponse {
 export function instanceOfUserBadgeListResponse(value: object): value is UserBadgeListResponse {
     if (!('badges' in value) || value['badges'] === undefined) return false;
     if (!('scores' in value) || value['scores'] === undefined) return false;
+    if (!('canEquipAll' in value) || value['canEquipAll'] === undefined) return false;
+    if (!('receivesTokenAwards' in value) || value['receivesTokenAwards'] === undefined) return false;
     return true;
 }
 
@@ -69,6 +83,8 @@ export function UserBadgeListResponseFromJSONTyped(json: any, ignoreDiscriminato
         
         'badges': ((json['badges'] as Array<any>).map(UserBadgeFromJSON)),
         'scores': ((json['scores'] as Array<any>).map(UserScoreFromJSON)),
+        'canEquipAll': json['can_equip_all'],
+        'receivesTokenAwards': json['receives_token_awards'],
     };
 }
 
@@ -85,6 +101,8 @@ export function UserBadgeListResponseFromJSONTyped(json: any, ignoreDiscriminato
         
         'badges': ((value['badges'] as Array<any>).map(UserBadgeToJSON)),
         'scores': ((value['scores'] as Array<any>).map(UserScoreToJSON)),
+        'can_equip_all': value['canEquipAll'],
+        'receives_token_awards': value['receivesTokenAwards'],
     };
 }
 

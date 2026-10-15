@@ -20,6 +20,13 @@ import {
     BlacklistReasonToJSON,
     BlacklistReasonToJSONTyped,
 } from './BlacklistReason';
+import type { BlacklistMode } from './BlacklistMode';
+import {
+    BlacklistModeFromJSON,
+    BlacklistModeFromJSONTyped,
+    BlacklistModeToJSON,
+    BlacklistModeToJSONTyped,
+} from './BlacklistMode';
 
 /**
  * 
@@ -39,6 +46,12 @@ export interface BlacklistRequest {
      * @memberof BlacklistRequest
      */
     message?: string | null;
+    /**
+     * 
+     * @type {BlacklistMode}
+     * @memberof BlacklistRequest
+     */
+    mode?: BlacklistMode;
 }
 
 
@@ -63,6 +76,7 @@ export function BlacklistRequestFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'reason': BlacklistReasonFromJSON(json['reason']),
         'message': json['message'] == null ? undefined : json['message'],
+        'mode': json['mode'] == null ? undefined : BlacklistModeFromJSON(json['mode']),
     };
 }
 
@@ -79,6 +93,7 @@ export function BlacklistRequestFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'reason': BlacklistReasonToJSON(value['reason']),
         'message': value['message'],
+        'mode': BlacklistModeToJSON(value['mode']),
     };
 }
 

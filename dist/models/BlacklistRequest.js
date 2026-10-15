@@ -19,6 +19,7 @@ exports.BlacklistRequestFromJSONTyped = BlacklistRequestFromJSONTyped;
 exports.BlacklistRequestToJSON = BlacklistRequestToJSON;
 exports.BlacklistRequestToJSONTyped = BlacklistRequestToJSONTyped;
 const BlacklistReason_1 = require("./BlacklistReason");
+const BlacklistMode_1 = require("./BlacklistMode");
 /**
  * Check if a given object implements the BlacklistRequest interface.
  */
@@ -37,6 +38,7 @@ function BlacklistRequestFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'reason': (0, BlacklistReason_1.BlacklistReasonFromJSON)(json['reason']),
         'message': json['message'] == null ? undefined : json['message'],
+        'mode': json['mode'] == null ? undefined : (0, BlacklistMode_1.BlacklistModeFromJSON)(json['mode']),
     };
 }
 function BlacklistRequestToJSON(json) {
@@ -49,6 +51,7 @@ function BlacklistRequestToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'reason': (0, BlacklistReason_1.BlacklistReasonToJSON)(value['reason']),
         'message': value['message'],
+        'mode': (0, BlacklistMode_1.BlacklistModeToJSON)(value['mode']),
     };
 }
 //# sourceMappingURL=BlacklistRequest.js.map

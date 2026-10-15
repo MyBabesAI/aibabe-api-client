@@ -27,6 +27,13 @@ import {
     BlacklistTargetToJSON,
     BlacklistTargetToJSONTyped,
 } from './BlacklistTarget';
+import type { BlacklistMode } from './BlacklistMode';
+import {
+    BlacklistModeFromJSON,
+    BlacklistModeFromJSONTyped,
+    BlacklistModeToJSON,
+    BlacklistModeToJSONTyped,
+} from './BlacklistMode';
 import type { MediaOrigin } from './MediaOrigin';
 import {
     MediaOriginFromJSON,
@@ -67,6 +74,12 @@ export interface BlacklistCard {
     origin?: MediaOrigin | null;
     /**
      * 
+     * @type {BlacklistMode}
+     * @memberof BlacklistCard
+     */
+    mode?: BlacklistMode;
+    /**
+     * 
      * @type {BlacklistTarget}
      * @memberof BlacklistCard
      */
@@ -105,6 +118,7 @@ export function BlacklistCardFromJSONTyped(json: any, ignoreDiscriminator: boole
         'message': json['message'] == null ? undefined : json['message'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
         'origin': json['origin'] == null ? undefined : MediaOriginFromJSON(json['origin']),
+        'mode': json['mode'] == null ? undefined : BlacklistModeFromJSON(json['mode']),
         'targetType': BlacklistTargetFromJSON(json['target_type']),
         'blacklistedAt': (new Date(json['blacklisted_at'])),
     };
@@ -125,6 +139,7 @@ export function BlacklistCardFromJSONTyped(json: any, ignoreDiscriminator: boole
         'message': value['message'],
         'prompt': value['prompt'],
         'origin': MediaOriginToJSON(value['origin']),
+        'mode': BlacklistModeToJSON(value['mode']),
         'target_type': BlacklistTargetToJSON(value['targetType']),
         'blacklisted_at': ((value['blacklistedAt']).toISOString()),
     };
