@@ -159,6 +159,12 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     greeting?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetCustomChatbotResponse
+     */
+    chatDisabled?: boolean;
 }
 
 
@@ -204,6 +210,7 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'postDetails': json['post_details'] == null ? undefined : PostDetailsWithDateFromJSON(json['post_details']),
         'origin': json['origin'] == null ? undefined : ChatbotPreviewFromJSON(json['origin']),
         'greeting': json['greeting'] == null ? undefined : json['greeting'],
+        'chatDisabled': json['chat_disabled'] == null ? undefined : json['chat_disabled'],
     };
 }
 
@@ -233,6 +240,7 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'post_details': PostDetailsWithDateToJSON(value['postDetails']),
         'origin': ChatbotPreviewToJSON(value['origin']),
         'greeting': value['greeting'],
+        'chat_disabled': value['chatDisabled'],
     };
 }
 

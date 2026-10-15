@@ -20,6 +20,7 @@ exports.BlacklistCardToJSON = BlacklistCardToJSON;
 exports.BlacklistCardToJSONTyped = BlacklistCardToJSONTyped;
 const BlacklistReason_1 = require("./BlacklistReason");
 const BlacklistTarget_1 = require("./BlacklistTarget");
+const BlacklistMode_1 = require("./BlacklistMode");
 const MediaOrigin_1 = require("./MediaOrigin");
 /**
  * Check if a given object implements the BlacklistCard interface.
@@ -45,6 +46,7 @@ function BlacklistCardFromJSONTyped(json, ignoreDiscriminator) {
         'message': json['message'] == null ? undefined : json['message'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
         'origin': json['origin'] == null ? undefined : (0, MediaOrigin_1.MediaOriginFromJSON)(json['origin']),
+        'mode': json['mode'] == null ? undefined : (0, BlacklistMode_1.BlacklistModeFromJSON)(json['mode']),
         'targetType': (0, BlacklistTarget_1.BlacklistTargetFromJSON)(json['target_type']),
         'blacklistedAt': (new Date(json['blacklisted_at'])),
     };
@@ -61,6 +63,7 @@ function BlacklistCardToJSONTyped(value, ignoreDiscriminator = false) {
         'message': value['message'],
         'prompt': value['prompt'],
         'origin': (0, MediaOrigin_1.MediaOriginToJSON)(value['origin']),
+        'mode': (0, BlacklistMode_1.BlacklistModeToJSON)(value['mode']),
         'target_type': (0, BlacklistTarget_1.BlacklistTargetToJSON)(value['targetType']),
         'blacklisted_at': ((value['blacklistedAt']).toISOString()),
     };

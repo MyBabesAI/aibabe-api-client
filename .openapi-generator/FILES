@@ -85,6 +85,7 @@ src/models/BeardStyle.ts
 src/models/BillingPeriod.ts
 src/models/BillingReconciliationResponse.ts
 src/models/BlacklistCard.ts
+src/models/BlacklistMode.ts
 src/models/BlacklistReason.ts
 src/models/BlacklistRequest.ts
 src/models/BlacklistResponse.ts

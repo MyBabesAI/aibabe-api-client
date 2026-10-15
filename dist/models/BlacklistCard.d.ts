@@ -11,6 +11,7 @@
  */
 import type { BlacklistReason } from './BlacklistReason';
 import type { BlacklistTarget } from './BlacklistTarget';
+import type { BlacklistMode } from './BlacklistMode';
 import type { MediaOrigin } from './MediaOrigin';
 /**
  *
@@ -42,6 +43,12 @@ export interface BlacklistCard {
      * @memberof BlacklistCard
      */
     origin?: MediaOrigin | null;
+    /**
+     *
+     * @type {BlacklistMode}
+     * @memberof BlacklistCard
+     */
+    mode?: BlacklistMode;
     /**
      *
      * @type {BlacklistTarget}
