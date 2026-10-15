@@ -46,6 +46,7 @@ export declare const ArtStyle: {
     readonly Midnightstudio: "midnightstudio";
     readonly Forbiddenfairytale: "forbiddenfairytale";
     readonly Truelookv2: "truelookv2";
+    readonly Afterglowfuta: "afterglowfuta";
     readonly Anthrokrea: "anthrokrea";
     readonly Furrykrea: "furrykrea";
 };
