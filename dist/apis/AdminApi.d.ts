@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminTokenHistoryResponse, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ChatbotType, ContentType, DownscaleRequest, GetChatbotListResponse, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
+import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminTokenHistoryResponse, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ChatbotType, ContentType, DownscaleRequest, GetChatbotListResponse, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, OwnerFilter, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -58,6 +58,14 @@ export interface DownscaleAdminDownscalePostRequest {
 export interface GenerateCodesAdminGiftCodesGeneratePostRequest {
     count: number;
     codeType: GiftCodeType;
+}
+export interface GetChatbotPrivateMediaAdminGalleryChatbotChatbotIdGetRequest {
+    chatbotId: string;
+    ownerFilter?: OwnerFilter;
+    type?: PostType;
+    limit?: number;
+    paginationToken?: string | null;
+    sort?: SortFilter;
 }
 export interface GetModeratedImagesAdminModerationImagesGetRequest {
     userId?: string | null;
@@ -236,6 +244,16 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Generate Codes
      */
     generateCodesAdminGiftCodesGeneratePost(requestParameters: GenerateCodesAdminGiftCodesGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * **Admin review: own = the admin\'s, babe_creator = the character\'s creator\'s, babe_community = everyone else\'s private pictures / videos of the character; items carry their owner**
+     * A character\'s unposted media, by who generated it
+     */
+    getChatbotPrivateMediaAdminGalleryChatbotChatbotIdGetRaw(requestParameters: GetChatbotPrivateMediaAdminGalleryChatbotChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGalleryResponse>>;
+    /**
+     * **Admin review: own = the admin\'s, babe_creator = the character\'s creator\'s, babe_community = everyone else\'s private pictures / videos of the character; items carry their owner**
+     * A character\'s unposted media, by who generated it
+     */
+    getChatbotPrivateMediaAdminGalleryChatbotChatbotIdGet(requestParameters: GetChatbotPrivateMediaAdminGalleryChatbotChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGalleryResponse>;
     /**
      * Audit log of generated images withheld by the apparent-age screening, newest first.
      * Get Moderated Images
