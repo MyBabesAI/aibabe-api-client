@@ -10,13 +10,15 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { GameAdventureDetailResponse, GameAdventurePrizesResponse, GameAdventureRating, GameAdventureSessionDetailResponse, GameAdventureSessionListResponse, GameAdventureSessionResponse, PostGameAdventureAdminActionRequest, PostGameAdventureAdminActionResponse, PostGameAdventureImageRequest, PostGameAdventureJournalReviewRequest, PostGameAdventureJournalReviewResponse, PostGameAdventureMediaResponse, PostGameAdventureMessageRequest, PostGameAdventureMessageResponse, PostGameAdventureRatingRequest, PostGameAdventureVideoRequest } from '../models/index';
+import type { GameAdventureDetailResponse, GameAdventureEpisodePurchaseResponse, GameAdventureEpisodeRatingResponse, GameAdventureLibraryFilter, GameAdventureLibraryResponse, GameAdventurePrizesResponse, GameAdventureSessionDetailResponse, GameAdventureSessionListResponse, GameAdventureSessionResponse, PostGameAdventureAdminActionRequest, PostGameAdventureAdminActionResponse, PostGameAdventureEpisodePurchaseRequest, PostGameAdventureImageRequest, PostGameAdventureJournalReviewRequest, PostGameAdventureJournalReviewResponse, PostGameAdventureMediaResponse, PostGameAdventureMessageRequest, PostGameAdventureMessageResponse, PostGameAdventureRatingRequest, PostGameAdventureVideoRequest } from '../models/index';
 export interface AdminActionGameAdventureSessionsSessionIdAdminPostRequest {
     sessionId: string;
     postGameAdventureAdminActionRequest: PostGameAdventureAdminActionRequest;
 }
-export interface CreateSessionGameAdventuresGameAdventureIdSessionsPostRequest {
+export interface CreateSessionGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdSessionsPostRequest {
     gameAdventureId: string;
+    gameAdventureEpisodeId: string;
+    forceLatest?: boolean;
 }
 export interface DeleteSessionGameAdventureSessionsSessionIdDeleteRequest {
     sessionId: string;
@@ -32,17 +34,30 @@ export interface GenerateVideoGameAdventureSessionsSessionIdVideoPostRequest {
 export interface GetDetailGameAdventuresGameAdventureIdGetRequest {
     gameAdventureId: string;
 }
-export interface GetPrizesGameAdventuresGameAdventureIdPrizesGetRequest {
+export interface GetPrizesGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPrizesGetRequest {
     gameAdventureId: string;
+    gameAdventureEpisodeId: string;
 }
 export interface GetSessionGameAdventureSessionsSessionIdGetRequest {
     sessionId: string;
 }
+export interface ListLibraryGameAdventuresLibraryGetRequest {
+    filter?: GameAdventureLibraryFilter;
+    freeTextSearch?: string | null;
+    limit?: number;
+    cursor?: string | null;
+}
 export interface ListSessionsGameAdventuresGameAdventureIdSessionsGetRequest {
     gameAdventureId: string;
 }
-export interface RateGameAdventuresGameAdventureIdRatingPostRequest {
+export interface PurchaseEpisodeGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPurchasePostRequest {
     gameAdventureId: string;
+    gameAdventureEpisodeId: string;
+    postGameAdventureEpisodePurchaseRequest: PostGameAdventureEpisodePurchaseRequest;
+}
+export interface RateGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdRatingPostRequest {
+    gameAdventureId: string;
+    gameAdventureEpisodeId: string;
     postGameAdventureRatingRequest: PostGameAdventureRatingRequest;
 }
 export interface ReviewJournalGameAdventureSessionsSessionIdJournalReviewPostRequest {
@@ -68,15 +83,15 @@ export declare class GameAdventuresApi extends runtime.BaseAPI {
      */
     adminActionGameAdventureSessionsSessionIdAdminPost(requestParameters: AdminActionGameAdventureSessionsSessionIdAdminPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostGameAdventureAdminActionResponse>;
     /**
-     * **Creates a new session pinned to the latest published version, seeding the greeting messages**
-     * Start a new game adventure session
+     * **Creates a session pinned to the episode\'s latest version (a buyer\'s bought version unless force_latest), seeding the greeting messages**
+     * Start a new session in an episode
      */
-    createSessionGameAdventuresGameAdventureIdSessionsPostRaw(requestParameters: CreateSessionGameAdventuresGameAdventureIdSessionsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureSessionResponse>>;
+    createSessionGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdSessionsPostRaw(requestParameters: CreateSessionGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdSessionsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureSessionResponse>>;
     /**
-     * **Creates a new session pinned to the latest published version, seeding the greeting messages**
-     * Start a new game adventure session
+     * **Creates a session pinned to the episode\'s latest version (a buyer\'s bought version unless force_latest), seeding the greeting messages**
+     * Start a new session in an episode
      */
-    createSessionGameAdventuresGameAdventureIdSessionsPost(requestParameters: CreateSessionGameAdventuresGameAdventureIdSessionsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureSessionResponse>;
+    createSessionGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdSessionsPost(requestParameters: CreateSessionGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdSessionsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureSessionResponse>;
     /**
      * Delete Session
      */
@@ -112,11 +127,11 @@ export declare class GameAdventuresApi extends runtime.BaseAPI {
     /**
      * Get Prizes
      */
-    getPrizesGameAdventuresGameAdventureIdPrizesGetRaw(requestParameters: GetPrizesGameAdventuresGameAdventureIdPrizesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventurePrizesResponse>>;
+    getPrizesGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPrizesGetRaw(requestParameters: GetPrizesGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPrizesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventurePrizesResponse>>;
     /**
      * Get Prizes
      */
-    getPrizesGameAdventuresGameAdventureIdPrizesGet(requestParameters: GetPrizesGameAdventuresGameAdventureIdPrizesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventurePrizesResponse>;
+    getPrizesGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPrizesGet(requestParameters: GetPrizesGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPrizesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventurePrizesResponse>;
     /**
      * Get Session
      */
@@ -126,6 +141,16 @@ export declare class GameAdventuresApi extends runtime.BaseAPI {
      */
     getSessionGameAdventureSessionsSessionIdGet(requestParameters: GetSessionGameAdventureSessionsSessionIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureSessionDetailResponse>;
     /**
+     * **Adventures the player is playing or has finished, sourced from sessions and wins (unpublished ones included)**
+     * The player\'s adventure library
+     */
+    listLibraryGameAdventuresLibraryGetRaw(requestParameters: ListLibraryGameAdventuresLibraryGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureLibraryResponse>>;
+    /**
+     * **Adventures the player is playing or has finished, sourced from sessions and wins (unpublished ones included)**
+     * The player\'s adventure library
+     */
+    listLibraryGameAdventuresLibraryGet(requestParameters?: ListLibraryGameAdventuresLibraryGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureLibraryResponse>;
+    /**
      * List Sessions
      */
     listSessionsGameAdventuresGameAdventureIdSessionsGetRaw(requestParameters: ListSessionsGameAdventuresGameAdventureIdSessionsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureSessionListResponse>>;
@@ -134,13 +159,23 @@ export declare class GameAdventuresApi extends runtime.BaseAPI {
      */
     listSessionsGameAdventuresGameAdventureIdSessionsGet(requestParameters: ListSessionsGameAdventuresGameAdventureIdSessionsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureSessionListResponse>;
     /**
-     * Rate
+     * **Tokens go to the creator; the purchase pins the current version of the episode**
+     * Buy a paywalled episode
      */
-    rateGameAdventuresGameAdventureIdRatingPostRaw(requestParameters: RateGameAdventuresGameAdventureIdRatingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureRating>>;
+    purchaseEpisodeGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPurchasePostRaw(requestParameters: PurchaseEpisodeGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPurchasePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureEpisodePurchaseResponse>>;
+    /**
+     * **Tokens go to the creator; the purchase pins the current version of the episode**
+     * Buy a paywalled episode
+     */
+    purchaseEpisodeGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPurchasePost(requestParameters: PurchaseEpisodeGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPurchasePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureEpisodePurchaseResponse>;
     /**
      * Rate
      */
-    rateGameAdventuresGameAdventureIdRatingPost(requestParameters: RateGameAdventuresGameAdventureIdRatingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureRating>;
+    rateGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdRatingPostRaw(requestParameters: RateGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdRatingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureEpisodeRatingResponse>>;
+    /**
+     * Rate
+     */
+    rateGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdRatingPost(requestParameters: RateGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdRatingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureEpisodeRatingResponse>;
     /**
      * **The judge reviews the turn\'s player message + response and appends journal facts if anything new is worth recording**
      * Review one exchange for the journal

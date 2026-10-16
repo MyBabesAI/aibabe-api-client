@@ -10,12 +10,20 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { GameAdventureCreatorCreateRequest, GameAdventureCreatorListResponse, GameAdventureCreatorResponse, GameAdventureCreatorUpdateRequest, GameAdventureSessionResponse, SortFilter, VisibilityFilter } from '../models/index';
+import type { GameAdventureCreatorCreateRequest, GameAdventureCreatorEpisodeOrderRequest, GameAdventureCreatorEpisodeResponse, GameAdventureCreatorEpisodeUpdateRequest, GameAdventureCreatorEpisodeVisibilityRequest, GameAdventureCreatorListResponse, GameAdventureCreatorLockEpisodeRequest, GameAdventureCreatorResponse, GameAdventureCreatorUpdateRequest, GameAdventureSessionResponse, SortFilter, VisibilityFilter } from '../models/index';
+export interface CreateEpisodeGameAdventureCreatorGameAdventureIdEpisodesPostRequest {
+    gameAdventureId: string;
+}
 export interface CreateGameAdventureCreatorPostRequest {
     gameAdventureCreatorCreateRequest: GameAdventureCreatorCreateRequest;
 }
-export interface CreatePreviewSessionGameAdventureCreatorGameAdventureIdPreviewSessionPostRequest {
+export interface CreatePreviewSessionGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPreviewSessionPostRequest {
     gameAdventureId: string;
+    gameAdventureEpisodeId: string;
+}
+export interface DeleteEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdDeleteRequest {
+    gameAdventureId: string;
+    gameAdventureEpisodeId: string;
 }
 export interface DeleteGameAdventureCreatorGameAdventureIdDeleteRequest {
     gameAdventureId: string;
@@ -29,8 +37,31 @@ export interface ListOwnGameAdventureCreatorGetRequest {
     sort?: SortFilter;
     visibility?: VisibilityFilter;
 }
+export interface LockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatchRequest {
+    gameAdventureId: string;
+    gameAdventureEpisodeId: string;
+    gameAdventureCreatorLockEpisodeRequest: GameAdventureCreatorLockEpisodeRequest;
+}
+export interface ReorderEpisodesGameAdventureCreatorGameAdventureIdEpisodesOrderPatchRequest {
+    gameAdventureId: string;
+    gameAdventureCreatorEpisodeOrderRequest: GameAdventureCreatorEpisodeOrderRequest;
+}
+export interface UnlockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockDeleteRequest {
+    gameAdventureId: string;
+    gameAdventureEpisodeId: string;
+}
 export interface UnpublishGameAdventureCreatorGameAdventureIdPublishDeleteRequest {
     gameAdventureId: string;
+}
+export interface UpdateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatchRequest {
+    gameAdventureId: string;
+    gameAdventureEpisodeId: string;
+    gameAdventureCreatorEpisodeUpdateRequest: GameAdventureCreatorEpisodeUpdateRequest;
+}
+export interface UpdateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatchRequest {
+    gameAdventureId: string;
+    gameAdventureEpisodeId: string;
+    gameAdventureCreatorEpisodeVisibilityRequest: GameAdventureCreatorEpisodeVisibilityRequest;
 }
 export interface UpdateGameAdventureCreatorGameAdventureIdPatchRequest {
     gameAdventureId: string;
@@ -41,25 +72,45 @@ export interface UpdateGameAdventureCreatorGameAdventureIdPatchRequest {
  */
 export declare class GameAdventureCreatorApi extends runtime.BaseAPI {
     /**
-     * **Creates a new draft game adventure from an owned chatbot, with one empty target**
+     * **Appends a private episode with one empty target after the existing ones**
+     * Add an episode
+     */
+    createEpisodeGameAdventureCreatorGameAdventureIdEpisodesPostRaw(requestParameters: CreateEpisodeGameAdventureCreatorGameAdventureIdEpisodesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorEpisodeResponse>>;
+    /**
+     * **Appends a private episode with one empty target after the existing ones**
+     * Add an episode
+     */
+    createEpisodeGameAdventureCreatorGameAdventureIdEpisodesPost(requestParameters: CreateEpisodeGameAdventureCreatorGameAdventureIdEpisodesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorEpisodeResponse>;
+    /**
+     * **Creates a new draft game adventure from an owned chatbot, with one public episode holding one empty target**
      * Create new game adventure draft
      */
     createGameAdventureCreatorPostRaw(requestParameters: CreateGameAdventureCreatorPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorResponse>>;
     /**
-     * **Creates a new draft game adventure from an owned chatbot, with one empty target**
+     * **Creates a new draft game adventure from an owned chatbot, with one public episode holding one empty target**
      * Create new game adventure draft
      */
     createGameAdventureCreatorPost(requestParameters: CreateGameAdventureCreatorPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorResponse>;
     /**
-     * **Plays the latest version (even unpublished) as if a regular player; never creates unlocks and surfaces hidden journal entries**
+     * **Plays the episode\'s latest version (even unpublished) as if a regular player; never creates unlocks and surfaces hidden journal entries**
      * Start an owner preview session
      */
-    createPreviewSessionGameAdventureCreatorGameAdventureIdPreviewSessionPostRaw(requestParameters: CreatePreviewSessionGameAdventureCreatorGameAdventureIdPreviewSessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureSessionResponse>>;
+    createPreviewSessionGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPreviewSessionPostRaw(requestParameters: CreatePreviewSessionGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPreviewSessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureSessionResponse>>;
     /**
-     * **Plays the latest version (even unpublished) as if a regular player; never creates unlocks and surfaces hidden journal entries**
+     * **Plays the episode\'s latest version (even unpublished) as if a regular player; never creates unlocks and surfaces hidden journal entries**
      * Start an owner preview session
      */
-    createPreviewSessionGameAdventureCreatorGameAdventureIdPreviewSessionPost(requestParameters: CreatePreviewSessionGameAdventureCreatorGameAdventureIdPreviewSessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureSessionResponse>;
+    createPreviewSessionGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPreviewSessionPost(requestParameters: CreatePreviewSessionGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPreviewSessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureSessionResponse>;
+    /**
+     * **A bought episode is soft-deleted (buyers keep it); the adventure is unpublished when no public episode is left**
+     * Delete an episode
+     */
+    deleteEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdDeleteRaw(requestParameters: DeleteEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorResponse>>;
+    /**
+     * **A bought episode is soft-deleted (buyers keep it); the adventure is unpublished when no public episode is left**
+     * Delete an episode
+     */
+    deleteEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdDelete(requestParameters: DeleteEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorResponse>;
     /**
      * Delete
      */
@@ -85,6 +136,34 @@ export declare class GameAdventureCreatorApi extends runtime.BaseAPI {
      */
     listOwnGameAdventureCreatorGet(requestParameters?: ListOwnGameAdventureCreatorGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorListResponse>;
     /**
+     * **lock_after free player turns (0 = fully locked) and the token price**
+     * Put the episode behind a paywall
+     */
+    lockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatchRaw(requestParameters: LockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorEpisodeResponse>>;
+    /**
+     * **lock_after free player turns (0 = fully locked) and the token price**
+     * Put the episode behind a paywall
+     */
+    lockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatch(requestParameters: LockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorEpisodeResponse>;
+    /**
+     * **Takes every live episode id of the adventure in the new play order**
+     * Reorder the episodes
+     */
+    reorderEpisodesGameAdventureCreatorGameAdventureIdEpisodesOrderPatchRaw(requestParameters: ReorderEpisodesGameAdventureCreatorGameAdventureIdEpisodesOrderPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorResponse>>;
+    /**
+     * **Takes every live episode id of the adventure in the new play order**
+     * Reorder the episodes
+     */
+    reorderEpisodesGameAdventureCreatorGameAdventureIdEpisodesOrderPatch(requestParameters: ReorderEpisodesGameAdventureCreatorGameAdventureIdEpisodesOrderPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorResponse>;
+    /**
+     * Make the episode free
+     */
+    unlockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockDeleteRaw(requestParameters: UnlockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorEpisodeResponse>>;
+    /**
+     * Make the episode free
+     */
+    unlockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockDelete(requestParameters: UnlockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorEpisodeResponse>;
+    /**
      * **Returns the adventure to draft and hides its post; existing unlocks keep their prize access**
      * Unpublish a game adventure
      */
@@ -94,6 +173,26 @@ export declare class GameAdventureCreatorApi extends runtime.BaseAPI {
      * Unpublish a game adventure
      */
     unpublishGameAdventureCreatorGameAdventureIdPublishDelete(requestParameters: UnpublishGameAdventureCreatorGameAdventureIdPublishDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * **Content, targets (serial order, matched by position), prizes and intro / outro media; a played or bought public version is forked instead of edited in place**
+     * Update an episode
+     */
+    updateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatchRaw(requestParameters: UpdateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorEpisodeResponse>>;
+    /**
+     * **Content, targets (serial order, matched by position), prizes and intro / outro media; a played or bought public version is forked instead of edited in place**
+     * Update an episode
+     */
+    updateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatch(requestParameters: UpdateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorEpisodeResponse>;
+    /**
+     * **Hiding the last public episode of a published adventure unpublishes the adventure (status in the response)**
+     * Publish or hide an episode
+     */
+    updateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatchRaw(requestParameters: UpdateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorResponse>>;
+    /**
+     * **Hiding the last public episode of a published adventure unpublishes the adventure (status in the response)**
+     * Publish or hide an episode
+     */
+    updateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatch(requestParameters: UpdateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorResponse>;
     /**
      * Update
      */

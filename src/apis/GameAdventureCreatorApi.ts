@@ -16,7 +16,12 @@
 import * as runtime from '../runtime';
 import type {
   GameAdventureCreatorCreateRequest,
+  GameAdventureCreatorEpisodeOrderRequest,
+  GameAdventureCreatorEpisodeResponse,
+  GameAdventureCreatorEpisodeUpdateRequest,
+  GameAdventureCreatorEpisodeVisibilityRequest,
   GameAdventureCreatorListResponse,
+  GameAdventureCreatorLockEpisodeRequest,
   GameAdventureCreatorResponse,
   GameAdventureCreatorUpdateRequest,
   GameAdventureSessionResponse,
@@ -27,8 +32,18 @@ import type {
 import {
     GameAdventureCreatorCreateRequestFromJSON,
     GameAdventureCreatorCreateRequestToJSON,
+    GameAdventureCreatorEpisodeOrderRequestFromJSON,
+    GameAdventureCreatorEpisodeOrderRequestToJSON,
+    GameAdventureCreatorEpisodeResponseFromJSON,
+    GameAdventureCreatorEpisodeResponseToJSON,
+    GameAdventureCreatorEpisodeUpdateRequestFromJSON,
+    GameAdventureCreatorEpisodeUpdateRequestToJSON,
+    GameAdventureCreatorEpisodeVisibilityRequestFromJSON,
+    GameAdventureCreatorEpisodeVisibilityRequestToJSON,
     GameAdventureCreatorListResponseFromJSON,
     GameAdventureCreatorListResponseToJSON,
+    GameAdventureCreatorLockEpisodeRequestFromJSON,
+    GameAdventureCreatorLockEpisodeRequestToJSON,
     GameAdventureCreatorResponseFromJSON,
     GameAdventureCreatorResponseToJSON,
     GameAdventureCreatorUpdateRequestFromJSON,
@@ -43,12 +58,22 @@ import {
     VisibilityFilterToJSON,
 } from '../models/index';
 
+export interface CreateEpisodeGameAdventureCreatorGameAdventureIdEpisodesPostRequest {
+    gameAdventureId: string;
+}
+
 export interface CreateGameAdventureCreatorPostRequest {
     gameAdventureCreatorCreateRequest: GameAdventureCreatorCreateRequest;
 }
 
-export interface CreatePreviewSessionGameAdventureCreatorGameAdventureIdPreviewSessionPostRequest {
+export interface CreatePreviewSessionGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPreviewSessionPostRequest {
     gameAdventureId: string;
+    gameAdventureEpisodeId: string;
+}
+
+export interface DeleteEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdDeleteRequest {
+    gameAdventureId: string;
+    gameAdventureEpisodeId: string;
 }
 
 export interface DeleteGameAdventureCreatorGameAdventureIdDeleteRequest {
@@ -66,8 +91,36 @@ export interface ListOwnGameAdventureCreatorGetRequest {
     visibility?: VisibilityFilter;
 }
 
+export interface LockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatchRequest {
+    gameAdventureId: string;
+    gameAdventureEpisodeId: string;
+    gameAdventureCreatorLockEpisodeRequest: GameAdventureCreatorLockEpisodeRequest;
+}
+
+export interface ReorderEpisodesGameAdventureCreatorGameAdventureIdEpisodesOrderPatchRequest {
+    gameAdventureId: string;
+    gameAdventureCreatorEpisodeOrderRequest: GameAdventureCreatorEpisodeOrderRequest;
+}
+
+export interface UnlockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockDeleteRequest {
+    gameAdventureId: string;
+    gameAdventureEpisodeId: string;
+}
+
 export interface UnpublishGameAdventureCreatorGameAdventureIdPublishDeleteRequest {
     gameAdventureId: string;
+}
+
+export interface UpdateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatchRequest {
+    gameAdventureId: string;
+    gameAdventureEpisodeId: string;
+    gameAdventureCreatorEpisodeUpdateRequest: GameAdventureCreatorEpisodeUpdateRequest;
+}
+
+export interface UpdateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatchRequest {
+    gameAdventureId: string;
+    gameAdventureEpisodeId: string;
+    gameAdventureCreatorEpisodeVisibilityRequest: GameAdventureCreatorEpisodeVisibilityRequest;
 }
 
 export interface UpdateGameAdventureCreatorGameAdventureIdPatchRequest {
@@ -81,7 +134,42 @@ export interface UpdateGameAdventureCreatorGameAdventureIdPatchRequest {
 export class GameAdventureCreatorApi extends runtime.BaseAPI {
 
     /**
-     * **Creates a new draft game adventure from an owned chatbot, with one empty target**
+     * **Appends a private episode with one empty target after the existing ones**
+     * Add an episode
+     */
+    async createEpisodeGameAdventureCreatorGameAdventureIdEpisodesPostRaw(requestParameters: CreateEpisodeGameAdventureCreatorGameAdventureIdEpisodesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorEpisodeResponse>> {
+        if (requestParameters['gameAdventureId'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureId',
+                'Required parameter "gameAdventureId" was null or undefined when calling createEpisodeGameAdventureCreatorGameAdventureIdEpisodesPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/game-adventure-creator/{game_adventure_id}/episodes`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GameAdventureCreatorEpisodeResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * **Appends a private episode with one empty target after the existing ones**
+     * Add an episode
+     */
+    async createEpisodeGameAdventureCreatorGameAdventureIdEpisodesPost(requestParameters: CreateEpisodeGameAdventureCreatorGameAdventureIdEpisodesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorEpisodeResponse> {
+        const response = await this.createEpisodeGameAdventureCreatorGameAdventureIdEpisodesPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * **Creates a new draft game adventure from an owned chatbot, with one public episode holding one empty target**
      * Create new game adventure draft
      */
     async createGameAdventureCreatorPostRaw(requestParameters: CreateGameAdventureCreatorPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorResponse>> {
@@ -110,7 +198,7 @@ export class GameAdventureCreatorApi extends runtime.BaseAPI {
     }
 
     /**
-     * **Creates a new draft game adventure from an owned chatbot, with one empty target**
+     * **Creates a new draft game adventure from an owned chatbot, with one public episode holding one empty target**
      * Create new game adventure draft
      */
     async createGameAdventureCreatorPost(requestParameters: CreateGameAdventureCreatorPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorResponse> {
@@ -119,14 +207,21 @@ export class GameAdventureCreatorApi extends runtime.BaseAPI {
     }
 
     /**
-     * **Plays the latest version (even unpublished) as if a regular player; never creates unlocks and surfaces hidden journal entries**
+     * **Plays the episode\'s latest version (even unpublished) as if a regular player; never creates unlocks and surfaces hidden journal entries**
      * Start an owner preview session
      */
-    async createPreviewSessionGameAdventureCreatorGameAdventureIdPreviewSessionPostRaw(requestParameters: CreatePreviewSessionGameAdventureCreatorGameAdventureIdPreviewSessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureSessionResponse>> {
+    async createPreviewSessionGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPreviewSessionPostRaw(requestParameters: CreatePreviewSessionGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPreviewSessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureSessionResponse>> {
         if (requestParameters['gameAdventureId'] == null) {
             throw new runtime.RequiredError(
                 'gameAdventureId',
-                'Required parameter "gameAdventureId" was null or undefined when calling createPreviewSessionGameAdventureCreatorGameAdventureIdPreviewSessionPost().'
+                'Required parameter "gameAdventureId" was null or undefined when calling createPreviewSessionGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPreviewSessionPost().'
+            );
+        }
+
+        if (requestParameters['gameAdventureEpisodeId'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureEpisodeId',
+                'Required parameter "gameAdventureEpisodeId" was null or undefined when calling createPreviewSessionGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPreviewSessionPost().'
             );
         }
 
@@ -135,7 +230,7 @@ export class GameAdventureCreatorApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/game-adventure-creator/{game_adventure_id}/preview-session`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))),
+            path: `/game-adventure-creator/{game_adventure_id}/episodes/{game_adventure_episode_id}/preview-session`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))).replace(`{${"game_adventure_episode_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureEpisodeId']))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -145,11 +240,53 @@ export class GameAdventureCreatorApi extends runtime.BaseAPI {
     }
 
     /**
-     * **Plays the latest version (even unpublished) as if a regular player; never creates unlocks and surfaces hidden journal entries**
+     * **Plays the episode\'s latest version (even unpublished) as if a regular player; never creates unlocks and surfaces hidden journal entries**
      * Start an owner preview session
      */
-    async createPreviewSessionGameAdventureCreatorGameAdventureIdPreviewSessionPost(requestParameters: CreatePreviewSessionGameAdventureCreatorGameAdventureIdPreviewSessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureSessionResponse> {
-        const response = await this.createPreviewSessionGameAdventureCreatorGameAdventureIdPreviewSessionPostRaw(requestParameters, initOverrides);
+    async createPreviewSessionGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPreviewSessionPost(requestParameters: CreatePreviewSessionGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPreviewSessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureSessionResponse> {
+        const response = await this.createPreviewSessionGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPreviewSessionPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * **A bought episode is soft-deleted (buyers keep it); the adventure is unpublished when no public episode is left**
+     * Delete an episode
+     */
+    async deleteEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdDeleteRaw(requestParameters: DeleteEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorResponse>> {
+        if (requestParameters['gameAdventureId'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureId',
+                'Required parameter "gameAdventureId" was null or undefined when calling deleteEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdDelete().'
+            );
+        }
+
+        if (requestParameters['gameAdventureEpisodeId'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureEpisodeId',
+                'Required parameter "gameAdventureEpisodeId" was null or undefined when calling deleteEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/game-adventure-creator/{game_adventure_id}/episodes/{game_adventure_episode_id}`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))).replace(`{${"game_adventure_episode_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureEpisodeId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GameAdventureCreatorResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * **A bought episode is soft-deleted (buyers keep it); the adventure is unpublished when no public episode is left**
+     * Delete an episode
+     */
+    async deleteEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdDelete(requestParameters: DeleteEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorResponse> {
+        const response = await this.deleteEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -261,6 +398,143 @@ export class GameAdventureCreatorApi extends runtime.BaseAPI {
     }
 
     /**
+     * **lock_after free player turns (0 = fully locked) and the token price**
+     * Put the episode behind a paywall
+     */
+    async lockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatchRaw(requestParameters: LockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorEpisodeResponse>> {
+        if (requestParameters['gameAdventureId'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureId',
+                'Required parameter "gameAdventureId" was null or undefined when calling lockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatch().'
+            );
+        }
+
+        if (requestParameters['gameAdventureEpisodeId'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureEpisodeId',
+                'Required parameter "gameAdventureEpisodeId" was null or undefined when calling lockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatch().'
+            );
+        }
+
+        if (requestParameters['gameAdventureCreatorLockEpisodeRequest'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureCreatorLockEpisodeRequest',
+                'Required parameter "gameAdventureCreatorLockEpisodeRequest" was null or undefined when calling lockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/game-adventure-creator/{game_adventure_id}/episodes/{game_adventure_episode_id}/lock`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))).replace(`{${"game_adventure_episode_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureEpisodeId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: GameAdventureCreatorLockEpisodeRequestToJSON(requestParameters['gameAdventureCreatorLockEpisodeRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GameAdventureCreatorEpisodeResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * **lock_after free player turns (0 = fully locked) and the token price**
+     * Put the episode behind a paywall
+     */
+    async lockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatch(requestParameters: LockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorEpisodeResponse> {
+        const response = await this.lockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * **Takes every live episode id of the adventure in the new play order**
+     * Reorder the episodes
+     */
+    async reorderEpisodesGameAdventureCreatorGameAdventureIdEpisodesOrderPatchRaw(requestParameters: ReorderEpisodesGameAdventureCreatorGameAdventureIdEpisodesOrderPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorResponse>> {
+        if (requestParameters['gameAdventureId'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureId',
+                'Required parameter "gameAdventureId" was null or undefined when calling reorderEpisodesGameAdventureCreatorGameAdventureIdEpisodesOrderPatch().'
+            );
+        }
+
+        if (requestParameters['gameAdventureCreatorEpisodeOrderRequest'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureCreatorEpisodeOrderRequest',
+                'Required parameter "gameAdventureCreatorEpisodeOrderRequest" was null or undefined when calling reorderEpisodesGameAdventureCreatorGameAdventureIdEpisodesOrderPatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/game-adventure-creator/{game_adventure_id}/episodes/order`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: GameAdventureCreatorEpisodeOrderRequestToJSON(requestParameters['gameAdventureCreatorEpisodeOrderRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GameAdventureCreatorResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * **Takes every live episode id of the adventure in the new play order**
+     * Reorder the episodes
+     */
+    async reorderEpisodesGameAdventureCreatorGameAdventureIdEpisodesOrderPatch(requestParameters: ReorderEpisodesGameAdventureCreatorGameAdventureIdEpisodesOrderPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorResponse> {
+        const response = await this.reorderEpisodesGameAdventureCreatorGameAdventureIdEpisodesOrderPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Make the episode free
+     */
+    async unlockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockDeleteRaw(requestParameters: UnlockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorEpisodeResponse>> {
+        if (requestParameters['gameAdventureId'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureId',
+                'Required parameter "gameAdventureId" was null or undefined when calling unlockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockDelete().'
+            );
+        }
+
+        if (requestParameters['gameAdventureEpisodeId'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureEpisodeId',
+                'Required parameter "gameAdventureEpisodeId" was null or undefined when calling unlockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/game-adventure-creator/{game_adventure_id}/episodes/{game_adventure_episode_id}/lock`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))).replace(`{${"game_adventure_episode_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureEpisodeId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GameAdventureCreatorEpisodeResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Make the episode free
+     */
+    async unlockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockDelete(requestParameters: UnlockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorEpisodeResponse> {
+        const response = await this.unlockEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdLockDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * **Returns the adventure to draft and hides its post; existing unlocks keep their prize access**
      * Unpublish a game adventure
      */
@@ -292,6 +566,110 @@ export class GameAdventureCreatorApi extends runtime.BaseAPI {
      */
     async unpublishGameAdventureCreatorGameAdventureIdPublishDelete(requestParameters: UnpublishGameAdventureCreatorGameAdventureIdPublishDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.unpublishGameAdventureCreatorGameAdventureIdPublishDeleteRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * **Content, targets (serial order, matched by position), prizes and intro / outro media; a played or bought public version is forked instead of edited in place**
+     * Update an episode
+     */
+    async updateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatchRaw(requestParameters: UpdateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorEpisodeResponse>> {
+        if (requestParameters['gameAdventureId'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureId',
+                'Required parameter "gameAdventureId" was null or undefined when calling updateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatch().'
+            );
+        }
+
+        if (requestParameters['gameAdventureEpisodeId'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureEpisodeId',
+                'Required parameter "gameAdventureEpisodeId" was null or undefined when calling updateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatch().'
+            );
+        }
+
+        if (requestParameters['gameAdventureCreatorEpisodeUpdateRequest'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureCreatorEpisodeUpdateRequest',
+                'Required parameter "gameAdventureCreatorEpisodeUpdateRequest" was null or undefined when calling updateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/game-adventure-creator/{game_adventure_id}/episodes/{game_adventure_episode_id}`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))).replace(`{${"game_adventure_episode_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureEpisodeId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: GameAdventureCreatorEpisodeUpdateRequestToJSON(requestParameters['gameAdventureCreatorEpisodeUpdateRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GameAdventureCreatorEpisodeResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * **Content, targets (serial order, matched by position), prizes and intro / outro media; a played or bought public version is forked instead of edited in place**
+     * Update an episode
+     */
+    async updateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatch(requestParameters: UpdateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorEpisodeResponse> {
+        const response = await this.updateEpisodeGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * **Hiding the last public episode of a published adventure unpublishes the adventure (status in the response)**
+     * Publish or hide an episode
+     */
+    async updateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatchRaw(requestParameters: UpdateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GameAdventureCreatorResponse>> {
+        if (requestParameters['gameAdventureId'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureId',
+                'Required parameter "gameAdventureId" was null or undefined when calling updateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatch().'
+            );
+        }
+
+        if (requestParameters['gameAdventureEpisodeId'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureEpisodeId',
+                'Required parameter "gameAdventureEpisodeId" was null or undefined when calling updateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatch().'
+            );
+        }
+
+        if (requestParameters['gameAdventureCreatorEpisodeVisibilityRequest'] == null) {
+            throw new runtime.RequiredError(
+                'gameAdventureCreatorEpisodeVisibilityRequest',
+                'Required parameter "gameAdventureCreatorEpisodeVisibilityRequest" was null or undefined when calling updateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/game-adventure-creator/{game_adventure_id}/episodes/{game_adventure_episode_id}/visibility`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))).replace(`{${"game_adventure_episode_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureEpisodeId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: GameAdventureCreatorEpisodeVisibilityRequestToJSON(requestParameters['gameAdventureCreatorEpisodeVisibilityRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GameAdventureCreatorResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * **Hiding the last public episode of a published adventure unpublishes the adventure (status in the response)**
+     * Publish or hide an episode
+     */
+    async updateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatch(requestParameters: UpdateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GameAdventureCreatorResponse> {
+        const response = await this.updateEpisodeVisibilityGameAdventureCreatorGameAdventureIdEpisodesGameAdventureEpisodeIdVisibilityPatchRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**

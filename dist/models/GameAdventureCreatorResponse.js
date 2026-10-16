@@ -19,9 +19,7 @@ exports.GameAdventureCreatorResponseFromJSONTyped = GameAdventureCreatorResponse
 exports.GameAdventureCreatorResponseToJSON = GameAdventureCreatorResponseToJSON;
 exports.GameAdventureCreatorResponseToJSONTyped = GameAdventureCreatorResponseToJSONTyped;
 const BlacklistCard_1 = require("./BlacklistCard");
-const GameAdventureTarget_1 = require("./GameAdventureTarget");
-const GameAdventureDifficulty_1 = require("./GameAdventureDifficulty");
-const GameAdventurePrize_1 = require("./GameAdventurePrize");
+const GameAdventureCreatorEpisodeResponse_1 = require("./GameAdventureCreatorEpisodeResponse");
 const GameAdventureStatus_1 = require("./GameAdventureStatus");
 const LLM_1 = require("./LLM");
 const GameAdventureRating_1 = require("./GameAdventureRating");
@@ -37,21 +35,13 @@ function instanceOfGameAdventureCreatorResponse(value) {
         return false;
     if (!('status' in value) || value['status'] === undefined)
         return false;
-    if (!('version' in value) || value['version'] === undefined)
-        return false;
-    if (!('versionId' in value) || value['versionId'] === undefined)
-        return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined)
         return false;
-    if (!('lastSaved' in value) || value['lastSaved'] === undefined)
-        return false;
-    if (!('targets' in value) || value['targets'] === undefined)
-        return false;
-    if (!('prizes' in value) || value['prizes'] === undefined)
-        return false;
     if (!('rating' in value) || value['rating'] === undefined)
+        return false;
+    if (!('episodes' in value) || value['episodes'] === undefined)
         return false;
     return true;
 }
@@ -64,31 +54,20 @@ function GameAdventureCreatorResponseFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'title': json['title'] == null ? undefined : json['title'],
-        'premise': json['premise'] == null ? undefined : json['premise'],
-        'scenePrompt': json['scene_prompt'] == null ? undefined : json['scene_prompt'],
-        'tone': json['tone'] == null ? undefined : json['tone'],
-        'greetingMessage': json['greeting_message'] == null ? undefined : json['greeting_message'],
-        'greetingPictureId': json['greeting_picture_id'] == null ? undefined : json['greeting_picture_id'],
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
-        'difficulty': json['difficulty'] == null ? undefined : (0, GameAdventureDifficulty_1.GameAdventureDifficultyFromJSON)(json['difficulty']),
         'recommendedLlm': json['recommended_llm'] == null ? undefined : (0, LLM_1.LLMFromJSON)(json['recommended_llm']),
         'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
         'id': json['id'],
         'chatbotId': json['chatbot_id'],
         'userId': json['user_id'],
         'status': (0, GameAdventureStatus_1.GameAdventureStatusFromJSON)(json['status']),
-        'version': json['version'],
-        'versionId': json['version_id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'lastSaved': (new Date(json['last_saved'])),
-        'targets': (json['targets'].map(GameAdventureTarget_1.GameAdventureTargetFromJSON)),
-        'prizes': (json['prizes'].map(GameAdventurePrize_1.GameAdventurePrizeFromJSON)),
         'rating': (0, GameAdventureRating_1.GameAdventureRatingFromJSON)(json['rating']),
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
         'playersCount': json['players_count'] == null ? undefined : json['players_count'],
         'posterBlacklist': json['poster_blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['poster_blacklist']),
-        'greetingBlacklist': json['greeting_blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['greeting_blacklist']),
+        'episodes': (json['episodes'].map(GameAdventureCreatorEpisodeResponse_1.GameAdventureCreatorEpisodeResponseFromJSON)),
     };
 }
 function GameAdventureCreatorResponseToJSON(json) {
@@ -100,31 +79,20 @@ function GameAdventureCreatorResponseToJSONTyped(value, ignoreDiscriminator = fa
     }
     return {
         'title': value['title'],
-        'premise': value['premise'],
-        'scene_prompt': value['scenePrompt'],
-        'tone': value['tone'],
-        'greeting_message': value['greetingMessage'],
-        'greeting_picture_id': value['greetingPictureId'],
         'poster_picture_id': value['posterPictureId'],
-        'difficulty': (0, GameAdventureDifficulty_1.GameAdventureDifficultyToJSON)(value['difficulty']),
         'recommended_llm': (0, LLM_1.LLMToJSON)(value['recommendedLlm']),
         'suggestions_enabled': value['suggestionsEnabled'],
         'id': value['id'],
         'chatbot_id': value['chatbotId'],
         'user_id': value['userId'],
         'status': (0, GameAdventureStatus_1.GameAdventureStatusToJSON)(value['status']),
-        'version': value['version'],
-        'version_id': value['versionId'],
         'created_at': ((value['createdAt']).toISOString()),
         'updated_at': ((value['updatedAt']).toISOString()),
-        'last_saved': ((value['lastSaved']).toISOString()),
-        'targets': (value['targets'].map(GameAdventureTarget_1.GameAdventureTargetToJSON)),
-        'prizes': (value['prizes'].map(GameAdventurePrize_1.GameAdventurePrizeToJSON)),
         'rating': (0, GameAdventureRating_1.GameAdventureRatingToJSON)(value['rating']),
         'winners_count': value['winnersCount'],
         'players_count': value['playersCount'],
         'poster_blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['posterBlacklist']),
-        'greeting_blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['greetingBlacklist']),
+        'episodes': (value['episodes'].map(GameAdventureCreatorEpisodeResponse_1.GameAdventureCreatorEpisodeResponseToJSON)),
     };
 }
 //# sourceMappingURL=GameAdventureCreatorResponse.js.map

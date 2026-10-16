@@ -26,6 +26,12 @@ export interface GameAdventureSessionTargetProgress {
      * @type {number}
      * @memberof GameAdventureSessionTargetProgress
      */
+    position?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GameAdventureSessionTargetProgress
+     */
     score: number;
     /**
      *
@@ -69,6 +75,12 @@ export interface GameAdventureSessionTargetProgress {
      * @memberof GameAdventureSessionTargetProgress
      */
     badMoves?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GameAdventureSessionTargetProgress
+     */
+    transitionMessage?: string | null;
 }
 /**
  * Check if a given object implements the GameAdventureSessionTargetProgress interface.

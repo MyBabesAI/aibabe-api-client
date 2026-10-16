@@ -41,6 +41,7 @@ function GameAdventureSessionTargetProgressFromJSONTyped(json, ignoreDiscriminat
     }
     return {
         'targetId': json['target_id'],
+        'position': json['position'] == null ? undefined : json['position'],
         'score': json['score'],
         'upperLimit': json['upper_limit'],
         'lowerLimit': json['lower_limit'],
@@ -49,6 +50,7 @@ function GameAdventureSessionTargetProgressFromJSONTyped(json, ignoreDiscriminat
         'conditionEarned': json['condition_earned'] == null ? undefined : json['condition_earned'],
         'goodMoves': json['good_moves'] == null ? undefined : json['good_moves'],
         'badMoves': json['bad_moves'] == null ? undefined : json['bad_moves'],
+        'transitionMessage': json['transition_message'] == null ? undefined : json['transition_message'],
     };
 }
 function GameAdventureSessionTargetProgressToJSON(json) {
@@ -60,6 +62,7 @@ function GameAdventureSessionTargetProgressToJSONTyped(value, ignoreDiscriminato
     }
     return {
         'target_id': value['targetId'],
+        'position': value['position'],
         'score': value['score'],
         'upper_limit': value['upperLimit'],
         'lower_limit': value['lowerLimit'],
@@ -68,6 +71,7 @@ function GameAdventureSessionTargetProgressToJSONTyped(value, ignoreDiscriminato
         'condition_earned': value['conditionEarned'],
         'good_moves': value['goodMoves'],
         'bad_moves': value['badMoves'],
+        'transition_message': value['transitionMessage'],
     };
 }
 //# sourceMappingURL=GameAdventureSessionTargetProgress.js.map

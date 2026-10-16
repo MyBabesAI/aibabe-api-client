@@ -42,13 +42,19 @@ export interface GameAdventureTargetUpdate {
      * @type {number}
      * @memberof GameAdventureTargetUpdate
      */
-    upperLimit?: number | null;
+    upperLimit?: number;
     /**
      * 
      * @type {number}
      * @memberof GameAdventureTargetUpdate
      */
-    lowerLimit?: number | null;
+    lowerLimit?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GameAdventureTargetUpdate
+     */
+    transitionMessage?: string | null;
 }
 
 /**
@@ -73,6 +79,7 @@ export function GameAdventureTargetUpdateFromJSONTyped(json: any, ignoreDiscrimi
         'badMoves': json['bad_moves'] == null ? undefined : json['bad_moves'],
         'upperLimit': json['upper_limit'] == null ? undefined : json['upper_limit'],
         'lowerLimit': json['lower_limit'] == null ? undefined : json['lower_limit'],
+        'transitionMessage': json['transition_message'] == null ? undefined : json['transition_message'],
     };
 }
 
@@ -92,6 +99,7 @@ export function GameAdventureTargetUpdateFromJSONTyped(json: any, ignoreDiscrimi
         'bad_moves': value['badMoves'],
         'upper_limit': value['upperLimit'],
         'lower_limit': value['lowerLimit'],
+        'transition_message': value['transitionMessage'],
     };
 }
 

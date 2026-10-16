@@ -30,6 +30,12 @@ export interface GameAdventureSessionTargetProgress {
      * @type {number}
      * @memberof GameAdventureSessionTargetProgress
      */
+    position?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GameAdventureSessionTargetProgress
+     */
     score: number;
     /**
      * 
@@ -73,6 +79,12 @@ export interface GameAdventureSessionTargetProgress {
      * @memberof GameAdventureSessionTargetProgress
      */
     badMoves?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GameAdventureSessionTargetProgress
+     */
+    transitionMessage?: string | null;
 }
 
 /**
@@ -97,6 +109,7 @@ export function GameAdventureSessionTargetProgressFromJSONTyped(json: any, ignor
     return {
         
         'targetId': json['target_id'],
+        'position': json['position'] == null ? undefined : json['position'],
         'score': json['score'],
         'upperLimit': json['upper_limit'],
         'lowerLimit': json['lower_limit'],
@@ -105,6 +118,7 @@ export function GameAdventureSessionTargetProgressFromJSONTyped(json: any, ignor
         'conditionEarned': json['condition_earned'] == null ? undefined : json['condition_earned'],
         'goodMoves': json['good_moves'] == null ? undefined : json['good_moves'],
         'badMoves': json['bad_moves'] == null ? undefined : json['bad_moves'],
+        'transitionMessage': json['transition_message'] == null ? undefined : json['transition_message'],
     };
 }
 
@@ -120,6 +134,7 @@ export function GameAdventureSessionTargetProgressFromJSONTyped(json: any, ignor
     return {
         
         'target_id': value['targetId'],
+        'position': value['position'],
         'score': value['score'],
         'upper_limit': value['upperLimit'],
         'lower_limit': value['lowerLimit'],
@@ -128,6 +143,7 @@ export function GameAdventureSessionTargetProgressFromJSONTyped(json: any, ignor
         'condition_earned': value['conditionEarned'],
         'good_moves': value['goodMoves'],
         'bad_moves': value['badMoves'],
+        'transition_message': value['transitionMessage'],
     };
 }
 

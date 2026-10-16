@@ -24,6 +24,12 @@ export interface GameAdventureSessionSummary {
     sessionId: string;
     /**
      *
+     * @type {string}
+     * @memberof GameAdventureSessionSummary
+     */
+    gameAdventureEpisodeId: string;
+    /**
+     *
      * @type {GameAdventureSessionStatus}
      * @memberof GameAdventureSessionSummary
      */

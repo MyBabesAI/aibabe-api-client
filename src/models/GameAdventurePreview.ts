@@ -81,6 +81,12 @@ export interface GameAdventurePreview {
      * @type {number}
      * @memberof GameAdventurePreview
      */
+    episodesCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GameAdventurePreview
+     */
     winnersCount?: number;
     /**
      * 
@@ -120,6 +126,7 @@ export function GameAdventurePreviewFromJSONTyped(json: any, ignoreDiscriminator
         'difficulty': GameAdventureDifficultyFromJSON(json['difficulty']),
         'rating': GameAdventureRatingFromJSON(json['rating']),
         'prizesCount': json['prizes_count'],
+        'episodesCount': json['episodes_count'] == null ? undefined : json['episodes_count'],
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
         'playersCount': json['players_count'] == null ? undefined : json['players_count'],
     };
@@ -143,6 +150,7 @@ export function GameAdventurePreviewFromJSONTyped(json: any, ignoreDiscriminator
         'difficulty': GameAdventureDifficultyToJSON(value['difficulty']),
         'rating': GameAdventureRatingToJSON(value['rating']),
         'prizes_count': value['prizesCount'],
+        'episodes_count': value['episodesCount'],
         'winners_count': value['winnersCount'],
         'players_count': value['playersCount'],
     };

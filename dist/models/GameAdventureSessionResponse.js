@@ -29,6 +29,8 @@ function instanceOfGameAdventureSessionResponse(value) {
         return false;
     if (!('gameAdventureId' in value) || value['gameAdventureId'] === undefined)
         return false;
+    if (!('gameAdventureEpisodeId' in value) || value['gameAdventureEpisodeId'] === undefined)
+        return false;
     if (!('gameAdventureVersionId' in value) || value['gameAdventureVersionId'] === undefined)
         return false;
     if (!('status' in value) || value['status'] === undefined)
@@ -53,6 +55,7 @@ function GameAdventureSessionResponseFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'id': json['id'],
         'gameAdventureId': json['game_adventure_id'],
+        'gameAdventureEpisodeId': json['game_adventure_episode_id'],
         'gameAdventureVersionId': json['game_adventure_version_id'],
         'status': (0, GameAdventureSessionStatus_1.GameAdventureSessionStatusFromJSON)(json['status']),
         'isPreview': json['is_preview'],
@@ -60,6 +63,11 @@ function GameAdventureSessionResponseFromJSONTyped(json, ignoreDiscriminator) {
         'createdAt': (new Date(json['created_at'])),
         'newerVersionExists': json['newer_version_exists'],
         'targets': (json['targets'].map(GameAdventureSessionTargetProgress_1.GameAdventureSessionTargetProgressFromJSON)),
+        'currentTargetId': json['current_target_id'] == null ? undefined : json['current_target_id'],
+        'turnsUsed': json['turns_used'] == null ? undefined : json['turns_used'],
+        'lockAfter': json['lock_after'] == null ? undefined : json['lock_after'],
+        'priceTokens': json['price_tokens'] == null ? undefined : json['price_tokens'],
+        'locked': json['locked'] == null ? undefined : json['locked'],
     };
 }
 function GameAdventureSessionResponseToJSON(json) {
@@ -72,6 +80,7 @@ function GameAdventureSessionResponseToJSONTyped(value, ignoreDiscriminator = fa
     return {
         'id': value['id'],
         'game_adventure_id': value['gameAdventureId'],
+        'game_adventure_episode_id': value['gameAdventureEpisodeId'],
         'game_adventure_version_id': value['gameAdventureVersionId'],
         'status': (0, GameAdventureSessionStatus_1.GameAdventureSessionStatusToJSON)(value['status']),
         'is_preview': value['isPreview'],
@@ -79,6 +88,11 @@ function GameAdventureSessionResponseToJSONTyped(value, ignoreDiscriminator = fa
         'created_at': ((value['createdAt']).toISOString()),
         'newer_version_exists': value['newerVersionExists'],
         'targets': (value['targets'].map(GameAdventureSessionTargetProgress_1.GameAdventureSessionTargetProgressToJSON)),
+        'current_target_id': value['currentTargetId'],
+        'turns_used': value['turnsUsed'],
+        'lock_after': value['lockAfter'],
+        'price_tokens': value['priceTokens'],
+        'locked': value['locked'],
     };
 }
 //# sourceMappingURL=GameAdventureSessionResponse.js.map

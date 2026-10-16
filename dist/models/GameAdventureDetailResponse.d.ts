@@ -12,6 +12,7 @@
 import type { BlacklistCard } from './BlacklistCard';
 import type { GameAdventureSessionSummary } from './GameAdventureSessionSummary';
 import type { GameAdventureDifficulty } from './GameAdventureDifficulty';
+import type { GameAdventureEpisodeDetail } from './GameAdventureEpisodeDetail';
 import type { GameAdventureStatus } from './GameAdventureStatus';
 import type { LLM } from './LLM';
 import type { GameAdventureRating } from './GameAdventureRating';
@@ -129,6 +130,12 @@ export interface GameAdventureDetailResponse {
      * @memberof GameAdventureDetailResponse
      */
     playersCount?: number;
+    /**
+     *
+     * @type {Array<GameAdventureEpisodeDetail>}
+     * @memberof GameAdventureDetailResponse
+     */
+    episodes: Array<GameAdventureEpisodeDetail>;
     /**
      *
      * @type {Array<GameAdventureSessionSummary>}

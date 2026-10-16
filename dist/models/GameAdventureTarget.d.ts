@@ -57,6 +57,12 @@ export interface GameAdventureTarget {
      * @memberof GameAdventureTarget
      */
     lowerLimit: number;
+    /**
+     *
+     * @type {string}
+     * @memberof GameAdventureTarget
+     */
+    transitionMessage?: string | null;
 }
 /**
  * Check if a given object implements the GameAdventureTarget interface.

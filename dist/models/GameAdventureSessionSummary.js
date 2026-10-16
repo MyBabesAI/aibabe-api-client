@@ -25,6 +25,8 @@ const GameAdventureSessionStatus_1 = require("./GameAdventureSessionStatus");
 function instanceOfGameAdventureSessionSummary(value) {
     if (!('sessionId' in value) || value['sessionId'] === undefined)
         return false;
+    if (!('gameAdventureEpisodeId' in value) || value['gameAdventureEpisodeId'] === undefined)
+        return false;
     if (!('status' in value) || value['status'] === undefined)
         return false;
     if (!('isPreview' in value) || value['isPreview'] === undefined)
@@ -44,6 +46,7 @@ function GameAdventureSessionSummaryFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'sessionId': json['session_id'],
+        'gameAdventureEpisodeId': json['game_adventure_episode_id'],
         'status': (0, GameAdventureSessionStatus_1.GameAdventureSessionStatusFromJSON)(json['status']),
         'isPreview': json['is_preview'],
         'createdAt': (new Date(json['created_at'])),
@@ -59,6 +62,7 @@ function GameAdventureSessionSummaryToJSONTyped(value, ignoreDiscriminator = fal
     }
     return {
         'session_id': value['sessionId'],
+        'game_adventure_episode_id': value['gameAdventureEpisodeId'],
         'status': (0, GameAdventureSessionStatus_1.GameAdventureSessionStatusToJSON)(value['status']),
         'is_preview': value['isPreview'],
         'created_at': ((value['createdAt']).toISOString()),

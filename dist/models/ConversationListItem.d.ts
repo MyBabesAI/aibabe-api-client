@@ -62,6 +62,12 @@ export interface ConversationListItem {
      * @type {string}
      * @memberof ConversationListItem
      */
+    gameAdventureEpisodeId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationListItem
+     */
     posterPictureId?: string | null;
 }
 /**

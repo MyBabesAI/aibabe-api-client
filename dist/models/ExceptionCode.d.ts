@@ -187,6 +187,7 @@ export declare const ExceptionCode: {
     readonly PanelNotFound: "panel_not_found";
     readonly MissingOrderIndex: "missing_order_index";
     readonly StoryNotFoundOrNotAuthorized: "story_not_found_or_not_authorized";
+    readonly StoryIncomplete: "story_incomplete";
     readonly InvalidIndices: "invalid_indices";
     readonly PanelDuplicate: "panel_duplicate";
     readonly ShareContentTypeUnsupported: "share_content_type_unsupported";
@@ -242,6 +243,13 @@ export declare const ExceptionCode: {
     readonly GameAdventureOwnRatingForbidden: "game_adventure_own_rating_forbidden";
     readonly GameAdventureRatingRequiresSession: "game_adventure_rating_requires_session";
     readonly GameAdventureAdminOnly: "game_adventure_admin_only";
+    readonly GameAdventureEpisodeNotFoundOrNotAuthorized: "game_adventure_episode_not_found_or_not_authorized";
+    readonly GameAdventureEpisodeNotPublic: "game_adventure_episode_not_public";
+    readonly GameAdventureEpisodeSequentialLocked: "game_adventure_episode_sequential_locked";
+    readonly GameAdventureEpisodeLocked: "game_adventure_episode_locked";
+    readonly GameAdventureEpisodeIsFree: "game_adventure_episode_is_free";
+    readonly GameAdventureEpisodeTargetsRequired: "game_adventure_episode_targets_required";
+    readonly GameAdventureEpisodeOrderInvalid: "game_adventure_episode_order_invalid";
     readonly PromotionNotFound: "promotion_not_found";
     readonly PromotionInvalidTime: "promotion_invalid_time";
     readonly PromotionCodeConflict: "promotion_code_conflict";

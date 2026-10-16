@@ -10,9 +10,7 @@
  * Do not edit the class manually.
  */
 import type { BlacklistCard } from './BlacklistCard';
-import type { GameAdventureTarget } from './GameAdventureTarget';
-import type { GameAdventureDifficulty } from './GameAdventureDifficulty';
-import type { GameAdventurePrize } from './GameAdventurePrize';
+import type { GameAdventureCreatorEpisodeResponse } from './GameAdventureCreatorEpisodeResponse';
 import type { GameAdventureStatus } from './GameAdventureStatus';
 import type { LLM } from './LLM';
 import type { GameAdventureRating } from './GameAdventureRating';
@@ -33,43 +31,7 @@ export interface GameAdventureCreatorResponse {
      * @type {string}
      * @memberof GameAdventureCreatorResponse
      */
-    premise?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof GameAdventureCreatorResponse
-     */
-    scenePrompt?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof GameAdventureCreatorResponse
-     */
-    tone?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof GameAdventureCreatorResponse
-     */
-    greetingMessage?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof GameAdventureCreatorResponse
-     */
-    greetingPictureId?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof GameAdventureCreatorResponse
-     */
     posterPictureId?: string | null;
-    /**
-     *
-     * @type {GameAdventureDifficulty}
-     * @memberof GameAdventureCreatorResponse
-     */
-    difficulty?: GameAdventureDifficulty;
     /**
      *
      * @type {LLM}
@@ -108,18 +70,6 @@ export interface GameAdventureCreatorResponse {
     status: GameAdventureStatus;
     /**
      *
-     * @type {number}
-     * @memberof GameAdventureCreatorResponse
-     */
-    version: number;
-    /**
-     *
-     * @type {string}
-     * @memberof GameAdventureCreatorResponse
-     */
-    versionId: string;
-    /**
-     *
      * @type {Date}
      * @memberof GameAdventureCreatorResponse
      */
@@ -130,24 +80,6 @@ export interface GameAdventureCreatorResponse {
      * @memberof GameAdventureCreatorResponse
      */
     updatedAt: Date;
-    /**
-     *
-     * @type {Date}
-     * @memberof GameAdventureCreatorResponse
-     */
-    lastSaved: Date;
-    /**
-     *
-     * @type {Array<GameAdventureTarget>}
-     * @memberof GameAdventureCreatorResponse
-     */
-    targets: Array<GameAdventureTarget>;
-    /**
-     *
-     * @type {Array<GameAdventurePrize>}
-     * @memberof GameAdventureCreatorResponse
-     */
-    prizes: Array<GameAdventurePrize>;
     /**
      *
      * @type {GameAdventureRating}
@@ -174,10 +106,10 @@ export interface GameAdventureCreatorResponse {
     posterBlacklist?: BlacklistCard | null;
     /**
      *
-     * @type {BlacklistCard}
+     * @type {Array<GameAdventureCreatorEpisodeResponse>}
      * @memberof GameAdventureCreatorResponse
      */
-    greetingBlacklist?: BlacklistCard | null;
+    episodes: Array<GameAdventureCreatorEpisodeResponse>;
 }
 /**
  * Check if a given object implements the GameAdventureCreatorResponse interface.

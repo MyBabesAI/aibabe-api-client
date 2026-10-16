@@ -64,6 +64,12 @@ export interface GameAdventurePreview {
      * @type {number}
      * @memberof GameAdventurePreview
      */
+    episodesCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GameAdventurePreview
+     */
     winnersCount?: number;
     /**
      *

@@ -66,6 +66,12 @@ export interface ConversationListItem {
      * @type {string}
      * @memberof ConversationListItem
      */
+    gameAdventureEpisodeId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationListItem
+     */
     posterPictureId?: string | null;
 }
 
@@ -109,6 +115,7 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
         'unread': json['unread'],
         'kind': json['kind'] == null ? undefined : json['kind'],
         'gameAdventureId': json['game_adventure_id'] == null ? undefined : json['game_adventure_id'],
+        'gameAdventureEpisodeId': json['game_adventure_episode_id'] == null ? undefined : json['game_adventure_episode_id'],
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
     };
 }
@@ -131,6 +138,7 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
         'unread': value['unread'],
         'kind': value['kind'],
         'game_adventure_id': value['gameAdventureId'],
+        'game_adventure_episode_id': value['gameAdventureEpisodeId'],
         'poster_picture_id': value['posterPictureId'],
     };
 }

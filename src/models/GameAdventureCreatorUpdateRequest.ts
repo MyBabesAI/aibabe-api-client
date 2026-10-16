@@ -13,27 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { GameAdventureDifficulty } from './GameAdventureDifficulty';
-import {
-    GameAdventureDifficultyFromJSON,
-    GameAdventureDifficultyFromJSONTyped,
-    GameAdventureDifficultyToJSON,
-    GameAdventureDifficultyToJSONTyped,
-} from './GameAdventureDifficulty';
-import type { GameAdventurePrizeUpdate } from './GameAdventurePrizeUpdate';
-import {
-    GameAdventurePrizeUpdateFromJSON,
-    GameAdventurePrizeUpdateFromJSONTyped,
-    GameAdventurePrizeUpdateToJSON,
-    GameAdventurePrizeUpdateToJSONTyped,
-} from './GameAdventurePrizeUpdate';
-import type { GameAdventureTargetUpdate } from './GameAdventureTargetUpdate';
-import {
-    GameAdventureTargetUpdateFromJSON,
-    GameAdventureTargetUpdateFromJSONTyped,
-    GameAdventureTargetUpdateToJSON,
-    GameAdventureTargetUpdateToJSONTyped,
-} from './GameAdventureTargetUpdate';
 import type { LLM } from './LLM';
 import {
     LLMFromJSON,
@@ -59,43 +38,7 @@ export interface GameAdventureCreatorUpdateRequest {
      * @type {string}
      * @memberof GameAdventureCreatorUpdateRequest
      */
-    premise?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    scenePrompt?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    tone?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    greetingMessage?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    greetingPictureId?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
     posterPictureId?: string | null;
-    /**
-     * 
-     * @type {GameAdventureDifficulty}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    difficulty?: GameAdventureDifficulty | null;
     /**
      * 
      * @type {LLM}
@@ -108,18 +51,6 @@ export interface GameAdventureCreatorUpdateRequest {
      * @memberof GameAdventureCreatorUpdateRequest
      */
     suggestionsEnabled?: boolean | null;
-    /**
-     * 
-     * @type {GameAdventureTargetUpdate}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    target?: GameAdventureTargetUpdate | null;
-    /**
-     * 
-     * @type {Array<GameAdventurePrizeUpdate>}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    prizes?: Array<GameAdventurePrizeUpdate> | null;
 }
 
 
@@ -142,17 +73,9 @@ export function GameAdventureCreatorUpdateRequestFromJSONTyped(json: any, ignore
     return {
         
         'title': json['title'] == null ? undefined : json['title'],
-        'premise': json['premise'] == null ? undefined : json['premise'],
-        'scenePrompt': json['scene_prompt'] == null ? undefined : json['scene_prompt'],
-        'tone': json['tone'] == null ? undefined : json['tone'],
-        'greetingMessage': json['greeting_message'] == null ? undefined : json['greeting_message'],
-        'greetingPictureId': json['greeting_picture_id'] == null ? undefined : json['greeting_picture_id'],
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
-        'difficulty': json['difficulty'] == null ? undefined : GameAdventureDifficultyFromJSON(json['difficulty']),
         'recommendedLlm': json['recommended_llm'] == null ? undefined : LLMFromJSON(json['recommended_llm']),
         'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
-        'target': json['target'] == null ? undefined : GameAdventureTargetUpdateFromJSON(json['target']),
-        'prizes': json['prizes'] == null ? undefined : ((json['prizes'] as Array<any>).map(GameAdventurePrizeUpdateFromJSON)),
     };
 }
 
@@ -168,17 +91,9 @@ export function GameAdventureCreatorUpdateRequestFromJSONTyped(json: any, ignore
     return {
         
         'title': value['title'],
-        'premise': value['premise'],
-        'scene_prompt': value['scenePrompt'],
-        'tone': value['tone'],
-        'greeting_message': value['greetingMessage'],
-        'greeting_picture_id': value['greetingPictureId'],
         'poster_picture_id': value['posterPictureId'],
-        'difficulty': GameAdventureDifficultyToJSON(value['difficulty']),
         'recommended_llm': LLMToJSON(value['recommendedLlm']),
         'suggestions_enabled': value['suggestionsEnabled'],
-        'target': GameAdventureTargetUpdateToJSON(value['target']),
-        'prizes': value['prizes'] == null ? undefined : ((value['prizes'] as Array<any>).map(GameAdventurePrizeUpdateToJSON)),
     };
 }
 

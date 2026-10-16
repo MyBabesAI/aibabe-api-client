@@ -38,13 +38,19 @@ export interface GameAdventureTargetUpdate {
      * @type {number}
      * @memberof GameAdventureTargetUpdate
      */
-    upperLimit?: number | null;
+    upperLimit?: number;
     /**
      *
      * @type {number}
      * @memberof GameAdventureTargetUpdate
      */
-    lowerLimit?: number | null;
+    lowerLimit?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof GameAdventureTargetUpdate
+     */
+    transitionMessage?: string | null;
 }
 /**
  * Check if a given object implements the GameAdventureTargetUpdate interface.

@@ -41,6 +41,8 @@ import type {
   StoryCreatorUpdateEpisodeRequest,
   StoryCreatorUpdateEpisodeVisibilityRequest,
   StoryCreatorUpdateStoryRequest,
+  StoryLibraryFilter,
+  StoryLibraryResponse,
 } from '../models/index';
 import {
     HTTPValidationErrorFromJSON,
@@ -95,6 +97,10 @@ import {
     StoryCreatorUpdateEpisodeVisibilityRequestToJSON,
     StoryCreatorUpdateStoryRequestFromJSON,
     StoryCreatorUpdateStoryRequestToJSON,
+    StoryLibraryFilterFromJSON,
+    StoryLibraryFilterToJSON,
+    StoryLibraryResponseFromJSON,
+    StoryLibraryResponseToJSON,
 } from '../models/index';
 
 export interface CreateEpisodeStoryCreatorStoriesStoryIdEpisodesPostRequest {
@@ -159,6 +165,13 @@ export interface ListActorsStoryCreatorStoriesStoryIdActorsGetRequest {
 
 export interface ListEpisodesStoryCreatorStoriesStoryIdEpisodesGetRequest {
     storyId: string;
+}
+
+export interface ListLibraryStoryCreatorStoriesLibraryGetRequest {
+    filter?: StoryLibraryFilter;
+    freeTextSearch?: string | null;
+    limit?: number;
+    cursor?: string | null;
 }
 
 export interface LockEpisodeStoryCreatorEpisodesEpisodeIdLockPatchRequest {
@@ -748,6 +761,50 @@ export class StoryCreatorApi extends runtime.BaseAPI {
      */
     async listEpisodesStoryCreatorStoriesStoryIdEpisodesGet(requestParameters: ListEpisodesStoryCreatorStoriesStoryIdEpisodesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StoryCreatorEpisodeListResponse> {
         const response = await this.listEpisodesStoryCreatorStoriesStoryIdEpisodesGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * **Stories with an episode the reader bought (unlocked) or opened (watching), sourced from purchases and progress, unpublished ones included**
+     * The reader\'s story library
+     */
+    async listLibraryStoryCreatorStoriesLibraryGetRaw(requestParameters: ListLibraryStoryCreatorStoriesLibraryGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StoryLibraryResponse>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['filter'] != null) {
+            queryParameters['filter'] = requestParameters['filter'];
+        }
+
+        if (requestParameters['freeTextSearch'] != null) {
+            queryParameters['free_text_search'] = requestParameters['freeTextSearch'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['cursor'] != null) {
+            queryParameters['cursor'] = requestParameters['cursor'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/story-creator/stories/library`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StoryLibraryResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * **Stories with an episode the reader bought (unlocked) or opened (watching), sourced from purchases and progress, unpublished ones included**
+     * The reader\'s story library
+     */
+    async listLibraryStoryCreatorStoriesLibraryGet(requestParameters: ListLibraryStoryCreatorStoriesLibraryGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StoryLibraryResponse> {
+        const response = await this.listLibraryStoryCreatorStoriesLibraryGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

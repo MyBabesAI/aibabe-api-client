@@ -21,10 +21,12 @@ export declare const TokenTransactionReason: {
     readonly VoiceGeneration: "voice_generation";
     readonly VideoGeneration: "video_generation";
     readonly GameAdventure: "game_adventure";
+    readonly GameAdventureEpisodePurchase: "game_adventure_episode_purchase";
     readonly StoryEpisodePurchase: "story_episode_purchase";
     readonly BadgePurchase: "badge_purchase";
     readonly DonationSent: "donation_sent";
     readonly StoryEpisodeSale: "story_episode_sale";
+    readonly GameAdventureEpisodeSale: "game_adventure_episode_sale";
     readonly BadgeAward: "badge_award";
     readonly DonationReceived: "donation_received";
     readonly GiftCode: "gift_code";

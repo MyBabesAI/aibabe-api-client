@@ -37,6 +37,7 @@ function GameAdventureTargetUpdateFromJSONTyped(json, ignoreDiscriminator) {
         'badMoves': json['bad_moves'] == null ? undefined : json['bad_moves'],
         'upperLimit': json['upper_limit'] == null ? undefined : json['upper_limit'],
         'lowerLimit': json['lower_limit'] == null ? undefined : json['lower_limit'],
+        'transitionMessage': json['transition_message'] == null ? undefined : json['transition_message'],
     };
 }
 function GameAdventureTargetUpdateToJSON(json) {
@@ -52,6 +53,7 @@ function GameAdventureTargetUpdateToJSONTyped(value, ignoreDiscriminator = false
         'bad_moves': value['badMoves'],
         'upper_limit': value['upperLimit'],
         'lower_limit': value['lowerLimit'],
+        'transition_message': value['transitionMessage'],
     };
 }
 //# sourceMappingURL=GameAdventureTargetUpdate.js.map

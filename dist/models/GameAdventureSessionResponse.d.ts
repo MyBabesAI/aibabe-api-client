@@ -35,6 +35,12 @@ export interface GameAdventureSessionResponse {
      * @type {string}
      * @memberof GameAdventureSessionResponse
      */
+    gameAdventureEpisodeId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GameAdventureSessionResponse
+     */
     gameAdventureVersionId: string;
     /**
      *
@@ -72,6 +78,36 @@ export interface GameAdventureSessionResponse {
      * @memberof GameAdventureSessionResponse
      */
     targets: Array<GameAdventureSessionTargetProgress>;
+    /**
+     *
+     * @type {string}
+     * @memberof GameAdventureSessionResponse
+     */
+    currentTargetId?: string | null;
+    /**
+     *
+     * @type {number}
+     * @memberof GameAdventureSessionResponse
+     */
+    turnsUsed?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GameAdventureSessionResponse
+     */
+    lockAfter?: number | null;
+    /**
+     *
+     * @type {number}
+     * @memberof GameAdventureSessionResponse
+     */
+    priceTokens?: number;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GameAdventureSessionResponse
+     */
+    locked?: boolean;
 }
 /**
  * Check if a given object implements the GameAdventureSessionResponse interface.

@@ -57,6 +57,7 @@ function ConversationListItemFromJSONTyped(json, ignoreDiscriminator) {
         'unread': json['unread'],
         'kind': json['kind'] == null ? undefined : json['kind'],
         'gameAdventureId': json['game_adventure_id'] == null ? undefined : json['game_adventure_id'],
+        'gameAdventureEpisodeId': json['game_adventure_episode_id'] == null ? undefined : json['game_adventure_episode_id'],
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
     };
 }
@@ -75,6 +76,7 @@ function ConversationListItemToJSONTyped(value, ignoreDiscriminator = false) {
         'unread': value['unread'],
         'kind': value['kind'],
         'game_adventure_id': value['gameAdventureId'],
+        'game_adventure_episode_id': value['gameAdventureEpisodeId'],
         'poster_picture_id': value['posterPictureId'],
     };
 }

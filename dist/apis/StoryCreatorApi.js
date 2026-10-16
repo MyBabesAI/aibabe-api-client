@@ -440,6 +440,41 @@ class StoryCreatorApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * **Stories with an episode the reader bought (unlocked) or opened (watching), sourced from purchases and progress, unpublished ones included**
+     * The reader\'s story library
+     */
+    async listLibraryStoryCreatorStoriesLibraryGetRaw(requestParameters, initOverrides) {
+        const queryParameters = {};
+        if (requestParameters['filter'] != null) {
+            queryParameters['filter'] = requestParameters['filter'];
+        }
+        if (requestParameters['freeTextSearch'] != null) {
+            queryParameters['free_text_search'] = requestParameters['freeTextSearch'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        if (requestParameters['cursor'] != null) {
+            queryParameters['cursor'] = requestParameters['cursor'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/story-creator/stories/library`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StoryLibraryResponseFromJSON)(jsonValue));
+    }
+    /**
+     * **Stories with an episode the reader bought (unlocked) or opened (watching), sourced from purchases and progress, unpublished ones included**
+     * The reader\'s story library
+     */
+    async listLibraryStoryCreatorStoriesLibraryGet(requestParameters = {}, initOverrides) {
+        const response = await this.listLibraryStoryCreatorStoriesLibraryGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Lock Episode
      */
     async lockEpisodeStoryCreatorEpisodesEpisodeIdLockPatchRaw(requestParameters, initOverrides) {

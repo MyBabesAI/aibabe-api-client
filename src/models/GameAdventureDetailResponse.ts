@@ -34,6 +34,13 @@ import {
     GameAdventureDifficultyToJSON,
     GameAdventureDifficultyToJSONTyped,
 } from './GameAdventureDifficulty';
+import type { GameAdventureEpisodeDetail } from './GameAdventureEpisodeDetail';
+import {
+    GameAdventureEpisodeDetailFromJSON,
+    GameAdventureEpisodeDetailFromJSONTyped,
+    GameAdventureEpisodeDetailToJSON,
+    GameAdventureEpisodeDetailToJSONTyped,
+} from './GameAdventureEpisodeDetail';
 import type { GameAdventureStatus } from './GameAdventureStatus';
 import {
     GameAdventureStatusFromJSON,
@@ -172,6 +179,12 @@ export interface GameAdventureDetailResponse {
     playersCount?: number;
     /**
      * 
+     * @type {Array<GameAdventureEpisodeDetail>}
+     * @memberof GameAdventureDetailResponse
+     */
+    episodes: Array<GameAdventureEpisodeDetail>;
+    /**
+     * 
      * @type {Array<GameAdventureSessionSummary>}
      * @memberof GameAdventureDetailResponse
      */
@@ -193,6 +206,7 @@ export function instanceOfGameAdventureDetailResponse(value: object): value is G
     if (!('difficulty' in value) || value['difficulty'] === undefined) return false;
     if (!('prizesCount' in value) || value['prizesCount'] === undefined) return false;
     if (!('rating' in value) || value['rating'] === undefined) return false;
+    if (!('episodes' in value) || value['episodes'] === undefined) return false;
     if (!('sessions' in value) || value['sessions'] === undefined) return false;
     return true;
 }
@@ -225,6 +239,7 @@ export function GameAdventureDetailResponseFromJSONTyped(json: any, ignoreDiscri
         'rating': GameAdventureRatingFromJSON(json['rating']),
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
         'playersCount': json['players_count'] == null ? undefined : json['players_count'],
+        'episodes': ((json['episodes'] as Array<any>).map(GameAdventureEpisodeDetailFromJSON)),
         'sessions': ((json['sessions'] as Array<any>).map(GameAdventureSessionSummaryFromJSON)),
     };
 }
@@ -258,6 +273,7 @@ export function GameAdventureDetailResponseFromJSONTyped(json: any, ignoreDiscri
         'rating': GameAdventureRatingToJSON(value['rating']),
         'winners_count': value['winnersCount'],
         'players_count': value['playersCount'],
+        'episodes': ((value['episodes'] as Array<any>).map(GameAdventureEpisodeDetailToJSON)),
         'sessions': ((value['sessions'] as Array<any>).map(GameAdventureSessionSummaryToJSON)),
     };
 }

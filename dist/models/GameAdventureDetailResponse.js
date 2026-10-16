@@ -21,6 +21,7 @@ exports.GameAdventureDetailResponseToJSONTyped = GameAdventureDetailResponseToJS
 const BlacklistCard_1 = require("./BlacklistCard");
 const GameAdventureSessionSummary_1 = require("./GameAdventureSessionSummary");
 const GameAdventureDifficulty_1 = require("./GameAdventureDifficulty");
+const GameAdventureEpisodeDetail_1 = require("./GameAdventureEpisodeDetail");
 const GameAdventureStatus_1 = require("./GameAdventureStatus");
 const LLM_1 = require("./LLM");
 const GameAdventureRating_1 = require("./GameAdventureRating");
@@ -45,6 +46,8 @@ function instanceOfGameAdventureDetailResponse(value) {
     if (!('prizesCount' in value) || value['prizesCount'] === undefined)
         return false;
     if (!('rating' in value) || value['rating'] === undefined)
+        return false;
+    if (!('episodes' in value) || value['episodes'] === undefined)
         return false;
     if (!('sessions' in value) || value['sessions'] === undefined)
         return false;
@@ -76,6 +79,7 @@ function GameAdventureDetailResponseFromJSONTyped(json, ignoreDiscriminator) {
         'rating': (0, GameAdventureRating_1.GameAdventureRatingFromJSON)(json['rating']),
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
         'playersCount': json['players_count'] == null ? undefined : json['players_count'],
+        'episodes': (json['episodes'].map(GameAdventureEpisodeDetail_1.GameAdventureEpisodeDetailFromJSON)),
         'sessions': (json['sessions'].map(GameAdventureSessionSummary_1.GameAdventureSessionSummaryFromJSON)),
     };
 }
@@ -105,6 +109,7 @@ function GameAdventureDetailResponseToJSONTyped(value, ignoreDiscriminator = fal
         'rating': (0, GameAdventureRating_1.GameAdventureRatingToJSON)(value['rating']),
         'winners_count': value['winnersCount'],
         'players_count': value['playersCount'],
+        'episodes': (value['episodes'].map(GameAdventureEpisodeDetail_1.GameAdventureEpisodeDetailToJSON)),
         'sessions': (value['sessions'].map(GameAdventureSessionSummary_1.GameAdventureSessionSummaryToJSON)),
     };
 }

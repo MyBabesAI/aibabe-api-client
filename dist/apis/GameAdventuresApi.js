@@ -85,17 +85,23 @@ class GameAdventuresApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * **Creates a new session pinned to the latest published version, seeding the greeting messages**
-     * Start a new game adventure session
+     * **Creates a session pinned to the episode\'s latest version (a buyer\'s bought version unless force_latest), seeding the greeting messages**
+     * Start a new session in an episode
      */
-    async createSessionGameAdventuresGameAdventureIdSessionsPostRaw(requestParameters, initOverrides) {
+    async createSessionGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdSessionsPostRaw(requestParameters, initOverrides) {
         if (requestParameters['gameAdventureId'] == null) {
-            throw new runtime.RequiredError('gameAdventureId', 'Required parameter "gameAdventureId" was null or undefined when calling createSessionGameAdventuresGameAdventureIdSessionsPost().');
+            throw new runtime.RequiredError('gameAdventureId', 'Required parameter "gameAdventureId" was null or undefined when calling createSessionGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdSessionsPost().');
+        }
+        if (requestParameters['gameAdventureEpisodeId'] == null) {
+            throw new runtime.RequiredError('gameAdventureEpisodeId', 'Required parameter "gameAdventureEpisodeId" was null or undefined when calling createSessionGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdSessionsPost().');
         }
         const queryParameters = {};
+        if (requestParameters['forceLatest'] != null) {
+            queryParameters['force_latest'] = requestParameters['forceLatest'];
+        }
         const headerParameters = {};
         const response = await this.request({
-            path: `/game-adventures/{game_adventure_id}/sessions`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))),
+            path: `/game-adventures/{game_adventure_id}/episodes/{game_adventure_episode_id}/sessions`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))).replace(`{${"game_adventure_episode_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureEpisodeId']))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
@@ -103,11 +109,11 @@ class GameAdventuresApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GameAdventureSessionResponseFromJSON)(jsonValue));
     }
     /**
-     * **Creates a new session pinned to the latest published version, seeding the greeting messages**
-     * Start a new game adventure session
+     * **Creates a session pinned to the episode\'s latest version (a buyer\'s bought version unless force_latest), seeding the greeting messages**
+     * Start a new session in an episode
      */
-    async createSessionGameAdventuresGameAdventureIdSessionsPost(requestParameters, initOverrides) {
-        const response = await this.createSessionGameAdventuresGameAdventureIdSessionsPostRaw(requestParameters, initOverrides);
+    async createSessionGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdSessionsPost(requestParameters, initOverrides) {
+        const response = await this.createSessionGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdSessionsPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
@@ -218,14 +224,17 @@ class GameAdventuresApi extends runtime.BaseAPI {
     /**
      * Get Prizes
      */
-    async getPrizesGameAdventuresGameAdventureIdPrizesGetRaw(requestParameters, initOverrides) {
+    async getPrizesGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPrizesGetRaw(requestParameters, initOverrides) {
         if (requestParameters['gameAdventureId'] == null) {
-            throw new runtime.RequiredError('gameAdventureId', 'Required parameter "gameAdventureId" was null or undefined when calling getPrizesGameAdventuresGameAdventureIdPrizesGet().');
+            throw new runtime.RequiredError('gameAdventureId', 'Required parameter "gameAdventureId" was null or undefined when calling getPrizesGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPrizesGet().');
+        }
+        if (requestParameters['gameAdventureEpisodeId'] == null) {
+            throw new runtime.RequiredError('gameAdventureEpisodeId', 'Required parameter "gameAdventureEpisodeId" was null or undefined when calling getPrizesGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPrizesGet().');
         }
         const queryParameters = {};
         const headerParameters = {};
         const response = await this.request({
-            path: `/game-adventures/{game_adventure_id}/prizes`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))),
+            path: `/game-adventures/{game_adventure_id}/episodes/{game_adventure_episode_id}/prizes`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))).replace(`{${"game_adventure_episode_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureEpisodeId']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -235,8 +244,8 @@ class GameAdventuresApi extends runtime.BaseAPI {
     /**
      * Get Prizes
      */
-    async getPrizesGameAdventuresGameAdventureIdPrizesGet(requestParameters, initOverrides) {
-        const response = await this.getPrizesGameAdventuresGameAdventureIdPrizesGetRaw(requestParameters, initOverrides);
+    async getPrizesGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPrizesGet(requestParameters, initOverrides) {
+        const response = await this.getPrizesGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPrizesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
@@ -264,6 +273,41 @@ class GameAdventuresApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * **Adventures the player is playing or has finished, sourced from sessions and wins (unpublished ones included)**
+     * The player\'s adventure library
+     */
+    async listLibraryGameAdventuresLibraryGetRaw(requestParameters, initOverrides) {
+        const queryParameters = {};
+        if (requestParameters['filter'] != null) {
+            queryParameters['filter'] = requestParameters['filter'];
+        }
+        if (requestParameters['freeTextSearch'] != null) {
+            queryParameters['free_text_search'] = requestParameters['freeTextSearch'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        if (requestParameters['cursor'] != null) {
+            queryParameters['cursor'] = requestParameters['cursor'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/game-adventures/library`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GameAdventureLibraryResponseFromJSON)(jsonValue));
+    }
+    /**
+     * **Adventures the player is playing or has finished, sourced from sessions and wins (unpublished ones included)**
+     * The player\'s adventure library
+     */
+    async listLibraryGameAdventuresLibraryGet(requestParameters = {}, initOverrides) {
+        const response = await this.listLibraryGameAdventuresLibraryGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * List Sessions
      */
     async listSessionsGameAdventuresGameAdventureIdSessionsGetRaw(requestParameters, initOverrides) {
@@ -288,32 +332,69 @@ class GameAdventuresApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Rate
+     * **Tokens go to the creator; the purchase pins the current version of the episode**
+     * Buy a paywalled episode
      */
-    async rateGameAdventuresGameAdventureIdRatingPostRaw(requestParameters, initOverrides) {
+    async purchaseEpisodeGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPurchasePostRaw(requestParameters, initOverrides) {
         if (requestParameters['gameAdventureId'] == null) {
-            throw new runtime.RequiredError('gameAdventureId', 'Required parameter "gameAdventureId" was null or undefined when calling rateGameAdventuresGameAdventureIdRatingPost().');
+            throw new runtime.RequiredError('gameAdventureId', 'Required parameter "gameAdventureId" was null or undefined when calling purchaseEpisodeGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPurchasePost().');
         }
-        if (requestParameters['postGameAdventureRatingRequest'] == null) {
-            throw new runtime.RequiredError('postGameAdventureRatingRequest', 'Required parameter "postGameAdventureRatingRequest" was null or undefined when calling rateGameAdventuresGameAdventureIdRatingPost().');
+        if (requestParameters['gameAdventureEpisodeId'] == null) {
+            throw new runtime.RequiredError('gameAdventureEpisodeId', 'Required parameter "gameAdventureEpisodeId" was null or undefined when calling purchaseEpisodeGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPurchasePost().');
+        }
+        if (requestParameters['postGameAdventureEpisodePurchaseRequest'] == null) {
+            throw new runtime.RequiredError('postGameAdventureEpisodePurchaseRequest', 'Required parameter "postGameAdventureEpisodePurchaseRequest" was null or undefined when calling purchaseEpisodeGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPurchasePost().');
         }
         const queryParameters = {};
         const headerParameters = {};
         headerParameters['Content-Type'] = 'application/json';
         const response = await this.request({
-            path: `/game-adventures/{game_adventure_id}/rating`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))),
+            path: `/game-adventures/{game_adventure_id}/episodes/{game_adventure_episode_id}/purchase`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))).replace(`{${"game_adventure_episode_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureEpisodeId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostGameAdventureEpisodePurchaseRequestToJSON)(requestParameters['postGameAdventureEpisodePurchaseRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GameAdventureEpisodePurchaseResponseFromJSON)(jsonValue));
+    }
+    /**
+     * **Tokens go to the creator; the purchase pins the current version of the episode**
+     * Buy a paywalled episode
+     */
+    async purchaseEpisodeGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPurchasePost(requestParameters, initOverrides) {
+        const response = await this.purchaseEpisodeGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdPurchasePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Rate
+     */
+    async rateGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdRatingPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['gameAdventureId'] == null) {
+            throw new runtime.RequiredError('gameAdventureId', 'Required parameter "gameAdventureId" was null or undefined when calling rateGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdRatingPost().');
+        }
+        if (requestParameters['gameAdventureEpisodeId'] == null) {
+            throw new runtime.RequiredError('gameAdventureEpisodeId', 'Required parameter "gameAdventureEpisodeId" was null or undefined when calling rateGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdRatingPost().');
+        }
+        if (requestParameters['postGameAdventureRatingRequest'] == null) {
+            throw new runtime.RequiredError('postGameAdventureRatingRequest', 'Required parameter "postGameAdventureRatingRequest" was null or undefined when calling rateGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdRatingPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/game-adventures/{game_adventure_id}/episodes/{game_adventure_episode_id}/rating`.replace(`{${"game_adventure_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureId']))).replace(`{${"game_adventure_episode_id"}}`, encodeURIComponent(String(requestParameters['gameAdventureEpisodeId']))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
             body: (0, index_1.PostGameAdventureRatingRequestToJSON)(requestParameters['postGameAdventureRatingRequest']),
         }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GameAdventureRatingFromJSON)(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GameAdventureEpisodeRatingResponseFromJSON)(jsonValue));
     }
     /**
      * Rate
      */
-    async rateGameAdventuresGameAdventureIdRatingPost(requestParameters, initOverrides) {
-        const response = await this.rateGameAdventuresGameAdventureIdRatingPostRaw(requestParameters, initOverrides);
+    async rateGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdRatingPost(requestParameters, initOverrides) {
+        const response = await this.rateGameAdventuresGameAdventureIdEpisodesGameAdventureEpisodeIdRatingPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

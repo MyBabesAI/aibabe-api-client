@@ -58,6 +58,12 @@ export interface GameAdventureSessionResponse {
      * @type {string}
      * @memberof GameAdventureSessionResponse
      */
+    gameAdventureEpisodeId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GameAdventureSessionResponse
+     */
     gameAdventureVersionId: string;
     /**
      * 
@@ -95,6 +101,36 @@ export interface GameAdventureSessionResponse {
      * @memberof GameAdventureSessionResponse
      */
     targets: Array<GameAdventureSessionTargetProgress>;
+    /**
+     * 
+     * @type {string}
+     * @memberof GameAdventureSessionResponse
+     */
+    currentTargetId?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GameAdventureSessionResponse
+     */
+    turnsUsed?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GameAdventureSessionResponse
+     */
+    lockAfter?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GameAdventureSessionResponse
+     */
+    priceTokens?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GameAdventureSessionResponse
+     */
+    locked?: boolean;
 }
 
 
@@ -105,6 +141,7 @@ export interface GameAdventureSessionResponse {
 export function instanceOfGameAdventureSessionResponse(value: object): value is GameAdventureSessionResponse {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('gameAdventureId' in value) || value['gameAdventureId'] === undefined) return false;
+    if (!('gameAdventureEpisodeId' in value) || value['gameAdventureEpisodeId'] === undefined) return false;
     if (!('gameAdventureVersionId' in value) || value['gameAdventureVersionId'] === undefined) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
     if (!('isPreview' in value) || value['isPreview'] === undefined) return false;
@@ -126,6 +163,7 @@ export function GameAdventureSessionResponseFromJSONTyped(json: any, ignoreDiscr
         
         'id': json['id'],
         'gameAdventureId': json['game_adventure_id'],
+        'gameAdventureEpisodeId': json['game_adventure_episode_id'],
         'gameAdventureVersionId': json['game_adventure_version_id'],
         'status': GameAdventureSessionStatusFromJSON(json['status']),
         'isPreview': json['is_preview'],
@@ -133,6 +171,11 @@ export function GameAdventureSessionResponseFromJSONTyped(json: any, ignoreDiscr
         'createdAt': (new Date(json['created_at'])),
         'newerVersionExists': json['newer_version_exists'],
         'targets': ((json['targets'] as Array<any>).map(GameAdventureSessionTargetProgressFromJSON)),
+        'currentTargetId': json['current_target_id'] == null ? undefined : json['current_target_id'],
+        'turnsUsed': json['turns_used'] == null ? undefined : json['turns_used'],
+        'lockAfter': json['lock_after'] == null ? undefined : json['lock_after'],
+        'priceTokens': json['price_tokens'] == null ? undefined : json['price_tokens'],
+        'locked': json['locked'] == null ? undefined : json['locked'],
     };
 }
 
@@ -149,6 +192,7 @@ export function GameAdventureSessionResponseFromJSONTyped(json: any, ignoreDiscr
         
         'id': value['id'],
         'game_adventure_id': value['gameAdventureId'],
+        'game_adventure_episode_id': value['gameAdventureEpisodeId'],
         'game_adventure_version_id': value['gameAdventureVersionId'],
         'status': GameAdventureSessionStatusToJSON(value['status']),
         'is_preview': value['isPreview'],
@@ -156,6 +200,11 @@ export function GameAdventureSessionResponseFromJSONTyped(json: any, ignoreDiscr
         'created_at': ((value['createdAt']).toISOString()),
         'newer_version_exists': value['newerVersionExists'],
         'targets': ((value['targets'] as Array<any>).map(GameAdventureSessionTargetProgressToJSON)),
+        'current_target_id': value['currentTargetId'],
+        'turns_used': value['turnsUsed'],
+        'lock_after': value['lockAfter'],
+        'price_tokens': value['priceTokens'],
+        'locked': value['locked'],
     };
 }
 

@@ -20,27 +20,13 @@ import {
     BlacklistCardToJSON,
     BlacklistCardToJSONTyped,
 } from './BlacklistCard';
-import type { GameAdventureTarget } from './GameAdventureTarget';
+import type { GameAdventureCreatorEpisodeResponse } from './GameAdventureCreatorEpisodeResponse';
 import {
-    GameAdventureTargetFromJSON,
-    GameAdventureTargetFromJSONTyped,
-    GameAdventureTargetToJSON,
-    GameAdventureTargetToJSONTyped,
-} from './GameAdventureTarget';
-import type { GameAdventureDifficulty } from './GameAdventureDifficulty';
-import {
-    GameAdventureDifficultyFromJSON,
-    GameAdventureDifficultyFromJSONTyped,
-    GameAdventureDifficultyToJSON,
-    GameAdventureDifficultyToJSONTyped,
-} from './GameAdventureDifficulty';
-import type { GameAdventurePrize } from './GameAdventurePrize';
-import {
-    GameAdventurePrizeFromJSON,
-    GameAdventurePrizeFromJSONTyped,
-    GameAdventurePrizeToJSON,
-    GameAdventurePrizeToJSONTyped,
-} from './GameAdventurePrize';
+    GameAdventureCreatorEpisodeResponseFromJSON,
+    GameAdventureCreatorEpisodeResponseFromJSONTyped,
+    GameAdventureCreatorEpisodeResponseToJSON,
+    GameAdventureCreatorEpisodeResponseToJSONTyped,
+} from './GameAdventureCreatorEpisodeResponse';
 import type { GameAdventureStatus } from './GameAdventureStatus';
 import {
     GameAdventureStatusFromJSON,
@@ -80,43 +66,7 @@ export interface GameAdventureCreatorResponse {
      * @type {string}
      * @memberof GameAdventureCreatorResponse
      */
-    premise?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameAdventureCreatorResponse
-     */
-    scenePrompt?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameAdventureCreatorResponse
-     */
-    tone?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameAdventureCreatorResponse
-     */
-    greetingMessage?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameAdventureCreatorResponse
-     */
-    greetingPictureId?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameAdventureCreatorResponse
-     */
     posterPictureId?: string | null;
-    /**
-     * 
-     * @type {GameAdventureDifficulty}
-     * @memberof GameAdventureCreatorResponse
-     */
-    difficulty?: GameAdventureDifficulty;
     /**
      * 
      * @type {LLM}
@@ -155,18 +105,6 @@ export interface GameAdventureCreatorResponse {
     status: GameAdventureStatus;
     /**
      * 
-     * @type {number}
-     * @memberof GameAdventureCreatorResponse
-     */
-    version: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof GameAdventureCreatorResponse
-     */
-    versionId: string;
-    /**
-     * 
      * @type {Date}
      * @memberof GameAdventureCreatorResponse
      */
@@ -177,24 +115,6 @@ export interface GameAdventureCreatorResponse {
      * @memberof GameAdventureCreatorResponse
      */
     updatedAt: Date;
-    /**
-     * 
-     * @type {Date}
-     * @memberof GameAdventureCreatorResponse
-     */
-    lastSaved: Date;
-    /**
-     * 
-     * @type {Array<GameAdventureTarget>}
-     * @memberof GameAdventureCreatorResponse
-     */
-    targets: Array<GameAdventureTarget>;
-    /**
-     * 
-     * @type {Array<GameAdventurePrize>}
-     * @memberof GameAdventureCreatorResponse
-     */
-    prizes: Array<GameAdventurePrize>;
     /**
      * 
      * @type {GameAdventureRating}
@@ -221,10 +141,10 @@ export interface GameAdventureCreatorResponse {
     posterBlacklist?: BlacklistCard | null;
     /**
      * 
-     * @type {BlacklistCard}
+     * @type {Array<GameAdventureCreatorEpisodeResponse>}
      * @memberof GameAdventureCreatorResponse
      */
-    greetingBlacklist?: BlacklistCard | null;
+    episodes: Array<GameAdventureCreatorEpisodeResponse>;
 }
 
 
@@ -237,14 +157,10 @@ export function instanceOfGameAdventureCreatorResponse(value: object): value is 
     if (!('chatbotId' in value) || value['chatbotId'] === undefined) return false;
     if (!('userId' in value) || value['userId'] === undefined) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
-    if (!('version' in value) || value['version'] === undefined) return false;
-    if (!('versionId' in value) || value['versionId'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
-    if (!('lastSaved' in value) || value['lastSaved'] === undefined) return false;
-    if (!('targets' in value) || value['targets'] === undefined) return false;
-    if (!('prizes' in value) || value['prizes'] === undefined) return false;
     if (!('rating' in value) || value['rating'] === undefined) return false;
+    if (!('episodes' in value) || value['episodes'] === undefined) return false;
     return true;
 }
 
@@ -259,31 +175,20 @@ export function GameAdventureCreatorResponseFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'title': json['title'] == null ? undefined : json['title'],
-        'premise': json['premise'] == null ? undefined : json['premise'],
-        'scenePrompt': json['scene_prompt'] == null ? undefined : json['scene_prompt'],
-        'tone': json['tone'] == null ? undefined : json['tone'],
-        'greetingMessage': json['greeting_message'] == null ? undefined : json['greeting_message'],
-        'greetingPictureId': json['greeting_picture_id'] == null ? undefined : json['greeting_picture_id'],
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
-        'difficulty': json['difficulty'] == null ? undefined : GameAdventureDifficultyFromJSON(json['difficulty']),
         'recommendedLlm': json['recommended_llm'] == null ? undefined : LLMFromJSON(json['recommended_llm']),
         'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
         'id': json['id'],
         'chatbotId': json['chatbot_id'],
         'userId': json['user_id'],
         'status': GameAdventureStatusFromJSON(json['status']),
-        'version': json['version'],
-        'versionId': json['version_id'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
-        'lastSaved': (new Date(json['last_saved'])),
-        'targets': ((json['targets'] as Array<any>).map(GameAdventureTargetFromJSON)),
-        'prizes': ((json['prizes'] as Array<any>).map(GameAdventurePrizeFromJSON)),
         'rating': GameAdventureRatingFromJSON(json['rating']),
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
         'playersCount': json['players_count'] == null ? undefined : json['players_count'],
         'posterBlacklist': json['poster_blacklist'] == null ? undefined : BlacklistCardFromJSON(json['poster_blacklist']),
-        'greetingBlacklist': json['greeting_blacklist'] == null ? undefined : BlacklistCardFromJSON(json['greeting_blacklist']),
+        'episodes': ((json['episodes'] as Array<any>).map(GameAdventureCreatorEpisodeResponseFromJSON)),
     };
 }
 
@@ -299,31 +204,20 @@ export function GameAdventureCreatorResponseFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'title': value['title'],
-        'premise': value['premise'],
-        'scene_prompt': value['scenePrompt'],
-        'tone': value['tone'],
-        'greeting_message': value['greetingMessage'],
-        'greeting_picture_id': value['greetingPictureId'],
         'poster_picture_id': value['posterPictureId'],
-        'difficulty': GameAdventureDifficultyToJSON(value['difficulty']),
         'recommended_llm': LLMToJSON(value['recommendedLlm']),
         'suggestions_enabled': value['suggestionsEnabled'],
         'id': value['id'],
         'chatbot_id': value['chatbotId'],
         'user_id': value['userId'],
         'status': GameAdventureStatusToJSON(value['status']),
-        'version': value['version'],
-        'version_id': value['versionId'],
         'created_at': ((value['createdAt']).toISOString()),
         'updated_at': ((value['updatedAt']).toISOString()),
-        'last_saved': ((value['lastSaved']).toISOString()),
-        'targets': ((value['targets'] as Array<any>).map(GameAdventureTargetToJSON)),
-        'prizes': ((value['prizes'] as Array<any>).map(GameAdventurePrizeToJSON)),
         'rating': GameAdventureRatingToJSON(value['rating']),
         'winners_count': value['winnersCount'],
         'players_count': value['playersCount'],
         'poster_blacklist': BlacklistCardToJSON(value['posterBlacklist']),
-        'greeting_blacklist': BlacklistCardToJSON(value['greetingBlacklist']),
+        'episodes': ((value['episodes'] as Array<any>).map(GameAdventureCreatorEpisodeResponseToJSON)),
     };
 }
 

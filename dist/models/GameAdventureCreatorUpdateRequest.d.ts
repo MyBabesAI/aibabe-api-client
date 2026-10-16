@@ -9,9 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { GameAdventureDifficulty } from './GameAdventureDifficulty';
-import type { GameAdventurePrizeUpdate } from './GameAdventurePrizeUpdate';
-import type { GameAdventureTargetUpdate } from './GameAdventureTargetUpdate';
 import type { LLM } from './LLM';
 /**
  *
@@ -30,43 +27,7 @@ export interface GameAdventureCreatorUpdateRequest {
      * @type {string}
      * @memberof GameAdventureCreatorUpdateRequest
      */
-    premise?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    scenePrompt?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    tone?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    greetingMessage?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    greetingPictureId?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
     posterPictureId?: string | null;
-    /**
-     *
-     * @type {GameAdventureDifficulty}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    difficulty?: GameAdventureDifficulty | null;
     /**
      *
      * @type {LLM}
@@ -79,18 +40,6 @@ export interface GameAdventureCreatorUpdateRequest {
      * @memberof GameAdventureCreatorUpdateRequest
      */
     suggestionsEnabled?: boolean | null;
-    /**
-     *
-     * @type {GameAdventureTargetUpdate}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    target?: GameAdventureTargetUpdate | null;
-    /**
-     *
-     * @type {Array<GameAdventurePrizeUpdate>}
-     * @memberof GameAdventureCreatorUpdateRequest
-     */
-    prizes?: Array<GameAdventurePrizeUpdate> | null;
 }
 /**
  * Check if a given object implements the GameAdventureCreatorUpdateRequest interface.

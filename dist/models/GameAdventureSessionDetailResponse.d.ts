@@ -37,6 +37,12 @@ export interface GameAdventureSessionDetailResponse {
      * @type {string}
      * @memberof GameAdventureSessionDetailResponse
      */
+    gameAdventureEpisodeId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GameAdventureSessionDetailResponse
+     */
     gameAdventureVersionId: string;
     /**
      *
@@ -74,6 +80,36 @@ export interface GameAdventureSessionDetailResponse {
      * @memberof GameAdventureSessionDetailResponse
      */
     targets: Array<GameAdventureSessionTargetProgress>;
+    /**
+     *
+     * @type {string}
+     * @memberof GameAdventureSessionDetailResponse
+     */
+    currentTargetId?: string | null;
+    /**
+     *
+     * @type {number}
+     * @memberof GameAdventureSessionDetailResponse
+     */
+    turnsUsed?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GameAdventureSessionDetailResponse
+     */
+    lockAfter?: number | null;
+    /**
+     *
+     * @type {number}
+     * @memberof GameAdventureSessionDetailResponse
+     */
+    priceTokens?: number;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GameAdventureSessionDetailResponse
+     */
+    locked?: boolean;
     /**
      *
      * @type {Array<GameAdventureSessionMessage>}

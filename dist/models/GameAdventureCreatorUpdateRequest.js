@@ -18,9 +18,6 @@ exports.GameAdventureCreatorUpdateRequestFromJSON = GameAdventureCreatorUpdateRe
 exports.GameAdventureCreatorUpdateRequestFromJSONTyped = GameAdventureCreatorUpdateRequestFromJSONTyped;
 exports.GameAdventureCreatorUpdateRequestToJSON = GameAdventureCreatorUpdateRequestToJSON;
 exports.GameAdventureCreatorUpdateRequestToJSONTyped = GameAdventureCreatorUpdateRequestToJSONTyped;
-const GameAdventureDifficulty_1 = require("./GameAdventureDifficulty");
-const GameAdventurePrizeUpdate_1 = require("./GameAdventurePrizeUpdate");
-const GameAdventureTargetUpdate_1 = require("./GameAdventureTargetUpdate");
 const LLM_1 = require("./LLM");
 /**
  * Check if a given object implements the GameAdventureCreatorUpdateRequest interface.
@@ -37,17 +34,9 @@ function GameAdventureCreatorUpdateRequestFromJSONTyped(json, ignoreDiscriminato
     }
     return {
         'title': json['title'] == null ? undefined : json['title'],
-        'premise': json['premise'] == null ? undefined : json['premise'],
-        'scenePrompt': json['scene_prompt'] == null ? undefined : json['scene_prompt'],
-        'tone': json['tone'] == null ? undefined : json['tone'],
-        'greetingMessage': json['greeting_message'] == null ? undefined : json['greeting_message'],
-        'greetingPictureId': json['greeting_picture_id'] == null ? undefined : json['greeting_picture_id'],
         'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
-        'difficulty': json['difficulty'] == null ? undefined : (0, GameAdventureDifficulty_1.GameAdventureDifficultyFromJSON)(json['difficulty']),
         'recommendedLlm': json['recommended_llm'] == null ? undefined : (0, LLM_1.LLMFromJSON)(json['recommended_llm']),
         'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
-        'target': json['target'] == null ? undefined : (0, GameAdventureTargetUpdate_1.GameAdventureTargetUpdateFromJSON)(json['target']),
-        'prizes': json['prizes'] == null ? undefined : (json['prizes'].map(GameAdventurePrizeUpdate_1.GameAdventurePrizeUpdateFromJSON)),
     };
 }
 function GameAdventureCreatorUpdateRequestToJSON(json) {
@@ -59,17 +48,9 @@ function GameAdventureCreatorUpdateRequestToJSONTyped(value, ignoreDiscriminator
     }
     return {
         'title': value['title'],
-        'premise': value['premise'],
-        'scene_prompt': value['scenePrompt'],
-        'tone': value['tone'],
-        'greeting_message': value['greetingMessage'],
-        'greeting_picture_id': value['greetingPictureId'],
         'poster_picture_id': value['posterPictureId'],
-        'difficulty': (0, GameAdventureDifficulty_1.GameAdventureDifficultyToJSON)(value['difficulty']),
         'recommended_llm': (0, LLM_1.LLMToJSON)(value['recommendedLlm']),
         'suggestions_enabled': value['suggestionsEnabled'],
-        'target': (0, GameAdventureTargetUpdate_1.GameAdventureTargetUpdateToJSON)(value['target']),
-        'prizes': value['prizes'] == null ? undefined : (value['prizes'].map(GameAdventurePrizeUpdate_1.GameAdventurePrizeUpdateToJSON)),
     };
 }
 //# sourceMappingURL=GameAdventureCreatorUpdateRequest.js.map

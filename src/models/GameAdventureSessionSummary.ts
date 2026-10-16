@@ -35,6 +35,12 @@ export interface GameAdventureSessionSummary {
     sessionId: string;
     /**
      * 
+     * @type {string}
+     * @memberof GameAdventureSessionSummary
+     */
+    gameAdventureEpisodeId: string;
+    /**
+     * 
      * @type {GameAdventureSessionStatus}
      * @memberof GameAdventureSessionSummary
      */
@@ -66,6 +72,7 @@ export interface GameAdventureSessionSummary {
  */
 export function instanceOfGameAdventureSessionSummary(value: object): value is GameAdventureSessionSummary {
     if (!('sessionId' in value) || value['sessionId'] === undefined) return false;
+    if (!('gameAdventureEpisodeId' in value) || value['gameAdventureEpisodeId'] === undefined) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
     if (!('isPreview' in value) || value['isPreview'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
@@ -84,6 +91,7 @@ export function GameAdventureSessionSummaryFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'sessionId': json['session_id'],
+        'gameAdventureEpisodeId': json['game_adventure_episode_id'],
         'status': GameAdventureSessionStatusFromJSON(json['status']),
         'isPreview': json['is_preview'],
         'createdAt': (new Date(json['created_at'])),
@@ -103,6 +111,7 @@ export function GameAdventureSessionSummaryFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'session_id': value['sessionId'],
+        'game_adventure_episode_id': value['gameAdventureEpisodeId'],
         'status': GameAdventureSessionStatusToJSON(value['status']),
         'is_preview': value['isPreview'],
         'created_at': ((value['createdAt']).toISOString()),
