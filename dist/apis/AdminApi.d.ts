@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ContentType, DownscaleRequest, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
+import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminTokenHistoryResponse, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ChatbotType, ContentType, DownscaleRequest, GetChatbotListResponse, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -77,6 +77,11 @@ export interface GetQualityControlImagesAdminImageQualityControlPostRequest {
 export interface GetTokenBalanceAdminTokenBalanceEmailGetRequest {
     email: string;
 }
+export interface GetTokenHistoryAdminTokenHistoryEmailGetRequest {
+    email: string;
+    paginationToken?: string | null;
+    limit?: number;
+}
 export interface GetUserGalleryAdminGalleryUserIdGetRequest {
     userId: string;
     paginationToken?: string | null;
@@ -86,6 +91,14 @@ export interface GetUserGalleryAdminGalleryUserIdGetRequest {
     withoutChatbot?: boolean;
     freeTextSearch?: string | null;
     excludeEventEntries?: boolean;
+    sort?: SortFilter;
+    visibility?: VisibilityFilter;
+}
+export interface GetUserGalleryChatbotsAdminGalleryUserIdChatbotsGetRequest {
+    userId: string;
+    paginationToken?: string | null;
+    type?: ChatbotType | null;
+    limit?: number;
     sort?: SortFilter;
     visibility?: VisibilityFilter;
 }
@@ -266,6 +279,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      */
     getTokenBalanceAdminTokenBalanceEmailGet(requestParameters: GetTokenBalanceAdminTokenBalanceEmailGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<number>;
     /**
+     * Get Token History
+     */
+    getTokenHistoryAdminTokenHistoryEmailGetRaw(requestParameters: GetTokenHistoryAdminTokenHistoryEmailGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminTokenHistoryResponse>>;
+    /**
+     * Get Token History
+     */
+    getTokenHistoryAdminTokenHistoryEmailGet(requestParameters: GetTokenHistoryAdminTokenHistoryEmailGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminTokenHistoryResponse>;
+    /**
      * Get User Gallery
      */
     getUserGalleryAdminGalleryUserIdGetRaw(requestParameters: GetUserGalleryAdminGalleryUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGalleryResponse>>;
@@ -273,6 +294,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Get User Gallery
      */
     getUserGalleryAdminGalleryUserIdGet(requestParameters: GetUserGalleryAdminGalleryUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGalleryResponse>;
+    /**
+     * Get User Gallery Chatbots
+     */
+    getUserGalleryChatbotsAdminGalleryUserIdChatbotsGetRaw(requestParameters: GetUserGalleryChatbotsAdminGalleryUserIdChatbotsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetChatbotListResponse>>;
+    /**
+     * Get User Gallery Chatbots
+     */
+    getUserGalleryChatbotsAdminGalleryUserIdChatbotsGet(requestParameters: GetUserGalleryChatbotsAdminGalleryUserIdChatbotsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetChatbotListResponse>;
     /**
      * Get User Journey
      */

@@ -18,7 +18,7 @@ exports.PostReportRequestFromJSON = PostReportRequestFromJSON;
 exports.PostReportRequestFromJSONTyped = PostReportRequestFromJSONTyped;
 exports.PostReportRequestToJSON = PostReportRequestToJSON;
 exports.PostReportRequestToJSONTyped = PostReportRequestToJSONTyped;
-const ContentReportReason_1 = require("./ContentReportReason");
+const BlacklistReason_1 = require("./BlacklistReason");
 /**
  * Check if a given object implements the PostReportRequest interface.
  */
@@ -35,7 +35,7 @@ function PostReportRequestFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'reason': (json['reason'].map(ContentReportReason_1.ContentReportReasonFromJSON)),
+        'reason': (json['reason'].map(BlacklistReason_1.BlacklistReasonFromJSON)),
     };
 }
 function PostReportRequestToJSON(json) {
@@ -46,7 +46,7 @@ function PostReportRequestToJSONTyped(value, ignoreDiscriminator = false) {
         return value;
     }
     return {
-        'reason': (value['reason'].map(ContentReportReason_1.ContentReportReasonToJSON)),
+        'reason': (value['reason'].map(BlacklistReason_1.BlacklistReasonToJSON)),
     };
 }
 //# sourceMappingURL=PostReportRequest.js.map

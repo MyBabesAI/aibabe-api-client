@@ -579,6 +579,36 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Get Token History
+     */
+    async getTokenHistoryAdminTokenHistoryEmailGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['email'] == null) {
+            throw new runtime.RequiredError('email', 'Required parameter "email" was null or undefined when calling getTokenHistoryAdminTokenHistoryEmailGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/token-history/{email}`.replace(`{${"email"}}`, encodeURIComponent(String(requestParameters['email']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminTokenHistoryResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get Token History
+     */
+    async getTokenHistoryAdminTokenHistoryEmailGet(requestParameters, initOverrides) {
+        const response = await this.getTokenHistoryAdminTokenHistoryEmailGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Get User Gallery
      */
     async getUserGalleryAdminGalleryUserIdGetRaw(requestParameters, initOverrides) {
@@ -627,6 +657,45 @@ class AdminApi extends runtime.BaseAPI {
      */
     async getUserGalleryAdminGalleryUserIdGet(requestParameters, initOverrides) {
         const response = await this.getUserGalleryAdminGalleryUserIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Get User Gallery Chatbots
+     */
+    async getUserGalleryChatbotsAdminGalleryUserIdChatbotsGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['userId'] == null) {
+            throw new runtime.RequiredError('userId', 'Required parameter "userId" was null or undefined when calling getUserGalleryChatbotsAdminGalleryUserIdChatbotsGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        if (requestParameters['sort'] != null) {
+            queryParameters['sort'] = requestParameters['sort'];
+        }
+        if (requestParameters['visibility'] != null) {
+            queryParameters['visibility'] = requestParameters['visibility'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/gallery/{user_id}/chatbots`.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetChatbotListResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get User Gallery Chatbots
+     */
+    async getUserGalleryChatbotsAdminGalleryUserIdChatbotsGet(requestParameters, initOverrides) {
+        const response = await this.getUserGalleryChatbotsAdminGalleryUserIdChatbotsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

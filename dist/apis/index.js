@@ -18,7 +18,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable */
 __exportStar(require("./AdminApi"), exports);
 __exportStar(require("./AgeVerificationApi"), exports);
-__exportStar(require("./AssistantChatApi"), exports);
 __exportStar(require("./AuthenticationApi"), exports);
 __exportStar(require("./BadgesApi"), exports);
 __exportStar(require("./ChatApi"), exports);

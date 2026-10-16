@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ContentReportReason } from './ContentReportReason';
+import type { BlacklistReason } from './BlacklistReason';
 import {
-    ContentReportReasonFromJSON,
-    ContentReportReasonFromJSONTyped,
-    ContentReportReasonToJSON,
-    ContentReportReasonToJSONTyped,
-} from './ContentReportReason';
+    BlacklistReasonFromJSON,
+    BlacklistReasonFromJSONTyped,
+    BlacklistReasonToJSON,
+    BlacklistReasonToJSONTyped,
+} from './BlacklistReason';
 
 /**
  * 
@@ -29,10 +29,10 @@ import {
 export interface PostReportRequest {
     /**
      * 
-     * @type {Array<ContentReportReason>}
+     * @type {Array<BlacklistReason>}
      * @memberof PostReportRequest
      */
-    reason: Array<ContentReportReason>;
+    reason: Array<BlacklistReason>;
 }
 
 /**
@@ -53,7 +53,7 @@ export function PostReportRequestFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'reason': ((json['reason'] as Array<any>).map(ContentReportReasonFromJSON)),
+        'reason': ((json['reason'] as Array<any>).map(BlacklistReasonFromJSON)),
     };
 }
 
@@ -68,7 +68,7 @@ export function PostReportRequestFromJSONTyped(json: any, ignoreDiscriminator: b
 
     return {
         
-        'reason': ((value['reason'] as Array<any>).map(ContentReportReasonToJSON)),
+        'reason': ((value['reason'] as Array<any>).map(BlacklistReasonToJSON)),
     };
 }
 

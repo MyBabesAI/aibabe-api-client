@@ -56,6 +56,7 @@ exports.ArtStyle = {
     Midnightstudio: 'midnightstudio',
     Forbiddenfairytale: 'forbiddenfairytale',
     Truelookv2: 'truelookv2',
+    Afterglowfuta: 'afterglowfuta',
     Anthrokrea: 'anthrokrea',
     Furrykrea: 'furrykrea'
 };

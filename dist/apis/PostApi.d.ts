@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlacklistRequest, BlacklistResponse, GetDetailedPostsResponse, GetPostsResponse, PatchPostTitleRequest, PostCategoryValues, PostPublishResponse, PostReportRequest, PostSearchRequest, PostShareGetTagsRequest, PostSharePublishRequest, PostShareTagsResponse, PostType } from '../models/index';
+import type { BlacklistRequest, BlacklistResponse, ContentType, GetDetailedPostsResponse, GetPostsResponse, PatchPostTitleRequest, PostCategoryValues, PostPublishResponse, PostReportRequest, PostSearchRequest, PostShareGetTagsRequest, PostSharePublishRequest, PostShareTagsResponse, PostType } from '../models/index';
 export interface BlacklistPostPostBlacklistPostIdPatchRequest {
     postId: string;
     blacklistRequest: BlacklistRequest;
@@ -55,6 +55,11 @@ export interface LikeRandomNewPostsPostLikeRandomPostRequest {
 export interface PatchPostTitlePostPostIdTitlePatchRequest {
     postId: string;
     patchPostTitleRequest: PatchPostTitleRequest;
+}
+export interface ReportContentPostReportContentTypeContentIdPostRequest {
+    contentType: ContentType;
+    contentId: string;
+    postReportRequest: PostReportRequest;
 }
 export interface ReportPostPostPostIdReportPostRequest {
     postId: string;
@@ -170,6 +175,16 @@ export declare class PostApi extends runtime.BaseAPI {
      * Patch Post Title
      */
     patchPostTitlePostPostIdTitlePatch(requestParameters: PatchPostTitlePostPostIdTitlePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Reports content shown without a post (a story or adventure page, a babe).
+     * Report Content
+     */
+    reportContentPostReportContentTypeContentIdPostRaw(requestParameters: ReportContentPostReportContentTypeContentIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Reports content shown without a post (a story or adventure page, a babe).
+     * Report Content
+     */
+    reportContentPostReportContentTypeContentIdPost(requestParameters: ReportContentPostReportContentTypeContentIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Report Post
      */

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ContentReportReason } from './ContentReportReason';
+import type { BlacklistReason } from './BlacklistReason';
 /**
  *
  * @export
@@ -18,10 +18,10 @@ import type { ContentReportReason } from './ContentReportReason';
 export interface PostReportRequest {
     /**
      *
-     * @type {Array<ContentReportReason>}
+     * @type {Array<BlacklistReason>}
      * @memberof PostReportRequest
      */
-    reason: Array<ContentReportReason>;
+    reason: Array<BlacklistReason>;
 }
 /**
  * Check if a given object implements the PostReportRequest interface.

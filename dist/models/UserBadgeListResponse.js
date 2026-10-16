@@ -28,6 +28,10 @@ function instanceOfUserBadgeListResponse(value) {
         return false;
     if (!('scores' in value) || value['scores'] === undefined)
         return false;
+    if (!('canEquipAll' in value) || value['canEquipAll'] === undefined)
+        return false;
+    if (!('receivesTokenAwards' in value) || value['receivesTokenAwards'] === undefined)
+        return false;
     return true;
 }
 function UserBadgeListResponseFromJSON(json) {
@@ -40,6 +44,8 @@ function UserBadgeListResponseFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'badges': (json['badges'].map(UserBadge_1.UserBadgeFromJSON)),
         'scores': (json['scores'].map(UserScore_1.UserScoreFromJSON)),
+        'canEquipAll': json['can_equip_all'],
+        'receivesTokenAwards': json['receives_token_awards'],
     };
 }
 function UserBadgeListResponseToJSON(json) {
@@ -52,6 +58,8 @@ function UserBadgeListResponseToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'badges': (value['badges'].map(UserBadge_1.UserBadgeToJSON)),
         'scores': (value['scores'].map(UserScore_1.UserScoreToJSON)),
+        'can_equip_all': value['canEquipAll'],
+        'receives_token_awards': value['receivesTokenAwards'],
     };
 }
 //# sourceMappingURL=UserBadgeListResponse.js.map
