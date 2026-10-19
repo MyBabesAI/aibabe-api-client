@@ -346,7 +346,6 @@ export * from './PostReportRequest';
 export * from './PostReportUserRequest';
 export * from './PostResendEmailRequest';
 export * from './PostRestartServersRequest';
-export * from './PostSearchRequest';
 export * from './PostShareGetTagsRequest';
 export * from './PostSharePublishRequest';
 export * from './PostShareTagsResponse';
