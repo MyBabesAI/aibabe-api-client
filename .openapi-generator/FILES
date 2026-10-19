@@ -382,7 +382,6 @@ src/models/PostReportRequest.ts
 src/models/PostReportUserRequest.ts
 src/models/PostResendEmailRequest.ts
 src/models/PostRestartServersRequest.ts
-src/models/PostSearchRequest.ts
 src/models/PostShareGetTagsRequest.ts
 src/models/PostSharePublishRequest.ts
 src/models/PostShareTagsResponse.ts

@@ -365,7 +365,6 @@ __exportStar(require("./PostReportRequest"), exports);
 __exportStar(require("./PostReportUserRequest"), exports);
 __exportStar(require("./PostResendEmailRequest"), exports);
 __exportStar(require("./PostRestartServersRequest"), exports);
-__exportStar(require("./PostSearchRequest"), exports);
 __exportStar(require("./PostShareGetTagsRequest"), exports);
 __exportStar(require("./PostSharePublishRequest"), exports);
 __exportStar(require("./PostShareTagsResponse"), exports);
