@@ -22,6 +22,7 @@ export declare const SaleOfferCode: {
     readonly LowBalanceBonusHighValue: "low_balance_bonus_high_value";
     readonly LowBalanceBonusNewPayer: "low_balance_bonus_new_payer";
     readonly FirstVisitSubscriptionBonus: "first_visit_subscription_bonus";
+    readonly UltraUpgradeDiscount: "ultra_upgrade_discount";
 };
 export type SaleOfferCode = typeof SaleOfferCode[keyof typeof SaleOfferCode];
 export declare function instanceOfSaleOfferCode(value: any): boolean;
