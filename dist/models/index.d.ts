@@ -41,6 +41,7 @@ export * from './AvatarLooksV2';
 export * from './AvatarOptionalField';
 export * from './AvatarRequiredField';
 export * from './BadgeAwardedNotification';
+export * from './BadgeAwardsPaidNotification';
 export * from './BadgeCategory';
 export * from './BadgeModel';
 export * from './BadgeNotification';
