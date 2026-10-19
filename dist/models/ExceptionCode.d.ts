@@ -111,7 +111,6 @@ export declare const ExceptionCode: {
     readonly EventTagInvalid: "event_tag_invalid";
     readonly EventInvalidTime: "event_invalid_time";
     readonly EventResultInvalidSubmission: "event_result_invalid_submission";
-    readonly EventWinnersWithoutEvent: "event_winners_without_event";
     readonly PricingConfigurationConflict: "pricing_configuration_conflict";
     readonly PricingGroupRevisionNotFound: "pricing_group_revision_not_found";
     readonly PricingGroupRevisionNotDraft: "pricing_group_revision_not_draft";

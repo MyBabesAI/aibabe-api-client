@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlacklistRequest, BlacklistResponse, ContentType, GetDetailedPostsResponse, GetPostsResponse, PatchPostTitleRequest, PostCategoryValues, PostPublishResponse, PostReportRequest, PostSearchRequest, PostShareGetTagsRequest, PostSharePublishRequest, PostShareTagsResponse, PostType } from '../models/index';
+import type { BlacklistRequest, BlacklistResponse, ContentType, GetDetailedPostsResponse, PatchPostTitleRequest, PostCategoryValues, PostPublishResponse, PostReportRequest, PostShareGetTagsRequest, PostSharePublishRequest, PostShareTagsResponse, PostType } from '../models/index';
 export interface BlacklistPostPostBlacklistPostIdPatchRequest {
     postId: string;
     blacklistRequest: BlacklistRequest;
@@ -64,9 +64,6 @@ export interface ReportContentPostReportContentTypeContentIdPostRequest {
 export interface ReportPostPostPostIdReportPostRequest {
     postId: string;
     postReportRequest: PostReportRequest;
-}
-export interface SearchPostsPostSearchPostRequest {
-    postSearchRequest: PostSearchRequest;
 }
 export interface SharePostShareContentIdPublishPostRequest {
     contentId: string;
@@ -193,14 +190,6 @@ export declare class PostApi extends runtime.BaseAPI {
      * Report Post
      */
     reportPostPostPostIdReportPost(requestParameters: ReportPostPostPostIdReportPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
-    /**
-     * Search Posts
-     */
-    searchPostsPostSearchPostRaw(requestParameters: SearchPostsPostSearchPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPostsResponse>>;
-    /**
-     * Search Posts
-     */
-    searchPostsPostSearchPost(requestParameters: SearchPostsPostSearchPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPostsResponse>;
     /**
      * Share
      */
