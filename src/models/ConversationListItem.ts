@@ -60,19 +60,19 @@ export interface ConversationListItem {
      * @type {string}
      * @memberof ConversationListItem
      */
-    gameAdventureId?: string | null;
+    storyId?: string | null;
     /**
      * 
      * @type {string}
      * @memberof ConversationListItem
      */
-    gameAdventureEpisodeId?: string | null;
+    storyEpisodeId?: string | null;
     /**
      * 
      * @type {string}
      * @memberof ConversationListItem
      */
-    posterPictureId?: string | null;
+    coverImage?: string | null;
 }
 
 
@@ -81,7 +81,7 @@ export interface ConversationListItem {
  */
 export const ConversationListItemKindEnum = {
     Chat: 'chat',
-    GameAdventure: 'game_adventure'
+    Story: 'story'
 } as const;
 export type ConversationListItemKindEnum = typeof ConversationListItemKindEnum[keyof typeof ConversationListItemKindEnum];
 
@@ -114,9 +114,9 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
         'lastMessage': json['last_message'],
         'unread': json['unread'],
         'kind': json['kind'] == null ? undefined : json['kind'],
-        'gameAdventureId': json['game_adventure_id'] == null ? undefined : json['game_adventure_id'],
-        'gameAdventureEpisodeId': json['game_adventure_episode_id'] == null ? undefined : json['game_adventure_episode_id'],
-        'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
+        'storyId': json['story_id'] == null ? undefined : json['story_id'],
+        'storyEpisodeId': json['story_episode_id'] == null ? undefined : json['story_episode_id'],
+        'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
     };
 }
 
@@ -137,9 +137,9 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
         'last_message': value['lastMessage'],
         'unread': value['unread'],
         'kind': value['kind'],
-        'game_adventure_id': value['gameAdventureId'],
-        'game_adventure_episode_id': value['gameAdventureEpisodeId'],
-        'poster_picture_id': value['posterPictureId'],
+        'story_id': value['storyId'],
+        'story_episode_id': value['storyEpisodeId'],
+        'cover_image': value['coverImage'],
     };
 }
 

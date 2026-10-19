@@ -27,6 +27,20 @@ import {
     StoryCountsToJSON,
     StoryCountsToJSONTyped,
 } from './StoryCounts';
+import type { StoryPlayState } from './StoryPlayState';
+import {
+    StoryPlayStateFromJSON,
+    StoryPlayStateFromJSONTyped,
+    StoryPlayStateToJSON,
+    StoryPlayStateToJSONTyped,
+} from './StoryPlayState';
+import type { StoryChatDifficulty } from './StoryChatDifficulty';
+import {
+    StoryChatDifficultyFromJSON,
+    StoryChatDifficultyFromJSONTyped,
+    StoryChatDifficultyToJSON,
+    StoryChatDifficultyToJSONTyped,
+} from './StoryChatDifficulty';
 import type { UserEpisodeProgressType } from './UserEpisodeProgressType';
 import {
     UserEpisodeProgressTypeFromJSON,
@@ -41,6 +55,13 @@ import {
     StoryRatingToJSON,
     StoryRatingToJSONTyped,
 } from './StoryRating';
+import type { StoryCoverOrientation } from './StoryCoverOrientation';
+import {
+    StoryCoverOrientationFromJSON,
+    StoryCoverOrientationFromJSONTyped,
+    StoryCoverOrientationToJSON,
+    StoryCoverOrientationToJSONTyped,
+} from './StoryCoverOrientation';
 
 /**
  * 
@@ -102,6 +123,42 @@ export interface StoryPreview {
      * @memberof StoryPreview
      */
     progress?: UserEpisodeProgressType | null;
+    /**
+     * 
+     * @type {StoryCoverOrientation}
+     * @memberof StoryPreview
+     */
+    coverOrientation?: StoryCoverOrientation;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof StoryPreview
+     */
+    interactive?: boolean;
+    /**
+     * 
+     * @type {StoryChatDifficulty}
+     * @memberof StoryPreview
+     */
+    difficulty?: StoryChatDifficulty | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryPreview
+     */
+    playersCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryPreview
+     */
+    winnersCount?: number;
+    /**
+     * 
+     * @type {StoryPlayState}
+     * @memberof StoryPreview
+     */
+    playState?: StoryPlayState;
 }
 
 
@@ -135,6 +192,12 @@ export function StoryPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'owner': json['owner'] == null ? undefined : PublicUserPreviewWithFollowFromJSON(json['owner']),
         'counts': StoryCountsFromJSON(json['counts']),
         'progress': json['progress'] == null ? undefined : UserEpisodeProgressTypeFromJSON(json['progress']),
+        'coverOrientation': json['cover_orientation'] == null ? undefined : StoryCoverOrientationFromJSON(json['cover_orientation']),
+        'interactive': json['interactive'] == null ? undefined : json['interactive'],
+        'difficulty': json['difficulty'] == null ? undefined : StoryChatDifficultyFromJSON(json['difficulty']),
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'playState': json['play_state'] == null ? undefined : StoryPlayStateFromJSON(json['play_state']),
     };
 }
 
@@ -158,6 +221,12 @@ export function StoryPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'owner': PublicUserPreviewWithFollowToJSON(value['owner']),
         'counts': StoryCountsToJSON(value['counts']),
         'progress': UserEpisodeProgressTypeToJSON(value['progress']),
+        'cover_orientation': StoryCoverOrientationToJSON(value['coverOrientation']),
+        'interactive': value['interactive'],
+        'difficulty': StoryChatDifficultyToJSON(value['difficulty']),
+        'players_count': value['playersCount'],
+        'winners_count': value['winnersCount'],
+        'play_state': StoryPlayStateToJSON(value['playState']),
     };
 }
 

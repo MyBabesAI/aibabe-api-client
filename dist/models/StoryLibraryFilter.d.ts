@@ -15,7 +15,8 @@
  */
 export declare const StoryLibraryFilter: {
     readonly Unlocked: "unlocked";
-    readonly Watching: "watching";
+    readonly Started: "started";
+    readonly Finished: "finished";
 };
 export type StoryLibraryFilter = typeof StoryLibraryFilter[keyof typeof StoryLibraryFilter];
 export declare function instanceOfStoryLibraryFilter(value: any): boolean;

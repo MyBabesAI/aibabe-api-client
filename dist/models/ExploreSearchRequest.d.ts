@@ -109,13 +109,7 @@ export interface ExploreSearchRequest {
      * @type {boolean}
      * @memberof ExploreSearchRequest
      */
-    playedAdventures?: boolean | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof ExploreSearchRequest
-     */
-    wonAdventures?: boolean | null;
+    interactive?: boolean | null;
     /**
      *
      * @type {boolean}

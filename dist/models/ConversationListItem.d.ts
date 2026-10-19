@@ -56,26 +56,26 @@ export interface ConversationListItem {
      * @type {string}
      * @memberof ConversationListItem
      */
-    gameAdventureId?: string | null;
+    storyId?: string | null;
     /**
      *
      * @type {string}
      * @memberof ConversationListItem
      */
-    gameAdventureEpisodeId?: string | null;
+    storyEpisodeId?: string | null;
     /**
      *
      * @type {string}
      * @memberof ConversationListItem
      */
-    posterPictureId?: string | null;
+    coverImage?: string | null;
 }
 /**
  * @export
  */
 export declare const ConversationListItemKindEnum: {
     readonly Chat: "chat";
-    readonly GameAdventure: "game_adventure";
+    readonly Story: "story";
 };
 export type ConversationListItemKindEnum = typeof ConversationListItemKindEnum[keyof typeof ConversationListItemKindEnum];
 /**

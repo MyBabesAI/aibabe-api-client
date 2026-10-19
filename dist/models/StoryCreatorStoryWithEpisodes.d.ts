@@ -11,10 +11,14 @@
  */
 import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
 import type { StoryCounts } from './StoryCounts';
+import type { StoryPlayState } from './StoryPlayState';
+import type { StoryChatDifficulty } from './StoryChatDifficulty';
 import type { StoryVisibility } from './StoryVisibility';
 import type { UserEpisodeProgressType } from './UserEpisodeProgressType';
 import type { StoryRating } from './StoryRating';
 import type { StoryCreatorEpisode } from './StoryCreatorEpisode';
+import type { LLM } from './LLM';
+import type { StoryCoverOrientation } from './StoryCoverOrientation';
 /**
  *
  * @export
@@ -39,6 +43,30 @@ export interface StoryCreatorStoryWithEpisodes {
      * @memberof StoryCreatorStoryWithEpisodes
      */
     coverImage?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    coverPictureId?: string | null;
+    /**
+     *
+     * @type {StoryCoverOrientation}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    coverOrientation?: StoryCoverOrientation | null;
+    /**
+     *
+     * @type {LLM}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    recommendedLlm?: LLM | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    suggestionsEnabled?: boolean | null;
     /**
      *
      * @type {string}
@@ -81,6 +109,42 @@ export interface StoryCreatorStoryWithEpisodes {
      * @memberof StoryCreatorStoryWithEpisodes
      */
     counts: StoryCounts;
+    /**
+     *
+     * @type {string}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    coverPictureUrl?: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    interactive?: boolean;
+    /**
+     *
+     * @type {StoryChatDifficulty}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    difficulty?: StoryChatDifficulty | null;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    playersCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    winnersCount?: number;
+    /**
+     *
+     * @type {StoryPlayState}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    playState?: StoryPlayState;
     /**
      *
      * @type {Array<StoryCreatorEpisode>}

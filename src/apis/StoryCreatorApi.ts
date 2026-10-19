@@ -43,6 +43,7 @@ import type {
   StoryCreatorUpdateStoryRequest,
   StoryLibraryFilter,
   StoryLibraryResponse,
+  StorySessionResponse,
 } from '../models/index';
 import {
     HTTPValidationErrorFromJSON,
@@ -101,6 +102,8 @@ import {
     StoryLibraryFilterToJSON,
     StoryLibraryResponseFromJSON,
     StoryLibraryResponseToJSON,
+    StorySessionResponseFromJSON,
+    StorySessionResponseToJSON,
 } from '../models/index';
 
 export interface CreateEpisodeStoryCreatorStoriesStoryIdEpisodesPostRequest {
@@ -111,6 +114,10 @@ export interface CreateEpisodeStoryCreatorStoriesStoryIdEpisodesPostRequest {
 export interface CreateNewActorStoryCreatorStoriesStoryIdActorNewPostRequest {
     storyId: string;
     storyCreatorCreateActorRequest: StoryCreatorCreateActorRequest;
+}
+
+export interface CreatePreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPostRequest {
+    episodeId: string;
 }
 
 export interface CreateStoryStoryCreatorStoriesPostRequest {
@@ -306,6 +313,41 @@ export class StoryCreatorApi extends runtime.BaseAPI {
      */
     async createNewActorStoryCreatorStoriesStoryIdActorNewPost(requestParameters: CreateNewActorStoryCreatorStoriesStoryIdActorNewPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StoryCreatorActorResponse> {
         const response = await this.createNewActorStoryCreatorStoriesStoryIdActorNewPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * **Owner only: plays the latest version without touching progress, prizes or leaderboards**
+     * Start an owner preview run of an interactive episode
+     */
+    async createPreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPostRaw(requestParameters: CreatePreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StorySessionResponse>> {
+        if (requestParameters['episodeId'] == null) {
+            throw new runtime.RequiredError(
+                'episodeId',
+                'Required parameter "episodeId" was null or undefined when calling createPreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/story-creator/episodes/{episode_id}/preview-session`.replace(`{${"episode_id"}}`, encodeURIComponent(String(requestParameters['episodeId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StorySessionResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * **Owner only: plays the latest version without touching progress, prizes or leaderboards**
+     * Start an owner preview run of an interactive episode
+     */
+    async createPreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPost(requestParameters: CreatePreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StorySessionResponse> {
+        const response = await this.createPreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

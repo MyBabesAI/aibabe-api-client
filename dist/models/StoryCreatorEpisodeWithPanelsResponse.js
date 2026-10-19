@@ -18,6 +18,7 @@ exports.StoryCreatorEpisodeWithPanelsResponseFromJSON = StoryCreatorEpisodeWithP
 exports.StoryCreatorEpisodeWithPanelsResponseFromJSONTyped = StoryCreatorEpisodeWithPanelsResponseFromJSONTyped;
 exports.StoryCreatorEpisodeWithPanelsResponseToJSON = StoryCreatorEpisodeWithPanelsResponseToJSON;
 exports.StoryCreatorEpisodeWithPanelsResponseToJSONTyped = StoryCreatorEpisodeWithPanelsResponseToJSONTyped;
+const StoryCreatorPrize_1 = require("./StoryCreatorPrize");
 const StoryCreatorPanel_1 = require("./StoryCreatorPanel");
 const StoryCreatorEpisode_1 = require("./StoryCreatorEpisode");
 /**
@@ -40,6 +41,7 @@ function StoryCreatorEpisodeWithPanelsResponseFromJSONTyped(json, ignoreDiscrimi
     return {
         'episode': (0, StoryCreatorEpisode_1.StoryCreatorEpisodeFromJSON)(json['episode']),
         'panels': (json['panels'].map(StoryCreatorPanel_1.StoryCreatorPanelFromJSON)),
+        'prizes': json['prizes'] == null ? undefined : (json['prizes'].map(StoryCreatorPrize_1.StoryCreatorPrizeFromJSON)),
     };
 }
 function StoryCreatorEpisodeWithPanelsResponseToJSON(json) {
@@ -52,6 +54,7 @@ function StoryCreatorEpisodeWithPanelsResponseToJSONTyped(value, ignoreDiscrimin
     return {
         'episode': (0, StoryCreatorEpisode_1.StoryCreatorEpisodeToJSON)(value['episode']),
         'panels': (value['panels'].map(StoryCreatorPanel_1.StoryCreatorPanelToJSON)),
+        'prizes': value['prizes'] == null ? undefined : (value['prizes'].map(StoryCreatorPrize_1.StoryCreatorPrizeToJSON)),
     };
 }
 //# sourceMappingURL=StoryCreatorEpisodeWithPanelsResponse.js.map

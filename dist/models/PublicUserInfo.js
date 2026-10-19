@@ -45,8 +45,6 @@ function instanceOfPublicUserInfo(value) {
         return false;
     if (!('stories' in value) || value['stories'] === undefined)
         return false;
-    if (!('adventures' in value) || value['adventures'] === undefined)
-        return false;
     if (!('followed' in value) || value['followed'] === undefined)
         return false;
     return true;
@@ -72,7 +70,6 @@ function PublicUserInfoFromJSONTyped(json, ignoreDiscriminator) {
         'images': json['images'],
         'messages': json['messages'],
         'stories': json['stories'],
-        'adventures': json['adventures'],
         'followed': json['followed'],
         'notifyContentTypes': json['notify_content_types'] == null ? undefined : (json['notify_content_types'].map(ContentType_1.ContentTypeFromJSON)),
         'blacklist': json['blacklist'] == null ? undefined : json['blacklist'],
@@ -99,7 +96,6 @@ function PublicUserInfoToJSONTyped(value, ignoreDiscriminator = false) {
         'images': value['images'],
         'messages': value['messages'],
         'stories': value['stories'],
-        'adventures': value['adventures'],
         'followed': value['followed'],
         'notify_content_types': value['notifyContentTypes'] == null ? undefined : (value['notifyContentTypes'].map(ContentType_1.ContentTypeToJSON)),
         'blacklist': value['blacklist'],

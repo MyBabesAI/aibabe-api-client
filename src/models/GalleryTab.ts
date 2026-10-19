@@ -21,8 +21,7 @@ export const GalleryTab = {
     Babes: 'babes',
     Images: 'images',
     Videos: 'videos',
-    Stories: 'stories',
-    Adventures: 'adventures'
+    Stories: 'stories'
 } as const;
 export type GalleryTab = typeof GalleryTab[keyof typeof GalleryTab];
 

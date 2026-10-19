@@ -25,7 +25,8 @@ exports.StoryLibraryFilterToJSONTyped = StoryLibraryFilterToJSONTyped;
  */
 exports.StoryLibraryFilter = {
     Unlocked: 'unlocked',
-    Watching: 'watching'
+    Started: 'started',
+    Finished: 'finished'
 };
 function instanceOfStoryLibraryFilter(value) {
     for (const key in exports.StoryLibraryFilter) {

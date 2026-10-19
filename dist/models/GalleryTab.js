@@ -27,8 +27,7 @@ exports.GalleryTab = {
     Babes: 'babes',
     Images: 'images',
     Videos: 'videos',
-    Stories: 'stories',
-    Adventures: 'adventures'
+    Stories: 'stories'
 };
 function instanceOfGalleryTab(value) {
     for (const key in exports.GalleryTab) {

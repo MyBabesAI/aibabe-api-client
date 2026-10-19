@@ -18,6 +18,7 @@ exports.StoryCreatorSaveEpisodeRequestFromJSON = StoryCreatorSaveEpisodeRequestF
 exports.StoryCreatorSaveEpisodeRequestFromJSONTyped = StoryCreatorSaveEpisodeRequestFromJSONTyped;
 exports.StoryCreatorSaveEpisodeRequestToJSON = StoryCreatorSaveEpisodeRequestToJSON;
 exports.StoryCreatorSaveEpisodeRequestToJSONTyped = StoryCreatorSaveEpisodeRequestToJSONTyped;
+const StoryCreatorSavePrize_1 = require("./StoryCreatorSavePrize");
 const StoryCreatorSaveEpisodePanel_1 = require("./StoryCreatorSaveEpisodePanel");
 /**
  * Check if a given object implements the StoryCreatorSaveEpisodeRequest interface.
@@ -39,7 +40,10 @@ function StoryCreatorSaveEpisodeRequestFromJSONTyped(json, ignoreDiscriminator) 
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
         'lockAfter': json['lock_after'] == null ? undefined : json['lock_after'],
+        'backgroundAudioId': json['background_audio_id'] == null ? undefined : json['background_audio_id'],
+        'backgroundAudioVolume': json['background_audio_volume'] == null ? undefined : json['background_audio_volume'],
         'panels': (json['panels'].map(StoryCreatorSaveEpisodePanel_1.StoryCreatorSaveEpisodePanelFromJSON)),
+        'prizes': json['prizes'] == null ? undefined : (json['prizes'].map(StoryCreatorSavePrize_1.StoryCreatorSavePrizeFromJSON)),
     };
 }
 function StoryCreatorSaveEpisodeRequestToJSON(json) {
@@ -54,7 +58,10 @@ function StoryCreatorSaveEpisodeRequestToJSONTyped(value, ignoreDiscriminator = 
         'description': value['description'],
         'cover_image': value['coverImage'],
         'lock_after': value['lockAfter'],
+        'background_audio_id': value['backgroundAudioId'],
+        'background_audio_volume': value['backgroundAudioVolume'],
         'panels': (value['panels'].map(StoryCreatorSaveEpisodePanel_1.StoryCreatorSaveEpisodePanelToJSON)),
+        'prizes': value['prizes'] == null ? undefined : (value['prizes'].map(StoryCreatorSavePrize_1.StoryCreatorSavePrizeToJSON)),
     };
 }
 //# sourceMappingURL=StoryCreatorSaveEpisodeRequest.js.map

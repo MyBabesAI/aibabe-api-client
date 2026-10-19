@@ -10,6 +10,8 @@
  * Do not edit the class manually.
  */
 import type { ActorRole } from './ActorRole';
+import type { StoryChatDifficulty } from './StoryChatDifficulty';
+import type { StoryCreatorTarget } from './StoryCreatorTarget';
 import type { EpisodePanelType } from './EpisodePanelType';
 /**
  *
@@ -70,7 +72,37 @@ export interface StoryCreatorPanel {
      * @type {string}
      * @memberof StoryCreatorPanel
      */
+    pictureId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof StoryCreatorPanel
+     */
+    videoId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof StoryCreatorPanel
+     */
     message?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof StoryCreatorPanel
+     */
+    scenePrompt?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof StoryCreatorPanel
+     */
+    tone?: string | null;
+    /**
+     *
+     * @type {StoryChatDifficulty}
+     * @memberof StoryCreatorPanel
+     */
+    difficulty?: StoryChatDifficulty | null;
     /**
      *
      * @type {string}
@@ -137,6 +169,18 @@ export interface StoryCreatorPanel {
      * @memberof StoryCreatorPanel
      */
     panelIndex: number;
+    /**
+     *
+     * @type {Array<StoryCreatorTarget>}
+     * @memberof StoryCreatorPanel
+     */
+    targets?: Array<StoryCreatorTarget>;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryCreatorPanel
+     */
+    targetsCount?: number;
 }
 /**
  * Check if a given object implements the StoryCreatorPanel interface.

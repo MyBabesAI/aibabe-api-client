@@ -28,7 +28,6 @@ exports.NotificationKind = {
     Video: 'video',
     Babe: 'babe',
     Story: 'story',
-    Adventure: 'adventure',
     Episode: 'episode'
 };
 function instanceOfNotificationKind(value) {

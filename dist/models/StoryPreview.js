@@ -20,8 +20,11 @@ exports.StoryPreviewToJSON = StoryPreviewToJSON;
 exports.StoryPreviewToJSONTyped = StoryPreviewToJSONTyped;
 const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
 const StoryCounts_1 = require("./StoryCounts");
+const StoryPlayState_1 = require("./StoryPlayState");
+const StoryChatDifficulty_1 = require("./StoryChatDifficulty");
 const UserEpisodeProgressType_1 = require("./UserEpisodeProgressType");
 const StoryRating_1 = require("./StoryRating");
+const StoryCoverOrientation_1 = require("./StoryCoverOrientation");
 /**
  * Check if a given object implements the StoryPreview interface.
  */
@@ -51,6 +54,12 @@ function StoryPreviewFromJSONTyped(json, ignoreDiscriminator) {
         'owner': json['owner'] == null ? undefined : (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowFromJSON)(json['owner']),
         'counts': (0, StoryCounts_1.StoryCountsFromJSON)(json['counts']),
         'progress': json['progress'] == null ? undefined : (0, UserEpisodeProgressType_1.UserEpisodeProgressTypeFromJSON)(json['progress']),
+        'coverOrientation': json['cover_orientation'] == null ? undefined : (0, StoryCoverOrientation_1.StoryCoverOrientationFromJSON)(json['cover_orientation']),
+        'interactive': json['interactive'] == null ? undefined : json['interactive'],
+        'difficulty': json['difficulty'] == null ? undefined : (0, StoryChatDifficulty_1.StoryChatDifficultyFromJSON)(json['difficulty']),
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'playState': json['play_state'] == null ? undefined : (0, StoryPlayState_1.StoryPlayStateFromJSON)(json['play_state']),
     };
 }
 function StoryPreviewToJSON(json) {
@@ -70,6 +79,12 @@ function StoryPreviewToJSONTyped(value, ignoreDiscriminator = false) {
         'owner': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowToJSON)(value['owner']),
         'counts': (0, StoryCounts_1.StoryCountsToJSON)(value['counts']),
         'progress': (0, UserEpisodeProgressType_1.UserEpisodeProgressTypeToJSON)(value['progress']),
+        'cover_orientation': (0, StoryCoverOrientation_1.StoryCoverOrientationToJSON)(value['coverOrientation']),
+        'interactive': value['interactive'],
+        'difficulty': (0, StoryChatDifficulty_1.StoryChatDifficultyToJSON)(value['difficulty']),
+        'players_count': value['playersCount'],
+        'winners_count': value['winnersCount'],
+        'play_state': (0, StoryPlayState_1.StoryPlayStateToJSON)(value['playState']),
     };
 }
 //# sourceMappingURL=StoryPreview.js.map

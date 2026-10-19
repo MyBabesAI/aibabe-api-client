@@ -18,7 +18,6 @@ import type { ImageContent } from './ImageContent';
 import type { ContentOrigin } from './ContentOrigin';
 import type { StoryPreview } from './StoryPreview';
 import type { TagData } from './TagData';
-import type { GameAdventurePreview } from './GameAdventurePreview';
 /**
  *
  * @export
@@ -43,12 +42,6 @@ export interface DetailedWallPost {
      * @memberof DetailedWallPost
      */
     story: StoryPreview | null;
-    /**
-     *
-     * @type {GameAdventurePreview}
-     * @memberof DetailedWallPost
-     */
-    gameAdventure?: GameAdventurePreview | null;
     /**
      *
      * @type {ImageContent}

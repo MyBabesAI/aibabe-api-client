@@ -24,6 +24,7 @@ export const TokenTransactionReason = {
     CustomChatbotImage: 'custom_chatbot_image',
     VoiceGeneration: 'voice_generation',
     VideoGeneration: 'video_generation',
+    StoryChat: 'story_chat',
     GameAdventure: 'game_adventure',
     GameAdventureEpisodePurchase: 'game_adventure_episode_purchase',
     StoryEpisodePurchase: 'story_episode_purchase',

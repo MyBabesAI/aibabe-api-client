@@ -11,8 +11,11 @@
  */
 import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
 import type { StoryCounts } from './StoryCounts';
+import type { StoryPlayState } from './StoryPlayState';
+import type { StoryChatDifficulty } from './StoryChatDifficulty';
 import type { UserEpisodeProgressType } from './UserEpisodeProgressType';
 import type { StoryRating } from './StoryRating';
+import type { StoryCoverOrientation } from './StoryCoverOrientation';
 /**
  *
  * @export
@@ -73,6 +76,42 @@ export interface StoryPreview {
      * @memberof StoryPreview
      */
     progress?: UserEpisodeProgressType | null;
+    /**
+     *
+     * @type {StoryCoverOrientation}
+     * @memberof StoryPreview
+     */
+    coverOrientation?: StoryCoverOrientation;
+    /**
+     *
+     * @type {boolean}
+     * @memberof StoryPreview
+     */
+    interactive?: boolean;
+    /**
+     *
+     * @type {StoryChatDifficulty}
+     * @memberof StoryPreview
+     */
+    difficulty?: StoryChatDifficulty | null;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryPreview
+     */
+    playersCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryPreview
+     */
+    winnersCount?: number;
+    /**
+     *
+     * @type {StoryPlayState}
+     * @memberof StoryPreview
+     */
+    playState?: StoryPlayState;
 }
 /**
  * Check if a given object implements the StoryPreview interface.

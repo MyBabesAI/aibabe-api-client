@@ -19,7 +19,8 @@
  */
 export const StoryLibraryFilter = {
     Unlocked: 'unlocked',
-    Watching: 'watching'
+    Started: 'started',
+    Finished: 'finished'
 } as const;
 export type StoryLibraryFilter = typeof StoryLibraryFilter[keyof typeof StoryLibraryFilter];
 

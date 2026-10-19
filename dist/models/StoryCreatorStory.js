@@ -20,9 +20,13 @@ exports.StoryCreatorStoryToJSON = StoryCreatorStoryToJSON;
 exports.StoryCreatorStoryToJSONTyped = StoryCreatorStoryToJSONTyped;
 const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
 const StoryCounts_1 = require("./StoryCounts");
+const StoryPlayState_1 = require("./StoryPlayState");
+const StoryChatDifficulty_1 = require("./StoryChatDifficulty");
 const StoryVisibility_1 = require("./StoryVisibility");
 const UserEpisodeProgressType_1 = require("./UserEpisodeProgressType");
 const StoryRating_1 = require("./StoryRating");
+const LLM_1 = require("./LLM");
+const StoryCoverOrientation_1 = require("./StoryCoverOrientation");
 /**
  * Check if a given object implements the StoryCreatorStory interface.
  */
@@ -48,6 +52,10 @@ function StoryCreatorStoryFromJSONTyped(json, ignoreDiscriminator) {
         'title': json['title'] == null ? undefined : json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
+        'coverPictureId': json['cover_picture_id'] == null ? undefined : json['cover_picture_id'],
+        'coverOrientation': json['cover_orientation'] == null ? undefined : (0, StoryCoverOrientation_1.StoryCoverOrientationFromJSON)(json['cover_orientation']),
+        'recommendedLlm': json['recommended_llm'] == null ? undefined : (0, LLM_1.LLMFromJSON)(json['recommended_llm']),
+        'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
         'id': json['id'],
         'owner': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowFromJSON)(json['owner']),
         'rating': json['rating'] == null ? undefined : (0, StoryRating_1.StoryRatingFromJSON)(json['rating']),
@@ -55,6 +63,12 @@ function StoryCreatorStoryFromJSONTyped(json, ignoreDiscriminator) {
         'newerVersionExists': json['newer_version_exists'] == null ? undefined : json['newer_version_exists'],
         'visibility': (0, StoryVisibility_1.StoryVisibilityFromJSON)(json['visibility']),
         'counts': (0, StoryCounts_1.StoryCountsFromJSON)(json['counts']),
+        'coverPictureUrl': json['cover_picture_url'] == null ? undefined : json['cover_picture_url'],
+        'interactive': json['interactive'] == null ? undefined : json['interactive'],
+        'difficulty': json['difficulty'] == null ? undefined : (0, StoryChatDifficulty_1.StoryChatDifficultyFromJSON)(json['difficulty']),
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'playState': json['play_state'] == null ? undefined : (0, StoryPlayState_1.StoryPlayStateFromJSON)(json['play_state']),
     };
 }
 function StoryCreatorStoryToJSON(json) {
@@ -68,6 +82,10 @@ function StoryCreatorStoryToJSONTyped(value, ignoreDiscriminator = false) {
         'title': value['title'],
         'description': value['description'],
         'cover_image': value['coverImage'],
+        'cover_picture_id': value['coverPictureId'],
+        'cover_orientation': (0, StoryCoverOrientation_1.StoryCoverOrientationToJSON)(value['coverOrientation']),
+        'recommended_llm': (0, LLM_1.LLMToJSON)(value['recommendedLlm']),
+        'suggestions_enabled': value['suggestionsEnabled'],
         'id': value['id'],
         'owner': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowToJSON)(value['owner']),
         'rating': (0, StoryRating_1.StoryRatingToJSON)(value['rating']),
@@ -75,6 +93,12 @@ function StoryCreatorStoryToJSONTyped(value, ignoreDiscriminator = false) {
         'newer_version_exists': value['newerVersionExists'],
         'visibility': (0, StoryVisibility_1.StoryVisibilityToJSON)(value['visibility']),
         'counts': (0, StoryCounts_1.StoryCountsToJSON)(value['counts']),
+        'cover_picture_url': value['coverPictureUrl'],
+        'interactive': value['interactive'],
+        'difficulty': (0, StoryChatDifficulty_1.StoryChatDifficultyToJSON)(value['difficulty']),
+        'players_count': value['playersCount'],
+        'winners_count': value['winnersCount'],
+        'play_state': (0, StoryPlayState_1.StoryPlayStateToJSON)(value['playState']),
     };
 }
 //# sourceMappingURL=StoryCreatorStory.js.map

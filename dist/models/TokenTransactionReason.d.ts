@@ -20,6 +20,7 @@ export declare const TokenTransactionReason: {
     readonly CustomChatbotImage: "custom_chatbot_image";
     readonly VoiceGeneration: "voice_generation";
     readonly VideoGeneration: "video_generation";
+    readonly StoryChat: "story_chat";
     readonly GameAdventure: "game_adventure";
     readonly GameAdventureEpisodePurchase: "game_adventure_episode_purchase";
     readonly StoryEpisodePurchase: "story_episode_purchase";

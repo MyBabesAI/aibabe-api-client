@@ -27,6 +27,20 @@ import {
     StoryCountsToJSON,
     StoryCountsToJSONTyped,
 } from './StoryCounts';
+import type { StoryPlayState } from './StoryPlayState';
+import {
+    StoryPlayStateFromJSON,
+    StoryPlayStateFromJSONTyped,
+    StoryPlayStateToJSON,
+    StoryPlayStateToJSONTyped,
+} from './StoryPlayState';
+import type { StoryChatDifficulty } from './StoryChatDifficulty';
+import {
+    StoryChatDifficultyFromJSON,
+    StoryChatDifficultyFromJSONTyped,
+    StoryChatDifficultyToJSON,
+    StoryChatDifficultyToJSONTyped,
+} from './StoryChatDifficulty';
 import type { StoryVisibility } from './StoryVisibility';
 import {
     StoryVisibilityFromJSON,
@@ -55,6 +69,20 @@ import {
     StoryCreatorEpisodeToJSON,
     StoryCreatorEpisodeToJSONTyped,
 } from './StoryCreatorEpisode';
+import type { LLM } from './LLM';
+import {
+    LLMFromJSON,
+    LLMFromJSONTyped,
+    LLMToJSON,
+    LLMToJSONTyped,
+} from './LLM';
+import type { StoryCoverOrientation } from './StoryCoverOrientation';
+import {
+    StoryCoverOrientationFromJSON,
+    StoryCoverOrientationFromJSONTyped,
+    StoryCoverOrientationToJSON,
+    StoryCoverOrientationToJSONTyped,
+} from './StoryCoverOrientation';
 
 /**
  * 
@@ -80,6 +108,30 @@ export interface StoryCreatorStoryWithEpisodes {
      * @memberof StoryCreatorStoryWithEpisodes
      */
     coverImage?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    coverPictureId?: string | null;
+    /**
+     * 
+     * @type {StoryCoverOrientation}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    coverOrientation?: StoryCoverOrientation | null;
+    /**
+     * 
+     * @type {LLM}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    recommendedLlm?: LLM | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    suggestionsEnabled?: boolean | null;
     /**
      * 
      * @type {string}
@@ -124,6 +176,42 @@ export interface StoryCreatorStoryWithEpisodes {
     counts: StoryCounts;
     /**
      * 
+     * @type {string}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    coverPictureUrl?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    interactive?: boolean;
+    /**
+     * 
+     * @type {StoryChatDifficulty}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    difficulty?: StoryChatDifficulty | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    playersCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    winnersCount?: number;
+    /**
+     * 
+     * @type {StoryPlayState}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    playState?: StoryPlayState;
+    /**
+     * 
      * @type {Array<StoryCreatorEpisode>}
      * @memberof StoryCreatorStoryWithEpisodes
      */
@@ -157,6 +245,10 @@ export function StoryCreatorStoryWithEpisodesFromJSONTyped(json: any, ignoreDisc
         'title': json['title'] == null ? undefined : json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
+        'coverPictureId': json['cover_picture_id'] == null ? undefined : json['cover_picture_id'],
+        'coverOrientation': json['cover_orientation'] == null ? undefined : StoryCoverOrientationFromJSON(json['cover_orientation']),
+        'recommendedLlm': json['recommended_llm'] == null ? undefined : LLMFromJSON(json['recommended_llm']),
+        'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
         'id': json['id'],
         'owner': PublicUserPreviewWithFollowFromJSON(json['owner']),
         'rating': json['rating'] == null ? undefined : StoryRatingFromJSON(json['rating']),
@@ -164,6 +256,12 @@ export function StoryCreatorStoryWithEpisodesFromJSONTyped(json: any, ignoreDisc
         'newerVersionExists': json['newer_version_exists'] == null ? undefined : json['newer_version_exists'],
         'visibility': StoryVisibilityFromJSON(json['visibility']),
         'counts': StoryCountsFromJSON(json['counts']),
+        'coverPictureUrl': json['cover_picture_url'] == null ? undefined : json['cover_picture_url'],
+        'interactive': json['interactive'] == null ? undefined : json['interactive'],
+        'difficulty': json['difficulty'] == null ? undefined : StoryChatDifficultyFromJSON(json['difficulty']),
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'playState': json['play_state'] == null ? undefined : StoryPlayStateFromJSON(json['play_state']),
         'episodes': ((json['episodes'] as Array<any>).map(StoryCreatorEpisodeFromJSON)),
     };
 }
@@ -182,6 +280,10 @@ export function StoryCreatorStoryWithEpisodesFromJSONTyped(json: any, ignoreDisc
         'title': value['title'],
         'description': value['description'],
         'cover_image': value['coverImage'],
+        'cover_picture_id': value['coverPictureId'],
+        'cover_orientation': StoryCoverOrientationToJSON(value['coverOrientation']),
+        'recommended_llm': LLMToJSON(value['recommendedLlm']),
+        'suggestions_enabled': value['suggestionsEnabled'],
         'id': value['id'],
         'owner': PublicUserPreviewWithFollowToJSON(value['owner']),
         'rating': StoryRatingToJSON(value['rating']),
@@ -189,6 +291,12 @@ export function StoryCreatorStoryWithEpisodesFromJSONTyped(json: any, ignoreDisc
         'newer_version_exists': value['newerVersionExists'],
         'visibility': StoryVisibilityToJSON(value['visibility']),
         'counts': StoryCountsToJSON(value['counts']),
+        'cover_picture_url': value['coverPictureUrl'],
+        'interactive': value['interactive'],
+        'difficulty': StoryChatDifficultyToJSON(value['difficulty']),
+        'players_count': value['playersCount'],
+        'winners_count': value['winnersCount'],
+        'play_state': StoryPlayStateToJSON(value['playState']),
         'episodes': ((value['episodes'] as Array<any>).map(StoryCreatorEpisodeToJSON)),
     };
 }
