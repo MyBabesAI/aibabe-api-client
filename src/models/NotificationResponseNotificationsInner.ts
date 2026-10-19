@@ -90,6 +90,13 @@ import {
     WallPostToJSON,
     WallPostToJSONTyped,
 } from './WallPost';
+import type { BadgeAwardsPaidNotification } from './BadgeAwardsPaidNotification';
+import {
+    BadgeAwardsPaidNotificationFromJSON,
+    BadgeAwardsPaidNotificationFromJSONTyped,
+    BadgeAwardsPaidNotificationToJSON,
+    BadgeAwardsPaidNotificationToJSONTyped,
+} from './BadgeAwardsPaidNotification';
 import type { LikedPostNotification } from './LikedPostNotification';
 import {
     LikedPostNotificationFromJSON,

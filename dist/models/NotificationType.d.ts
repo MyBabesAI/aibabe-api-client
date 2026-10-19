@@ -20,6 +20,7 @@ export declare const NotificationType: {
     readonly EpisodeUnlock: "episode_unlock";
     readonly Badge: "badge";
     readonly BadgeAwarded: "badge_awarded";
+    readonly BadgeAwardsPaid: "badge_awards_paid";
     readonly NewEpisode: "new_episode";
     readonly NewPost: "new_post";
     readonly NewEvent: "new_event";

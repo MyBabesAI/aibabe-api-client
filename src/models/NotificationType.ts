@@ -24,6 +24,7 @@ export const NotificationType = {
     EpisodeUnlock: 'episode_unlock',
     Badge: 'badge',
     BadgeAwarded: 'badge_awarded',
+    BadgeAwardsPaid: 'badge_awards_paid',
     NewEpisode: 'new_episode',
     NewPost: 'new_post',
     NewEvent: 'new_event',
