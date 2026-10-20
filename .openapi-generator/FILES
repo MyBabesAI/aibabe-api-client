@@ -75,6 +75,7 @@ src/models/AvatarLooksV2.ts
 src/models/AvatarOptionalField.ts
 src/models/AvatarRequiredField.ts
 src/models/BadgeAwardedNotification.ts
+src/models/BadgeAwardsPaidNotification.ts
 src/models/BadgeCategory.ts
 src/models/BadgeModel.ts
 src/models/BadgeNotification.ts
@@ -343,7 +344,6 @@ src/models/PostReportRequest.ts
 src/models/PostReportUserRequest.ts
 src/models/PostResendEmailRequest.ts
 src/models/PostRestartServersRequest.ts
-src/models/PostSearchRequest.ts
 src/models/PostShareGetTagsRequest.ts
 src/models/PostSharePublishRequest.ts
 src/models/PostShareTagsResponse.ts

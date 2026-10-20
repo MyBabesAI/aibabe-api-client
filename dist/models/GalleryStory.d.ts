@@ -125,6 +125,18 @@ export interface GalleryStory {
      * @memberof GalleryStory
      */
     playState?: StoryPlayState;
+    /**
+     *
+     * @type {number}
+     * @memberof GalleryStory
+     */
+    viewsCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GalleryStory
+     */
+    rewardsCount?: number;
 }
 /**
  * @export

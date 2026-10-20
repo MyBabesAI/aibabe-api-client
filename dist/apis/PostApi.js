@@ -482,32 +482,6 @@ class PostApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Search Posts
-     */
-    async searchPostsPostSearchPostRaw(requestParameters, initOverrides) {
-        if (requestParameters['postSearchRequest'] == null) {
-            throw new runtime.RequiredError('postSearchRequest', 'Required parameter "postSearchRequest" was null or undefined when calling searchPostsPostSearchPost().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        headerParameters['Content-Type'] = 'application/json';
-        const response = await this.request({
-            path: `/post/search/`,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: (0, index_1.PostSearchRequestToJSON)(requestParameters['postSearchRequest']),
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetPostsResponseFromJSON)(jsonValue));
-    }
-    /**
-     * Search Posts
-     */
-    async searchPostsPostSearchPost(requestParameters, initOverrides) {
-        const response = await this.searchPostsPostSearchPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
      * Share
      */
     async sharePostShareContentIdPublishPostRaw(requestParameters, initOverrides) {

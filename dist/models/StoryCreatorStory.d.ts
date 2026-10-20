@@ -144,6 +144,18 @@ export interface StoryCreatorStory {
      * @memberof StoryCreatorStory
      */
     playState?: StoryPlayState;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryCreatorStory
+     */
+    viewsCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryCreatorStory
+     */
+    rewardsCount?: number;
 }
 /**
  * Check if a given object implements the StoryCreatorStory interface.

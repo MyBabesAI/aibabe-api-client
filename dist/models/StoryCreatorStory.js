@@ -69,6 +69,8 @@ function StoryCreatorStoryFromJSONTyped(json, ignoreDiscriminator) {
         'playersCount': json['players_count'] == null ? undefined : json['players_count'],
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
         'playState': json['play_state'] == null ? undefined : (0, StoryPlayState_1.StoryPlayStateFromJSON)(json['play_state']),
+        'viewsCount': json['views_count'] == null ? undefined : json['views_count'],
+        'rewardsCount': json['rewards_count'] == null ? undefined : json['rewards_count'],
     };
 }
 function StoryCreatorStoryToJSON(json) {
@@ -99,6 +101,8 @@ function StoryCreatorStoryToJSONTyped(value, ignoreDiscriminator = false) {
         'players_count': value['playersCount'],
         'winners_count': value['winnersCount'],
         'play_state': (0, StoryPlayState_1.StoryPlayStateToJSON)(value['playState']),
+        'views_count': value['viewsCount'],
+        'rewards_count': value['rewardsCount'],
     };
 }
 //# sourceMappingURL=StoryCreatorStory.js.map

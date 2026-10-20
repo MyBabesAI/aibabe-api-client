@@ -318,6 +318,18 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     playState?: StoryPlayState;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    viewsCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    rewardsCount?: number;
 }
 
 
@@ -395,6 +407,8 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'playersCount': json['players_count'] == null ? undefined : json['players_count'],
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
         'playState': json['play_state'] == null ? undefined : StoryPlayStateFromJSON(json['play_state']),
+        'viewsCount': json['views_count'] == null ? undefined : json['views_count'],
+        'rewardsCount': json['rewards_count'] == null ? undefined : json['rewards_count'],
     };
 }
 
@@ -440,6 +454,8 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'players_count': value['playersCount'],
         'winners_count': value['winnersCount'],
         'play_state': StoryPlayStateToJSON(value['playState']),
+        'views_count': value['viewsCount'],
+        'rewards_count': value['rewardsCount'],
     };
 }
 

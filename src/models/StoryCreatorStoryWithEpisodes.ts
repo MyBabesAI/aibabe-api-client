@@ -212,6 +212,18 @@ export interface StoryCreatorStoryWithEpisodes {
     playState?: StoryPlayState;
     /**
      * 
+     * @type {number}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    viewsCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    rewardsCount?: number;
+    /**
+     * 
      * @type {Array<StoryCreatorEpisode>}
      * @memberof StoryCreatorStoryWithEpisodes
      */
@@ -262,6 +274,8 @@ export function StoryCreatorStoryWithEpisodesFromJSONTyped(json: any, ignoreDisc
         'playersCount': json['players_count'] == null ? undefined : json['players_count'],
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
         'playState': json['play_state'] == null ? undefined : StoryPlayStateFromJSON(json['play_state']),
+        'viewsCount': json['views_count'] == null ? undefined : json['views_count'],
+        'rewardsCount': json['rewards_count'] == null ? undefined : json['rewards_count'],
         'episodes': ((json['episodes'] as Array<any>).map(StoryCreatorEpisodeFromJSON)),
     };
 }
@@ -297,6 +311,8 @@ export function StoryCreatorStoryWithEpisodesFromJSONTyped(json: any, ignoreDisc
         'players_count': value['playersCount'],
         'winners_count': value['winnersCount'],
         'play_state': StoryPlayStateToJSON(value['playState']),
+        'views_count': value['viewsCount'],
+        'rewards_count': value['rewardsCount'],
         'episodes': ((value['episodes'] as Array<any>).map(StoryCreatorEpisodeToJSON)),
     };
 }

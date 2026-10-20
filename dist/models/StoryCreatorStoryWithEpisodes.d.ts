@@ -147,6 +147,18 @@ export interface StoryCreatorStoryWithEpisodes {
     playState?: StoryPlayState;
     /**
      *
+     * @type {number}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    viewsCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    rewardsCount?: number;
+    /**
+     *
      * @type {Array<StoryCreatorEpisode>}
      * @memberof StoryCreatorStoryWithEpisodes
      */

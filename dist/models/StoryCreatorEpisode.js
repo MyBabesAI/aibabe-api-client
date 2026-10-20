@@ -80,6 +80,7 @@ function StoryCreatorEpisodeFromJSONTyped(json, ignoreDiscriminator) {
         'playersCount': json['players_count'] == null ? undefined : json['players_count'],
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
         'prizesCount': json['prizes_count'] == null ? undefined : json['prizes_count'],
+        'viewsCount': json['views_count'] == null ? undefined : json['views_count'],
         'sessions': json['sessions'] == null ? undefined : (json['sessions'].map(StoryCreatorSessionSummary_1.StoryCreatorSessionSummaryFromJSON)),
     };
 }
@@ -118,6 +119,7 @@ function StoryCreatorEpisodeToJSONTyped(value, ignoreDiscriminator = false) {
         'players_count': value['playersCount'],
         'winners_count': value['winnersCount'],
         'prizes_count': value['prizesCount'],
+        'views_count': value['viewsCount'],
         'sessions': value['sessions'] == null ? undefined : (value['sessions'].map(StoryCreatorSessionSummary_1.StoryCreatorSessionSummaryToJSON)),
     };
 }

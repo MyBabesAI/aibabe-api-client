@@ -247,6 +247,12 @@ export interface StoryCreatorEpisode {
     prizesCount?: number;
     /**
      * 
+     * @type {number}
+     * @memberof StoryCreatorEpisode
+     */
+    viewsCount?: number;
+    /**
+     * 
      * @type {Array<StoryCreatorSessionSummary>}
      * @memberof StoryCreatorEpisode
      */
@@ -305,6 +311,7 @@ export function StoryCreatorEpisodeFromJSONTyped(json: any, ignoreDiscriminator:
         'playersCount': json['players_count'] == null ? undefined : json['players_count'],
         'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
         'prizesCount': json['prizes_count'] == null ? undefined : json['prizes_count'],
+        'viewsCount': json['views_count'] == null ? undefined : json['views_count'],
         'sessions': json['sessions'] == null ? undefined : ((json['sessions'] as Array<any>).map(StoryCreatorSessionSummaryFromJSON)),
     };
 }
@@ -347,6 +354,7 @@ export function StoryCreatorEpisodeFromJSONTyped(json: any, ignoreDiscriminator:
         'players_count': value['playersCount'],
         'winners_count': value['winnersCount'],
         'prizes_count': value['prizesCount'],
+        'views_count': value['viewsCount'],
         'sessions': value['sessions'] == null ? undefined : ((value['sessions'] as Array<any>).map(StoryCreatorSessionSummaryToJSON)),
     };
 }

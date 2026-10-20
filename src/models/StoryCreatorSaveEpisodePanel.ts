@@ -161,6 +161,12 @@ export interface StoryCreatorSaveEpisodePanel {
      * @type {string}
      * @memberof StoryCreatorSaveEpisodePanel
      */
+    actorChatbotId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof StoryCreatorSaveEpisodePanel
+     */
     voice?: string | null;
     /**
      * 
@@ -252,6 +258,7 @@ export function StoryCreatorSaveEpisodePanelFromJSONTyped(json: any, ignoreDiscr
         'actorDisplayName': json['actor_display_name'] == null ? undefined : json['actor_display_name'],
         'actorRole': json['actor_role'] == null ? undefined : ActorRoleFromJSON(json['actor_role']),
         'actorAvatar': json['actor_avatar'] == null ? undefined : json['actor_avatar'],
+        'actorChatbotId': json['actor_chatbot_id'] == null ? undefined : json['actor_chatbot_id'],
         'voice': json['voice'] == null ? undefined : json['voice'],
         'voiceAutoReplay': json['voice_auto_replay'] == null ? undefined : json['voice_auto_replay'],
         'voiceVolume': json['voice_volume'] == null ? undefined : json['voice_volume'],
@@ -293,6 +300,7 @@ export function StoryCreatorSaveEpisodePanelFromJSONTyped(json: any, ignoreDiscr
         'actor_display_name': value['actorDisplayName'],
         'actor_role': ActorRoleToJSON(value['actorRole']),
         'actor_avatar': value['actorAvatar'],
+        'actor_chatbot_id': value['actorChatbotId'],
         'voice': value['voice'],
         'voice_auto_replay': value['voiceAutoReplay'],
         'voice_volume': value['voiceVolume'],

@@ -214,6 +214,18 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     playState?: StoryPlayState;
+    /**
+     *
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    viewsCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    rewardsCount?: number;
 }
 /**
  * @export

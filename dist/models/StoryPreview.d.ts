@@ -112,6 +112,18 @@ export interface StoryPreview {
      * @memberof StoryPreview
      */
     playState?: StoryPlayState;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryPreview
+     */
+    viewsCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryPreview
+     */
+    rewardsCount?: number;
 }
 /**
  * Check if a given object implements the StoryPreview interface.

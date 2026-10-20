@@ -132,6 +132,12 @@ export interface StoryCreatorPanel {
      * @type {string}
      * @memberof StoryCreatorPanel
      */
+    actorChatbotId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof StoryCreatorPanel
+     */
     voice?: string | null;
     /**
      *

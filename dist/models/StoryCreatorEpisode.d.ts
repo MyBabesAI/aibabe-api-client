@@ -188,6 +188,12 @@ export interface StoryCreatorEpisode {
     prizesCount?: number;
     /**
      *
+     * @type {number}
+     * @memberof StoryCreatorEpisode
+     */
+    viewsCount?: number;
+    /**
+     *
      * @type {Array<StoryCreatorSessionSummary>}
      * @memberof StoryCreatorEpisode
      */

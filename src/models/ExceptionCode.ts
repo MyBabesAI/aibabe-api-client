@@ -115,7 +115,6 @@ export const ExceptionCode = {
     EventTagInvalid: 'event_tag_invalid',
     EventInvalidTime: 'event_invalid_time',
     EventResultInvalidSubmission: 'event_result_invalid_submission',
-    EventWinnersWithoutEvent: 'event_winners_without_event',
     PricingConfigurationConflict: 'pricing_configuration_conflict',
     PricingGroupRevisionNotFound: 'pricing_group_revision_not_found',
     PricingGroupRevisionNotDraft: 'pricing_group_revision_not_draft',
