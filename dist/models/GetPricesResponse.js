@@ -19,8 +19,10 @@ exports.GetPricesResponseFromJSONTyped = GetPricesResponseFromJSONTyped;
 exports.GetPricesResponseToJSON = GetPricesResponseToJSON;
 exports.GetPricesResponseToJSONTyped = GetPricesResponseToJSONTyped;
 const runtime_1 = require("../runtime");
+const SaleOfferResponse_1 = require("./SaleOfferResponse");
 const SubscriptionTokenUsage_1 = require("./SubscriptionTokenUsage");
 const PaymentCurrency_1 = require("./PaymentCurrency");
+const ExtraMonthlyTokensOffer_1 = require("./ExtraMonthlyTokensOffer");
 /**
  * Check if a given object implements the GetPricesResponse interface.
  */
@@ -48,6 +50,8 @@ function GetPricesResponseFromJSONTyped(json, ignoreDiscriminator) {
         'subscriptions': json['subscriptions'],
         'addons': json['addons'],
         'addonBonusEndsAt': json['addon_bonus_ends_at'] == null ? undefined : (new Date(json['addon_bonus_ends_at'])),
+        'extraMonthlyTokens': json['extra_monthly_tokens'] == null ? undefined : (0, ExtraMonthlyTokensOffer_1.ExtraMonthlyTokensOfferFromJSON)(json['extra_monthly_tokens']),
+        'saleOffers': json['sale_offers'] == null ? undefined : (json['sale_offers'].map(SaleOfferResponse_1.SaleOfferResponseFromJSON)),
     };
 }
 function GetPricesResponseToJSON(json) {
@@ -63,6 +67,8 @@ function GetPricesResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'subscriptions': value['subscriptions'],
         'addons': value['addons'],
         'addon_bonus_ends_at': value['addonBonusEndsAt'] == null ? undefined : (value['addonBonusEndsAt'].toISOString()),
+        'extra_monthly_tokens': (0, ExtraMonthlyTokensOffer_1.ExtraMonthlyTokensOfferToJSON)(value['extraMonthlyTokens']),
+        'sale_offers': value['saleOffers'] == null ? undefined : (value['saleOffers'].map(SaleOfferResponse_1.SaleOfferResponseToJSON)),
     };
 }
 //# sourceMappingURL=GetPricesResponse.js.map

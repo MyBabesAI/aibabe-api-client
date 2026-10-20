@@ -41,6 +41,8 @@ function PostCheckoutSessionRequestFromJSONTyped(json, ignoreDiscriminator) {
         'planId': json['plan_id'],
         'successUrl': json['success_url'],
         'declinedUrl': json['declined_url'],
+        'extraMonthlyTokens': json['extra_monthly_tokens'] == null ? undefined : json['extra_monthly_tokens'],
+        'saleOfferId': json['sale_offer_id'] == null ? undefined : json['sale_offer_id'],
     };
 }
 function PostCheckoutSessionRequestToJSON(json) {
@@ -54,6 +56,8 @@ function PostCheckoutSessionRequestToJSONTyped(value, ignoreDiscriminator = fals
         'plan_id': value['planId'],
         'success_url': value['successUrl'],
         'declined_url': value['declinedUrl'],
+        'extra_monthly_tokens': value['extraMonthlyTokens'],
+        'sale_offer_id': value['saleOfferId'],
     };
 }
 //# sourceMappingURL=PostCheckoutSessionRequest.js.map

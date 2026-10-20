@@ -20,6 +20,13 @@ import {
     AddonProductPriceToJSON,
     AddonProductPriceToJSONTyped,
 } from './AddonProductPrice';
+import type { SaleOfferResponse } from './SaleOfferResponse';
+import {
+    SaleOfferResponseFromJSON,
+    SaleOfferResponseFromJSONTyped,
+    SaleOfferResponseToJSON,
+    SaleOfferResponseToJSONTyped,
+} from './SaleOfferResponse';
 import type { SubscriptionPlanPrice } from './SubscriptionPlanPrice';
 import {
     SubscriptionPlanPriceFromJSON,
@@ -41,6 +48,13 @@ import {
     PaymentCurrencyToJSON,
     PaymentCurrencyToJSONTyped,
 } from './PaymentCurrency';
+import type { ExtraMonthlyTokensOffer } from './ExtraMonthlyTokensOffer';
+import {
+    ExtraMonthlyTokensOfferFromJSON,
+    ExtraMonthlyTokensOfferFromJSONTyped,
+    ExtraMonthlyTokensOfferToJSON,
+    ExtraMonthlyTokensOfferToJSONTyped,
+} from './ExtraMonthlyTokensOffer';
 
 /**
  * 
@@ -78,6 +92,18 @@ export interface GetPricesResponse {
      * @memberof GetPricesResponse
      */
     addonBonusEndsAt?: Date | null;
+    /**
+     * 
+     * @type {ExtraMonthlyTokensOffer}
+     * @memberof GetPricesResponse
+     */
+    extraMonthlyTokens?: ExtraMonthlyTokensOffer | null;
+    /**
+     * 
+     * @type {Array<SaleOfferResponse>}
+     * @memberof GetPricesResponse
+     */
+    saleOffers?: Array<SaleOfferResponse>;
 }
 
 
@@ -108,6 +134,8 @@ export function GetPricesResponseFromJSONTyped(json: any, ignoreDiscriminator: b
         'subscriptions': json['subscriptions'],
         'addons': json['addons'],
         'addonBonusEndsAt': json['addon_bonus_ends_at'] == null ? undefined : (new Date(json['addon_bonus_ends_at'])),
+        'extraMonthlyTokens': json['extra_monthly_tokens'] == null ? undefined : ExtraMonthlyTokensOfferFromJSON(json['extra_monthly_tokens']),
+        'saleOffers': json['sale_offers'] == null ? undefined : ((json['sale_offers'] as Array<any>).map(SaleOfferResponseFromJSON)),
     };
 }
 
@@ -127,6 +155,8 @@ export function GetPricesResponseFromJSONTyped(json: any, ignoreDiscriminator: b
         'subscriptions': value['subscriptions'],
         'addons': value['addons'],
         'addon_bonus_ends_at': value['addonBonusEndsAt'] == null ? undefined : ((value['addonBonusEndsAt'] as any).toISOString()),
+        'extra_monthly_tokens': ExtraMonthlyTokensOfferToJSON(value['extraMonthlyTokens']),
+        'sale_offers': value['saleOffers'] == null ? undefined : ((value['saleOffers'] as Array<any>).map(SaleOfferResponseToJSON)),
     };
 }
 

@@ -76,6 +76,7 @@ function UserInfoResponseFromJSONTyped(json, ignoreDiscriminator) {
         'subscription': (0, Subscription_1.SubscriptionFromJSON)(json['subscription']),
         'preferenceProfile': json['preference_profile'] == null ? undefined : (0, UserPreferenceProfile_1.UserPreferenceProfileFromJSON)(json['preference_profile']),
         'ageVerificationPending': json['age_verification_pending'] == null ? undefined : json['age_verification_pending'],
+        'subscriptionResumable': json['subscription_resumable'] == null ? undefined : json['subscription_resumable'],
     };
 }
 function UserInfoResponseToJSON(json) {
@@ -101,6 +102,7 @@ function UserInfoResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'subscription': (0, Subscription_1.SubscriptionToJSON)(value['subscription']),
         'preference_profile': (0, UserPreferenceProfile_1.UserPreferenceProfileToJSON)(value['preferenceProfile']),
         'age_verification_pending': value['ageVerificationPending'],
+        'subscription_resumable': value['subscriptionResumable'],
     };
 }
 //# sourceMappingURL=UserInfoResponse.js.map

@@ -40,6 +40,7 @@ export const TokenTransactionReason = {
     SocialFollowBonus: 'social_follow_bonus',
     DailyLoginBonus: 'daily_login_bonus',
     AdminAdjustment: 'admin_adjustment',
+    SaleOfferBonus: 'sale_offer_bonus',
     OpeningBalance: 'opening_balance'
 } as const;
 export type TokenTransactionReason = typeof TokenTransactionReason[keyof typeof TokenTransactionReason];

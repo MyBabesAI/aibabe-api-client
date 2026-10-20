@@ -10,9 +10,12 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BillingReconciliationResponse, CancelSubscriptionRequest, GetPricesResponse, PostAcceptOfferRequest, PostAcceptOfferResponse, PostCheckoutResponse, PostCheckoutSessionRequest, RedeemGiftCodeRequest, RedeemGiftCodeResponse, TokenReconciliationResponse } from '../models/index';
+import type { BillingReconciliationResponse, CancelSubscriptionRequest, GetPricesResponse, GetSaleOffersResponse, PostAcceptOfferRequest, PostAcceptOfferResponse, PostCheckoutResponse, PostCheckoutSessionRequest, PostFastForwardSubscriptionRequest, PostFastForwardSubscriptionResponse, PostResumeSubscriptionResponse, PostSaleOfferEventRequest, PutAdminSaleOfferRequest, RedeemGiftCodeRequest, RedeemGiftCodeResponse, SaleOfferResponse, TokenReconciliationResponse } from '../models/index';
 export interface AcceptOfferSubscriptionOfferAcceptPostRequest {
     postAcceptOfferRequest: PostAcceptOfferRequest;
+}
+export interface AcceptSaleOfferSubscriptionOffersOfferIdAcceptPostRequest {
+    offerId: string;
 }
 export interface CallbackAddonSubscriptionAddonsCallbackSuccessGetRequest {
     txnRef: string;
@@ -32,6 +35,18 @@ export interface CheckoutAddonSubscriptionCheckoutAddonPostRequest {
 export interface CheckoutSubscriptionCheckoutPostRequest {
     postCheckoutSessionRequest: PostCheckoutSessionRequest;
 }
+export interface DeclineSaleOfferSubscriptionOffersOfferIdDeclinePostRequest {
+    offerId: string;
+}
+export interface FastForwardSubscriptionSubscriptionAdminFastForwardPostRequest {
+    postFastForwardSubscriptionRequest: PostFastForwardSubscriptionRequest;
+}
+export interface ForceSaleOfferSubscriptionOffersAdminPutRequest {
+    putAdminSaleOfferRequest: PutAdminSaleOfferRequest;
+}
+export interface PauseSubscriptionPausePatchRequest {
+    cancelSubscriptionRequest: CancelSubscriptionRequest;
+}
 export interface RapydCallbackDeclinedSubscriptionRapydCallbackDeclinedGetRequest {
     txnRef?: string | null;
     merchantReferenceId?: string | null;
@@ -49,6 +64,9 @@ export interface ReconcileTokensSubscriptionReconcileTokensPostRequest {
 export interface RedeemCodeSubscriptionGiftCodeRedeeemPostRequest {
     redeemGiftCodeRequest: RedeemGiftCodeRequest;
 }
+export interface SaleOfferEventSubscriptionOffersEventsPostRequest {
+    postSaleOfferEventRequest: PostSaleOfferEventRequest;
+}
 /**
  *
  */
@@ -61,6 +79,16 @@ export declare class SubscriptionsApi extends runtime.BaseAPI {
      * Accept Offer
      */
     acceptOfferSubscriptionOfferAcceptPost(requestParameters: AcceptOfferSubscriptionOfferAcceptPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAcceptOfferResponse>;
+    /**
+     * Take a retention discount: the subscription stays on and the next payment is charged at the discount.
+     * Accept Sale Offer
+     */
+    acceptSaleOfferSubscriptionOffersOfferIdAcceptPostRaw(requestParameters: AcceptSaleOfferSubscriptionOffersOfferIdAcceptPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SaleOfferResponse>>;
+    /**
+     * Take a retention discount: the subscription stays on and the next payment is charged at the discount.
+     * Accept Sale Offer
+     */
+    acceptSaleOfferSubscriptionOffersOfferIdAcceptPost(requestParameters: AcceptSaleOfferSubscriptionOffersOfferIdAcceptPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SaleOfferResponse>;
     /**
      * Callback Addon
      */
@@ -110,6 +138,34 @@ export declare class SubscriptionsApi extends runtime.BaseAPI {
      */
     checkoutSubscriptionCheckoutPost(requestParameters: CheckoutSubscriptionCheckoutPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostCheckoutResponse>;
     /**
+     * Decline Sale Offer
+     */
+    declineSaleOfferSubscriptionOffersOfferIdDeclinePostRaw(requestParameters: DeclineSaleOfferSubscriptionOffersOfferIdDeclinePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SaleOfferResponse>>;
+    /**
+     * Decline Sale Offer
+     */
+    declineSaleOfferSubscriptionOffersOfferIdDeclinePost(requestParameters: DeclineSaleOfferSubscriptionOffersOfferIdDeclinePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SaleOfferResponse>;
+    /**
+     * Admins only, own account only: move the subscription to one minute before its rebill or its next mid-period token renewal, to test either.
+     * Fast Forward Subscription
+     */
+    fastForwardSubscriptionSubscriptionAdminFastForwardPostRaw(requestParameters: FastForwardSubscriptionSubscriptionAdminFastForwardPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostFastForwardSubscriptionResponse>>;
+    /**
+     * Admins only, own account only: move the subscription to one minute before its rebill or its next mid-period token renewal, to test either.
+     * Fast Forward Subscription
+     */
+    fastForwardSubscriptionSubscriptionAdminFastForwardPost(requestParameters: FastForwardSubscriptionSubscriptionAdminFastForwardPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostFastForwardSubscriptionResponse>;
+    /**
+     * Admins only, own account only: force one offer open (or clear all) to test the upsell flows.
+     * Force Sale Offer
+     */
+    forceSaleOfferSubscriptionOffersAdminPutRaw(requestParameters: ForceSaleOfferSubscriptionOffersAdminPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSaleOffersResponse>>;
+    /**
+     * Admins only, own account only: force one offer open (or clear all) to test the upsell flows.
+     * Force Sale Offer
+     */
+    forceSaleOfferSubscriptionOffersAdminPut(requestParameters: ForceSaleOfferSubscriptionOffersAdminPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSaleOffersResponse>;
+    /**
      * Get Prices
      */
     getPricesSubscriptionPricesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPricesResponse>>;
@@ -117,6 +173,16 @@ export declare class SubscriptionsApi extends runtime.BaseAPI {
      * Get Prices
      */
     getPricesSubscriptionPricesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPricesResponse>;
+    /**
+     * Rapyd only: stop rebilling at the end of the paid period while keeping the subscription resumable.
+     * Pause
+     */
+    pauseSubscriptionPausePatchRaw(requestParameters: PauseSubscriptionPausePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Rapyd only: stop rebilling at the end of the paid period while keeping the subscription resumable.
+     * Pause
+     */
+    pauseSubscriptionPausePatch(requestParameters: PauseSubscriptionPausePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Rapyd Callback Declined
      */
@@ -157,5 +223,35 @@ export declare class SubscriptionsApi extends runtime.BaseAPI {
      * Redeem Code
      */
     redeemCodeSubscriptionGiftCodeRedeeemPost(requestParameters: RedeemCodeSubscriptionGiftCodeRedeeemPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RedeemGiftCodeResponse>;
+    /**
+     * Rapyd only: switch a paused subscription back on, or charge the saved card to restart an expired one.
+     * Resume
+     */
+    resumeSubscriptionResumePostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostResumeSubscriptionResponse>>;
+    /**
+     * Rapyd only: switch a paused subscription back on, or charge the saved card to restart an expired one.
+     * Resume
+     */
+    resumeSubscriptionResumePost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostResumeSubscriptionResponse>;
+    /**
+     * A moment that can open an offer (leaving the pricing page, starting a pause); returns the open offers.
+     * Sale Offer Event
+     */
+    saleOfferEventSubscriptionOffersEventsPostRaw(requestParameters: SaleOfferEventSubscriptionOffersEventsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSaleOffersResponse>>;
+    /**
+     * A moment that can open an offer (leaving the pricing page, starting a pause); returns the open offers.
+     * Sale Offer Event
+     */
+    saleOfferEventSubscriptionOffersEventsPost(requestParameters: SaleOfferEventSubscriptionOffersEventsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSaleOffersResponse>;
+    /**
+     * The viewer\'s open upsells (Rapyd users), opening any balance-triggered one that is due.
+     * Sale Offers
+     */
+    saleOffersSubscriptionOffersGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetSaleOffersResponse>>;
+    /**
+     * The viewer\'s open upsells (Rapyd users), opening any balance-triggered one that is due.
+     * Sale Offers
+     */
+    saleOffersSubscriptionOffersGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetSaleOffersResponse>;
 }
 //# sourceMappingURL=SubscriptionsApi.d.ts.map

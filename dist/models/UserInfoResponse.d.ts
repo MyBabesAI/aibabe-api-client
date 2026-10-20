@@ -110,6 +110,12 @@ export interface UserInfoResponse {
      * @memberof UserInfoResponse
      */
     ageVerificationPending?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UserInfoResponse
+     */
+    subscriptionResumable?: boolean;
 }
 /**
  * Check if a given object implements the UserInfoResponse interface.

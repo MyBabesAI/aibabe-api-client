@@ -270,6 +270,29 @@ class UserApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Admins only, own account only: the flags set on the account, to test flag-dependent flows.
+     * Get Own Feature Flags
+     */
+    async getOwnFeatureFlagsUserFeatureFlagsGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/user/feature-flags`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminFeatureFlagsResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Admins only, own account only: the flags set on the account, to test flag-dependent flows.
+     * Get Own Feature Flags
+     */
+    async getOwnFeatureFlagsUserFeatureFlagsGet(initOverrides) {
+        const response = await this.getOwnFeatureFlagsUserFeatureFlagsGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Preferences
      */
     async getPreferencesUserPreferencesGetRaw(initOverrides) {
@@ -535,6 +558,34 @@ class UserApi extends runtime.BaseAPI {
      */
     async preferenceTaxonomyUserPreferencesTaxonomyGet(initOverrides) {
         const response = await this.preferenceTaxonomyUserPreferencesTaxonomyGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
+     * Admins only, own account only: replace the account\'s flags with the given set.
+     * Put Own Feature Flags
+     */
+    async putOwnFeatureFlagsUserFeatureFlagsPutRaw(requestParameters, initOverrides) {
+        if (requestParameters['putAdminFeatureFlagsRequest'] == null) {
+            throw new runtime.RequiredError('putAdminFeatureFlagsRequest', 'Required parameter "putAdminFeatureFlagsRequest" was null or undefined when calling putOwnFeatureFlagsUserFeatureFlagsPut().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/user/feature-flags`,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PutAdminFeatureFlagsRequestToJSON)(requestParameters['putAdminFeatureFlagsRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminFeatureFlagsResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Admins only, own account only: replace the account\'s flags with the given set.
+     * Put Own Feature Flags
+     */
+    async putOwnFeatureFlagsUserFeatureFlagsPut(requestParameters, initOverrides) {
+        const response = await this.putOwnFeatureFlagsUserFeatureFlagsPutRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
