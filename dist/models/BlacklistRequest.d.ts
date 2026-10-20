@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { BlacklistReason } from './BlacklistReason';
+import type { BlacklistMode } from './BlacklistMode';
 /**
  *
  * @export
@@ -28,6 +29,12 @@ export interface BlacklistRequest {
      * @memberof BlacklistRequest
      */
     message?: string | null;
+    /**
+     *
+     * @type {BlacklistMode}
+     * @memberof BlacklistRequest
+     */
+    mode?: BlacklistMode;
 }
 /**
  * Check if a given object implements the BlacklistRequest interface.

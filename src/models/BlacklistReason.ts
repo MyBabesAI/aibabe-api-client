@@ -29,6 +29,7 @@ export const BlacklistReason = {
     Illicit: 'illicit',
     Harassment: 'harassment',
     RealPerson: 'real_person',
+    Deepfake: 'deepfake',
     Copyright: 'copyright',
     Spam: 'spam',
     Other: 'other'

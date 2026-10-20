@@ -94,6 +94,18 @@ export interface UserBadge {
      * @memberof UserBadge
      */
     status: UserBadgeStatus;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UserBadge
+     */
+    equippable: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UserBadge
+     */
+    awardPending: boolean;
 }
 
 
@@ -112,6 +124,8 @@ export function instanceOfUserBadge(value: object): value is UserBadge {
     if (!('tokenPrice' in value) || value['tokenPrice'] === undefined) return false;
     if (!('tokenAward' in value) || value['tokenAward'] === undefined) return false;
     if (!('status' in value) || value['status'] === undefined) return false;
+    if (!('equippable' in value) || value['equippable'] === undefined) return false;
+    if (!('awardPending' in value) || value['awardPending'] === undefined) return false;
     return true;
 }
 
@@ -135,6 +149,8 @@ export function UserBadgeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'tokenPrice': json['token_price'],
         'tokenAward': json['token_award'],
         'status': UserBadgeStatusFromJSON(json['status']),
+        'equippable': json['equippable'],
+        'awardPending': json['award_pending'],
     };
 }
 
@@ -159,6 +175,8 @@ export function UserBadgeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'token_price': value['tokenPrice'],
         'token_award': value['tokenAward'],
         'status': UserBadgeStatusToJSON(value['status']),
+        'equippable': value['equippable'],
+        'award_pending': value['awardPending'],
     };
 }
 

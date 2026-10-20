@@ -25,6 +25,7 @@ const FurryVisualType_1 = require("./FurryVisualType");
 const RoleplayType_1 = require("./RoleplayType");
 const VisualType_1 = require("./VisualType");
 const Gender_1 = require("./Gender");
+const PenisSize_1 = require("./PenisSize");
 const SeduceDifficulty_1 = require("./SeduceDifficulty");
 const AvatarLooksV2_1 = require("./AvatarLooksV2");
 const Ethnicity_1 = require("./Ethnicity");
@@ -68,6 +69,7 @@ function PostCustomChatbotV2PayloadFromJSONTyped(json, ignoreDiscriminator) {
         'fantasyRace': json['fantasy_race'] == null ? undefined : (0, FantasyRace_1.FantasyRaceFromJSON)(json['fantasy_race']),
         'visualType': json['visual_type'] == null ? undefined : (0, VisualType_1.VisualTypeFromJSON)(json['visual_type']),
         'furryVisualType': json['furry_visual_type'] == null ? undefined : (0, FurryVisualType_1.FurryVisualTypeFromJSON)(json['furry_visual_type']),
+        'penisSize': json['penis_size'] == null ? undefined : (0, PenisSize_1.PenisSizeFromJSON)(json['penis_size']),
         'roleplayType': json['roleplay_type'] == null ? undefined : (0, RoleplayType_1.RoleplayTypeFromJSON)(json['roleplay_type']),
         'theme': json['theme'] == null ? undefined : (0, CustomChatbotTheme_1.CustomChatbotThemeFromJSON)(json['theme']),
         'looks': (0, AvatarLooksV2_1.AvatarLooksV2FromJSON)(json['looks']),
@@ -97,6 +99,7 @@ function PostCustomChatbotV2PayloadToJSONTyped(value, ignoreDiscriminator = fals
         'fantasy_race': (0, FantasyRace_1.FantasyRaceToJSON)(value['fantasyRace']),
         'visual_type': (0, VisualType_1.VisualTypeToJSON)(value['visualType']),
         'furry_visual_type': (0, FurryVisualType_1.FurryVisualTypeToJSON)(value['furryVisualType']),
+        'penis_size': (0, PenisSize_1.PenisSizeToJSON)(value['penisSize']),
         'roleplay_type': (0, RoleplayType_1.RoleplayTypeToJSON)(value['roleplayType']),
         'theme': (0, CustomChatbotTheme_1.CustomChatbotThemeToJSON)(value['theme']),
         'looks': (0, AvatarLooksV2_1.AvatarLooksV2ToJSON)(value['looks']),

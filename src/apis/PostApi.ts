@@ -17,14 +17,13 @@ import * as runtime from '../runtime';
 import type {
   BlacklistRequest,
   BlacklistResponse,
+  ContentType,
   GetDetailedPostsResponse,
-  GetPostsResponse,
   HTTPValidationError,
   PatchPostTitleRequest,
   PostCategoryValues,
   PostPublishResponse,
   PostReportRequest,
-  PostSearchRequest,
   PostShareGetTagsRequest,
   PostSharePublishRequest,
   PostShareTagsResponse,
@@ -35,10 +34,10 @@ import {
     BlacklistRequestToJSON,
     BlacklistResponseFromJSON,
     BlacklistResponseToJSON,
+    ContentTypeFromJSON,
+    ContentTypeToJSON,
     GetDetailedPostsResponseFromJSON,
     GetDetailedPostsResponseToJSON,
-    GetPostsResponseFromJSON,
-    GetPostsResponseToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
     PatchPostTitleRequestFromJSON,
@@ -49,8 +48,6 @@ import {
     PostPublishResponseToJSON,
     PostReportRequestFromJSON,
     PostReportRequestToJSON,
-    PostSearchRequestFromJSON,
-    PostSearchRequestToJSON,
     PostShareGetTagsRequestFromJSON,
     PostShareGetTagsRequestToJSON,
     PostSharePublishRequestFromJSON,
@@ -117,13 +114,15 @@ export interface PatchPostTitlePostPostIdTitlePatchRequest {
     patchPostTitleRequest: PatchPostTitleRequest;
 }
 
-export interface ReportPostPostPostIdReportPostRequest {
-    postId: string;
+export interface ReportContentPostReportContentTypeContentIdPostRequest {
+    contentType: ContentType;
+    contentId: string;
     postReportRequest: PostReportRequest;
 }
 
-export interface SearchPostsPostSearchPostRequest {
-    postSearchRequest: PostSearchRequest;
+export interface ReportPostPostPostIdReportPostRequest {
+    postId: string;
+    postReportRequest: PostReportRequest;
 }
 
 export interface SharePostShareContentIdPublishPostRequest {
@@ -611,6 +610,62 @@ export class PostApi extends runtime.BaseAPI {
     }
 
     /**
+     * Reports content shown without a post (a story or adventure page, a babe).
+     * Report Content
+     */
+    async reportContentPostReportContentTypeContentIdPostRaw(requestParameters: ReportContentPostReportContentTypeContentIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['contentType'] == null) {
+            throw new runtime.RequiredError(
+                'contentType',
+                'Required parameter "contentType" was null or undefined when calling reportContentPostReportContentTypeContentIdPost().'
+            );
+        }
+
+        if (requestParameters['contentId'] == null) {
+            throw new runtime.RequiredError(
+                'contentId',
+                'Required parameter "contentId" was null or undefined when calling reportContentPostReportContentTypeContentIdPost().'
+            );
+        }
+
+        if (requestParameters['postReportRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postReportRequest',
+                'Required parameter "postReportRequest" was null or undefined when calling reportContentPostReportContentTypeContentIdPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/post/report/{content_type}/{content_id}`.replace(`{${"content_type"}}`, encodeURIComponent(String(requestParameters['contentType']))).replace(`{${"content_id"}}`, encodeURIComponent(String(requestParameters['contentId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostReportRequestToJSON(requestParameters['postReportRequest']),
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Reports content shown without a post (a story or adventure page, a babe).
+     * Report Content
+     */
+    async reportContentPostReportContentTypeContentIdPost(requestParameters: ReportContentPostReportContentTypeContentIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.reportContentPostReportContentTypeContentIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Report Post
      */
     async reportPostPostPostIdReportPostRaw(requestParameters: ReportPostPostPostIdReportPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -654,42 +709,6 @@ export class PostApi extends runtime.BaseAPI {
      */
     async reportPostPostPostIdReportPost(requestParameters: ReportPostPostPostIdReportPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.reportPostPostPostIdReportPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Search Posts
-     */
-    async searchPostsPostSearchPostRaw(requestParameters: SearchPostsPostSearchPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetPostsResponse>> {
-        if (requestParameters['postSearchRequest'] == null) {
-            throw new runtime.RequiredError(
-                'postSearchRequest',
-                'Required parameter "postSearchRequest" was null or undefined when calling searchPostsPostSearchPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/post/search/`,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: PostSearchRequestToJSON(requestParameters['postSearchRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetPostsResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Search Posts
-     */
-    async searchPostsPostSearchPost(requestParameters: SearchPostsPostSearchPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetPostsResponse> {
-        const response = await this.searchPostsPostSearchPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

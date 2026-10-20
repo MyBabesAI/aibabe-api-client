@@ -44,6 +44,10 @@ function instanceOfUserBadge(value) {
         return false;
     if (!('status' in value) || value['status'] === undefined)
         return false;
+    if (!('equippable' in value) || value['equippable'] === undefined)
+        return false;
+    if (!('awardPending' in value) || value['awardPending'] === undefined)
+        return false;
     return true;
 }
 function UserBadgeFromJSON(json) {
@@ -64,6 +68,8 @@ function UserBadgeFromJSONTyped(json, ignoreDiscriminator) {
         'tokenPrice': json['token_price'],
         'tokenAward': json['token_award'],
         'status': (0, UserBadgeStatus_1.UserBadgeStatusFromJSON)(json['status']),
+        'equippable': json['equippable'],
+        'awardPending': json['award_pending'],
     };
 }
 function UserBadgeToJSON(json) {
@@ -84,6 +90,8 @@ function UserBadgeToJSONTyped(value, ignoreDiscriminator = false) {
         'token_price': value['tokenPrice'],
         'token_award': value['tokenAward'],
         'status': (0, UserBadgeStatus_1.UserBadgeStatusToJSON)(value['status']),
+        'equippable': value['equippable'],
+        'award_pending': value['awardPending'],
     };
 }
 //# sourceMappingURL=UserBadge.js.map

@@ -77,6 +77,18 @@ export interface UserBadge {
      * @memberof UserBadge
      */
     status: UserBadgeStatus;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UserBadge
+     */
+    equippable: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof UserBadge
+     */
+    awardPending: boolean;
 }
 /**
  * Check if a given object implements the UserBadge interface.

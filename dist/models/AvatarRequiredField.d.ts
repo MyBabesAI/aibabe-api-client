@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ReviewCharacterFieldStatus } from './ReviewCharacterFieldStatus';
+import type { ModerationReason } from './ModerationReason';
 import type { AvatarFieldValue } from './AvatarFieldValue';
 /**
  *
@@ -29,6 +30,12 @@ export interface AvatarRequiredField {
      * @memberof AvatarRequiredField
      */
     status: ReviewCharacterFieldStatus;
+    /**
+     *
+     * @type {ModerationReason}
+     * @memberof AvatarRequiredField
+     */
+    reason?: ModerationReason | null;
     /**
      *
      * @type {boolean}

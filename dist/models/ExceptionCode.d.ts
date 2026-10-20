@@ -75,6 +75,8 @@ export declare const ExceptionCode: {
     readonly AboutUserModerationException: "about_user_moderation_exception";
     readonly MessageModerationFlagged: "message_moderation_flagged";
     readonly ContentBlacklisted: "content_blacklisted";
+    readonly ChatbotBlacklisted: "chatbot_blacklisted";
+    readonly BlacklistModeUnsupported: "blacklist_mode_unsupported";
     readonly PinnedMemoryCharLimitExceeded: "pinned_memory_char_limit_exceeded";
     readonly TokensInsufficient: "tokens_insufficient";
     readonly TokensInvalidAmount: "tokens_invalid_amount";
@@ -87,6 +89,7 @@ export declare const ExceptionCode: {
     readonly BadgeNotManuallyProvided: "badge_not_manually_provided";
     readonly BadgeMustBeManuallyProvided: "badge_must_be_manually_provided";
     readonly BadgeNotUsable: "badge_not_usable";
+    readonly BadgeRequiresPurchase: "badge_requires_purchase";
     readonly BadgeNotClaimed: "badge_not_claimed";
     readonly BadgeAlreadyClaimed: "badge_already_claimed";
     readonly BadgeRequirementNotMet: "badge_requirement_not_met";
@@ -108,7 +111,6 @@ export declare const ExceptionCode: {
     readonly EventTagInvalid: "event_tag_invalid";
     readonly EventInvalidTime: "event_invalid_time";
     readonly EventResultInvalidSubmission: "event_result_invalid_submission";
-    readonly EventWinnersWithoutEvent: "event_winners_without_event";
     readonly PricingConfigurationConflict: "pricing_configuration_conflict";
     readonly PricingGroupRevisionNotFound: "pricing_group_revision_not_found";
     readonly PricingGroupRevisionNotDraft: "pricing_group_revision_not_draft";
