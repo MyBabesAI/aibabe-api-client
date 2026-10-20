@@ -10,9 +10,11 @@
  * Do not edit the class manually.
  */
 import type { AddonProductPrice } from './AddonProductPrice';
+import type { SaleOfferResponse } from './SaleOfferResponse';
 import type { SubscriptionPlanPrice } from './SubscriptionPlanPrice';
 import type { SubscriptionTokenUsage } from './SubscriptionTokenUsage';
 import type { PaymentCurrency } from './PaymentCurrency';
+import type { ExtraMonthlyTokensOffer } from './ExtraMonthlyTokensOffer';
 /**
  *
  * @export
@@ -55,6 +57,18 @@ export interface GetPricesResponse {
      * @memberof GetPricesResponse
      */
     addonBonusEndsAt?: Date | null;
+    /**
+     *
+     * @type {ExtraMonthlyTokensOffer}
+     * @memberof GetPricesResponse
+     */
+    extraMonthlyTokens?: ExtraMonthlyTokensOffer | null;
+    /**
+     *
+     * @type {Array<SaleOfferResponse>}
+     * @memberof GetPricesResponse
+     */
+    saleOffers?: Array<SaleOfferResponse>;
 }
 /**
  * Check if a given object implements the GetPricesResponse interface.

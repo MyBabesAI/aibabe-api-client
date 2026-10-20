@@ -33,6 +33,18 @@ export interface PostCheckoutSessionRequest {
      * @memberof PostCheckoutSessionRequest
      */
     declinedUrl: string;
+    /**
+     *
+     * @type {number}
+     * @memberof PostCheckoutSessionRequest
+     */
+    extraMonthlyTokens?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof PostCheckoutSessionRequest
+     */
+    saleOfferId?: string | null;
 }
 /**
  * Check if a given object implements the PostCheckoutSessionRequest interface.

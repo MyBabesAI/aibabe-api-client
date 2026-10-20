@@ -151,6 +151,36 @@ export interface Subscription {
      * @memberof Subscription
      */
     tier: SubscriptionTier;
+    /**
+     * 
+     * @type {number}
+     * @memberof Subscription
+     */
+    extraMonthlyTokens?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Subscription
+     */
+    extraMonthlyPrice?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Subscription
+     */
+    carryoverRenewals?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Subscription
+     */
+    carryoverMonthlyTokens?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Subscription
+     */
+    nextGrantBonusTokens?: number;
 }
 
 
@@ -195,6 +225,11 @@ export function SubscriptionFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'renewalDate': (new Date(json['renewal_date'])),
         'monthlyTokens': json['monthly_tokens'] == null ? undefined : json['monthly_tokens'],
         'tier': SubscriptionTierFromJSON(json['tier']),
+        'extraMonthlyTokens': json['extra_monthly_tokens'] == null ? undefined : json['extra_monthly_tokens'],
+        'extraMonthlyPrice': json['extra_monthly_price'] == null ? undefined : json['extra_monthly_price'],
+        'carryoverRenewals': json['carryover_renewals'] == null ? undefined : json['carryover_renewals'],
+        'carryoverMonthlyTokens': json['carryover_monthly_tokens'] == null ? undefined : json['carryover_monthly_tokens'],
+        'nextGrantBonusTokens': json['next_grant_bonus_tokens'] == null ? undefined : json['next_grant_bonus_tokens'],
     };
 }
 
@@ -225,6 +260,11 @@ export function SubscriptionFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'renewal_date': ((value['renewalDate']).toISOString()),
         'monthly_tokens': value['monthlyTokens'],
         'tier': SubscriptionTierToJSON(value['tier']),
+        'extra_monthly_tokens': value['extraMonthlyTokens'],
+        'extra_monthly_price': value['extraMonthlyPrice'],
+        'carryover_renewals': value['carryoverRenewals'],
+        'carryover_monthly_tokens': value['carryoverMonthlyTokens'],
+        'next_grant_bonus_tokens': value['nextGrantBonusTokens'],
     };
 }
 
