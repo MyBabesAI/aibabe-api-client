@@ -26,7 +26,7 @@ export const SaleOfferCode = {
     LowBalanceBonusHighValue: 'low_balance_bonus_high_value',
     LowBalanceBonusNewPayer: 'low_balance_bonus_new_payer',
     FirstVisitSubscriptionBonus: 'first_visit_subscription_bonus',
-    UltraUpgradeDiscount: 'ultra_upgrade_discount'
+    UltraUpgradeBonus: 'ultra_upgrade_bonus'
 } as const;
 export type SaleOfferCode = typeof SaleOfferCode[keyof typeof SaleOfferCode];
 
