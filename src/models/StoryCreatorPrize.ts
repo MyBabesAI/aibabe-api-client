@@ -29,6 +29,12 @@ import {
 export interface StoryCreatorPrize {
     /**
      * 
+     * @type {string}
+     * @memberof StoryCreatorPrize
+     */
+    id: string;
+    /**
+     * 
      * @type {StoryPrizeKind}
      * @memberof StoryCreatorPrize
      */
@@ -44,13 +50,7 @@ export interface StoryCreatorPrize {
      * @type {string}
      * @memberof StoryCreatorPrize
      */
-    contentId: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StoryCreatorPrize
-     */
-    id: string;
+    contentId?: string | null;
     /**
      * 
      * @type {string}
@@ -74,10 +74,9 @@ export type StoryCreatorPrizeContentTypeEnum = typeof StoryCreatorPrizeContentTy
  * Check if a given object implements the StoryCreatorPrize interface.
  */
 export function instanceOfStoryCreatorPrize(value: object): value is StoryCreatorPrize {
+    if (!('id' in value) || value['id'] === undefined) return false;
     if (!('kind' in value) || value['kind'] === undefined) return false;
     if (!('contentType' in value) || value['contentType'] === undefined) return false;
-    if (!('contentId' in value) || value['contentId'] === undefined) return false;
-    if (!('id' in value) || value['id'] === undefined) return false;
     return true;
 }
 
@@ -91,10 +90,10 @@ export function StoryCreatorPrizeFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
+        'id': json['id'],
         'kind': StoryPrizeKindFromJSON(json['kind']),
         'contentType': json['content_type'],
-        'contentId': json['content_id'],
-        'id': json['id'],
+        'contentId': json['content_id'] == null ? undefined : json['content_id'],
         'url': json['url'] == null ? undefined : json['url'],
     };
 }
@@ -110,10 +109,10 @@ export function StoryCreatorPrizeFromJSONTyped(json: any, ignoreDiscriminator: b
 
     return {
         
+        'id': value['id'],
         'kind': StoryPrizeKindToJSON(value['kind']),
         'content_type': value['contentType'],
         'content_id': value['contentId'],
-        'id': value['id'],
         'url': value['url'],
     };
 }

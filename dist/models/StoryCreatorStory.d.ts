@@ -74,6 +74,12 @@ export interface StoryCreatorStory {
     id: string;
     /**
      *
+     * @type {boolean}
+     * @memberof StoryCreatorStory
+     */
+    locked?: boolean;
+    /**
+     *
      * @type {PublicUserPreviewWithFollow}
      * @memberof StoryCreatorStory
      */

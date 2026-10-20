@@ -34,7 +34,7 @@ export interface StoryPrizeItem {
      * @type {string}
      * @memberof StoryPrizeItem
      */
-    contentId: string;
+    contentId?: string | null;
     /**
      *
      * @type {string}

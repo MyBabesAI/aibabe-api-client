@@ -253,6 +253,9 @@ export declare const ExceptionCode: {
     readonly StoryAdminOnly: "story_admin_only";
     readonly StoryAssetNotFoundOrNotAuthorized: "story_asset_not_found_or_not_authorized";
     readonly StoryActorChatbotBlacklisted: "story_actor_chatbot_blacklisted";
+    readonly StoryLocked: "story_locked";
+    readonly StoryNotSubmittable: "story_not_submittable";
+    readonly PostEventSubmitted: "post_event_submitted";
     readonly PromotionNotFound: "promotion_not_found";
     readonly PromotionInvalidTime: "promotion_invalid_time";
     readonly PromotionCodeConflict: "promotion_code_conflict";

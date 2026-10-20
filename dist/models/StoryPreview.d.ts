@@ -78,6 +78,12 @@ export interface StoryPreview {
     progress?: UserEpisodeProgressType | null;
     /**
      *
+     * @type {boolean}
+     * @memberof StoryPreview
+     */
+    locked?: boolean;
+    /**
+     *
      * @type {StoryCoverOrientation}
      * @memberof StoryPreview
      */

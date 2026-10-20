@@ -26,8 +26,6 @@ const StoryPrizeKind_1 = require("./StoryPrizeKind");
 function instanceOfStoryPrizeItem(value) {
     if (!('contentType' in value) || value['contentType'] === undefined)
         return false;
-    if (!('contentId' in value) || value['contentId'] === undefined)
-        return false;
     if (!('url' in value) || value['url'] === undefined)
         return false;
     return true;
@@ -42,7 +40,7 @@ function StoryPrizeItemFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'kind': json['kind'] == null ? undefined : (0, StoryPrizeKind_1.StoryPrizeKindFromJSON)(json['kind']),
         'contentType': (0, ContentType_1.ContentTypeFromJSON)(json['content_type']),
-        'contentId': json['content_id'],
+        'contentId': json['content_id'] == null ? undefined : json['content_id'],
         'url': json['url'],
     };
 }

@@ -18,6 +18,12 @@ import type { StoryPrizeKind } from './StoryPrizeKind';
 export interface StoryCreatorPrize {
     /**
      *
+     * @type {string}
+     * @memberof StoryCreatorPrize
+     */
+    id: string;
+    /**
+     *
      * @type {StoryPrizeKind}
      * @memberof StoryCreatorPrize
      */
@@ -33,13 +39,7 @@ export interface StoryCreatorPrize {
      * @type {string}
      * @memberof StoryCreatorPrize
      */
-    contentId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StoryCreatorPrize
-     */
-    id: string;
+    contentId?: string | null;
     /**
      *
      * @type {string}

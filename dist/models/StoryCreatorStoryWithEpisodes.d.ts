@@ -75,6 +75,12 @@ export interface StoryCreatorStoryWithEpisodes {
     id: string;
     /**
      *
+     * @type {boolean}
+     * @memberof StoryCreatorStoryWithEpisodes
+     */
+    locked?: boolean;
+    /**
+     *
      * @type {PublicUserPreviewWithFollow}
      * @memberof StoryCreatorStoryWithEpisodes
      */

@@ -125,6 +125,12 @@ export interface StoryPreview {
     progress?: UserEpisodeProgressType | null;
     /**
      * 
+     * @type {boolean}
+     * @memberof StoryPreview
+     */
+    locked?: boolean;
+    /**
+     * 
      * @type {StoryCoverOrientation}
      * @memberof StoryPreview
      */
@@ -204,6 +210,7 @@ export function StoryPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'owner': json['owner'] == null ? undefined : PublicUserPreviewWithFollowFromJSON(json['owner']),
         'counts': StoryCountsFromJSON(json['counts']),
         'progress': json['progress'] == null ? undefined : UserEpisodeProgressTypeFromJSON(json['progress']),
+        'locked': json['locked'] == null ? undefined : json['locked'],
         'coverOrientation': json['cover_orientation'] == null ? undefined : StoryCoverOrientationFromJSON(json['cover_orientation']),
         'interactive': json['interactive'] == null ? undefined : json['interactive'],
         'difficulty': json['difficulty'] == null ? undefined : StoryChatDifficultyFromJSON(json['difficulty']),
@@ -235,6 +242,7 @@ export function StoryPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'owner': PublicUserPreviewWithFollowToJSON(value['owner']),
         'counts': StoryCountsToJSON(value['counts']),
         'progress': UserEpisodeProgressTypeToJSON(value['progress']),
+        'locked': value['locked'],
         'cover_orientation': StoryCoverOrientationToJSON(value['coverOrientation']),
         'interactive': value['interactive'],
         'difficulty': StoryChatDifficultyToJSON(value['difficulty']),

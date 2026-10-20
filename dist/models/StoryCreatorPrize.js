@@ -31,13 +31,11 @@ exports.StoryCreatorPrizeContentTypeEnum = {
  * Check if a given object implements the StoryCreatorPrize interface.
  */
 function instanceOfStoryCreatorPrize(value) {
+    if (!('id' in value) || value['id'] === undefined)
+        return false;
     if (!('kind' in value) || value['kind'] === undefined)
         return false;
     if (!('contentType' in value) || value['contentType'] === undefined)
-        return false;
-    if (!('contentId' in value) || value['contentId'] === undefined)
-        return false;
-    if (!('id' in value) || value['id'] === undefined)
         return false;
     return true;
 }
@@ -49,10 +47,10 @@ function StoryCreatorPrizeFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
+        'id': json['id'],
         'kind': (0, StoryPrizeKind_1.StoryPrizeKindFromJSON)(json['kind']),
         'contentType': json['content_type'],
-        'contentId': json['content_id'],
-        'id': json['id'],
+        'contentId': json['content_id'] == null ? undefined : json['content_id'],
         'url': json['url'] == null ? undefined : json['url'],
     };
 }
@@ -64,10 +62,10 @@ function StoryCreatorPrizeToJSONTyped(value, ignoreDiscriminator = false) {
         return value;
     }
     return {
+        'id': value['id'],
         'kind': (0, StoryPrizeKind_1.StoryPrizeKindToJSON)(value['kind']),
         'content_type': value['contentType'],
         'content_id': value['contentId'],
-        'id': value['id'],
         'url': value['url'],
     };
 }

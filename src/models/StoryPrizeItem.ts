@@ -51,7 +51,7 @@ export interface StoryPrizeItem {
      * @type {string}
      * @memberof StoryPrizeItem
      */
-    contentId: string;
+    contentId?: string | null;
     /**
      * 
      * @type {string}
@@ -67,7 +67,6 @@ export interface StoryPrizeItem {
  */
 export function instanceOfStoryPrizeItem(value: object): value is StoryPrizeItem {
     if (!('contentType' in value) || value['contentType'] === undefined) return false;
-    if (!('contentId' in value) || value['contentId'] === undefined) return false;
     if (!('url' in value) || value['url'] === undefined) return false;
     return true;
 }
@@ -84,7 +83,7 @@ export function StoryPrizeItemFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'kind': json['kind'] == null ? undefined : StoryPrizeKindFromJSON(json['kind']),
         'contentType': ContentTypeFromJSON(json['content_type']),
-        'contentId': json['content_id'],
+        'contentId': json['content_id'] == null ? undefined : json['content_id'],
         'url': json['url'],
     };
 }

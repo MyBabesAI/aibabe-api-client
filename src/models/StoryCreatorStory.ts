@@ -133,6 +133,12 @@ export interface StoryCreatorStory {
     id: string;
     /**
      * 
+     * @type {boolean}
+     * @memberof StoryCreatorStory
+     */
+    locked?: boolean;
+    /**
+     * 
      * @type {PublicUserPreviewWithFollow}
      * @memberof StoryCreatorStory
      */
@@ -248,6 +254,7 @@ export function StoryCreatorStoryFromJSONTyped(json: any, ignoreDiscriminator: b
         'recommendedLlm': json['recommended_llm'] == null ? undefined : LLMFromJSON(json['recommended_llm']),
         'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
         'id': json['id'],
+        'locked': json['locked'] == null ? undefined : json['locked'],
         'owner': PublicUserPreviewWithFollowFromJSON(json['owner']),
         'rating': json['rating'] == null ? undefined : StoryRatingFromJSON(json['rating']),
         'progress': json['progress'] == null ? undefined : UserEpisodeProgressTypeFromJSON(json['progress']),
@@ -284,6 +291,7 @@ export function StoryCreatorStoryFromJSONTyped(json: any, ignoreDiscriminator: b
         'recommended_llm': LLMToJSON(value['recommendedLlm']),
         'suggestions_enabled': value['suggestionsEnabled'],
         'id': value['id'],
+        'locked': value['locked'],
         'owner': PublicUserPreviewWithFollowToJSON(value['owner']),
         'rating': StoryRatingToJSON(value['rating']),
         'progress': UserEpisodeProgressTypeToJSON(value['progress']),
