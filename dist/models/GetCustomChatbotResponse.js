@@ -73,6 +73,8 @@ function GetCustomChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'origin': json['origin'] == null ? undefined : (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['origin']),
         'greeting': json['greeting'] == null ? undefined : json['greeting'],
         'chatDisabled': json['chat_disabled'] == null ? undefined : json['chat_disabled'],
+        'generationDisabled': json['generation_disabled'] == null ? undefined : json['generation_disabled'],
+        'remixDisabled': json['remix_disabled'] == null ? undefined : json['remix_disabled'],
     };
 }
 function GetCustomChatbotResponseToJSON(json) {
@@ -99,6 +101,8 @@ function GetCustomChatbotResponseToJSONTyped(value, ignoreDiscriminator = false)
         'origin': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['origin']),
         'greeting': value['greeting'],
         'chat_disabled': value['chatDisabled'],
+        'generation_disabled': value['generationDisabled'],
+        'remix_disabled': value['remixDisabled'],
     };
 }
 //# sourceMappingURL=GetCustomChatbotResponse.js.map
