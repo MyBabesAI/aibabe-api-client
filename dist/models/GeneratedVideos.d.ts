@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
 import type { BlacklistCard } from './BlacklistCard';
 import type { ChatbotPreview } from './ChatbotPreview';
 import type { PostDetails } from './PostDetails';
@@ -67,6 +68,12 @@ export interface GeneratedVideos {
      * @memberof GeneratedVideos
      */
     isOriginal?: boolean | null;
+    /**
+     *
+     * @type {PublicUserPreviewWithFollow}
+     * @memberof GeneratedVideos
+     */
+    owner?: PublicUserPreviewWithFollow | null;
     /**
      *
      * @type {string}

@@ -46,6 +46,7 @@ import type {
   GetQualityControlRequest,
   GiftCodeType,
   HTTPValidationError,
+  OwnerFilter,
   PostType,
   ScoreCategory,
   SetUserFeatureFlagsRequest,
@@ -120,6 +121,8 @@ import {
     GiftCodeTypeToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
+    OwnerFilterFromJSON,
+    OwnerFilterToJSON,
     PostTypeFromJSON,
     PostTypeToJSON,
     ScoreCategoryFromJSON,
@@ -197,6 +200,15 @@ export interface DownscaleAdminDownscalePostRequest {
 export interface GenerateCodesAdminGiftCodesGeneratePostRequest {
     count: number;
     codeType: GiftCodeType;
+}
+
+export interface GetChatbotPrivateMediaAdminGalleryChatbotChatbotIdGetRequest {
+    chatbotId: string;
+    ownerFilter?: OwnerFilter;
+    type?: PostType;
+    limit?: number;
+    paginationToken?: string | null;
+    sort?: SortFilter;
 }
 
 export interface GetModeratedImagesAdminModerationImagesGetRequest {
@@ -828,6 +840,61 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async generateCodesAdminGiftCodesGeneratePost(requestParameters: GenerateCodesAdminGiftCodesGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.generateCodesAdminGiftCodesGeneratePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * **Admin review: own = the admin\'s, babe_creator = the character\'s creator\'s, babe_community = everyone else\'s private pictures / videos of the character; items carry their owner**
+     * A character\'s unposted media, by who generated it
+     */
+    async getChatbotPrivateMediaAdminGalleryChatbotChatbotIdGetRaw(requestParameters: GetChatbotPrivateMediaAdminGalleryChatbotChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGalleryResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling getChatbotPrivateMediaAdminGalleryChatbotChatbotIdGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['ownerFilter'] != null) {
+            queryParameters['owner_filter'] = requestParameters['ownerFilter'];
+        }
+
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+
+        if (requestParameters['sort'] != null) {
+            queryParameters['sort'] = requestParameters['sort'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/admin/gallery/chatbot/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetGalleryResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * **Admin review: own = the admin\'s, babe_creator = the character\'s creator\'s, babe_community = everyone else\'s private pictures / videos of the character; items carry their owner**
+     * A character\'s unposted media, by who generated it
+     */
+    async getChatbotPrivateMediaAdminGalleryChatbotChatbotIdGet(requestParameters: GetChatbotPrivateMediaAdminGalleryChatbotChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGalleryResponse> {
+        const response = await this.getChatbotPrivateMediaAdminGalleryChatbotChatbotIdGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

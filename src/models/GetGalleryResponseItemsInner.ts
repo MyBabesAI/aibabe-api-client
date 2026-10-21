@@ -161,6 +161,12 @@ export interface GetGalleryResponseItemsInner {
     isOriginal?: boolean;
     /**
      * 
+     * @type {PublicUserPreviewWithFollow}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    owner?: PublicUserPreviewWithFollow;
+    /**
+     * 
      * @type {string}
      * @memberof GetGalleryResponseItemsInner
      */
@@ -219,12 +225,6 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     originalImageUrl: string;
-    /**
-     * 
-     * @type {PublicUserPreviewWithFollow}
-     * @memberof GetGalleryResponseItemsInner
-     */
-    owner?: PublicUserPreviewWithFollow;
     /**
      * 
      * @type {string}
@@ -315,6 +315,7 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'postDetails': json['post_details'] == null ? undefined : PostDetailsFromJSON(json['post_details']),
         'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
+        'owner': json['owner'] == null ? undefined : PublicUserPreviewWithFollowFromJSON(json['owner']),
         'eta': json['eta'],
         'status': VideoGenerationStatusFromJSON(json['status']),
         'generationId': json['generation_id'],
@@ -325,7 +326,6 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
-        'owner': json['owner'] == null ? undefined : PublicUserPreviewWithFollowFromJSON(json['owner']),
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
@@ -354,6 +354,7 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'post_details': PostDetailsToJSON(value['postDetails']),
         'is_original': value['isOriginal'],
+        'owner': PublicUserPreviewWithFollowToJSON(value['owner']),
         'eta': value['eta'],
         'status': VideoGenerationStatusToJSON(value['status']),
         'generation_id': value['generationId'],
@@ -364,7 +365,6 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
-        'owner': PublicUserPreviewWithFollowToJSON(value['owner']),
         'title': value['title'],
         'description': value['description'],
         'cover_image': value['coverImage'],
