@@ -46,6 +46,7 @@ exports.TokenTransactionReason = {
     SocialFollowBonus: 'social_follow_bonus',
     DailyLoginBonus: 'daily_login_bonus',
     AdminAdjustment: 'admin_adjustment',
+    BlacklistRefund: 'blacklist_refund',
     SaleOfferBonus: 'sale_offer_bonus',
     OpeningBalance: 'opening_balance'
 };

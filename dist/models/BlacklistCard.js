@@ -49,6 +49,7 @@ function BlacklistCardFromJSONTyped(json, ignoreDiscriminator) {
         'mode': json['mode'] == null ? undefined : (0, BlacklistMode_1.BlacklistModeFromJSON)(json['mode']),
         'targetType': (0, BlacklistTarget_1.BlacklistTargetFromJSON)(json['target_type']),
         'blacklistedAt': (new Date(json['blacklisted_at'])),
+        'tokensReturned': json['tokens_returned'] == null ? undefined : json['tokens_returned'],
     };
 }
 function BlacklistCardToJSON(json) {
@@ -66,6 +67,7 @@ function BlacklistCardToJSONTyped(value, ignoreDiscriminator = false) {
         'mode': (0, BlacklistMode_1.BlacklistModeToJSON)(value['mode']),
         'target_type': (0, BlacklistTarget_1.BlacklistTargetToJSON)(value['targetType']),
         'blacklisted_at': ((value['blacklistedAt']).toISOString()),
+        'tokens_returned': value['tokensReturned'],
     };
 }
 //# sourceMappingURL=BlacklistCard.js.map
