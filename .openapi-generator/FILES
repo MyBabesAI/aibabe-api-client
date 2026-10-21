@@ -47,6 +47,7 @@ src/models/AdminCreateTokenUsageRequest.ts
 src/models/AdminCreateTokenUsageRequestResolution.ts
 src/models/AdminFaceAgeEstimate.ts
 src/models/AdminFaceBox.ts
+src/models/AdminFeatureFlagsResponse.ts
 src/models/AdminModeratedImage.ts
 src/models/AdminModeratedImagesResponse.ts
 src/models/AdminPricingGroupResponse.ts
@@ -76,6 +77,7 @@ src/models/AvatarLooksV2.ts
 src/models/AvatarOptionalField.ts
 src/models/AvatarRequiredField.ts
 src/models/BadgeAwardedNotification.ts
+src/models/BadgeAwardsPaidNotification.ts
 src/models/BadgeCategory.ts
 src/models/BadgeModel.ts
 src/models/BadgeNotification.ts
@@ -166,7 +168,9 @@ src/models/ExploreOffsetSearchRequest.ts
 src/models/ExploreOffsetSearchResponse.ts
 src/models/ExploreSearchRequest.ts
 src/models/ExtendVideoPayload.ts
+src/models/ExtraMonthlyTokensOffer.ts
 src/models/FantasyRace.ts
+src/models/FastForwardTarget.ts
 src/models/FeatureFlagName.ts
 src/models/FeedGroupNotification.ts
 src/models/FixedDurationSeconds.ts
@@ -246,6 +250,7 @@ src/models/GetPublicLatestUpdateResponse.ts
 src/models/GetPublicUsersResponse.ts
 src/models/GetQualityControlImage.ts
 src/models/GetQualityControlRequest.ts
+src/models/GetSaleOffersResponse.ts
 src/models/GetVideoGenerationTagsResponse.ts
 src/models/GiftCodeType.ts
 src/models/HTTPValidationError.ts
@@ -352,6 +357,8 @@ src/models/PostDetails.ts
 src/models/PostDetailsWithDate.ts
 src/models/PostDonateRequest.ts
 src/models/PostDonateResponse.ts
+src/models/PostFastForwardSubscriptionRequest.ts
+src/models/PostFastForwardSubscriptionResponse.ts
 src/models/PostFollowUserRequest.ts
 src/models/PostGameAdventureAdminActionRequest.ts
 src/models/PostGameAdventureAdminActionResponse.ts
@@ -381,7 +388,8 @@ src/models/PostReportRequest.ts
 src/models/PostReportUserRequest.ts
 src/models/PostResendEmailRequest.ts
 src/models/PostRestartServersRequest.ts
-src/models/PostSearchRequest.ts
+src/models/PostResumeSubscriptionResponse.ts
+src/models/PostSaleOfferEventRequest.ts
 src/models/PostShareGetTagsRequest.ts
 src/models/PostSharePublishRequest.ts
 src/models/PostShareTagsResponse.ts
@@ -402,6 +410,8 @@ src/models/PromotionSummary.ts
 src/models/PublicUserInfo.ts
 src/models/PublicUserPreview.ts
 src/models/PublicUserPreviewWithFollow.ts
+src/models/PutAdminFeatureFlagsRequest.ts
+src/models/PutAdminSaleOfferRequest.ts
 src/models/PutFollowNotificationsRequest.ts
 src/models/PutPasswordRequest.ts
 src/models/PutPublicUserRequest.ts
@@ -414,6 +424,11 @@ src/models/RemainingFreeUsesResponse.ts
 src/models/ResponseGetWanTaskStatusVideoWanTaskTaskIdGet.ts
 src/models/ReviewCharacterFieldStatus.ts
 src/models/RoleplayType.ts
+src/models/SaleOfferCode.ts
+src/models/SaleOfferEvent.ts
+src/models/SaleOfferProductPrice.ts
+src/models/SaleOfferResponse.ts
+src/models/SaleOfferStatus.ts
 src/models/ScoreCategory.ts
 src/models/ScoreTimePeriods.ts
 src/models/ScoreType.ts

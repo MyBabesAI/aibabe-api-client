@@ -111,7 +111,6 @@ export declare const ExceptionCode: {
     readonly EventTagInvalid: "event_tag_invalid";
     readonly EventInvalidTime: "event_invalid_time";
     readonly EventResultInvalidSubmission: "event_result_invalid_submission";
-    readonly EventWinnersWithoutEvent: "event_winners_without_event";
     readonly PricingConfigurationConflict: "pricing_configuration_conflict";
     readonly PricingGroupRevisionNotFound: "pricing_group_revision_not_found";
     readonly PricingGroupRevisionNotDraft: "pricing_group_revision_not_draft";
@@ -197,6 +196,16 @@ export declare const ExceptionCode: {
     readonly InvalidPlanId: "invalid_plan_id";
     readonly InvalidAddonId: "invalid_addon_id";
     readonly TransactionNotFound: "transaction_not_found";
+    readonly SubscriptionNotActive: "subscription_not_active";
+    readonly SubscriptionNotPausable: "subscription_not_pausable";
+    readonly SubscriptionNotResumable: "subscription_not_resumable";
+    readonly SubscriptionResumePaymentDeclined: "subscription_resume_payment_declined";
+    readonly SubscriptionFastForwardNoRenewal: "subscription_fast_forward_no_renewal";
+    readonly ExtraMonthlyTokensNotAvailable: "extra_monthly_tokens_not_available";
+    readonly ExtraMonthlyTokensInvalid: "extra_monthly_tokens_invalid";
+    readonly SaleOfferNotFound: "sale_offer_not_found";
+    readonly SaleOfferNotApplicable: "sale_offer_not_applicable";
+    readonly SaleOfferExpired: "sale_offer_expired";
     readonly GiftCodeNotFoundOrUsed: "gift_code_not_found_or_used";
     readonly LeaderOnlyAction: "leader_only_action";
     readonly LeaderNotAvailable: "leader_not_available";
