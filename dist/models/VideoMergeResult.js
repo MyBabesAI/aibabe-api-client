@@ -40,6 +40,9 @@ function VideoMergeResultFromJSONTyped(json, ignoreDiscriminator) {
         'height': json['height'] == null ? undefined : json['height'],
         'hasAudio': json['has_audio'] == null ? undefined : json['has_audio'],
         'outputBytes': json['output_bytes'] == null ? undefined : json['output_bytes'],
+        'strategy': json['strategy'] == null ? undefined : json['strategy'],
+        'copiedSeconds': json['copied_seconds'] == null ? undefined : json['copied_seconds'],
+        'encodedFrames': json['encoded_frames'] == null ? undefined : json['encoded_frames'],
         'callbackToken': json['callback_token'] == null ? undefined : json['callback_token'],
         'context': json['context'] == null ? undefined : json['context'],
     };
@@ -58,6 +61,9 @@ function VideoMergeResultToJSONTyped(value, ignoreDiscriminator = false) {
         'height': value['height'],
         'has_audio': value['hasAudio'],
         'output_bytes': value['outputBytes'],
+        'strategy': value['strategy'],
+        'copied_seconds': value['copiedSeconds'],
+        'encoded_frames': value['encodedFrames'],
         'callback_token': value['callbackToken'],
         'context': value['context'],
     };
