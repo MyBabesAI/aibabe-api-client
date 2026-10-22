@@ -26,7 +26,8 @@ exports.EventListFilterToJSONTyped = EventListFilterToJSONTyped;
 exports.EventListFilter = {
     Newest: 'newest',
     EndingSoon: 'ending_soon',
-    Past: 'past'
+    Past: 'past',
+    Home: 'home'
 };
 function instanceOfEventListFilter(value) {
     for (const key in exports.EventListFilter) {

@@ -45,7 +45,19 @@ export interface EventPreview {
      * @type {string}
      * @memberof EventPreview
      */
-    bannerImage?: string | null;
+    bannerImageDesktop?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof EventPreview
+     */
+    bannerImageMobile?: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof EventPreview
+     */
+    showOnHome?: boolean;
     /**
      *
      * @type {number}

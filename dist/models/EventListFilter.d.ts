@@ -17,6 +17,7 @@ export declare const EventListFilter: {
     readonly Newest: "newest";
     readonly EndingSoon: "ending_soon";
     readonly Past: "past";
+    readonly Home: "home";
 };
 export type EventListFilter = typeof EventListFilter[keyof typeof EventListFilter];
 export declare function instanceOfEventListFilter(value: any): boolean;

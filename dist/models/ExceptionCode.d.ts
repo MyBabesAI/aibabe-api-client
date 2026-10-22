@@ -107,10 +107,14 @@ export declare const ExceptionCode: {
     readonly EventContentAlreadyPublished: "event_content_already_published";
     readonly EventBackgroundConflict: "event_background_conflict";
     readonly EventBackgroundTooLarge: "event_background_too_large";
-    readonly EventBannerConflict: "event_banner_conflict";
-    readonly EventBannerTooLarge: "event_banner_too_large";
-    readonly EventBannerTooSmall: "event_banner_too_small";
-    readonly EventBannerAspectRatio: "event_banner_aspect_ratio";
+    readonly EventBannerDesktopConflict: "event_banner_desktop_conflict";
+    readonly EventBannerDesktopTooLarge: "event_banner_desktop_too_large";
+    readonly EventBannerDesktopTooSmall: "event_banner_desktop_too_small";
+    readonly EventBannerDesktopAspectRatio: "event_banner_desktop_aspect_ratio";
+    readonly EventBannerMobileConflict: "event_banner_mobile_conflict";
+    readonly EventBannerMobileTooLarge: "event_banner_mobile_too_large";
+    readonly EventBannerMobileTooSmall: "event_banner_mobile_too_small";
+    readonly EventBannerMobileAspectRatio: "event_banner_mobile_aspect_ratio";
     readonly EventTagConflict: "event_tag_conflict";
     readonly EventTagInvalid: "event_tag_invalid";
     readonly EventInvalidTime: "event_invalid_time";

@@ -53,7 +53,19 @@ export interface EventResponse {
      * @type {string}
      * @memberof EventResponse
      */
-    bannerImage?: string | null;
+    bannerImageDesktop?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof EventResponse
+     */
+    bannerImageMobile?: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof EventResponse
+     */
+    showOnHome?: boolean;
     /**
      *
      * @type {Date}

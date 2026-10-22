@@ -76,7 +76,19 @@ export interface EventResponse {
      * @type {string}
      * @memberof EventResponse
      */
-    bannerImage?: string | null;
+    bannerImageDesktop?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventResponse
+     */
+    bannerImageMobile?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof EventResponse
+     */
+    showOnHome?: boolean;
     /**
      * 
      * @type {Date}
@@ -196,7 +208,9 @@ export function EventResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'name': json['name'],
         'description': json['description'],
         'backgroundImage': json['background_image'],
-        'bannerImage': json['banner_image'] == null ? undefined : json['banner_image'],
+        'bannerImageDesktop': json['banner_image_desktop'] == null ? undefined : json['banner_image_desktop'],
+        'bannerImageMobile': json['banner_image_mobile'] == null ? undefined : json['banner_image_mobile'],
+        'showOnHome': json['show_on_home'] == null ? undefined : json['show_on_home'],
         'startTime': (json['start_time'] == null ? null : new Date(json['start_time'])),
         'endTime': (json['end_time'] == null ? null : new Date(json['end_time'])),
         'priceType': EventPriceTypeFromJSON(json['price_type']),
@@ -229,7 +243,9 @@ export function EventResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'name': value['name'],
         'description': value['description'],
         'background_image': value['backgroundImage'],
-        'banner_image': value['bannerImage'],
+        'banner_image_desktop': value['bannerImageDesktop'],
+        'banner_image_mobile': value['bannerImageMobile'],
+        'show_on_home': value['showOnHome'],
         'start_time': (value['startTime'] == null ? null : (value['startTime'] as any).toISOString()),
         'end_time': (value['endTime'] == null ? null : (value['endTime'] as any).toISOString()),
         'price_type': EventPriceTypeToJSON(value['priceType']),

@@ -56,7 +56,19 @@ export interface EventPreview {
      * @type {string}
      * @memberof EventPreview
      */
-    bannerImage?: string | null;
+    bannerImageDesktop?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventPreview
+     */
+    bannerImageMobile?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof EventPreview
+     */
+    showOnHome?: boolean;
     /**
      * 
      * @type {number}
@@ -114,7 +126,9 @@ export function EventPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'title': json['title'],
         'description': json['description'],
         'backgroundImage': json['background_image'],
-        'bannerImage': json['banner_image'] == null ? undefined : json['banner_image'],
+        'bannerImageDesktop': json['banner_image_desktop'] == null ? undefined : json['banner_image_desktop'],
+        'bannerImageMobile': json['banner_image_mobile'] == null ? undefined : json['banner_image_mobile'],
+        'showOnHome': json['show_on_home'] == null ? undefined : json['show_on_home'],
         'timeRemaining': json['time_remaining'],
         'prizePool': json['prize_pool'],
         'submissionsCount': json['submissions_count'],
@@ -137,7 +151,9 @@ export function EventPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'title': value['title'],
         'description': value['description'],
         'background_image': value['backgroundImage'],
-        'banner_image': value['bannerImage'],
+        'banner_image_desktop': value['bannerImageDesktop'],
+        'banner_image_mobile': value['bannerImageMobile'],
+        'show_on_home': value['showOnHome'],
         'time_remaining': value['timeRemaining'],
         'prize_pool': value['prizePool'],
         'submissions_count': value['submissionsCount'],
