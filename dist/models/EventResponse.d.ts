@@ -50,6 +50,12 @@ export interface EventResponse {
     backgroundImage: string;
     /**
      *
+     * @type {string}
+     * @memberof EventResponse
+     */
+    bannerImage?: string | null;
+    /**
+     *
      * @type {Date}
      * @memberof EventResponse
      */

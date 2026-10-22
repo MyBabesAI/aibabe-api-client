@@ -77,6 +77,8 @@ class EventApi extends runtime.BaseAPI {
         let useForm = false;
         // use FormData to transmit files using content-type "multipart/form-data"
         useForm = canConsumeForm;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
         if (useForm) {
             formParams = new FormData();
         }
@@ -85,6 +87,9 @@ class EventApi extends runtime.BaseAPI {
         }
         if (requestParameters['image'] != null) {
             formParams.append('image', requestParameters['image']);
+        }
+        if (requestParameters['bannerImage'] != null) {
+            formParams.append('banner_image', requestParameters['bannerImage']);
         }
         if (requestParameters['name'] != null) {
             formParams.append('name', requestParameters['name']);
@@ -304,6 +309,8 @@ class EventApi extends runtime.BaseAPI {
         let useForm = false;
         // use FormData to transmit files using content-type "multipart/form-data"
         useForm = canConsumeForm;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
         if (useForm) {
             formParams = new FormData();
         }
@@ -312,6 +319,9 @@ class EventApi extends runtime.BaseAPI {
         }
         if (requestParameters['image'] != null) {
             formParams.append('image', requestParameters['image']);
+        }
+        if (requestParameters['bannerImage'] != null) {
+            formParams.append('banner_image', requestParameters['bannerImage']);
         }
         if (requestParameters['name'] != null) {
             formParams.append('name', requestParameters['name']);
@@ -351,6 +361,9 @@ class EventApi extends runtime.BaseAPI {
         }
         if (requestParameters['tagName'] != null) {
             formParams.append('tag_name', requestParameters['tagName']);
+        }
+        if (requestParameters['clearBannerImage'] != null) {
+            formParams.append('clear_banner_image', requestParameters['clearBannerImage']);
         }
         const response = await this.request({
             path: `/event/{event_id}`.replace(`{${"event_id"}}`, encodeURIComponent(String(requestParameters['eventId']))),

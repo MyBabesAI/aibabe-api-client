@@ -45,6 +45,7 @@ export interface CreateEventEventPostRequest {
     description: string;
     rules: string;
     image?: Blob;
+    bannerImage?: Blob;
     backgroundPictureId?: string | null;
     startTime?: string | null;
     endTime?: string | null;
@@ -82,6 +83,7 @@ export interface SubmitToEventEventEventIdSubmitPostRequest {
 export interface UpdateEventEventEventIdPatchRequest {
     eventId: string;
     image?: Blob;
+    bannerImage?: Blob;
     name?: string | null;
     description?: string | null;
     rules?: string | null;
@@ -95,6 +97,7 @@ export interface UpdateEventEventEventIdPatchRequest {
     maxSubmissionsPerUser?: string | null;
     shufflePeriodHours?: string | null;
     tagName?: string | null;
+    clearBannerImage?: boolean;
 }
 
 /**
@@ -141,6 +144,8 @@ export class EventApi extends runtime.BaseAPI {
         let useForm = false;
         // use FormData to transmit files using content-type "multipart/form-data"
         useForm = canConsumeForm;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
         if (useForm) {
             formParams = new FormData();
         } else {
@@ -149,6 +154,10 @@ export class EventApi extends runtime.BaseAPI {
 
         if (requestParameters['image'] != null) {
             formParams.append('image', requestParameters['image'] as any);
+        }
+
+        if (requestParameters['bannerImage'] != null) {
+            formParams.append('banner_image', requestParameters['bannerImage'] as any);
         }
 
         if (requestParameters['name'] != null) {
@@ -441,6 +450,8 @@ export class EventApi extends runtime.BaseAPI {
         let useForm = false;
         // use FormData to transmit files using content-type "multipart/form-data"
         useForm = canConsumeForm;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
         if (useForm) {
             formParams = new FormData();
         } else {
@@ -449,6 +460,10 @@ export class EventApi extends runtime.BaseAPI {
 
         if (requestParameters['image'] != null) {
             formParams.append('image', requestParameters['image'] as any);
+        }
+
+        if (requestParameters['bannerImage'] != null) {
+            formParams.append('banner_image', requestParameters['bannerImage'] as any);
         }
 
         if (requestParameters['name'] != null) {
@@ -501,6 +516,10 @@ export class EventApi extends runtime.BaseAPI {
 
         if (requestParameters['tagName'] != null) {
             formParams.append('tag_name', requestParameters['tagName'] as any);
+        }
+
+        if (requestParameters['clearBannerImage'] != null) {
+            formParams.append('clear_banner_image', requestParameters['clearBannerImage'] as any);
         }
 
         const response = await this.request({

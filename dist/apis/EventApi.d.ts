@@ -16,6 +16,7 @@ export interface CreateEventEventPostRequest {
     description: string;
     rules: string;
     image?: Blob;
+    bannerImage?: Blob;
     backgroundPictureId?: string | null;
     startTime?: string | null;
     endTime?: string | null;
@@ -47,6 +48,7 @@ export interface SubmitToEventEventEventIdSubmitPostRequest {
 export interface UpdateEventEventEventIdPatchRequest {
     eventId: string;
     image?: Blob;
+    bannerImage?: Blob;
     name?: string | null;
     description?: string | null;
     rules?: string | null;
@@ -60,6 +62,7 @@ export interface UpdateEventEventEventIdPatchRequest {
     maxSubmissionsPerUser?: string | null;
     shufflePeriodHours?: string | null;
     tagName?: string | null;
+    clearBannerImage?: boolean;
 }
 /**
  *

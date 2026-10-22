@@ -107,6 +107,10 @@ export declare const ExceptionCode: {
     readonly EventContentAlreadyPublished: "event_content_already_published";
     readonly EventBackgroundConflict: "event_background_conflict";
     readonly EventBackgroundTooLarge: "event_background_too_large";
+    readonly EventBannerConflict: "event_banner_conflict";
+    readonly EventBannerTooLarge: "event_banner_too_large";
+    readonly EventBannerTooSmall: "event_banner_too_small";
+    readonly EventBannerAspectRatio: "event_banner_aspect_ratio";
     readonly EventTagConflict: "event_tag_conflict";
     readonly EventTagInvalid: "event_tag_invalid";
     readonly EventInvalidTime: "event_invalid_time";

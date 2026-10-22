@@ -73,6 +73,12 @@ export interface EventResponse {
     backgroundImage: string;
     /**
      * 
+     * @type {string}
+     * @memberof EventResponse
+     */
+    bannerImage?: string | null;
+    /**
+     * 
      * @type {Date}
      * @memberof EventResponse
      */
@@ -190,6 +196,7 @@ export function EventResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'name': json['name'],
         'description': json['description'],
         'backgroundImage': json['background_image'],
+        'bannerImage': json['banner_image'] == null ? undefined : json['banner_image'],
         'startTime': (json['start_time'] == null ? null : new Date(json['start_time'])),
         'endTime': (json['end_time'] == null ? null : new Date(json['end_time'])),
         'priceType': EventPriceTypeFromJSON(json['price_type']),
@@ -222,6 +229,7 @@ export function EventResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'name': value['name'],
         'description': value['description'],
         'background_image': value['backgroundImage'],
+        'banner_image': value['bannerImage'],
         'start_time': (value['startTime'] == null ? null : (value['startTime'] as any).toISOString()),
         'end_time': (value['endTime'] == null ? null : (value['endTime'] as any).toISOString()),
         'price_type': EventPriceTypeToJSON(value['priceType']),

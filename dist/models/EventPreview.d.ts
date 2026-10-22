@@ -42,6 +42,12 @@ export interface EventPreview {
     backgroundImage: string;
     /**
      *
+     * @type {string}
+     * @memberof EventPreview
+     */
+    bannerImage?: string | null;
+    /**
+     *
      * @type {number}
      * @memberof EventPreview
      */

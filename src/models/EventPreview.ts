@@ -53,6 +53,12 @@ export interface EventPreview {
     backgroundImage: string;
     /**
      * 
+     * @type {string}
+     * @memberof EventPreview
+     */
+    bannerImage?: string | null;
+    /**
+     * 
      * @type {number}
      * @memberof EventPreview
      */
@@ -108,6 +114,7 @@ export function EventPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'title': json['title'],
         'description': json['description'],
         'backgroundImage': json['background_image'],
+        'bannerImage': json['banner_image'] == null ? undefined : json['banner_image'],
         'timeRemaining': json['time_remaining'],
         'prizePool': json['prize_pool'],
         'submissionsCount': json['submissions_count'],
@@ -130,6 +137,7 @@ export function EventPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'title': value['title'],
         'description': value['description'],
         'background_image': value['backgroundImage'],
+        'banner_image': value['bannerImage'],
         'time_remaining': value['timeRemaining'],
         'prize_pool': value['prizePool'],
         'submissions_count': value['submissionsCount'],
