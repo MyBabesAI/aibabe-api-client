@@ -10,10 +10,14 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminTokenHistoryResponse, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ChatbotType, ConfigRefreshRequest, ConfigRefreshResponse, ContentType, DownscaleRequest, GetChatbotListResponse, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, OwnerFilter, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
+import type { AdminAdjustTokensRequest, AdminAdjustTokensResponse, AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminMarkTransactionRefundedRequest, AdminMarkTransactionRefundedResponse, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminTokenHistoryResponse, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ChatbotType, ConfigRefreshRequest, ConfigRefreshResponse, ContentType, DownscaleRequest, GetChatbotListResponse, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, OwnerFilter, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
+}
+export interface AdjustTokensAdminUserEmailTokensPostRequest {
+    email: string;
+    adminAdjustTokensRequest: AdminAdjustTokensRequest;
 }
 export interface AdminDeleteAdminUserEmailDeleteRequest {
     email: string;
@@ -127,6 +131,10 @@ export interface GetUserJourneysAdminUserJourneysGetRequest {
 export interface ImpersonateAdminImpersonateEmailPostRequest {
     email: string;
 }
+export interface MarkTransactionRefundedAdminTransactionTransactionIdRefundedPostRequest {
+    transactionId: string;
+    adminMarkTransactionRefundedRequest: AdminMarkTransactionRefundedRequest;
+}
 export interface ProvideAwardAdminBadgesAwardPostRequest {
     adminAwardBadgeRequest: AdminAwardBadgeRequest;
 }
@@ -179,6 +187,16 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Add Tokens
      */
     addTokensAdminAddTokensPut(requestParameters: AddTokensAdminAddTokensPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<number>;
+    /**
+     * Support credits or claws back tokens (goodwill, compensation, refunds). Amounts are app-facing tokens; the ledger row is tagged admin_adjustment and the balance never goes below zero.
+     * Adjust Tokens
+     */
+    adjustTokensAdminUserEmailTokensPostRaw(requestParameters: AdjustTokensAdminUserEmailTokensPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminAdjustTokensResponse>>;
+    /**
+     * Support credits or claws back tokens (goodwill, compensation, refunds). Amounts are app-facing tokens; the ledger row is tagged admin_adjustment and the balance never goes below zero.
+     * Adjust Tokens
+     */
+    adjustTokensAdminUserEmailTokensPost(requestParameters: AdjustTokensAdminUserEmailTokensPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminAdjustTokensResponse>;
     /**
      * Admin Delete
      */
@@ -363,6 +381,16 @@ export declare class AdminApi extends runtime.BaseAPI {
      * List Promotions
      */
     listPromotionsAdminPromotionGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPromotionListResponse>;
+    /**
+     * Support flags a paid transaction as refunded after returning the money at the processor. Idempotent; only sets `transaction.refunded`, the status stays paid and tokens/subscription are handled separately.
+     * Mark Transaction Refunded
+     */
+    markTransactionRefundedAdminTransactionTransactionIdRefundedPostRaw(requestParameters: MarkTransactionRefundedAdminTransactionTransactionIdRefundedPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminMarkTransactionRefundedResponse>>;
+    /**
+     * Support flags a paid transaction as refunded after returning the money at the processor. Idempotent; only sets `transaction.refunded`, the status stays paid and tokens/subscription are handled separately.
+     * Mark Transaction Refunded
+     */
+    markTransactionRefundedAdminTransactionTransactionIdRefundedPost(requestParameters: MarkTransactionRefundedAdminTransactionTransactionIdRefundedPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminMarkTransactionRefundedResponse>;
     /**
      * Provide Award
      */
