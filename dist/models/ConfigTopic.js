@@ -26,8 +26,7 @@ exports.ConfigTopicToJSONTyped = ConfigTopicToJSONTyped;
 exports.ConfigTopic = {
     ModerationPrompts: 'moderation_prompts',
     ModerationSettings: 'moderation_settings',
-    AgeVerificationPolicy: 'age_verification_policy',
-    GeoipDatabase: 'geoip_database'
+    AgeVerificationPolicy: 'age_verification_policy'
 };
 function instanceOfConfigTopic(value) {
     for (const key in exports.ConfigTopic) {

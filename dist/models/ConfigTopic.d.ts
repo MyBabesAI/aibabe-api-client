@@ -17,7 +17,6 @@ export declare const ConfigTopic: {
     readonly ModerationPrompts: "moderation_prompts";
     readonly ModerationSettings: "moderation_settings";
     readonly AgeVerificationPolicy: "age_verification_policy";
-    readonly GeoipDatabase: "geoip_database";
 };
 export type ConfigTopic = typeof ConfigTopic[keyof typeof ConfigTopic];
 export declare function instanceOfConfigTopic(value: any): boolean;
