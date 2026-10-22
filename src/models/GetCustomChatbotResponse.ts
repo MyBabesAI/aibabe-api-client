@@ -165,6 +165,18 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     chatDisabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetCustomChatbotResponse
+     */
+    generationDisabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetCustomChatbotResponse
+     */
+    remixDisabled?: boolean;
 }
 
 
@@ -211,6 +223,8 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'origin': json['origin'] == null ? undefined : ChatbotPreviewFromJSON(json['origin']),
         'greeting': json['greeting'] == null ? undefined : json['greeting'],
         'chatDisabled': json['chat_disabled'] == null ? undefined : json['chat_disabled'],
+        'generationDisabled': json['generation_disabled'] == null ? undefined : json['generation_disabled'],
+        'remixDisabled': json['remix_disabled'] == null ? undefined : json['remix_disabled'],
     };
 }
 
@@ -241,6 +255,8 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'origin': ChatbotPreviewToJSON(value['origin']),
         'greeting': value['greeting'],
         'chat_disabled': value['chatDisabled'],
+        'generation_disabled': value['generationDisabled'],
+        'remix_disabled': value['remixDisabled'],
     };
 }
 

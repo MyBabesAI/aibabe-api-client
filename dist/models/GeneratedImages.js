@@ -19,6 +19,7 @@ exports.GeneratedImagesFromJSON = GeneratedImagesFromJSON;
 exports.GeneratedImagesFromJSONTyped = GeneratedImagesFromJSONTyped;
 exports.GeneratedImagesToJSON = GeneratedImagesToJSON;
 exports.GeneratedImagesToJSONTyped = GeneratedImagesToJSONTyped;
+const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
 const BlacklistCard_1 = require("./BlacklistCard");
 const ArtStyle_1 = require("./ArtStyle");
 const ChatbotPreview_1 = require("./ChatbotPreview");
@@ -74,6 +75,7 @@ function GeneratedImagesFromJSONTyped(json, ignoreDiscriminator) {
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['chatbot']),
         'postDetails': json['post_details'] == null ? undefined : (0, PostDetails_1.PostDetailsFromJSON)(json['post_details']),
         'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
+        'owner': json['owner'] == null ? undefined : (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowFromJSON)(json['owner']),
         'eta': json['eta'],
         'status': (0, ImageGenerationStatus_1.ImageGenerationStatusFromJSON)(json['status']),
         'generationId': json['generation_id'],
@@ -100,6 +102,7 @@ function GeneratedImagesToJSONTyped(value, ignoreDiscriminator = false) {
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['chatbot']),
         'post_details': (0, PostDetails_1.PostDetailsToJSON)(value['postDetails']),
         'is_original': value['isOriginal'],
+        'owner': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowToJSON)(value['owner']),
         'eta': value['eta'],
         'status': (0, ImageGenerationStatus_1.ImageGenerationStatusToJSON)(value['status']),
         'generation_id': value['generationId'],

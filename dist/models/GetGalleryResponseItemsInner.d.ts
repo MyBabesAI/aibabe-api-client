@@ -75,6 +75,12 @@ export interface GetGalleryResponseItemsInner {
     isOriginal?: boolean;
     /**
      *
+     * @type {PublicUserPreviewWithFollow}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    owner?: PublicUserPreviewWithFollow;
+    /**
+     *
      * @type {string}
      * @memberof GetGalleryResponseItemsInner
      */
@@ -133,12 +139,6 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     originalImageUrl: string;
-    /**
-     *
-     * @type {PublicUserPreviewWithFollow}
-     * @memberof GetGalleryResponseItemsInner
-     */
-    owner?: PublicUserPreviewWithFollow;
     /**
      *
      * @type {string}

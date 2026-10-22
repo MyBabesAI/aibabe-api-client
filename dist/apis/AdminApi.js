@@ -435,6 +435,47 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * **Admin review: own = the admin\'s, babe_creator = the character\'s creator\'s, babe_community = everyone else\'s private pictures / videos of the character; items carry their owner**
+     * A character\'s unposted media, by who generated it
+     */
+    async getChatbotPrivateMediaAdminGalleryChatbotChatbotIdGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling getChatbotPrivateMediaAdminGalleryChatbotChatbotIdGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['ownerFilter'] != null) {
+            queryParameters['owner_filter'] = requestParameters['ownerFilter'];
+        }
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+        if (requestParameters['sort'] != null) {
+            queryParameters['sort'] = requestParameters['sort'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/admin/gallery/chatbot/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetGalleryResponseFromJSON)(jsonValue));
+    }
+    /**
+     * **Admin review: own = the admin\'s, babe_creator = the character\'s creator\'s, babe_community = everyone else\'s private pictures / videos of the character; items carry their owner**
+     * A character\'s unposted media, by who generated it
+     */
+    async getChatbotPrivateMediaAdminGalleryChatbotChatbotIdGet(requestParameters, initOverrides) {
+        const response = await this.getChatbotPrivateMediaAdminGalleryChatbotChatbotIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Audit log of generated images withheld by the apparent-age screening, newest first.
      * Get Moderated Images
      */
@@ -865,6 +906,29 @@ class AdminApi extends runtime.BaseAPI {
      */
     async provideAwardAdminBadgesAwardPost(requestParameters, initOverrides) {
         const response = await this.provideAwardAdminBadgesAwardPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Refresh Config
+     */
+    async refreshConfigAdminConfigRefreshPostRaw(requestParameters, initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/admin/config/refresh`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.ConfigRefreshRequestToJSON)(requestParameters['configRefreshRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ConfigRefreshResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Refresh Config
+     */
+    async refreshConfigAdminConfigRefreshPost(requestParameters = {}, initOverrides) {
+        const response = await this.refreshConfigAdminConfigRefreshPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

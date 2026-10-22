@@ -194,6 +194,12 @@ export interface DetailedWallPost {
     isOriginal?: boolean | null;
     /**
      * 
+     * @type {boolean}
+     * @memberof DetailedWallPost
+     */
+    shadow?: boolean;
+    /**
+     * 
      * @type {string}
      * @memberof DetailedWallPost
      */
@@ -264,6 +270,7 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'eventSubmissionPreviews': ((json['event_submission_previews'] as Array<any>).map(EventSubmissionPreviewFromJSON)),
         'creator': PublicUserPreviewWithFollowFromJSON(json['creator']),
         'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
+        'shadow': json['shadow'] == null ? undefined : json['shadow'],
         'title': json['title'],
         'tags': ((json['tags'] as Array<any>).map(TagDataFromJSON)),
         'origin': json['origin'] == null ? undefined : ContentOriginFromJSON(json['origin']),
@@ -298,6 +305,7 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'event_submission_previews': ((value['eventSubmissionPreviews'] as Array<any>).map(EventSubmissionPreviewToJSON)),
         'creator': PublicUserPreviewWithFollowToJSON(value['creator']),
         'is_original': value['isOriginal'],
+        'shadow': value['shadow'],
         'title': value['title'],
         'tags': ((value['tags'] as Array<any>).map(TagDataToJSON)),
         'origin': ContentOriginToJSON(value['origin']),

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
+import {
+    PublicUserPreviewWithFollowFromJSON,
+    PublicUserPreviewWithFollowFromJSONTyped,
+    PublicUserPreviewWithFollowToJSON,
+    PublicUserPreviewWithFollowToJSONTyped,
+} from './PublicUserPreviewWithFollow';
 import type { BlacklistCard } from './BlacklistCard';
 import {
     BlacklistCardFromJSON,
@@ -96,6 +103,12 @@ export interface GeneratedVideos {
      * @memberof GeneratedVideos
      */
     isOriginal?: boolean | null;
+    /**
+     * 
+     * @type {PublicUserPreviewWithFollow}
+     * @memberof GeneratedVideos
+     */
+    owner?: PublicUserPreviewWithFollow | null;
     /**
      * 
      * @type {string}
@@ -193,6 +206,7 @@ export function GeneratedVideosFromJSONTyped(json: any, ignoreDiscriminator: boo
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'postDetails': json['post_details'] == null ? undefined : PostDetailsFromJSON(json['post_details']),
         'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
+        'owner': json['owner'] == null ? undefined : PublicUserPreviewWithFollowFromJSON(json['owner']),
         'eta': json['eta'],
         'status': VideoGenerationStatusFromJSON(json['status']),
         'generationId': json['generation_id'],
@@ -223,6 +237,7 @@ export function GeneratedVideosFromJSONTyped(json: any, ignoreDiscriminator: boo
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'post_details': PostDetailsToJSON(value['postDetails']),
         'is_original': value['isOriginal'],
+        'owner': PublicUserPreviewWithFollowToJSON(value['owner']),
         'eta': value['eta'],
         'status': VideoGenerationStatusToJSON(value['status']),
         'generation_id': value['generationId'],

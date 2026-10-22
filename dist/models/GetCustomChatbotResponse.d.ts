@@ -118,6 +118,18 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     chatDisabled?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GetCustomChatbotResponse
+     */
+    generationDisabled?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GetCustomChatbotResponse
+     */
+    remixDisabled?: boolean;
 }
 /**
  * Check if a given object implements the GetCustomChatbotResponse interface.
