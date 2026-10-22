@@ -20,7 +20,8 @@
 export const ConfigTopic = {
     ModerationPrompts: 'moderation_prompts',
     ModerationSettings: 'moderation_settings',
-    AgeVerificationPolicy: 'age_verification_policy'
+    AgeVerificationPolicy: 'age_verification_policy',
+    GeoipDatabase: 'geoip_database'
 } as const;
 export type ConfigTopic = typeof ConfigTopic[keyof typeof ConfigTopic];
 
