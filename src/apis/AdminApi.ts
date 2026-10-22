@@ -15,10 +15,14 @@
 
 import * as runtime from '../runtime';
 import type {
+  AdminAdjustTokensRequest,
+  AdminAdjustTokensResponse,
   AdminAgeEstimation,
   AdminAwardBadgeRequest,
   AdminBadgeResponse,
   AdminCreatePromotionRequest,
+  AdminMarkTransactionRefundedRequest,
+  AdminMarkTransactionRefundedResponse,
   AdminModeratedImagesResponse,
   AdminPricingGroupRevisionsResponse,
   AdminPricingGroupsResponse,
@@ -59,6 +63,10 @@ import type {
   VisibilityFilter,
 } from '../models/index';
 import {
+    AdminAdjustTokensRequestFromJSON,
+    AdminAdjustTokensRequestToJSON,
+    AdminAdjustTokensResponseFromJSON,
+    AdminAdjustTokensResponseToJSON,
     AdminAgeEstimationFromJSON,
     AdminAgeEstimationToJSON,
     AdminAwardBadgeRequestFromJSON,
@@ -67,6 +75,10 @@ import {
     AdminBadgeResponseToJSON,
     AdminCreatePromotionRequestFromJSON,
     AdminCreatePromotionRequestToJSON,
+    AdminMarkTransactionRefundedRequestFromJSON,
+    AdminMarkTransactionRefundedRequestToJSON,
+    AdminMarkTransactionRefundedResponseFromJSON,
+    AdminMarkTransactionRefundedResponseToJSON,
     AdminModeratedImagesResponseFromJSON,
     AdminModeratedImagesResponseToJSON,
     AdminPricingGroupRevisionsResponseFromJSON,
@@ -148,6 +160,11 @@ import {
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
+}
+
+export interface AdjustTokensAdminUserEmailTokensPostRequest {
+    email: string;
+    adminAdjustTokensRequest: AdminAdjustTokensRequest;
 }
 
 export interface AdminDeleteAdminUserEmailDeleteRequest {
@@ -281,6 +298,11 @@ export interface ImpersonateAdminImpersonateEmailPostRequest {
     email: string;
 }
 
+export interface MarkTransactionRefundedAdminTransactionTransactionIdRefundedPostRequest {
+    transactionId: string;
+    adminMarkTransactionRefundedRequest: AdminMarkTransactionRefundedRequest;
+}
+
 export interface ProvideAwardAdminBadgesAwardPostRequest {
     adminAwardBadgeRequest: AdminAwardBadgeRequest;
 }
@@ -397,6 +419,51 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async addTokensAdminAddTokensPut(requestParameters: AddTokensAdminAddTokensPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<number> {
         const response = await this.addTokensAdminAddTokensPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Support credits or claws back tokens (goodwill, compensation, refunds). Amounts are app-facing tokens; the ledger row is tagged admin_adjustment and the balance never goes below zero.
+     * Adjust Tokens
+     */
+    async adjustTokensAdminUserEmailTokensPostRaw(requestParameters: AdjustTokensAdminUserEmailTokensPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminAdjustTokensResponse>> {
+        if (requestParameters['email'] == null) {
+            throw new runtime.RequiredError(
+                'email',
+                'Required parameter "email" was null or undefined when calling adjustTokensAdminUserEmailTokensPost().'
+            );
+        }
+
+        if (requestParameters['adminAdjustTokensRequest'] == null) {
+            throw new runtime.RequiredError(
+                'adminAdjustTokensRequest',
+                'Required parameter "adminAdjustTokensRequest" was null or undefined when calling adjustTokensAdminUserEmailTokensPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/admin/user/{email}/tokens`.replace(`{${"email"}}`, encodeURIComponent(String(requestParameters['email']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: AdminAdjustTokensRequestToJSON(requestParameters['adminAdjustTokensRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminAdjustTokensResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Support credits or claws back tokens (goodwill, compensation, refunds). Amounts are app-facing tokens; the ledger row is tagged admin_adjustment and the balance never goes below zero.
+     * Adjust Tokens
+     */
+    async adjustTokensAdminUserEmailTokensPost(requestParameters: AdjustTokensAdminUserEmailTokensPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminAdjustTokensResponse> {
+        const response = await this.adjustTokensAdminUserEmailTokensPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -1426,6 +1493,51 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async listPromotionsAdminPromotionGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPromotionListResponse> {
         const response = await this.listPromotionsAdminPromotionGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Support flags a paid transaction as refunded after returning the money at the processor. Idempotent; only sets `transaction.refunded`, the status stays paid and tokens/subscription are handled separately.
+     * Mark Transaction Refunded
+     */
+    async markTransactionRefundedAdminTransactionTransactionIdRefundedPostRaw(requestParameters: MarkTransactionRefundedAdminTransactionTransactionIdRefundedPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminMarkTransactionRefundedResponse>> {
+        if (requestParameters['transactionId'] == null) {
+            throw new runtime.RequiredError(
+                'transactionId',
+                'Required parameter "transactionId" was null or undefined when calling markTransactionRefundedAdminTransactionTransactionIdRefundedPost().'
+            );
+        }
+
+        if (requestParameters['adminMarkTransactionRefundedRequest'] == null) {
+            throw new runtime.RequiredError(
+                'adminMarkTransactionRefundedRequest',
+                'Required parameter "adminMarkTransactionRefundedRequest" was null or undefined when calling markTransactionRefundedAdminTransactionTransactionIdRefundedPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/admin/transaction/{transaction_id}/refunded`.replace(`{${"transaction_id"}}`, encodeURIComponent(String(requestParameters['transactionId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: AdminMarkTransactionRefundedRequestToJSON(requestParameters['adminMarkTransactionRefundedRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminMarkTransactionRefundedResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Support flags a paid transaction as refunded after returning the money at the processor. Idempotent; only sets `transaction.refunded`, the status stays paid and tokens/subscription are handled separately.
+     * Mark Transaction Refunded
+     */
+    async markTransactionRefundedAdminTransactionTransactionIdRefundedPost(requestParameters: MarkTransactionRefundedAdminTransactionTransactionIdRefundedPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminMarkTransactionRefundedResponse> {
+        const response = await this.markTransactionRefundedAdminTransactionTransactionIdRefundedPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
