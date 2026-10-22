@@ -56,6 +56,24 @@ export interface VideoMergeResult {
      * @type {string}
      * @memberof VideoMergeResult
      */
+    strategy?: string | null;
+    /**
+     *
+     * @type {number}
+     * @memberof VideoMergeResult
+     */
+    copiedSeconds?: number | null;
+    /**
+     *
+     * @type {number}
+     * @memberof VideoMergeResult
+     */
+    encodedFrames?: number | null;
+    /**
+     *
+     * @type {string}
+     * @memberof VideoMergeResult
+     */
     callbackToken?: string;
     /**
      *
