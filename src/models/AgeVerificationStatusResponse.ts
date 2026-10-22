@@ -47,6 +47,12 @@ export interface AgeVerificationStatusResponse {
     country: string;
     /**
      * 
+     * @type {string}
+     * @memberof AgeVerificationStatusResponse
+     */
+    region?: string | null;
+    /**
+     * 
      * @type {boolean}
      * @memberof AgeVerificationStatusResponse
      */
@@ -94,6 +100,7 @@ export function AgeVerificationStatusResponseFromJSONTyped(json: any, ignoreDisc
         'verificationRequired': json['verification_required'],
         'verified': json['verified'],
         'country': json['country'],
+        'region': json['region'] == null ? undefined : json['region'],
         'countryDetected': json['country_detected'] == null ? undefined : json['country_detected'],
         'iframeUrl': json['iframe_url'] == null ? undefined : json['iframe_url'],
         'redirectUrl': json['redirect_url'] == null ? undefined : json['redirect_url'],
@@ -115,6 +122,7 @@ export function AgeVerificationStatusResponseFromJSONTyped(json: any, ignoreDisc
         'verification_required': value['verificationRequired'],
         'verified': value['verified'],
         'country': value['country'],
+        'region': value['region'],
         'country_detected': value['countryDetected'],
         'iframe_url': value['iframeUrl'],
         'redirect_url': value['redirectUrl'],
