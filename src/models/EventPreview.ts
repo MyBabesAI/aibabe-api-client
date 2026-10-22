@@ -77,6 +77,12 @@ export interface EventPreview {
     timeRemaining: number | null;
     /**
      * 
+     * @type {Date}
+     * @memberof EventPreview
+     */
+    endedAt?: Date | null;
+    /**
+     * 
      * @type {number}
      * @memberof EventPreview
      */
@@ -130,6 +136,7 @@ export function EventPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'bannerImageMobile': json['banner_image_mobile'] == null ? undefined : json['banner_image_mobile'],
         'showOnHome': json['show_on_home'] == null ? undefined : json['show_on_home'],
         'timeRemaining': json['time_remaining'],
+        'endedAt': json['ended_at'] == null ? undefined : (new Date(json['ended_at'])),
         'prizePool': json['prize_pool'],
         'submissionsCount': json['submissions_count'],
         'status': EffectiveEventStatusFromJSON(json['status']),
@@ -155,6 +162,7 @@ export function EventPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'banner_image_mobile': value['bannerImageMobile'],
         'show_on_home': value['showOnHome'],
         'time_remaining': value['timeRemaining'],
+        'ended_at': value['endedAt'] == null ? undefined : ((value['endedAt'] as any).toISOString()),
         'prize_pool': value['prizePool'],
         'submissions_count': value['submissionsCount'],
         'status': EffectiveEventStatusToJSON(value['status']),

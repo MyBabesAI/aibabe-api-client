@@ -103,6 +103,12 @@ export interface EventResponse {
     endTime: Date | null;
     /**
      * 
+     * @type {Date}
+     * @memberof EventResponse
+     */
+    endedAt?: Date | null;
+    /**
+     * 
      * @type {EventPriceType}
      * @memberof EventResponse
      */
@@ -213,6 +219,7 @@ export function EventResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'showOnHome': json['show_on_home'] == null ? undefined : json['show_on_home'],
         'startTime': (json['start_time'] == null ? null : new Date(json['start_time'])),
         'endTime': (json['end_time'] == null ? null : new Date(json['end_time'])),
+        'endedAt': json['ended_at'] == null ? undefined : (new Date(json['ended_at'])),
         'priceType': EventPriceTypeFromJSON(json['price_type']),
         'pricePool': json['price_pool'],
         'priceId': json['price_id'],
@@ -248,6 +255,7 @@ export function EventResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'show_on_home': value['showOnHome'],
         'start_time': (value['startTime'] == null ? null : (value['startTime'] as any).toISOString()),
         'end_time': (value['endTime'] == null ? null : (value['endTime'] as any).toISOString()),
+        'ended_at': value['endedAt'] == null ? undefined : ((value['endedAt'] as any).toISOString()),
         'price_type': EventPriceTypeToJSON(value['priceType']),
         'price_pool': value['pricePool'],
         'price_id': value['priceId'],

@@ -66,6 +66,12 @@ export interface EventPreview {
     timeRemaining: number | null;
     /**
      *
+     * @type {Date}
+     * @memberof EventPreview
+     */
+    endedAt?: Date | null;
+    /**
+     *
      * @type {number}
      * @memberof EventPreview
      */

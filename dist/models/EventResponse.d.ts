@@ -80,6 +80,12 @@ export interface EventResponse {
     endTime: Date | null;
     /**
      *
+     * @type {Date}
+     * @memberof EventResponse
+     */
+    endedAt?: Date | null;
+    /**
+     *
      * @type {EventPriceType}
      * @memberof EventResponse
      */
