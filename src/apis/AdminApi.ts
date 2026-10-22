@@ -35,6 +35,8 @@ import type {
   BlacklistRequest,
   BlacklistResponse,
   ChatbotType,
+  ConfigRefreshRequest,
+  ConfigRefreshResponse,
   ContentType,
   DownscaleRequest,
   GetChatbotListResponse,
@@ -97,6 +99,10 @@ import {
     BlacklistResponseToJSON,
     ChatbotTypeFromJSON,
     ChatbotTypeToJSON,
+    ConfigRefreshRequestFromJSON,
+    ConfigRefreshRequestToJSON,
+    ConfigRefreshResponseFromJSON,
+    ConfigRefreshResponseToJSON,
     ContentTypeFromJSON,
     ContentTypeToJSON,
     DownscaleRequestFromJSON,
@@ -277,6 +283,10 @@ export interface ImpersonateAdminImpersonateEmailPostRequest {
 
 export interface ProvideAwardAdminBadgesAwardPostRequest {
     adminAwardBadgeRequest: AdminAwardBadgeRequest;
+}
+
+export interface RefreshConfigAdminConfigRefreshPostRequest {
+    configRefreshRequest?: ConfigRefreshRequest;
 }
 
 export interface SavePricingGroupRevisionsAdminPricingPostRequest {
@@ -1456,6 +1466,35 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async provideAwardAdminBadgesAwardPost(requestParameters: ProvideAwardAdminBadgesAwardPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.provideAwardAdminBadgesAwardPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Refresh Config
+     */
+    async refreshConfigAdminConfigRefreshPostRaw(requestParameters: RefreshConfigAdminConfigRefreshPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConfigRefreshResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/admin/config/refresh`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ConfigRefreshRequestToJSON(requestParameters['configRefreshRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ConfigRefreshResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Refresh Config
+     */
+    async refreshConfigAdminConfigRefreshPost(requestParameters: RefreshConfigAdminConfigRefreshPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConfigRefreshResponse> {
+        const response = await this.refreshConfigAdminConfigRefreshPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

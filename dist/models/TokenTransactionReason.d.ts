@@ -39,6 +39,7 @@ export declare const TokenTransactionReason: {
     readonly SocialFollowBonus: "social_follow_bonus";
     readonly DailyLoginBonus: "daily_login_bonus";
     readonly AdminAdjustment: "admin_adjustment";
+    readonly BlacklistRefund: "blacklist_refund";
     readonly SaleOfferBonus: "sale_offer_bonus";
     readonly OpeningBalance: "opening_balance";
 };

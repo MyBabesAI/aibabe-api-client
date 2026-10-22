@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminTokenHistoryResponse, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ChatbotType, ContentType, DownscaleRequest, GetChatbotListResponse, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, OwnerFilter, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
+import type { AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminTokenHistoryResponse, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ChatbotType, ConfigRefreshRequest, ConfigRefreshResponse, ContentType, DownscaleRequest, GetChatbotListResponse, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, OwnerFilter, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -129,6 +129,9 @@ export interface ImpersonateAdminImpersonateEmailPostRequest {
 }
 export interface ProvideAwardAdminBadgesAwardPostRequest {
     adminAwardBadgeRequest: AdminAwardBadgeRequest;
+}
+export interface RefreshConfigAdminConfigRefreshPostRequest {
+    configRefreshRequest?: ConfigRefreshRequest;
 }
 export interface SavePricingGroupRevisionsAdminPricingPostRequest {
     adminSavePricingGroupRevisionsRequest: AdminSavePricingGroupRevisionsRequest;
@@ -368,6 +371,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Provide Award
      */
     provideAwardAdminBadgesAwardPost(requestParameters: ProvideAwardAdminBadgesAwardPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Refresh Config
+     */
+    refreshConfigAdminConfigRefreshPostRaw(requestParameters: RefreshConfigAdminConfigRefreshPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConfigRefreshResponse>>;
+    /**
+     * Refresh Config
+     */
+    refreshConfigAdminConfigRefreshPost(requestParameters?: RefreshConfigAdminConfigRefreshPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConfigRefreshResponse>;
     /**
      * Reset User Claimables
      */

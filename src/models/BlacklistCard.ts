@@ -77,7 +77,7 @@ export interface BlacklistCard {
      * @type {BlacklistMode}
      * @memberof BlacklistCard
      */
-    mode?: BlacklistMode;
+    mode?: BlacklistMode | null;
     /**
      * 
      * @type {BlacklistTarget}
@@ -90,6 +90,12 @@ export interface BlacklistCard {
      * @memberof BlacklistCard
      */
     blacklistedAt: Date;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof BlacklistCard
+     */
+    tokensReturned?: boolean;
 }
 
 
@@ -121,6 +127,7 @@ export function BlacklistCardFromJSONTyped(json: any, ignoreDiscriminator: boole
         'mode': json['mode'] == null ? undefined : BlacklistModeFromJSON(json['mode']),
         'targetType': BlacklistTargetFromJSON(json['target_type']),
         'blacklistedAt': (new Date(json['blacklisted_at'])),
+        'tokensReturned': json['tokens_returned'] == null ? undefined : json['tokens_returned'],
     };
 }
 
@@ -142,6 +149,7 @@ export function BlacklistCardFromJSONTyped(json: any, ignoreDiscriminator: boole
         'mode': BlacklistModeToJSON(value['mode']),
         'target_type': BlacklistTargetToJSON(value['targetType']),
         'blacklisted_at': ((value['blacklistedAt']).toISOString()),
+        'tokens_returned': value['tokensReturned'],
     };
 }
 

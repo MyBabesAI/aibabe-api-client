@@ -48,7 +48,7 @@ export interface BlacklistCard {
      * @type {BlacklistMode}
      * @memberof BlacklistCard
      */
-    mode?: BlacklistMode;
+    mode?: BlacklistMode | null;
     /**
      *
      * @type {BlacklistTarget}
@@ -61,6 +61,12 @@ export interface BlacklistCard {
      * @memberof BlacklistCard
      */
     blacklistedAt: Date;
+    /**
+     *
+     * @type {boolean}
+     * @memberof BlacklistCard
+     */
+    tokensReturned?: boolean;
 }
 /**
  * Check if a given object implements the BlacklistCard interface.

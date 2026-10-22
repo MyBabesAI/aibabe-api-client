@@ -909,6 +909,29 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Refresh Config
+     */
+    async refreshConfigAdminConfigRefreshPostRaw(requestParameters, initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/admin/config/refresh`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.ConfigRefreshRequestToJSON)(requestParameters['configRefreshRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ConfigRefreshResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Refresh Config
+     */
+    async refreshConfigAdminConfigRefreshPost(requestParameters = {}, initOverrides) {
+        const response = await this.refreshConfigAdminConfigRefreshPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Reset User Claimables
      */
     async resetUserClaimablesAdminUserResetClaimablesPostRaw(initOverrides) {

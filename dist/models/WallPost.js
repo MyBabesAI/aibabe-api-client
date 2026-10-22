@@ -81,6 +81,7 @@ function WallPostFromJSONTyped(json, ignoreDiscriminator) {
         'eventSubmissionPreviews': (json['event_submission_previews'].map(EventSubmissionPreview_1.EventSubmissionPreviewFromJSON)),
         'creator': json['creator'] == null ? undefined : (0, PublicUserPreview_1.PublicUserPreviewFromJSON)(json['creator']),
         'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
+        'shadow': json['shadow'] == null ? undefined : json['shadow'],
     };
 }
 function WallPostToJSON(json) {
@@ -107,6 +108,7 @@ function WallPostToJSONTyped(value, ignoreDiscriminator = false) {
         'event_submission_previews': (value['eventSubmissionPreviews'].map(EventSubmissionPreview_1.EventSubmissionPreviewToJSON)),
         'creator': (0, PublicUserPreview_1.PublicUserPreviewToJSON)(value['creator']),
         'is_original': value['isOriginal'],
+        'shadow': value['shadow'],
     };
 }
 //# sourceMappingURL=WallPost.js.map

@@ -122,6 +122,12 @@ export interface DetailedWallPost {
     isOriginal?: boolean | null;
     /**
      *
+     * @type {boolean}
+     * @memberof DetailedWallPost
+     */
+    shadow?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof DetailedWallPost
      */

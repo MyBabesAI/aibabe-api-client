@@ -40,6 +40,18 @@ export interface HubTag {
      * @memberof HubTag
      */
     indexable?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof HubTag
+     */
+    indexableVideos?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof HubTag
+     */
+    indexableImages?: boolean;
 }
 /**
  * Check if a given object implements the HubTag interface.
