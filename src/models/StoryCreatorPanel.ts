@@ -20,6 +20,20 @@ import {
     ActorRoleToJSON,
     ActorRoleToJSONTyped,
 } from './ActorRole';
+import type { StoryChatDifficulty } from './StoryChatDifficulty';
+import {
+    StoryChatDifficultyFromJSON,
+    StoryChatDifficultyFromJSONTyped,
+    StoryChatDifficultyToJSON,
+    StoryChatDifficultyToJSONTyped,
+} from './StoryChatDifficulty';
+import type { StoryCreatorTarget } from './StoryCreatorTarget';
+import {
+    StoryCreatorTargetFromJSON,
+    StoryCreatorTargetFromJSONTyped,
+    StoryCreatorTargetToJSON,
+    StoryCreatorTargetToJSONTyped,
+} from './StoryCreatorTarget';
 import type { EpisodePanelType } from './EpisodePanelType';
 import {
     EpisodePanelTypeFromJSON,
@@ -87,7 +101,37 @@ export interface StoryCreatorPanel {
      * @type {string}
      * @memberof StoryCreatorPanel
      */
+    pictureId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof StoryCreatorPanel
+     */
+    videoId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof StoryCreatorPanel
+     */
     message?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof StoryCreatorPanel
+     */
+    scenePrompt?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof StoryCreatorPanel
+     */
+    tone?: string | null;
+    /**
+     * 
+     * @type {StoryChatDifficulty}
+     * @memberof StoryCreatorPanel
+     */
+    difficulty?: StoryChatDifficulty | null;
     /**
      * 
      * @type {string}
@@ -112,6 +156,12 @@ export interface StoryCreatorPanel {
      * @memberof StoryCreatorPanel
      */
     actorAvatar?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof StoryCreatorPanel
+     */
+    actorChatbotId?: string | null;
     /**
      * 
      * @type {string}
@@ -154,6 +204,18 @@ export interface StoryCreatorPanel {
      * @memberof StoryCreatorPanel
      */
     panelIndex: number;
+    /**
+     * 
+     * @type {Array<StoryCreatorTarget>}
+     * @memberof StoryCreatorPanel
+     */
+    targets?: Array<StoryCreatorTarget>;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryCreatorPanel
+     */
+    targetsCount?: number;
 }
 
 
@@ -187,11 +249,17 @@ export function StoryCreatorPanelFromJSONTyped(json: any, ignoreDiscriminator: b
         'videoUrl': json['video_url'] == null ? undefined : json['video_url'],
         'videoPrompt': json['video_prompt'] == null ? undefined : json['video_prompt'],
         'videoVolume': json['video_volume'] == null ? undefined : json['video_volume'],
+        'pictureId': json['picture_id'] == null ? undefined : json['picture_id'],
+        'videoId': json['video_id'] == null ? undefined : json['video_id'],
         'message': json['message'] == null ? undefined : json['message'],
+        'scenePrompt': json['scene_prompt'] == null ? undefined : json['scene_prompt'],
+        'tone': json['tone'] == null ? undefined : json['tone'],
+        'difficulty': json['difficulty'] == null ? undefined : StoryChatDifficultyFromJSON(json['difficulty']),
         'actorId': json['actor_id'] == null ? undefined : json['actor_id'],
         'actorDisplayName': json['actor_display_name'] == null ? undefined : json['actor_display_name'],
         'actorRole': json['actor_role'] == null ? undefined : ActorRoleFromJSON(json['actor_role']),
         'actorAvatar': json['actor_avatar'] == null ? undefined : json['actor_avatar'],
+        'actorChatbotId': json['actor_chatbot_id'] == null ? undefined : json['actor_chatbot_id'],
         'voice': json['voice'] == null ? undefined : json['voice'],
         'voiceAutoReplay': json['voice_auto_replay'] == null ? undefined : json['voice_auto_replay'],
         'voiceVolume': json['voice_volume'] == null ? undefined : json['voice_volume'],
@@ -199,6 +267,8 @@ export function StoryCreatorPanelFromJSONTyped(json: any, ignoreDiscriminator: b
         'sfxAutoReplay': json['sfx_auto_replay'] == null ? undefined : json['sfx_auto_replay'],
         'sfxVolume': json['sfx_volume'] == null ? undefined : json['sfx_volume'],
         'panelIndex': json['panel_index'],
+        'targets': json['targets'] == null ? undefined : ((json['targets'] as Array<any>).map(StoryCreatorTargetFromJSON)),
+        'targetsCount': json['targets_count'] == null ? undefined : json['targets_count'],
     };
 }
 
@@ -221,11 +291,17 @@ export function StoryCreatorPanelFromJSONTyped(json: any, ignoreDiscriminator: b
         'video_url': value['videoUrl'],
         'video_prompt': value['videoPrompt'],
         'video_volume': value['videoVolume'],
+        'picture_id': value['pictureId'],
+        'video_id': value['videoId'],
         'message': value['message'],
+        'scene_prompt': value['scenePrompt'],
+        'tone': value['tone'],
+        'difficulty': StoryChatDifficultyToJSON(value['difficulty']),
         'actor_id': value['actorId'],
         'actor_display_name': value['actorDisplayName'],
         'actor_role': ActorRoleToJSON(value['actorRole']),
         'actor_avatar': value['actorAvatar'],
+        'actor_chatbot_id': value['actorChatbotId'],
         'voice': value['voice'],
         'voice_auto_replay': value['voiceAutoReplay'],
         'voice_volume': value['voiceVolume'],
@@ -233,6 +309,8 @@ export function StoryCreatorPanelFromJSONTyped(json: any, ignoreDiscriminator: b
         'sfx_auto_replay': value['sfxAutoReplay'],
         'sfx_volume': value['sfxVolume'],
         'panel_index': value['panelIndex'],
+        'targets': value['targets'] == null ? undefined : ((value['targets'] as Array<any>).map(StoryCreatorTargetToJSON)),
+        'targets_count': value['targetsCount'],
     };
 }
 

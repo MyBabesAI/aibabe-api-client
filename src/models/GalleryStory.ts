@@ -34,6 +34,20 @@ import {
     BlacklistCardToJSON,
     BlacklistCardToJSONTyped,
 } from './BlacklistCard';
+import type { StoryPlayState } from './StoryPlayState';
+import {
+    StoryPlayStateFromJSON,
+    StoryPlayStateFromJSONTyped,
+    StoryPlayStateToJSON,
+    StoryPlayStateToJSONTyped,
+} from './StoryPlayState';
+import type { StoryChatDifficulty } from './StoryChatDifficulty';
+import {
+    StoryChatDifficultyFromJSON,
+    StoryChatDifficultyFromJSONTyped,
+    StoryChatDifficultyToJSON,
+    StoryChatDifficultyToJSONTyped,
+} from './StoryChatDifficulty';
 import type { StoryVisibility } from './StoryVisibility';
 import {
     StoryVisibilityFromJSON,
@@ -48,6 +62,13 @@ import {
     StoryRatingToJSON,
     StoryRatingToJSONTyped,
 } from './StoryRating';
+import type { StoryCoverOrientation } from './StoryCoverOrientation';
+import {
+    StoryCoverOrientationFromJSON,
+    StoryCoverOrientationFromJSONTyped,
+    StoryCoverOrientationToJSON,
+    StoryCoverOrientationToJSONTyped,
+} from './StoryCoverOrientation';
 
 /**
  * 
@@ -121,6 +142,54 @@ export interface GalleryStory {
      * @memberof GalleryStory
      */
     counts: StoryCounts;
+    /**
+     * 
+     * @type {StoryCoverOrientation}
+     * @memberof GalleryStory
+     */
+    coverOrientation?: StoryCoverOrientation;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GalleryStory
+     */
+    interactive?: boolean;
+    /**
+     * 
+     * @type {StoryChatDifficulty}
+     * @memberof GalleryStory
+     */
+    difficulty?: StoryChatDifficulty | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GalleryStory
+     */
+    playersCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GalleryStory
+     */
+    winnersCount?: number;
+    /**
+     * 
+     * @type {StoryPlayState}
+     * @memberof GalleryStory
+     */
+    playState?: StoryPlayState;
+    /**
+     * 
+     * @type {number}
+     * @memberof GalleryStory
+     */
+    viewsCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GalleryStory
+     */
+    rewardsCount?: number;
 }
 
 
@@ -167,6 +236,14 @@ export function GalleryStoryFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'visibility': StoryVisibilityFromJSON(json['visibility']),
         'rating': json['rating'] == null ? undefined : StoryRatingFromJSON(json['rating']),
         'counts': StoryCountsFromJSON(json['counts']),
+        'coverOrientation': json['cover_orientation'] == null ? undefined : StoryCoverOrientationFromJSON(json['cover_orientation']),
+        'interactive': json['interactive'] == null ? undefined : json['interactive'],
+        'difficulty': json['difficulty'] == null ? undefined : StoryChatDifficultyFromJSON(json['difficulty']),
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'playState': json['play_state'] == null ? undefined : StoryPlayStateFromJSON(json['play_state']),
+        'viewsCount': json['views_count'] == null ? undefined : json['views_count'],
+        'rewardsCount': json['rewards_count'] == null ? undefined : json['rewards_count'],
     };
 }
 
@@ -192,6 +269,14 @@ export function GalleryStoryFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'visibility': StoryVisibilityToJSON(value['visibility']),
         'rating': StoryRatingToJSON(value['rating']),
         'counts': StoryCountsToJSON(value['counts']),
+        'cover_orientation': StoryCoverOrientationToJSON(value['coverOrientation']),
+        'interactive': value['interactive'],
+        'difficulty': StoryChatDifficultyToJSON(value['difficulty']),
+        'players_count': value['playersCount'],
+        'winners_count': value['winnersCount'],
+        'play_state': StoryPlayStateToJSON(value['playState']),
+        'views_count': value['viewsCount'],
+        'rewards_count': value['rewardsCount'],
     };
 }
 

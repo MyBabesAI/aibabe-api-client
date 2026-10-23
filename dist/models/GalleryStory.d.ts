@@ -12,8 +12,11 @@
 import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
 import type { StoryCounts } from './StoryCounts';
 import type { BlacklistCard } from './BlacklistCard';
+import type { StoryPlayState } from './StoryPlayState';
+import type { StoryChatDifficulty } from './StoryChatDifficulty';
 import type { StoryVisibility } from './StoryVisibility';
 import type { StoryRating } from './StoryRating';
+import type { StoryCoverOrientation } from './StoryCoverOrientation';
 /**
  *
  * @export
@@ -86,6 +89,54 @@ export interface GalleryStory {
      * @memberof GalleryStory
      */
     counts: StoryCounts;
+    /**
+     *
+     * @type {StoryCoverOrientation}
+     * @memberof GalleryStory
+     */
+    coverOrientation?: StoryCoverOrientation;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GalleryStory
+     */
+    interactive?: boolean;
+    /**
+     *
+     * @type {StoryChatDifficulty}
+     * @memberof GalleryStory
+     */
+    difficulty?: StoryChatDifficulty | null;
+    /**
+     *
+     * @type {number}
+     * @memberof GalleryStory
+     */
+    playersCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GalleryStory
+     */
+    winnersCount?: number;
+    /**
+     *
+     * @type {StoryPlayState}
+     * @memberof GalleryStory
+     */
+    playState?: StoryPlayState;
+    /**
+     *
+     * @type {number}
+     * @memberof GalleryStory
+     */
+    viewsCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof GalleryStory
+     */
+    rewardsCount?: number;
 }
 /**
  * @export

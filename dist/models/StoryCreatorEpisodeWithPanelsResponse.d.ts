@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { StoryCreatorPrize } from './StoryCreatorPrize';
 import type { StoryCreatorPanel } from './StoryCreatorPanel';
 import type { StoryCreatorEpisode } from './StoryCreatorEpisode';
 /**
@@ -29,6 +30,12 @@ export interface StoryCreatorEpisodeWithPanelsResponse {
      * @memberof StoryCreatorEpisodeWithPanelsResponse
      */
     panels: Array<StoryCreatorPanel>;
+    /**
+     *
+     * @type {Array<StoryCreatorPrize>}
+     * @memberof StoryCreatorEpisodeWithPanelsResponse
+     */
+    prizes?: Array<StoryCreatorPrize>;
 }
 /**
  * Check if a given object implements the StoryCreatorEpisodeWithPanelsResponse interface.

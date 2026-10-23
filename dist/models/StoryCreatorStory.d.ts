@@ -11,9 +11,13 @@
  */
 import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
 import type { StoryCounts } from './StoryCounts';
+import type { StoryPlayState } from './StoryPlayState';
+import type { StoryChatDifficulty } from './StoryChatDifficulty';
 import type { StoryVisibility } from './StoryVisibility';
 import type { UserEpisodeProgressType } from './UserEpisodeProgressType';
 import type { StoryRating } from './StoryRating';
+import type { LLM } from './LLM';
+import type { StoryCoverOrientation } from './StoryCoverOrientation';
 /**
  *
  * @export
@@ -43,7 +47,37 @@ export interface StoryCreatorStory {
      * @type {string}
      * @memberof StoryCreatorStory
      */
+    coverPictureId?: string | null;
+    /**
+     *
+     * @type {StoryCoverOrientation}
+     * @memberof StoryCreatorStory
+     */
+    coverOrientation?: StoryCoverOrientation | null;
+    /**
+     *
+     * @type {LLM}
+     * @memberof StoryCreatorStory
+     */
+    recommendedLlm?: LLM | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof StoryCreatorStory
+     */
+    suggestionsEnabled?: boolean | null;
+    /**
+     *
+     * @type {string}
+     * @memberof StoryCreatorStory
+     */
     id: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof StoryCreatorStory
+     */
+    locked?: boolean;
     /**
      *
      * @type {PublicUserPreviewWithFollow}
@@ -80,6 +114,54 @@ export interface StoryCreatorStory {
      * @memberof StoryCreatorStory
      */
     counts: StoryCounts;
+    /**
+     *
+     * @type {string}
+     * @memberof StoryCreatorStory
+     */
+    coverPictureUrl?: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof StoryCreatorStory
+     */
+    interactive?: boolean;
+    /**
+     *
+     * @type {StoryChatDifficulty}
+     * @memberof StoryCreatorStory
+     */
+    difficulty?: StoryChatDifficulty | null;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryCreatorStory
+     */
+    playersCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryCreatorStory
+     */
+    winnersCount?: number;
+    /**
+     *
+     * @type {StoryPlayState}
+     * @memberof StoryCreatorStory
+     */
+    playState?: StoryPlayState;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryCreatorStory
+     */
+    viewsCount?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StoryCreatorStory
+     */
+    rewardsCount?: number;
 }
 /**
  * Check if a given object implements the StoryCreatorStory interface.

@@ -22,8 +22,6 @@ export const PostType = {
     Video: 'video',
     Character: 'character',
     Story: 'story',
-    GameAdventure: 'game-adventure',
-    Game: 'game',
     Media: 'media',
     All: 'all'
 } as const;

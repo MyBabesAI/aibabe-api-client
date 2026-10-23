@@ -18,6 +18,8 @@ exports.StoryCreatorUpdateStoryRequestFromJSON = StoryCreatorUpdateStoryRequestF
 exports.StoryCreatorUpdateStoryRequestFromJSONTyped = StoryCreatorUpdateStoryRequestFromJSONTyped;
 exports.StoryCreatorUpdateStoryRequestToJSON = StoryCreatorUpdateStoryRequestToJSON;
 exports.StoryCreatorUpdateStoryRequestToJSONTyped = StoryCreatorUpdateStoryRequestToJSONTyped;
+const LLM_1 = require("./LLM");
+const StoryCoverOrientation_1 = require("./StoryCoverOrientation");
 /**
  * Check if a given object implements the StoryCreatorUpdateStoryRequest interface.
  */
@@ -35,6 +37,10 @@ function StoryCreatorUpdateStoryRequestFromJSONTyped(json, ignoreDiscriminator) 
         'title': json['title'] == null ? undefined : json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
+        'coverPictureId': json['cover_picture_id'] == null ? undefined : json['cover_picture_id'],
+        'coverOrientation': json['cover_orientation'] == null ? undefined : (0, StoryCoverOrientation_1.StoryCoverOrientationFromJSON)(json['cover_orientation']),
+        'recommendedLlm': json['recommended_llm'] == null ? undefined : (0, LLM_1.LLMFromJSON)(json['recommended_llm']),
+        'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
     };
 }
 function StoryCreatorUpdateStoryRequestToJSON(json) {
@@ -48,6 +54,10 @@ function StoryCreatorUpdateStoryRequestToJSONTyped(value, ignoreDiscriminator = 
         'title': value['title'],
         'description': value['description'],
         'cover_image': value['coverImage'],
+        'cover_picture_id': value['coverPictureId'],
+        'cover_orientation': (0, StoryCoverOrientation_1.StoryCoverOrientationToJSON)(value['coverOrientation']),
+        'recommended_llm': (0, LLM_1.LLMToJSON)(value['recommendedLlm']),
+        'suggestions_enabled': value['suggestionsEnabled'],
     };
 }
 //# sourceMappingURL=StoryCreatorUpdateStoryRequest.js.map

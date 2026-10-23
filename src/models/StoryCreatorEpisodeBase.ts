@@ -43,6 +43,18 @@ export interface StoryCreatorEpisodeBase {
      * @memberof StoryCreatorEpisodeBase
      */
     lockAfter?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof StoryCreatorEpisodeBase
+     */
+    backgroundAudioId?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryCreatorEpisodeBase
+     */
+    backgroundAudioVolume?: number | null;
 }
 
 /**
@@ -66,6 +78,8 @@ export function StoryCreatorEpisodeBaseFromJSONTyped(json: any, ignoreDiscrimina
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
         'lockAfter': json['lock_after'] == null ? undefined : json['lock_after'],
+        'backgroundAudioId': json['background_audio_id'] == null ? undefined : json['background_audio_id'],
+        'backgroundAudioVolume': json['background_audio_volume'] == null ? undefined : json['background_audio_volume'],
     };
 }
 
@@ -84,6 +98,8 @@ export function StoryCreatorEpisodeBaseFromJSONTyped(json: any, ignoreDiscrimina
         'description': value['description'],
         'cover_image': value['coverImage'],
         'lock_after': value['lockAfter'],
+        'background_audio_id': value['backgroundAudioId'],
+        'background_audio_volume': value['backgroundAudioVolume'],
     };
 }
 

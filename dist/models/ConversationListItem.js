@@ -24,7 +24,7 @@ exports.ConversationListItemToJSONTyped = ConversationListItemToJSONTyped;
  */
 exports.ConversationListItemKindEnum = {
     Chat: 'chat',
-    GameAdventure: 'game_adventure'
+    Story: 'story'
 };
 /**
  * Check if a given object implements the ConversationListItem interface.
@@ -56,8 +56,9 @@ function ConversationListItemFromJSONTyped(json, ignoreDiscriminator) {
         'lastMessage': json['last_message'],
         'unread': json['unread'],
         'kind': json['kind'] == null ? undefined : json['kind'],
-        'gameAdventureId': json['game_adventure_id'] == null ? undefined : json['game_adventure_id'],
-        'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
+        'storyId': json['story_id'] == null ? undefined : json['story_id'],
+        'storyEpisodeId': json['story_episode_id'] == null ? undefined : json['story_episode_id'],
+        'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
     };
 }
 function ConversationListItemToJSON(json) {
@@ -74,8 +75,9 @@ function ConversationListItemToJSONTyped(value, ignoreDiscriminator = false) {
         'last_message': value['lastMessage'],
         'unread': value['unread'],
         'kind': value['kind'],
-        'game_adventure_id': value['gameAdventureId'],
-        'poster_picture_id': value['posterPictureId'],
+        'story_id': value['storyId'],
+        'story_episode_id': value['storyEpisodeId'],
+        'cover_image': value['coverImage'],
     };
 }
 //# sourceMappingURL=ConversationListItem.js.map

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { StoryCreatorSavePrize } from './StoryCreatorSavePrize';
+import {
+    StoryCreatorSavePrizeFromJSON,
+    StoryCreatorSavePrizeFromJSONTyped,
+    StoryCreatorSavePrizeToJSON,
+    StoryCreatorSavePrizeToJSONTyped,
+} from './StoryCreatorSavePrize';
 import type { StoryCreatorSaveEpisodePanel } from './StoryCreatorSaveEpisodePanel';
 import {
     StoryCreatorSaveEpisodePanelFromJSON,
@@ -53,10 +60,28 @@ export interface StoryCreatorSaveEpisodeRequest {
     lockAfter?: number | null;
     /**
      * 
+     * @type {string}
+     * @memberof StoryCreatorSaveEpisodeRequest
+     */
+    backgroundAudioId?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryCreatorSaveEpisodeRequest
+     */
+    backgroundAudioVolume?: number | null;
+    /**
+     * 
      * @type {Array<StoryCreatorSaveEpisodePanel>}
      * @memberof StoryCreatorSaveEpisodeRequest
      */
     panels: Array<StoryCreatorSaveEpisodePanel>;
+    /**
+     * 
+     * @type {Array<StoryCreatorSavePrize>}
+     * @memberof StoryCreatorSaveEpisodeRequest
+     */
+    prizes?: Array<StoryCreatorSavePrize> | null;
 }
 
 /**
@@ -81,7 +106,10 @@ export function StoryCreatorSaveEpisodeRequestFromJSONTyped(json: any, ignoreDis
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
         'lockAfter': json['lock_after'] == null ? undefined : json['lock_after'],
+        'backgroundAudioId': json['background_audio_id'] == null ? undefined : json['background_audio_id'],
+        'backgroundAudioVolume': json['background_audio_volume'] == null ? undefined : json['background_audio_volume'],
         'panels': ((json['panels'] as Array<any>).map(StoryCreatorSaveEpisodePanelFromJSON)),
+        'prizes': json['prizes'] == null ? undefined : ((json['prizes'] as Array<any>).map(StoryCreatorSavePrizeFromJSON)),
     };
 }
 
@@ -100,7 +128,10 @@ export function StoryCreatorSaveEpisodeRequestFromJSONTyped(json: any, ignoreDis
         'description': value['description'],
         'cover_image': value['coverImage'],
         'lock_after': value['lockAfter'],
+        'background_audio_id': value['backgroundAudioId'],
+        'background_audio_volume': value['backgroundAudioVolume'],
         'panels': ((value['panels'] as Array<any>).map(StoryCreatorSaveEpisodePanelToJSON)),
+        'prizes': value['prizes'] == null ? undefined : ((value['prizes'] as Array<any>).map(StoryCreatorSavePrizeToJSON)),
     };
 }
 
