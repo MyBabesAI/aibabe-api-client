@@ -173,12 +173,12 @@ export declare class PostApi extends runtime.BaseAPI {
      */
     patchPostTitlePostPostIdTitlePatch(requestParameters: PatchPostTitlePostPostIdTitlePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
-     * Reports content shown without a post (a story or adventure page, a babe).
+     * Reports content shown without a post (a story page, a babe).
      * Report Content
      */
     reportContentPostReportContentTypeContentIdPostRaw(requestParameters: ReportContentPostReportContentTypeContentIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
     /**
-     * Reports content shown without a post (a story or adventure page, a babe).
+     * Reports content shown without a post (a story page, a babe).
      * Report Content
      */
     reportContentPostReportContentTypeContentIdPost(requestParameters: ReportContentPostReportContentTypeContentIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;

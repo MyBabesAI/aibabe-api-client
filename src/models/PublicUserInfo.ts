@@ -121,12 +121,6 @@ export interface PublicUserInfo {
     stories: number;
     /**
      * 
-     * @type {number}
-     * @memberof PublicUserInfo
-     */
-    adventures: number;
-    /**
-     * 
      * @type {boolean}
      * @memberof PublicUserInfo
      */
@@ -161,7 +155,6 @@ export function instanceOfPublicUserInfo(value: object): value is PublicUserInfo
     if (!('images' in value) || value['images'] === undefined) return false;
     if (!('messages' in value) || value['messages'] === undefined) return false;
     if (!('stories' in value) || value['stories'] === undefined) return false;
-    if (!('adventures' in value) || value['adventures'] === undefined) return false;
     if (!('followed' in value) || value['followed'] === undefined) return false;
     return true;
 }
@@ -189,7 +182,6 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'images': json['images'],
         'messages': json['messages'],
         'stories': json['stories'],
-        'adventures': json['adventures'],
         'followed': json['followed'],
         'notifyContentTypes': json['notify_content_types'] == null ? undefined : ((json['notify_content_types'] as Array<any>).map(ContentTypeFromJSON)),
         'blacklist': json['blacklist'] == null ? undefined : json['blacklist'],
@@ -220,7 +212,6 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'images': value['images'],
         'messages': value['messages'],
         'stories': value['stories'],
-        'adventures': value['adventures'],
         'followed': value['followed'],
         'notify_content_types': value['notifyContentTypes'] == null ? undefined : ((value['notifyContentTypes'] as Array<any>).map(ContentTypeToJSON)),
         'blacklist': value['blacklist'],

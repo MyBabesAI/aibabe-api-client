@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { PostImagenResponse, StoryCreatorActorListResponse, StoryCreatorActorResponse, StoryCreatorCreateActorRequest, StoryCreatorCreateEpisodeRequest, StoryCreatorCreateStoryRequest, StoryCreatorCreateStoryResponse, StoryCreatorEpisodeListResponse, StoryCreatorEpisodeResponse, StoryCreatorEpisodeWithPanelsResponse, StoryCreatorEpisodeWithStoryAndPanelsResponse, StoryCreatorGenerateAvatarRequest, StoryCreatorImportActorRequest, StoryCreatorLockEpisodeRequest, StoryCreatorPurchaseEpisodeRequest, StoryCreatorPurchaseEpisodeResponse, StoryCreatorRateEpisodeRequest, StoryCreatorSaveEpisodeRequest, StoryCreatorStoryMedia, StoryCreatorStoryResponse, StoryCreatorStoryWithEpisodesResponse, StoryCreatorUpdateActorRequest, StoryCreatorUpdateEpisodeRequest, StoryCreatorUpdateEpisodeVisibilityRequest, StoryCreatorUpdateStoryRequest } from '../models/index';
+import type { PostImagenResponse, StoryCreatorActorListResponse, StoryCreatorActorResponse, StoryCreatorCreateActorRequest, StoryCreatorCreateEpisodeRequest, StoryCreatorCreateStoryRequest, StoryCreatorCreateStoryResponse, StoryCreatorEpisodeListResponse, StoryCreatorEpisodeResponse, StoryCreatorEpisodeWithPanelsResponse, StoryCreatorEpisodeWithStoryAndPanelsResponse, StoryCreatorGenerateAvatarRequest, StoryCreatorImportActorRequest, StoryCreatorLockEpisodeRequest, StoryCreatorPurchaseEpisodeRequest, StoryCreatorPurchaseEpisodeResponse, StoryCreatorRateEpisodeRequest, StoryCreatorSaveEpisodeRequest, StoryCreatorStoryMedia, StoryCreatorStoryResponse, StoryCreatorStoryWithEpisodesResponse, StoryCreatorUpdateActorRequest, StoryCreatorUpdateEpisodeRequest, StoryCreatorUpdateEpisodeVisibilityRequest, StoryCreatorUpdateStoryRequest, StoryLibraryFilter, StoryLibraryResponse, StorySessionResponse } from '../models/index';
 export interface CreateEpisodeStoryCreatorStoriesStoryIdEpisodesPostRequest {
     storyId: string;
     storyCreatorCreateEpisodeRequest: StoryCreatorCreateEpisodeRequest;
@@ -18,6 +18,9 @@ export interface CreateEpisodeStoryCreatorStoriesStoryIdEpisodesPostRequest {
 export interface CreateNewActorStoryCreatorStoriesStoryIdActorNewPostRequest {
     storyId: string;
     storyCreatorCreateActorRequest: StoryCreatorCreateActorRequest;
+}
+export interface CreatePreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPostRequest {
+    episodeId: string;
 }
 export interface CreateStoryStoryCreatorStoriesPostRequest {
     storyCreatorCreateStoryRequest: StoryCreatorCreateStoryRequest;
@@ -59,6 +62,12 @@ export interface ListActorsStoryCreatorStoriesStoryIdActorsGetRequest {
 }
 export interface ListEpisodesStoryCreatorStoriesStoryIdEpisodesGetRequest {
     storyId: string;
+}
+export interface ListLibraryStoryCreatorStoriesLibraryGetRequest {
+    filter?: StoryLibraryFilter;
+    freeTextSearch?: string | null;
+    limit?: number;
+    cursor?: string | null;
 }
 export interface LockEpisodeStoryCreatorEpisodesEpisodeIdLockPatchRequest {
     episodeId: string;
@@ -115,6 +124,16 @@ export declare class StoryCreatorApi extends runtime.BaseAPI {
      * Create New Actor
      */
     createNewActorStoryCreatorStoriesStoryIdActorNewPost(requestParameters: CreateNewActorStoryCreatorStoriesStoryIdActorNewPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StoryCreatorActorResponse>;
+    /**
+     * **Owner only: plays the latest version without touching progress, prizes or leaderboards**
+     * Start an owner preview run of an interactive episode
+     */
+    createPreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPostRaw(requestParameters: CreatePreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StorySessionResponse>>;
+    /**
+     * **Owner only: plays the latest version without touching progress, prizes or leaderboards**
+     * Start an owner preview run of an interactive episode
+     */
+    createPreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPost(requestParameters: CreatePreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StorySessionResponse>;
     /**
      * **Creates new story with first episode and adds default Cast to the story consisting of 3 actors: \'main-character\' created from a chatbot, \'user\' and \'narrator\'**
      * Create new story
@@ -221,6 +240,16 @@ export declare class StoryCreatorApi extends runtime.BaseAPI {
      * List Episodes
      */
     listEpisodesStoryCreatorStoriesStoryIdEpisodesGet(requestParameters: ListEpisodesStoryCreatorStoriesStoryIdEpisodesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StoryCreatorEpisodeListResponse>;
+    /**
+     * **Stories with an episode the reader bought (unlocked) or opened (watching), sourced from purchases and progress, unpublished ones included**
+     * The reader\'s story library
+     */
+    listLibraryStoryCreatorStoriesLibraryGetRaw(requestParameters: ListLibraryStoryCreatorStoriesLibraryGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StoryLibraryResponse>>;
+    /**
+     * **Stories with an episode the reader bought (unlocked) or opened (watching), sourced from purchases and progress, unpublished ones included**
+     * The reader\'s story library
+     */
+    listLibraryStoryCreatorStoriesLibraryGet(requestParameters?: ListLibraryStoryCreatorStoriesLibraryGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StoryLibraryResponse>;
     /**
      * Lock Episode
      */

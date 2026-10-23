@@ -18,6 +18,9 @@ exports.StoryCreatorEpisodeFromJSON = StoryCreatorEpisodeFromJSON;
 exports.StoryCreatorEpisodeFromJSONTyped = StoryCreatorEpisodeFromJSONTyped;
 exports.StoryCreatorEpisodeToJSON = StoryCreatorEpisodeToJSON;
 exports.StoryCreatorEpisodeToJSONTyped = StoryCreatorEpisodeToJSONTyped;
+const StoryCreatorSessionSummary_1 = require("./StoryCreatorSessionSummary");
+const StoryPlayState_1 = require("./StoryPlayState");
+const StoryChatDifficulty_1 = require("./StoryChatDifficulty");
 const UserEpisodeProgressType_1 = require("./UserEpisodeProgressType");
 const StoryCreatorEpisodePrice_1 = require("./StoryCreatorEpisodePrice");
 const EpisodeCounts_1 = require("./EpisodeCounts");
@@ -54,6 +57,8 @@ function StoryCreatorEpisodeFromJSONTyped(json, ignoreDiscriminator) {
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
         'lockAfter': json['lock_after'] == null ? undefined : json['lock_after'],
+        'backgroundAudioId': json['background_audio_id'] == null ? undefined : json['background_audio_id'],
+        'backgroundAudioVolume': json['background_audio_volume'] == null ? undefined : json['background_audio_volume'],
         'episodeId': json['episode_id'],
         'newerVersionExists': json['newer_version_exists'] == null ? undefined : json['newer_version_exists'],
         'visibility': (0, EpisodeVisibility_1.EpisodeVisibilityFromJSON)(json['visibility']),
@@ -65,6 +70,18 @@ function StoryCreatorEpisodeFromJSONTyped(json, ignoreDiscriminator) {
         'prices': json['prices'] == null ? undefined : (json['prices'].map(StoryCreatorEpisodePrice_1.StoryCreatorEpisodePriceFromJSON)),
         'counts': (0, EpisodeCounts_1.EpisodeCountsFromJSON)(json['counts']),
         'lastSaved': (new Date(json['last_saved'])),
+        'backgroundAudioUrl': json['background_audio_url'] == null ? undefined : json['background_audio_url'],
+        'chatPanelsCount': json['chat_panels_count'] == null ? undefined : json['chat_panels_count'],
+        'interactive': json['interactive'] == null ? undefined : json['interactive'],
+        'difficulty': json['difficulty'] == null ? undefined : (0, StoryChatDifficulty_1.StoryChatDifficultyFromJSON)(json['difficulty']),
+        'sequentialLocked': json['sequential_locked'] == null ? undefined : json['sequential_locked'],
+        'won': json['won'] == null ? undefined : json['won'],
+        'playState': json['play_state'] == null ? undefined : (0, StoryPlayState_1.StoryPlayStateFromJSON)(json['play_state']),
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'prizesCount': json['prizes_count'] == null ? undefined : json['prizes_count'],
+        'viewsCount': json['views_count'] == null ? undefined : json['views_count'],
+        'sessions': json['sessions'] == null ? undefined : (json['sessions'].map(StoryCreatorSessionSummary_1.StoryCreatorSessionSummaryFromJSON)),
     };
 }
 function StoryCreatorEpisodeToJSON(json) {
@@ -79,6 +96,8 @@ function StoryCreatorEpisodeToJSONTyped(value, ignoreDiscriminator = false) {
         'description': value['description'],
         'cover_image': value['coverImage'],
         'lock_after': value['lockAfter'],
+        'background_audio_id': value['backgroundAudioId'],
+        'background_audio_volume': value['backgroundAudioVolume'],
         'episode_id': value['episodeId'],
         'newer_version_exists': value['newerVersionExists'],
         'visibility': (0, EpisodeVisibility_1.EpisodeVisibilityToJSON)(value['visibility']),
@@ -90,6 +109,18 @@ function StoryCreatorEpisodeToJSONTyped(value, ignoreDiscriminator = false) {
         'prices': value['prices'] == null ? undefined : (value['prices'].map(StoryCreatorEpisodePrice_1.StoryCreatorEpisodePriceToJSON)),
         'counts': (0, EpisodeCounts_1.EpisodeCountsToJSON)(value['counts']),
         'last_saved': ((value['lastSaved']).toISOString()),
+        'background_audio_url': value['backgroundAudioUrl'],
+        'chat_panels_count': value['chatPanelsCount'],
+        'interactive': value['interactive'],
+        'difficulty': (0, StoryChatDifficulty_1.StoryChatDifficultyToJSON)(value['difficulty']),
+        'sequential_locked': value['sequentialLocked'],
+        'won': value['won'],
+        'play_state': (0, StoryPlayState_1.StoryPlayStateToJSON)(value['playState']),
+        'players_count': value['playersCount'],
+        'winners_count': value['winnersCount'],
+        'prizes_count': value['prizesCount'],
+        'views_count': value['viewsCount'],
+        'sessions': value['sessions'] == null ? undefined : (value['sessions'].map(StoryCreatorSessionSummary_1.StoryCreatorSessionSummaryToJSON)),
     };
 }
 //# sourceMappingURL=StoryCreatorEpisode.js.map

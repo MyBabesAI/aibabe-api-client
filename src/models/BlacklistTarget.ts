@@ -22,7 +22,6 @@ export const BlacklistTarget = {
     Picture: 'picture',
     Video: 'video',
     Story: 'story',
-    GameAdventure: 'game_adventure',
     User: 'user'
 } as const;
 export type BlacklistTarget = typeof BlacklistTarget[keyof typeof BlacklistTarget];

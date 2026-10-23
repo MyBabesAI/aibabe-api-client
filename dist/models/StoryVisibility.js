@@ -25,7 +25,8 @@ exports.StoryVisibilityToJSONTyped = StoryVisibilityToJSONTyped;
  */
 exports.StoryVisibility = {
     Private: 'private',
-    Public: 'public'
+    Public: 'public',
+    Submission: 'submission'
 };
 function instanceOfStoryVisibility(value) {
     for (const key in exports.StoryVisibility) {

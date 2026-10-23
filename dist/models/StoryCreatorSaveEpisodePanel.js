@@ -19,6 +19,8 @@ exports.StoryCreatorSaveEpisodePanelFromJSONTyped = StoryCreatorSaveEpisodePanel
 exports.StoryCreatorSaveEpisodePanelToJSON = StoryCreatorSaveEpisodePanelToJSON;
 exports.StoryCreatorSaveEpisodePanelToJSONTyped = StoryCreatorSaveEpisodePanelToJSONTyped;
 const ActorRole_1 = require("./ActorRole");
+const StoryChatDifficulty_1 = require("./StoryChatDifficulty");
+const StoryCreatorSaveTarget_1 = require("./StoryCreatorSaveTarget");
 const EpisodePanelType_1 = require("./EpisodePanelType");
 /**
  * Check if a given object implements the StoryCreatorSaveEpisodePanel interface.
@@ -48,11 +50,17 @@ function StoryCreatorSaveEpisodePanelFromJSONTyped(json, ignoreDiscriminator) {
         'videoUrl': json['video_url'] == null ? undefined : json['video_url'],
         'videoPrompt': json['video_prompt'] == null ? undefined : json['video_prompt'],
         'videoVolume': json['video_volume'] == null ? undefined : json['video_volume'],
+        'pictureId': json['picture_id'] == null ? undefined : json['picture_id'],
+        'videoId': json['video_id'] == null ? undefined : json['video_id'],
         'message': json['message'] == null ? undefined : json['message'],
+        'scenePrompt': json['scene_prompt'] == null ? undefined : json['scene_prompt'],
+        'tone': json['tone'] == null ? undefined : json['tone'],
+        'difficulty': json['difficulty'] == null ? undefined : (0, StoryChatDifficulty_1.StoryChatDifficultyFromJSON)(json['difficulty']),
         'actorId': json['actor_id'] == null ? undefined : json['actor_id'],
         'actorDisplayName': json['actor_display_name'] == null ? undefined : json['actor_display_name'],
         'actorRole': json['actor_role'] == null ? undefined : (0, ActorRole_1.ActorRoleFromJSON)(json['actor_role']),
         'actorAvatar': json['actor_avatar'] == null ? undefined : json['actor_avatar'],
+        'actorChatbotId': json['actor_chatbot_id'] == null ? undefined : json['actor_chatbot_id'],
         'voice': json['voice'] == null ? undefined : json['voice'],
         'voiceAutoReplay': json['voice_auto_replay'] == null ? undefined : json['voice_auto_replay'],
         'voiceVolume': json['voice_volume'] == null ? undefined : json['voice_volume'],
@@ -60,6 +68,8 @@ function StoryCreatorSaveEpisodePanelFromJSONTyped(json, ignoreDiscriminator) {
         'sfxAutoReplay': json['sfx_auto_replay'] == null ? undefined : json['sfx_auto_replay'],
         'sfxVolume': json['sfx_volume'] == null ? undefined : json['sfx_volume'],
         'panelIndex': json['panel_index'],
+        'targets': json['targets'] == null ? undefined : (json['targets'].map(StoryCreatorSaveTarget_1.StoryCreatorSaveTargetFromJSON)),
+        'targetsCount': json['targets_count'] == null ? undefined : json['targets_count'],
     };
 }
 function StoryCreatorSaveEpisodePanelToJSON(json) {
@@ -78,11 +88,17 @@ function StoryCreatorSaveEpisodePanelToJSONTyped(value, ignoreDiscriminator = fa
         'video_url': value['videoUrl'],
         'video_prompt': value['videoPrompt'],
         'video_volume': value['videoVolume'],
+        'picture_id': value['pictureId'],
+        'video_id': value['videoId'],
         'message': value['message'],
+        'scene_prompt': value['scenePrompt'],
+        'tone': value['tone'],
+        'difficulty': (0, StoryChatDifficulty_1.StoryChatDifficultyToJSON)(value['difficulty']),
         'actor_id': value['actorId'],
         'actor_display_name': value['actorDisplayName'],
         'actor_role': (0, ActorRole_1.ActorRoleToJSON)(value['actorRole']),
         'actor_avatar': value['actorAvatar'],
+        'actor_chatbot_id': value['actorChatbotId'],
         'voice': value['voice'],
         'voice_auto_replay': value['voiceAutoReplay'],
         'voice_volume': value['voiceVolume'],
@@ -90,6 +106,8 @@ function StoryCreatorSaveEpisodePanelToJSONTyped(value, ignoreDiscriminator = fa
         'sfx_auto_replay': value['sfxAutoReplay'],
         'sfx_volume': value['sfxVolume'],
         'panel_index': value['panelIndex'],
+        'targets': value['targets'] == null ? undefined : (value['targets'].map(StoryCreatorSaveTarget_1.StoryCreatorSaveTargetToJSON)),
+        'targets_count': value['targetsCount'],
     };
 }
 //# sourceMappingURL=StoryCreatorSaveEpisodePanel.js.map

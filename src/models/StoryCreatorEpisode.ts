@@ -13,6 +13,27 @@
  */
 
 import { mapValues } from '../runtime';
+import type { StoryCreatorSessionSummary } from './StoryCreatorSessionSummary';
+import {
+    StoryCreatorSessionSummaryFromJSON,
+    StoryCreatorSessionSummaryFromJSONTyped,
+    StoryCreatorSessionSummaryToJSON,
+    StoryCreatorSessionSummaryToJSONTyped,
+} from './StoryCreatorSessionSummary';
+import type { StoryPlayState } from './StoryPlayState';
+import {
+    StoryPlayStateFromJSON,
+    StoryPlayStateFromJSONTyped,
+    StoryPlayStateToJSON,
+    StoryPlayStateToJSONTyped,
+} from './StoryPlayState';
+import type { StoryChatDifficulty } from './StoryChatDifficulty';
+import {
+    StoryChatDifficultyFromJSON,
+    StoryChatDifficultyFromJSONTyped,
+    StoryChatDifficultyToJSON,
+    StoryChatDifficultyToJSONTyped,
+} from './StoryChatDifficulty';
 import type { UserEpisodeProgressType } from './UserEpisodeProgressType';
 import {
     UserEpisodeProgressTypeFromJSON,
@@ -91,6 +112,18 @@ export interface StoryCreatorEpisode {
      * @type {string}
      * @memberof StoryCreatorEpisode
      */
+    backgroundAudioId?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryCreatorEpisode
+     */
+    backgroundAudioVolume?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof StoryCreatorEpisode
+     */
     episodeId: string;
     /**
      * 
@@ -152,6 +185,78 @@ export interface StoryCreatorEpisode {
      * @memberof StoryCreatorEpisode
      */
     lastSaved: Date;
+    /**
+     * 
+     * @type {string}
+     * @memberof StoryCreatorEpisode
+     */
+    backgroundAudioUrl?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryCreatorEpisode
+     */
+    chatPanelsCount?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof StoryCreatorEpisode
+     */
+    interactive?: boolean;
+    /**
+     * 
+     * @type {StoryChatDifficulty}
+     * @memberof StoryCreatorEpisode
+     */
+    difficulty?: StoryChatDifficulty | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof StoryCreatorEpisode
+     */
+    sequentialLocked?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof StoryCreatorEpisode
+     */
+    won?: boolean;
+    /**
+     * 
+     * @type {StoryPlayState}
+     * @memberof StoryCreatorEpisode
+     */
+    playState?: StoryPlayState;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryCreatorEpisode
+     */
+    playersCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryCreatorEpisode
+     */
+    winnersCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryCreatorEpisode
+     */
+    prizesCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof StoryCreatorEpisode
+     */
+    viewsCount?: number;
+    /**
+     * 
+     * @type {Array<StoryCreatorSessionSummary>}
+     * @memberof StoryCreatorEpisode
+     */
+    sessions?: Array<StoryCreatorSessionSummary>;
 }
 
 
@@ -183,6 +288,8 @@ export function StoryCreatorEpisodeFromJSONTyped(json: any, ignoreDiscriminator:
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
         'lockAfter': json['lock_after'] == null ? undefined : json['lock_after'],
+        'backgroundAudioId': json['background_audio_id'] == null ? undefined : json['background_audio_id'],
+        'backgroundAudioVolume': json['background_audio_volume'] == null ? undefined : json['background_audio_volume'],
         'episodeId': json['episode_id'],
         'newerVersionExists': json['newer_version_exists'] == null ? undefined : json['newer_version_exists'],
         'visibility': EpisodeVisibilityFromJSON(json['visibility']),
@@ -194,6 +301,18 @@ export function StoryCreatorEpisodeFromJSONTyped(json: any, ignoreDiscriminator:
         'prices': json['prices'] == null ? undefined : ((json['prices'] as Array<any>).map(StoryCreatorEpisodePriceFromJSON)),
         'counts': EpisodeCountsFromJSON(json['counts']),
         'lastSaved': (new Date(json['last_saved'])),
+        'backgroundAudioUrl': json['background_audio_url'] == null ? undefined : json['background_audio_url'],
+        'chatPanelsCount': json['chat_panels_count'] == null ? undefined : json['chat_panels_count'],
+        'interactive': json['interactive'] == null ? undefined : json['interactive'],
+        'difficulty': json['difficulty'] == null ? undefined : StoryChatDifficultyFromJSON(json['difficulty']),
+        'sequentialLocked': json['sequential_locked'] == null ? undefined : json['sequential_locked'],
+        'won': json['won'] == null ? undefined : json['won'],
+        'playState': json['play_state'] == null ? undefined : StoryPlayStateFromJSON(json['play_state']),
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'prizesCount': json['prizes_count'] == null ? undefined : json['prizes_count'],
+        'viewsCount': json['views_count'] == null ? undefined : json['views_count'],
+        'sessions': json['sessions'] == null ? undefined : ((json['sessions'] as Array<any>).map(StoryCreatorSessionSummaryFromJSON)),
     };
 }
 
@@ -212,6 +331,8 @@ export function StoryCreatorEpisodeFromJSONTyped(json: any, ignoreDiscriminator:
         'description': value['description'],
         'cover_image': value['coverImage'],
         'lock_after': value['lockAfter'],
+        'background_audio_id': value['backgroundAudioId'],
+        'background_audio_volume': value['backgroundAudioVolume'],
         'episode_id': value['episodeId'],
         'newer_version_exists': value['newerVersionExists'],
         'visibility': EpisodeVisibilityToJSON(value['visibility']),
@@ -223,6 +344,18 @@ export function StoryCreatorEpisodeFromJSONTyped(json: any, ignoreDiscriminator:
         'prices': value['prices'] == null ? undefined : ((value['prices'] as Array<any>).map(StoryCreatorEpisodePriceToJSON)),
         'counts': EpisodeCountsToJSON(value['counts']),
         'last_saved': ((value['lastSaved']).toISOString()),
+        'background_audio_url': value['backgroundAudioUrl'],
+        'chat_panels_count': value['chatPanelsCount'],
+        'interactive': value['interactive'],
+        'difficulty': StoryChatDifficultyToJSON(value['difficulty']),
+        'sequential_locked': value['sequentialLocked'],
+        'won': value['won'],
+        'play_state': StoryPlayStateToJSON(value['playState']),
+        'players_count': value['playersCount'],
+        'winners_count': value['winnersCount'],
+        'prizes_count': value['prizesCount'],
+        'views_count': value['viewsCount'],
+        'sessions': value['sessions'] == null ? undefined : ((value['sessions'] as Array<any>).map(StoryCreatorSessionSummaryToJSON)),
     };
 }
 

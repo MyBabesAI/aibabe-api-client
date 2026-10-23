@@ -62,6 +62,13 @@ import {
     AdminAgeEstimationToJSON,
     AdminAgeEstimationToJSONTyped,
 } from './AdminAgeEstimation';
+import type { StoryCoverOrientation } from './StoryCoverOrientation';
+import {
+    StoryCoverOrientationFromJSON,
+    StoryCoverOrientationFromJSONTyped,
+    StoryCoverOrientationToJSON,
+    StoryCoverOrientationToJSONTyped,
+} from './StoryCoverOrientation';
 import type { VideoGenerationStatus } from './VideoGenerationStatus';
 import {
     VideoGenerationStatusFromJSON,
@@ -90,6 +97,13 @@ import {
     ChatbotPreviewToJSON,
     ChatbotPreviewToJSONTyped,
 } from './ChatbotPreview';
+import type { StoryPlayState } from './StoryPlayState';
+import {
+    StoryPlayStateFromJSON,
+    StoryPlayStateFromJSONTyped,
+    StoryPlayStateToJSON,
+    StoryPlayStateToJSONTyped,
+} from './StoryPlayState';
 import type { GeneratedImages } from './GeneratedImages';
 import {
     GeneratedImagesFromJSON,
@@ -97,6 +111,13 @@ import {
     GeneratedImagesToJSON,
     GeneratedImagesToJSONTyped,
 } from './GeneratedImages';
+import type { StoryChatDifficulty } from './StoryChatDifficulty';
+import {
+    StoryChatDifficultyFromJSON,
+    StoryChatDifficultyFromJSONTyped,
+    StoryChatDifficultyToJSON,
+    StoryChatDifficultyToJSONTyped,
+} from './StoryChatDifficulty';
 import type { StoryRating } from './StoryRating';
 import {
     StoryRatingFromJSON,
@@ -261,6 +282,54 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     counts: StoryCounts;
+    /**
+     * 
+     * @type {StoryCoverOrientation}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    coverOrientation?: StoryCoverOrientation;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    interactive?: boolean;
+    /**
+     * 
+     * @type {StoryChatDifficulty}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    difficulty?: StoryChatDifficulty;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    playersCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    winnersCount?: number;
+    /**
+     * 
+     * @type {StoryPlayState}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    playState?: StoryPlayState;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    viewsCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    rewardsCount?: number;
 }
 
 
@@ -332,6 +401,14 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'visibility': StoryVisibilityFromJSON(json['visibility']),
         'rating': json['rating'] == null ? undefined : StoryRatingFromJSON(json['rating']),
         'counts': StoryCountsFromJSON(json['counts']),
+        'coverOrientation': json['cover_orientation'] == null ? undefined : StoryCoverOrientationFromJSON(json['cover_orientation']),
+        'interactive': json['interactive'] == null ? undefined : json['interactive'],
+        'difficulty': json['difficulty'] == null ? undefined : StoryChatDifficultyFromJSON(json['difficulty']),
+        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
+        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
+        'playState': json['play_state'] == null ? undefined : StoryPlayStateFromJSON(json['play_state']),
+        'viewsCount': json['views_count'] == null ? undefined : json['views_count'],
+        'rewardsCount': json['rewards_count'] == null ? undefined : json['rewards_count'],
     };
 }
 
@@ -371,6 +448,14 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'visibility': StoryVisibilityToJSON(value['visibility']),
         'rating': StoryRatingToJSON(value['rating']),
         'counts': StoryCountsToJSON(value['counts']),
+        'cover_orientation': StoryCoverOrientationToJSON(value['coverOrientation']),
+        'interactive': value['interactive'],
+        'difficulty': StoryChatDifficultyToJSON(value['difficulty']),
+        'players_count': value['playersCount'],
+        'winners_count': value['winnersCount'],
+        'play_state': StoryPlayStateToJSON(value['playState']),
+        'views_count': value['viewsCount'],
+        'rewards_count': value['rewardsCount'],
     };
 }
 

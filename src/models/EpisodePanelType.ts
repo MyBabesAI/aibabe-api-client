@@ -20,7 +20,8 @@
 export const EpisodePanelType = {
     Scene: 'scene',
     Tbc: 'tbc',
-    End: 'end'
+    End: 'end',
+    Chat: 'chat'
 } as const;
 export type EpisodePanelType = typeof EpisodePanelType[keyof typeof EpisodePanelType];
 
