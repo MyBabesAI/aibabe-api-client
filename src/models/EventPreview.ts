@@ -53,34 +53,10 @@ export interface EventPreview {
     backgroundImage: string;
     /**
      * 
-     * @type {string}
-     * @memberof EventPreview
-     */
-    bannerImageDesktop?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EventPreview
-     */
-    bannerImageMobile?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EventPreview
-     */
-    showOnHome?: boolean;
-    /**
-     * 
      * @type {number}
      * @memberof EventPreview
      */
     timeRemaining: number | null;
-    /**
-     * 
-     * @type {Date}
-     * @memberof EventPreview
-     */
-    endedAt?: Date | null;
     /**
      * 
      * @type {number}
@@ -132,11 +108,7 @@ export function EventPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'title': json['title'],
         'description': json['description'],
         'backgroundImage': json['background_image'],
-        'bannerImageDesktop': json['banner_image_desktop'] == null ? undefined : json['banner_image_desktop'],
-        'bannerImageMobile': json['banner_image_mobile'] == null ? undefined : json['banner_image_mobile'],
-        'showOnHome': json['show_on_home'] == null ? undefined : json['show_on_home'],
         'timeRemaining': json['time_remaining'],
-        'endedAt': json['ended_at'] == null ? undefined : (new Date(json['ended_at'])),
         'prizePool': json['prize_pool'],
         'submissionsCount': json['submissions_count'],
         'status': EffectiveEventStatusFromJSON(json['status']),
@@ -158,11 +130,7 @@ export function EventPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'title': value['title'],
         'description': value['description'],
         'background_image': value['backgroundImage'],
-        'banner_image_desktop': value['bannerImageDesktop'],
-        'banner_image_mobile': value['bannerImageMobile'],
-        'show_on_home': value['showOnHome'],
         'time_remaining': value['timeRemaining'],
-        'ended_at': value['endedAt'] == null ? undefined : ((value['endedAt'] as any).toISOString()),
         'prize_pool': value['prizePool'],
         'submissions_count': value['submissionsCount'],
         'status': EffectiveEventStatusToJSON(value['status']),

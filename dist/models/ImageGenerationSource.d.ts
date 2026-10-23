@@ -19,7 +19,6 @@ export declare const ImageGenerationSource: {
     readonly ChatRequest: "chat_request";
     readonly ChatAuto: "chat_auto";
     readonly Adventure: "adventure";
-    readonly StoryChat: "story_chat";
 };
 export type ImageGenerationSource = typeof ImageGenerationSource[keyof typeof ImageGenerationSource];
 export declare function instanceOfImageGenerationSource(value: any): boolean;

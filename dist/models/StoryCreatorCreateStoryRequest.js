@@ -19,8 +19,6 @@ exports.StoryCreatorCreateStoryRequestFromJSONTyped = StoryCreatorCreateStoryReq
 exports.StoryCreatorCreateStoryRequestToJSON = StoryCreatorCreateStoryRequestToJSON;
 exports.StoryCreatorCreateStoryRequestToJSONTyped = StoryCreatorCreateStoryRequestToJSONTyped;
 const StoryCreatorEpisodeBase_1 = require("./StoryCreatorEpisodeBase");
-const LLM_1 = require("./LLM");
-const StoryCoverOrientation_1 = require("./StoryCoverOrientation");
 /**
  * Check if a given object implements the StoryCreatorCreateStoryRequest interface.
  */
@@ -44,10 +42,6 @@ function StoryCreatorCreateStoryRequestFromJSONTyped(json, ignoreDiscriminator) 
         'title': json['title'] == null ? undefined : json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
-        'coverPictureId': json['cover_picture_id'] == null ? undefined : json['cover_picture_id'],
-        'coverOrientation': json['cover_orientation'] == null ? undefined : (0, StoryCoverOrientation_1.StoryCoverOrientationFromJSON)(json['cover_orientation']),
-        'recommendedLlm': json['recommended_llm'] == null ? undefined : (0, LLM_1.LLMFromJSON)(json['recommended_llm']),
-        'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
         'firstEpisode': (0, StoryCreatorEpisodeBase_1.StoryCreatorEpisodeBaseFromJSON)(json['first_episode']),
         'mainCharacterChatbotId': json['main_character_chatbot_id'],
         'mainCharacterDisplayName': json['main_character_display_name'],
@@ -64,10 +58,6 @@ function StoryCreatorCreateStoryRequestToJSONTyped(value, ignoreDiscriminator = 
         'title': value['title'],
         'description': value['description'],
         'cover_image': value['coverImage'],
-        'cover_picture_id': value['coverPictureId'],
-        'cover_orientation': (0, StoryCoverOrientation_1.StoryCoverOrientationToJSON)(value['coverOrientation']),
-        'recommended_llm': (0, LLM_1.LLMToJSON)(value['recommendedLlm']),
-        'suggestions_enabled': value['suggestionsEnabled'],
         'first_episode': (0, StoryCreatorEpisodeBase_1.StoryCreatorEpisodeBaseToJSON)(value['firstEpisode']),
         'main_character_chatbot_id': value['mainCharacterChatbotId'],
         'main_character_display_name': value['mainCharacterDisplayName'],

@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { StoryCreatorPrize } from './StoryCreatorPrize';
-import {
-    StoryCreatorPrizeFromJSON,
-    StoryCreatorPrizeFromJSONTyped,
-    StoryCreatorPrizeToJSON,
-    StoryCreatorPrizeToJSONTyped,
-} from './StoryCreatorPrize';
 import type { StoryCreatorPanel } from './StoryCreatorPanel';
 import {
     StoryCreatorPanelFromJSON,
@@ -53,12 +46,6 @@ export interface StoryCreatorEpisodeWithPanelsResponse {
      * @memberof StoryCreatorEpisodeWithPanelsResponse
      */
     panels: Array<StoryCreatorPanel>;
-    /**
-     * 
-     * @type {Array<StoryCreatorPrize>}
-     * @memberof StoryCreatorEpisodeWithPanelsResponse
-     */
-    prizes?: Array<StoryCreatorPrize>;
 }
 
 /**
@@ -82,7 +69,6 @@ export function StoryCreatorEpisodeWithPanelsResponseFromJSONTyped(json: any, ig
         
         'episode': StoryCreatorEpisodeFromJSON(json['episode']),
         'panels': ((json['panels'] as Array<any>).map(StoryCreatorPanelFromJSON)),
-        'prizes': json['prizes'] == null ? undefined : ((json['prizes'] as Array<any>).map(StoryCreatorPrizeFromJSON)),
     };
 }
 
@@ -99,7 +85,6 @@ export function StoryCreatorEpisodeWithPanelsResponseFromJSONTyped(json: any, ig
         
         'episode': StoryCreatorEpisodeToJSON(value['episode']),
         'panels': ((value['panels'] as Array<any>).map(StoryCreatorPanelToJSON)),
-        'prizes': value['prizes'] == null ? undefined : ((value['prizes'] as Array<any>).map(StoryCreatorPrizeToJSON)),
     };
 }
 

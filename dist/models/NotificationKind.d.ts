@@ -18,6 +18,7 @@ export declare const NotificationKind: {
     readonly Video: "video";
     readonly Babe: "babe";
     readonly Story: "story";
+    readonly Adventure: "adventure";
     readonly Episode: "episode";
 };
 export type NotificationKind = typeof NotificationKind[keyof typeof NotificationKind];

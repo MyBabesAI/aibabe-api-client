@@ -22,6 +22,7 @@ export const NotificationKind = {
     Video: 'video',
     Babe: 'babe',
     Story: 'story',
+    Adventure: 'adventure',
     Episode: 'episode'
 } as const;
 export type NotificationKind = typeof NotificationKind[keyof typeof NotificationKind];

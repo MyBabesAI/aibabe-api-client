@@ -13,20 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { StorySessionResponse } from './StorySessionResponse';
-import {
-    StorySessionResponseFromJSON,
-    StorySessionResponseFromJSONTyped,
-    StorySessionResponseToJSON,
-    StorySessionResponseToJSONTyped,
-} from './StorySessionResponse';
-import type { StoryCreatorPrize } from './StoryCreatorPrize';
-import {
-    StoryCreatorPrizeFromJSON,
-    StoryCreatorPrizeFromJSONTyped,
-    StoryCreatorPrizeToJSON,
-    StoryCreatorPrizeToJSONTyped,
-} from './StoryCreatorPrize';
 import type { StoryCreatorStory } from './StoryCreatorStory';
 import {
     StoryCreatorStoryFromJSON,
@@ -73,18 +59,6 @@ export interface StoryCreatorEpisodeWithStoryAndPanelsResponse {
      * @memberof StoryCreatorEpisodeWithStoryAndPanelsResponse
      */
     panels: Array<StoryCreatorPanel>;
-    /**
-     * 
-     * @type {Array<StoryCreatorPrize>}
-     * @memberof StoryCreatorEpisodeWithStoryAndPanelsResponse
-     */
-    prizes?: Array<StoryCreatorPrize>;
-    /**
-     * 
-     * @type {StorySessionResponse}
-     * @memberof StoryCreatorEpisodeWithStoryAndPanelsResponse
-     */
-    session?: StorySessionResponse | null;
 }
 
 /**
@@ -110,8 +84,6 @@ export function StoryCreatorEpisodeWithStoryAndPanelsResponseFromJSONTyped(json:
         'story': StoryCreatorStoryFromJSON(json['story']),
         'episode': StoryCreatorEpisodeFromJSON(json['episode']),
         'panels': ((json['panels'] as Array<any>).map(StoryCreatorPanelFromJSON)),
-        'prizes': json['prizes'] == null ? undefined : ((json['prizes'] as Array<any>).map(StoryCreatorPrizeFromJSON)),
-        'session': json['session'] == null ? undefined : StorySessionResponseFromJSON(json['session']),
     };
 }
 
@@ -129,8 +101,6 @@ export function StoryCreatorEpisodeWithStoryAndPanelsResponseFromJSONTyped(json:
         'story': StoryCreatorStoryToJSON(value['story']),
         'episode': StoryCreatorEpisodeToJSON(value['episode']),
         'panels': ((value['panels'] as Array<any>).map(StoryCreatorPanelToJSON)),
-        'prizes': value['prizes'] == null ? undefined : ((value['prizes'] as Array<any>).map(StoryCreatorPrizeToJSON)),
-        'session': StorySessionResponseToJSON(value['session']),
     };
 }
 

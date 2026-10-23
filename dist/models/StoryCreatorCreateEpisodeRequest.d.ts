@@ -39,18 +39,6 @@ export interface StoryCreatorCreateEpisodeRequest {
      * @memberof StoryCreatorCreateEpisodeRequest
      */
     lockAfter?: number | null;
-    /**
-     *
-     * @type {string}
-     * @memberof StoryCreatorCreateEpisodeRequest
-     */
-    backgroundAudioId?: string | null;
-    /**
-     *
-     * @type {number}
-     * @memberof StoryCreatorCreateEpisodeRequest
-     */
-    backgroundAudioVolume?: number | null;
 }
 /**
  * Check if a given object implements the StoryCreatorCreateEpisodeRequest interface.

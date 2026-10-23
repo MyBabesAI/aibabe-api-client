@@ -18,6 +18,7 @@ export declare const GalleryTab: {
     readonly Images: "images";
     readonly Videos: "videos";
     readonly Stories: "stories";
+    readonly Adventures: "adventures";
 };
 export type GalleryTab = typeof GalleryTab[keyof typeof GalleryTab];
 export declare function instanceOfGalleryTab(value: any): boolean;

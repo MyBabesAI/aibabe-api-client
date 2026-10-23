@@ -20,20 +20,6 @@ import {
     StoryCreatorEpisodeBaseToJSON,
     StoryCreatorEpisodeBaseToJSONTyped,
 } from './StoryCreatorEpisodeBase';
-import type { LLM } from './LLM';
-import {
-    LLMFromJSON,
-    LLMFromJSONTyped,
-    LLMToJSON,
-    LLMToJSONTyped,
-} from './LLM';
-import type { StoryCoverOrientation } from './StoryCoverOrientation';
-import {
-    StoryCoverOrientationFromJSON,
-    StoryCoverOrientationFromJSONTyped,
-    StoryCoverOrientationToJSON,
-    StoryCoverOrientationToJSONTyped,
-} from './StoryCoverOrientation';
 
 /**
  * 
@@ -61,30 +47,6 @@ export interface StoryCreatorCreateStoryRequest {
     coverImage?: string | null;
     /**
      * 
-     * @type {string}
-     * @memberof StoryCreatorCreateStoryRequest
-     */
-    coverPictureId?: string | null;
-    /**
-     * 
-     * @type {StoryCoverOrientation}
-     * @memberof StoryCreatorCreateStoryRequest
-     */
-    coverOrientation?: StoryCoverOrientation | null;
-    /**
-     * 
-     * @type {LLM}
-     * @memberof StoryCreatorCreateStoryRequest
-     */
-    recommendedLlm?: LLM | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof StoryCreatorCreateStoryRequest
-     */
-    suggestionsEnabled?: boolean | null;
-    /**
-     * 
      * @type {StoryCreatorEpisodeBase}
      * @memberof StoryCreatorCreateStoryRequest
      */
@@ -102,8 +64,6 @@ export interface StoryCreatorCreateStoryRequest {
      */
     mainCharacterDisplayName: string;
 }
-
-
 
 /**
  * Check if a given object implements the StoryCreatorCreateStoryRequest interface.
@@ -128,10 +88,6 @@ export function StoryCreatorCreateStoryRequestFromJSONTyped(json: any, ignoreDis
         'title': json['title'] == null ? undefined : json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
-        'coverPictureId': json['cover_picture_id'] == null ? undefined : json['cover_picture_id'],
-        'coverOrientation': json['cover_orientation'] == null ? undefined : StoryCoverOrientationFromJSON(json['cover_orientation']),
-        'recommendedLlm': json['recommended_llm'] == null ? undefined : LLMFromJSON(json['recommended_llm']),
-        'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
         'firstEpisode': StoryCreatorEpisodeBaseFromJSON(json['first_episode']),
         'mainCharacterChatbotId': json['main_character_chatbot_id'],
         'mainCharacterDisplayName': json['main_character_display_name'],
@@ -152,10 +108,6 @@ export function StoryCreatorCreateStoryRequestFromJSONTyped(json: any, ignoreDis
         'title': value['title'],
         'description': value['description'],
         'cover_image': value['coverImage'],
-        'cover_picture_id': value['coverPictureId'],
-        'cover_orientation': StoryCoverOrientationToJSON(value['coverOrientation']),
-        'recommended_llm': LLMToJSON(value['recommendedLlm']),
-        'suggestions_enabled': value['suggestionsEnabled'],
         'first_episode': StoryCreatorEpisodeBaseToJSON(value['firstEpisode']),
         'main_character_chatbot_id': value['mainCharacterChatbotId'],
         'main_character_display_name': value['mainCharacterDisplayName'],

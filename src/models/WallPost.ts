@@ -62,6 +62,13 @@ import {
     StoryPreviewToJSON,
     StoryPreviewToJSONTyped,
 } from './StoryPreview';
+import type { GameAdventurePreview } from './GameAdventurePreview';
+import {
+    GameAdventurePreviewFromJSON,
+    GameAdventurePreviewFromJSONTyped,
+    GameAdventurePreviewToJSON,
+    GameAdventurePreviewToJSONTyped,
+} from './GameAdventurePreview';
 
 /**
  * 
@@ -87,6 +94,12 @@ export interface WallPost {
      * @memberof WallPost
      */
     story: StoryPreview | null;
+    /**
+     * 
+     * @type {GameAdventurePreview}
+     * @memberof WallPost
+     */
+    gameAdventure?: GameAdventurePreview | null;
     /**
      * 
      * @type {ImageContent}
@@ -208,6 +221,7 @@ export function WallPostFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'id': json['id'],
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'story': StoryPreviewFromJSON(json['story']),
+        'gameAdventure': json['game_adventure'] == null ? undefined : GameAdventurePreviewFromJSON(json['game_adventure']),
         'picture': ImageContentFromJSON(json['picture']),
         'video': VideoContentFromJSON(json['video']),
         'likes': json['likes'],
@@ -239,6 +253,7 @@ export function WallPostFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'id': value['id'],
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'story': StoryPreviewToJSON(value['story']),
+        'game_adventure': GameAdventurePreviewToJSON(value['gameAdventure']),
         'picture': ImageContentToJSON(value['picture']),
         'video': VideoContentToJSON(value['video']),
         'likes': value['likes'],

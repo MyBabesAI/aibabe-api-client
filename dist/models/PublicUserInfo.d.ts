@@ -98,6 +98,12 @@ export interface PublicUserInfo {
     stories: number;
     /**
      *
+     * @type {number}
+     * @memberof PublicUserInfo
+     */
+    adventures: number;
+    /**
+     *
      * @type {boolean}
      * @memberof PublicUserInfo
      */

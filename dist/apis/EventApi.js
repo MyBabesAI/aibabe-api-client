@@ -77,10 +77,6 @@ class EventApi extends runtime.BaseAPI {
         let useForm = false;
         // use FormData to transmit files using content-type "multipart/form-data"
         useForm = canConsumeForm;
-        // use FormData to transmit files using content-type "multipart/form-data"
-        useForm = canConsumeForm;
-        // use FormData to transmit files using content-type "multipart/form-data"
-        useForm = canConsumeForm;
         if (useForm) {
             formParams = new FormData();
         }
@@ -89,12 +85,6 @@ class EventApi extends runtime.BaseAPI {
         }
         if (requestParameters['image'] != null) {
             formParams.append('image', requestParameters['image']);
-        }
-        if (requestParameters['bannerImageDesktop'] != null) {
-            formParams.append('banner_image_desktop', requestParameters['bannerImageDesktop']);
-        }
-        if (requestParameters['bannerImageMobile'] != null) {
-            formParams.append('banner_image_mobile', requestParameters['bannerImageMobile']);
         }
         if (requestParameters['name'] != null) {
             formParams.append('name', requestParameters['name']);
@@ -134,9 +124,6 @@ class EventApi extends runtime.BaseAPI {
         }
         if (requestParameters['tagName'] != null) {
             formParams.append('tag_name', requestParameters['tagName']);
-        }
-        if (requestParameters['showOnHome'] != null) {
-            formParams.append('show_on_home', requestParameters['showOnHome']);
         }
         const response = await this.request({
             path: `/event`,
@@ -317,10 +304,6 @@ class EventApi extends runtime.BaseAPI {
         let useForm = false;
         // use FormData to transmit files using content-type "multipart/form-data"
         useForm = canConsumeForm;
-        // use FormData to transmit files using content-type "multipart/form-data"
-        useForm = canConsumeForm;
-        // use FormData to transmit files using content-type "multipart/form-data"
-        useForm = canConsumeForm;
         if (useForm) {
             formParams = new FormData();
         }
@@ -329,12 +312,6 @@ class EventApi extends runtime.BaseAPI {
         }
         if (requestParameters['image'] != null) {
             formParams.append('image', requestParameters['image']);
-        }
-        if (requestParameters['bannerImageDesktop'] != null) {
-            formParams.append('banner_image_desktop', requestParameters['bannerImageDesktop']);
-        }
-        if (requestParameters['bannerImageMobile'] != null) {
-            formParams.append('banner_image_mobile', requestParameters['bannerImageMobile']);
         }
         if (requestParameters['name'] != null) {
             formParams.append('name', requestParameters['name']);
@@ -374,15 +351,6 @@ class EventApi extends runtime.BaseAPI {
         }
         if (requestParameters['tagName'] != null) {
             formParams.append('tag_name', requestParameters['tagName']);
-        }
-        if (requestParameters['showOnHome'] != null) {
-            formParams.append('show_on_home', requestParameters['showOnHome']);
-        }
-        if (requestParameters['clearBannerImageDesktop'] != null) {
-            formParams.append('clear_banner_image_desktop', requestParameters['clearBannerImageDesktop']);
-        }
-        if (requestParameters['clearBannerImageMobile'] != null) {
-            formParams.append('clear_banner_image_mobile', requestParameters['clearBannerImageMobile']);
         }
         const response = await this.request({
             path: `/event/{event_id}`.replace(`{${"event_id"}}`, encodeURIComponent(String(requestParameters['eventId']))),

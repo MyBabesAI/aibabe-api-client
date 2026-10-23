@@ -9,9 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { StoryCreatorSessionSummary } from './StoryCreatorSessionSummary';
-import type { StoryPlayState } from './StoryPlayState';
-import type { StoryChatDifficulty } from './StoryChatDifficulty';
 import type { UserEpisodeProgressType } from './UserEpisodeProgressType';
 import type { StoryCreatorEpisodePrice } from './StoryCreatorEpisodePrice';
 import type { EpisodeCounts } from './EpisodeCounts';
@@ -48,18 +45,6 @@ export interface StoryCreatorEpisode {
      * @memberof StoryCreatorEpisode
      */
     lockAfter?: number | null;
-    /**
-     *
-     * @type {string}
-     * @memberof StoryCreatorEpisode
-     */
-    backgroundAudioId?: string | null;
-    /**
-     *
-     * @type {number}
-     * @memberof StoryCreatorEpisode
-     */
-    backgroundAudioVolume?: number | null;
     /**
      *
      * @type {string}
@@ -126,78 +111,6 @@ export interface StoryCreatorEpisode {
      * @memberof StoryCreatorEpisode
      */
     lastSaved: Date;
-    /**
-     *
-     * @type {string}
-     * @memberof StoryCreatorEpisode
-     */
-    backgroundAudioUrl?: string | null;
-    /**
-     *
-     * @type {number}
-     * @memberof StoryCreatorEpisode
-     */
-    chatPanelsCount?: number;
-    /**
-     *
-     * @type {boolean}
-     * @memberof StoryCreatorEpisode
-     */
-    interactive?: boolean;
-    /**
-     *
-     * @type {StoryChatDifficulty}
-     * @memberof StoryCreatorEpisode
-     */
-    difficulty?: StoryChatDifficulty | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof StoryCreatorEpisode
-     */
-    sequentialLocked?: boolean;
-    /**
-     *
-     * @type {boolean}
-     * @memberof StoryCreatorEpisode
-     */
-    won?: boolean;
-    /**
-     *
-     * @type {StoryPlayState}
-     * @memberof StoryCreatorEpisode
-     */
-    playState?: StoryPlayState;
-    /**
-     *
-     * @type {number}
-     * @memberof StoryCreatorEpisode
-     */
-    playersCount?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof StoryCreatorEpisode
-     */
-    winnersCount?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof StoryCreatorEpisode
-     */
-    prizesCount?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof StoryCreatorEpisode
-     */
-    viewsCount?: number;
-    /**
-     *
-     * @type {Array<StoryCreatorSessionSummary>}
-     * @memberof StoryCreatorEpisode
-     */
-    sessions?: Array<StoryCreatorSessionSummary>;
 }
 /**
  * Check if a given object implements the StoryCreatorEpisode interface.

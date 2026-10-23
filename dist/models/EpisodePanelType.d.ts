@@ -17,7 +17,6 @@ export declare const EpisodePanelType: {
     readonly Scene: "scene";
     readonly Tbc: "tbc";
     readonly End: "end";
-    readonly Chat: "chat";
 };
 export type EpisodePanelType = typeof EpisodePanelType[keyof typeof EpisodePanelType];
 export declare function instanceOfEpisodePanelType(value: any): boolean;

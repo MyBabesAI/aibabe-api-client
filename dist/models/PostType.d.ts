@@ -18,6 +18,8 @@ export declare const PostType: {
     readonly Video: "video";
     readonly Character: "character";
     readonly Story: "story";
+    readonly GameAdventure: "game-adventure";
+    readonly Game: "game";
     readonly Media: "media";
     readonly All: "all";
 };

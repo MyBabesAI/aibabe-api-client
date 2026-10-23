@@ -28,8 +28,7 @@ exports.ImageGenerationSource = {
     Generator: 'generator',
     ChatRequest: 'chat_request',
     ChatAuto: 'chat_auto',
-    Adventure: 'adventure',
-    StoryChat: 'story_chat'
+    Adventure: 'adventure'
 };
 function instanceOfImageGenerationSource(value) {
     for (const key in exports.ImageGenerationSource) {

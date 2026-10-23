@@ -50,24 +50,6 @@ export interface EventResponse {
     backgroundImage: string;
     /**
      *
-     * @type {string}
-     * @memberof EventResponse
-     */
-    bannerImageDesktop?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof EventResponse
-     */
-    bannerImageMobile?: string | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof EventResponse
-     */
-    showOnHome?: boolean;
-    /**
-     *
      * @type {Date}
      * @memberof EventResponse
      */
@@ -78,12 +60,6 @@ export interface EventResponse {
      * @memberof EventResponse
      */
     endTime: Date | null;
-    /**
-     *
-     * @type {Date}
-     * @memberof EventResponse
-     */
-    endedAt?: Date | null;
     /**
      *
      * @type {EventPriceType}

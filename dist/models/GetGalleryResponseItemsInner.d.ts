@@ -15,12 +15,9 @@ import type { ArtStyle } from './ArtStyle';
 import type { PostDetails } from './PostDetails';
 import type { StoryVisibility } from './StoryVisibility';
 import type { AdminAgeEstimation } from './AdminAgeEstimation';
-import type { StoryCoverOrientation } from './StoryCoverOrientation';
 import type { VideoGenerationStatus } from './VideoGenerationStatus';
 import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
 import type { ChatbotPreview } from './ChatbotPreview';
-import type { StoryPlayState } from './StoryPlayState';
-import type { StoryChatDifficulty } from './StoryChatDifficulty';
 import type { StoryRating } from './StoryRating';
 /**
  *
@@ -178,54 +175,6 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     counts: StoryCounts;
-    /**
-     *
-     * @type {StoryCoverOrientation}
-     * @memberof GetGalleryResponseItemsInner
-     */
-    coverOrientation?: StoryCoverOrientation;
-    /**
-     *
-     * @type {boolean}
-     * @memberof GetGalleryResponseItemsInner
-     */
-    interactive?: boolean;
-    /**
-     *
-     * @type {StoryChatDifficulty}
-     * @memberof GetGalleryResponseItemsInner
-     */
-    difficulty?: StoryChatDifficulty;
-    /**
-     *
-     * @type {number}
-     * @memberof GetGalleryResponseItemsInner
-     */
-    playersCount?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof GetGalleryResponseItemsInner
-     */
-    winnersCount?: number;
-    /**
-     *
-     * @type {StoryPlayState}
-     * @memberof GetGalleryResponseItemsInner
-     */
-    playState?: StoryPlayState;
-    /**
-     *
-     * @type {number}
-     * @memberof GetGalleryResponseItemsInner
-     */
-    viewsCount?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof GetGalleryResponseItemsInner
-     */
-    rewardsCount?: number;
 }
 /**
  * @export

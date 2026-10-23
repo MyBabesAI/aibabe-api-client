@@ -9,8 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { LLM } from './LLM';
-import type { StoryCoverOrientation } from './StoryCoverOrientation';
 /**
  *
  * @export
@@ -35,30 +33,6 @@ export interface StoryCreatorUpdateStoryRequest {
      * @memberof StoryCreatorUpdateStoryRequest
      */
     coverImage?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof StoryCreatorUpdateStoryRequest
-     */
-    coverPictureId?: string | null;
-    /**
-     *
-     * @type {StoryCoverOrientation}
-     * @memberof StoryCreatorUpdateStoryRequest
-     */
-    coverOrientation?: StoryCoverOrientation | null;
-    /**
-     *
-     * @type {LLM}
-     * @memberof StoryCreatorUpdateStoryRequest
-     */
-    recommendedLlm?: LLM | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof StoryCreatorUpdateStoryRequest
-     */
-    suggestionsEnabled?: boolean | null;
 }
 /**
  * Check if a given object implements the StoryCreatorUpdateStoryRequest interface.

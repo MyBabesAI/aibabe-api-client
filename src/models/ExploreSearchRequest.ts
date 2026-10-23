@@ -144,7 +144,13 @@ export interface ExploreSearchRequest {
      * @type {boolean}
      * @memberof ExploreSearchRequest
      */
-    interactive?: boolean | null;
+    playedAdventures?: boolean | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ExploreSearchRequest
+     */
+    wonAdventures?: boolean | null;
     /**
      * 
      * @type {boolean}
@@ -198,7 +204,8 @@ export function ExploreSearchRequestFromJSONTyped(json: any, ignoreDiscriminator
         'scene': json['scene'] == null ? undefined : json['scene'],
         'seenStories': json['seen_stories'] == null ? undefined : json['seen_stories'],
         'unlockedStories': json['unlocked_stories'] == null ? undefined : json['unlocked_stories'],
-        'interactive': json['interactive'] == null ? undefined : json['interactive'],
+        'playedAdventures': json['played_adventures'] == null ? undefined : json['played_adventures'],
+        'wonAdventures': json['won_adventures'] == null ? undefined : json['won_adventures'],
         'useViewerPreferences': json['use_viewer_preferences'] == null ? undefined : json['use_viewer_preferences'],
         'eventId': json['event_id'] == null ? undefined : json['event_id'],
         'eventWinners': json['event_winners'] == null ? undefined : json['event_winners'],
@@ -230,7 +237,8 @@ export function ExploreSearchRequestFromJSONTyped(json: any, ignoreDiscriminator
         'scene': value['scene'],
         'seen_stories': value['seenStories'],
         'unlocked_stories': value['unlockedStories'],
-        'interactive': value['interactive'],
+        'played_adventures': value['playedAdventures'],
+        'won_adventures': value['wonAdventures'],
         'use_viewer_preferences': value['useViewerPreferences'],
         'event_id': value['eventId'],
         'event_winners': value['eventWinners'],

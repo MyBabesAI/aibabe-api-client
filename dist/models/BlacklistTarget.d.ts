@@ -18,6 +18,7 @@ export declare const BlacklistTarget: {
     readonly Picture: "picture";
     readonly Video: "video";
     readonly Story: "story";
+    readonly GameAdventure: "game_adventure";
     readonly User: "user";
 };
 export type BlacklistTarget = typeof BlacklistTarget[keyof typeof BlacklistTarget];

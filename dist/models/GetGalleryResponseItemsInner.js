@@ -25,12 +25,9 @@ const ArtStyle_1 = require("./ArtStyle");
 const PostDetails_1 = require("./PostDetails");
 const StoryVisibility_1 = require("./StoryVisibility");
 const AdminAgeEstimation_1 = require("./AdminAgeEstimation");
-const StoryCoverOrientation_1 = require("./StoryCoverOrientation");
 const VideoGenerationStatus_1 = require("./VideoGenerationStatus");
 const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
 const ChatbotPreview_1 = require("./ChatbotPreview");
-const StoryPlayState_1 = require("./StoryPlayState");
-const StoryChatDifficulty_1 = require("./StoryChatDifficulty");
 const StoryRating_1 = require("./StoryRating");
 /**
  * @export
@@ -109,14 +106,6 @@ function GetGalleryResponseItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
         'visibility': (0, StoryVisibility_1.StoryVisibilityFromJSON)(json['visibility']),
         'rating': json['rating'] == null ? undefined : (0, StoryRating_1.StoryRatingFromJSON)(json['rating']),
         'counts': (0, StoryCounts_1.StoryCountsFromJSON)(json['counts']),
-        'coverOrientation': json['cover_orientation'] == null ? undefined : (0, StoryCoverOrientation_1.StoryCoverOrientationFromJSON)(json['cover_orientation']),
-        'interactive': json['interactive'] == null ? undefined : json['interactive'],
-        'difficulty': json['difficulty'] == null ? undefined : (0, StoryChatDifficulty_1.StoryChatDifficultyFromJSON)(json['difficulty']),
-        'playersCount': json['players_count'] == null ? undefined : json['players_count'],
-        'winnersCount': json['winners_count'] == null ? undefined : json['winners_count'],
-        'playState': json['play_state'] == null ? undefined : (0, StoryPlayState_1.StoryPlayStateFromJSON)(json['play_state']),
-        'viewsCount': json['views_count'] == null ? undefined : json['views_count'],
-        'rewardsCount': json['rewards_count'] == null ? undefined : json['rewards_count'],
     };
 }
 function GetGalleryResponseItemsInnerToJSON(json) {
@@ -152,14 +141,6 @@ function GetGalleryResponseItemsInnerToJSONTyped(value, ignoreDiscriminator = fa
         'visibility': (0, StoryVisibility_1.StoryVisibilityToJSON)(value['visibility']),
         'rating': (0, StoryRating_1.StoryRatingToJSON)(value['rating']),
         'counts': (0, StoryCounts_1.StoryCountsToJSON)(value['counts']),
-        'cover_orientation': (0, StoryCoverOrientation_1.StoryCoverOrientationToJSON)(value['coverOrientation']),
-        'interactive': value['interactive'],
-        'difficulty': (0, StoryChatDifficulty_1.StoryChatDifficultyToJSON)(value['difficulty']),
-        'players_count': value['playersCount'],
-        'winners_count': value['winnersCount'],
-        'play_state': (0, StoryPlayState_1.StoryPlayStateToJSON)(value['playState']),
-        'views_count': value['viewsCount'],
-        'rewards_count': value['rewardsCount'],
     };
 }
 //# sourceMappingURL=GetGalleryResponseItemsInner.js.map

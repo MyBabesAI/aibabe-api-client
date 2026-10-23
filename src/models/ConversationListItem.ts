@@ -60,19 +60,13 @@ export interface ConversationListItem {
      * @type {string}
      * @memberof ConversationListItem
      */
-    storyId?: string | null;
+    gameAdventureId?: string | null;
     /**
      * 
      * @type {string}
      * @memberof ConversationListItem
      */
-    storyEpisodeId?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ConversationListItem
-     */
-    coverImage?: string | null;
+    posterPictureId?: string | null;
 }
 
 
@@ -81,7 +75,7 @@ export interface ConversationListItem {
  */
 export const ConversationListItemKindEnum = {
     Chat: 'chat',
-    Story: 'story'
+    GameAdventure: 'game_adventure'
 } as const;
 export type ConversationListItemKindEnum = typeof ConversationListItemKindEnum[keyof typeof ConversationListItemKindEnum];
 
@@ -114,9 +108,8 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
         'lastMessage': json['last_message'],
         'unread': json['unread'],
         'kind': json['kind'] == null ? undefined : json['kind'],
-        'storyId': json['story_id'] == null ? undefined : json['story_id'],
-        'storyEpisodeId': json['story_episode_id'] == null ? undefined : json['story_episode_id'],
-        'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
+        'gameAdventureId': json['game_adventure_id'] == null ? undefined : json['game_adventure_id'],
+        'posterPictureId': json['poster_picture_id'] == null ? undefined : json['poster_picture_id'],
     };
 }
 
@@ -137,9 +130,8 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
         'last_message': value['lastMessage'],
         'unread': value['unread'],
         'kind': value['kind'],
-        'story_id': value['storyId'],
-        'story_episode_id': value['storyEpisodeId'],
-        'cover_image': value['coverImage'],
+        'game_adventure_id': value['gameAdventureId'],
+        'poster_picture_id': value['posterPictureId'],
     };
 }
 

@@ -16,8 +16,6 @@ export interface CreateEventEventPostRequest {
     description: string;
     rules: string;
     image?: Blob;
-    bannerImageDesktop?: Blob;
-    bannerImageMobile?: Blob;
     backgroundPictureId?: string | null;
     startTime?: string | null;
     endTime?: string | null;
@@ -28,7 +26,6 @@ export interface CreateEventEventPostRequest {
     maxSubmissionsPerUser?: number | null;
     shufflePeriodHours?: number | null;
     tagName?: string | null;
-    showOnHome?: boolean;
 }
 export interface GetEventEventEventIdGetRequest {
     eventId: string;
@@ -50,8 +47,6 @@ export interface SubmitToEventEventEventIdSubmitPostRequest {
 export interface UpdateEventEventEventIdPatchRequest {
     eventId: string;
     image?: Blob;
-    bannerImageDesktop?: Blob;
-    bannerImageMobile?: Blob;
     name?: string | null;
     description?: string | null;
     rules?: string | null;
@@ -65,9 +60,6 @@ export interface UpdateEventEventEventIdPatchRequest {
     maxSubmissionsPerUser?: string | null;
     shufflePeriodHours?: string | null;
     tagName?: string | null;
-    showOnHome?: string | null;
-    clearBannerImageDesktop?: boolean;
-    clearBannerImageMobile?: boolean;
 }
 /**
  *

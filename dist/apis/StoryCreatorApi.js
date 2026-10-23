@@ -112,32 +112,6 @@ class StoryCreatorApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * **Owner only: plays the latest version without touching progress, prizes or leaderboards**
-     * Start an owner preview run of an interactive episode
-     */
-    async createPreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPostRaw(requestParameters, initOverrides) {
-        if (requestParameters['episodeId'] == null) {
-            throw new runtime.RequiredError('episodeId', 'Required parameter "episodeId" was null or undefined when calling createPreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPost().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/story-creator/episodes/{episode_id}/preview-session`.replace(`{${"episode_id"}}`, encodeURIComponent(String(requestParameters['episodeId']))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StorySessionResponseFromJSON)(jsonValue));
-    }
-    /**
-     * **Owner only: plays the latest version without touching progress, prizes or leaderboards**
-     * Start an owner preview run of an interactive episode
-     */
-    async createPreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPost(requestParameters, initOverrides) {
-        const response = await this.createPreviewSessionStoryCreatorEpisodesEpisodeIdPreviewSessionPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
      * **Creates new story with first episode and adds default Cast to the story consisting of 3 actors: \'main-character\' created from a chatbot, \'user\' and \'narrator\'**
      * Create new story
      */
@@ -463,41 +437,6 @@ class StoryCreatorApi extends runtime.BaseAPI {
      */
     async listEpisodesStoryCreatorStoriesStoryIdEpisodesGet(requestParameters, initOverrides) {
         const response = await this.listEpisodesStoryCreatorStoriesStoryIdEpisodesGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
-     * **Stories with an episode the reader bought (unlocked) or opened (watching), sourced from purchases and progress, unpublished ones included**
-     * The reader\'s story library
-     */
-    async listLibraryStoryCreatorStoriesLibraryGetRaw(requestParameters, initOverrides) {
-        const queryParameters = {};
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
-        }
-        if (requestParameters['freeTextSearch'] != null) {
-            queryParameters['free_text_search'] = requestParameters['freeTextSearch'];
-        }
-        if (requestParameters['limit'] != null) {
-            queryParameters['limit'] = requestParameters['limit'];
-        }
-        if (requestParameters['cursor'] != null) {
-            queryParameters['cursor'] = requestParameters['cursor'];
-        }
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/story-creator/stories/library`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StoryLibraryResponseFromJSON)(jsonValue));
-    }
-    /**
-     * **Stories with an episode the reader bought (unlocked) or opened (watching), sourced from purchases and progress, unpublished ones included**
-     * The reader\'s story library
-     */
-    async listLibraryStoryCreatorStoriesLibraryGet(requestParameters = {}, initOverrides) {
-        const response = await this.listLibraryStoryCreatorStoriesLibraryGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

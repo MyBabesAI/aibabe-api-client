@@ -73,24 +73,6 @@ export interface EventResponse {
     backgroundImage: string;
     /**
      * 
-     * @type {string}
-     * @memberof EventResponse
-     */
-    bannerImageDesktop?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof EventResponse
-     */
-    bannerImageMobile?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof EventResponse
-     */
-    showOnHome?: boolean;
-    /**
-     * 
      * @type {Date}
      * @memberof EventResponse
      */
@@ -101,12 +83,6 @@ export interface EventResponse {
      * @memberof EventResponse
      */
     endTime: Date | null;
-    /**
-     * 
-     * @type {Date}
-     * @memberof EventResponse
-     */
-    endedAt?: Date | null;
     /**
      * 
      * @type {EventPriceType}
@@ -214,12 +190,8 @@ export function EventResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'name': json['name'],
         'description': json['description'],
         'backgroundImage': json['background_image'],
-        'bannerImageDesktop': json['banner_image_desktop'] == null ? undefined : json['banner_image_desktop'],
-        'bannerImageMobile': json['banner_image_mobile'] == null ? undefined : json['banner_image_mobile'],
-        'showOnHome': json['show_on_home'] == null ? undefined : json['show_on_home'],
         'startTime': (json['start_time'] == null ? null : new Date(json['start_time'])),
         'endTime': (json['end_time'] == null ? null : new Date(json['end_time'])),
-        'endedAt': json['ended_at'] == null ? undefined : (new Date(json['ended_at'])),
         'priceType': EventPriceTypeFromJSON(json['price_type']),
         'pricePool': json['price_pool'],
         'priceId': json['price_id'],
@@ -250,12 +222,8 @@ export function EventResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'name': value['name'],
         'description': value['description'],
         'background_image': value['backgroundImage'],
-        'banner_image_desktop': value['bannerImageDesktop'],
-        'banner_image_mobile': value['bannerImageMobile'],
-        'show_on_home': value['showOnHome'],
         'start_time': (value['startTime'] == null ? null : (value['startTime'] as any).toISOString()),
         'end_time': (value['endTime'] == null ? null : (value['endTime'] as any).toISOString()),
-        'ended_at': value['endedAt'] == null ? undefined : ((value['endedAt'] as any).toISOString()),
         'price_type': EventPriceTypeToJSON(value['priceType']),
         'price_pool': value['pricePool'],
         'price_id': value['priceId'],

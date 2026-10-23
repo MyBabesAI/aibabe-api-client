@@ -16,6 +16,7 @@ import type { ContentType } from './ContentType';
 import type { EventSubmissionPreview } from './EventSubmissionPreview';
 import type { ImageContent } from './ImageContent';
 import type { StoryPreview } from './StoryPreview';
+import type { GameAdventurePreview } from './GameAdventurePreview';
 /**
  *
  * @export
@@ -40,6 +41,12 @@ export interface WallPost {
      * @memberof WallPost
      */
     story: StoryPreview | null;
+    /**
+     *
+     * @type {GameAdventurePreview}
+     * @memberof WallPost
+     */
+    gameAdventure?: GameAdventurePreview | null;
     /**
      *
      * @type {ImageContent}

@@ -10,8 +10,6 @@
  * Do not edit the class manually.
  */
 import type { ActorRole } from './ActorRole';
-import type { StoryChatDifficulty } from './StoryChatDifficulty';
-import type { StoryCreatorSaveTarget } from './StoryCreatorSaveTarget';
 import type { EpisodePanelType } from './EpisodePanelType';
 /**
  *
@@ -72,37 +70,7 @@ export interface StoryCreatorSaveEpisodePanel {
      * @type {string}
      * @memberof StoryCreatorSaveEpisodePanel
      */
-    pictureId?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof StoryCreatorSaveEpisodePanel
-     */
-    videoId?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof StoryCreatorSaveEpisodePanel
-     */
     message?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof StoryCreatorSaveEpisodePanel
-     */
-    scenePrompt?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof StoryCreatorSaveEpisodePanel
-     */
-    tone?: string | null;
-    /**
-     *
-     * @type {StoryChatDifficulty}
-     * @memberof StoryCreatorSaveEpisodePanel
-     */
-    difficulty?: StoryChatDifficulty | null;
     /**
      *
      * @type {string}
@@ -127,12 +95,6 @@ export interface StoryCreatorSaveEpisodePanel {
      * @memberof StoryCreatorSaveEpisodePanel
      */
     actorAvatar?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof StoryCreatorSaveEpisodePanel
-     */
-    actorChatbotId?: string | null;
     /**
      *
      * @type {string}
@@ -175,18 +137,6 @@ export interface StoryCreatorSaveEpisodePanel {
      * @memberof StoryCreatorSaveEpisodePanel
      */
     panelIndex: number;
-    /**
-     *
-     * @type {Array<StoryCreatorSaveTarget>}
-     * @memberof StoryCreatorSaveEpisodePanel
-     */
-    targets?: Array<StoryCreatorSaveTarget>;
-    /**
-     *
-     * @type {number}
-     * @memberof StoryCreatorSaveEpisodePanel
-     */
-    targetsCount?: number;
 }
 /**
  * Check if a given object implements the StoryCreatorSaveEpisodePanel interface.

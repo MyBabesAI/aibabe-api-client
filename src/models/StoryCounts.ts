@@ -91,18 +91,6 @@ export interface StoryCounts {
      * @memberof StoryCounts
      */
     episodesLocked?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof StoryCounts
-     */
-    chatPanelsTotal?: number | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof StoryCounts
-     */
-    chatPanelsPublic?: number | null;
 }
 
 /**
@@ -134,8 +122,6 @@ export function StoryCountsFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'episodesGated': json['episodes_gated'] == null ? undefined : json['episodes_gated'],
         'episodesPurchased': json['episodes_purchased'] == null ? undefined : json['episodes_purchased'],
         'episodesLocked': json['episodes_locked'] == null ? undefined : json['episodes_locked'],
-        'chatPanelsTotal': json['chat_panels_total'] == null ? undefined : json['chat_panels_total'],
-        'chatPanelsPublic': json['chat_panels_public'] == null ? undefined : json['chat_panels_public'],
     };
 }
 
@@ -162,8 +148,6 @@ export function StoryCountsFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'episodes_gated': value['episodesGated'],
         'episodes_purchased': value['episodesPurchased'],
         'episodes_locked': value['episodesLocked'],
-        'chat_panels_total': value['chatPanelsTotal'],
-        'chat_panels_public': value['chatPanelsPublic'],
     };
 }
 

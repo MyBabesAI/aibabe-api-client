@@ -18,8 +18,6 @@ exports.StoryCreatorEpisodeWithStoryAndPanelsResponseFromJSON = StoryCreatorEpis
 exports.StoryCreatorEpisodeWithStoryAndPanelsResponseFromJSONTyped = StoryCreatorEpisodeWithStoryAndPanelsResponseFromJSONTyped;
 exports.StoryCreatorEpisodeWithStoryAndPanelsResponseToJSON = StoryCreatorEpisodeWithStoryAndPanelsResponseToJSON;
 exports.StoryCreatorEpisodeWithStoryAndPanelsResponseToJSONTyped = StoryCreatorEpisodeWithStoryAndPanelsResponseToJSONTyped;
-const StorySessionResponse_1 = require("./StorySessionResponse");
-const StoryCreatorPrize_1 = require("./StoryCreatorPrize");
 const StoryCreatorStory_1 = require("./StoryCreatorStory");
 const StoryCreatorPanel_1 = require("./StoryCreatorPanel");
 const StoryCreatorEpisode_1 = require("./StoryCreatorEpisode");
@@ -46,8 +44,6 @@ function StoryCreatorEpisodeWithStoryAndPanelsResponseFromJSONTyped(json, ignore
         'story': (0, StoryCreatorStory_1.StoryCreatorStoryFromJSON)(json['story']),
         'episode': (0, StoryCreatorEpisode_1.StoryCreatorEpisodeFromJSON)(json['episode']),
         'panels': (json['panels'].map(StoryCreatorPanel_1.StoryCreatorPanelFromJSON)),
-        'prizes': json['prizes'] == null ? undefined : (json['prizes'].map(StoryCreatorPrize_1.StoryCreatorPrizeFromJSON)),
-        'session': json['session'] == null ? undefined : (0, StorySessionResponse_1.StorySessionResponseFromJSON)(json['session']),
     };
 }
 function StoryCreatorEpisodeWithStoryAndPanelsResponseToJSON(json) {
@@ -61,8 +57,6 @@ function StoryCreatorEpisodeWithStoryAndPanelsResponseToJSONTyped(value, ignoreD
         'story': (0, StoryCreatorStory_1.StoryCreatorStoryToJSON)(value['story']),
         'episode': (0, StoryCreatorEpisode_1.StoryCreatorEpisodeToJSON)(value['episode']),
         'panels': (value['panels'].map(StoryCreatorPanel_1.StoryCreatorPanelToJSON)),
-        'prizes': value['prizes'] == null ? undefined : (value['prizes'].map(StoryCreatorPrize_1.StoryCreatorPrizeToJSON)),
-        'session': (0, StorySessionResponse_1.StorySessionResponseToJSON)(value['session']),
     };
 }
 //# sourceMappingURL=StoryCreatorEpisodeWithStoryAndPanelsResponse.js.map

@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { StoryCreatorSavePrize } from './StoryCreatorSavePrize';
 import type { StoryCreatorSaveEpisodePanel } from './StoryCreatorSaveEpisodePanel';
 /**
  *
@@ -43,28 +42,10 @@ export interface StoryCreatorSaveEpisodeRequest {
     lockAfter?: number | null;
     /**
      *
-     * @type {string}
-     * @memberof StoryCreatorSaveEpisodeRequest
-     */
-    backgroundAudioId?: string | null;
-    /**
-     *
-     * @type {number}
-     * @memberof StoryCreatorSaveEpisodeRequest
-     */
-    backgroundAudioVolume?: number | null;
-    /**
-     *
      * @type {Array<StoryCreatorSaveEpisodePanel>}
      * @memberof StoryCreatorSaveEpisodeRequest
      */
     panels: Array<StoryCreatorSaveEpisodePanel>;
-    /**
-     *
-     * @type {Array<StoryCreatorSavePrize>}
-     * @memberof StoryCreatorSaveEpisodeRequest
-     */
-    prizes?: Array<StoryCreatorSavePrize> | null;
 }
 /**
  * Check if a given object implements the StoryCreatorSaveEpisodeRequest interface.

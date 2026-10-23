@@ -42,34 +42,10 @@ export interface EventPreview {
     backgroundImage: string;
     /**
      *
-     * @type {string}
-     * @memberof EventPreview
-     */
-    bannerImageDesktop?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof EventPreview
-     */
-    bannerImageMobile?: string | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof EventPreview
-     */
-    showOnHome?: boolean;
-    /**
-     *
      * @type {number}
      * @memberof EventPreview
      */
     timeRemaining: number | null;
-    /**
-     *
-     * @type {Date}
-     * @memberof EventPreview
-     */
-    endedAt?: Date | null;
     /**
      *
      * @type {number}

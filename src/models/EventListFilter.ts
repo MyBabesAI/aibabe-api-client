@@ -20,8 +20,7 @@
 export const EventListFilter = {
     Newest: 'newest',
     EndingSoon: 'ending_soon',
-    Past: 'past',
-    Home: 'home'
+    Past: 'past'
 } as const;
 export type EventListFilter = typeof EventListFilter[keyof typeof EventListFilter];
 

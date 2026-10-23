@@ -19,8 +19,7 @@
  */
 export const StoryVisibility = {
     Private: 'private',
-    Public: 'public',
-    Submission: 'submission'
+    Public: 'public'
 } as const;
 export type StoryVisibility = typeof StoryVisibility[keyof typeof StoryVisibility];
 

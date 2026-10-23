@@ -26,8 +26,7 @@ exports.EpisodePanelTypeToJSONTyped = EpisodePanelTypeToJSONTyped;
 exports.EpisodePanelType = {
     Scene: 'scene',
     Tbc: 'tbc',
-    End: 'end',
-    Chat: 'chat'
+    End: 'end'
 };
 function instanceOfEpisodePanelType(value) {
     for (const key in exports.EpisodePanelType) {

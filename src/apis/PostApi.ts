@@ -610,7 +610,7 @@ export class PostApi extends runtime.BaseAPI {
     }
 
     /**
-     * Reports content shown without a post (a story page, a babe).
+     * Reports content shown without a post (a story or adventure page, a babe).
      * Report Content
      */
     async reportContentPostReportContentTypeContentIdPostRaw(requestParameters: ReportContentPostReportContentTypeContentIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -657,7 +657,7 @@ export class PostApi extends runtime.BaseAPI {
     }
 
     /**
-     * Reports content shown without a post (a story page, a babe).
+     * Reports content shown without a post (a story or adventure page, a babe).
      * Report Content
      */
     async reportContentPostReportContentTypeContentIdPost(requestParameters: ReportContentPostReportContentTypeContentIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {

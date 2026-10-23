@@ -87,18 +87,6 @@ export interface StoryCounts {
      * @memberof StoryCounts
      */
     episodesLocked?: number | null;
-    /**
-     *
-     * @type {number}
-     * @memberof StoryCounts
-     */
-    chatPanelsTotal?: number | null;
-    /**
-     *
-     * @type {number}
-     * @memberof StoryCounts
-     */
-    chatPanelsPublic?: number | null;
 }
 /**
  * Check if a given object implements the StoryCounts interface.

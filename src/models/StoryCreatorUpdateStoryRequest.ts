@@ -13,21 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { LLM } from './LLM';
-import {
-    LLMFromJSON,
-    LLMFromJSONTyped,
-    LLMToJSON,
-    LLMToJSONTyped,
-} from './LLM';
-import type { StoryCoverOrientation } from './StoryCoverOrientation';
-import {
-    StoryCoverOrientationFromJSON,
-    StoryCoverOrientationFromJSONTyped,
-    StoryCoverOrientationToJSON,
-    StoryCoverOrientationToJSONTyped,
-} from './StoryCoverOrientation';
-
 /**
  * 
  * @export
@@ -52,33 +37,7 @@ export interface StoryCreatorUpdateStoryRequest {
      * @memberof StoryCreatorUpdateStoryRequest
      */
     coverImage?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof StoryCreatorUpdateStoryRequest
-     */
-    coverPictureId?: string | null;
-    /**
-     * 
-     * @type {StoryCoverOrientation}
-     * @memberof StoryCreatorUpdateStoryRequest
-     */
-    coverOrientation?: StoryCoverOrientation | null;
-    /**
-     * 
-     * @type {LLM}
-     * @memberof StoryCreatorUpdateStoryRequest
-     */
-    recommendedLlm?: LLM | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof StoryCreatorUpdateStoryRequest
-     */
-    suggestionsEnabled?: boolean | null;
 }
-
-
 
 /**
  * Check if a given object implements the StoryCreatorUpdateStoryRequest interface.
@@ -100,10 +59,6 @@ export function StoryCreatorUpdateStoryRequestFromJSONTyped(json: any, ignoreDis
         'title': json['title'] == null ? undefined : json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
-        'coverPictureId': json['cover_picture_id'] == null ? undefined : json['cover_picture_id'],
-        'coverOrientation': json['cover_orientation'] == null ? undefined : StoryCoverOrientationFromJSON(json['cover_orientation']),
-        'recommendedLlm': json['recommended_llm'] == null ? undefined : LLMFromJSON(json['recommended_llm']),
-        'suggestionsEnabled': json['suggestions_enabled'] == null ? undefined : json['suggestions_enabled'],
     };
 }
 
@@ -121,10 +76,6 @@ export function StoryCreatorUpdateStoryRequestFromJSONTyped(json: any, ignoreDis
         'title': value['title'],
         'description': value['description'],
         'cover_image': value['coverImage'],
-        'cover_picture_id': value['coverPictureId'],
-        'cover_orientation': StoryCoverOrientationToJSON(value['coverOrientation']),
-        'recommended_llm': LLMToJSON(value['recommendedLlm']),
-        'suggestions_enabled': value['suggestionsEnabled'],
     };
 }
 

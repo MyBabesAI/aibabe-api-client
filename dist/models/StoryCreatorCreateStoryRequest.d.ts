@@ -10,8 +10,6 @@
  * Do not edit the class manually.
  */
 import type { StoryCreatorEpisodeBase } from './StoryCreatorEpisodeBase';
-import type { LLM } from './LLM';
-import type { StoryCoverOrientation } from './StoryCoverOrientation';
 /**
  *
  * @export
@@ -36,30 +34,6 @@ export interface StoryCreatorCreateStoryRequest {
      * @memberof StoryCreatorCreateStoryRequest
      */
     coverImage?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof StoryCreatorCreateStoryRequest
-     */
-    coverPictureId?: string | null;
-    /**
-     *
-     * @type {StoryCoverOrientation}
-     * @memberof StoryCreatorCreateStoryRequest
-     */
-    coverOrientation?: StoryCoverOrientation | null;
-    /**
-     *
-     * @type {LLM}
-     * @memberof StoryCreatorCreateStoryRequest
-     */
-    recommendedLlm?: LLM | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof StoryCreatorCreateStoryRequest
-     */
-    suggestionsEnabled?: boolean | null;
     /**
      *
      * @type {StoryCreatorEpisodeBase}

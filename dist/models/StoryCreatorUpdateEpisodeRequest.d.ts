@@ -41,18 +41,6 @@ export interface StoryCreatorUpdateEpisodeRequest {
     lockAfter?: number | null;
     /**
      *
-     * @type {string}
-     * @memberof StoryCreatorUpdateEpisodeRequest
-     */
-    backgroundAudioId?: string | null;
-    /**
-     *
-     * @type {number}
-     * @memberof StoryCreatorUpdateEpisodeRequest
-     */
-    backgroundAudioVolume?: number | null;
-    /**
-     *
      * @type {number}
      * @memberof StoryCreatorUpdateEpisodeRequest
      */

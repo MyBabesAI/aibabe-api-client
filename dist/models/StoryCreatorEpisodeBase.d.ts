@@ -39,18 +39,6 @@ export interface StoryCreatorEpisodeBase {
      * @memberof StoryCreatorEpisodeBase
      */
     lockAfter?: number | null;
-    /**
-     *
-     * @type {string}
-     * @memberof StoryCreatorEpisodeBase
-     */
-    backgroundAudioId?: string | null;
-    /**
-     *
-     * @type {number}
-     * @memberof StoryCreatorEpisodeBase
-     */
-    backgroundAudioVolume?: number | null;
 }
 /**
  * Check if a given object implements the StoryCreatorEpisodeBase interface.
