@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAdjustTokensRequest, AdminAdjustTokensResponse, AdminAgeEstimation, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminMarkTransactionRefundedRequest, AdminMarkTransactionRefundedResponse, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminTokenHistoryResponse, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ChatbotType, ConfigRefreshRequest, ConfigRefreshResponse, ContentType, DownscaleRequest, GetChatbotListResponse, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, OwnerFilter, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
+import type { AdminAdjustTokensRequest, AdminAdjustTokensResponse, AdminAgeEstimation, AdminAnnouncementRequest, AdminAnnouncementResponse, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminMarkTransactionRefundedRequest, AdminMarkTransactionRefundedResponse, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminTokenHistoryResponse, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ChatbotType, ConfigRefreshRequest, ConfigRefreshResponse, ContentType, DownscaleRequest, GetChatbotListResponse, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, OwnerFilter, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -32,6 +32,9 @@ export interface BlacklistContentAdminBlacklistContentTypeContentIdPatchRequest 
     contentType: ContentType;
     contentId: string;
     blacklistRequest: BlacklistRequest;
+}
+export interface CreateAnnouncementAdminAnnouncementsPostRequest {
+    adminAnnouncementRequest: AdminAnnouncementRequest;
 }
 export interface CreateBadgeAdminBadgesPostRequest {
     code: string;
@@ -55,6 +58,9 @@ export interface CreateBadgeAdminBadgesPostRequest {
 }
 export interface CreatePromotionAdminPromotionPostRequest {
     adminCreatePromotionRequest: AdminCreatePromotionRequest;
+}
+export interface DeleteAnnouncementAdminAnnouncementsAnnouncementIdDeleteRequest {
+    announcementId: string;
 }
 export interface DownscaleAdminDownscalePostRequest {
     downscaleRequest: DownscaleRequest;
@@ -234,6 +240,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      */
     blacklistContentAdminBlacklistContentTypeContentIdPatch(requestParameters: BlacklistContentAdminBlacklistContentTypeContentIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlacklistResponse>;
     /**
+     * Create Announcement
+     */
+    createAnnouncementAdminAnnouncementsPostRaw(requestParameters: CreateAnnouncementAdminAnnouncementsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminAnnouncementResponse>>;
+    /**
+     * Create Announcement
+     */
+    createAnnouncementAdminAnnouncementsPost(requestParameters: CreateAnnouncementAdminAnnouncementsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminAnnouncementResponse>;
+    /**
      * Create Badge
      */
     createBadgeAdminBadgesPostRaw(requestParameters: CreateBadgeAdminBadgesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminBadgeResponse>>;
@@ -250,6 +264,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      */
     createPromotionAdminPromotionPost(requestParameters: CreatePromotionAdminPromotionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPromotionResponse>;
     /**
+     * Delete Announcement
+     */
+    deleteAnnouncementAdminAnnouncementsAnnouncementIdDeleteRaw(requestParameters: DeleteAnnouncementAdminAnnouncementsAnnouncementIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Delete Announcement
+     */
+    deleteAnnouncementAdminAnnouncementsAnnouncementIdDelete(requestParameters: DeleteAnnouncementAdminAnnouncementsAnnouncementIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
      * Downscale
      */
     downscaleAdminDownscalePostRaw(requestParameters: DownscaleAdminDownscalePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
@@ -265,6 +287,14 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Generate Codes
      */
     generateCodesAdminGiftCodesGeneratePost(requestParameters: GenerateCodesAdminGiftCodesGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Get Announcements
+     */
+    getAnnouncementsAdminAnnouncementsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AdminAnnouncementResponse>>>;
+    /**
+     * Get Announcements
+     */
+    getAnnouncementsAdminAnnouncementsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AdminAnnouncementResponse>>;
     /**
      * **Admin review: own = the admin\'s, babe_creator = the character\'s creator\'s, babe_community = everyone else\'s private pictures / videos of the character; items carry their owner**
      * A character\'s unposted media, by who generated it

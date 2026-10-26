@@ -249,6 +249,7 @@ export const ExceptionCode = {
     NotificationNotCreated: 'notification_not_created',
     NotificationNotFound: 'notification_not_found',
     NotificationNotDeletable: 'notification_not_deletable',
+    AnnouncementNotFound: 'announcement_not_found',
     AgeVerificationDisabled: 'age_verification_disabled',
     AgeVerificationInvalidPayload: 'age_verification_invalid_payload',
     AgeVerificationTicketNotFound: 'age_verification_ticket_not_found',

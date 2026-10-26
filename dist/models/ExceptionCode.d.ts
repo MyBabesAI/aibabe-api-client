@@ -245,6 +245,7 @@ export declare const ExceptionCode: {
     readonly NotificationNotCreated: "notification_not_created";
     readonly NotificationNotFound: "notification_not_found";
     readonly NotificationNotDeletable: "notification_not_deletable";
+    readonly AnnouncementNotFound: "announcement_not_found";
     readonly AgeVerificationDisabled: "age_verification_disabled";
     readonly AgeVerificationInvalidPayload: "age_verification_invalid_payload";
     readonly AgeVerificationTicketNotFound: "age_verification_ticket_not_found";
