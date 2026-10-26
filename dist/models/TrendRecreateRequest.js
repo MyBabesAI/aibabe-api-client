@@ -24,8 +24,6 @@ const VideoResolution_1 = require("./VideoResolution");
  * Check if a given object implements the TrendRecreateRequest interface.
  */
 function instanceOfTrendRecreateRequest(value) {
-    if (!('imageIds' in value) || value['imageIds'] === undefined)
-        return false;
     if (!('model' in value) || value['model'] === undefined)
         return false;
     if (!('clientId' in value) || value['clientId'] === undefined)
@@ -42,7 +40,8 @@ function TrendRecreateRequestFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'imageIds': json['image_ids'],
+        'imageIds': json['image_ids'] == null ? undefined : json['image_ids'],
+        'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
         'model': json['model'],
         'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, VideoAspectRatio_1.VideoAspectRatioFromJSON)(json['aspect_ratio']),
@@ -60,6 +59,7 @@ function TrendRecreateRequestToJSONTyped(value, ignoreDiscriminator = false) {
     }
     return {
         'image_ids': value['imageIds'],
+        'chatbot_id': value['chatbotId'],
         'prompt': value['prompt'],
         'model': value['model'],
         'aspect_ratio': (0, VideoAspectRatio_1.VideoAspectRatioToJSON)(value['aspectRatio']),

@@ -22,7 +22,13 @@ export interface TrendRecreateRequest {
      * @type {Array<string>}
      * @memberof TrendRecreateRequest
      */
-    imageIds: Array<string>;
+    imageIds?: Array<string> | null;
+    /**
+     *
+     * @type {string}
+     * @memberof TrendRecreateRequest
+     */
+    chatbotId?: string | null;
     /**
      *
      * @type {string}

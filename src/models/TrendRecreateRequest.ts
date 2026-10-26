@@ -39,7 +39,13 @@ export interface TrendRecreateRequest {
      * @type {Array<string>}
      * @memberof TrendRecreateRequest
      */
-    imageIds: Array<string>;
+    imageIds?: Array<string> | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof TrendRecreateRequest
+     */
+    chatbotId?: string | null;
     /**
      * 
      * @type {string}
@@ -84,7 +90,6 @@ export interface TrendRecreateRequest {
  * Check if a given object implements the TrendRecreateRequest interface.
  */
 export function instanceOfTrendRecreateRequest(value: object): value is TrendRecreateRequest {
-    if (!('imageIds' in value) || value['imageIds'] === undefined) return false;
     if (!('model' in value) || value['model'] === undefined) return false;
     if (!('clientId' in value) || value['clientId'] === undefined) return false;
     if (!('requestId' in value) || value['requestId'] === undefined) return false;
@@ -101,7 +106,8 @@ export function TrendRecreateRequestFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'imageIds': json['image_ids'],
+        'imageIds': json['image_ids'] == null ? undefined : json['image_ids'],
+        'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
         'model': json['model'],
         'aspectRatio': json['aspect_ratio'] == null ? undefined : VideoAspectRatioFromJSON(json['aspect_ratio']),
@@ -123,6 +129,7 @@ export function TrendRecreateRequestFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'image_ids': value['imageIds'],
+        'chatbot_id': value['chatbotId'],
         'prompt': value['prompt'],
         'model': value['model'],
         'aspect_ratio': VideoAspectRatioToJSON(value['aspectRatio']),

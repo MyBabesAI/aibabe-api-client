@@ -201,6 +201,8 @@ export declare const ExceptionCode: {
     readonly TrendPromptInvalid: "trend_prompt_invalid";
     readonly TrendAspectRatioNotSupported: "trend_aspect_ratio_not_supported";
     readonly TrendResolutionNotSupported: "trend_resolution_not_supported";
+    readonly TrendImagesNotSupported: "trend_images_not_supported";
+    readonly TrendCharacterRequired: "trend_character_required";
     readonly ArtStyleNotFound: "art_style_not_found";
     readonly ImageModelUnavailable: "image_model_unavailable";
     readonly AgeCheckServerUnavailable: "age_check_server_unavailable";

@@ -205,6 +205,8 @@ export const ExceptionCode = {
     TrendPromptInvalid: 'trend_prompt_invalid',
     TrendAspectRatioNotSupported: 'trend_aspect_ratio_not_supported',
     TrendResolutionNotSupported: 'trend_resolution_not_supported',
+    TrendImagesNotSupported: 'trend_images_not_supported',
+    TrendCharacterRequired: 'trend_character_required',
     ArtStyleNotFound: 'art_style_not_found',
     ImageModelUnavailable: 'image_model_unavailable',
     AgeCheckServerUnavailable: 'age_check_server_unavailable',
