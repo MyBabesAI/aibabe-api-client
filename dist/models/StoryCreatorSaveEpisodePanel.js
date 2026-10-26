@@ -70,6 +70,7 @@ function StoryCreatorSaveEpisodePanelFromJSONTyped(json, ignoreDiscriminator) {
         'panelIndex': json['panel_index'],
         'targets': json['targets'] == null ? undefined : (json['targets'].map(StoryCreatorSaveTarget_1.StoryCreatorSaveTargetFromJSON)),
         'targetsCount': json['targets_count'] == null ? undefined : json['targets_count'],
+        'won': json['won'] == null ? undefined : json['won'],
     };
 }
 function StoryCreatorSaveEpisodePanelToJSON(json) {
@@ -108,6 +109,7 @@ function StoryCreatorSaveEpisodePanelToJSONTyped(value, ignoreDiscriminator = fa
         'panel_index': value['panelIndex'],
         'targets': value['targets'] == null ? undefined : (value['targets'].map(StoryCreatorSaveTarget_1.StoryCreatorSaveTargetToJSON)),
         'targets_count': value['targetsCount'],
+        'won': value['won'],
     };
 }
 //# sourceMappingURL=StoryCreatorSaveEpisodePanel.js.map

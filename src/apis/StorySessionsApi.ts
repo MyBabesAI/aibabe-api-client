@@ -69,6 +69,7 @@ export interface AdminActionStorySessionsSessionIdAdminPostRequest {
 export interface CreateSessionStorySessionsEpisodesEpisodeIdSessionsPostRequest {
     episodeId: string;
     forceLatest?: boolean;
+    startPanelId?: string | null;
 }
 
 export interface DeleteSessionStorySessionsSessionIdDeleteRequest {
@@ -105,6 +106,10 @@ export interface ReviewJournalStorySessionsSessionIdJournalReviewPostRequest {
 export interface SendMessageStorySessionsSessionIdMessagePostRequest {
     sessionId: string;
     postStoryMessageRequest: PostStoryMessageRequest;
+}
+
+export interface SkipChatPanelStorySessionsSessionIdSkipChatPostRequest {
+    sessionId: string;
 }
 
 /**
@@ -173,6 +178,10 @@ export class StorySessionsApi extends runtime.BaseAPI {
 
         if (requestParameters['forceLatest'] != null) {
             queryParameters['force_latest'] = requestParameters['forceLatest'];
+        }
+
+        if (requestParameters['startPanelId'] != null) {
+            queryParameters['start_panel_id'] = requestParameters['startPanelId'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -498,6 +507,41 @@ export class StorySessionsApi extends runtime.BaseAPI {
      */
     async sendMessageStorySessionsSessionIdMessagePost(requestParameters: SendMessageStorySessionsSessionIdMessagePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostStoryMessageResponse> {
         const response = await this.sendMessageStorySessionsSessionIdMessagePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * **Completes the current chat panel without playing it; allowed once the player has won that panel in any run**
+     * Step the run over its current chat panel
+     */
+    async skipChatPanelStorySessionsSessionIdSkipChatPostRaw(requestParameters: SkipChatPanelStorySessionsSessionIdSkipChatPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StorySessionResponse>> {
+        if (requestParameters['sessionId'] == null) {
+            throw new runtime.RequiredError(
+                'sessionId',
+                'Required parameter "sessionId" was null or undefined when calling skipChatPanelStorySessionsSessionIdSkipChatPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/story-sessions/{session_id}/skip-chat`.replace(`{${"session_id"}}`, encodeURIComponent(String(requestParameters['sessionId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StorySessionResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * **Completes the current chat panel without playing it; allowed once the player has won that panel in any run**
+     * Step the run over its current chat panel
+     */
+    async skipChatPanelStorySessionsSessionIdSkipChatPost(requestParameters: SkipChatPanelStorySessionsSessionIdSkipChatPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StorySessionResponse> {
+        const response = await this.skipChatPanelStorySessionsSessionIdSkipChatPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

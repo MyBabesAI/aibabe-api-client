@@ -100,6 +100,12 @@ export interface PublicUserInfo {
      * @type {number}
      * @memberof PublicUserInfo
      */
+    likes: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof PublicUserInfo
+     */
     videos: number;
     /**
      * 
@@ -151,6 +157,7 @@ export function instanceOfPublicUserInfo(value: object): value is PublicUserInfo
     if (!('selectedBadge' in value) || value['selectedBadge'] === undefined) return false;
     if (!('following' in value) || value['following'] === undefined) return false;
     if (!('followers' in value) || value['followers'] === undefined) return false;
+    if (!('likes' in value) || value['likes'] === undefined) return false;
     if (!('videos' in value) || value['videos'] === undefined) return false;
     if (!('images' in value) || value['images'] === undefined) return false;
     if (!('messages' in value) || value['messages'] === undefined) return false;
@@ -178,6 +185,7 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'coverAspectRatio': json['cover_aspect_ratio'] == null ? undefined : ImageAspectRatioFromJSON(json['cover_aspect_ratio']),
         'following': json['following'],
         'followers': json['followers'],
+        'likes': json['likes'],
         'videos': json['videos'],
         'images': json['images'],
         'messages': json['messages'],
@@ -208,6 +216,7 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
         'cover_aspect_ratio': ImageAspectRatioToJSON(value['coverAspectRatio']),
         'following': value['following'],
         'followers': value['followers'],
+        'likes': value['likes'],
         'videos': value['videos'],
         'images': value['images'],
         'messages': value['messages'],
