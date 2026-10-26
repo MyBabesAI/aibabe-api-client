@@ -39,6 +39,12 @@ export interface GetLeaderboardResponse {
      * @memberof GetLeaderboardResponse
      */
     viewer?: LeaderboardEntry | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetLeaderboardResponse
+     */
+    paginationToken?: string | null;
 }
 
 /**
@@ -61,6 +67,7 @@ export function GetLeaderboardResponseFromJSONTyped(json: any, ignoreDiscriminat
         
         'leaderboard': ((json['leaderboard'] as Array<any>).map(LeaderboardEntryFromJSON)),
         'viewer': json['viewer'] == null ? undefined : LeaderboardEntryFromJSON(json['viewer']),
+        'paginationToken': json['pagination_token'] == null ? undefined : json['pagination_token'],
     };
 }
 
@@ -77,6 +84,7 @@ export function GetLeaderboardResponseFromJSONTyped(json: any, ignoreDiscriminat
         
         'leaderboard': ((value['leaderboard'] as Array<any>).map(LeaderboardEntryToJSON)),
         'viewer': LeaderboardEntryToJSON(value['viewer']),
+        'pagination_token': value['paginationToken'],
     };
 }
 
