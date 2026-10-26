@@ -161,6 +161,9 @@ class TrendsApi extends runtime.BaseAPI {
         if (requestParameters['coverUrl'] != null) {
             formParams.append('cover_url', requestParameters['coverUrl']);
         }
+        if (requestParameters['sourceIsAi'] != null) {
+            formParams.append('source_is_ai', requestParameters['sourceIsAi']);
+        }
         const response = await this.request({
             path: `/trends`,
             method: 'POST',

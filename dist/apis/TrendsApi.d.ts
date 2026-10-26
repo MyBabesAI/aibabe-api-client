@@ -33,6 +33,7 @@ export interface CreateTrendTrendsPostRequest {
     sourceVideoUrl?: string | null;
     sourceImageUrl?: string | null;
     coverUrl?: string | null;
+    sourceIsAi?: boolean;
 }
 export interface DeleteCategoryTrendsCategoriesCategoryIdDeleteRequest {
     categoryId: string;

@@ -96,6 +96,7 @@ export interface CreateTrendTrendsPostRequest {
     sourceVideoUrl?: string | null;
     sourceImageUrl?: string | null;
     coverUrl?: string | null;
+    sourceIsAi?: boolean;
 }
 
 export interface DeleteCategoryTrendsCategoriesCategoryIdDeleteRequest {
@@ -301,6 +302,10 @@ export class TrendsApi extends runtime.BaseAPI {
 
         if (requestParameters['coverUrl'] != null) {
             formParams.append('cover_url', requestParameters['coverUrl'] as any);
+        }
+
+        if (requestParameters['sourceIsAi'] != null) {
+            formParams.append('source_is_ai', requestParameters['sourceIsAi'] as any);
         }
 
         const response = await this.request({
