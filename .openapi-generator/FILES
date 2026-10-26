@@ -25,6 +25,7 @@ src/apis/StoryCreatorApi.ts
 src/apis/StorySessionsApi.ts
 src/apis/SubscriptionsApi.ts
 src/apis/TrackingApi.ts
+src/apis/TrendsApi.ts
 src/apis/UserApi.ts
 src/apis/UtilitiesApi.ts
 src/apis/VideoApi.ts
@@ -276,6 +277,7 @@ src/models/MemoryUpdateReponse.ts
 src/models/MessageCheckResponse.ts
 src/models/MessageType.ts
 src/models/Model.ts
+src/models/Models.ts
 src/models/ModerationReason.ts
 src/models/MonthlyTokens.ts
 src/models/MuleRouterWanTaskError.ts
@@ -519,6 +521,20 @@ src/models/TokenUsageCalculationMode.ts
 src/models/TokenUsageType.ts
 src/models/TrackConversionEventRequest.ts
 src/models/TrackConversionEventResponse.ts
+src/models/TrendCategoryCreateRequest.ts
+src/models/TrendCategoryListResponse.ts
+src/models/TrendCategoryResponse.ts
+src/models/TrendCategoryUpdateRequest.ts
+src/models/TrendListFilter.ts
+src/models/TrendListResponse.ts
+src/models/TrendMediaType.ts
+src/models/TrendMode.ts
+src/models/TrendModelOption.ts
+src/models/TrendPreviewRequest.ts
+src/models/TrendPreviewResponse.ts
+src/models/TrendRecreateRequest.ts
+src/models/TrendRecreateResponse.ts
+src/models/TrendResponse.ts
 src/models/Type.ts
 src/models/UpdateGalleryFolderRequest.ts
 src/models/UserBadge.ts

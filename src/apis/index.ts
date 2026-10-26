@@ -22,6 +22,7 @@ export * from './StoryCreatorApi';
 export * from './StorySessionsApi';
 export * from './SubscriptionsApi';
 export * from './TrackingApi';
+export * from './TrendsApi';
 export * from './UserApi';
 export * from './UtilitiesApi';
 export * from './VideoApi';

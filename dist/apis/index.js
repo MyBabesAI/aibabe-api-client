@@ -38,6 +38,7 @@ __exportStar(require("./StoryCreatorApi"), exports);
 __exportStar(require("./StorySessionsApi"), exports);
 __exportStar(require("./SubscriptionsApi"), exports);
 __exportStar(require("./TrackingApi"), exports);
+__exportStar(require("./TrendsApi"), exports);
 __exportStar(require("./UserApi"), exports);
 __exportStar(require("./UtilitiesApi"), exports);
 __exportStar(require("./VideoApi"), exports);
