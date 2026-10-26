@@ -216,6 +216,12 @@ export interface StoryCreatorPanel {
      * @memberof StoryCreatorPanel
      */
     targetsCount?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof StoryCreatorPanel
+     */
+    won?: boolean;
 }
 
 
@@ -269,6 +275,7 @@ export function StoryCreatorPanelFromJSONTyped(json: any, ignoreDiscriminator: b
         'panelIndex': json['panel_index'],
         'targets': json['targets'] == null ? undefined : ((json['targets'] as Array<any>).map(StoryCreatorTargetFromJSON)),
         'targetsCount': json['targets_count'] == null ? undefined : json['targets_count'],
+        'won': json['won'] == null ? undefined : json['won'],
     };
 }
 
@@ -311,6 +318,7 @@ export function StoryCreatorPanelFromJSONTyped(json: any, ignoreDiscriminator: b
         'panel_index': value['panelIndex'],
         'targets': value['targets'] == null ? undefined : ((value['targets'] as Array<any>).map(StoryCreatorTargetToJSON)),
         'targets_count': value['targetsCount'],
+        'won': value['won'],
     };
 }
 

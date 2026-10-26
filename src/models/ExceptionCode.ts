@@ -260,6 +260,7 @@ export const ExceptionCode = {
     StoryEpisodeSequentialLocked: 'story_episode_sequential_locked',
     StoryEpisodeLocked: 'story_episode_locked',
     StoryEpisodeNotPlayable: 'story_episode_not_playable',
+    StoryChatPanelNotWon: 'story_chat_panel_not_won',
     StoryEpisodeInteractive: 'story_episode_interactive',
     StoryChatPanelTargetsRequired: 'story_chat_panel_targets_required',
     StoryEpisodeRatingRequiresPlay: 'story_episode_rating_requires_play',

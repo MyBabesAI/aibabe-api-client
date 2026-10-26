@@ -39,6 +39,18 @@ export interface PostStoryAdminActionResponse {
      * @memberof PostStoryAdminActionResponse
      */
     status: StorySessionStatus;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PostStoryAdminActionResponse
+     */
+    panelCompleted?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostStoryAdminActionResponse
+     */
+    nextPanelId?: string | null;
 }
 
 
@@ -64,6 +76,8 @@ export function PostStoryAdminActionResponseFromJSONTyped(json: any, ignoreDiscr
         
         'score': json['score'],
         'status': StorySessionStatusFromJSON(json['status']),
+        'panelCompleted': json['panel_completed'] == null ? undefined : json['panel_completed'],
+        'nextPanelId': json['next_panel_id'] == null ? undefined : json['next_panel_id'],
     };
 }
 
@@ -80,6 +94,8 @@ export function PostStoryAdminActionResponseFromJSONTyped(json: any, ignoreDiscr
         
         'score': value['score'],
         'status': StorySessionStatusToJSON(value['status']),
+        'panel_completed': value['panelCompleted'],
+        'next_panel_id': value['nextPanelId'],
     };
 }
 

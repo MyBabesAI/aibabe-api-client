@@ -256,6 +256,7 @@ export declare const ExceptionCode: {
     readonly StoryEpisodeSequentialLocked: "story_episode_sequential_locked";
     readonly StoryEpisodeLocked: "story_episode_locked";
     readonly StoryEpisodeNotPlayable: "story_episode_not_playable";
+    readonly StoryChatPanelNotWon: "story_chat_panel_not_won";
     readonly StoryEpisodeInteractive: "story_episode_interactive";
     readonly StoryChatPanelTargetsRequired: "story_chat_panel_targets_required";
     readonly StoryEpisodeRatingRequiresPlay: "story_episode_rating_requires_play";
