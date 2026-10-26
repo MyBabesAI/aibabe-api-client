@@ -34,6 +34,12 @@ export interface LeaderboardEntry {
      * @memberof LeaderboardEntry
      */
     rank: number;
+    /**
+     *
+     * @type {number}
+     * @memberof LeaderboardEntry
+     */
+    movement?: number | null;
 }
 /**
  * Check if a given object implements the LeaderboardEntry interface.
