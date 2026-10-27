@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { Language } from './Language';
 import type { LLM } from './LLM';
 import type { ImageSendingMode } from './ImageSendingMode';
 /**
@@ -47,6 +48,12 @@ export interface PatchUserPreferenceProfileRequest {
      * @memberof PatchUserPreferenceProfileRequest
      */
     chatNickname?: string | null;
+    /**
+     *
+     * @type {Language}
+     * @memberof PatchUserPreferenceProfileRequest
+     */
+    language?: Language | null;
     /**
      *
      * @type {LLM}
