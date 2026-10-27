@@ -48,7 +48,6 @@ export interface ClearNotificationsNotificationClearPatchRequest {
     followUserId?: string | null;
     eventId?: string | null;
     blacklistId?: string | null;
-    announcementId?: string | null;
     group?: NotificationGroup | null;
     senderId?: string | null;
     kind?: NotificationKind | null;
@@ -110,10 +109,6 @@ export class NotificationApi extends runtime.BaseAPI {
 
         if (requestParameters['blacklistId'] != null) {
             queryParameters['blacklist_id'] = requestParameters['blacklistId'];
-        }
-
-        if (requestParameters['announcementId'] != null) {
-            queryParameters['announcement_id'] = requestParameters['announcementId'];
         }
 
         if (requestParameters['group'] != null) {

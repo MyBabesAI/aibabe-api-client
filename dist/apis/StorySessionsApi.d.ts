@@ -18,7 +18,6 @@ export interface AdminActionStorySessionsSessionIdAdminPostRequest {
 export interface CreateSessionStorySessionsEpisodesEpisodeIdSessionsPostRequest {
     episodeId: string;
     forceLatest?: boolean;
-    startPanelId?: string | null;
 }
 export interface DeleteSessionStorySessionsSessionIdDeleteRequest {
     sessionId: string;
@@ -47,9 +46,6 @@ export interface ReviewJournalStorySessionsSessionIdJournalReviewPostRequest {
 export interface SendMessageStorySessionsSessionIdMessagePostRequest {
     sessionId: string;
     postStoryMessageRequest: PostStoryMessageRequest;
-}
-export interface SkipChatPanelStorySessionsSessionIdSkipChatPostRequest {
-    sessionId: string;
 }
 /**
  *
@@ -141,15 +137,5 @@ export declare class StorySessionsApi extends runtime.BaseAPI {
      * Send Message
      */
     sendMessageStorySessionsSessionIdMessagePost(requestParameters: SendMessageStorySessionsSessionIdMessagePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostStoryMessageResponse>;
-    /**
-     * **Completes the current chat panel without playing it; allowed once the player has won that panel in any run**
-     * Step the run over its current chat panel
-     */
-    skipChatPanelStorySessionsSessionIdSkipChatPostRaw(requestParameters: SkipChatPanelStorySessionsSessionIdSkipChatPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StorySessionResponse>>;
-    /**
-     * **Completes the current chat panel without playing it; allowed once the player has won that panel in any run**
-     * Step the run over its current chat panel
-     */
-    skipChatPanelStorySessionsSessionIdSkipChatPost(requestParameters: SkipChatPanelStorySessionsSessionIdSkipChatPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StorySessionResponse>;
 }
 //# sourceMappingURL=StorySessionsApi.d.ts.map

@@ -22,18 +22,6 @@ export interface GetLeaderboardResponse {
      * @memberof GetLeaderboardResponse
      */
     leaderboard: Array<LeaderboardEntry>;
-    /**
-     *
-     * @type {LeaderboardEntry}
-     * @memberof GetLeaderboardResponse
-     */
-    viewer?: LeaderboardEntry | null;
-    /**
-     *
-     * @type {string}
-     * @memberof GetLeaderboardResponse
-     */
-    paginationToken?: string | null;
 }
 /**
  * Check if a given object implements the GetLeaderboardResponse interface.

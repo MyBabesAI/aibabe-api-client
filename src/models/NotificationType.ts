@@ -31,7 +31,6 @@ export const NotificationType = {
     EventEnded: 'event_ended',
     EventResult: 'event_result',
     BlacklistWarning: 'blacklist_warning',
-    Announcement: 'announcement',
     FeedGroup: 'feed_group',
     FollowersGroup: 'followers_group',
     DonationsGroup: 'donations_group',

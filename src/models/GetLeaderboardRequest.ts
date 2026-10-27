@@ -78,12 +78,6 @@ export interface GetLeaderboardRequest {
      * @memberof GetLeaderboardRequest
      */
     limit?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof GetLeaderboardRequest
-     */
-    paginationToken?: string | null;
 }
 
 
@@ -111,7 +105,6 @@ export function GetLeaderboardRequestFromJSONTyped(json: any, ignoreDiscriminato
         'contentType': json['content_type'] == null ? undefined : ContentTypeFromJSON(json['content_type']),
         'timePeriod': json['time_period'] == null ? undefined : BadgeTimePeriodFromJSON(json['time_period']),
         'limit': json['limit'] == null ? undefined : json['limit'],
-        'paginationToken': json['pagination_token'] == null ? undefined : json['pagination_token'],
     };
 }
 
@@ -131,7 +124,6 @@ export function GetLeaderboardRequestFromJSONTyped(json: any, ignoreDiscriminato
         'content_type': ContentTypeToJSON(value['contentType']),
         'time_period': BadgeTimePeriodToJSON(value['timePeriod']),
         'limit': value['limit'],
-        'pagination_token': value['paginationToken'],
     };
 }
 

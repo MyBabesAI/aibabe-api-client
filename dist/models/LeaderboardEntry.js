@@ -42,7 +42,6 @@ function LeaderboardEntryFromJSONTyped(json, ignoreDiscriminator) {
         'user': (0, PublicUserPreview_1.PublicUserPreviewFromJSON)(json['user']),
         'score': json['score'],
         'rank': json['rank'],
-        'movement': json['movement'] == null ? undefined : json['movement'],
     };
 }
 function LeaderboardEntryToJSON(json) {
@@ -56,7 +55,6 @@ function LeaderboardEntryToJSONTyped(value, ignoreDiscriminator = false) {
         'user': (0, PublicUserPreview_1.PublicUserPreviewToJSON)(value['user']),
         'score': value['score'],
         'rank': value['rank'],
-        'movement': value['movement'],
     };
 }
 //# sourceMappingURL=LeaderboardEntry.js.map

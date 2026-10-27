@@ -96,9 +96,6 @@ class StorySessionsApi extends runtime.BaseAPI {
         if (requestParameters['forceLatest'] != null) {
             queryParameters['force_latest'] = requestParameters['forceLatest'];
         }
-        if (requestParameters['startPanelId'] != null) {
-            queryParameters['start_panel_id'] = requestParameters['startPanelId'];
-        }
         const headerParameters = {};
         const response = await this.request({
             path: `/story-sessions/episodes/{episode_id}/sessions`.replace(`{${"episode_id"}}`, encodeURIComponent(String(requestParameters['episodeId']))),
@@ -327,32 +324,6 @@ class StorySessionsApi extends runtime.BaseAPI {
      */
     async sendMessageStorySessionsSessionIdMessagePost(requestParameters, initOverrides) {
         const response = await this.sendMessageStorySessionsSessionIdMessagePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
-     * **Completes the current chat panel without playing it; allowed once the player has won that panel in any run**
-     * Step the run over its current chat panel
-     */
-    async skipChatPanelStorySessionsSessionIdSkipChatPostRaw(requestParameters, initOverrides) {
-        if (requestParameters['sessionId'] == null) {
-            throw new runtime.RequiredError('sessionId', 'Required parameter "sessionId" was null or undefined when calling skipChatPanelStorySessionsSessionIdSkipChatPost().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/story-sessions/{session_id}/skip-chat`.replace(`{${"session_id"}}`, encodeURIComponent(String(requestParameters['sessionId']))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.StorySessionResponseFromJSON)(jsonValue));
-    }
-    /**
-     * **Completes the current chat panel without playing it; allowed once the player has won that panel in any run**
-     * Step the run over its current chat panel
-     */
-    async skipChatPanelStorySessionsSessionIdSkipChatPost(requestParameters, initOverrides) {
-        const response = await this.skipChatPanelStorySessionsSessionIdSkipChatPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 }

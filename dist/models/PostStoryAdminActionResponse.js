@@ -39,8 +39,6 @@ function PostStoryAdminActionResponseFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'score': json['score'],
         'status': (0, StorySessionStatus_1.StorySessionStatusFromJSON)(json['status']),
-        'panelCompleted': json['panel_completed'] == null ? undefined : json['panel_completed'],
-        'nextPanelId': json['next_panel_id'] == null ? undefined : json['next_panel_id'],
     };
 }
 function PostStoryAdminActionResponseToJSON(json) {
@@ -53,8 +51,6 @@ function PostStoryAdminActionResponseToJSONTyped(value, ignoreDiscriminator = fa
     return {
         'score': value['score'],
         'status': (0, StorySessionStatus_1.StorySessionStatusToJSON)(value['status']),
-        'panel_completed': value['panelCompleted'],
-        'next_panel_id': value['nextPanelId'],
     };
 }
 //# sourceMappingURL=PostStoryAdminActionResponse.js.map

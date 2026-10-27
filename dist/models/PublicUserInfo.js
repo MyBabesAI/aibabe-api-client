@@ -37,8 +37,6 @@ function instanceOfPublicUserInfo(value) {
         return false;
     if (!('followers' in value) || value['followers'] === undefined)
         return false;
-    if (!('likes' in value) || value['likes'] === undefined)
-        return false;
     if (!('videos' in value) || value['videos'] === undefined)
         return false;
     if (!('images' in value) || value['images'] === undefined)
@@ -68,7 +66,6 @@ function PublicUserInfoFromJSONTyped(json, ignoreDiscriminator) {
         'coverAspectRatio': json['cover_aspect_ratio'] == null ? undefined : (0, ImageAspectRatio_1.ImageAspectRatioFromJSON)(json['cover_aspect_ratio']),
         'following': json['following'],
         'followers': json['followers'],
-        'likes': json['likes'],
         'videos': json['videos'],
         'images': json['images'],
         'messages': json['messages'],
@@ -95,7 +92,6 @@ function PublicUserInfoToJSONTyped(value, ignoreDiscriminator = false) {
         'cover_aspect_ratio': (0, ImageAspectRatio_1.ImageAspectRatioToJSON)(value['coverAspectRatio']),
         'following': value['following'],
         'followers': value['followers'],
-        'likes': value['likes'],
         'videos': value['videos'],
         'images': value['images'],
         'messages': value['messages'],

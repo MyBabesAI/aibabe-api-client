@@ -72,7 +72,6 @@ function StoryCreatorPanelFromJSONTyped(json, ignoreDiscriminator) {
         'panelIndex': json['panel_index'],
         'targets': json['targets'] == null ? undefined : (json['targets'].map(StoryCreatorTarget_1.StoryCreatorTargetFromJSON)),
         'targetsCount': json['targets_count'] == null ? undefined : json['targets_count'],
-        'won': json['won'] == null ? undefined : json['won'],
     };
 }
 function StoryCreatorPanelToJSON(json) {
@@ -111,7 +110,6 @@ function StoryCreatorPanelToJSONTyped(value, ignoreDiscriminator = false) {
         'panel_index': value['panelIndex'],
         'targets': value['targets'] == null ? undefined : (value['targets'].map(StoryCreatorTarget_1.StoryCreatorTargetToJSON)),
         'targets_count': value['targetsCount'],
-        'won': value['won'],
     };
 }
 //# sourceMappingURL=StoryCreatorPanel.js.map

@@ -76,8 +76,6 @@ function instanceOfNotificationResponseNotificationsInner(value) {
         return false;
     if (!('card' in value) || value['card'] === undefined)
         return false;
-    if (!('title' in value) || value['title'] === undefined)
-        return false;
     return true;
 }
 function NotificationResponseNotificationsInnerFromJSON(json) {
@@ -116,9 +114,6 @@ function NotificationResponseNotificationsInnerFromJSONTyped(json, ignoreDiscrim
         'targetId': json['target_id'],
         'galleryTab': (0, GalleryTab_1.GalleryTabFromJSON)(json['gallery_tab']),
         'card': (0, BlacklistCard_1.BlacklistCardFromJSON)(json['card']),
-        'title': json['title'],
-        'body': json['body'] == null ? undefined : json['body'],
-        'url': json['url'] == null ? undefined : json['url'],
     };
 }
 function NotificationResponseNotificationsInnerToJSON(json) {
@@ -157,9 +152,6 @@ function NotificationResponseNotificationsInnerToJSONTyped(value, ignoreDiscrimi
         'target_id': value['targetId'],
         'gallery_tab': (0, GalleryTab_1.GalleryTabToJSON)(value['galleryTab']),
         'card': (0, BlacklistCard_1.BlacklistCardToJSON)(value['card']),
-        'title': value['title'],
-        'body': value['body'],
-        'url': value['url'],
     };
 }
 //# sourceMappingURL=NotificationResponseNotificationsInner.js.map

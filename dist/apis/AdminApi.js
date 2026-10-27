@@ -250,32 +250,6 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Create Announcement
-     */
-    async createAnnouncementAdminAnnouncementsPostRaw(requestParameters, initOverrides) {
-        if (requestParameters['adminAnnouncementRequest'] == null) {
-            throw new runtime.RequiredError('adminAnnouncementRequest', 'Required parameter "adminAnnouncementRequest" was null or undefined when calling createAnnouncementAdminAnnouncementsPost().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        headerParameters['Content-Type'] = 'application/json';
-        const response = await this.request({
-            path: `/admin/announcements`,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: (0, index_1.AdminAnnouncementRequestToJSON)(requestParameters['adminAnnouncementRequest']),
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.AdminAnnouncementResponseFromJSON)(jsonValue));
-    }
-    /**
-     * Create Announcement
-     */
-    async createAnnouncementAdminAnnouncementsPost(requestParameters, initOverrides) {
-        const response = await this.createAnnouncementAdminAnnouncementsPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
      * Create Badge
      */
     async createBadgeAdminBadgesPostRaw(requestParameters, initOverrides) {
@@ -402,29 +376,6 @@ class AdminApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Delete Announcement
-     */
-    async deleteAnnouncementAdminAnnouncementsAnnouncementIdDeleteRaw(requestParameters, initOverrides) {
-        if (requestParameters['announcementId'] == null) {
-            throw new runtime.RequiredError('announcementId', 'Required parameter "announcementId" was null or undefined when calling deleteAnnouncementAdminAnnouncementsAnnouncementIdDelete().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/admin/announcements/{announcement_id}`.replace(`{${"announcement_id"}}`, encodeURIComponent(String(requestParameters['announcementId']))),
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        return new runtime.VoidApiResponse(response);
-    }
-    /**
-     * Delete Announcement
-     */
-    async deleteAnnouncementAdminAnnouncementsAnnouncementIdDelete(requestParameters, initOverrides) {
-        await this.deleteAnnouncementAdminAnnouncementsAnnouncementIdDeleteRaw(requestParameters, initOverrides);
-    }
-    /**
      * Downscale
      */
     async downscaleAdminDownscalePostRaw(requestParameters, initOverrides) {
@@ -512,27 +463,6 @@ class AdminApi extends runtime.BaseAPI {
      */
     async generateCodesAdminGiftCodesGeneratePost(requestParameters, initOverrides) {
         const response = await this.generateCodesAdminGiftCodesGeneratePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
-     * Get Announcements
-     */
-    async getAnnouncementsAdminAnnouncementsGetRaw(initOverrides) {
-        const queryParameters = {};
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/admin/announcements`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(index_1.AdminAnnouncementResponseFromJSON));
-    }
-    /**
-     * Get Announcements
-     */
-    async getAnnouncementsAdminAnnouncementsGet(initOverrides) {
-        const response = await this.getAnnouncementsAdminAnnouncementsGetRaw(initOverrides);
         return await response.value();
     }
     /**

@@ -43,7 +43,6 @@ function GetLeaderboardRequestFromJSONTyped(json, ignoreDiscriminator) {
         'contentType': json['content_type'] == null ? undefined : (0, ContentType_1.ContentTypeFromJSON)(json['content_type']),
         'timePeriod': json['time_period'] == null ? undefined : (0, BadgeTimePeriod_1.BadgeTimePeriodFromJSON)(json['time_period']),
         'limit': json['limit'] == null ? undefined : json['limit'],
-        'paginationToken': json['pagination_token'] == null ? undefined : json['pagination_token'],
     };
 }
 function GetLeaderboardRequestToJSON(json) {
@@ -59,7 +58,6 @@ function GetLeaderboardRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'content_type': (0, ContentType_1.ContentTypeToJSON)(value['contentType']),
         'time_period': (0, BadgeTimePeriod_1.BadgeTimePeriodToJSON)(value['timePeriod']),
         'limit': value['limit'],
-        'pagination_token': value['paginationToken'],
     };
 }
 //# sourceMappingURL=GetLeaderboardRequest.js.map

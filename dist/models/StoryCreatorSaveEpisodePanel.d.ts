@@ -187,12 +187,6 @@ export interface StoryCreatorSaveEpisodePanel {
      * @memberof StoryCreatorSaveEpisodePanel
      */
     targetsCount?: number;
-    /**
-     *
-     * @type {boolean}
-     * @memberof StoryCreatorSaveEpisodePanel
-     */
-    won?: boolean;
 }
 /**
  * Check if a given object implements the StoryCreatorSaveEpisodePanel interface.

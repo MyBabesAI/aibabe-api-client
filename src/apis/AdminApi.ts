@@ -18,8 +18,6 @@ import type {
   AdminAdjustTokensRequest,
   AdminAdjustTokensResponse,
   AdminAgeEstimation,
-  AdminAnnouncementRequest,
-  AdminAnnouncementResponse,
   AdminAwardBadgeRequest,
   AdminBadgeResponse,
   AdminCreatePromotionRequest,
@@ -71,10 +69,6 @@ import {
     AdminAdjustTokensResponseToJSON,
     AdminAgeEstimationFromJSON,
     AdminAgeEstimationToJSON,
-    AdminAnnouncementRequestFromJSON,
-    AdminAnnouncementRequestToJSON,
-    AdminAnnouncementResponseFromJSON,
-    AdminAnnouncementResponseToJSON,
     AdminAwardBadgeRequestFromJSON,
     AdminAwardBadgeRequestToJSON,
     AdminBadgeResponseFromJSON,
@@ -191,10 +185,6 @@ export interface BlacklistContentAdminBlacklistContentTypeContentIdPatchRequest 
     blacklistRequest: BlacklistRequest;
 }
 
-export interface CreateAnnouncementAdminAnnouncementsPostRequest {
-    adminAnnouncementRequest: AdminAnnouncementRequest;
-}
-
 export interface CreateBadgeAdminBadgesPostRequest {
     code: string;
     name: string;
@@ -218,10 +208,6 @@ export interface CreateBadgeAdminBadgesPostRequest {
 
 export interface CreatePromotionAdminPromotionPostRequest {
     adminCreatePromotionRequest: AdminCreatePromotionRequest;
-}
-
-export interface DeleteAnnouncementAdminAnnouncementsAnnouncementIdDeleteRequest {
-    announcementId: string;
 }
 
 export interface DownscaleAdminDownscalePostRequest {
@@ -639,42 +625,6 @@ export class AdminApi extends runtime.BaseAPI {
     }
 
     /**
-     * Create Announcement
-     */
-    async createAnnouncementAdminAnnouncementsPostRaw(requestParameters: CreateAnnouncementAdminAnnouncementsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminAnnouncementResponse>> {
-        if (requestParameters['adminAnnouncementRequest'] == null) {
-            throw new runtime.RequiredError(
-                'adminAnnouncementRequest',
-                'Required parameter "adminAnnouncementRequest" was null or undefined when calling createAnnouncementAdminAnnouncementsPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/admin/announcements`,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AdminAnnouncementRequestToJSON(requestParameters['adminAnnouncementRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => AdminAnnouncementResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Create Announcement
-     */
-    async createAnnouncementAdminAnnouncementsPost(requestParameters: CreateAnnouncementAdminAnnouncementsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminAnnouncementResponse> {
-        const response = await this.createAnnouncementAdminAnnouncementsPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Create Badge
      */
     async createBadgeAdminBadgesPostRaw(requestParameters: CreateBadgeAdminBadgesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminBadgeResponse>> {
@@ -847,38 +797,6 @@ export class AdminApi extends runtime.BaseAPI {
     }
 
     /**
-     * Delete Announcement
-     */
-    async deleteAnnouncementAdminAnnouncementsAnnouncementIdDeleteRaw(requestParameters: DeleteAnnouncementAdminAnnouncementsAnnouncementIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['announcementId'] == null) {
-            throw new runtime.RequiredError(
-                'announcementId',
-                'Required parameter "announcementId" was null or undefined when calling deleteAnnouncementAdminAnnouncementsAnnouncementIdDelete().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/admin/announcements/{announcement_id}`.replace(`{${"announcement_id"}}`, encodeURIComponent(String(requestParameters['announcementId']))),
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * Delete Announcement
-     */
-    async deleteAnnouncementAdminAnnouncementsAnnouncementIdDelete(requestParameters: DeleteAnnouncementAdminAnnouncementsAnnouncementIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
-        await this.deleteAnnouncementAdminAnnouncementsAnnouncementIdDeleteRaw(requestParameters, initOverrides);
-    }
-
-    /**
      * Downscale
      */
     async downscaleAdminDownscalePostRaw(requestParameters: DownscaleAdminDownscalePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -989,32 +907,6 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async generateCodesAdminGiftCodesGeneratePost(requestParameters: GenerateCodesAdminGiftCodesGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.generateCodesAdminGiftCodesGeneratePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Get Announcements
-     */
-    async getAnnouncementsAdminAnnouncementsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<AdminAnnouncementResponse>>> {
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/admin/announcements`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AdminAnnouncementResponseFromJSON));
-    }
-
-    /**
-     * Get Announcements
-     */
-    async getAnnouncementsAdminAnnouncementsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<AdminAnnouncementResponse>> {
-        const response = await this.getAnnouncementsAdminAnnouncementsGetRaw(initOverrides);
         return await response.value();
     }
 

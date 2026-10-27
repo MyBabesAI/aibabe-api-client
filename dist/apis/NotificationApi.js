@@ -79,9 +79,6 @@ class NotificationApi extends runtime.BaseAPI {
         if (requestParameters['blacklistId'] != null) {
             queryParameters['blacklist_id'] = requestParameters['blacklistId'];
         }
-        if (requestParameters['announcementId'] != null) {
-            queryParameters['announcement_id'] = requestParameters['announcementId'];
-        }
         if (requestParameters['group'] != null) {
             queryParameters['group'] = requestParameters['group'];
         }

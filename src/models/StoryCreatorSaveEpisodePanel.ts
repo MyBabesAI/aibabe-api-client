@@ -216,12 +216,6 @@ export interface StoryCreatorSaveEpisodePanel {
      * @memberof StoryCreatorSaveEpisodePanel
      */
     targetsCount?: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof StoryCreatorSaveEpisodePanel
-     */
-    won?: boolean;
 }
 
 
@@ -274,7 +268,6 @@ export function StoryCreatorSaveEpisodePanelFromJSONTyped(json: any, ignoreDiscr
         'panelIndex': json['panel_index'],
         'targets': json['targets'] == null ? undefined : ((json['targets'] as Array<any>).map(StoryCreatorSaveTargetFromJSON)),
         'targetsCount': json['targets_count'] == null ? undefined : json['targets_count'],
-        'won': json['won'] == null ? undefined : json['won'],
     };
 }
 
@@ -317,7 +310,6 @@ export function StoryCreatorSaveEpisodePanelFromJSONTyped(json: any, ignoreDiscr
         'panel_index': value['panelIndex'],
         'targets': value['targets'] == null ? undefined : ((value['targets'] as Array<any>).map(StoryCreatorSaveTargetToJSON)),
         'targets_count': value['targetsCount'],
-        'won': value['won'],
     };
 }
 

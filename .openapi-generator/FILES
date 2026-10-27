@@ -38,8 +38,6 @@ src/models/AddonProductPrice.ts
 src/models/AdminAdjustTokensRequest.ts
 src/models/AdminAdjustTokensResponse.ts
 src/models/AdminAgeEstimation.ts
-src/models/AdminAnnouncementRequest.ts
-src/models/AdminAnnouncementResponse.ts
 src/models/AdminAwardBadgeRequest.ts
 src/models/AdminBadgeResponse.ts
 src/models/AdminCreatePricingProductRequest.ts
@@ -75,7 +73,6 @@ src/models/AdminUserJourneyListItem.ts
 src/models/AdminUserJourneysResponse.ts
 src/models/AgeVerificationAlternativeProvider.ts
 src/models/AgeVerificationStatusResponse.ts
-src/models/AnnouncementNotification.ts
 src/models/ArtStyle.ts
 src/models/AuraSubcategory.ts
 src/models/AvatarFieldValue.ts

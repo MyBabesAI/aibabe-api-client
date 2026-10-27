@@ -193,24 +193,6 @@ export interface NotificationResponseNotificationsInner {
      * @memberof NotificationResponseNotificationsInner
      */
     card: BlacklistCard;
-    /**
-     *
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    title: string;
-    /**
-     *
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    body?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof NotificationResponseNotificationsInner
-     */
-    url?: string;
 }
 /**
  * Check if a given object implements the NotificationResponseNotificationsInner interface.

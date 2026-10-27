@@ -28,18 +28,6 @@ export interface PostStoryAdminActionResponse {
      * @memberof PostStoryAdminActionResponse
      */
     status: StorySessionStatus;
-    /**
-     *
-     * @type {boolean}
-     * @memberof PostStoryAdminActionResponse
-     */
-    panelCompleted?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof PostStoryAdminActionResponse
-     */
-    nextPanelId?: string | null;
 }
 /**
  * Check if a given object implements the PostStoryAdminActionResponse interface.
