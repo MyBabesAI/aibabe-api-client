@@ -25,6 +25,7 @@ const UserEpisodeProgressType_1 = require("./UserEpisodeProgressType");
 const StoryCreatorEpisodePrice_1 = require("./StoryCreatorEpisodePrice");
 const EpisodeCounts_1 = require("./EpisodeCounts");
 const EpisodeVisibility_1 = require("./EpisodeVisibility");
+const EpisodePanelType_1 = require("./EpisodePanelType");
 const EpisodeRating_1 = require("./EpisodeRating");
 const AccessType_1 = require("./AccessType");
 /**
@@ -82,6 +83,7 @@ function StoryCreatorEpisodeFromJSONTyped(json, ignoreDiscriminator) {
         'prizesCount': json['prizes_count'] == null ? undefined : json['prizes_count'],
         'viewsCount': json['views_count'] == null ? undefined : json['views_count'],
         'sessions': json['sessions'] == null ? undefined : (json['sessions'].map(StoryCreatorSessionSummary_1.StoryCreatorSessionSummaryFromJSON)),
+        'panelTypes': json['panel_types'] == null ? undefined : (json['panel_types'].map(EpisodePanelType_1.EpisodePanelTypeFromJSON)),
     };
 }
 function StoryCreatorEpisodeToJSON(json) {
@@ -121,6 +123,7 @@ function StoryCreatorEpisodeToJSONTyped(value, ignoreDiscriminator = false) {
         'prizes_count': value['prizesCount'],
         'views_count': value['viewsCount'],
         'sessions': value['sessions'] == null ? undefined : (value['sessions'].map(StoryCreatorSessionSummary_1.StoryCreatorSessionSummaryToJSON)),
+        'panel_types': value['panelTypes'] == null ? undefined : (value['panelTypes'].map(EpisodePanelType_1.EpisodePanelTypeToJSON)),
     };
 }
 //# sourceMappingURL=StoryCreatorEpisode.js.map

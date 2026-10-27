@@ -62,6 +62,13 @@ import {
     EpisodeVisibilityToJSON,
     EpisodeVisibilityToJSONTyped,
 } from './EpisodeVisibility';
+import type { EpisodePanelType } from './EpisodePanelType';
+import {
+    EpisodePanelTypeFromJSON,
+    EpisodePanelTypeFromJSONTyped,
+    EpisodePanelTypeToJSON,
+    EpisodePanelTypeToJSONTyped,
+} from './EpisodePanelType';
 import type { EpisodeRating } from './EpisodeRating';
 import {
     EpisodeRatingFromJSON,
@@ -257,6 +264,12 @@ export interface StoryCreatorEpisode {
      * @memberof StoryCreatorEpisode
      */
     sessions?: Array<StoryCreatorSessionSummary>;
+    /**
+     * 
+     * @type {Array<EpisodePanelType>}
+     * @memberof StoryCreatorEpisode
+     */
+    panelTypes?: Array<EpisodePanelType>;
 }
 
 
@@ -313,6 +326,7 @@ export function StoryCreatorEpisodeFromJSONTyped(json: any, ignoreDiscriminator:
         'prizesCount': json['prizes_count'] == null ? undefined : json['prizes_count'],
         'viewsCount': json['views_count'] == null ? undefined : json['views_count'],
         'sessions': json['sessions'] == null ? undefined : ((json['sessions'] as Array<any>).map(StoryCreatorSessionSummaryFromJSON)),
+        'panelTypes': json['panel_types'] == null ? undefined : ((json['panel_types'] as Array<any>).map(EpisodePanelTypeFromJSON)),
     };
 }
 
@@ -356,6 +370,7 @@ export function StoryCreatorEpisodeFromJSONTyped(json: any, ignoreDiscriminator:
         'prizes_count': value['prizesCount'],
         'views_count': value['viewsCount'],
         'sessions': value['sessions'] == null ? undefined : ((value['sessions'] as Array<any>).map(StoryCreatorSessionSummaryToJSON)),
+        'panel_types': value['panelTypes'] == null ? undefined : ((value['panelTypes'] as Array<any>).map(EpisodePanelTypeToJSON)),
     };
 }
 
