@@ -27,6 +27,7 @@ export declare const NotificationType: {
     readonly EventEnded: "event_ended";
     readonly EventResult: "event_result";
     readonly BlacklistWarning: "blacklist_warning";
+    readonly Announcement: "announcement";
     readonly FeedGroup: "feed_group";
     readonly FollowersGroup: "followers_group";
     readonly DonationsGroup: "donations_group";

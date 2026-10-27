@@ -45,6 +45,12 @@ export interface LeaderboardEntry {
      * @memberof LeaderboardEntry
      */
     rank: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof LeaderboardEntry
+     */
+    movement?: number | null;
 }
 
 /**
@@ -70,6 +76,7 @@ export function LeaderboardEntryFromJSONTyped(json: any, ignoreDiscriminator: bo
         'user': PublicUserPreviewFromJSON(json['user']),
         'score': json['score'],
         'rank': json['rank'],
+        'movement': json['movement'] == null ? undefined : json['movement'],
     };
 }
 
@@ -87,6 +94,7 @@ export function LeaderboardEntryFromJSONTyped(json: any, ignoreDiscriminator: bo
         'user': PublicUserPreviewToJSON(value['user']),
         'score': value['score'],
         'rank': value['rank'],
+        'movement': value['movement'],
     };
 }
 
