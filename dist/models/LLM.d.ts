@@ -19,6 +19,7 @@ export declare const LLM: {
     readonly Qwen3: "qwen3";
     readonly Qwen3Premium: "qwen3_premium";
     readonly Gemma4Instruct: "gemma4_instruct";
+    readonly Gemma4InstructOptimized: "gemma4_instruct_optimized";
     readonly Serenity: "serenity";
     readonly Scarlett: "scarlett";
     readonly ScarlettPremium: "scarlett_premium";
