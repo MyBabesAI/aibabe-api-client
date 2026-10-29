@@ -33,7 +33,6 @@ function PostAdvancedChatbotPublishPayloadFromJSONTyped(json, ignoreDiscriminato
     }
     return {
         'referenceAudioId': json['reference_audio_id'] == null ? undefined : json['reference_audio_id'],
-        'profilePicture': json['profile_picture'] == null ? undefined : json['profile_picture'],
     };
 }
 function PostAdvancedChatbotPublishPayloadToJSON(json) {
@@ -45,7 +44,6 @@ function PostAdvancedChatbotPublishPayloadToJSONTyped(value, ignoreDiscriminator
     }
     return {
         'reference_audio_id': value['referenceAudioId'],
-        'profile_picture': value['profilePicture'],
     };
 }
 //# sourceMappingURL=PostAdvancedChatbotPublishPayload.js.map

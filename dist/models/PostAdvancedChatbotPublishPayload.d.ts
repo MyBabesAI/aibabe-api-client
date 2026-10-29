@@ -21,12 +21,6 @@ export interface PostAdvancedChatbotPublishPayload {
      * @memberof PostAdvancedChatbotPublishPayload
      */
     referenceAudioId?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof PostAdvancedChatbotPublishPayload
-     */
-    profilePicture?: string | null;
 }
 /**
  * Check if a given object implements the PostAdvancedChatbotPublishPayload interface.

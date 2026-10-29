@@ -27,8 +27,7 @@ exports.FeatureFlagName = {
     DoubleTokenUsage: 'DOUBLE_TOKEN_USAGE',
     MarketingBanners: 'MARKETING_BANNERS',
     Qwen3: 'QWEN3',
-    Rapyd: 'RAPYD',
-    ChatTester: 'CHAT_TESTER'
+    Rapyd: 'RAPYD'
 };
 function instanceOfFeatureFlagName(value) {
     for (const key in exports.FeatureFlagName) {
