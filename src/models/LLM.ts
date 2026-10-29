@@ -23,6 +23,7 @@ export const LLM = {
     Qwen3: 'qwen3',
     Qwen3Premium: 'qwen3_premium',
     Gemma4Instruct: 'gemma4_instruct',
+    Gemma4InstructOptimized: 'gemma4_instruct_optimized',
     Serenity: 'serenity',
     Scarlett: 'scarlett',
     ScarlettPremium: 'scarlett_premium',
