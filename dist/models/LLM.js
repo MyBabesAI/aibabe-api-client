@@ -32,6 +32,7 @@ exports.LLM = {
     Serenity: 'serenity',
     Scarlett: 'scarlett',
     ScarlettPremium: 'scarlett_premium',
+    ScarlettOptimized: 'scarlett_optimized',
     LemonadePremium: 'lemonade_premium',
     GemmaPremium: 'gemma_premium',
     Shieldstral: 'shieldstral',
