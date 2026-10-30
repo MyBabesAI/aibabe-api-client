@@ -33,6 +33,7 @@ import type {
   AdminSavePricingGroupRevisionsRequest,
   AdminTokenHistoryResponse,
   AdminUpdatePromotionRequest,
+  AdminUserFeatureFlagsResponse,
   AdminUserJourneysResponse,
   ArtStyle,
   AuraSubcategory,
@@ -54,9 +55,8 @@ import type {
   HTTPValidationError,
   OwnerFilter,
   PostType,
+  PutAdminUserFeatureFlagsRequest,
   ScoreCategory,
-  SetUserFeatureFlagsRequest,
-  SetUserFeatureFlagsResponse,
   SortFilter,
   SubscriptionStatus,
   UserInfoResponse,
@@ -101,6 +101,8 @@ import {
     AdminTokenHistoryResponseToJSON,
     AdminUpdatePromotionRequestFromJSON,
     AdminUpdatePromotionRequestToJSON,
+    AdminUserFeatureFlagsResponseFromJSON,
+    AdminUserFeatureFlagsResponseToJSON,
     AdminUserJourneysResponseFromJSON,
     AdminUserJourneysResponseToJSON,
     ArtStyleFromJSON,
@@ -143,12 +145,10 @@ import {
     OwnerFilterToJSON,
     PostTypeFromJSON,
     PostTypeToJSON,
+    PutAdminUserFeatureFlagsRequestFromJSON,
+    PutAdminUserFeatureFlagsRequestToJSON,
     ScoreCategoryFromJSON,
     ScoreCategoryToJSON,
-    SetUserFeatureFlagsRequestFromJSON,
-    SetUserFeatureFlagsRequestToJSON,
-    SetUserFeatureFlagsResponseFromJSON,
-    SetUserFeatureFlagsResponseToJSON,
     SortFilterFromJSON,
     SortFilterToJSON,
     SubscriptionStatusFromJSON,
@@ -270,6 +270,10 @@ export interface GetTokenHistoryAdminTokenHistoryEmailGetRequest {
     limit?: number;
 }
 
+export interface GetUserFeatureFlagsAdminUserEmailFeatureFlagsGetRequest {
+    email: string;
+}
+
 export interface GetUserGalleryAdminGalleryUserIdGetRequest {
     userId: string;
     paginationToken?: string | null;
@@ -321,16 +325,17 @@ export interface ProvideAwardAdminBadgesAwardPostRequest {
     adminAwardBadgeRequest: AdminAwardBadgeRequest;
 }
 
+export interface PutUserFeatureFlagsAdminUserEmailFeatureFlagsPutRequest {
+    email: string;
+    putAdminUserFeatureFlagsRequest: PutAdminUserFeatureFlagsRequest;
+}
+
 export interface RefreshConfigAdminConfigRefreshPostRequest {
     configRefreshRequest?: ConfigRefreshRequest;
 }
 
 export interface SavePricingGroupRevisionsAdminPricingPostRequest {
     adminSavePricingGroupRevisionsRequest: AdminSavePricingGroupRevisionsRequest;
-}
-
-export interface SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest {
-    setUserFeatureFlagsRequest: SetUserFeatureFlagsRequest;
 }
 
 export interface UnblacklistContentAdminBlacklistContentTypeContentIdDeleteRequest {
@@ -1303,6 +1308,41 @@ export class AdminApi extends runtime.BaseAPI {
     }
 
     /**
+     * The feature flags set on any account, the admin\'s own included, and every flag that exists.
+     * Get User Feature Flags
+     */
+    async getUserFeatureFlagsAdminUserEmailFeatureFlagsGetRaw(requestParameters: GetUserFeatureFlagsAdminUserEmailFeatureFlagsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminUserFeatureFlagsResponse>> {
+        if (requestParameters['email'] == null) {
+            throw new runtime.RequiredError(
+                'email',
+                'Required parameter "email" was null or undefined when calling getUserFeatureFlagsAdminUserEmailFeatureFlagsGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/admin/user/{email}/feature-flags`.replace(`{${"email"}}`, encodeURIComponent(String(requestParameters['email']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminUserFeatureFlagsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * The feature flags set on any account, the admin\'s own included, and every flag that exists.
+     * Get User Feature Flags
+     */
+    async getUserFeatureFlagsAdminUserEmailFeatureFlagsGet(requestParameters: GetUserFeatureFlagsAdminUserEmailFeatureFlagsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminUserFeatureFlagsResponse> {
+        const response = await this.getUserFeatureFlagsAdminUserEmailFeatureFlagsGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Get User Gallery
      */
     async getUserGalleryAdminGalleryUserIdGetRaw(requestParameters: GetUserGalleryAdminGalleryUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGalleryResponse>> {
@@ -1690,6 +1730,51 @@ export class AdminApi extends runtime.BaseAPI {
     }
 
     /**
+     * Replace an account\'s feature flags with the given set. Flags are read per request, so the change applies to the account\'s next request; no re-login needed.
+     * Put User Feature Flags
+     */
+    async putUserFeatureFlagsAdminUserEmailFeatureFlagsPutRaw(requestParameters: PutUserFeatureFlagsAdminUserEmailFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminUserFeatureFlagsResponse>> {
+        if (requestParameters['email'] == null) {
+            throw new runtime.RequiredError(
+                'email',
+                'Required parameter "email" was null or undefined when calling putUserFeatureFlagsAdminUserEmailFeatureFlagsPut().'
+            );
+        }
+
+        if (requestParameters['putAdminUserFeatureFlagsRequest'] == null) {
+            throw new runtime.RequiredError(
+                'putAdminUserFeatureFlagsRequest',
+                'Required parameter "putAdminUserFeatureFlagsRequest" was null or undefined when calling putUserFeatureFlagsAdminUserEmailFeatureFlagsPut().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/admin/user/{email}/feature-flags`.replace(`{${"email"}}`, encodeURIComponent(String(requestParameters['email']))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PutAdminUserFeatureFlagsRequestToJSON(requestParameters['putAdminUserFeatureFlagsRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AdminUserFeatureFlagsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Replace an account\'s feature flags with the given set. Flags are read per request, so the change applies to the account\'s next request; no re-login needed.
+     * Put User Feature Flags
+     */
+    async putUserFeatureFlagsAdminUserEmailFeatureFlagsPut(requestParameters: PutUserFeatureFlagsAdminUserEmailFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminUserFeatureFlagsResponse> {
+        const response = await this.putUserFeatureFlagsAdminUserEmailFeatureFlagsPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Refresh Config
      */
     async refreshConfigAdminConfigRefreshPostRaw(requestParameters: RefreshConfigAdminConfigRefreshPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConfigRefreshResponse>> {
@@ -1781,42 +1866,6 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async savePricingGroupRevisionsAdminPricingPost(requestParameters: SavePricingGroupRevisionsAdminPricingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPricingGroupRevisionsResponse> {
         const response = await this.savePricingGroupRevisionsAdminPricingPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Set User Feature Flags
-     */
-    async setUserFeatureFlagsAdminUserFeatureFlagsPutRaw(requestParameters: SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SetUserFeatureFlagsResponse>> {
-        if (requestParameters['setUserFeatureFlagsRequest'] == null) {
-            throw new runtime.RequiredError(
-                'setUserFeatureFlagsRequest',
-                'Required parameter "setUserFeatureFlagsRequest" was null or undefined when calling setUserFeatureFlagsAdminUserFeatureFlagsPut().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/admin/user/feature-flags`,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SetUserFeatureFlagsRequestToJSON(requestParameters['setUserFeatureFlagsRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SetUserFeatureFlagsResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Set User Feature Flags
-     */
-    async setUserFeatureFlagsAdminUserFeatureFlagsPut(requestParameters: SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetUserFeatureFlagsResponse> {
-        const response = await this.setUserFeatureFlagsAdminUserFeatureFlagsPutRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

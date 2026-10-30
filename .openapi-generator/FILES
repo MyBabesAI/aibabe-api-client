@@ -50,7 +50,6 @@ src/models/AdminCreateTokenUsageRequest.ts
 src/models/AdminCreateTokenUsageRequestResolution.ts
 src/models/AdminFaceAgeEstimate.ts
 src/models/AdminFaceBox.ts
-src/models/AdminFeatureFlagsResponse.ts
 src/models/AdminMarkTransactionRefundedRequest.ts
 src/models/AdminMarkTransactionRefundedResponse.ts
 src/models/AdminModeratedImage.ts
@@ -71,6 +70,7 @@ src/models/AdminTokenHistoryResponse.ts
 src/models/AdminTokenUsageGroupResponse.ts
 src/models/AdminTokenUsageResponse.ts
 src/models/AdminUpdatePromotionRequest.ts
+src/models/AdminUserFeatureFlagsResponse.ts
 src/models/AdminUserJourneyListItem.ts
 src/models/AdminUserJourneysResponse.ts
 src/models/AgeVerificationAlternativeProvider.ts
@@ -391,8 +391,8 @@ src/models/PromotionSummary.ts
 src/models/PublicUserInfo.ts
 src/models/PublicUserPreview.ts
 src/models/PublicUserPreviewWithFollow.ts
-src/models/PutAdminFeatureFlagsRequest.ts
 src/models/PutAdminSaleOfferRequest.ts
+src/models/PutAdminUserFeatureFlagsRequest.ts
 src/models/PutFollowNotificationsRequest.ts
 src/models/PutPasswordRequest.ts
 src/models/PutPublicUserRequest.ts
@@ -420,8 +420,6 @@ src/models/SeedanceImageToVideoResponse.ts
 src/models/SendCustomMemoracekRequest.ts
 src/models/SendMemoracekRequest.ts
 src/models/ServiceTokenResponse.ts
-src/models/SetUserFeatureFlagsRequest.ts
-src/models/SetUserFeatureFlagsResponse.ts
 src/models/SexualOrientation.ts
 src/models/SortFilter.ts
 src/models/SoundEffectResponse.ts
