@@ -28,6 +28,7 @@ export const LLM = {
     Scarlett: 'scarlett',
     ScarlettPremium: 'scarlett_premium',
     ScarlettOptimized: 'scarlett_optimized',
+    ScarlettPremiumOptimized: 'scarlett_premium_optimized',
     LemonadePremium: 'lemonade_premium',
     GemmaPremium: 'gemma_premium',
     Shieldstral: 'shieldstral',
