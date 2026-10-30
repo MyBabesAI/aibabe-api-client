@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminAdjustTokensRequest, AdminAdjustTokensResponse, AdminAgeEstimation, AdminAnnouncementRequest, AdminAnnouncementResponse, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminMarkTransactionRefundedRequest, AdminMarkTransactionRefundedResponse, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminTokenHistoryResponse, AdminUpdatePromotionRequest, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ChatbotType, ConfigRefreshRequest, ConfigRefreshResponse, ContentType, DownscaleRequest, GetChatbotListResponse, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, OwnerFilter, PostType, ScoreCategory, SetUserFeatureFlagsRequest, SetUserFeatureFlagsResponse, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
+import type { AdminAdjustTokensRequest, AdminAdjustTokensResponse, AdminAgeEstimation, AdminAnnouncementRequest, AdminAnnouncementResponse, AdminAwardBadgeRequest, AdminBadgeResponse, AdminCreatePromotionRequest, AdminMarkTransactionRefundedRequest, AdminMarkTransactionRefundedResponse, AdminModeratedImagesResponse, AdminPricingGroupRevisionsResponse, AdminPricingGroupsResponse, AdminPromotionListResponse, AdminPromotionResponse, AdminSavePricingGroupRevisionsRequest, AdminTokenHistoryResponse, AdminUpdatePromotionRequest, AdminUserFeatureFlagsResponse, AdminUserJourneysResponse, ArtStyle, AuraSubcategory, BadgeCategory, BadgeTimePeriod, BlacklistRequest, BlacklistResponse, ChatbotType, ConfigRefreshRequest, ConfigRefreshResponse, ContentType, DownscaleRequest, GetChatbotListResponse, GetConversationMessagesResponse, GetGalleryResponse, GetQualityControlImage, GetQualityControlRequest, GiftCodeType, OwnerFilter, PostType, PutAdminUserFeatureFlagsRequest, ScoreCategory, SortFilter, SubscriptionStatus, UserInfoResponse, UserJourneyEventType, UserJourneyResponse, VisibilityFilter } from '../models/index';
 export interface AddTokensAdminAddTokensPutRequest {
     email: string;
     tokens: number;
@@ -100,6 +100,9 @@ export interface GetTokenHistoryAdminTokenHistoryEmailGetRequest {
     paginationToken?: string | null;
     limit?: number;
 }
+export interface GetUserFeatureFlagsAdminUserEmailFeatureFlagsGetRequest {
+    email: string;
+}
 export interface GetUserGalleryAdminGalleryUserIdGetRequest {
     userId: string;
     paginationToken?: string | null;
@@ -144,14 +147,15 @@ export interface MarkTransactionRefundedAdminTransactionTransactionIdRefundedPos
 export interface ProvideAwardAdminBadgesAwardPostRequest {
     adminAwardBadgeRequest: AdminAwardBadgeRequest;
 }
+export interface PutUserFeatureFlagsAdminUserEmailFeatureFlagsPutRequest {
+    email: string;
+    putAdminUserFeatureFlagsRequest: PutAdminUserFeatureFlagsRequest;
+}
 export interface RefreshConfigAdminConfigRefreshPostRequest {
     configRefreshRequest?: ConfigRefreshRequest;
 }
 export interface SavePricingGroupRevisionsAdminPricingPostRequest {
     adminSavePricingGroupRevisionsRequest: AdminSavePricingGroupRevisionsRequest;
-}
-export interface SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest {
-    setUserFeatureFlagsRequest: SetUserFeatureFlagsRequest;
 }
 export interface UnblacklistContentAdminBlacklistContentTypeContentIdDeleteRequest {
     contentType: ContentType;
@@ -356,6 +360,16 @@ export declare class AdminApi extends runtime.BaseAPI {
      */
     getTokenHistoryAdminTokenHistoryEmailGet(requestParameters: GetTokenHistoryAdminTokenHistoryEmailGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminTokenHistoryResponse>;
     /**
+     * The feature flags set on any account, the admin\'s own included, and every flag that exists.
+     * Get User Feature Flags
+     */
+    getUserFeatureFlagsAdminUserEmailFeatureFlagsGetRaw(requestParameters: GetUserFeatureFlagsAdminUserEmailFeatureFlagsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminUserFeatureFlagsResponse>>;
+    /**
+     * The feature flags set on any account, the admin\'s own included, and every flag that exists.
+     * Get User Feature Flags
+     */
+    getUserFeatureFlagsAdminUserEmailFeatureFlagsGet(requestParameters: GetUserFeatureFlagsAdminUserEmailFeatureFlagsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminUserFeatureFlagsResponse>;
+    /**
      * Get User Gallery
      */
     getUserGalleryAdminGalleryUserIdGetRaw(requestParameters: GetUserGalleryAdminGalleryUserIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGalleryResponse>>;
@@ -430,6 +444,16 @@ export declare class AdminApi extends runtime.BaseAPI {
      */
     provideAwardAdminBadgesAwardPost(requestParameters: ProvideAwardAdminBadgesAwardPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
+     * Replace an account\'s feature flags with the given set. Flags are read per request, so the change applies to the account\'s next request; no re-login needed.
+     * Put User Feature Flags
+     */
+    putUserFeatureFlagsAdminUserEmailFeatureFlagsPutRaw(requestParameters: PutUserFeatureFlagsAdminUserEmailFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminUserFeatureFlagsResponse>>;
+    /**
+     * Replace an account\'s feature flags with the given set. Flags are read per request, so the change applies to the account\'s next request; no re-login needed.
+     * Put User Feature Flags
+     */
+    putUserFeatureFlagsAdminUserEmailFeatureFlagsPut(requestParameters: PutUserFeatureFlagsAdminUserEmailFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminUserFeatureFlagsResponse>;
+    /**
      * Refresh Config
      */
     refreshConfigAdminConfigRefreshPostRaw(requestParameters: RefreshConfigAdminConfigRefreshPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConfigRefreshResponse>>;
@@ -453,14 +477,6 @@ export declare class AdminApi extends runtime.BaseAPI {
      * Save Pricing Group Revisions
      */
     savePricingGroupRevisionsAdminPricingPost(requestParameters: SavePricingGroupRevisionsAdminPricingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPricingGroupRevisionsResponse>;
-    /**
-     * Set User Feature Flags
-     */
-    setUserFeatureFlagsAdminUserFeatureFlagsPutRaw(requestParameters: SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SetUserFeatureFlagsResponse>>;
-    /**
-     * Set User Feature Flags
-     */
-    setUserFeatureFlagsAdminUserFeatureFlagsPut(requestParameters: SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetUserFeatureFlagsResponse>;
     /**
      * Unblacklist Content
      */

@@ -22,32 +22,32 @@ import {
 } from './FeatureFlagName';
 
 /**
- * 
+ * The account's complete new set of flags: flags left out are removed.
  * @export
- * @interface PutAdminFeatureFlagsRequest
+ * @interface PutAdminUserFeatureFlagsRequest
  */
-export interface PutAdminFeatureFlagsRequest {
+export interface PutAdminUserFeatureFlagsRequest {
     /**
      * 
      * @type {Array<FeatureFlagName>}
-     * @memberof PutAdminFeatureFlagsRequest
+     * @memberof PutAdminUserFeatureFlagsRequest
      */
     flags: Array<FeatureFlagName>;
 }
 
 /**
- * Check if a given object implements the PutAdminFeatureFlagsRequest interface.
+ * Check if a given object implements the PutAdminUserFeatureFlagsRequest interface.
  */
-export function instanceOfPutAdminFeatureFlagsRequest(value: object): value is PutAdminFeatureFlagsRequest {
+export function instanceOfPutAdminUserFeatureFlagsRequest(value: object): value is PutAdminUserFeatureFlagsRequest {
     if (!('flags' in value) || value['flags'] === undefined) return false;
     return true;
 }
 
-export function PutAdminFeatureFlagsRequestFromJSON(json: any): PutAdminFeatureFlagsRequest {
-    return PutAdminFeatureFlagsRequestFromJSONTyped(json, false);
+export function PutAdminUserFeatureFlagsRequestFromJSON(json: any): PutAdminUserFeatureFlagsRequest {
+    return PutAdminUserFeatureFlagsRequestFromJSONTyped(json, false);
 }
 
-export function PutAdminFeatureFlagsRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): PutAdminFeatureFlagsRequest {
+export function PutAdminUserFeatureFlagsRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): PutAdminUserFeatureFlagsRequest {
     if (json == null) {
         return json;
     }
@@ -57,11 +57,11 @@ export function PutAdminFeatureFlagsRequestFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function PutAdminFeatureFlagsRequestToJSON(json: any): PutAdminFeatureFlagsRequest {
-      return PutAdminFeatureFlagsRequestToJSONTyped(json, false);
+  export function PutAdminUserFeatureFlagsRequestToJSON(json: any): PutAdminUserFeatureFlagsRequest {
+      return PutAdminUserFeatureFlagsRequestToJSONTyped(json, false);
   }
 
-  export function PutAdminFeatureFlagsRequestToJSONTyped(value?: PutAdminFeatureFlagsRequest | null, ignoreDiscriminator: boolean = false): any {
+  export function PutAdminUserFeatureFlagsRequestToJSONTyped(value?: PutAdminUserFeatureFlagsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

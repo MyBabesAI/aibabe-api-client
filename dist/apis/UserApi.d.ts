@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminFeatureFlagsResponse, BlacklistRequest, DeleteUserRequest, FollowNotificationStatesResponse, GetClaimablesResponse, GetFollowedUsersResponse, GetPublicLatestUpdateResponse, GetPublicUsersResponse, PatchFollowNotificationsRequest, PatchUserPreferenceProfileRequest, PatchUserRequest, PostClaimRequest, PostDonateRequest, PostDonateResponse, PostFollowUserRequest, PostRatingRequest, PostRatingResponse, PostReportUserRequest, PostUserPreferencesOnboardingRequest, PostVerifyPublicUsernameRequest, PostVerifyPublicUsernameResponse, PublicUserInfo, PutAdminFeatureFlagsRequest, PutFollowNotificationsRequest, PutPasswordRequest, PutPublicUserRequest, PutUsernameRequest, RemainingFreeUsesResponse, UserPreferenceProfile, UserPreferenceTaxonomyResponse } from '../models/index';
+import type { BlacklistRequest, DeleteUserRequest, FollowNotificationStatesResponse, GetClaimablesResponse, GetFollowedUsersResponse, GetPublicLatestUpdateResponse, GetPublicUsersResponse, PatchFollowNotificationsRequest, PatchUserPreferenceProfileRequest, PatchUserRequest, PostClaimRequest, PostDonateRequest, PostDonateResponse, PostFollowUserRequest, PostRatingRequest, PostRatingResponse, PostReportUserRequest, PostUserPreferencesOnboardingRequest, PostVerifyPublicUsernameRequest, PostVerifyPublicUsernameResponse, PublicUserInfo, PutFollowNotificationsRequest, PutPasswordRequest, PutPublicUserRequest, PutUsernameRequest, RemainingFreeUsesResponse, UserPreferenceProfile, UserPreferenceTaxonomyResponse } from '../models/index';
 export interface BlacklistUserUserBlacklistUserIdPatchRequest {
     userId: string;
     blacklistRequest: BlacklistRequest;
@@ -57,9 +57,6 @@ export interface PostPreferencesOnboardingUserPreferencesOnboardingPostRequest {
 }
 export interface PostRatingUserRatingPostRequest {
     postRatingRequest: PostRatingRequest;
-}
-export interface PutOwnFeatureFlagsUserFeatureFlagsPutRequest {
-    putAdminFeatureFlagsRequest: PutAdminFeatureFlagsRequest;
 }
 export interface ReportUserUserUserIdReportPostRequest {
     userId: string;
@@ -161,16 +158,6 @@ export declare class UserApi extends runtime.BaseAPI {
      */
     getFollowedUsersUserFollowedGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetFollowedUsersResponse>;
     /**
-     * Admins only, own account only: the flags set on the account, to test flag-dependent flows.
-     * Get Own Feature Flags
-     */
-    getOwnFeatureFlagsUserFeatureFlagsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminFeatureFlagsResponse>>;
-    /**
-     * Admins only, own account only: the flags set on the account, to test flag-dependent flows.
-     * Get Own Feature Flags
-     */
-    getOwnFeatureFlagsUserFeatureFlagsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminFeatureFlagsResponse>;
-    /**
      * Get Preferences
      */
     getPreferencesUserPreferencesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserPreferenceProfile>>;
@@ -250,16 +237,6 @@ export declare class UserApi extends runtime.BaseAPI {
      * Preference Taxonomy
      */
     preferenceTaxonomyUserPreferencesTaxonomyGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserPreferenceTaxonomyResponse>;
-    /**
-     * Admins only, own account only: replace the account\'s flags with the given set.
-     * Put Own Feature Flags
-     */
-    putOwnFeatureFlagsUserFeatureFlagsPutRaw(requestParameters: PutOwnFeatureFlagsUserFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AdminFeatureFlagsResponse>>;
-    /**
-     * Admins only, own account only: replace the account\'s flags with the given set.
-     * Put Own Feature Flags
-     */
-    putOwnFeatureFlagsUserFeatureFlagsPut(requestParameters: PutOwnFeatureFlagsUserFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminFeatureFlagsResponse>;
     /**
      * Remaining Free Uses
      */
