@@ -35,6 +35,7 @@ exports.LLM = {
     ScarlettPremium: 'scarlett_premium',
     ScarlettOptimized: 'scarlett_optimized',
     ScarlettPremiumOptimized: 'scarlett_premium_optimized',
+    MimoPro: 'mimo_pro',
     LemonadePremium: 'lemonade_premium',
     GemmaPremium: 'gemma_premium',
     Shieldstral: 'shieldstral',

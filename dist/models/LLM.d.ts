@@ -25,6 +25,7 @@ export declare const LLM: {
     readonly ScarlettPremium: "scarlett_premium";
     readonly ScarlettOptimized: "scarlett_optimized";
     readonly ScarlettPremiumOptimized: "scarlett_premium_optimized";
+    readonly MimoPro: "mimo_pro";
     readonly LemonadePremium: "lemonade_premium";
     readonly GemmaPremium: "gemma_premium";
     readonly Shieldstral: "shieldstral";
