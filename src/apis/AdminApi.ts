@@ -57,8 +57,6 @@ import type {
   PostType,
   PutAdminUserFeatureFlagsRequest,
   ScoreCategory,
-  SetUserFeatureFlagsRequest,
-  SetUserFeatureFlagsResponse,
   SortFilter,
   SubscriptionStatus,
   UserInfoResponse,
@@ -151,10 +149,6 @@ import {
     PutAdminUserFeatureFlagsRequestToJSON,
     ScoreCategoryFromJSON,
     ScoreCategoryToJSON,
-    SetUserFeatureFlagsRequestFromJSON,
-    SetUserFeatureFlagsRequestToJSON,
-    SetUserFeatureFlagsResponseFromJSON,
-    SetUserFeatureFlagsResponseToJSON,
     SortFilterFromJSON,
     SortFilterToJSON,
     SubscriptionStatusFromJSON,
@@ -342,10 +336,6 @@ export interface RefreshConfigAdminConfigRefreshPostRequest {
 
 export interface SavePricingGroupRevisionsAdminPricingPostRequest {
     adminSavePricingGroupRevisionsRequest: AdminSavePricingGroupRevisionsRequest;
-}
-
-export interface SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest {
-    setUserFeatureFlagsRequest: SetUserFeatureFlagsRequest;
 }
 
 export interface UnblacklistContentAdminBlacklistContentTypeContentIdDeleteRequest {
@@ -1876,42 +1866,6 @@ export class AdminApi extends runtime.BaseAPI {
      */
     async savePricingGroupRevisionsAdminPricingPost(requestParameters: SavePricingGroupRevisionsAdminPricingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AdminPricingGroupRevisionsResponse> {
         const response = await this.savePricingGroupRevisionsAdminPricingPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Set User Feature Flags
-     */
-    async setUserFeatureFlagsAdminUserFeatureFlagsPutRaw(requestParameters: SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SetUserFeatureFlagsResponse>> {
-        if (requestParameters['setUserFeatureFlagsRequest'] == null) {
-            throw new runtime.RequiredError(
-                'setUserFeatureFlagsRequest',
-                'Required parameter "setUserFeatureFlagsRequest" was null or undefined when calling setUserFeatureFlagsAdminUserFeatureFlagsPut().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/admin/user/feature-flags`,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SetUserFeatureFlagsRequestToJSON(requestParameters['setUserFeatureFlagsRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => SetUserFeatureFlagsResponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Set User Feature Flags
-     */
-    async setUserFeatureFlagsAdminUserFeatureFlagsPut(requestParameters: SetUserFeatureFlagsAdminUserFeatureFlagsPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetUserFeatureFlagsResponse> {
-        const response = await this.setUserFeatureFlagsAdminUserFeatureFlagsPutRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -388,8 +388,6 @@ export * from './SeedanceImageToVideoResponse';
 export * from './SendCustomMemoracekRequest';
 export * from './SendMemoracekRequest';
 export * from './ServiceTokenResponse';
-export * from './SetUserFeatureFlagsRequest';
-export * from './SetUserFeatureFlagsResponse';
 export * from './SexualOrientation';
 export * from './SortFilter';
 export * from './SoundEffectResponse';
