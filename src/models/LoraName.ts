@@ -169,6 +169,13 @@ export const LoraName = {
     Krea2Furrytoonmix: 'krea2_furrytoonmix',
     Krea2BulgeDegenerator: 'krea2_bulge_degenerator',
     Krea2PenisSizeSlider: 'krea2_penis_size_slider',
+    Krea2RealisticSnapshot: 'krea2_realistic_snapshot',
+    Krea2NicegirlsUltrareal: 'krea2_nicegirls_ultrareal',
+    Krea2AltGirl: 'krea2_alt_girl',
+    Krea2BloomgirlsUltrarealism: 'krea2_bloomgirls_ultrarealism',
+    Krea2Instafame: 'krea2_instafame',
+    Krea2MewtoBuildSlider: 'krea2_mewto_build_slider',
+    Krea2BigAssNarrowWaist: 'krea2_big_ass_narrow_waist',
     None: 'none'
 } as const;
 export type LoraName = typeof LoraName[keyof typeof LoraName];

@@ -18,12 +18,11 @@ exports.TrendPreviewRequestFromJSON = TrendPreviewRequestFromJSON;
 exports.TrendPreviewRequestFromJSONTyped = TrendPreviewRequestFromJSONTyped;
 exports.TrendPreviewRequestToJSON = TrendPreviewRequestToJSON;
 exports.TrendPreviewRequestToJSONTyped = TrendPreviewRequestToJSONTyped;
+const TrendRecreateCharacter_1 = require("./TrendRecreateCharacter");
 /**
  * Check if a given object implements the TrendPreviewRequest interface.
  */
 function instanceOfTrendPreviewRequest(value) {
-    if (!('chatbotId' in value) || value['chatbotId'] === undefined)
-        return false;
     return true;
 }
 function TrendPreviewRequestFromJSON(json) {
@@ -34,7 +33,8 @@ function TrendPreviewRequestFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'chatbotId': json['chatbot_id'],
+        'characters': json['characters'] == null ? undefined : (json['characters'].map(TrendRecreateCharacter_1.TrendRecreateCharacterFromJSON)),
+        'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
         'model': json['model'] == null ? undefined : json['model'],
     };
 }
@@ -46,6 +46,7 @@ function TrendPreviewRequestToJSONTyped(value, ignoreDiscriminator = false) {
         return value;
     }
     return {
+        'characters': value['characters'] == null ? undefined : (value['characters'].map(TrendRecreateCharacter_1.TrendRecreateCharacterToJSON)),
         'chatbot_id': value['chatbotId'],
         'model': value['model'],
     };

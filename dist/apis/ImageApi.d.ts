@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, GetGeneratedImage, GetImageGenerationTagsResponse, GetLorasResponse, LoraName, PostGenerateImageRequest, PostGenerateSceneRequest, PostImagenResponse, PostRestartServersRequest, TokenPricingConfigResponse } from '../models/index';
+import type { ArtStyle, GetGeneratedImage, GetImageGenerationTagsResponse, GetImageLooksResponse, GetLorasResponse, LoraName, PostGenerateImageRequest, PostGenerateSceneRequest, PostImagenResponse, PostRestartServersRequest, TokenPricingConfigResponse } from '../models/index';
 export interface AttachmentImagenImageIdAttachmentGetRequest {
     imageId: string;
     imageName: string;
@@ -26,6 +26,9 @@ export interface GenerationTagsImagenImageIdTagsGetRequest {
 }
 export interface GetImageByFilenameImagenFilenameGetRequest {
     filename: string;
+}
+export interface GetLooksImagenLooksChatbotIdGetRequest {
+    chatbotId: string;
 }
 export interface GetLorasImagenLorasGetRequest {
     chatbotId?: string | null;
@@ -103,6 +106,16 @@ export declare class ImageApi extends runtime.BaseAPI {
      * Get Image Config
      */
     getImageConfigImagenConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse>;
+    /**
+     * The LoRAs a picture of the character renders with and the mods she may add, with their default strengths: what the generator\'s look sliders show and send back as lora_weights.
+     * Get Looks
+     */
+    getLooksImagenLooksChatbotIdGetRaw(requestParameters: GetLooksImagenLooksChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetImageLooksResponse>>;
+    /**
+     * The LoRAs a picture of the character renders with and the mods she may add, with their default strengths: what the generator\'s look sliders show and send back as lora_weights.
+     * Get Looks
+     */
+    getLooksImagenLooksChatbotIdGet(requestParameters: GetLooksImagenLooksChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageLooksResponse>;
     /**
      * Get Loras
      */

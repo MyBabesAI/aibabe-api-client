@@ -18,6 +18,7 @@ exports.TrendRecreateResponseFromJSON = TrendRecreateResponseFromJSON;
 exports.TrendRecreateResponseFromJSONTyped = TrendRecreateResponseFromJSONTyped;
 exports.TrendRecreateResponseToJSON = TrendRecreateResponseToJSON;
 exports.TrendRecreateResponseToJSONTyped = TrendRecreateResponseToJSONTyped;
+const TrendStillResponse_1 = require("./TrendStillResponse");
 /**
  * Check if a given object implements the TrendRecreateResponse interface.
  */
@@ -38,6 +39,7 @@ function TrendRecreateResponseFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'generationId': json['generation_id'],
         'tokensCost': json['tokens_cost'],
+        'stills': json['stills'] == null ? undefined : (json['stills'].map(TrendStillResponse_1.TrendStillResponseFromJSON)),
     };
 }
 function TrendRecreateResponseToJSON(json) {
@@ -50,6 +52,7 @@ function TrendRecreateResponseToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'generation_id': value['generationId'],
         'tokens_cost': value['tokensCost'],
+        'stills': value['stills'] == null ? undefined : (value['stills'].map(TrendStillResponse_1.TrendStillResponseToJSON)),
     };
 }
 //# sourceMappingURL=TrendRecreateResponse.js.map

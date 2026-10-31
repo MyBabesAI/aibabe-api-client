@@ -27,6 +27,13 @@ import {
     AdminAgeEstimationToJSON,
     AdminAgeEstimationToJSONTyped,
 } from './AdminAgeEstimation';
+import type { ImageLookLora } from './ImageLookLora';
+import {
+    ImageLookLoraFromJSON,
+    ImageLookLoraFromJSONTyped,
+    ImageLookLoraToJSON,
+    ImageLookLoraToJSONTyped,
+} from './ImageLookLora';
 
 /**
  * 
@@ -70,6 +77,12 @@ export interface ImageContent {
      * @memberof ImageContent
      */
     ageEstimation?: AdminAgeEstimation | null;
+    /**
+     * 
+     * @type {Array<ImageLookLora>}
+     * @memberof ImageContent
+     */
+    loras?: Array<ImageLookLora>;
 }
 
 
@@ -99,6 +112,7 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
+        'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
     };
 }
 
@@ -119,6 +133,7 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'width': value['width'],
         'height': value['height'],
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
+        'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
     };
 }
 

@@ -21,6 +21,7 @@ exports.GetCustomChatbotResponseToJSONTyped = GetCustomChatbotResponseToJSONType
 const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
 const ChatbotCreatedOrigin_1 = require("./ChatbotCreatedOrigin");
 const BlacklistCard_1 = require("./BlacklistCard");
+const ArtStyle_1 = require("./ArtStyle");
 const ChatbotPreview_1 = require("./ChatbotPreview");
 const PostDetailsWithDate_1 = require("./PostDetailsWithDate");
 const ContentType_1 = require("./ContentType");
@@ -65,6 +66,7 @@ function GetCustomChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'coverContentType': json['cover_content_type'] == null ? undefined : (0, ContentType_1.ContentTypeFromJSON)(json['cover_content_type']),
         'fullBio': json['full_bio'],
         'characterAge': json['character_age'],
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
         'tags': (json['tags'].map(TagData_1.TagDataFromJSON)),
         'chatCount': json['chat_count'],
         'createdFrom': (0, ChatbotCreatedOrigin_1.ChatbotCreatedOriginFromJSON)(json['created_from']),
@@ -75,6 +77,8 @@ function GetCustomChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'chatDisabled': json['chat_disabled'] == null ? undefined : json['chat_disabled'],
         'generationDisabled': json['generation_disabled'] == null ? undefined : json['generation_disabled'],
         'remixDisabled': json['remix_disabled'] == null ? undefined : json['remix_disabled'],
+        'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
     };
 }
 function GetCustomChatbotResponseToJSON(json) {
@@ -93,6 +97,7 @@ function GetCustomChatbotResponseToJSONTyped(value, ignoreDiscriminator = false)
         'cover_content_type': (0, ContentType_1.ContentTypeToJSON)(value['coverContentType']),
         'full_bio': value['fullBio'],
         'character_age': value['characterAge'],
+        'character_style': value['characterStyle'],
         'tags': (value['tags'].map(TagData_1.TagDataToJSON)),
         'chat_count': value['chatCount'],
         'created_from': (0, ChatbotCreatedOrigin_1.ChatbotCreatedOriginToJSON)(value['createdFrom']),
@@ -103,6 +108,8 @@ function GetCustomChatbotResponseToJSONTyped(value, ignoreDiscriminator = false)
         'chat_disabled': value['chatDisabled'],
         'generation_disabled': value['generationDisabled'],
         'remix_disabled': value['remixDisabled'],
+        'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
+        'next_gen': value['nextGen'],
     };
 }
 //# sourceMappingURL=GetCustomChatbotResponse.js.map

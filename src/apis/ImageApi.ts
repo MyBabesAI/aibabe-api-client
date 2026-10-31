@@ -18,6 +18,7 @@ import type {
   ArtStyle,
   GetGeneratedImage,
   GetImageGenerationTagsResponse,
+  GetImageLooksResponse,
   GetLorasResponse,
   HTTPValidationError,
   LoraName,
@@ -34,6 +35,8 @@ import {
     GetGeneratedImageToJSON,
     GetImageGenerationTagsResponseFromJSON,
     GetImageGenerationTagsResponseToJSON,
+    GetImageLooksResponseFromJSON,
+    GetImageLooksResponseToJSON,
     GetLorasResponseFromJSON,
     GetLorasResponseToJSON,
     HTTPValidationErrorFromJSON,
@@ -71,6 +74,10 @@ export interface GenerationTagsImagenImageIdTagsGetRequest {
 
 export interface GetImageByFilenameImagenFilenameGetRequest {
     filename: string;
+}
+
+export interface GetLooksImagenLooksChatbotIdGetRequest {
+    chatbotId: string;
 }
 
 export interface GetLorasImagenLorasGetRequest {
@@ -316,6 +323,41 @@ export class ImageApi extends runtime.BaseAPI {
      */
     async getImageConfigImagenConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse> {
         const response = await this.getImageConfigImagenConfigGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * The LoRAs a picture of the character renders with and the mods she may add, with their default strengths: what the generator\'s look sliders show and send back as lora_weights.
+     * Get Looks
+     */
+    async getLooksImagenLooksChatbotIdGetRaw(requestParameters: GetLooksImagenLooksChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetImageLooksResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling getLooksImagenLooksChatbotIdGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/imagen/looks/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetImageLooksResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * The LoRAs a picture of the character renders with and the mods she may add, with their default strengths: what the generator\'s look sliders show and send back as lora_weights.
+     * Get Looks
+     */
+    async getLooksImagenLooksChatbotIdGet(requestParameters: GetLooksImagenLooksChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageLooksResponse> {
+        const response = await this.getLooksImagenLooksChatbotIdGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

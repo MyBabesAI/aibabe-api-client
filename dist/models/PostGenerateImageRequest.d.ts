@@ -65,6 +65,14 @@ export interface PostGenerateImageRequest {
      * @memberof PostGenerateImageRequest
      */
     originalImageId?: string | null;
+    /**
+     *
+     * @type {{ [key: string]: number; }}
+     * @memberof PostGenerateImageRequest
+     */
+    loraWeights?: {
+        [key: string]: number;
+    } | null;
 }
 /**
  * Check if a given object implements the PostGenerateImageRequest interface.

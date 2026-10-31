@@ -165,6 +165,13 @@ export declare const LoraName: {
     readonly Krea2Furrytoonmix: "krea2_furrytoonmix";
     readonly Krea2BulgeDegenerator: "krea2_bulge_degenerator";
     readonly Krea2PenisSizeSlider: "krea2_penis_size_slider";
+    readonly Krea2RealisticSnapshot: "krea2_realistic_snapshot";
+    readonly Krea2NicegirlsUltrareal: "krea2_nicegirls_ultrareal";
+    readonly Krea2AltGirl: "krea2_alt_girl";
+    readonly Krea2BloomgirlsUltrarealism: "krea2_bloomgirls_ultrarealism";
+    readonly Krea2Instafame: "krea2_instafame";
+    readonly Krea2MewtoBuildSlider: "krea2_mewto_build_slider";
+    readonly Krea2BigAssNarrowWaist: "krea2_big_ass_narrow_waist";
     readonly None: "none";
 };
 export type LoraName = typeof LoraName[keyof typeof LoraName];

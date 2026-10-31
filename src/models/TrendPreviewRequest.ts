@@ -13,18 +13,32 @@
  */
 
 import { mapValues } from '../runtime';
+import type { TrendRecreateCharacter } from './TrendRecreateCharacter';
+import {
+    TrendRecreateCharacterFromJSON,
+    TrendRecreateCharacterFromJSONTyped,
+    TrendRecreateCharacterToJSON,
+    TrendRecreateCharacterToJSONTyped,
+} from './TrendRecreateCharacter';
+
 /**
- * Render the trend's AI duplicate with a house character; its result becomes the trend's preview.
+ * Render the trend's AI duplicate with house characters; its result becomes the trend's preview.
  * @export
  * @interface TrendPreviewRequest
  */
 export interface TrendPreviewRequest {
     /**
      * 
+     * @type {Array<TrendRecreateCharacter>}
+     * @memberof TrendPreviewRequest
+     */
+    characters?: Array<TrendRecreateCharacter>;
+    /**
+     * 
      * @type {string}
      * @memberof TrendPreviewRequest
      */
-    chatbotId: string;
+    chatbotId?: string | null;
     /**
      * 
      * @type {string}
@@ -37,7 +51,6 @@ export interface TrendPreviewRequest {
  * Check if a given object implements the TrendPreviewRequest interface.
  */
 export function instanceOfTrendPreviewRequest(value: object): value is TrendPreviewRequest {
-    if (!('chatbotId' in value) || value['chatbotId'] === undefined) return false;
     return true;
 }
 
@@ -51,7 +64,8 @@ export function TrendPreviewRequestFromJSONTyped(json: any, ignoreDiscriminator:
     }
     return {
         
-        'chatbotId': json['chatbot_id'],
+        'characters': json['characters'] == null ? undefined : ((json['characters'] as Array<any>).map(TrendRecreateCharacterFromJSON)),
+        'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
         'model': json['model'] == null ? undefined : json['model'],
     };
 }
@@ -67,6 +81,7 @@ export function TrendPreviewRequestFromJSONTyped(json: any, ignoreDiscriminator:
 
     return {
         
+        'characters': value['characters'] == null ? undefined : ((value['characters'] as Array<any>).map(TrendRecreateCharacterToJSON)),
         'chatbot_id': value['chatbotId'],
         'model': value['model'],
     };

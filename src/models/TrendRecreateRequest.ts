@@ -27,6 +27,13 @@ import {
     VideoResolutionToJSON,
     VideoResolutionToJSONTyped,
 } from './VideoResolution';
+import type { TrendRecreateCharacter } from './TrendRecreateCharacter';
+import {
+    TrendRecreateCharacterFromJSON,
+    TrendRecreateCharacterFromJSONTyped,
+    TrendRecreateCharacterToJSON,
+    TrendRecreateCharacterToJSONTyped,
+} from './TrendRecreateCharacter';
 
 /**
  * 
@@ -42,6 +49,12 @@ export interface TrendRecreateRequest {
     imageIds?: Array<string> | null;
     /**
      * 
+     * @type {Array<TrendRecreateCharacter>}
+     * @memberof TrendRecreateRequest
+     */
+    characters?: Array<TrendRecreateCharacter>;
+    /**
+     * 
      * @type {string}
      * @memberof TrendRecreateRequest
      */
@@ -52,6 +65,12 @@ export interface TrendRecreateRequest {
      * @memberof TrendRecreateRequest
      */
     prompt?: string | null;
+    /**
+     * 
+     * @type {{ [key: string]: number; }}
+     * @memberof TrendRecreateRequest
+     */
+    loraWeights?: { [key: string]: number; } | null;
     /**
      * 
      * @type {string}
@@ -70,6 +89,12 @@ export interface TrendRecreateRequest {
      * @memberof TrendRecreateRequest
      */
     resolution?: VideoResolution | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof TrendRecreateRequest
+     */
+    imageCount?: number;
     /**
      * 
      * @type {string}
@@ -107,11 +132,14 @@ export function TrendRecreateRequestFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'imageIds': json['image_ids'] == null ? undefined : json['image_ids'],
+        'characters': json['characters'] == null ? undefined : ((json['characters'] as Array<any>).map(TrendRecreateCharacterFromJSON)),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
+        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
         'model': json['model'],
         'aspectRatio': json['aspect_ratio'] == null ? undefined : VideoAspectRatioFromJSON(json['aspect_ratio']),
         'resolution': json['resolution'] == null ? undefined : VideoResolutionFromJSON(json['resolution']),
+        'imageCount': json['image_count'] == null ? undefined : json['image_count'],
         'clientId': json['client_id'],
         'requestId': json['request_id'],
     };
@@ -129,11 +157,14 @@ export function TrendRecreateRequestFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'image_ids': value['imageIds'],
+        'characters': value['characters'] == null ? undefined : ((value['characters'] as Array<any>).map(TrendRecreateCharacterToJSON)),
         'chatbot_id': value['chatbotId'],
         'prompt': value['prompt'],
+        'lora_weights': value['loraWeights'],
         'model': value['model'],
         'aspect_ratio': VideoAspectRatioToJSON(value['aspectRatio']),
         'resolution': VideoResolutionToJSON(value['resolution']),
+        'image_count': value['imageCount'],
         'client_id': value['clientId'],
         'request_id': value['requestId'],
     };

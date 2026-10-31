@@ -11,6 +11,7 @@
  */
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import type { VideoResolution } from './VideoResolution';
+import type { TrendRecreateCharacter } from './TrendRecreateCharacter';
 /**
  *
  * @export
@@ -25,6 +26,12 @@ export interface TrendRecreateRequest {
     imageIds?: Array<string> | null;
     /**
      *
+     * @type {Array<TrendRecreateCharacter>}
+     * @memberof TrendRecreateRequest
+     */
+    characters?: Array<TrendRecreateCharacter>;
+    /**
+     *
      * @type {string}
      * @memberof TrendRecreateRequest
      */
@@ -35,6 +42,14 @@ export interface TrendRecreateRequest {
      * @memberof TrendRecreateRequest
      */
     prompt?: string | null;
+    /**
+     *
+     * @type {{ [key: string]: number; }}
+     * @memberof TrendRecreateRequest
+     */
+    loraWeights?: {
+        [key: string]: number;
+    } | null;
     /**
      *
      * @type {string}
@@ -53,6 +68,12 @@ export interface TrendRecreateRequest {
      * @memberof TrendRecreateRequest
      */
     resolution?: VideoResolution | null;
+    /**
+     *
+     * @type {number}
+     * @memberof TrendRecreateRequest
+     */
+    imageCount?: number;
     /**
      *
      * @type {string}

@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { TrendStillResponse } from './TrendStillResponse';
+import {
+    TrendStillResponseFromJSON,
+    TrendStillResponseFromJSONTyped,
+    TrendStillResponseToJSON,
+    TrendStillResponseToJSONTyped,
+} from './TrendStillResponse';
+
 /**
  * 
  * @export
@@ -31,6 +39,12 @@ export interface TrendRecreateResponse {
      * @memberof TrendRecreateResponse
      */
     tokensCost: number;
+    /**
+     * Reference video trends: the stills queued by this recreate.
+     * @type {Array<TrendStillResponse>}
+     * @memberof TrendRecreateResponse
+     */
+    stills?: Array<TrendStillResponse>;
 }
 
 /**
@@ -54,6 +68,7 @@ export function TrendRecreateResponseFromJSONTyped(json: any, ignoreDiscriminato
         
         'generationId': json['generation_id'],
         'tokensCost': json['tokens_cost'],
+        'stills': json['stills'] == null ? undefined : ((json['stills'] as Array<any>).map(TrendStillResponseFromJSON)),
     };
 }
 
@@ -70,6 +85,7 @@ export function TrendRecreateResponseFromJSONTyped(json: any, ignoreDiscriminato
         
         'generation_id': value['generationId'],
         'tokens_cost': value['tokensCost'],
+        'stills': value['stills'] == null ? undefined : ((value['stills'] as Array<any>).map(TrendStillResponseToJSON)),
     };
 }
 

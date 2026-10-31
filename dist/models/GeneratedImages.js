@@ -84,6 +84,7 @@ function GeneratedImagesFromJSONTyped(json, ignoreDiscriminator) {
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : (0, AdminAgeEstimation_1.AdminAgeEstimationFromJSON)(json['age_estimation']),
+        'moderationCharged': json['moderation_charged'] == null ? undefined : json['moderation_charged'],
     };
 }
 function GeneratedImagesToJSON(json) {
@@ -111,6 +112,7 @@ function GeneratedImagesToJSONTyped(value, ignoreDiscriminator = false) {
         'width': value['width'],
         'height': value['height'],
         'age_estimation': (0, AdminAgeEstimation_1.AdminAgeEstimationToJSON)(value['ageEstimation']),
+        'moderation_charged': value['moderationCharged'],
     };
 }
 //# sourceMappingURL=GeneratedImages.js.map

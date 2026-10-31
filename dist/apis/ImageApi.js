@@ -213,6 +213,32 @@ class ImageApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * The LoRAs a picture of the character renders with and the mods she may add, with their default strengths: what the generator\'s look sliders show and send back as lora_weights.
+     * Get Looks
+     */
+    async getLooksImagenLooksChatbotIdGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling getLooksImagenLooksChatbotIdGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/imagen/looks/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetImageLooksResponseFromJSON)(jsonValue));
+    }
+    /**
+     * The LoRAs a picture of the character renders with and the mods she may add, with their default strengths: what the generator\'s look sliders show and send back as lora_weights.
+     * Get Looks
+     */
+    async getLooksImagenLooksChatbotIdGet(requestParameters, initOverrides) {
+        const response = await this.getLooksImagenLooksChatbotIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Loras
      */
     async getLorasImagenLorasGetRaw(requestParameters, initOverrides) {

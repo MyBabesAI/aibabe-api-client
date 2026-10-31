@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 /**
- * What the recreation keeps of the trend's source clip.
+ * What the recreation keeps of the trend's source.
  *
  * motion_transfer builds a new scene around the clip's motion and camera (Seedance's omni "reference" task);
  * object_swap keeps the clip as filmed and replaces the person in it with the user's character (the "edit" task).
@@ -19,6 +19,7 @@
 export declare const TrendMode: {
     readonly MotionTransfer: "motion_transfer";
     readonly ObjectSwap: "object_swap";
+    readonly Prompt: "prompt";
 };
 export type TrendMode = typeof TrendMode[keyof typeof TrendMode];
 export declare function instanceOfTrendMode(value: any): boolean;

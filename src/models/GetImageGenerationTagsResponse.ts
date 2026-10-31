@@ -64,6 +64,12 @@ export interface GetImageGenerationTagsResponse {
      * @memberof GetImageGenerationTagsResponse
      */
     artStyle: ArtStyle;
+    /**
+     * 
+     * @type {{ [key: string]: number; }}
+     * @memberof GetImageGenerationTagsResponse
+     */
+    loraWeights?: { [key: string]: number; } | null;
 }
 
 
@@ -95,6 +101,7 @@ export function GetImageGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'chatbotName': json['chatbot_name'],
         'loras': ((json['loras'] as Array<any>).map(LoraNameFromJSON)),
         'artStyle': ArtStyleFromJSON(json['art_style']),
+        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
     };
 }
 
@@ -114,6 +121,7 @@ export function GetImageGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'chatbot_name': value['chatbotName'],
         'loras': ((value['loras'] as Array<any>).map(LoraNameToJSON)),
         'art_style': ArtStyleToJSON(value['artStyle']),
+        'lora_weights': value['loraWeights'],
     };
 }
 

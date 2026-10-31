@@ -20,6 +20,7 @@ exports.TrendRecreateRequestToJSON = TrendRecreateRequestToJSON;
 exports.TrendRecreateRequestToJSONTyped = TrendRecreateRequestToJSONTyped;
 const VideoAspectRatio_1 = require("./VideoAspectRatio");
 const VideoResolution_1 = require("./VideoResolution");
+const TrendRecreateCharacter_1 = require("./TrendRecreateCharacter");
 /**
  * Check if a given object implements the TrendRecreateRequest interface.
  */
@@ -41,11 +42,14 @@ function TrendRecreateRequestFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'imageIds': json['image_ids'] == null ? undefined : json['image_ids'],
+        'characters': json['characters'] == null ? undefined : (json['characters'].map(TrendRecreateCharacter_1.TrendRecreateCharacterFromJSON)),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
+        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
         'model': json['model'],
         'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, VideoAspectRatio_1.VideoAspectRatioFromJSON)(json['aspect_ratio']),
         'resolution': json['resolution'] == null ? undefined : (0, VideoResolution_1.VideoResolutionFromJSON)(json['resolution']),
+        'imageCount': json['image_count'] == null ? undefined : json['image_count'],
         'clientId': json['client_id'],
         'requestId': json['request_id'],
     };
@@ -59,11 +63,14 @@ function TrendRecreateRequestToJSONTyped(value, ignoreDiscriminator = false) {
     }
     return {
         'image_ids': value['imageIds'],
+        'characters': value['characters'] == null ? undefined : (value['characters'].map(TrendRecreateCharacter_1.TrendRecreateCharacterToJSON)),
         'chatbot_id': value['chatbotId'],
         'prompt': value['prompt'],
+        'lora_weights': value['loraWeights'],
         'model': value['model'],
         'aspect_ratio': (0, VideoAspectRatio_1.VideoAspectRatioToJSON)(value['aspectRatio']),
         'resolution': (0, VideoResolution_1.VideoResolutionToJSON)(value['resolution']),
+        'image_count': value['imageCount'],
         'client_id': value['clientId'],
         'request_id': value['requestId'],
     };

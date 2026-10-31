@@ -12,6 +12,7 @@
 import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
 import type { ChatbotCreatedOrigin } from './ChatbotCreatedOrigin';
 import type { BlacklistCard } from './BlacklistCard';
+import type { ArtStyle } from './ArtStyle';
 import type { ChatbotPreview } from './ChatbotPreview';
 import type { PostDetailsWithDate } from './PostDetailsWithDate';
 import type { ContentType } from './ContentType';
@@ -72,6 +73,12 @@ export interface GetCustomChatbotResponse {
     characterAge: number;
     /**
      *
+     * @type {string}
+     * @memberof GetCustomChatbotResponse
+     */
+    characterStyle?: string | null;
+    /**
+     *
      * @type {Array<TagData>}
      * @memberof GetCustomChatbotResponse
      */
@@ -130,6 +137,18 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     remixDisabled?: boolean;
+    /**
+     *
+     * @type {ArtStyle}
+     * @memberof GetCustomChatbotResponse
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GetCustomChatbotResponse
+     */
+    nextGen?: boolean;
 }
 /**
  * Check if a given object implements the GetCustomChatbotResponse interface.

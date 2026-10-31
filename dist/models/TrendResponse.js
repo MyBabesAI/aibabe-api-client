@@ -18,12 +18,14 @@ exports.TrendResponseFromJSON = TrendResponseFromJSON;
 exports.TrendResponseFromJSONTyped = TrendResponseFromJSONTyped;
 exports.TrendResponseToJSON = TrendResponseToJSON;
 exports.TrendResponseToJSONTyped = TrendResponseToJSONTyped;
+const PublicUserPreview_1 = require("./PublicUserPreview");
 const TrendMediaType_1 = require("./TrendMediaType");
 const ArtStyle_1 = require("./ArtStyle");
 const VideoAspectRatio_1 = require("./VideoAspectRatio");
 const VideoResolution_1 = require("./VideoResolution");
 const TrendModelOption_1 = require("./TrendModelOption");
 const TrendMode_1 = require("./TrendMode");
+const ImageLookLora_1 = require("./ImageLookLora");
 /**
  * Check if a given object implements the TrendResponse interface.
  */
@@ -78,6 +80,8 @@ function TrendResponseFromJSONTyped(json, ignoreDiscriminator) {
         'previewPending': json['preview_pending'] == null ? undefined : json['preview_pending'],
         'sourceUrl': json['source_url'] == null ? undefined : json['source_url'],
         'duration': json['duration'],
+        'mediaWidth': json['media_width'] == null ? undefined : json['media_width'],
+        'mediaHeight': json['media_height'] == null ? undefined : json['media_height'],
         'aspectRatio': (0, VideoAspectRatio_1.VideoAspectRatioFromJSON)(json['aspect_ratio']),
         'resolution': (0, VideoResolution_1.VideoResolutionFromJSON)(json['resolution']),
         'models': (json['models'].map(TrendModelOption_1.TrendModelOptionFromJSON)),
@@ -86,7 +90,19 @@ function TrendResponseFromJSONTyped(json, ignoreDiscriminator) {
         'recreateCount': json['recreate_count'],
         'isPublished': json['is_published'],
         'createdAt': (new Date(json['created_at'])),
+        'tags': json['tags'] == null ? undefined : json['tags'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
+        'characterCount': json['character_count'] == null ? undefined : json['character_count'],
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
+        'targetPhrase': json['target_phrase'] == null ? undefined : json['target_phrase'],
+        'sourceMaskUrl': json['source_mask_url'] == null ? undefined : json['source_mask_url'],
+        'videoPrompt': json['video_prompt'] == null ? undefined : json['video_prompt'],
+        'videoLoras': json['video_loras'] == null ? undefined : json['video_loras'],
+        'loras': json['loras'] == null ? undefined : (json['loras'].map(ImageLookLora_1.ImageLookLoraFromJSON)),
+        'creator': json['creator'] == null ? undefined : (0, PublicUserPreview_1.PublicUserPreviewFromJSON)(json['creator']),
+        'sourcePostId': json['source_post_id'] == null ? undefined : json['source_post_id'],
+        'stillPrompts': json['still_prompts'] == null ? undefined : json['still_prompts'],
+        'stillTokensCost': json['still_tokens_cost'] == null ? undefined : json['still_tokens_cost'],
     };
 }
 function TrendResponseToJSON(json) {
@@ -107,6 +123,8 @@ function TrendResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'preview_pending': value['previewPending'],
         'source_url': value['sourceUrl'],
         'duration': value['duration'],
+        'media_width': value['mediaWidth'],
+        'media_height': value['mediaHeight'],
         'aspect_ratio': (0, VideoAspectRatio_1.VideoAspectRatioToJSON)(value['aspectRatio']),
         'resolution': (0, VideoResolution_1.VideoResolutionToJSON)(value['resolution']),
         'models': (value['models'].map(TrendModelOption_1.TrendModelOptionToJSON)),
@@ -115,7 +133,19 @@ function TrendResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'recreate_count': value['recreateCount'],
         'is_published': value['isPublished'],
         'created_at': ((value['createdAt']).toISOString()),
+        'tags': value['tags'],
         'prompt': value['prompt'],
+        'character_count': value['characterCount'],
+        'character_style': value['characterStyle'],
+        'target_phrase': value['targetPhrase'],
+        'source_mask_url': value['sourceMaskUrl'],
+        'video_prompt': value['videoPrompt'],
+        'video_loras': value['videoLoras'],
+        'loras': value['loras'] == null ? undefined : (value['loras'].map(ImageLookLora_1.ImageLookLoraToJSON)),
+        'creator': (0, PublicUserPreview_1.PublicUserPreviewToJSON)(value['creator']),
+        'source_post_id': value['sourcePostId'],
+        'still_prompts': value['stillPrompts'],
+        'still_tokens_cost': value['stillTokensCost'],
     };
 }
 //# sourceMappingURL=TrendResponse.js.map

@@ -19,6 +19,7 @@ exports.GetChatbotResponseFromJSONTyped = GetChatbotResponseFromJSONTyped;
 exports.GetChatbotResponseToJSON = GetChatbotResponseToJSON;
 exports.GetChatbotResponseToJSONTyped = GetChatbotResponseToJSONTyped;
 const BlacklistCard_1 = require("./BlacklistCard");
+const ArtStyle_1 = require("./ArtStyle");
 const ContentType_1 = require("./ContentType");
 const GalleryItem_1 = require("./GalleryItem");
 const WallPost_1 = require("./WallPost");
@@ -60,9 +61,12 @@ function GetChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'coverContentType': json['cover_content_type'] == null ? undefined : (0, ContentType_1.ContentTypeFromJSON)(json['cover_content_type']),
         'fullBio': json['full_bio'],
         'characterAge': json['character_age'],
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
         'posts': (json['posts'].map(WallPost_1.WallPostFromJSON)),
         'galleries': (json['galleries'].map(GalleryItem_1.GalleryItemFromJSON)),
         'unlockAllPrice': json['unlock_all_price'],
+        'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
     };
 }
 function GetChatbotResponseToJSON(json) {
@@ -81,9 +85,12 @@ function GetChatbotResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'cover_content_type': (0, ContentType_1.ContentTypeToJSON)(value['coverContentType']),
         'full_bio': value['fullBio'],
         'character_age': value['characterAge'],
+        'character_style': value['characterStyle'],
         'posts': (value['posts'].map(WallPost_1.WallPostToJSON)),
         'galleries': (value['galleries'].map(GalleryItem_1.GalleryItemToJSON)),
         'unlock_all_price': value['unlockAllPrice'],
+        'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
+        'next_gen': value['nextGen'],
     };
 }
 //# sourceMappingURL=GetChatbotResponse.js.map

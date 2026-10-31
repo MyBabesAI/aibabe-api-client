@@ -80,6 +80,7 @@ src/models/AvatarFieldValue.ts
 src/models/AvatarLooksV2.ts
 src/models/AvatarOptionalField.ts
 src/models/AvatarRequiredField.ts
+src/models/BabeTag.ts
 src/models/BadgeAwardedNotification.ts
 src/models/BadgeAwardsPaidNotification.ts
 src/models/BadgeCategory.ts
@@ -98,7 +99,9 @@ src/models/BlacklistResponse.ts
 src/models/BlacklistTarget.ts
 src/models/BlacklistWarningNotification.ts
 src/models/BodyType.ts
+src/models/BreastSize.ts
 src/models/BulkDeleteContentRequest.ts
+src/models/ButtSize.ts
 src/models/CancelSubscriptionRequest.ts
 src/models/CategoryValues.ts
 src/models/CharacterAboutPageReview.ts
@@ -176,6 +179,7 @@ src/models/ExploreOffsetSearchResponse.ts
 src/models/ExploreSearchRequest.ts
 src/models/ExtendVideoPayload.ts
 src/models/ExtraMonthlyTokensOffer.ts
+src/models/EyeColor.ts
 src/models/FantasyRace.ts
 src/models/FastForwardTarget.ts
 src/models/FeatureFlagName.ts
@@ -216,6 +220,7 @@ src/models/GetGeneratedAudioResponse.ts
 src/models/GetGeneratedImage.ts
 src/models/GetIdentityChatbotResponse.ts
 src/models/GetImageGenerationTagsResponse.ts
+src/models/GetImageLooksResponse.ts
 src/models/GetImageModerationPromptResponse.ts
 src/models/GetInstancesDBVastAiListResponse.ts
 src/models/GetLeaderboardRequest.ts
@@ -243,6 +248,7 @@ src/models/ImageAspectRatio.ts
 src/models/ImageContent.ts
 src/models/ImageGenerationSource.ts
 src/models/ImageGenerationStatus.ts
+src/models/ImageLookLora.ts
 src/models/ImageMod.ts
 src/models/ImageModCategory.ts
 src/models/ImagePreset.ts
@@ -322,6 +328,7 @@ src/models/PostAdvancedChatbotPublishPayload.ts
 src/models/PostAdvancedChatbotPublishResponse.ts
 src/models/PostAdvancedIdentityPayload.ts
 src/models/PostAdvancedPersonalityPayload.ts
+src/models/PostAdvancedRecreateResponse.ts
 src/models/PostAnonymousChatRequest.ts
 src/models/PostAnonymousChatResponse.ts
 src/models/PostCategoryValues.ts
@@ -380,6 +387,7 @@ src/models/PostVastAIStatus.ts
 src/models/PostVerifyPublicUsernameRequest.ts
 src/models/PostVerifyPublicUsernameResponse.ts
 src/models/PreferenceOption.ts
+src/models/PreviewChatbotIds.ts
 src/models/PricingDisplayContext.ts
 src/models/PricingModels.ts
 src/models/PricingVersionStatus.ts
@@ -504,6 +512,7 @@ src/models/TagCategory.ts
 src/models/TagData.ts
 src/models/TagImageLora.ts
 src/models/TagVideoLora.ts
+src/models/Tags.ts
 src/models/TagsExploreTypesGet200ResponseInner.ts
 src/models/TextToSpeechEnhanceRequest.ts
 src/models/TextToSpeechEnhanceResponse.ts
@@ -525,6 +534,7 @@ src/models/TrendCategoryCreateRequest.ts
 src/models/TrendCategoryListResponse.ts
 src/models/TrendCategoryResponse.ts
 src/models/TrendCategoryUpdateRequest.ts
+src/models/TrendFromPostRequest.ts
 src/models/TrendListFilter.ts
 src/models/TrendListResponse.ts
 src/models/TrendMediaType.ts
@@ -532,9 +542,12 @@ src/models/TrendMode.ts
 src/models/TrendModelOption.ts
 src/models/TrendPreviewRequest.ts
 src/models/TrendPreviewResponse.ts
+src/models/TrendRecreateCharacter.ts
 src/models/TrendRecreateRequest.ts
 src/models/TrendRecreateResponse.ts
 src/models/TrendResponse.ts
+src/models/TrendSourceResponse.ts
+src/models/TrendStillResponse.ts
 src/models/Type.ts
 src/models/UpdateGalleryFolderRequest.ts
 src/models/UserBadge.ts
@@ -561,6 +574,7 @@ src/models/VideoDurationOptions.ts
 src/models/VideoFromChatResponse.ts
 src/models/VideoGenerationStatus.ts
 src/models/VideoLoraName.ts
+src/models/VideoLoras.ts
 src/models/VideoMergeResult.ts
 src/models/VideoMod.ts
 src/models/VideoModCategory.ts

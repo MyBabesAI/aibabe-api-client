@@ -171,6 +171,12 @@ export interface GeneratedImages {
      * @memberof GeneratedImages
      */
     ageEstimation?: AdminAgeEstimation | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GeneratedImages
+     */
+    moderationCharged?: boolean | null;
 }
 
 
@@ -228,6 +234,7 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
+        'moderationCharged': json['moderation_charged'] == null ? undefined : json['moderation_charged'],
     };
 }
 
@@ -259,6 +266,7 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'width': value['width'],
         'height': value['height'],
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
+        'moderation_charged': value['moderationCharged'],
     };
 }
 

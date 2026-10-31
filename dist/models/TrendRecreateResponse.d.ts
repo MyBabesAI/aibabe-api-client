@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { TrendStillResponse } from './TrendStillResponse';
 /**
  *
  * @export
@@ -27,6 +28,12 @@ export interface TrendRecreateResponse {
      * @memberof TrendRecreateResponse
      */
     tokensCost: number;
+    /**
+     * Reference video trends: the stills queued by this recreate.
+     * @type {Array<TrendStillResponse>}
+     * @memberof TrendRecreateResponse
+     */
+    stills?: Array<TrendStillResponse>;
 }
 /**
  * Check if a given object implements the TrendRecreateResponse interface.

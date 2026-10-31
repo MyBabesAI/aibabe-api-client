@@ -132,6 +132,12 @@ export interface GetGalleryResponseItemsInner {
     ageEstimation?: AdminAgeEstimation;
     /**
      *
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    moderationCharged?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof GetGalleryResponseItemsInner
      */

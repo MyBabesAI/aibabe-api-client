@@ -20,6 +20,13 @@ import {
     BlacklistCardToJSON,
     BlacklistCardToJSONTyped,
 } from './BlacklistCard';
+import type { ArtStyle } from './ArtStyle';
+import {
+    ArtStyleFromJSON,
+    ArtStyleFromJSONTyped,
+    ArtStyleToJSON,
+    ArtStyleToJSONTyped,
+} from './ArtStyle';
 import type { PostDetails } from './PostDetails';
 import {
     PostDetailsFromJSON,
@@ -69,6 +76,12 @@ export interface ListChatbotItem {
      * @type {string}
      * @memberof ListChatbotItem
      */
+    characterStyle?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListChatbotItem
+     */
     profileVideo: string;
     /**
      * 
@@ -106,7 +119,21 @@ export interface ListChatbotItem {
      * @memberof ListChatbotItem
      */
     postDetails?: PostDetails | null;
+    /**
+     * 
+     * @type {ArtStyle}
+     * @memberof ListChatbotItem
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListChatbotItem
+     */
+    nextGen?: boolean;
 }
+
+
 
 /**
  * Check if a given object implements the ListChatbotItem interface.
@@ -138,6 +165,7 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'profilePicture': json['profile_picture'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
         'profileVideo': json['profile_video'],
         'blacklist': json['blacklist'] == null ? undefined : BlacklistCardFromJSON(json['blacklist']),
         'bio': json['bio'],
@@ -145,6 +173,8 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
         'lastMessageAt': json['last_message_at'] == null ? undefined : (new Date(json['last_message_at'])),
         'postDetails': json['post_details'] == null ? undefined : PostDetailsFromJSON(json['post_details']),
+        'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
     };
 }
 
@@ -164,6 +194,7 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'profile_picture': value['profilePicture'],
         'created_at': ((value['createdAt']).toISOString()),
         'updated_at': ((value['updatedAt']).toISOString()),
+        'character_style': value['characterStyle'],
         'profile_video': value['profileVideo'],
         'blacklist': BlacklistCardToJSON(value['blacklist']),
         'bio': value['bio'],
@@ -171,6 +202,8 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'is_original': value['isOriginal'],
         'last_message_at': value['lastMessageAt'] == null ? undefined : ((value['lastMessageAt'] as any).toISOString()),
         'post_details': PostDetailsToJSON(value['postDetails']),
+        'art_style': ArtStyleToJSON(value['artStyle']),
+        'next_gen': value['nextGen'],
     };
 }
 

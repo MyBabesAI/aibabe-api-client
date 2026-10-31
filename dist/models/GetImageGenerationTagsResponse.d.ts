@@ -47,6 +47,14 @@ export interface GetImageGenerationTagsResponse {
      * @memberof GetImageGenerationTagsResponse
      */
     artStyle: ArtStyle;
+    /**
+     *
+     * @type {{ [key: string]: number; }}
+     * @memberof GetImageGenerationTagsResponse
+     */
+    loraWeights?: {
+        [key: string]: number;
+    } | null;
 }
 /**
  * Check if a given object implements the GetImageGenerationTagsResponse interface.

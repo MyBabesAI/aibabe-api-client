@@ -9,18 +9,25 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { TrendRecreateCharacter } from './TrendRecreateCharacter';
 /**
- * Render the trend's AI duplicate with a house character; its result becomes the trend's preview.
+ * Render the trend's AI duplicate with house characters; its result becomes the trend's preview.
  * @export
  * @interface TrendPreviewRequest
  */
 export interface TrendPreviewRequest {
     /**
      *
+     * @type {Array<TrendRecreateCharacter>}
+     * @memberof TrendPreviewRequest
+     */
+    characters?: Array<TrendRecreateCharacter>;
+    /**
+     *
      * @type {string}
      * @memberof TrendPreviewRequest
      */
-    chatbotId: string;
+    chatbotId?: string | null;
     /**
      *
      * @type {string}

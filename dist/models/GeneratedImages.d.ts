@@ -124,6 +124,12 @@ export interface GeneratedImages {
      * @memberof GeneratedImages
      */
     ageEstimation?: AdminAgeEstimation | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GeneratedImages
+     */
+    moderationCharged?: boolean | null;
 }
 /**
  * @export

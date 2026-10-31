@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { PublicUserPreview } from './PublicUserPreview';
+import {
+    PublicUserPreviewFromJSON,
+    PublicUserPreviewFromJSONTyped,
+    PublicUserPreviewToJSON,
+    PublicUserPreviewToJSONTyped,
+} from './PublicUserPreview';
 import type { TrendMediaType } from './TrendMediaType';
 import {
     TrendMediaTypeFromJSON,
@@ -55,6 +62,13 @@ import {
     TrendModeToJSON,
     TrendModeToJSONTyped,
 } from './TrendMode';
+import type { ImageLookLora } from './ImageLookLora';
+import {
+    ImageLookLoraFromJSON,
+    ImageLookLoraFromJSONTyped,
+    ImageLookLoraToJSON,
+    ImageLookLoraToJSONTyped,
+} from './ImageLookLora';
 
 /**
  * 
@@ -124,6 +138,18 @@ export interface TrendResponse {
     duration: number;
     /**
      * 
+     * @type {number}
+     * @memberof TrendResponse
+     */
+    mediaWidth?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof TrendResponse
+     */
+    mediaHeight?: number | null;
+    /**
+     * 
      * @type {VideoAspectRatio}
      * @memberof TrendResponse
      */
@@ -172,10 +198,82 @@ export interface TrendResponse {
     createdAt: Date;
     /**
      * 
+     * @type {Array<string>}
+     * @memberof TrendResponse
+     */
+    tags?: Array<string>;
+    /**
+     * 
      * @type {string}
      * @memberof TrendResponse
      */
     prompt?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof TrendResponse
+     */
+    characterCount?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof TrendResponse
+     */
+    characterStyle?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof TrendResponse
+     */
+    targetPhrase?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof TrendResponse
+     */
+    sourceMaskUrl?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof TrendResponse
+     */
+    videoPrompt?: string | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof TrendResponse
+     */
+    videoLoras?: Array<string>;
+    /**
+     * 
+     * @type {Array<ImageLookLora>}
+     * @memberof TrendResponse
+     */
+    loras?: Array<ImageLookLora>;
+    /**
+     * 
+     * @type {PublicUserPreview}
+     * @memberof TrendResponse
+     */
+    creator?: PublicUserPreview | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof TrendResponse
+     */
+    sourcePostId?: string | null;
+    /**
+     * A reference video trend: its still prompts (one per <Picture N> of video_prompt); empty on every other trend.
+     * @type {Array<string>}
+     * @memberof TrendResponse
+     */
+    stillPrompts?: Array<string>;
+    /**
+     * 
+     * @type {number}
+     * @memberof TrendResponse
+     */
+    stillTokensCost?: number | null;
 }
 
 
@@ -222,6 +320,8 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'previewPending': json['preview_pending'] == null ? undefined : json['preview_pending'],
         'sourceUrl': json['source_url'] == null ? undefined : json['source_url'],
         'duration': json['duration'],
+        'mediaWidth': json['media_width'] == null ? undefined : json['media_width'],
+        'mediaHeight': json['media_height'] == null ? undefined : json['media_height'],
         'aspectRatio': VideoAspectRatioFromJSON(json['aspect_ratio']),
         'resolution': VideoResolutionFromJSON(json['resolution']),
         'models': ((json['models'] as Array<any>).map(TrendModelOptionFromJSON)),
@@ -230,7 +330,19 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'recreateCount': json['recreate_count'],
         'isPublished': json['is_published'],
         'createdAt': (new Date(json['created_at'])),
+        'tags': json['tags'] == null ? undefined : json['tags'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
+        'characterCount': json['character_count'] == null ? undefined : json['character_count'],
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
+        'targetPhrase': json['target_phrase'] == null ? undefined : json['target_phrase'],
+        'sourceMaskUrl': json['source_mask_url'] == null ? undefined : json['source_mask_url'],
+        'videoPrompt': json['video_prompt'] == null ? undefined : json['video_prompt'],
+        'videoLoras': json['video_loras'] == null ? undefined : json['video_loras'],
+        'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
+        'creator': json['creator'] == null ? undefined : PublicUserPreviewFromJSON(json['creator']),
+        'sourcePostId': json['source_post_id'] == null ? undefined : json['source_post_id'],
+        'stillPrompts': json['still_prompts'] == null ? undefined : json['still_prompts'],
+        'stillTokensCost': json['still_tokens_cost'] == null ? undefined : json['still_tokens_cost'],
     };
 }
 
@@ -255,6 +367,8 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'preview_pending': value['previewPending'],
         'source_url': value['sourceUrl'],
         'duration': value['duration'],
+        'media_width': value['mediaWidth'],
+        'media_height': value['mediaHeight'],
         'aspect_ratio': VideoAspectRatioToJSON(value['aspectRatio']),
         'resolution': VideoResolutionToJSON(value['resolution']),
         'models': ((value['models'] as Array<any>).map(TrendModelOptionToJSON)),
@@ -263,7 +377,19 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'recreate_count': value['recreateCount'],
         'is_published': value['isPublished'],
         'created_at': ((value['createdAt']).toISOString()),
+        'tags': value['tags'],
         'prompt': value['prompt'],
+        'character_count': value['characterCount'],
+        'character_style': value['characterStyle'],
+        'target_phrase': value['targetPhrase'],
+        'source_mask_url': value['sourceMaskUrl'],
+        'video_prompt': value['videoPrompt'],
+        'video_loras': value['videoLoras'],
+        'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
+        'creator': PublicUserPreviewToJSON(value['creator']),
+        'source_post_id': value['sourcePostId'],
+        'still_prompts': value['stillPrompts'],
+        'still_tokens_cost': value['stillTokensCost'],
     };
 }
 

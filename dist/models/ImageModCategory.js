@@ -26,7 +26,8 @@ exports.ImageModCategoryToJSONTyped = ImageModCategoryToJSONTyped;
 exports.ImageModCategory = {
     Style: 'style',
     Position: 'position',
-    Other: 'other'
+    Other: 'other',
+    Look: 'look'
 };
 function instanceOfImageModCategory(value) {
     for (const key in exports.ImageModCategory) {

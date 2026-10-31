@@ -46,7 +46,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ChatbotApi = void 0;
+exports.ListChatbotGetCharacterStyleEnum = exports.ChatbotApi = void 0;
 const runtime = __importStar(require("../runtime"));
 const index_1 = require("../models/index");
 /**
@@ -232,6 +232,32 @@ class ChatbotApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * The draft\'s look sliders: the LoRAs her pictures render with (a recreated babe\'s own look, the style\'s and her picked mods) and the mods she may add, at the strengths she has (her saved lora_weights over the defaults). Sent back as lora_weights on POST /advanced/profile-picture.
+     * Get Builder Looks
+     */
+    async getBuilderLooksChatbotAdvancedLooksGetRaw(requestParameters, initOverrides) {
+        const queryParameters = {};
+        if (requestParameters['artStyle'] != null) {
+            queryParameters['art_style'] = requestParameters['artStyle'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chatbot/advanced/looks`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetImageLooksResponseFromJSON)(jsonValue));
+    }
+    /**
+     * The draft\'s look sliders: the LoRAs her pictures render with (a recreated babe\'s own look, the style\'s and her picked mods) and the mods she may add, at the strengths she has (her saved lora_weights over the defaults). Sent back as lora_weights on POST /advanced/profile-picture.
+     * Get Builder Looks
+     */
+    async getBuilderLooksChatbotAdvancedLooksGet(requestParameters = {}, initOverrides) {
+        const response = await this.getBuilderLooksChatbotAdvancedLooksGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Get
      */
     async getChatbotChatbotIdGetRaw(requestParameters, initOverrides) {
@@ -352,6 +378,12 @@ class ChatbotApi extends runtime.BaseAPI {
         }
         if (requestParameters['folderId'] != null) {
             queryParameters['folder_id'] = requestParameters['folderId'];
+        }
+        if (requestParameters['characterStyle'] != null) {
+            queryParameters['character_style'] = requestParameters['characterStyle'];
+        }
+        if (requestParameters['nextGen'] != null) {
+            queryParameters['next_gen'] = requestParameters['nextGen'];
         }
         const headerParameters = {};
         const response = await this.request({
@@ -559,6 +591,49 @@ class ChatbotApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Starts a fresh advanced-builder draft of the woman in a published babe trend\'s picture (which never leaves the server): her look text, art style, photo look and a fixed seed. Replaces an unpublished draft.
+     * Recreate Babe
+     */
+    async recreateBabeChatbotAdvancedRecreatePostRaw(requestParameters, initOverrides) {
+        if (requestParameters['trendId'] == null) {
+            throw new runtime.RequiredError('trendId', 'Required parameter "trendId" was null or undefined when calling recreateBabeChatbotAdvancedRecreatePost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const consumes = [
+            { contentType: 'application/x-www-form-urlencoded' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+        let formParams;
+        let useForm = false;
+        if (useForm) {
+            formParams = new FormData();
+        }
+        else {
+            formParams = new URLSearchParams();
+        }
+        if (requestParameters['trendId'] != null) {
+            formParams.append('trend_id', requestParameters['trendId']);
+        }
+        const response = await this.request({
+            path: `/chatbot/advanced/recreate`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostAdvancedRecreateResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Starts a fresh advanced-builder draft of the woman in a published babe trend\'s picture (which never leaves the server): her look text, art style, photo look and a fixed seed. Replaces an unpublished draft.
+     * Recreate Babe
+     */
+    async recreateBabeChatbotAdvancedRecreatePost(requestParameters, initOverrides) {
+        const response = await this.recreateBabeChatbotAdvancedRecreatePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Reset Advanced Chatbot Builder
      */
     async resetAdvancedChatbotBuilderChatbotAdvancedDeleteRaw(initOverrides) {
@@ -620,4 +695,11 @@ class ChatbotApi extends runtime.BaseAPI {
     }
 }
 exports.ChatbotApi = ChatbotApi;
+/**
+ * @export
+ */
+exports.ListChatbotGetCharacterStyleEnum = {
+    Realistic: 'realistic',
+    Anime: 'anime'
+};
 //# sourceMappingURL=ChatbotApi.js.map

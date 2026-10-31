@@ -10,15 +10,18 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, Models, TrendCategoryCreateRequest, TrendCategoryListResponse, TrendCategoryResponse, TrendCategoryUpdateRequest, TrendListFilter, TrendListResponse, TrendMediaType, TrendMode, TrendPreviewRequest, TrendPreviewResponse, TrendRecreateRequest, TrendRecreateResponse, TrendResponse, VideoAspectRatio, VideoResolution } from '../models/index';
+import type { ArtStyle, BabeTag, Models, PreviewChatbotIds, Tags, TrendCategoryCreateRequest, TrendCategoryListResponse, TrendCategoryResponse, TrendCategoryUpdateRequest, TrendFromPostRequest, TrendListFilter, TrendListResponse, TrendMediaType, TrendMode, TrendPreviewRequest, TrendPreviewResponse, TrendRecreateRequest, TrendRecreateResponse, TrendResponse, TrendSourceResponse, VideoAspectRatio, VideoLoras, VideoResolution } from '../models/index';
 export interface CreateCategoryTrendsCategoriesPostRequest {
     trendCategoryCreateRequest: TrendCategoryCreateRequest;
 }
+export interface CreateTrendFromPostTrendsFromPostPostRequest {
+    trendFromPostRequest: TrendFromPostRequest;
+}
 export interface CreateTrendTrendsPostRequest {
-    title: string;
     sourceVideo?: Blob | null;
     sourceImage?: Blob | null;
     cover?: Blob | null;
+    title?: string | null;
     prompt?: string | null;
     categoryId?: string | null;
     mediaType?: TrendMediaType;
@@ -34,12 +37,22 @@ export interface CreateTrendTrendsPostRequest {
     sourceImageUrl?: string | null;
     coverUrl?: string | null;
     sourceIsAi?: boolean;
+    previewChatbotId?: string | null;
+    previewChatbotIds?: PreviewChatbotIds | null;
+    characterCount?: number | null;
+    targetPhrase?: string | null;
+    videoPrompt?: string | null;
+    videoLoras?: VideoLoras | null;
+    stillPrompts?: string | null;
 }
 export interface DeleteCategoryTrendsCategoriesCategoryIdDeleteRequest {
     categoryId: string;
 }
 export interface DeleteTrendTrendsTrendIdDeleteRequest {
     trendId: string;
+}
+export interface GetTrendSourceTrendsSourceGetRequest {
+    generationId: string;
 }
 export interface GetTrendTrendsTrendIdGetRequest {
     trendId: string;
@@ -80,9 +93,16 @@ export interface UpdateTrendTrendsTrendIdPatchRequest {
     clearImageArtStyle?: boolean;
     isPublished?: boolean | null;
     sortOrder?: number | null;
+    characterCount?: number | null;
+    sourceIsAi?: boolean;
     sourceVideoUrl?: string | null;
     sourceImageUrl?: string | null;
     coverUrl?: string | null;
+    targetPhrase?: string | null;
+    tags?: Tags | null;
+    videoPrompt?: string | null;
+    videoLoras?: VideoLoras | null;
+    stillPrompts?: string | null;
 }
 /**
  *
@@ -97,13 +117,23 @@ export declare class TrendsApi extends runtime.BaseAPI {
      */
     createCategoryTrendsCategoriesPost(requestParameters: CreateCategoryTrendsCategoriesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendCategoryResponse>;
     /**
+     * A trend from an Explore post (picture, video or babe), credited to its author. Admin only.
+     * Create Trend From Post
+     */
+    createTrendFromPostTrendsFromPostPostRaw(requestParameters: CreateTrendFromPostTrendsFromPostPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrendResponse>>;
+    /**
+     * A trend from an Explore post (picture, video or babe), credited to its author. Admin only.
+     * Create Trend From Post
+     */
+    createTrendFromPostTrendsFromPostPost(requestParameters: CreateTrendFromPostTrendsFromPostPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendResponse>;
+    /**
      * Create Trend
      */
     createTrendTrendsPostRaw(requestParameters: CreateTrendTrendsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrendResponse>>;
     /**
      * Create Trend
      */
-    createTrendTrendsPost(requestParameters: CreateTrendTrendsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendResponse>;
+    createTrendTrendsPost(requestParameters?: CreateTrendTrendsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendResponse>;
     /**
      * Delete Category
      */
@@ -121,6 +151,16 @@ export declare class TrendsApi extends runtime.BaseAPI {
      */
     deleteTrendTrendsTrendIdDelete(requestParameters: DeleteTrendTrendsTrendIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
+     * The babe tab\'s filters (type, ethnicity, body, vibe), in display order; a babe trend\'s tags are their `tag`.
+     * Get Babe Tags
+     */
+    getBabeTagsTrendsBabeTagsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<BabeTag>>>;
+    /**
+     * The babe tab\'s filters (type, ethnicity, body, vibe), in display order; a babe trend\'s tags are their `tag`.
+     * Get Babe Tags
+     */
+    getBabeTagsTrendsBabeTagsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BabeTag>>;
+    /**
      * Get Categories
      */
     getCategoriesTrendsCategoriesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrendCategoryListResponse>>;
@@ -128,6 +168,16 @@ export declare class TrendsApi extends runtime.BaseAPI {
      * Get Categories
      */
     getCategoriesTrendsCategoriesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendCategoryListResponse>;
+    /**
+     * The trend a picture or video was recreated from; 404 when it is not a trend recreation.
+     * Get Trend Source
+     */
+    getTrendSourceTrendsSourceGetRaw(requestParameters: GetTrendSourceTrendsSourceGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrendSourceResponse>>;
+    /**
+     * The trend a picture or video was recreated from; 404 when it is not a trend recreation.
+     * Get Trend Source
+     */
+    getTrendSourceTrendsSourceGet(requestParameters: GetTrendSourceTrendsSourceGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendSourceResponse>;
     /**
      * Get Trend
      */

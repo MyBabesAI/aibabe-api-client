@@ -20,7 +20,7 @@ exports.TrendModeFromJSONTyped = TrendModeFromJSONTyped;
 exports.TrendModeToJSON = TrendModeToJSON;
 exports.TrendModeToJSONTyped = TrendModeToJSONTyped;
 /**
- * What the recreation keeps of the trend's source clip.
+ * What the recreation keeps of the trend's source.
  *
  * motion_transfer builds a new scene around the clip's motion and camera (Seedance's omni "reference" task);
  * object_swap keeps the clip as filmed and replaces the person in it with the user's character (the "edit" task).
@@ -28,7 +28,8 @@ exports.TrendModeToJSONTyped = TrendModeToJSONTyped;
  */
 exports.TrendMode = {
     MotionTransfer: 'motion_transfer',
-    ObjectSwap: 'object_swap'
+    ObjectSwap: 'object_swap',
+    Prompt: 'prompt'
 };
 function instanceOfTrendMode(value) {
     for (const key in exports.TrendMode) {

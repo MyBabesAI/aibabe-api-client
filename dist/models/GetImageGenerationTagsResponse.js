@@ -49,6 +49,7 @@ function GetImageGenerationTagsResponseFromJSONTyped(json, ignoreDiscriminator) 
         'chatbotName': json['chatbot_name'],
         'loras': (json['loras'].map(LoraName_1.LoraNameFromJSON)),
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
+        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
     };
 }
 function GetImageGenerationTagsResponseToJSON(json) {
@@ -64,6 +65,7 @@ function GetImageGenerationTagsResponseToJSONTyped(value, ignoreDiscriminator = 
         'chatbot_name': value['chatbotName'],
         'loras': (value['loras'].map(LoraName_1.LoraNameToJSON)),
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
+        'lora_weights': value['loraWeights'],
     };
 }
 //# sourceMappingURL=GetImageGenerationTagsResponse.js.map

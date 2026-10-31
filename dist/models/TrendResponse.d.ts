@@ -9,12 +9,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { PublicUserPreview } from './PublicUserPreview';
 import type { TrendMediaType } from './TrendMediaType';
 import type { ArtStyle } from './ArtStyle';
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import type { VideoResolution } from './VideoResolution';
 import type { TrendModelOption } from './TrendModelOption';
 import type { TrendMode } from './TrendMode';
+import type { ImageLookLora } from './ImageLookLora';
 /**
  *
  * @export
@@ -83,6 +85,18 @@ export interface TrendResponse {
     duration: number;
     /**
      *
+     * @type {number}
+     * @memberof TrendResponse
+     */
+    mediaWidth?: number | null;
+    /**
+     *
+     * @type {number}
+     * @memberof TrendResponse
+     */
+    mediaHeight?: number | null;
+    /**
+     *
      * @type {VideoAspectRatio}
      * @memberof TrendResponse
      */
@@ -131,10 +145,82 @@ export interface TrendResponse {
     createdAt: Date;
     /**
      *
+     * @type {Array<string>}
+     * @memberof TrendResponse
+     */
+    tags?: Array<string>;
+    /**
+     *
      * @type {string}
      * @memberof TrendResponse
      */
     prompt?: string | null;
+    /**
+     *
+     * @type {number}
+     * @memberof TrendResponse
+     */
+    characterCount?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof TrendResponse
+     */
+    characterStyle?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof TrendResponse
+     */
+    targetPhrase?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof TrendResponse
+     */
+    sourceMaskUrl?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof TrendResponse
+     */
+    videoPrompt?: string | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof TrendResponse
+     */
+    videoLoras?: Array<string>;
+    /**
+     *
+     * @type {Array<ImageLookLora>}
+     * @memberof TrendResponse
+     */
+    loras?: Array<ImageLookLora>;
+    /**
+     *
+     * @type {PublicUserPreview}
+     * @memberof TrendResponse
+     */
+    creator?: PublicUserPreview | null;
+    /**
+     *
+     * @type {string}
+     * @memberof TrendResponse
+     */
+    sourcePostId?: string | null;
+    /**
+     * A reference video trend: its still prompts (one per <Picture N> of video_prompt); empty on every other trend.
+     * @type {Array<string>}
+     * @memberof TrendResponse
+     */
+    stillPrompts?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof TrendResponse
+     */
+    stillTokensCost?: number | null;
 }
 /**
  * Check if a given object implements the TrendResponse interface.

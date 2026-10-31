@@ -19,6 +19,7 @@ exports.ListChatbotItemFromJSONTyped = ListChatbotItemFromJSONTyped;
 exports.ListChatbotItemToJSON = ListChatbotItemToJSON;
 exports.ListChatbotItemToJSONTyped = ListChatbotItemToJSONTyped;
 const BlacklistCard_1 = require("./BlacklistCard");
+const ArtStyle_1 = require("./ArtStyle");
 const PostDetails_1 = require("./PostDetails");
 /**
  * Check if a given object implements the ListChatbotItem interface.
@@ -55,6 +56,7 @@ function ListChatbotItemFromJSONTyped(json, ignoreDiscriminator) {
         'profilePicture': json['profile_picture'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
         'profileVideo': json['profile_video'],
         'blacklist': json['blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['blacklist']),
         'bio': json['bio'],
@@ -62,6 +64,8 @@ function ListChatbotItemFromJSONTyped(json, ignoreDiscriminator) {
         'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
         'lastMessageAt': json['last_message_at'] == null ? undefined : (new Date(json['last_message_at'])),
         'postDetails': json['post_details'] == null ? undefined : (0, PostDetails_1.PostDetailsFromJSON)(json['post_details']),
+        'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
     };
 }
 function ListChatbotItemToJSON(json) {
@@ -77,6 +81,7 @@ function ListChatbotItemToJSONTyped(value, ignoreDiscriminator = false) {
         'profile_picture': value['profilePicture'],
         'created_at': ((value['createdAt']).toISOString()),
         'updated_at': ((value['updatedAt']).toISOString()),
+        'character_style': value['characterStyle'],
         'profile_video': value['profileVideo'],
         'blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['blacklist']),
         'bio': value['bio'],
@@ -84,6 +89,8 @@ function ListChatbotItemToJSONTyped(value, ignoreDiscriminator = false) {
         'is_original': value['isOriginal'],
         'last_message_at': value['lastMessageAt'] == null ? undefined : (value['lastMessageAt'].toISOString()),
         'post_details': (0, PostDetails_1.PostDetailsToJSON)(value['postDetails']),
+        'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
+        'next_gen': value['nextGen'],
     };
 }
 //# sourceMappingURL=ListChatbotItem.js.map

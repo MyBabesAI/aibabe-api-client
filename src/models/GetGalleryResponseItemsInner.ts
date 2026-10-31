@@ -236,6 +236,12 @@ export interface GetGalleryResponseItemsInner {
     ageEstimation?: AdminAgeEstimation;
     /**
      * 
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    moderationCharged?: boolean;
+    /**
+     * 
      * @type {string}
      * @memberof GetGalleryResponseItemsInner
      */
@@ -393,6 +399,7 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
+        'moderationCharged': json['moderation_charged'] == null ? undefined : json['moderation_charged'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'title': json['title'],
@@ -440,6 +447,7 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'width': value['width'],
         'height': value['height'],
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
+        'moderation_charged': value['moderationCharged'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'title': value['title'],

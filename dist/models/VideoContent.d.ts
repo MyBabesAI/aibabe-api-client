@@ -11,6 +11,7 @@
  */
 import type { MediaOrigin } from './MediaOrigin';
 import type { AdminAgeEstimation } from './AdminAgeEstimation';
+import type { ImageLookLora } from './ImageLookLora';
 /**
  *
  * @export
@@ -53,6 +54,12 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     ageEstimation?: AdminAgeEstimation | null;
+    /**
+     *
+     * @type {Array<ImageLookLora>}
+     * @memberof VideoContent
+     */
+    loras?: Array<ImageLookLora>;
     /**
      *
      * @type {string}
