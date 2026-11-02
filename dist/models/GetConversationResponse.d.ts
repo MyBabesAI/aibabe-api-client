@@ -82,6 +82,30 @@ export interface GetConversationResponse {
      * @memberof GetConversationResponse
      */
     scenario?: ScenarioChatInfo | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GetConversationResponse
+     */
+    title?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GetConversationResponse
+     */
+    parentConversationId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GetConversationResponse
+     */
+    rootConversationId?: string | null;
+    /**
+     *
+     * @type {Date}
+     * @memberof GetConversationResponse
+     */
+    forkPointAt?: Date | null;
 }
 /**
  * Check if a given object implements the GetConversationResponse interface.

@@ -19,6 +19,7 @@ exports.ChatConfigResponseFromJSONTyped = ChatConfigResponseFromJSONTyped;
 exports.ChatConfigResponseToJSON = ChatConfigResponseToJSON;
 exports.ChatConfigResponseToJSONTyped = ChatConfigResponseToJSONTyped;
 const runtime_1 = require("../runtime");
+const ChatForkConfig_1 = require("./ChatForkConfig");
 const ChatCastConfig_1 = require("./ChatCastConfig");
 const TokenPriceConfig_1 = require("./TokenPriceConfig");
 /**
@@ -30,6 +31,8 @@ function instanceOfChatConfigResponse(value) {
     if (!('modelPrices' in value) || value['modelPrices'] === undefined)
         return false;
     if (!('cast' in value) || value['cast'] === undefined)
+        return false;
+    if (!('forks' in value) || value['forks'] === undefined)
         return false;
     return true;
 }
@@ -44,6 +47,7 @@ function ChatConfigResponseFromJSONTyped(json, ignoreDiscriminator) {
         'defaultPrice': (0, TokenPriceConfig_1.TokenPriceConfigFromJSON)(json['default_price']),
         'modelPrices': ((0, runtime_1.mapValues)(json['model_prices'], TokenPriceConfig_1.TokenPriceConfigFromJSON)),
         'cast': (0, ChatCastConfig_1.ChatCastConfigFromJSON)(json['cast']),
+        'forks': (0, ChatForkConfig_1.ChatForkConfigFromJSON)(json['forks']),
     };
 }
 function ChatConfigResponseToJSON(json) {
@@ -57,6 +61,7 @@ function ChatConfigResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'default_price': (0, TokenPriceConfig_1.TokenPriceConfigToJSON)(value['defaultPrice']),
         'model_prices': ((0, runtime_1.mapValues)(value['modelPrices'], TokenPriceConfig_1.TokenPriceConfigToJSON)),
         'cast': (0, ChatCastConfig_1.ChatCastConfigToJSON)(value['cast']),
+        'forks': (0, ChatForkConfig_1.ChatForkConfigToJSON)(value['forks']),
     };
 }
 //# sourceMappingURL=ChatConfigResponse.js.map

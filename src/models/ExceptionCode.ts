@@ -73,6 +73,12 @@ export const ExceptionCode = {
     ConversationUpdateNonOwnedForbidden: 'conversation_update_non_owned_forbidden',
     ConversationResetNonOwnedForbidden: 'conversation_reset_non_owned_forbidden',
     ConversationMemoryNotFound: 'conversation_memory_not_found',
+    ConversationForkMessageNotFound: 'conversation_fork_message_not_found',
+    ConversationForkDepthExceeded: 'conversation_fork_depth_exceeded',
+    ConversationBranchLimitReached: 'conversation_branch_limit_reached',
+    ConversationMessageNotLast: 'conversation_message_not_last',
+    ConversationMessageInherited: 'conversation_message_inherited',
+    ConversationHasBranches: 'conversation_has_branches',
     AssistantChatSessionNotFound: 'assistant_chat_session_not_found',
     MessageNotFound: 'message_not_found',
     PinnedMemoryNotFound: 'pinned_memory_not_found',
@@ -185,6 +191,8 @@ export const ExceptionCode = {
     VideoReferenceRolesMismatch: 'video_reference_roles_mismatch',
     VideoReferenceBabeNotOwnPicture: 'video_reference_babe_not_own_picture',
     VideoReferenceRoleRepeated: 'video_reference_role_repeated',
+    VideoMentionKindUnsupported: 'video_mention_kind_unsupported',
+    VideoMentionWithoutPicture: 'video_mention_without_picture',
     SelfPhotoUnreadable: 'self_photo_unreadable',
     ImagenModelSingleCharacter: 'imagen_model_single_character',
     ImagenTooManyCharacters: 'imagen_too_many_characters',
@@ -194,6 +202,7 @@ export const ExceptionCode = {
     ImageGenerationLimitReached: 'image_generation_limit_reached',
     GenerationTagsNotFound: 'generation_tags_not_found',
     OriginalImageNotFound: 'original_image_not_found',
+    TrendNeedsPersona: 'trend_needs_persona',
     TrendNotFound: 'trend_not_found',
     TrendCategoryNotFound: 'trend_category_not_found',
     TrendCategorySlugConflict: 'trend_category_slug_conflict',
@@ -332,6 +341,8 @@ export const ExceptionCode = {
     BlueprintNotFound: 'blueprint_not_found',
     BlueprintNotOwned: 'blueprint_not_owned',
     BlueprintOutfitMemberInvalid: 'blueprint_outfit_member_invalid',
+    WardrobeItemInvalid: 'wardrobe_item_invalid',
+    IdentityPreviewRateLimited: 'identity_preview_rate_limited',
     ImageSubjectLimitExceeded: 'image_subject_limit_exceeded',
     ImageCastRequiresSentenceStyle: 'image_cast_requires_sentence_style',
     ChatbotRequiresSentenceStyle: 'chatbot_requires_sentence_style',
@@ -346,7 +357,9 @@ export const ExceptionCode = {
     ScenarioCoverPictureInvalid: 'scenario_cover_picture_invalid',
     ScenarioChatNotFound: 'scenario_chat_not_found',
     ScenarioUpToDate: 'scenario_up_to_date',
-    PersonaNotFound: 'persona_not_found'
+    PersonaNotFound: 'persona_not_found',
+    PersonaExists: 'persona_exists',
+    PersonaSourceNotOwn: 'persona_source_not_own'
 } as const;
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 

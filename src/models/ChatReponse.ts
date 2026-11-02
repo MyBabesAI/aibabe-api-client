@@ -45,6 +45,12 @@ export interface ChatReponse {
     imageId: string;
     /**
      * 
+     * @type {string}
+     * @memberof ChatReponse
+     */
+    conversationId?: string | null;
+    /**
+     * 
      * @type {number}
      * @memberof ChatReponse
      */
@@ -82,6 +88,7 @@ export function ChatReponseFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'userMessageId': json['user_message_id'],
         'assistantMessageId': json['assistant_message_id'],
         'imageId': json['image_id'],
+        'conversationId': json['conversation_id'] == null ? undefined : json['conversation_id'],
         'remainingFreeMessages': json['remaining_free_messages'] == null ? undefined : json['remaining_free_messages'],
         'remainingFreeImages': json['remaining_free_images'] == null ? undefined : json['remaining_free_images'],
     };
@@ -102,6 +109,7 @@ export function ChatReponseFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'user_message_id': value['userMessageId'],
         'assistant_message_id': value['assistantMessageId'],
         'image_id': value['imageId'],
+        'conversation_id': value['conversationId'],
         'remaining_free_messages': value['remainingFreeMessages'],
         'remaining_free_images': value['remainingFreeImages'],
     };

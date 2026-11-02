@@ -48,6 +48,7 @@ function PostChatRequestFromJSONTyped(json, ignoreDiscriminator) {
         'conversationId': json['conversation_id'],
         'onlyImage': json['only_image'] == null ? undefined : json['only_image'],
         'chatMode': json['chat_mode'] == null ? undefined : (0, ChatMode_1.ChatModeFromJSON)(json['chat_mode']),
+        'forkFromMessageId': json['fork_from_message_id'] == null ? undefined : json['fork_from_message_id'],
     };
 }
 function PostChatRequestToJSON(json) {
@@ -65,6 +66,7 @@ function PostChatRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'conversation_id': value['conversationId'],
         'only_image': value['onlyImage'],
         'chat_mode': (0, ChatMode_1.ChatModeToJSON)(value['chatMode']),
+        'fork_from_message_id': value['forkFromMessageId'],
     };
 }
 //# sourceMappingURL=PostChatRequest.js.map

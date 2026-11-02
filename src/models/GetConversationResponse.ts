@@ -129,6 +129,30 @@ export interface GetConversationResponse {
      * @memberof GetConversationResponse
      */
     scenario?: ScenarioChatInfo | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetConversationResponse
+     */
+    title?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetConversationResponse
+     */
+    parentConversationId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetConversationResponse
+     */
+    rootConversationId?: string | null;
+    /**
+     * 
+     * @type {Date}
+     * @memberof GetConversationResponse
+     */
+    forkPointAt?: Date | null;
 }
 
 /**
@@ -164,6 +188,10 @@ export function GetConversationResponseFromJSONTyped(json: any, ignoreDiscrimina
         'admin': json['admin'] == null ? undefined : ChatAdminDetailsFromJSON(json['admin']),
         'participants': json['participants'] == null ? undefined : ((json['participants'] as Array<any>).map(ConversationParticipantFromJSON)),
         'scenario': json['scenario'] == null ? undefined : ScenarioChatInfoFromJSON(json['scenario']),
+        'title': json['title'] == null ? undefined : json['title'],
+        'parentConversationId': json['parent_conversation_id'] == null ? undefined : json['parent_conversation_id'],
+        'rootConversationId': json['root_conversation_id'] == null ? undefined : json['root_conversation_id'],
+        'forkPointAt': json['fork_point_at'] == null ? undefined : (new Date(json['fork_point_at'])),
     };
 }
 
@@ -188,6 +216,10 @@ export function GetConversationResponseFromJSONTyped(json: any, ignoreDiscrimina
         'admin': ChatAdminDetailsToJSON(value['admin']),
         'participants': value['participants'] == null ? undefined : ((value['participants'] as Array<any>).map(ConversationParticipantToJSON)),
         'scenario': ScenarioChatInfoToJSON(value['scenario']),
+        'title': value['title'],
+        'parent_conversation_id': value['parentConversationId'],
+        'root_conversation_id': value['rootConversationId'],
+        'fork_point_at': value['forkPointAt'] == null ? undefined : ((value['forkPointAt'] as any).toISOString()),
     };
 }
 

@@ -67,6 +67,8 @@ function ChatMessageDetailFromJSONTyped(json, ignoreDiscriminator) {
         'blacklist': json['blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['blacklist']),
         'speakerChatbotId': json['speaker_chatbot_id'] == null ? undefined : json['speaker_chatbot_id'],
         'userPersonaId': json['user_persona_id'] == null ? undefined : json['user_persona_id'],
+        'inherited': json['inherited'] == null ? undefined : json['inherited'],
+        'branchedFrom': json['branched_from'] == null ? undefined : json['branched_from'],
     };
 }
 function ChatMessageDetailToJSON(json) {
@@ -93,6 +95,8 @@ function ChatMessageDetailToJSONTyped(value, ignoreDiscriminator = false) {
         'blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['blacklist']),
         'speaker_chatbot_id': value['speakerChatbotId'],
         'user_persona_id': value['userPersonaId'],
+        'inherited': value['inherited'],
+        'branched_from': value['branchedFrom'],
     };
 }
 //# sourceMappingURL=ChatMessageDetail.js.map

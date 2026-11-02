@@ -38,6 +38,30 @@ export interface ConversationListItem {
      * @type {string}
      * @memberof ConversationListItem
      */
+    conversationId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    latestBranchId?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ConversationListItem
+     */
+    branchCount?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    title?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationListItem
+     */
     profilePicture: string;
     /**
      * 
@@ -123,6 +147,10 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'chatbotId': json['chatbot_id'],
+        'conversationId': json['conversation_id'] == null ? undefined : json['conversation_id'],
+        'latestBranchId': json['latest_branch_id'] == null ? undefined : json['latest_branch_id'],
+        'branchCount': json['branch_count'] == null ? undefined : json['branch_count'],
+        'title': json['title'] == null ? undefined : json['title'],
         'profilePicture': json['profile_picture'],
         'displayName': json['display_name'],
         'lastMessage': json['last_message'],
@@ -147,6 +175,10 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'chatbot_id': value['chatbotId'],
+        'conversation_id': value['conversationId'],
+        'latest_branch_id': value['latestBranchId'],
+        'branch_count': value['branchCount'],
+        'title': value['title'],
         'profile_picture': value['profilePicture'],
         'display_name': value['displayName'],
         'last_message': value['lastMessage'],

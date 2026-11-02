@@ -151,6 +151,18 @@ export interface ChatMessageDetail {
      * @memberof ChatMessageDetail
      */
     userPersonaId?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ChatMessageDetail
+     */
+    inherited?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ChatMessageDetail
+     */
+    branchedFrom?: boolean;
 }
 
 
@@ -195,6 +207,8 @@ export function ChatMessageDetailFromJSONTyped(json: any, ignoreDiscriminator: b
         'blacklist': json['blacklist'] == null ? undefined : BlacklistCardFromJSON(json['blacklist']),
         'speakerChatbotId': json['speaker_chatbot_id'] == null ? undefined : json['speaker_chatbot_id'],
         'userPersonaId': json['user_persona_id'] == null ? undefined : json['user_persona_id'],
+        'inherited': json['inherited'] == null ? undefined : json['inherited'],
+        'branchedFrom': json['branched_from'] == null ? undefined : json['branched_from'],
     };
 }
 
@@ -225,6 +239,8 @@ export function ChatMessageDetailFromJSONTyped(json: any, ignoreDiscriminator: b
         'blacklist': BlacklistCardToJSON(value['blacklist']),
         'speaker_chatbot_id': value['speakerChatbotId'],
         'user_persona_id': value['userPersonaId'],
+        'inherited': value['inherited'],
+        'branched_from': value['branchedFrom'],
     };
 }
 

@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlueprintConfigResponse, CreateElementBlueprintRequest, ElementBlueprint, ElementBlueprintKind, GetElementBlueprintsResponse, GetMentionsResponse, Persona, PutPersonaRequest, UpdateElementBlueprintRequest } from '../models/index';
+import type { BlueprintConfigResponse, CreateElementBlueprintRequest, ElementBlueprint, ElementBlueprintKind, GetElementBlueprintsResponse, GetMentionsResponse, GetReferenceImagesResponse, Persona, PostReferenceImagesResponse, PutPersonaRequest, PutWardrobeRequest, UpdateElementBlueprintRequest, Wardrobe } from '../models/index';
 export interface CreateElementBlueprintsElementsPostRequest {
     createElementBlueprintRequest: CreateElementBlueprintRequest;
 }
@@ -20,8 +20,15 @@ export interface DeleteElementBlueprintsElementsElementIdDeleteRequest {
 export interface ListElementsBlueprintsElementsGetRequest {
     kind?: ElementBlueprintKind | null;
 }
+export interface PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest {
+    chatbotId: string;
+    replace?: boolean;
+}
 export interface PutPersonaBlueprintsPersonaPutRequest {
     putPersonaRequest: PutPersonaRequest;
+}
+export interface PutPersonaWardrobeBlueprintsPersonaWardrobePutRequest {
+    putWardrobeRequest: PutWardrobeRequest;
 }
 export interface UpdateElementBlueprintsElementsElementIdPatchRequest {
     elementId: string;
@@ -72,6 +79,22 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      */
     getPersonaBlueprintsPersonaGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
     /**
+     * Get Persona Reference Images
+     */
+    getPersonaReferenceImagesBlueprintsPersonaReferenceImagesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetReferenceImagesResponse>>;
+    /**
+     * Get Persona Reference Images
+     */
+    getPersonaReferenceImagesBlueprintsPersonaReferenceImagesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetReferenceImagesResponse>;
+    /**
+     * Get Persona Wardrobe
+     */
+    getPersonaWardrobeBlueprintsPersonaWardrobeGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Wardrobe>>;
+    /**
+     * Get Persona Wardrobe
+     */
+    getPersonaWardrobeBlueprintsPersonaWardrobeGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Wardrobe>;
+    /**
      * List Elements
      */
     listElementsBlueprintsElementsGetRaw(requestParameters: ListElementsBlueprintsElementsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetElementBlueprintsResponse>>;
@@ -88,6 +111,26 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      */
     listMentionsBlueprintsMentionsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetMentionsResponse>;
     /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Persona From Character
+     */
+    personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
+    /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Persona From Character
+     */
+    personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
+    /**
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
+     * Post Persona Reference Images
+     */
+    postPersonaReferenceImagesBlueprintsPersonaReferenceImagesPostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostReferenceImagesResponse>>;
+    /**
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
+     * Post Persona Reference Images
+     */
+    postPersonaReferenceImagesBlueprintsPersonaReferenceImagesPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostReferenceImagesResponse>;
+    /**
      * Put Persona
      */
     putPersonaBlueprintsPersonaPutRaw(requestParameters: PutPersonaBlueprintsPersonaPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
@@ -95,6 +138,14 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      * Put Persona
      */
     putPersonaBlueprintsPersonaPut(requestParameters: PutPersonaBlueprintsPersonaPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
+    /**
+     * Put Persona Wardrobe
+     */
+    putPersonaWardrobeBlueprintsPersonaWardrobePutRaw(requestParameters: PutPersonaWardrobeBlueprintsPersonaWardrobePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Wardrobe>>;
+    /**
+     * Put Persona Wardrobe
+     */
+    putPersonaWardrobeBlueprintsPersonaWardrobePut(requestParameters: PutPersonaWardrobeBlueprintsPersonaWardrobePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Wardrobe>;
     /**
      * Update Element
      */

@@ -94,6 +94,12 @@ export interface Persona {
      * @type {string}
      * @memberof Persona
      */
+    thumbnailUrl?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Persona
+     */
     description: string;
     /**
      * 
@@ -161,6 +167,7 @@ export function PersonaFromJSONTyped(json: any, ignoreDiscriminator: boolean): P
         'bio': json['bio'],
         'avatarBlueprintId': json['avatar_blueprint_id'],
         'artStyle': ArtStyleFromJSON(json['art_style']),
+        'thumbnailUrl': json['thumbnail_url'] == null ? undefined : json['thumbnail_url'],
         'description': json['description'],
         'details': json['details'],
         'sentenceStyle': json['sentence_style'],
@@ -188,6 +195,7 @@ export function PersonaFromJSONTyped(json: any, ignoreDiscriminator: boolean): P
         'bio': value['bio'],
         'avatar_blueprint_id': value['avatarBlueprintId'],
         'art_style': ArtStyleToJSON(value['artStyle']),
+        'thumbnail_url': value['thumbnailUrl'],
         'description': value['description'],
         'details': value['details'],
         'sentence_style': value['sentenceStyle'],

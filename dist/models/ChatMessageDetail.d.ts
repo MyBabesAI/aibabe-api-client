@@ -116,6 +116,18 @@ export interface ChatMessageDetail {
      * @memberof ChatMessageDetail
      */
     userPersonaId?: string | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ChatMessageDetail
+     */
+    inherited?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ChatMessageDetail
+     */
+    branchedFrom?: boolean;
 }
 /**
  * Check if a given object implements the ChatMessageDetail interface.

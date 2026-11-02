@@ -21,6 +21,7 @@ import type {
   CreateAnonymousConversationRequest,
   CreateAnonymousConversationResponse,
   GetAnonymousConversationResponse,
+  GetConversationBranchesResponse,
   GetConversationMessagesResponse,
   GetConversationResponse,
   GetImageModerationPromptResponse,
@@ -30,6 +31,7 @@ import type {
   LiveRoleplaySessionResponse,
   MessageCheckResponse,
   PatchChatMessageRequest,
+  PatchConversationRequest,
   PatchImageModerationPromptRequest,
   PostAnonymousChatRequest,
   PostAnonymousChatResponse,
@@ -57,6 +59,8 @@ import {
     CreateAnonymousConversationResponseToJSON,
     GetAnonymousConversationResponseFromJSON,
     GetAnonymousConversationResponseToJSON,
+    GetConversationBranchesResponseFromJSON,
+    GetConversationBranchesResponseToJSON,
     GetConversationMessagesResponseFromJSON,
     GetConversationMessagesResponseToJSON,
     GetConversationResponseFromJSON,
@@ -75,6 +79,8 @@ import {
     MessageCheckResponseToJSON,
     PatchChatMessageRequestFromJSON,
     PatchChatMessageRequestToJSON,
+    PatchConversationRequestFromJSON,
+    PatchConversationRequestToJSON,
     PatchImageModerationPromptRequestFromJSON,
     PatchImageModerationPromptRequestToJSON,
     PostAnonymousChatRequestFromJSON,
@@ -140,6 +146,16 @@ export interface ChatSuggestionChatChatbotIdSuggestionPostRequest {
     postChatSuggestionRequest: PostChatSuggestionRequest;
 }
 
+export interface ConversationBranchesChatConversationConversationIdBranchesGetRequest {
+    conversationId: string;
+}
+
+export interface ConversationByIdChatConversationConversationIdGetRequest {
+    conversationId: string;
+    limit?: number;
+    includeAdmin?: boolean;
+}
+
 export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
     limit?: number;
@@ -169,6 +185,10 @@ export interface DeleteAnonymousConversationChatAnonymousChatbotIdDeleteRequest 
 
 export interface DeleteChatChatChatbotIdDeleteRequest {
     chatbotId: string;
+}
+
+export interface DeleteConversationByIdChatConversationConversationIdDeleteRequest {
+    conversationId: string;
 }
 
 export interface DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest {
@@ -228,6 +248,11 @@ export interface RestartScenarioChatConversationConversationIdScenarioRestartPos
 export interface SeedConversationChatChatbotIdSeedPutRequest {
     chatbotId: string;
     createAnonymousConversationRequest: CreateAnonymousConversationRequest;
+}
+
+export interface UpdateConversationChatConversationConversationIdPatchRequest {
+    conversationId: string;
+    patchConversationRequest: PatchConversationRequest;
 }
 
 export interface UpdateConversationSettingsChatConversationConversationIdSettingsPatchRequest {
@@ -549,6 +574,82 @@ export class ChatApi extends runtime.BaseAPI {
     }
 
     /**
+     * Conversation Branches
+     */
+    async conversationBranchesChatConversationConversationIdBranchesGetRaw(requestParameters: ConversationBranchesChatConversationConversationIdBranchesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationBranchesResponse>> {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError(
+                'conversationId',
+                'Required parameter "conversationId" was null or undefined when calling conversationBranchesChatConversationConversationIdBranchesGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/branches`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetConversationBranchesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Conversation Branches
+     */
+    async conversationBranchesChatConversationConversationIdBranchesGet(requestParameters: ConversationBranchesChatConversationConversationIdBranchesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationBranchesResponse> {
+        const response = await this.conversationBranchesChatConversationConversationIdBranchesGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * Conversation By Id
+     */
+    async conversationByIdChatConversationConversationIdGetRaw(requestParameters: ConversationByIdChatConversationConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationResponse>> {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError(
+                'conversationId',
+                'Required parameter "conversationId" was null or undefined when calling conversationByIdChatConversationConversationIdGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['includeAdmin'] != null) {
+            queryParameters['include_admin'] = requestParameters['includeAdmin'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetConversationResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * Conversation By Id
+     */
+    async conversationByIdChatConversationConversationIdGet(requestParameters: ConversationByIdChatConversationConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationResponse> {
+        const response = await this.conversationByIdChatConversationConversationIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Conversation
      */
     async conversationChatChatbotIdGetRaw(requestParameters: ConversationChatChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationResponse>> {
@@ -782,6 +883,45 @@ export class ChatApi extends runtime.BaseAPI {
      */
     async deleteChatChatChatbotIdDelete(requestParameters: DeleteChatChatChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.deleteChatChatChatbotIdDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Deletes the conversation with every branch under it; the root takes its whole tree (the branch list carries descendant_count for the confirmation).
+     * Delete Conversation By Id
+     */
+    async deleteConversationByIdChatConversationConversationIdDeleteRaw(requestParameters: DeleteConversationByIdChatConversationConversationIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError(
+                'conversationId',
+                'Required parameter "conversationId" was null or undefined when calling deleteConversationByIdChatConversationConversationIdDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Deletes the conversation with every branch under it; the root takes its whole tree (the branch list carries descendant_count for the confirmation).
+     * Delete Conversation By Id
+     */
+    async deleteConversationByIdChatConversationConversationIdDelete(requestParameters: DeleteConversationByIdChatConversationConversationIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.deleteConversationByIdChatConversationConversationIdDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -1212,6 +1352,7 @@ export class ChatApi extends runtime.BaseAPI {
     }
 
     /**
+     * Back to the greeting. A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     async resetConversationChatConversationConversationIdResetPostRaw(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -1241,6 +1382,7 @@ export class ChatApi extends runtime.BaseAPI {
     }
 
     /**
+     * Back to the greeting. A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     async resetConversationChatConversationConversationIdResetPost(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
@@ -1335,6 +1477,55 @@ export class ChatApi extends runtime.BaseAPI {
      */
     async seedConversationChatChatbotIdSeedPut(requestParameters: SeedConversationChatChatbotIdSeedPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedConversationResponse> {
         const response = await this.seedConversationChatChatbotIdSeedPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Update Conversation
+     */
+    async updateConversationChatConversationConversationIdPatchRaw(requestParameters: UpdateConversationChatConversationConversationIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError(
+                'conversationId',
+                'Required parameter "conversationId" was null or undefined when calling updateConversationChatConversationConversationIdPatch().'
+            );
+        }
+
+        if (requestParameters['patchConversationRequest'] == null) {
+            throw new runtime.RequiredError(
+                'patchConversationRequest',
+                'Required parameter "patchConversationRequest" was null or undefined when calling updateConversationChatConversationConversationIdPatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchConversationRequestToJSON(requestParameters['patchConversationRequest']),
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Update Conversation
+     */
+    async updateConversationChatConversationConversationIdPatch(requestParameters: UpdateConversationChatConversationConversationIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.updateConversationChatConversationConversationIdPatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

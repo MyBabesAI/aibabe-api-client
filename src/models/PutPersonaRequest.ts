@@ -96,6 +96,12 @@ export interface PutPersonaRequest {
      * @memberof PutPersonaRequest
      */
     artStyle?: ArtStyle | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PutPersonaRequest
+     */
+    portraitPictureId?: string | null;
 }
 
 
@@ -126,6 +132,7 @@ export function PutPersonaRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         'appearance': json['appearance'] == null ? undefined : PersonaAppearanceFromJSON(json['appearance']),
         'description': json['description'] == null ? undefined : json['description'],
         'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
+        'portraitPictureId': json['portrait_picture_id'] == null ? undefined : json['portrait_picture_id'],
     };
 }
 
@@ -148,6 +155,7 @@ export function PutPersonaRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         'appearance': PersonaAppearanceToJSON(value['appearance']),
         'description': value['description'],
         'art_style': ArtStyleToJSON(value['artStyle']),
+        'portrait_picture_id': value['portraitPictureId'],
     };
 }
 

@@ -12,6 +12,7 @@
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import type { VideoLoraName } from './VideoLoraName';
 import type { ImageToVideoModel } from './ImageToVideoModel';
+import type { MentionCandidate } from './MentionCandidate';
 /**
  *
  * @export
@@ -72,6 +73,12 @@ export interface GetVideoGenerationTagsResponse {
      * @memberof GetVideoGenerationTagsResponse
      */
     cropOffset?: number | null;
+    /**
+     *
+     * @type {Array<MentionCandidate>}
+     * @memberof GetVideoGenerationTagsResponse
+     */
+    mentions?: Array<MentionCandidate>;
 }
 /**
  * Check if a given object implements the GetVideoGenerationTagsResponse interface.

@@ -351,6 +351,54 @@ class ChatbotApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Get Custom Chatbot Reference Images
+     */
+    async getCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling getCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chatbot/custom/{chatbot_id}/reference-images`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetReferenceImagesResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get Custom Chatbot Reference Images
+     */
+    async getCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesGet(requestParameters, initOverrides) {
+        const response = await this.getCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Get Custom Chatbot Wardrobe
+     */
+    async getCustomChatbotWardrobeChatbotCustomChatbotIdWardrobeGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling getCustomChatbotWardrobeChatbotCustomChatbotIdWardrobeGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chatbot/custom/{chatbot_id}/wardrobe`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.WardrobeFromJSON)(jsonValue));
+    }
+    /**
+     * Get Custom Chatbot Wardrobe
+     */
+    async getCustomChatbotWardrobeChatbotCustomChatbotIdWardrobeGet(requestParameters, initOverrides) {
+        const response = await this.getCustomChatbotWardrobeChatbotCustomChatbotIdWardrobeGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Get Identity
      */
     async getIdentityChatbotAdvancedIdentityGetRaw(requestParameters, initOverrides) {
@@ -561,6 +609,32 @@ class ChatbotApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
+     * Post Custom Chatbot Reference Images
+     */
+    async postCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling postCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chatbot/custom/{chatbot_id}/reference-images`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostReferenceImagesResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
+     * Post Custom Chatbot Reference Images
+     */
+    async postCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPost(requestParameters, initOverrides) {
+        const response = await this.postCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Post Identity
      */
     async postIdentityChatbotAdvancedIdentityPostRaw(requestParameters, initOverrides) {
@@ -584,6 +658,34 @@ class ChatbotApi extends runtime.BaseAPI {
      */
     async postIdentityChatbotAdvancedIdentityPost(requestParameters, initOverrides) {
         const response = await this.postIdentityChatbotAdvancedIdentityPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * What the builder would make of the look text: the moderation verdict, the structured looks and the compiled prompts, with nothing written to the draft and no attempt spent. The review and the tag pass are LLM calls, hence the per-user rate limit.
+     * Post Identity Preview
+     */
+    async postIdentityPreviewChatbotAdvancedIdentityPreviewPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['postIdentityPreviewRequest'] == null) {
+            throw new runtime.RequiredError('postIdentityPreviewRequest', 'Required parameter "postIdentityPreviewRequest" was null or undefined when calling postIdentityPreviewChatbotAdvancedIdentityPreviewPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chatbot/advanced/identity-preview`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostIdentityPreviewRequestToJSON)(requestParameters['postIdentityPreviewRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.IdentityPreviewResponseFromJSON)(jsonValue));
+    }
+    /**
+     * What the builder would make of the look text: the moderation verdict, the structured looks and the compiled prompts, with nothing written to the draft and no attempt spent. The review and the tag pass are LLM calls, hence the per-user rate limit.
+     * Post Identity Preview
+     */
+    async postIdentityPreviewChatbotAdvancedIdentityPreviewPost(requestParameters, initOverrides) {
+        const response = await this.postIdentityPreviewChatbotAdvancedIdentityPreviewPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
@@ -662,6 +764,35 @@ class ChatbotApi extends runtime.BaseAPI {
      */
     async publishAdvancedChatbotChatbotAdvancedPublishPost(requestParameters, initOverrides) {
         const response = await this.publishAdvancedChatbotChatbotAdvancedPublishPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Put Custom Chatbot Wardrobe
+     */
+    async putCustomChatbotWardrobeChatbotCustomChatbotIdWardrobePutRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling putCustomChatbotWardrobeChatbotCustomChatbotIdWardrobePut().');
+        }
+        if (requestParameters['putWardrobeRequest'] == null) {
+            throw new runtime.RequiredError('putWardrobeRequest', 'Required parameter "putWardrobeRequest" was null or undefined when calling putCustomChatbotWardrobeChatbotCustomChatbotIdWardrobePut().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chatbot/custom/{chatbot_id}/wardrobe`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PutWardrobeRequestToJSON)(requestParameters['putWardrobeRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.WardrobeFromJSON)(jsonValue));
+    }
+    /**
+     * Put Custom Chatbot Wardrobe
+     */
+    async putCustomChatbotWardrobeChatbotCustomChatbotIdWardrobePut(requestParameters, initOverrides) {
+        const response = await this.putCustomChatbotWardrobeChatbotCustomChatbotIdWardrobePutRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ChatForkConfig } from './ChatForkConfig';
+import {
+    ChatForkConfigFromJSON,
+    ChatForkConfigFromJSONTyped,
+    ChatForkConfigToJSON,
+    ChatForkConfigToJSONTyped,
+} from './ChatForkConfig';
 import type { ChatCastConfig } from './ChatCastConfig';
 import {
     ChatCastConfigFromJSON,
@@ -52,6 +59,12 @@ export interface ChatConfigResponse {
      * @memberof ChatConfigResponse
      */
     cast: ChatCastConfig;
+    /**
+     * 
+     * @type {ChatForkConfig}
+     * @memberof ChatConfigResponse
+     */
+    forks: ChatForkConfig;
 }
 
 /**
@@ -61,6 +74,7 @@ export function instanceOfChatConfigResponse(value: object): value is ChatConfig
     if (!('defaultPrice' in value) || value['defaultPrice'] === undefined) return false;
     if (!('modelPrices' in value) || value['modelPrices'] === undefined) return false;
     if (!('cast' in value) || value['cast'] === undefined) return false;
+    if (!('forks' in value) || value['forks'] === undefined) return false;
     return true;
 }
 
@@ -77,6 +91,7 @@ export function ChatConfigResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         'defaultPrice': TokenPriceConfigFromJSON(json['default_price']),
         'modelPrices': (mapValues(json['model_prices'], TokenPriceConfigFromJSON)),
         'cast': ChatCastConfigFromJSON(json['cast']),
+        'forks': ChatForkConfigFromJSON(json['forks']),
     };
 }
 
@@ -94,6 +109,7 @@ export function ChatConfigResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         'default_price': TokenPriceConfigToJSON(value['defaultPrice']),
         'model_prices': (mapValues(value['modelPrices'], TokenPriceConfigToJSON)),
         'cast': ChatCastConfigToJSON(value['cast']),
+        'forks': ChatForkConfigToJSON(value['forks']),
     };
 }
 

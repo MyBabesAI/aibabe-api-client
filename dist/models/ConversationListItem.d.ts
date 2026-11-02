@@ -27,6 +27,30 @@ export interface ConversationListItem {
      * @type {string}
      * @memberof ConversationListItem
      */
+    conversationId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    latestBranchId?: string | null;
+    /**
+     *
+     * @type {number}
+     * @memberof ConversationListItem
+     */
+    branchCount?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    title?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationListItem
+     */
     profilePicture: string;
     /**
      *

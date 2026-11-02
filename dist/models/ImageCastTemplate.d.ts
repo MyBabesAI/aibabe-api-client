@@ -67,6 +67,12 @@ export interface ImageCastTemplate {
     withYou?: boolean;
     /**
      *
+     * @type {Gender}
+     * @memberof ImageCastTemplate
+     */
+    youGender?: Gender;
+    /**
+     *
      * @type {string}
      * @memberof ImageCastTemplate
      */

@@ -21,6 +21,7 @@ exports.GetVideoGenerationTagsResponseToJSONTyped = GetVideoGenerationTagsRespon
 const VideoAspectRatio_1 = require("./VideoAspectRatio");
 const VideoLoraName_1 = require("./VideoLoraName");
 const ImageToVideoModel_1 = require("./ImageToVideoModel");
+const MentionCandidate_1 = require("./MentionCandidate");
 /**
  * Check if a given object implements the GetVideoGenerationTagsResponse interface.
  */
@@ -58,6 +59,7 @@ function GetVideoGenerationTagsResponseFromJSONTyped(json, ignoreDiscriminator) 
         'model': (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, VideoAspectRatio_1.VideoAspectRatioFromJSON)(json['aspect_ratio']),
         'cropOffset': json['crop_offset'] == null ? undefined : json['crop_offset'],
+        'mentions': json['mentions'] == null ? undefined : (json['mentions'].map(MentionCandidate_1.MentionCandidateFromJSON)),
     };
 }
 function GetVideoGenerationTagsResponseToJSON(json) {
@@ -77,6 +79,7 @@ function GetVideoGenerationTagsResponseToJSONTyped(value, ignoreDiscriminator = 
         'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
         'aspect_ratio': (0, VideoAspectRatio_1.VideoAspectRatioToJSON)(value['aspectRatio']),
         'crop_offset': value['cropOffset'],
+        'mentions': value['mentions'] == null ? undefined : (value['mentions'].map(MentionCandidate_1.MentionCandidateToJSON)),
     };
 }
 //# sourceMappingURL=GetVideoGenerationTagsResponse.js.map

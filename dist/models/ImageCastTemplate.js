@@ -50,6 +50,7 @@ function ImageCastTemplateFromJSONTyped(json, ignoreDiscriminator) {
         'explicit': json['explicit'] == null ? undefined : json['explicit'],
         'gender': json['gender'] == null ? undefined : (0, Gender_1.GenderFromJSON)(json['gender']),
         'withYou': json['with_you'] == null ? undefined : json['with_you'],
+        'youGender': json['you_gender'] == null ? undefined : (0, Gender_1.GenderFromJSON)(json['you_gender']),
         'url': json['url'] == null ? undefined : json['url'],
     };
 }
@@ -69,6 +70,7 @@ function ImageCastTemplateToJSONTyped(value, ignoreDiscriminator = false) {
         'explicit': value['explicit'],
         'gender': (0, Gender_1.GenderToJSON)(value['gender']),
         'with_you': value['withYou'],
+        'you_gender': (0, Gender_1.GenderToJSON)(value['youGender']),
         'url': value['url'],
     };
 }

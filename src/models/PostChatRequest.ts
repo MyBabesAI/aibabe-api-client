@@ -69,6 +69,12 @@ export interface PostChatRequest {
      * @memberof PostChatRequest
      */
     chatMode?: ChatMode | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostChatRequest
+     */
+    forkFromMessageId?: string | null;
 }
 
 
@@ -101,6 +107,7 @@ export function PostChatRequestFromJSONTyped(json: any, ignoreDiscriminator: boo
         'conversationId': json['conversation_id'],
         'onlyImage': json['only_image'] == null ? undefined : json['only_image'],
         'chatMode': json['chat_mode'] == null ? undefined : ChatModeFromJSON(json['chat_mode']),
+        'forkFromMessageId': json['fork_from_message_id'] == null ? undefined : json['fork_from_message_id'],
     };
 }
 
@@ -122,6 +129,7 @@ export function PostChatRequestFromJSONTyped(json: any, ignoreDiscriminator: boo
         'conversation_id': value['conversationId'],
         'only_image': value['onlyImage'],
         'chat_mode': ChatModeToJSON(value['chatMode']),
+        'fork_from_message_id': value['forkFromMessageId'],
     };
 }
 

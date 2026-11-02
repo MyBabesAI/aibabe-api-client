@@ -165,6 +165,48 @@ class BlueprintsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Get Persona Reference Images
+     */
+    async getPersonaReferenceImagesBlueprintsPersonaReferenceImagesGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/blueprints/persona/reference-images`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetReferenceImagesResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Get Persona Reference Images
+     */
+    async getPersonaReferenceImagesBlueprintsPersonaReferenceImagesGet(initOverrides) {
+        const response = await this.getPersonaReferenceImagesBlueprintsPersonaReferenceImagesGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
+     * Get Persona Wardrobe
+     */
+    async getPersonaWardrobeBlueprintsPersonaWardrobeGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/blueprints/persona/wardrobe`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.WardrobeFromJSON)(jsonValue));
+    }
+    /**
+     * Get Persona Wardrobe
+     */
+    async getPersonaWardrobeBlueprintsPersonaWardrobeGet(initOverrides) {
+        const response = await this.getPersonaWardrobeBlueprintsPersonaWardrobeGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * List Elements
      */
     async listElementsBlueprintsElementsGetRaw(requestParameters, initOverrides) {
@@ -210,6 +252,58 @@ class BlueprintsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Persona From Character
+     */
+    async personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling personaFromCharacterBlueprintsPersonaFromChatbotIdPost().');
+        }
+        const queryParameters = {};
+        if (requestParameters['replace'] != null) {
+            queryParameters['replace'] = requestParameters['replace'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/blueprints/persona/from/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PersonaFromJSON)(jsonValue));
+    }
+    /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Persona From Character
+     */
+    async personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters, initOverrides) {
+        const response = await this.personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
+     * Post Persona Reference Images
+     */
+    async postPersonaReferenceImagesBlueprintsPersonaReferenceImagesPostRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/blueprints/persona/reference-images`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostReferenceImagesResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
+     * Post Persona Reference Images
+     */
+    async postPersonaReferenceImagesBlueprintsPersonaReferenceImagesPost(initOverrides) {
+        const response = await this.postPersonaReferenceImagesBlueprintsPersonaReferenceImagesPostRaw(initOverrides);
+        return await response.value();
+    }
+    /**
      * Put Persona
      */
     async putPersonaBlueprintsPersonaPutRaw(requestParameters, initOverrides) {
@@ -233,6 +327,32 @@ class BlueprintsApi extends runtime.BaseAPI {
      */
     async putPersonaBlueprintsPersonaPut(requestParameters, initOverrides) {
         const response = await this.putPersonaBlueprintsPersonaPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Put Persona Wardrobe
+     */
+    async putPersonaWardrobeBlueprintsPersonaWardrobePutRaw(requestParameters, initOverrides) {
+        if (requestParameters['putWardrobeRequest'] == null) {
+            throw new runtime.RequiredError('putWardrobeRequest', 'Required parameter "putWardrobeRequest" was null or undefined when calling putPersonaWardrobeBlueprintsPersonaWardrobePut().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/blueprints/persona/wardrobe`,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PutWardrobeRequestToJSON)(requestParameters['putWardrobeRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.WardrobeFromJSON)(jsonValue));
+    }
+    /**
+     * Put Persona Wardrobe
+     */
+    async putPersonaWardrobeBlueprintsPersonaWardrobePut(requestParameters, initOverrides) {
+        const response = await this.putPersonaWardrobeBlueprintsPersonaWardrobePutRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

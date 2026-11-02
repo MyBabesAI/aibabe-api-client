@@ -259,6 +259,62 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Conversation Branches
+     */
+    async conversationBranchesChatConversationConversationIdBranchesGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling conversationBranchesChatConversationConversationIdBranchesGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/branches`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationBranchesResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Conversation Branches
+     */
+    async conversationBranchesChatConversationConversationIdBranchesGet(requestParameters, initOverrides) {
+        const response = await this.conversationBranchesChatConversationConversationIdBranchesGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * Conversation By Id
+     */
+    async conversationByIdChatConversationConversationIdGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling conversationByIdChatConversationConversationIdGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        if (requestParameters['includeAdmin'] != null) {
+            queryParameters['include_admin'] = requestParameters['includeAdmin'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationResponseFromJSON)(jsonValue));
+    }
+    /**
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * Conversation By Id
+     */
+    async conversationByIdChatConversationConversationIdGet(requestParameters, initOverrides) {
+        const response = await this.conversationByIdChatConversationConversationIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Conversation
      */
     async conversationChatChatbotIdGetRaw(requestParameters, initOverrides) {
@@ -429,6 +485,37 @@ class ChatApi extends runtime.BaseAPI {
      */
     async deleteChatChatChatbotIdDelete(requestParameters, initOverrides) {
         const response = await this.deleteChatChatChatbotIdDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Deletes the conversation with every branch under it; the root takes its whole tree (the branch list carries descendant_count for the confirmation).
+     * Delete Conversation By Id
+     */
+    async deleteConversationByIdChatConversationConversationIdDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling deleteConversationByIdChatConversationConversationIdDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Deletes the conversation with every branch under it; the root takes its whole tree (the branch list carries descendant_count for the confirmation).
+     * Delete Conversation By Id
+     */
+    async deleteConversationByIdChatConversationConversationIdDelete(requestParameters, initOverrides) {
+        const response = await this.deleteConversationByIdChatConversationConversationIdDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
@@ -735,6 +822,7 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Back to the greeting. A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     async resetConversationChatConversationConversationIdResetPostRaw(requestParameters, initOverrides) {
@@ -757,6 +845,7 @@ class ChatApi extends runtime.BaseAPI {
         }
     }
     /**
+     * Back to the greeting. A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     async resetConversationChatConversationConversationIdResetPost(requestParameters, initOverrides) {
@@ -823,6 +912,42 @@ class ChatApi extends runtime.BaseAPI {
      */
     async seedConversationChatChatbotIdSeedPut(requestParameters, initOverrides) {
         const response = await this.seedConversationChatChatbotIdSeedPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Update Conversation
+     */
+    async updateConversationChatConversationConversationIdPatchRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling updateConversationChatConversationConversationIdPatch().');
+        }
+        if (requestParameters['patchConversationRequest'] == null) {
+            throw new runtime.RequiredError('patchConversationRequest', 'Required parameter "patchConversationRequest" was null or undefined when calling updateConversationChatConversationConversationIdPatch().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PatchConversationRequestToJSON)(requestParameters['patchConversationRequest']),
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Update Conversation
+     */
+    async updateConversationChatConversationConversationIdPatch(requestParameters, initOverrides) {
+        const response = await this.updateConversationChatConversationConversationIdPatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

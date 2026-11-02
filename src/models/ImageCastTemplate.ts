@@ -84,6 +84,12 @@ export interface ImageCastTemplate {
     withYou?: boolean;
     /**
      * 
+     * @type {Gender}
+     * @memberof ImageCastTemplate
+     */
+    youGender?: Gender;
+    /**
+     * 
      * @type {string}
      * @memberof ImageCastTemplate
      */
@@ -121,6 +127,7 @@ export function ImageCastTemplateFromJSONTyped(json: any, ignoreDiscriminator: b
         'explicit': json['explicit'] == null ? undefined : json['explicit'],
         'gender': json['gender'] == null ? undefined : GenderFromJSON(json['gender']),
         'withYou': json['with_you'] == null ? undefined : json['with_you'],
+        'youGender': json['you_gender'] == null ? undefined : GenderFromJSON(json['you_gender']),
         'url': json['url'] == null ? undefined : json['url'],
     };
 }
@@ -144,6 +151,7 @@ export function ImageCastTemplateFromJSONTyped(json: any, ignoreDiscriminator: b
         'explicit': value['explicit'],
         'gender': GenderToJSON(value['gender']),
         'with_you': value['withYou'],
+        'you_gender': GenderToJSON(value['youGender']),
         'url': value['url'],
     };
 }

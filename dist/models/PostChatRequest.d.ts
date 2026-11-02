@@ -58,6 +58,12 @@ export interface PostChatRequest {
      * @memberof PostChatRequest
      */
     chatMode?: ChatMode | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PostChatRequest
+     */
+    forkFromMessageId?: string | null;
 }
 /**
  * Check if a given object implements the PostChatRequest interface.

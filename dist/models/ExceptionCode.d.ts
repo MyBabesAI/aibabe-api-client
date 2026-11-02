@@ -69,6 +69,12 @@ export declare const ExceptionCode: {
     readonly ConversationUpdateNonOwnedForbidden: "conversation_update_non_owned_forbidden";
     readonly ConversationResetNonOwnedForbidden: "conversation_reset_non_owned_forbidden";
     readonly ConversationMemoryNotFound: "conversation_memory_not_found";
+    readonly ConversationForkMessageNotFound: "conversation_fork_message_not_found";
+    readonly ConversationForkDepthExceeded: "conversation_fork_depth_exceeded";
+    readonly ConversationBranchLimitReached: "conversation_branch_limit_reached";
+    readonly ConversationMessageNotLast: "conversation_message_not_last";
+    readonly ConversationMessageInherited: "conversation_message_inherited";
+    readonly ConversationHasBranches: "conversation_has_branches";
     readonly AssistantChatSessionNotFound: "assistant_chat_session_not_found";
     readonly MessageNotFound: "message_not_found";
     readonly PinnedMemoryNotFound: "pinned_memory_not_found";
@@ -181,6 +187,8 @@ export declare const ExceptionCode: {
     readonly VideoReferenceRolesMismatch: "video_reference_roles_mismatch";
     readonly VideoReferenceBabeNotOwnPicture: "video_reference_babe_not_own_picture";
     readonly VideoReferenceRoleRepeated: "video_reference_role_repeated";
+    readonly VideoMentionKindUnsupported: "video_mention_kind_unsupported";
+    readonly VideoMentionWithoutPicture: "video_mention_without_picture";
     readonly SelfPhotoUnreadable: "self_photo_unreadable";
     readonly ImagenModelSingleCharacter: "imagen_model_single_character";
     readonly ImagenTooManyCharacters: "imagen_too_many_characters";
@@ -190,6 +198,7 @@ export declare const ExceptionCode: {
     readonly ImageGenerationLimitReached: "image_generation_limit_reached";
     readonly GenerationTagsNotFound: "generation_tags_not_found";
     readonly OriginalImageNotFound: "original_image_not_found";
+    readonly TrendNeedsPersona: "trend_needs_persona";
     readonly TrendNotFound: "trend_not_found";
     readonly TrendCategoryNotFound: "trend_category_not_found";
     readonly TrendCategorySlugConflict: "trend_category_slug_conflict";
@@ -328,6 +337,8 @@ export declare const ExceptionCode: {
     readonly BlueprintNotFound: "blueprint_not_found";
     readonly BlueprintNotOwned: "blueprint_not_owned";
     readonly BlueprintOutfitMemberInvalid: "blueprint_outfit_member_invalid";
+    readonly WardrobeItemInvalid: "wardrobe_item_invalid";
+    readonly IdentityPreviewRateLimited: "identity_preview_rate_limited";
     readonly ImageSubjectLimitExceeded: "image_subject_limit_exceeded";
     readonly ImageCastRequiresSentenceStyle: "image_cast_requires_sentence_style";
     readonly ChatbotRequiresSentenceStyle: "chatbot_requires_sentence_style";
@@ -343,6 +354,8 @@ export declare const ExceptionCode: {
     readonly ScenarioChatNotFound: "scenario_chat_not_found";
     readonly ScenarioUpToDate: "scenario_up_to_date";
     readonly PersonaNotFound: "persona_not_found";
+    readonly PersonaExists: "persona_exists";
+    readonly PersonaSourceNotOwn: "persona_source_not_own";
 };
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 export declare function instanceOfExceptionCode(value: any): boolean;

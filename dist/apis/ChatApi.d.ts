@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatConfigResponse, ChatReponse, ConversationParticipant, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
+import type { ChatConfigResponse, ChatReponse, ConversationParticipant, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
 export interface AddParticipantChatConversationConversationIdParticipantsPostRequest {
     conversationId: string;
     postConversationParticipantRequest: PostConversationParticipantRequest;
@@ -41,6 +41,14 @@ export interface ChatSuggestionChatChatbotIdSuggestionPostRequest {
     chatbotId: string;
     postChatSuggestionRequest: PostChatSuggestionRequest;
 }
+export interface ConversationBranchesChatConversationConversationIdBranchesGetRequest {
+    conversationId: string;
+}
+export interface ConversationByIdChatConversationConversationIdGetRequest {
+    conversationId: string;
+    limit?: number;
+    includeAdmin?: boolean;
+}
 export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
     limit?: number;
@@ -65,6 +73,9 @@ export interface DeleteAnonymousConversationChatAnonymousChatbotIdDeleteRequest 
 }
 export interface DeleteChatChatChatbotIdDeleteRequest {
     chatbotId: string;
+}
+export interface DeleteConversationByIdChatConversationConversationIdDeleteRequest {
+    conversationId: string;
 }
 export interface DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest {
     chatbotId: string;
@@ -112,6 +123,10 @@ export interface RestartScenarioChatConversationConversationIdScenarioRestartPos
 export interface SeedConversationChatChatbotIdSeedPutRequest {
     chatbotId: string;
     createAnonymousConversationRequest: CreateAnonymousConversationRequest;
+}
+export interface UpdateConversationChatConversationConversationIdPatchRequest {
+    conversationId: string;
+    patchConversationRequest: PatchConversationRequest;
 }
 export interface UpdateConversationSettingsChatConversationConversationIdSettingsPatchRequest {
     conversationId: string;
@@ -187,6 +202,24 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     chatSuggestionChatChatbotIdSuggestionPost(requestParameters: ChatSuggestionChatChatbotIdSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse>;
     /**
+     * Conversation Branches
+     */
+    conversationBranchesChatConversationConversationIdBranchesGetRaw(requestParameters: ConversationBranchesChatConversationConversationIdBranchesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationBranchesResponse>>;
+    /**
+     * Conversation Branches
+     */
+    conversationBranchesChatConversationConversationIdBranchesGet(requestParameters: ConversationBranchesChatConversationConversationIdBranchesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationBranchesResponse>;
+    /**
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * Conversation By Id
+     */
+    conversationByIdChatConversationConversationIdGetRaw(requestParameters: ConversationByIdChatConversationConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationResponse>>;
+    /**
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * Conversation By Id
+     */
+    conversationByIdChatConversationConversationIdGet(requestParameters: ConversationByIdChatConversationConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationResponse>;
+    /**
      * Conversation
      */
     conversationChatChatbotIdGetRaw(requestParameters: ConversationChatChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationResponse>>;
@@ -236,6 +269,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Delete Chat
      */
     deleteChatChatChatbotIdDelete(requestParameters: DeleteChatChatChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Deletes the conversation with every branch under it; the root takes its whole tree (the branch list carries descendant_count for the confirmation).
+     * Delete Conversation By Id
+     */
+    deleteConversationByIdChatConversationConversationIdDeleteRaw(requestParameters: DeleteConversationByIdChatConversationConversationIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Deletes the conversation with every branch under it; the root takes its whole tree (the branch list carries descendant_count for the confirmation).
+     * Delete Conversation By Id
+     */
+    deleteConversationByIdChatConversationConversationIdDelete(requestParameters: DeleteConversationByIdChatConversationConversationIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards. Not counted against the per-IP burst limit: that limit paces reply generation, and a restart generates nothing, so resetting a whole series episode by episode must not eat into the replies that follow.
      * Delete Live Roleplay Conversation
@@ -333,10 +376,12 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     removeParticipantChatConversationConversationIdParticipantsChatbotIdDelete(requestParameters: RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ConversationParticipant>>;
     /**
+     * Back to the greeting. A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     resetConversationChatConversationConversationIdResetPostRaw(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
     /**
+     * Back to the greeting. A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     resetConversationChatConversationConversationIdResetPost(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
@@ -360,6 +405,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Seed Conversation
      */
     seedConversationChatChatbotIdSeedPut(requestParameters: SeedConversationChatChatbotIdSeedPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedConversationResponse>;
+    /**
+     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Update Conversation
+     */
+    updateConversationChatConversationConversationIdPatchRaw(requestParameters: UpdateConversationChatConversationConversationIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Update Conversation
+     */
+    updateConversationChatConversationConversationIdPatch(requestParameters: UpdateConversationChatConversationConversationIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Update Conversation Settings
      */

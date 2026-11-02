@@ -11,6 +11,7 @@
  */
 import type { VideoReferenceImage } from './VideoReferenceImage';
 import type { VideoShot } from './VideoShot';
+import type { BlueprintRef } from './BlueprintRef';
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import type { VideoLoraName } from './VideoLoraName';
 /**
@@ -73,6 +74,12 @@ export interface ImageToVideoRequest {
      * @memberof ImageToVideoRequest
      */
     inputImageRoles?: Array<VideoReferenceImage> | null;
+    /**
+     *
+     * @type {Array<BlueprintRef>}
+     * @memberof ImageToVideoRequest
+     */
+    mentions?: Array<BlueprintRef>;
     /**
      *
      * @type {string}

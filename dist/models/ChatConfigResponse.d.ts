@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ChatForkConfig } from './ChatForkConfig';
 import type { ChatCastConfig } from './ChatCastConfig';
 import type { TokenPriceConfig } from './TokenPriceConfig';
 /**
@@ -37,6 +38,12 @@ export interface ChatConfigResponse {
      * @memberof ChatConfigResponse
      */
     cast: ChatCastConfig;
+    /**
+     *
+     * @type {ChatForkConfig}
+     * @memberof ChatConfigResponse
+     */
+    forks: ChatForkConfig;
 }
 /**
  * Check if a given object implements the ChatConfigResponse interface.

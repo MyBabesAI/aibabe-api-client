@@ -27,6 +27,13 @@ import {
     VideoShotToJSON,
     VideoShotToJSONTyped,
 } from './VideoShot';
+import type { BlueprintRef } from './BlueprintRef';
+import {
+    BlueprintRefFromJSON,
+    BlueprintRefFromJSONTyped,
+    BlueprintRefToJSON,
+    BlueprintRefToJSONTyped,
+} from './BlueprintRef';
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import {
     VideoAspectRatioFromJSON,
@@ -102,6 +109,12 @@ export interface ImageToVideoRequest {
      * @memberof ImageToVideoRequest
      */
     inputImageRoles?: Array<VideoReferenceImage> | null;
+    /**
+     * 
+     * @type {Array<BlueprintRef>}
+     * @memberof ImageToVideoRequest
+     */
+    mentions?: Array<BlueprintRef>;
     /**
      * 
      * @type {string}
@@ -234,6 +247,7 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'inputImageId': json['input_image_id'],
         'inputImageIds': json['input_image_ids'] == null ? undefined : json['input_image_ids'],
         'inputImageRoles': json['input_image_roles'] == null ? undefined : ((json['input_image_roles'] as Array<any>).map(VideoReferenceImageFromJSON)),
+        'mentions': json['mentions'] == null ? undefined : ((json['mentions'] as Array<any>).map(BlueprintRefFromJSON)),
         'resolution': json['resolution'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(VideoLoraNameFromJSON)),
         'negativePrompt': json['negative_prompt'] == null ? undefined : json['negative_prompt'],
@@ -268,6 +282,7 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'input_image_id': value['inputImageId'],
         'input_image_ids': value['inputImageIds'],
         'input_image_roles': value['inputImageRoles'] == null ? undefined : ((value['inputImageRoles'] as Array<any>).map(VideoReferenceImageToJSON)),
+        'mentions': value['mentions'] == null ? undefined : ((value['mentions'] as Array<any>).map(BlueprintRefToJSON)),
         'resolution': value['resolution'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(VideoLoraNameToJSON)),
         'negative_prompt': value['negativePrompt'],

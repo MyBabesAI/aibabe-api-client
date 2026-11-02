@@ -63,6 +63,10 @@ function GetAnonymousConversationResponseFromJSONTyped(json, ignoreDiscriminator
         'admin': json['admin'] == null ? undefined : (0, ChatAdminDetails_1.ChatAdminDetailsFromJSON)(json['admin']),
         'participants': json['participants'] == null ? undefined : (json['participants'].map(ConversationParticipant_1.ConversationParticipantFromJSON)),
         'scenario': json['scenario'] == null ? undefined : (0, ScenarioChatInfo_1.ScenarioChatInfoFromJSON)(json['scenario']),
+        'title': json['title'] == null ? undefined : json['title'],
+        'parentConversationId': json['parent_conversation_id'] == null ? undefined : json['parent_conversation_id'],
+        'rootConversationId': json['root_conversation_id'] == null ? undefined : json['root_conversation_id'],
+        'forkPointAt': json['fork_point_at'] == null ? undefined : (new Date(json['fork_point_at'])),
         'recipientId': json['recipient_id'],
     };
 }
@@ -84,6 +88,10 @@ function GetAnonymousConversationResponseToJSONTyped(value, ignoreDiscriminator 
         'admin': (0, ChatAdminDetails_1.ChatAdminDetailsToJSON)(value['admin']),
         'participants': value['participants'] == null ? undefined : (value['participants'].map(ConversationParticipant_1.ConversationParticipantToJSON)),
         'scenario': (0, ScenarioChatInfo_1.ScenarioChatInfoToJSON)(value['scenario']),
+        'title': value['title'],
+        'parent_conversation_id': value['parentConversationId'],
+        'root_conversation_id': value['rootConversationId'],
+        'fork_point_at': value['forkPointAt'] == null ? undefined : (value['forkPointAt'].toISOString()),
         'recipient_id': value['recipientId'],
     };
 }

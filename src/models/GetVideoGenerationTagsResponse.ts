@@ -34,6 +34,13 @@ import {
     ImageToVideoModelToJSON,
     ImageToVideoModelToJSONTyped,
 } from './ImageToVideoModel';
+import type { MentionCandidate } from './MentionCandidate';
+import {
+    MentionCandidateFromJSON,
+    MentionCandidateFromJSONTyped,
+    MentionCandidateToJSON,
+    MentionCandidateToJSONTyped,
+} from './MentionCandidate';
 
 /**
  * 
@@ -95,6 +102,12 @@ export interface GetVideoGenerationTagsResponse {
      * @memberof GetVideoGenerationTagsResponse
      */
     cropOffset?: number | null;
+    /**
+     * 
+     * @type {Array<MentionCandidate>}
+     * @memberof GetVideoGenerationTagsResponse
+     */
+    mentions?: Array<MentionCandidate>;
 }
 
 
@@ -132,6 +145,7 @@ export function GetVideoGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'model': ImageToVideoModelFromJSON(json['model']),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : VideoAspectRatioFromJSON(json['aspect_ratio']),
         'cropOffset': json['crop_offset'] == null ? undefined : json['crop_offset'],
+        'mentions': json['mentions'] == null ? undefined : ((json['mentions'] as Array<any>).map(MentionCandidateFromJSON)),
     };
 }
 
@@ -155,6 +169,7 @@ export function GetVideoGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'model': ImageToVideoModelToJSON(value['model']),
         'aspect_ratio': VideoAspectRatioToJSON(value['aspectRatio']),
         'crop_offset': value['cropOffset'],
+        'mentions': value['mentions'] == null ? undefined : ((value['mentions'] as Array<any>).map(MentionCandidateToJSON)),
     };
 }
 

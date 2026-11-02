@@ -87,6 +87,30 @@ export interface GetAnonymousConversationResponse {
      * @type {string}
      * @memberof GetAnonymousConversationResponse
      */
+    title?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GetAnonymousConversationResponse
+     */
+    parentConversationId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GetAnonymousConversationResponse
+     */
+    rootConversationId?: string | null;
+    /**
+     *
+     * @type {Date}
+     * @memberof GetAnonymousConversationResponse
+     */
+    forkPointAt?: Date | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GetAnonymousConversationResponse
+     */
     recipientId: string;
 }
 /**

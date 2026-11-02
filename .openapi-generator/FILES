@@ -77,6 +77,7 @@ src/models/AdminUpdatePromotionRequest.ts
 src/models/AdminUserFeatureFlagsResponse.ts
 src/models/AdminUserJourneyListItem.ts
 src/models/AdminUserJourneysResponse.ts
+src/models/AdvancedCharacterProfilePicTags.ts
 src/models/AgeVerificationAlternativeProvider.ts
 src/models/AgeVerificationStatusResponse.ts
 src/models/AnnouncementNotification.ts
@@ -108,6 +109,7 @@ src/models/BlueprintConfigResponse.ts
 src/models/BlueprintRef.ts
 src/models/BlueprintRefKind.ts
 src/models/BodyType.ts
+src/models/BranchNode.ts
 src/models/BreastSize.ts
 src/models/BulkDeleteContentRequest.ts
 src/models/ButtSize.ts
@@ -126,6 +128,7 @@ src/models/CharacterPresetLibrary.ts
 src/models/ChatAdminDetails.ts
 src/models/ChatCastConfig.ts
 src/models/ChatConfigResponse.ts
+src/models/ChatForkConfig.ts
 src/models/ChatMessageDetail.ts
 src/models/ChatMode.ts
 src/models/ChatReponse.ts
@@ -228,6 +231,7 @@ src/models/GetAnonymousConversationResponse.ts
 src/models/GetChatbotListResponse.ts
 src/models/GetChatbotResponse.ts
 src/models/GetClaimablesResponse.ts
+src/models/GetConversationBranchesResponse.ts
 src/models/GetConversationMessagesResponse.ts
 src/models/GetConversationResponse.ts
 src/models/GetCustomChatbotResponse.ts
@@ -258,6 +262,7 @@ src/models/GetPublicLatestUpdateResponse.ts
 src/models/GetPublicUsersResponse.ts
 src/models/GetQualityControlImage.ts
 src/models/GetQualityControlRequest.ts
+src/models/GetReferenceImagesResponse.ts
 src/models/GetSaleOffersResponse.ts
 src/models/GetVideoGenerationTagsResponse.ts
 src/models/GiftCodeType.ts
@@ -267,6 +272,8 @@ src/models/HairStyle.ts
 src/models/HubTag.ts
 src/models/HubTagsResponse.ts
 src/models/Id.ts
+src/models/IdentityPreviewResponse.ts
+src/models/IdentityPreviewReview.ts
 src/models/ImageAspectRatio.ts
 src/models/ImageCastTemplate.ts
 src/models/ImageConfigResponse.ts
@@ -334,6 +341,7 @@ src/models/OAuthProvider.ts
 src/models/OneTimeTokens.ts
 src/models/OwnerFilter.ts
 src/models/PatchChatMessageRequest.ts
+src/models/PatchConversationRequest.ts
 src/models/PatchCustomChatbotRequest.ts
 src/models/PatchFollowNotificationsRequest.ts
 src/models/PatchImageModerationPromptRequest.ts
@@ -380,6 +388,7 @@ src/models/PostFastForwardSubscriptionResponse.ts
 src/models/PostFollowUserRequest.ts
 src/models/PostGenerateImageRequest.ts
 src/models/PostGenerateSceneRequest.ts
+src/models/PostIdentityPreviewRequest.ts
 src/models/PostImagenResponse.ts
 src/models/PostInstanceDestroyRequest.ts
 src/models/PostInstanceDestroyResponse.ts
@@ -394,6 +403,7 @@ src/models/PostProfilePictureResponse.ts
 src/models/PostPublishResponse.ts
 src/models/PostRatingRequest.ts
 src/models/PostRatingResponse.ts
+src/models/PostReferenceImagesResponse.ts
 src/models/PostReportRequest.ts
 src/models/PostReportUserRequest.ts
 src/models/PostResendEmailRequest.ts
@@ -438,10 +448,13 @@ src/models/PutPasswordRequest.ts
 src/models/PutPersonaRequest.ts
 src/models/PutPublicUserRequest.ts
 src/models/PutUsernameRequest.ts
+src/models/PutWardrobeRequest.ts
 src/models/RedeemAgeVerificationRequest.ts
 src/models/RedeemAgeVerificationResponse.ts
 src/models/RedeemGiftCodeRequest.ts
 src/models/RedeemGiftCodeResponse.ts
+src/models/ReferenceImage.ts
+src/models/ReferenceImageView.ts
 src/models/RemainingFreeUsesResponse.ts
 src/models/ResponseGetWanTaskStatusVideoWanTaskTaskIdGet.ts
 src/models/ReviewCharacterFieldStatus.ts
@@ -641,6 +654,10 @@ src/models/WanImageToVideoCompletionPayload.ts
 src/models/WanImageToVideoResponse.ts
 src/models/WanTaskOutput.ts
 src/models/WanTaskResponse.ts
+src/models/Wardrobe.ts
+src/models/WardrobeEntry.ts
+src/models/WardrobeEntryDetail.ts
+src/models/WardrobeItem.ts
 src/models/index.ts
 src/runtime.ts
 tsconfig.esm.json

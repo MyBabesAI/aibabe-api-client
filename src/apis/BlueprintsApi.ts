@@ -21,10 +21,14 @@ import type {
   ElementBlueprintKind,
   GetElementBlueprintsResponse,
   GetMentionsResponse,
+  GetReferenceImagesResponse,
   HTTPValidationError,
   Persona,
+  PostReferenceImagesResponse,
   PutPersonaRequest,
+  PutWardrobeRequest,
   UpdateElementBlueprintRequest,
+  Wardrobe,
 } from '../models/index';
 import {
     BlueprintConfigResponseFromJSON,
@@ -39,14 +43,22 @@ import {
     GetElementBlueprintsResponseToJSON,
     GetMentionsResponseFromJSON,
     GetMentionsResponseToJSON,
+    GetReferenceImagesResponseFromJSON,
+    GetReferenceImagesResponseToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
     PersonaFromJSON,
     PersonaToJSON,
+    PostReferenceImagesResponseFromJSON,
+    PostReferenceImagesResponseToJSON,
     PutPersonaRequestFromJSON,
     PutPersonaRequestToJSON,
+    PutWardrobeRequestFromJSON,
+    PutWardrobeRequestToJSON,
     UpdateElementBlueprintRequestFromJSON,
     UpdateElementBlueprintRequestToJSON,
+    WardrobeFromJSON,
+    WardrobeToJSON,
 } from '../models/index';
 
 export interface CreateElementBlueprintsElementsPostRequest {
@@ -61,8 +73,17 @@ export interface ListElementsBlueprintsElementsGetRequest {
     kind?: ElementBlueprintKind | null;
 }
 
+export interface PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest {
+    chatbotId: string;
+    replace?: boolean;
+}
+
 export interface PutPersonaBlueprintsPersonaPutRequest {
     putPersonaRequest: PutPersonaRequest;
+}
+
+export interface PutPersonaWardrobeBlueprintsPersonaWardrobePutRequest {
+    putWardrobeRequest: PutWardrobeRequest;
 }
 
 export interface UpdateElementBlueprintsElementsElementIdPatchRequest {
@@ -221,6 +242,58 @@ export class BlueprintsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Get Persona Reference Images
+     */
+    async getPersonaReferenceImagesBlueprintsPersonaReferenceImagesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetReferenceImagesResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/blueprints/persona/reference-images`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetReferenceImagesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Persona Reference Images
+     */
+    async getPersonaReferenceImagesBlueprintsPersonaReferenceImagesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetReferenceImagesResponse> {
+        const response = await this.getPersonaReferenceImagesBlueprintsPersonaReferenceImagesGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get Persona Wardrobe
+     */
+    async getPersonaWardrobeBlueprintsPersonaWardrobeGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Wardrobe>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/blueprints/persona/wardrobe`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => WardrobeFromJSON(jsonValue));
+    }
+
+    /**
+     * Get Persona Wardrobe
+     */
+    async getPersonaWardrobeBlueprintsPersonaWardrobeGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Wardrobe> {
+        const response = await this.getPersonaWardrobeBlueprintsPersonaWardrobeGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * List Elements
      */
     async listElementsBlueprintsElementsGetRaw(requestParameters: ListElementsBlueprintsElementsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetElementBlueprintsResponse>> {
@@ -277,6 +350,73 @@ export class BlueprintsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Persona From Character
+     */
+    async personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling personaFromCharacterBlueprintsPersonaFromChatbotIdPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['replace'] != null) {
+            queryParameters['replace'] = requestParameters['replace'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/blueprints/persona/from/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PersonaFromJSON(jsonValue));
+    }
+
+    /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Persona From Character
+     */
+    async personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona> {
+        const response = await this.personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
+     * Post Persona Reference Images
+     */
+    async postPersonaReferenceImagesBlueprintsPersonaReferenceImagesPostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostReferenceImagesResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/blueprints/persona/reference-images`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostReferenceImagesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
+     * Post Persona Reference Images
+     */
+    async postPersonaReferenceImagesBlueprintsPersonaReferenceImagesPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostReferenceImagesResponse> {
+        const response = await this.postPersonaReferenceImagesBlueprintsPersonaReferenceImagesPostRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Put Persona
      */
     async putPersonaBlueprintsPersonaPutRaw(requestParameters: PutPersonaBlueprintsPersonaPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>> {
@@ -309,6 +449,42 @@ export class BlueprintsApi extends runtime.BaseAPI {
      */
     async putPersonaBlueprintsPersonaPut(requestParameters: PutPersonaBlueprintsPersonaPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona> {
         const response = await this.putPersonaBlueprintsPersonaPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Put Persona Wardrobe
+     */
+    async putPersonaWardrobeBlueprintsPersonaWardrobePutRaw(requestParameters: PutPersonaWardrobeBlueprintsPersonaWardrobePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Wardrobe>> {
+        if (requestParameters['putWardrobeRequest'] == null) {
+            throw new runtime.RequiredError(
+                'putWardrobeRequest',
+                'Required parameter "putWardrobeRequest" was null or undefined when calling putPersonaWardrobeBlueprintsPersonaWardrobePut().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/blueprints/persona/wardrobe`,
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PutWardrobeRequestToJSON(requestParameters['putWardrobeRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => WardrobeFromJSON(jsonValue));
+    }
+
+    /**
+     * Put Persona Wardrobe
+     */
+    async putPersonaWardrobeBlueprintsPersonaWardrobePut(requestParameters: PutPersonaWardrobeBlueprintsPersonaWardrobePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Wardrobe> {
+        const response = await this.putPersonaWardrobeBlueprintsPersonaWardrobePutRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
