@@ -194,6 +194,7 @@ export const ExceptionCode = {
     ImageGenerationLimitReached: 'image_generation_limit_reached',
     GenerationTagsNotFound: 'generation_tags_not_found',
     OriginalImageNotFound: 'original_image_not_found',
+    TrendNeedsPersona: 'trend_needs_persona',
     TrendNotFound: 'trend_not_found',
     TrendCategoryNotFound: 'trend_category_not_found',
     TrendCategorySlugConflict: 'trend_category_slug_conflict',
@@ -346,7 +347,9 @@ export const ExceptionCode = {
     ScenarioCoverPictureInvalid: 'scenario_cover_picture_invalid',
     ScenarioChatNotFound: 'scenario_chat_not_found',
     ScenarioUpToDate: 'scenario_up_to_date',
-    PersonaNotFound: 'persona_not_found'
+    PersonaNotFound: 'persona_not_found',
+    PersonaExists: 'persona_exists',
+    PersonaSourceNotOwn: 'persona_source_not_own'
 } as const;
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 

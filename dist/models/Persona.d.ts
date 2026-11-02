@@ -71,6 +71,12 @@ export interface Persona {
      * @type {string}
      * @memberof Persona
      */
+    thumbnailUrl?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof Persona
+     */
     description: string;
     /**
      *

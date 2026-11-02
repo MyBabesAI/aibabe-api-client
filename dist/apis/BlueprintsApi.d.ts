@@ -20,6 +20,10 @@ export interface DeleteElementBlueprintsElementsElementIdDeleteRequest {
 export interface ListElementsBlueprintsElementsGetRequest {
     kind?: ElementBlueprintKind | null;
 }
+export interface PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest {
+    chatbotId: string;
+    replace?: boolean;
+}
 export interface PutPersonaBlueprintsPersonaPutRequest {
     putPersonaRequest: PutPersonaRequest;
 }
@@ -87,6 +91,16 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      * List Mentions
      */
     listMentionsBlueprintsMentionsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetMentionsResponse>;
+    /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Persona From Character
+     */
+    personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
+    /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Persona From Character
+     */
+    personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
     /**
      * Put Persona
      */

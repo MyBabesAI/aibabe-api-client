@@ -61,6 +61,11 @@ export interface ListElementsBlueprintsElementsGetRequest {
     kind?: ElementBlueprintKind | null;
 }
 
+export interface PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest {
+    chatbotId: string;
+    replace?: boolean;
+}
+
 export interface PutPersonaBlueprintsPersonaPutRequest {
     putPersonaRequest: PutPersonaRequest;
 }
@@ -273,6 +278,45 @@ export class BlueprintsApi extends runtime.BaseAPI {
      */
     async listMentionsBlueprintsMentionsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetMentionsResponse> {
         const response = await this.listMentionsBlueprintsMentionsGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Persona From Character
+     */
+    async personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling personaFromCharacterBlueprintsPersonaFromChatbotIdPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['replace'] != null) {
+            queryParameters['replace'] = requestParameters['replace'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/blueprints/persona/from/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PersonaFromJSON(jsonValue));
+    }
+
+    /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Persona From Character
+     */
+    async personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona> {
+        const response = await this.personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

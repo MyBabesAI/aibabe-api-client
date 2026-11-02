@@ -46,6 +46,7 @@ function PutPersonaRequestFromJSONTyped(json, ignoreDiscriminator) {
         'appearance': json['appearance'] == null ? undefined : (0, PersonaAppearance_1.PersonaAppearanceFromJSON)(json['appearance']),
         'description': json['description'] == null ? undefined : json['description'],
         'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
+        'portraitPictureId': json['portrait_picture_id'] == null ? undefined : json['portrait_picture_id'],
     };
 }
 function PutPersonaRequestToJSON(json) {
@@ -64,6 +65,7 @@ function PutPersonaRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'appearance': (0, PersonaAppearance_1.PersonaAppearanceToJSON)(value['appearance']),
         'description': value['description'],
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
+        'portrait_picture_id': value['portraitPictureId'],
     };
 }
 //# sourceMappingURL=PutPersonaRequest.js.map

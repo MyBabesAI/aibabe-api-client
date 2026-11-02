@@ -210,6 +210,35 @@ class BlueprintsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Persona From Character
+     */
+    async personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling personaFromCharacterBlueprintsPersonaFromChatbotIdPost().');
+        }
+        const queryParameters = {};
+        if (requestParameters['replace'] != null) {
+            queryParameters['replace'] = requestParameters['replace'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/blueprints/persona/from/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PersonaFromJSON)(jsonValue));
+    }
+    /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Persona From Character
+     */
+    async personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters, initOverrides) {
+        const response = await this.personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Put Persona
      */
     async putPersonaBlueprintsPersonaPutRaw(requestParameters, initOverrides) {

@@ -190,6 +190,7 @@ export declare const ExceptionCode: {
     readonly ImageGenerationLimitReached: "image_generation_limit_reached";
     readonly GenerationTagsNotFound: "generation_tags_not_found";
     readonly OriginalImageNotFound: "original_image_not_found";
+    readonly TrendNeedsPersona: "trend_needs_persona";
     readonly TrendNotFound: "trend_not_found";
     readonly TrendCategoryNotFound: "trend_category_not_found";
     readonly TrendCategorySlugConflict: "trend_category_slug_conflict";
@@ -343,6 +344,8 @@ export declare const ExceptionCode: {
     readonly ScenarioChatNotFound: "scenario_chat_not_found";
     readonly ScenarioUpToDate: "scenario_up_to_date";
     readonly PersonaNotFound: "persona_not_found";
+    readonly PersonaExists: "persona_exists";
+    readonly PersonaSourceNotOwn: "persona_source_not_own";
 };
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 export declare function instanceOfExceptionCode(value: any): boolean;

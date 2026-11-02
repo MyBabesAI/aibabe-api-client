@@ -67,6 +67,12 @@ export interface PutPersonaRequest {
      * @memberof PutPersonaRequest
      */
     artStyle?: ArtStyle | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PutPersonaRequest
+     */
+    portraitPictureId?: string | null;
 }
 /**
  * Check if a given object implements the PutPersonaRequest interface.
