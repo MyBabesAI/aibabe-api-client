@@ -20,6 +20,7 @@ exports.GetImageGenerationTagsResponseToJSON = GetImageGenerationTagsResponseToJ
 exports.GetImageGenerationTagsResponseToJSONTyped = GetImageGenerationTagsResponseToJSONTyped;
 const ArtStyle_1 = require("./ArtStyle");
 const LoraName_1 = require("./LoraName");
+const MentionCandidate_1 = require("./MentionCandidate");
 /**
  * Check if a given object implements the GetImageGenerationTagsResponse interface.
  */
@@ -50,6 +51,7 @@ function GetImageGenerationTagsResponseFromJSONTyped(json, ignoreDiscriminator) 
         'loras': (json['loras'].map(LoraName_1.LoraNameFromJSON)),
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'mentions': json['mentions'] == null ? undefined : (json['mentions'].map(MentionCandidate_1.MentionCandidateFromJSON)),
     };
 }
 function GetImageGenerationTagsResponseToJSON(json) {
@@ -66,6 +68,7 @@ function GetImageGenerationTagsResponseToJSONTyped(value, ignoreDiscriminator = 
         'loras': (value['loras'].map(LoraName_1.LoraNameToJSON)),
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'lora_weights': value['loraWeights'],
+        'mentions': value['mentions'] == null ? undefined : (value['mentions'].map(MentionCandidate_1.MentionCandidateToJSON)),
     };
 }
 //# sourceMappingURL=GetImageGenerationTagsResponse.js.map

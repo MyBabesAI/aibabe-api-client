@@ -104,6 +104,18 @@ export interface ChatMessageDetail {
      * @memberof ChatMessageDetail
      */
     blacklist?: BlacklistCard | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ChatMessageDetail
+     */
+    speakerChatbotId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ChatMessageDetail
+     */
+    userPersonaId?: string | null;
 }
 /**
  * Check if a given object implements the ChatMessageDetail interface.

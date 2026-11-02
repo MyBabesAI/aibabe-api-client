@@ -101,6 +101,12 @@ export interface VideoModelConfig {
     trendsSupported?: boolean;
     /**
      *
+     * @type {number}
+     * @memberof VideoModelConfig
+     */
+    maxInputImages?: number;
+    /**
+     *
      * @type {Array<VideoAspectRatio>}
      * @memberof VideoModelConfig
      */

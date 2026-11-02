@@ -56,6 +56,18 @@ export interface ListChatbotItem {
     characterStyle?: string | null;
     /**
      *
+     * @type {ArtStyle}
+     * @memberof ListChatbotItem
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ListChatbotItem
+     */
+    nextGen?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof ListChatbotItem
      */
@@ -96,18 +108,6 @@ export interface ListChatbotItem {
      * @memberof ListChatbotItem
      */
     postDetails?: PostDetails | null;
-    /**
-     *
-     * @type {ArtStyle}
-     * @memberof ListChatbotItem
-     */
-    artStyle?: ArtStyle | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof ListChatbotItem
-     */
-    nextGen?: boolean;
 }
 /**
  * Check if a given object implements the ListChatbotItem interface.

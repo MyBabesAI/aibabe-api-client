@@ -204,6 +204,12 @@ export interface TrendResponse {
     tags?: Array<string>;
     /**
      * 
+     * @type {Array<string>}
+     * @memberof TrendResponse
+     */
+    subjectGenders?: Array<string>;
+    /**
+     * 
      * @type {string}
      * @memberof TrendResponse
      */
@@ -246,6 +252,18 @@ export interface TrendResponse {
     videoLoras?: Array<string>;
     /**
      * 
+     * @type {Array<string>}
+     * @memberof TrendResponse
+     */
+    stillPrompts?: Array<string>;
+    /**
+     * 
+     * @type {number}
+     * @memberof TrendResponse
+     */
+    stillTokensCost?: number | null;
+    /**
+     * 
      * @type {Array<ImageLookLora>}
      * @memberof TrendResponse
      */
@@ -262,18 +280,6 @@ export interface TrendResponse {
      * @memberof TrendResponse
      */
     sourcePostId?: string | null;
-    /**
-     * A reference video trend: its still prompts (one per <Picture N> of video_prompt); empty on every other trend.
-     * @type {Array<string>}
-     * @memberof TrendResponse
-     */
-    stillPrompts?: Array<string>;
-    /**
-     * 
-     * @type {number}
-     * @memberof TrendResponse
-     */
-    stillTokensCost?: number | null;
 }
 
 
@@ -331,6 +337,7 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'isPublished': json['is_published'],
         'createdAt': (new Date(json['created_at'])),
         'tags': json['tags'] == null ? undefined : json['tags'],
+        'subjectGenders': json['subject_genders'] == null ? undefined : json['subject_genders'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
         'characterCount': json['character_count'] == null ? undefined : json['character_count'],
         'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
@@ -338,11 +345,11 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'sourceMaskUrl': json['source_mask_url'] == null ? undefined : json['source_mask_url'],
         'videoPrompt': json['video_prompt'] == null ? undefined : json['video_prompt'],
         'videoLoras': json['video_loras'] == null ? undefined : json['video_loras'],
+        'stillPrompts': json['still_prompts'] == null ? undefined : json['still_prompts'],
+        'stillTokensCost': json['still_tokens_cost'] == null ? undefined : json['still_tokens_cost'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
         'creator': json['creator'] == null ? undefined : PublicUserPreviewFromJSON(json['creator']),
         'sourcePostId': json['source_post_id'] == null ? undefined : json['source_post_id'],
-        'stillPrompts': json['still_prompts'] == null ? undefined : json['still_prompts'],
-        'stillTokensCost': json['still_tokens_cost'] == null ? undefined : json['still_tokens_cost'],
     };
 }
 
@@ -378,6 +385,7 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'is_published': value['isPublished'],
         'created_at': ((value['createdAt']).toISOString()),
         'tags': value['tags'],
+        'subject_genders': value['subjectGenders'],
         'prompt': value['prompt'],
         'character_count': value['characterCount'],
         'character_style': value['characterStyle'],
@@ -385,11 +393,11 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'source_mask_url': value['sourceMaskUrl'],
         'video_prompt': value['videoPrompt'],
         'video_loras': value['videoLoras'],
+        'still_prompts': value['stillPrompts'],
+        'still_tokens_cost': value['stillTokensCost'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
         'creator': PublicUserPreviewToJSON(value['creator']),
         'source_post_id': value['sourcePostId'],
-        'still_prompts': value['stillPrompts'],
-        'still_tokens_cost': value['stillTokensCost'],
     };
 }
 

@@ -18,6 +18,7 @@ exports.VideoContentFromJSON = VideoContentFromJSON;
 exports.VideoContentFromJSONTyped = VideoContentFromJSONTyped;
 exports.VideoContentToJSON = VideoContentToJSON;
 exports.VideoContentToJSONTyped = VideoContentToJSONTyped;
+const CastMember_1 = require("./CastMember");
 const MediaOrigin_1 = require("./MediaOrigin");
 const AdminAgeEstimation_1 = require("./AdminAgeEstimation");
 const ImageLookLora_1 = require("./ImageLookLora");
@@ -52,6 +53,7 @@ function VideoContentFromJSONTyped(json, ignoreDiscriminator) {
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : (0, AdminAgeEstimation_1.AdminAgeEstimationFromJSON)(json['age_estimation']),
         'loras': json['loras'] == null ? undefined : (json['loras'].map(ImageLookLora_1.ImageLookLoraFromJSON)),
+        'cast': json['cast'] == null ? undefined : (json['cast'].map(CastMember_1.CastMemberFromJSON)),
         'generationId': json['generation_id'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
@@ -73,6 +75,7 @@ function VideoContentToJSONTyped(value, ignoreDiscriminator = false) {
         'height': value['height'],
         'age_estimation': (0, AdminAgeEstimation_1.AdminAgeEstimationToJSON)(value['ageEstimation']),
         'loras': value['loras'] == null ? undefined : (value['loras'].map(ImageLookLora_1.ImageLookLoraToJSON)),
+        'cast': value['cast'] == null ? undefined : (value['cast'].map(CastMember_1.CastMemberToJSON)),
         'generation_id': value['generationId'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],

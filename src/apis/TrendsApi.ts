@@ -20,6 +20,7 @@ import type {
   HTTPValidationError,
   Models,
   PreviewChatbotIds,
+  SubjectGenders,
   Tags,
   TrendCategoryCreateRequest,
   TrendCategoryListResponse,
@@ -51,6 +52,8 @@ import {
     ModelsToJSON,
     PreviewChatbotIdsFromJSON,
     PreviewChatbotIdsToJSON,
+    SubjectGendersFromJSON,
+    SubjectGendersToJSON,
     TagsFromJSON,
     TagsToJSON,
     TrendCategoryCreateRequestFromJSON,
@@ -136,6 +139,10 @@ export interface DeleteTrendTrendsTrendIdDeleteRequest {
     trendId: string;
 }
 
+export interface GetCategoriesTrendsCategoriesGetRequest {
+    genders?: string | null;
+}
+
 export interface GetTrendSourceTrendsSourceGetRequest {
     generationId: string;
 }
@@ -148,6 +155,7 @@ export interface GetTrendsTrendsGetRequest {
     category?: string | null;
     filter?: TrendListFilter;
     mediaType?: TrendMediaType | null;
+    genders?: string | null;
 }
 
 export interface RecreateTrendTrendsTrendIdRecreatePostRequest {
@@ -194,6 +202,8 @@ export interface UpdateTrendTrendsTrendIdPatchRequest {
     videoPrompt?: string | null;
     videoLoras?: VideoLoras | null;
     stillPrompts?: string | null;
+    previewMediaId?: string | null;
+    subjectGenders?: SubjectGenders | null;
 }
 
 /**
@@ -238,7 +248,7 @@ export class TrendsApi extends runtime.BaseAPI {
     }
 
     /**
-     * A trend from an Explore post (picture, video or babe), credited to its author. Admin only.
+     * A trend from an Explore post (picture, video or babe), credited to its author.
      * Create Trend From Post
      */
     async createTrendFromPostTrendsFromPostPostRaw(requestParameters: CreateTrendFromPostTrendsFromPostPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrendResponse>> {
@@ -267,7 +277,7 @@ export class TrendsApi extends runtime.BaseAPI {
     }
 
     /**
-     * A trend from an Explore post (picture, video or babe), credited to its author. Admin only.
+     * A trend from an Explore post (picture, video or babe), credited to its author.
      * Create Trend From Post
      */
     async createTrendFromPostTrendsFromPostPost(requestParameters: CreateTrendFromPostTrendsFromPostPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendResponse> {
@@ -529,10 +539,15 @@ export class TrendsApi extends runtime.BaseAPI {
     }
 
     /**
+     * The categories, without the male segment\'s for a member whose preferences leave male content out; with `genders`, the viewer\'s own pick replaces that rule.
      * Get Categories
      */
-    async getCategoriesTrendsCategoriesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrendCategoryListResponse>> {
+    async getCategoriesTrendsCategoriesGetRaw(requestParameters: GetCategoriesTrendsCategoriesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrendCategoryListResponse>> {
         const queryParameters: any = {};
+
+        if (requestParameters['genders'] != null) {
+            queryParameters['genders'] = requestParameters['genders'];
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -547,10 +562,11 @@ export class TrendsApi extends runtime.BaseAPI {
     }
 
     /**
+     * The categories, without the male segment\'s for a member whose preferences leave male content out; with `genders`, the viewer\'s own pick replaces that rule.
      * Get Categories
      */
-    async getCategoriesTrendsCategoriesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendCategoryListResponse> {
-        const response = await this.getCategoriesTrendsCategoriesGetRaw(initOverrides);
+    async getCategoriesTrendsCategoriesGet(requestParameters: GetCategoriesTrendsCategoriesGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendCategoryListResponse> {
+        const response = await this.getCategoriesTrendsCategoriesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -642,6 +658,10 @@ export class TrendsApi extends runtime.BaseAPI {
 
         if (requestParameters['mediaType'] != null) {
             queryParameters['media_type'] = requestParameters['mediaType'];
+        }
+
+        if (requestParameters['genders'] != null) {
+            queryParameters['genders'] = requestParameters['genders'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -935,6 +955,14 @@ export class TrendsApi extends runtime.BaseAPI {
         if (requestParameters['stillPrompts'] != null) {
             formParams.append('still_prompts', requestParameters['stillPrompts'] as any);
         }
+
+        if (requestParameters['previewMediaId'] != null) {
+            formParams.append('preview_media_id', requestParameters['previewMediaId'] as any);
+        }
+
+        if (requestParameters['subjectGenders'] != null) {
+            formParams.append('subject_genders', new Blob([JSON.stringify(SubjectGendersToJSON(requestParameters['subjectGenders']))], { type: "application/json", }));
+                    }
 
         const response = await this.request({
             path: `/trends/{trend_id}`.replace(`{${"trend_id"}}`, encodeURIComponent(String(requestParameters['trendId']))),

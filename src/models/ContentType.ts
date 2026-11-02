@@ -21,7 +21,8 @@ export const ContentType = {
     Picture: 'picture',
     Video: 'video',
     Character: 'character',
-    Story: 'story'
+    Story: 'story',
+    Scenario: 'scenario'
 } as const;
 export type ContentType = typeof ContentType[keyof typeof ContentType];
 

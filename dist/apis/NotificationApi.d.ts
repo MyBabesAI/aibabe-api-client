@@ -19,6 +19,7 @@ export interface ClearNotificationsNotificationClearPatchRequest {
     followUserId?: string | null;
     eventId?: string | null;
     blacklistId?: string | null;
+    announcementId?: string | null;
     group?: NotificationGroup | null;
     senderId?: string | null;
     kind?: NotificationKind | null;

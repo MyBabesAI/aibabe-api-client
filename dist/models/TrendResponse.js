@@ -91,6 +91,7 @@ function TrendResponseFromJSONTyped(json, ignoreDiscriminator) {
         'isPublished': json['is_published'],
         'createdAt': (new Date(json['created_at'])),
         'tags': json['tags'] == null ? undefined : json['tags'],
+        'subjectGenders': json['subject_genders'] == null ? undefined : json['subject_genders'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
         'characterCount': json['character_count'] == null ? undefined : json['character_count'],
         'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
@@ -98,11 +99,11 @@ function TrendResponseFromJSONTyped(json, ignoreDiscriminator) {
         'sourceMaskUrl': json['source_mask_url'] == null ? undefined : json['source_mask_url'],
         'videoPrompt': json['video_prompt'] == null ? undefined : json['video_prompt'],
         'videoLoras': json['video_loras'] == null ? undefined : json['video_loras'],
+        'stillPrompts': json['still_prompts'] == null ? undefined : json['still_prompts'],
+        'stillTokensCost': json['still_tokens_cost'] == null ? undefined : json['still_tokens_cost'],
         'loras': json['loras'] == null ? undefined : (json['loras'].map(ImageLookLora_1.ImageLookLoraFromJSON)),
         'creator': json['creator'] == null ? undefined : (0, PublicUserPreview_1.PublicUserPreviewFromJSON)(json['creator']),
         'sourcePostId': json['source_post_id'] == null ? undefined : json['source_post_id'],
-        'stillPrompts': json['still_prompts'] == null ? undefined : json['still_prompts'],
-        'stillTokensCost': json['still_tokens_cost'] == null ? undefined : json['still_tokens_cost'],
     };
 }
 function TrendResponseToJSON(json) {
@@ -134,6 +135,7 @@ function TrendResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'is_published': value['isPublished'],
         'created_at': ((value['createdAt']).toISOString()),
         'tags': value['tags'],
+        'subject_genders': value['subjectGenders'],
         'prompt': value['prompt'],
         'character_count': value['characterCount'],
         'character_style': value['characterStyle'],
@@ -141,11 +143,11 @@ function TrendResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'source_mask_url': value['sourceMaskUrl'],
         'video_prompt': value['videoPrompt'],
         'video_loras': value['videoLoras'],
+        'still_prompts': value['stillPrompts'],
+        'still_tokens_cost': value['stillTokensCost'],
         'loras': value['loras'] == null ? undefined : (value['loras'].map(ImageLookLora_1.ImageLookLoraToJSON)),
         'creator': (0, PublicUserPreview_1.PublicUserPreviewToJSON)(value['creator']),
         'source_post_id': value['sourcePostId'],
-        'still_prompts': value['stillPrompts'],
-        'still_tokens_cost': value['stillTokensCost'],
     };
 }
 //# sourceMappingURL=TrendResponse.js.map

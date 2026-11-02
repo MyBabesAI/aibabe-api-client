@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CastMember } from './CastMember';
+import {
+    CastMemberFromJSON,
+    CastMemberFromJSONTyped,
+    CastMemberToJSON,
+    CastMemberToJSONTyped,
+} from './CastMember';
 import type { MediaOrigin } from './MediaOrigin';
 import {
     MediaOriginFromJSON,
@@ -83,6 +90,12 @@ export interface ImageContent {
      * @memberof ImageContent
      */
     loras?: Array<ImageLookLora>;
+    /**
+     * 
+     * @type {Array<CastMember>}
+     * @memberof ImageContent
+     */
+    cast?: Array<CastMember>;
 }
 
 
@@ -113,6 +126,7 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
+        'cast': json['cast'] == null ? undefined : ((json['cast'] as Array<any>).map(CastMemberFromJSON)),
     };
 }
 
@@ -134,6 +148,7 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'height': value['height'],
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
+        'cast': value['cast'] == null ? undefined : ((value['cast'] as Array<any>).map(CastMemberToJSON)),
     };
 }
 

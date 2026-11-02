@@ -203,7 +203,7 @@ class ImageApi extends runtime.BaseAPI {
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.TokenPricingConfigResponseFromJSON)(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ImageConfigResponseFromJSON)(jsonValue));
     }
     /**
      * Get Image Config

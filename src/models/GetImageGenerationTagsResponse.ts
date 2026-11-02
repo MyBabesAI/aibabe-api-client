@@ -27,6 +27,13 @@ import {
     LoraNameToJSON,
     LoraNameToJSONTyped,
 } from './LoraName';
+import type { MentionCandidate } from './MentionCandidate';
+import {
+    MentionCandidateFromJSON,
+    MentionCandidateFromJSONTyped,
+    MentionCandidateToJSON,
+    MentionCandidateToJSONTyped,
+} from './MentionCandidate';
 
 /**
  * 
@@ -70,6 +77,12 @@ export interface GetImageGenerationTagsResponse {
      * @memberof GetImageGenerationTagsResponse
      */
     loraWeights?: { [key: string]: number; } | null;
+    /**
+     * 
+     * @type {Array<MentionCandidate>}
+     * @memberof GetImageGenerationTagsResponse
+     */
+    mentions?: Array<MentionCandidate>;
 }
 
 
@@ -102,6 +115,7 @@ export function GetImageGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'loras': ((json['loras'] as Array<any>).map(LoraNameFromJSON)),
         'artStyle': ArtStyleFromJSON(json['art_style']),
         'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'mentions': json['mentions'] == null ? undefined : ((json['mentions'] as Array<any>).map(MentionCandidateFromJSON)),
     };
 }
 
@@ -122,6 +136,7 @@ export function GetImageGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'loras': ((value['loras'] as Array<any>).map(LoraNameToJSON)),
         'art_style': ArtStyleToJSON(value['artStyle']),
         'lora_weights': value['loraWeights'],
+        'mentions': value['mentions'] == null ? undefined : ((value['mentions'] as Array<any>).map(MentionCandidateToJSON)),
     };
 }
 

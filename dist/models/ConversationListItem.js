@@ -19,6 +19,7 @@ exports.ConversationListItemFromJSON = ConversationListItemFromJSON;
 exports.ConversationListItemFromJSONTyped = ConversationListItemFromJSONTyped;
 exports.ConversationListItemToJSON = ConversationListItemToJSON;
 exports.ConversationListItemToJSONTyped = ConversationListItemToJSONTyped;
+const ConversationListParticipant_1 = require("./ConversationListParticipant");
 /**
  * @export
  */
@@ -59,6 +60,7 @@ function ConversationListItemFromJSONTyped(json, ignoreDiscriminator) {
         'storyId': json['story_id'] == null ? undefined : json['story_id'],
         'storyEpisodeId': json['story_episode_id'] == null ? undefined : json['story_episode_id'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
+        'participants': json['participants'] == null ? undefined : (json['participants'].map(ConversationListParticipant_1.ConversationListParticipantFromJSON)),
     };
 }
 function ConversationListItemToJSON(json) {
@@ -78,6 +80,7 @@ function ConversationListItemToJSONTyped(value, ignoreDiscriminator = false) {
         'story_id': value['storyId'],
         'story_episode_id': value['storyEpisodeId'],
         'cover_image': value['coverImage'],
+        'participants': value['participants'] == null ? undefined : (value['participants'].map(ConversationListParticipant_1.ConversationListParticipantToJSON)),
     };
 }
 //# sourceMappingURL=ConversationListItem.js.map

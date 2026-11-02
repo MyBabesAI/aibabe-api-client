@@ -58,6 +58,12 @@ export interface PostConversationSettingsRequest {
      * @type {string}
      * @memberof PostConversationSettingsRequest
      */
+    userPersonaId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PostConversationSettingsRequest
+     */
     chatbotId: string;
 }
 /**

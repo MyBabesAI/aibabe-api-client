@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ScenarioChatInfo } from './ScenarioChatInfo';
+import {
+    ScenarioChatInfoFromJSON,
+    ScenarioChatInfoFromJSONTyped,
+    ScenarioChatInfoToJSON,
+    ScenarioChatInfoToJSONTyped,
+} from './ScenarioChatInfo';
 import type { ChatbotInfo } from './ChatbotInfo';
 import {
     ChatbotInfoFromJSON,
@@ -34,6 +41,13 @@ import {
     ChatAdminDetailsToJSON,
     ChatAdminDetailsToJSONTyped,
 } from './ChatAdminDetails';
+import type { ConversationParticipant } from './ConversationParticipant';
+import {
+    ConversationParticipantFromJSON,
+    ConversationParticipantFromJSONTyped,
+    ConversationParticipantToJSON,
+    ConversationParticipantToJSONTyped,
+} from './ConversationParticipant';
 import type { ChatMessageDetail } from './ChatMessageDetail';
 import {
     ChatMessageDetailFromJSON,
@@ -103,6 +117,18 @@ export interface GetConversationResponse {
      * @memberof GetConversationResponse
      */
     admin?: ChatAdminDetails | null;
+    /**
+     * 
+     * @type {Array<ConversationParticipant>}
+     * @memberof GetConversationResponse
+     */
+    participants?: Array<ConversationParticipant>;
+    /**
+     * 
+     * @type {ScenarioChatInfo}
+     * @memberof GetConversationResponse
+     */
+    scenario?: ScenarioChatInfo | null;
 }
 
 /**
@@ -136,6 +162,8 @@ export function GetConversationResponseFromJSONTyped(json: any, ignoreDiscrimina
         'postDetails': PostDetailsFromJSON(json['post_details']),
         'paginationToken': json['pagination_token'] == null ? undefined : json['pagination_token'],
         'admin': json['admin'] == null ? undefined : ChatAdminDetailsFromJSON(json['admin']),
+        'participants': json['participants'] == null ? undefined : ((json['participants'] as Array<any>).map(ConversationParticipantFromJSON)),
+        'scenario': json['scenario'] == null ? undefined : ScenarioChatInfoFromJSON(json['scenario']),
     };
 }
 
@@ -158,6 +186,8 @@ export function GetConversationResponseFromJSONTyped(json: any, ignoreDiscrimina
         'post_details': PostDetailsToJSON(value['postDetails']),
         'pagination_token': value['paginationToken'],
         'admin': ChatAdminDetailsToJSON(value['admin']),
+        'participants': value['participants'] == null ? undefined : ((value['participants'] as Array<any>).map(ConversationParticipantToJSON)),
+        'scenario': ScenarioChatInfoToJSON(value['scenario']),
     };
 }
 

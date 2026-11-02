@@ -20,6 +20,7 @@ exports.GeneratedImagesFromJSONTyped = GeneratedImagesFromJSONTyped;
 exports.GeneratedImagesToJSON = GeneratedImagesToJSON;
 exports.GeneratedImagesToJSONTyped = GeneratedImagesToJSONTyped;
 const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
+const CastMember_1 = require("./CastMember");
 const BlacklistCard_1 = require("./BlacklistCard");
 const ArtStyle_1 = require("./ArtStyle");
 const ChatbotPreview_1 = require("./ChatbotPreview");
@@ -85,6 +86,7 @@ function GeneratedImagesFromJSONTyped(json, ignoreDiscriminator) {
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : (0, AdminAgeEstimation_1.AdminAgeEstimationFromJSON)(json['age_estimation']),
         'moderationCharged': json['moderation_charged'] == null ? undefined : json['moderation_charged'],
+        'cast': json['cast'] == null ? undefined : (json['cast'].map(CastMember_1.CastMemberFromJSON)),
     };
 }
 function GeneratedImagesToJSON(json) {
@@ -113,6 +115,7 @@ function GeneratedImagesToJSONTyped(value, ignoreDiscriminator = false) {
         'height': value['height'],
         'age_estimation': (0, AdminAgeEstimation_1.AdminAgeEstimationToJSON)(value['ageEstimation']),
         'moderation_charged': value['moderationCharged'],
+        'cast': value['cast'] == null ? undefined : (value['cast'].map(CastMember_1.CastMemberToJSON)),
     };
 }
 //# sourceMappingURL=GeneratedImages.js.map

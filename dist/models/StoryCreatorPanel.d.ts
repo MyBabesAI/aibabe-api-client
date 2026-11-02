@@ -187,6 +187,12 @@ export interface StoryCreatorPanel {
      * @memberof StoryCreatorPanel
      */
     targetsCount?: number;
+    /**
+     *
+     * @type {boolean}
+     * @memberof StoryCreatorPanel
+     */
+    won?: boolean;
 }
 /**
  * Check if a given object implements the StoryCreatorPanel interface.

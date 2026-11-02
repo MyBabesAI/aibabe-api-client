@@ -49,6 +49,12 @@ export interface GetLeaderboardRequest {
      * @memberof GetLeaderboardRequest
      */
     limit?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof GetLeaderboardRequest
+     */
+    paginationToken?: string | null;
 }
 /**
  * Check if a given object implements the GetLeaderboardRequest interface.

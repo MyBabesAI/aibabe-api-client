@@ -67,6 +67,12 @@ export interface GetVideoGenerationTagsResponse {
     originalImageId: string;
     /**
      * 
+     * @type {Array<string>}
+     * @memberof GetVideoGenerationTagsResponse
+     */
+    inputImageIds: Array<string>;
+    /**
+     * 
      * @type {Array<VideoLoraName>}
      * @memberof GetVideoGenerationTagsResponse
      */
@@ -101,6 +107,7 @@ export function instanceOfGetVideoGenerationTagsResponse(value: object): value i
     if (!('downloadUrl' in value) || value['downloadUrl'] === undefined) return false;
     if (!('chatbotName' in value) || value['chatbotName'] === undefined) return false;
     if (!('originalImageId' in value) || value['originalImageId'] === undefined) return false;
+    if (!('inputImageIds' in value) || value['inputImageIds'] === undefined) return false;
     if (!('loras' in value) || value['loras'] === undefined) return false;
     if (!('model' in value) || value['model'] === undefined) return false;
     return true;
@@ -120,6 +127,7 @@ export function GetVideoGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'downloadUrl': json['download_url'],
         'chatbotName': json['chatbot_name'],
         'originalImageId': json['original_image_id'],
+        'inputImageIds': json['input_image_ids'],
         'loras': ((json['loras'] as Array<any>).map(VideoLoraNameFromJSON)),
         'model': ImageToVideoModelFromJSON(json['model']),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : VideoAspectRatioFromJSON(json['aspect_ratio']),
@@ -142,6 +150,7 @@ export function GetVideoGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'download_url': value['downloadUrl'],
         'chatbot_name': value['chatbotName'],
         'original_image_id': value['originalImageId'],
+        'input_image_ids': value['inputImageIds'],
         'loras': ((value['loras'] as Array<any>).map(VideoLoraNameToJSON)),
         'model': ImageToVideoModelToJSON(value['model']),
         'aspect_ratio': VideoAspectRatioToJSON(value['aspectRatio']),

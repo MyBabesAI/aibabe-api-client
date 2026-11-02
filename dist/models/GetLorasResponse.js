@@ -18,6 +18,7 @@ exports.GetLorasResponseFromJSON = GetLorasResponseFromJSON;
 exports.GetLorasResponseFromJSONTyped = GetLorasResponseFromJSONTyped;
 exports.GetLorasResponseToJSON = GetLorasResponseToJSON;
 exports.GetLorasResponseToJSONTyped = GetLorasResponseToJSONTyped;
+const ImageCastTemplate_1 = require("./ImageCastTemplate");
 /**
  * Check if a given object implements the GetLorasResponse interface.
  */
@@ -45,6 +46,7 @@ function GetLorasResponseFromJSONTyped(json, ignoreDiscriminator) {
         'videoModsByModel': json['video_mods_by_model'] == null ? undefined : json['video_mods_by_model'],
         'imagePresets': json['image_presets'],
         'videoPresets': json['video_presets'],
+        'castTemplates': json['cast_templates'] == null ? undefined : (json['cast_templates'].map(ImageCastTemplate_1.ImageCastTemplateFromJSON)),
     };
 }
 function GetLorasResponseToJSON(json) {
@@ -60,6 +62,7 @@ function GetLorasResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'video_mods_by_model': value['videoModsByModel'],
         'image_presets': value['imagePresets'],
         'video_presets': value['videoPresets'],
+        'cast_templates': value['castTemplates'] == null ? undefined : (value['castTemplates'].map(ImageCastTemplate_1.ImageCastTemplateToJSON)),
     };
 }
 //# sourceMappingURL=GetLorasResponse.js.map

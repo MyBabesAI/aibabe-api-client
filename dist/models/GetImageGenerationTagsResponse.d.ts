@@ -11,6 +11,7 @@
  */
 import type { ArtStyle } from './ArtStyle';
 import type { LoraName } from './LoraName';
+import type { MentionCandidate } from './MentionCandidate';
 /**
  *
  * @export
@@ -55,6 +56,12 @@ export interface GetImageGenerationTagsResponse {
     loraWeights?: {
         [key: string]: number;
     } | null;
+    /**
+     *
+     * @type {Array<MentionCandidate>}
+     * @memberof GetImageGenerationTagsResponse
+     */
+    mentions?: Array<MentionCandidate>;
 }
 /**
  * Check if a given object implements the GetImageGenerationTagsResponse interface.

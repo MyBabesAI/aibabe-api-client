@@ -53,6 +53,12 @@ export interface ConversationSettings {
      * @memberof ConversationSettings
      */
     memoryTurnedOn?: boolean | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationSettings
+     */
+    userPersonaId?: string | null;
 }
 /**
  * Check if a given object implements the ConversationSettings interface.

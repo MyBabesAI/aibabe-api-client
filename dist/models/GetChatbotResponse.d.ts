@@ -76,6 +76,18 @@ export interface GetChatbotResponse {
     characterStyle?: string | null;
     /**
      *
+     * @type {ArtStyle}
+     * @memberof GetChatbotResponse
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GetChatbotResponse
+     */
+    nextGen?: boolean;
+    /**
+     *
      * @type {Array<WallPost>}
      * @memberof GetChatbotResponse
      */
@@ -92,18 +104,6 @@ export interface GetChatbotResponse {
      * @memberof GetChatbotResponse
      */
     unlockAllPrice: number;
-    /**
-     *
-     * @type {ArtStyle}
-     * @memberof GetChatbotResponse
-     */
-    artStyle?: ArtStyle | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof GetChatbotResponse
-     */
-    nextGen?: boolean;
 }
 /**
  * Check if a given object implements the GetChatbotResponse interface.

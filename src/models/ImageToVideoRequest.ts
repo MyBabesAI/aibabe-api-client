@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { VideoReferenceImage } from './VideoReferenceImage';
+import {
+    VideoReferenceImageFromJSON,
+    VideoReferenceImageFromJSONTyped,
+    VideoReferenceImageToJSON,
+    VideoReferenceImageToJSONTyped,
+} from './VideoReferenceImage';
 import type { VideoShot } from './VideoShot';
 import {
     VideoShotFromJSON,
@@ -83,6 +90,18 @@ export interface ImageToVideoRequest {
      * @memberof ImageToVideoRequest
      */
     inputImageId: string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ImageToVideoRequest
+     */
+    inputImageIds?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<VideoReferenceImage>}
+     * @memberof ImageToVideoRequest
+     */
+    inputImageRoles?: Array<VideoReferenceImage> | null;
     /**
      * 
      * @type {string}
@@ -213,6 +232,8 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'requestId': json['request_id'],
         'chatbotId': json['chatbot_id'],
         'inputImageId': json['input_image_id'],
+        'inputImageIds': json['input_image_ids'] == null ? undefined : json['input_image_ids'],
+        'inputImageRoles': json['input_image_roles'] == null ? undefined : ((json['input_image_roles'] as Array<any>).map(VideoReferenceImageFromJSON)),
         'resolution': json['resolution'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(VideoLoraNameFromJSON)),
         'negativePrompt': json['negative_prompt'] == null ? undefined : json['negative_prompt'],
@@ -245,6 +266,8 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'request_id': value['requestId'],
         'chatbot_id': value['chatbotId'],
         'input_image_id': value['inputImageId'],
+        'input_image_ids': value['inputImageIds'],
+        'input_image_roles': value['inputImageRoles'] == null ? undefined : ((value['inputImageRoles'] as Array<any>).map(VideoReferenceImageToJSON)),
         'resolution': value['resolution'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(VideoLoraNameToJSON)),
         'negative_prompt': value['negativePrompt'],

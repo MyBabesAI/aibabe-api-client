@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CastMember } from './CastMember';
+import {
+    CastMemberFromJSON,
+    CastMemberFromJSONTyped,
+    CastMemberToJSON,
+    CastMemberToJSONTyped,
+} from './CastMember';
 import type { MediaOrigin } from './MediaOrigin';
 import {
     MediaOriginFromJSON,
@@ -85,6 +92,12 @@ export interface VideoContent {
     loras?: Array<ImageLookLora>;
     /**
      * 
+     * @type {Array<CastMember>}
+     * @memberof VideoContent
+     */
+    cast?: Array<CastMember>;
+    /**
+     * 
      * @type {string}
      * @memberof VideoContent
      */
@@ -140,6 +153,7 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
+        'cast': json['cast'] == null ? undefined : ((json['cast'] as Array<any>).map(CastMemberFromJSON)),
         'generationId': json['generation_id'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
@@ -165,6 +179,7 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'height': value['height'],
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
+        'cast': value['cast'] == null ? undefined : ((value['cast'] as Array<any>).map(CastMemberToJSON)),
         'generation_id': value['generationId'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],

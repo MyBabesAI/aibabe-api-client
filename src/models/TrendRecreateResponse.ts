@@ -40,7 +40,7 @@ export interface TrendRecreateResponse {
      */
     tokensCost: number;
     /**
-     * Reference video trends: the stills queued by this recreate.
+     * 
      * @type {Array<TrendStillResponse>}
      * @memberof TrendRecreateResponse
      */

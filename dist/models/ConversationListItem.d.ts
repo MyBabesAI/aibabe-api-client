@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ConversationListParticipant } from './ConversationListParticipant';
 /**
  *
  * @export
@@ -69,6 +70,12 @@ export interface ConversationListItem {
      * @memberof ConversationListItem
      */
     coverImage?: string | null;
+    /**
+     *
+     * @type {Array<ConversationListParticipant>}
+     * @memberof ConversationListItem
+     */
+    participants?: Array<ConversationListParticipant>;
 }
 /**
  * @export

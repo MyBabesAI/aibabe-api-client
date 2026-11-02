@@ -42,6 +42,7 @@ function GetImageLooksResponseFromJSONTyped(json, ignoreDiscriminator) {
         'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
         'loras': (json['loras'].map(ImageLookLora_1.ImageLookLoraFromJSON)),
         'mods': (json['mods'].map(ImageLookLora_1.ImageLookLoraFromJSON)),
+        'maxCharacters': json['max_characters'] == null ? undefined : json['max_characters'],
     };
 }
 function GetImageLooksResponseToJSON(json) {
@@ -56,6 +57,7 @@ function GetImageLooksResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'next_gen': value['nextGen'],
         'loras': (value['loras'].map(ImageLookLora_1.ImageLookLoraToJSON)),
         'mods': (value['mods'].map(ImageLookLora_1.ImageLookLoraToJSON)),
+        'max_characters': value['maxCharacters'],
     };
 }
 //# sourceMappingURL=GetImageLooksResponse.js.map

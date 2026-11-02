@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { Language } from './Language';
+import {
+    LanguageFromJSON,
+    LanguageFromJSONTyped,
+    LanguageToJSON,
+    LanguageToJSONTyped,
+} from './Language';
 import type { LLM } from './LLM';
 import {
     LLMFromJSON,
@@ -64,6 +71,12 @@ export interface UserPreferenceProfile {
      * @memberof UserPreferenceProfile
      */
     chatNickname?: string | null;
+    /**
+     * 
+     * @type {Language}
+     * @memberof UserPreferenceProfile
+     */
+    language?: Language | null;
     /**
      * 
      * @type {LLM}
@@ -156,6 +169,7 @@ export function UserPreferenceProfileFromJSONTyped(json: any, ignoreDiscriminato
         'preferredOrientations': json['preferred_orientations'] == null ? undefined : json['preferred_orientations'],
         'pronouns': json['pronouns'] == null ? undefined : json['pronouns'],
         'chatNickname': json['chat_nickname'] == null ? undefined : json['chat_nickname'],
+        'language': json['language'] == null ? undefined : LanguageFromJSON(json['language']),
         'llmModel': json['llm_model'] == null ? undefined : LLMFromJSON(json['llm_model']),
         'chatNympho': json['chat_nympho'] == null ? undefined : json['chat_nympho'],
         'chatAutoSuggestions': json['chat_auto_suggestions'] == null ? undefined : json['chat_auto_suggestions'],
@@ -186,6 +200,7 @@ export function UserPreferenceProfileFromJSONTyped(json: any, ignoreDiscriminato
         'preferred_orientations': value['preferredOrientations'],
         'pronouns': value['pronouns'],
         'chat_nickname': value['chatNickname'],
+        'language': LanguageToJSON(value['language']),
         'llm_model': LLMToJSON(value['llmModel']),
         'chat_nympho': value['chatNympho'],
         'chat_auto_suggestions': value['chatAutoSuggestions'],

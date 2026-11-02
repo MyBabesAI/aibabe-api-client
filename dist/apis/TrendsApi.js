@@ -80,7 +80,7 @@ class TrendsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * A trend from an Explore post (picture, video or babe), credited to its author. Admin only.
+     * A trend from an Explore post (picture, video or babe), credited to its author.
      * Create Trend From Post
      */
     async createTrendFromPostTrendsFromPostPostRaw(requestParameters, initOverrides) {
@@ -100,7 +100,7 @@ class TrendsApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.TrendResponseFromJSON)(jsonValue));
     }
     /**
-     * A trend from an Explore post (picture, video or babe), credited to its author. Admin only.
+     * A trend from an Explore post (picture, video or babe), credited to its author.
      * Create Trend From Post
      */
     async createTrendFromPostTrendsFromPostPost(requestParameters, initOverrides) {
@@ -308,10 +308,14 @@ class TrendsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * The categories, without the male segment\'s for a member whose preferences leave male content out; with `genders`, the viewer\'s own pick replaces that rule.
      * Get Categories
      */
-    async getCategoriesTrendsCategoriesGetRaw(initOverrides) {
+    async getCategoriesTrendsCategoriesGetRaw(requestParameters, initOverrides) {
         const queryParameters = {};
+        if (requestParameters['genders'] != null) {
+            queryParameters['genders'] = requestParameters['genders'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/trends/categories`,
@@ -322,10 +326,11 @@ class TrendsApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.TrendCategoryListResponseFromJSON)(jsonValue));
     }
     /**
+     * The categories, without the male segment\'s for a member whose preferences leave male content out; with `genders`, the viewer\'s own pick replaces that rule.
      * Get Categories
      */
-    async getCategoriesTrendsCategoriesGet(initOverrides) {
-        const response = await this.getCategoriesTrendsCategoriesGetRaw(initOverrides);
+    async getCategoriesTrendsCategoriesGet(requestParameters = {}, initOverrides) {
+        const response = await this.getCategoriesTrendsCategoriesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
@@ -394,6 +399,9 @@ class TrendsApi extends runtime.BaseAPI {
         }
         if (requestParameters['mediaType'] != null) {
             queryParameters['media_type'] = requestParameters['mediaType'];
+        }
+        if (requestParameters['genders'] != null) {
+            queryParameters['genders'] = requestParameters['genders'];
         }
         const headerParameters = {};
         const response = await this.request({
@@ -606,6 +614,12 @@ class TrendsApi extends runtime.BaseAPI {
         }
         if (requestParameters['stillPrompts'] != null) {
             formParams.append('still_prompts', requestParameters['stillPrompts']);
+        }
+        if (requestParameters['previewMediaId'] != null) {
+            formParams.append('preview_media_id', requestParameters['previewMediaId']);
+        }
+        if (requestParameters['subjectGenders'] != null) {
+            formParams.append('subject_genders', new Blob([JSON.stringify((0, index_1.SubjectGendersToJSON)(requestParameters['subjectGenders']))], { type: "application/json", }));
         }
         const response = await this.request({
             path: `/trends/{trend_id}`.replace(`{${"trend_id"}}`, encodeURIComponent(String(requestParameters['trendId']))),

@@ -15,6 +15,7 @@ import type { VideoContent } from './VideoContent';
 import type { ContentType } from './ContentType';
 import type { EventSubmissionPreview } from './EventSubmissionPreview';
 import type { ImageContent } from './ImageContent';
+import type { ScenarioPreview } from './ScenarioPreview';
 import type { StoryPreview } from './StoryPreview';
 /**
  *
@@ -40,6 +41,12 @@ export interface WallPost {
      * @memberof WallPost
      */
     story: StoryPreview | null;
+    /**
+     *
+     * @type {ScenarioPreview}
+     * @memberof WallPost
+     */
+    scenario?: ScenarioPreview | null;
     /**
      *
      * @type {ImageContent}

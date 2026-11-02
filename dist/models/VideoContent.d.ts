@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CastMember } from './CastMember';
 import type { MediaOrigin } from './MediaOrigin';
 import type { AdminAgeEstimation } from './AdminAgeEstimation';
 import type { ImageLookLora } from './ImageLookLora';
@@ -60,6 +61,12 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     loras?: Array<ImageLookLora>;
+    /**
+     *
+     * @type {Array<CastMember>}
+     * @memberof VideoContent
+     */
+    cast?: Array<CastMember>;
     /**
      *
      * @type {string}

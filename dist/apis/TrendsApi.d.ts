@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, BabeTag, Models, PreviewChatbotIds, Tags, TrendCategoryCreateRequest, TrendCategoryListResponse, TrendCategoryResponse, TrendCategoryUpdateRequest, TrendFromPostRequest, TrendListFilter, TrendListResponse, TrendMediaType, TrendMode, TrendPreviewRequest, TrendPreviewResponse, TrendRecreateRequest, TrendRecreateResponse, TrendResponse, TrendSourceResponse, VideoAspectRatio, VideoLoras, VideoResolution } from '../models/index';
+import type { ArtStyle, BabeTag, Models, PreviewChatbotIds, SubjectGenders, Tags, TrendCategoryCreateRequest, TrendCategoryListResponse, TrendCategoryResponse, TrendCategoryUpdateRequest, TrendFromPostRequest, TrendListFilter, TrendListResponse, TrendMediaType, TrendMode, TrendPreviewRequest, TrendPreviewResponse, TrendRecreateRequest, TrendRecreateResponse, TrendResponse, TrendSourceResponse, VideoAspectRatio, VideoLoras, VideoResolution } from '../models/index';
 export interface CreateCategoryTrendsCategoriesPostRequest {
     trendCategoryCreateRequest: TrendCategoryCreateRequest;
 }
@@ -51,6 +51,9 @@ export interface DeleteCategoryTrendsCategoriesCategoryIdDeleteRequest {
 export interface DeleteTrendTrendsTrendIdDeleteRequest {
     trendId: string;
 }
+export interface GetCategoriesTrendsCategoriesGetRequest {
+    genders?: string | null;
+}
 export interface GetTrendSourceTrendsSourceGetRequest {
     generationId: string;
 }
@@ -61,6 +64,7 @@ export interface GetTrendsTrendsGetRequest {
     category?: string | null;
     filter?: TrendListFilter;
     mediaType?: TrendMediaType | null;
+    genders?: string | null;
 }
 export interface RecreateTrendTrendsTrendIdRecreatePostRequest {
     trendId: string;
@@ -103,6 +107,8 @@ export interface UpdateTrendTrendsTrendIdPatchRequest {
     videoPrompt?: string | null;
     videoLoras?: VideoLoras | null;
     stillPrompts?: string | null;
+    previewMediaId?: string | null;
+    subjectGenders?: SubjectGenders | null;
 }
 /**
  *
@@ -117,12 +123,12 @@ export declare class TrendsApi extends runtime.BaseAPI {
      */
     createCategoryTrendsCategoriesPost(requestParameters: CreateCategoryTrendsCategoriesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendCategoryResponse>;
     /**
-     * A trend from an Explore post (picture, video or babe), credited to its author. Admin only.
+     * A trend from an Explore post (picture, video or babe), credited to its author.
      * Create Trend From Post
      */
     createTrendFromPostTrendsFromPostPostRaw(requestParameters: CreateTrendFromPostTrendsFromPostPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrendResponse>>;
     /**
-     * A trend from an Explore post (picture, video or babe), credited to its author. Admin only.
+     * A trend from an Explore post (picture, video or babe), credited to its author.
      * Create Trend From Post
      */
     createTrendFromPostTrendsFromPostPost(requestParameters: CreateTrendFromPostTrendsFromPostPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendResponse>;
@@ -161,13 +167,15 @@ export declare class TrendsApi extends runtime.BaseAPI {
      */
     getBabeTagsTrendsBabeTagsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<BabeTag>>;
     /**
+     * The categories, without the male segment\'s for a member whose preferences leave male content out; with `genders`, the viewer\'s own pick replaces that rule.
      * Get Categories
      */
-    getCategoriesTrendsCategoriesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrendCategoryListResponse>>;
+    getCategoriesTrendsCategoriesGetRaw(requestParameters: GetCategoriesTrendsCategoriesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrendCategoryListResponse>>;
     /**
+     * The categories, without the male segment\'s for a member whose preferences leave male content out; with `genders`, the viewer\'s own pick replaces that rule.
      * Get Categories
      */
-    getCategoriesTrendsCategoriesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendCategoryListResponse>;
+    getCategoriesTrendsCategoriesGet(requestParameters?: GetCategoriesTrendsCategoriesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendCategoryListResponse>;
     /**
      * The trend a picture or video was recreated from; 404 when it is not a trend recreation.
      * Get Trend Source

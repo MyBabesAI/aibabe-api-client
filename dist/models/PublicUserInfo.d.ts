@@ -77,6 +77,12 @@ export interface PublicUserInfo {
      * @type {number}
      * @memberof PublicUserInfo
      */
+    likes: number;
+    /**
+     *
+     * @type {number}
+     * @memberof PublicUserInfo
+     */
     videos: number;
     /**
      *

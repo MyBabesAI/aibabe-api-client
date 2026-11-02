@@ -79,6 +79,18 @@ export interface GetCustomChatbotResponse {
     characterStyle?: string | null;
     /**
      *
+     * @type {ArtStyle}
+     * @memberof GetCustomChatbotResponse
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GetCustomChatbotResponse
+     */
+    nextGen?: boolean;
+    /**
+     *
      * @type {Array<TagData>}
      * @memberof GetCustomChatbotResponse
      */
@@ -137,18 +149,6 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     remixDisabled?: boolean;
-    /**
-     *
-     * @type {ArtStyle}
-     * @memberof GetCustomChatbotResponse
-     */
-    artStyle?: ArtStyle | null;
-    /**
-     *
-     * @type {boolean}
-     * @memberof GetCustomChatbotResponse
-     */
-    nextGen?: boolean;
 }
 /**
  * Check if a given object implements the GetCustomChatbotResponse interface.

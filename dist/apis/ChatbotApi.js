@@ -179,6 +179,51 @@ class ChatbotApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Reads the member\'s own selfie into a look description for their persona: the client sends it as the `description` of PUT /blueprints/persona (with a sentence-style art_style). The selfie is sent to the vision model inline and never stored; only the returned text is kept, by the client. 422 self_photo_unreadable unless it shows exactly one adult face.
+     * Describe Self
+     */
+    async describeSelfChatbotAdvancedSelfDescriptionPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['selfie'] == null) {
+            throw new runtime.RequiredError('selfie', 'Required parameter "selfie" was null or undefined when calling describeSelfChatbotAdvancedSelfDescriptionPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const consumes = [
+            { contentType: 'multipart/form-data' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+        let formParams;
+        let useForm = false;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        if (useForm) {
+            formParams = new FormData();
+        }
+        else {
+            formParams = new URLSearchParams();
+        }
+        if (requestParameters['selfie'] != null) {
+            formParams.append('selfie', requestParameters['selfie']);
+        }
+        const response = await this.request({
+            path: `/chatbot/advanced/self-description`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostSelfDescriptionResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Reads the member\'s own selfie into a look description for their persona: the client sends it as the `description` of PUT /blueprints/persona (with a sentence-style art_style). The selfie is sent to the vision model inline and never stored; only the returned text is kept, by the client. 422 self_photo_unreadable unless it shows exactly one adult face.
+     * Describe Self
+     */
+    async describeSelfChatbotAdvancedSelfDescriptionPost(requestParameters, initOverrides) {
+        const response = await this.describeSelfChatbotAdvancedSelfDescriptionPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Edit Chatbot
      */
     async editChatbotChatbotChatbotIdRemixPostRaw(requestParameters, initOverrides) {
@@ -432,6 +477,35 @@ class ChatbotApi extends runtime.BaseAPI {
      */
     async listRemixedChatbotsChatbotRemixedChatbotIdGet(requestParameters, initOverrides) {
         const response = await this.listRemixedChatbotsChatbotRemixedChatbotIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Migrate Custom Chatbot Style
+     */
+    async migrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePostRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling migrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePost().');
+        }
+        if (requestParameters['postMigrateStyleRequest'] == null) {
+            throw new runtime.RequiredError('postMigrateStyleRequest', 'Required parameter "postMigrateStyleRequest" was null or undefined when calling migrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chatbot/custom/{chatbot_id}/migrate-style`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostMigrateStyleRequestToJSON)(requestParameters['postMigrateStyleRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostMigrateStyleResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Migrate Custom Chatbot Style
+     */
+    async migrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePost(requestParameters, initOverrides) {
+        const response = await this.migrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

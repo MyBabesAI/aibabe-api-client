@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, GetGeneratedImage, GetImageGenerationTagsResponse, GetImageLooksResponse, GetLorasResponse, LoraName, PostGenerateImageRequest, PostGenerateSceneRequest, PostImagenResponse, PostRestartServersRequest, TokenPricingConfigResponse } from '../models/index';
+import type { ArtStyle, GetGeneratedImage, GetImageGenerationTagsResponse, GetImageLooksResponse, GetLorasResponse, ImageConfigResponse, LoraName, PostGenerateImageRequest, PostGenerateSceneRequest, PostImagenResponse, PostRestartServersRequest } from '../models/index';
 export interface AttachmentImagenImageIdAttachmentGetRequest {
     imageId: string;
     imageName: string;
@@ -101,11 +101,11 @@ export declare class ImageApi extends runtime.BaseAPI {
     /**
      * Get Image Config
      */
-    getImageConfigImagenConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenPricingConfigResponse>>;
+    getImageConfigImagenConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ImageConfigResponse>>;
     /**
      * Get Image Config
      */
-    getImageConfigImagenConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse>;
+    getImageConfigImagenConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ImageConfigResponse>;
     /**
      * The LoRAs a picture of the character renders with and the mods she may add, with their default strengths: what the generator\'s look sliders show and send back as lora_weights.
      * Get Looks

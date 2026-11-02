@@ -79,6 +79,18 @@ export interface ListChatbotItem {
     characterStyle?: string | null;
     /**
      * 
+     * @type {ArtStyle}
+     * @memberof ListChatbotItem
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListChatbotItem
+     */
+    nextGen?: boolean;
+    /**
+     * 
      * @type {string}
      * @memberof ListChatbotItem
      */
@@ -119,18 +131,6 @@ export interface ListChatbotItem {
      * @memberof ListChatbotItem
      */
     postDetails?: PostDetails | null;
-    /**
-     * 
-     * @type {ArtStyle}
-     * @memberof ListChatbotItem
-     */
-    artStyle?: ArtStyle | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof ListChatbotItem
-     */
-    nextGen?: boolean;
 }
 
 
@@ -166,6 +166,8 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
         'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
+        'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
         'profileVideo': json['profile_video'],
         'blacklist': json['blacklist'] == null ? undefined : BlacklistCardFromJSON(json['blacklist']),
         'bio': json['bio'],
@@ -173,8 +175,6 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'isOriginal': json['is_original'] == null ? undefined : json['is_original'],
         'lastMessageAt': json['last_message_at'] == null ? undefined : (new Date(json['last_message_at'])),
         'postDetails': json['post_details'] == null ? undefined : PostDetailsFromJSON(json['post_details']),
-        'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
-        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
     };
 }
 
@@ -195,6 +195,8 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'created_at': ((value['createdAt']).toISOString()),
         'updated_at': ((value['updatedAt']).toISOString()),
         'character_style': value['characterStyle'],
+        'art_style': ArtStyleToJSON(value['artStyle']),
+        'next_gen': value['nextGen'],
         'profile_video': value['profileVideo'],
         'blacklist': BlacklistCardToJSON(value['blacklist']),
         'bio': value['bio'],
@@ -202,8 +204,6 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'is_original': value['isOriginal'],
         'last_message_at': value['lastMessageAt'] == null ? undefined : ((value['lastMessageAt'] as any).toISOString()),
         'post_details': PostDetailsToJSON(value['postDetails']),
-        'art_style': ArtStyleToJSON(value['artStyle']),
-        'next_gen': value['nextGen'],
     };
 }
 

@@ -151,6 +151,12 @@ export interface TrendResponse {
     tags?: Array<string>;
     /**
      *
+     * @type {Array<string>}
+     * @memberof TrendResponse
+     */
+    subjectGenders?: Array<string>;
+    /**
+     *
      * @type {string}
      * @memberof TrendResponse
      */
@@ -193,6 +199,18 @@ export interface TrendResponse {
     videoLoras?: Array<string>;
     /**
      *
+     * @type {Array<string>}
+     * @memberof TrendResponse
+     */
+    stillPrompts?: Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof TrendResponse
+     */
+    stillTokensCost?: number | null;
+    /**
+     *
      * @type {Array<ImageLookLora>}
      * @memberof TrendResponse
      */
@@ -209,18 +227,6 @@ export interface TrendResponse {
      * @memberof TrendResponse
      */
     sourcePostId?: string | null;
-    /**
-     * A reference video trend: its still prompts (one per <Picture N> of video_prompt); empty on every other trend.
-     * @type {Array<string>}
-     * @memberof TrendResponse
-     */
-    stillPrompts?: Array<string>;
-    /**
-     *
-     * @type {number}
-     * @memberof TrendResponse
-     */
-    stillTokensCost?: number | null;
 }
 /**
  * Check if a given object implements the TrendResponse interface.

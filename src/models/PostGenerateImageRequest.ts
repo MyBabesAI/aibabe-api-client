@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { BlueprintRef } from './BlueprintRef';
+import {
+    BlueprintRefFromJSON,
+    BlueprintRefFromJSONTyped,
+    BlueprintRefToJSON,
+    BlueprintRefToJSONTyped,
+} from './BlueprintRef';
 import type { ImageAspectRatio } from './ImageAspectRatio';
 import {
     ImageAspectRatioFromJSON,
@@ -88,6 +95,12 @@ export interface PostGenerateImageRequest {
      * @memberof PostGenerateImageRequest
      */
     loraWeights?: { [key: string]: number; } | null;
+    /**
+     * The blueprints mentioned with @ in the query, in order of first mention: other own characters (the selected one is always subject 0), items and outfits.
+     * @type {Array<BlueprintRef>}
+     * @memberof PostGenerateImageRequest
+     */
+    mentions?: Array<BlueprintRef>;
 }
 
 
@@ -122,6 +135,7 @@ export function PostGenerateImageRequestFromJSONTyped(json: any, ignoreDiscrimin
         'aspectRatio': json['aspect_ratio'] == null ? undefined : ImageAspectRatioFromJSON(json['aspect_ratio']),
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
         'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'mentions': json['mentions'] == null ? undefined : ((json['mentions'] as Array<any>).map(BlueprintRefFromJSON)),
     };
 }
 
@@ -145,6 +159,7 @@ export function PostGenerateImageRequestFromJSONTyped(json: any, ignoreDiscrimin
         'aspect_ratio': ImageAspectRatioToJSON(value['aspectRatio']),
         'original_image_id': value['originalImageId'],
         'lora_weights': value['loraWeights'],
+        'mentions': value['mentions'] == null ? undefined : ((value['mentions'] as Array<any>).map(BlueprintRefToJSON)),
     };
 }
 

@@ -10,7 +10,11 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatReponse, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, SeedConversationResponse, TokenPricingConfigResponse } from '../models/index';
+import type { ChatConfigResponse, ChatReponse, ConversationParticipant, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
+export interface AddParticipantChatConversationConversationIdParticipantsPostRequest {
+    conversationId: string;
+    postConversationParticipantRequest: PostConversationParticipantRequest;
+}
 export interface AnonymousChatChatAnonymousChatbotIdPostRequest {
     chatbotId: string;
     postAnonymousChatRequest: PostAnonymousChatRequest;
@@ -94,8 +98,16 @@ export interface RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest {
     messageId: string;
     postChatRequest: PostChatRequest;
 }
+export interface RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest {
+    conversationId: string;
+    chatbotId: string;
+}
 export interface ResetConversationChatConversationConversationIdResetPostRequest {
     conversationId: string;
+}
+export interface RestartScenarioChatConversationConversationIdScenarioRestartPostRequest {
+    conversationId: string;
+    scenarioStartRequest: ScenarioStartRequest;
 }
 export interface SeedConversationChatChatbotIdSeedPutRequest {
     chatbotId: string;
@@ -116,6 +128,16 @@ export interface UpdateMessageChatMessageMessageIdPatchRequest {
  *
  */
 export declare class ChatApi extends runtime.BaseAPI {
+    /**
+     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction itself is never stored or shown. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
+     * Add Participant
+     */
+    addParticipantChatConversationConversationIdParticipantsPostRaw(requestParameters: AddParticipantChatConversationConversationIdParticipantsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostConversationParticipantResponse>>;
+    /**
+     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction itself is never stored or shown. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
+     * Add Participant
+     */
+    addParticipantChatConversationConversationIdParticipantsPost(requestParameters: AddParticipantChatConversationConversationIdParticipantsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationParticipantResponse>;
     /**
      * Anonymous Chat
      */
@@ -243,11 +265,11 @@ export declare class ChatApi extends runtime.BaseAPI {
     /**
      * Get Chat Config
      */
-    getChatConfigChatConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenPricingConfigResponse>>;
+    getChatConfigChatConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatConfigResponse>>;
     /**
      * Get Chat Config
      */
-    getChatConfigChatConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse>;
+    getChatConfigChatConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatConfigResponse>;
     /**
      * Get Image Moderation Prompt
      */
@@ -301,6 +323,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     regenerateChatChatbotIdMessageMessageIdRegeneratePost(requestParameters: RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse>;
     /**
+     * Remove a character from the cast. Her messages stay; the host can leave too as long as one member remains.
+     * Remove Participant
+     */
+    removeParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRaw(requestParameters: RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ConversationParticipant>>>;
+    /**
+     * Remove a character from the cast. Her messages stay; the host can leave too as long as one member remains.
+     * Remove Participant
+     */
+    removeParticipantChatConversationConversationIdParticipantsChatbotIdDelete(requestParameters: RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ConversationParticipant>>;
+    /**
      * Reset Conversation
      */
     resetConversationChatConversationConversationIdResetPostRaw(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
@@ -308,6 +340,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Reset Conversation
      */
     resetConversationChatConversationConversationIdResetPost(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the same replacement semantics as starting from the post.
+     * Restart Scenario
+     */
+    restartScenarioChatConversationConversationIdScenarioRestartPostRaw(requestParameters: RestartScenarioChatConversationConversationIdScenarioRestartPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScenarioStartResponse>>;
+    /**
+     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the same replacement semantics as starting from the post.
+     * Restart Scenario
+     */
+    restartScenarioChatConversationConversationIdScenarioRestartPost(requestParameters: RestartScenarioChatConversationConversationIdScenarioRestartPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScenarioStartResponse>;
     /**
      * Import the funnel\'s scripted opening for a signed-in user, idempotently.  The reels funnel plays its script client-side and gates sending on login, so the client calls this right after login and before the first real message. If the user already has a conversation with this chatbot it is returned untouched (seeded=false) - retries and returning users are both no-ops, never conflicts.
      * Seed Conversation

@@ -14,7 +14,8 @@
 
 import { mapValues } from '../runtime';
 /**
- * A trend from an Explore post (a picture, a video or a babe): the post's picture or clip becomes the source, its prompts become the trend's, and its author is credited as the creator.
+ * A trend from an Explore post (a picture, a video or a babe): the post's picture or clip becomes the source,
+ * its prompts become the trend's, and its author is credited as the creator.
  * @export
  * @interface TrendFromPostRequest
  */

@@ -20,6 +20,13 @@ import {
     PublicUserPreviewWithFollowToJSON,
     PublicUserPreviewWithFollowToJSONTyped,
 } from './PublicUserPreviewWithFollow';
+import type { CastMember } from './CastMember';
+import {
+    CastMemberFromJSON,
+    CastMemberFromJSONTyped,
+    CastMemberToJSON,
+    CastMemberToJSONTyped,
+} from './CastMember';
 import type { BlacklistCard } from './BlacklistCard';
 import {
     BlacklistCardFromJSON,
@@ -177,6 +184,12 @@ export interface GeneratedImages {
      * @memberof GeneratedImages
      */
     moderationCharged?: boolean | null;
+    /**
+     * 
+     * @type {Array<CastMember>}
+     * @memberof GeneratedImages
+     */
+    cast?: Array<CastMember>;
 }
 
 
@@ -235,6 +248,7 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
         'moderationCharged': json['moderation_charged'] == null ? undefined : json['moderation_charged'],
+        'cast': json['cast'] == null ? undefined : ((json['cast'] as Array<any>).map(CastMemberFromJSON)),
     };
 }
 
@@ -267,6 +281,7 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'height': value['height'],
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
         'moderation_charged': value['moderationCharged'],
+        'cast': value['cast'] == null ? undefined : ((value['cast'] as Array<any>).map(CastMemberToJSON)),
     };
 }
 

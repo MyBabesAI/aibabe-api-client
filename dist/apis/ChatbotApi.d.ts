@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, CharacterAboutPageReview, CharacterIdentityPageReview, CharacterPersonalityPageReview, ChatbotType, GetAboutChatbotResponse, GetChatbotListResponse, GetChatbotResponse, GetCustomChatbotResponse, GetIdentityChatbotResponse, GetImageLooksResponse, GetPersonalityChatbotResponse, PatchCustomChatbotRequest, PostAdvancedCharacterBuilderSuggestionPayload, PostAdvancedCharacterBuilderSuggestionResponse, PostAdvancedChatbotProfilePicture, PostAdvancedChatbotPublishPayload, PostAdvancedChatbotPublishResponse, PostAdvancedIdentityPayload, PostAdvancedPersonalityPayload, PostAdvancedRecreateResponse, PostCustomAboutPagePayload, PostCustomChatbotResponse, PostCustomChatbotV2Payload, PostProfilePictureResponse, SortFilter, VisibilityFilter } from '../models/index';
+import type { ArtStyle, CharacterAboutPageReview, CharacterIdentityPageReview, CharacterPersonalityPageReview, ChatbotType, GetAboutChatbotResponse, GetChatbotListResponse, GetChatbotResponse, GetCustomChatbotResponse, GetIdentityChatbotResponse, GetImageLooksResponse, GetPersonalityChatbotResponse, PatchCustomChatbotRequest, PostAdvancedCharacterBuilderSuggestionPayload, PostAdvancedCharacterBuilderSuggestionResponse, PostAdvancedChatbotProfilePicture, PostAdvancedChatbotPublishPayload, PostAdvancedChatbotPublishResponse, PostAdvancedIdentityPayload, PostAdvancedPersonalityPayload, PostAdvancedRecreateResponse, PostCustomAboutPagePayload, PostCustomChatbotResponse, PostCustomChatbotV2Payload, PostMigrateStyleRequest, PostMigrateStyleResponse, PostProfilePictureResponse, PostSelfDescriptionResponse, SortFilter, VisibilityFilter } from '../models/index';
 export interface AttachmentChatbotChatbotIdAttachmentGetRequest {
     chatbotId: string;
     imageName: string;
@@ -24,6 +24,9 @@ export interface DeleteCustomChatbotChatbotCustomChatbotIdDeleteRequest {
 export interface DeleteImageChatbotChatbotIdImageDeleteRequest {
     chatbotId: string;
     imageName: string;
+}
+export interface DescribeSelfChatbotAdvancedSelfDescriptionPostRequest {
+    selfie: Blob;
 }
 export interface EditChatbotChatbotChatbotIdRemixPostRequest {
     chatbotId: string;
@@ -62,6 +65,10 @@ export interface ListRemixedChatbotsChatbotRemixedChatbotIdGetRequest {
     paginationToken?: string | null;
     limit?: number;
     sort?: SortFilter;
+}
+export interface MigrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePostRequest {
+    chatbotId: string;
+    postMigrateStyleRequest: PostMigrateStyleRequest;
 }
 export interface PostAboutChatbotAdvancedAboutPostRequest {
     postCustomAboutPagePayload: PostCustomAboutPagePayload;
@@ -124,6 +131,16 @@ export declare class ChatbotApi extends runtime.BaseAPI {
      * Delete Image
      */
     deleteImageChatbotChatbotIdImageDelete(requestParameters: DeleteImageChatbotChatbotIdImageDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Reads the member\'s own selfie into a look description for their persona: the client sends it as the `description` of PUT /blueprints/persona (with a sentence-style art_style). The selfie is sent to the vision model inline and never stored; only the returned text is kept, by the client. 422 self_photo_unreadable unless it shows exactly one adult face.
+     * Describe Self
+     */
+    describeSelfChatbotAdvancedSelfDescriptionPostRaw(requestParameters: DescribeSelfChatbotAdvancedSelfDescriptionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostSelfDescriptionResponse>>;
+    /**
+     * Reads the member\'s own selfie into a look description for their persona: the client sends it as the `description` of PUT /blueprints/persona (with a sentence-style art_style). The selfie is sent to the vision model inline and never stored; only the returned text is kept, by the client. 422 self_photo_unreadable unless it shows exactly one adult face.
+     * Describe Self
+     */
+    describeSelfChatbotAdvancedSelfDescriptionPost(requestParameters: DescribeSelfChatbotAdvancedSelfDescriptionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostSelfDescriptionResponse>;
     /**
      * Edit Chatbot
      */
@@ -198,6 +215,14 @@ export declare class ChatbotApi extends runtime.BaseAPI {
      * List Remixed Chatbots
      */
     listRemixedChatbotsChatbotRemixedChatbotIdGet(requestParameters: ListRemixedChatbotsChatbotRemixedChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetChatbotListResponse>;
+    /**
+     * Migrate Custom Chatbot Style
+     */
+    migrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePostRaw(requestParameters: MigrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostMigrateStyleResponse>>;
+    /**
+     * Migrate Custom Chatbot Style
+     */
+    migrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePost(requestParameters: MigrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostMigrateStyleResponse>;
     /**
      * Post About
      */

@@ -28,6 +28,7 @@ const AdminAgeEstimation_1 = require("./AdminAgeEstimation");
 const StoryCoverOrientation_1 = require("./StoryCoverOrientation");
 const VideoGenerationStatus_1 = require("./VideoGenerationStatus");
 const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
+const CastMember_1 = require("./CastMember");
 const ChatbotPreview_1 = require("./ChatbotPreview");
 const StoryPlayState_1 = require("./StoryPlayState");
 const StoryChatDifficulty_1 = require("./StoryChatDifficulty");
@@ -102,6 +103,7 @@ function GetGalleryResponseItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : (0, AdminAgeEstimation_1.AdminAgeEstimationFromJSON)(json['age_estimation']),
         'moderationCharged': json['moderation_charged'] == null ? undefined : json['moderation_charged'],
+        'cast': json['cast'] == null ? undefined : (json['cast'].map(CastMember_1.CastMemberFromJSON)),
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'title': json['title'],
@@ -146,6 +148,7 @@ function GetGalleryResponseItemsInnerToJSONTyped(value, ignoreDiscriminator = fa
         'height': value['height'],
         'age_estimation': (0, AdminAgeEstimation_1.AdminAgeEstimationToJSON)(value['ageEstimation']),
         'moderation_charged': value['moderationCharged'],
+        'cast': value['cast'] == null ? undefined : (value['cast'].map(CastMember_1.CastMemberToJSON)),
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'title': value['title'],

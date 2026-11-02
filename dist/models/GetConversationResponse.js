@@ -18,9 +18,11 @@ exports.GetConversationResponseFromJSON = GetConversationResponseFromJSON;
 exports.GetConversationResponseFromJSONTyped = GetConversationResponseFromJSONTyped;
 exports.GetConversationResponseToJSON = GetConversationResponseToJSON;
 exports.GetConversationResponseToJSONTyped = GetConversationResponseToJSONTyped;
+const ScenarioChatInfo_1 = require("./ScenarioChatInfo");
 const ChatbotInfo_1 = require("./ChatbotInfo");
 const PostDetails_1 = require("./PostDetails");
 const ChatAdminDetails_1 = require("./ChatAdminDetails");
+const ConversationParticipant_1 = require("./ConversationParticipant");
 const ChatMessageDetail_1 = require("./ChatMessageDetail");
 const ConversationSettings_1 = require("./ConversationSettings");
 /**
@@ -57,6 +59,8 @@ function GetConversationResponseFromJSONTyped(json, ignoreDiscriminator) {
         'postDetails': (0, PostDetails_1.PostDetailsFromJSON)(json['post_details']),
         'paginationToken': json['pagination_token'] == null ? undefined : json['pagination_token'],
         'admin': json['admin'] == null ? undefined : (0, ChatAdminDetails_1.ChatAdminDetailsFromJSON)(json['admin']),
+        'participants': json['participants'] == null ? undefined : (json['participants'].map(ConversationParticipant_1.ConversationParticipantFromJSON)),
+        'scenario': json['scenario'] == null ? undefined : (0, ScenarioChatInfo_1.ScenarioChatInfoFromJSON)(json['scenario']),
     };
 }
 function GetConversationResponseToJSON(json) {
@@ -75,6 +79,8 @@ function GetConversationResponseToJSONTyped(value, ignoreDiscriminator = false) 
         'post_details': (0, PostDetails_1.PostDetailsToJSON)(value['postDetails']),
         'pagination_token': value['paginationToken'],
         'admin': (0, ChatAdminDetails_1.ChatAdminDetailsToJSON)(value['admin']),
+        'participants': value['participants'] == null ? undefined : (value['participants'].map(ConversationParticipant_1.ConversationParticipantToJSON)),
+        'scenario': (0, ScenarioChatInfo_1.ScenarioChatInfoToJSON)(value['scenario']),
     };
 }
 //# sourceMappingURL=GetConversationResponse.js.map

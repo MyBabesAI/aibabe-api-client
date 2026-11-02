@@ -58,6 +58,12 @@ export interface GetImageLooksResponse {
      * @memberof GetImageLooksResponse
      */
     mods: Array<ImageLookLora>;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetImageLooksResponse
+     */
+    maxCharacters?: number;
 }
 
 
@@ -85,6 +91,7 @@ export function GetImageLooksResponseFromJSONTyped(json: any, ignoreDiscriminato
         'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
         'loras': ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
         'mods': ((json['mods'] as Array<any>).map(ImageLookLoraFromJSON)),
+        'maxCharacters': json['max_characters'] == null ? undefined : json['max_characters'],
     };
 }
 
@@ -103,6 +110,7 @@ export function GetImageLooksResponseFromJSONTyped(json: any, ignoreDiscriminato
         'next_gen': value['nextGen'],
         'loras': ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
         'mods': ((value['mods'] as Array<any>).map(ImageLookLoraToJSON)),
+        'max_characters': value['maxCharacters'],
     };
 }
 

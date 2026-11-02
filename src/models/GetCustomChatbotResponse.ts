@@ -132,6 +132,18 @@ export interface GetCustomChatbotResponse {
     characterStyle?: string | null;
     /**
      * 
+     * @type {ArtStyle}
+     * @memberof GetCustomChatbotResponse
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetCustomChatbotResponse
+     */
+    nextGen?: boolean;
+    /**
+     * 
      * @type {Array<TagData>}
      * @memberof GetCustomChatbotResponse
      */
@@ -190,18 +202,6 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     remixDisabled?: boolean;
-    /**
-     * 
-     * @type {ArtStyle}
-     * @memberof GetCustomChatbotResponse
-     */
-    artStyle?: ArtStyle | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof GetCustomChatbotResponse
-     */
-    nextGen?: boolean;
 }
 
 
@@ -241,6 +241,8 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'fullBio': json['full_bio'],
         'characterAge': json['character_age'],
         'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
+        'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
         'tags': ((json['tags'] as Array<any>).map(TagDataFromJSON)),
         'chatCount': json['chat_count'],
         'createdFrom': ChatbotCreatedOriginFromJSON(json['created_from']),
@@ -251,8 +253,6 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'chatDisabled': json['chat_disabled'] == null ? undefined : json['chat_disabled'],
         'generationDisabled': json['generation_disabled'] == null ? undefined : json['generation_disabled'],
         'remixDisabled': json['remix_disabled'] == null ? undefined : json['remix_disabled'],
-        'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
-        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
     };
 }
 
@@ -276,6 +276,8 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'full_bio': value['fullBio'],
         'character_age': value['characterAge'],
         'character_style': value['characterStyle'],
+        'art_style': ArtStyleToJSON(value['artStyle']),
+        'next_gen': value['nextGen'],
         'tags': ((value['tags'] as Array<any>).map(TagDataToJSON)),
         'chat_count': value['chatCount'],
         'created_from': ChatbotCreatedOriginToJSON(value['createdFrom']),
@@ -286,8 +288,6 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'chat_disabled': value['chatDisabled'],
         'generation_disabled': value['generationDisabled'],
         'remix_disabled': value['remixDisabled'],
-        'art_style': ArtStyleToJSON(value['artStyle']),
-        'next_gen': value['nextGen'],
     };
 }
 

@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { BlueprintRef } from './BlueprintRef';
 import type { ImageAspectRatio } from './ImageAspectRatio';
 import type { LoraName } from './LoraName';
 /**
@@ -73,6 +74,12 @@ export interface PostGenerateImageRequest {
     loraWeights?: {
         [key: string]: number;
     } | null;
+    /**
+     * The blueprints mentioned with @ in the query, in order of first mention: other own characters (the selected one is always subject 0), items and outfits.
+     * @type {Array<BlueprintRef>}
+     * @memberof PostGenerateImageRequest
+     */
+    mentions?: Array<BlueprintRef>;
 }
 /**
  * Check if a given object implements the PostGenerateImageRequest interface.

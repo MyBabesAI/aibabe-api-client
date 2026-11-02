@@ -41,6 +41,12 @@ export interface GetImageLooksResponse {
      * @memberof GetImageLooksResponse
      */
     mods: Array<ImageLookLora>;
+    /**
+     *
+     * @type {number}
+     * @memberof GetImageLooksResponse
+     */
+    maxCharacters?: number;
 }
 /**
  * Check if a given object implements the GetImageLooksResponse interface.

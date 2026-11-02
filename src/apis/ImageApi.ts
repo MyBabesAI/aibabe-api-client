@@ -21,12 +21,12 @@ import type {
   GetImageLooksResponse,
   GetLorasResponse,
   HTTPValidationError,
+  ImageConfigResponse,
   LoraName,
   PostGenerateImageRequest,
   PostGenerateSceneRequest,
   PostImagenResponse,
   PostRestartServersRequest,
-  TokenPricingConfigResponse,
 } from '../models/index';
 import {
     ArtStyleFromJSON,
@@ -41,6 +41,8 @@ import {
     GetLorasResponseToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
+    ImageConfigResponseFromJSON,
+    ImageConfigResponseToJSON,
     LoraNameFromJSON,
     LoraNameToJSON,
     PostGenerateImageRequestFromJSON,
@@ -51,8 +53,6 @@ import {
     PostImagenResponseToJSON,
     PostRestartServersRequestFromJSON,
     PostRestartServersRequestToJSON,
-    TokenPricingConfigResponseFromJSON,
-    TokenPricingConfigResponseToJSON,
 } from '../models/index';
 
 export interface AttachmentImagenImageIdAttachmentGetRequest {
@@ -303,7 +303,7 @@ export class ImageApi extends runtime.BaseAPI {
     /**
      * Get Image Config
      */
-    async getImageConfigImagenConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenPricingConfigResponse>> {
+    async getImageConfigImagenConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ImageConfigResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -315,13 +315,13 @@ export class ImageApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => TokenPricingConfigResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ImageConfigResponseFromJSON(jsonValue));
     }
 
     /**
      * Get Image Config
      */
-    async getImageConfigImagenConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse> {
+    async getImageConfigImagenConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ImageConfigResponse> {
         const response = await this.getImageConfigImagenConfigGetRaw(initOverrides);
         return await response.value();
     }
