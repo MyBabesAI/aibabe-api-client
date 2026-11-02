@@ -9,9 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ScenarioChatInfo } from './ScenarioChatInfo';
 import type { ChatbotInfo } from './ChatbotInfo';
 import type { PostDetails } from './PostDetails';
 import type { ChatAdminDetails } from './ChatAdminDetails';
+import type { ConversationParticipant } from './ConversationParticipant';
 import type { ChatMessageDetail } from './ChatMessageDetail';
 import type { ConversationSettings } from './ConversationSettings';
 /**
@@ -68,6 +70,18 @@ export interface GetConversationResponse {
      * @memberof GetConversationResponse
      */
     admin?: ChatAdminDetails | null;
+    /**
+     *
+     * @type {Array<ConversationParticipant>}
+     * @memberof GetConversationResponse
+     */
+    participants?: Array<ConversationParticipant>;
+    /**
+     *
+     * @type {ScenarioChatInfo}
+     * @memberof GetConversationResponse
+     */
+    scenario?: ScenarioChatInfo | null;
 }
 /**
  * Check if a given object implements the GetConversationResponse interface.

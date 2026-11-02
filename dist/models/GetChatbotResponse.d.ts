@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { BlacklistCard } from './BlacklistCard';
+import type { ArtStyle } from './ArtStyle';
 import type { ContentType } from './ContentType';
 import type { GalleryItem } from './GalleryItem';
 import type { WallPost } from './WallPost';
@@ -67,6 +68,24 @@ export interface GetChatbotResponse {
      * @memberof GetChatbotResponse
      */
     characterAge: number;
+    /**
+     *
+     * @type {string}
+     * @memberof GetChatbotResponse
+     */
+    characterStyle?: string | null;
+    /**
+     *
+     * @type {ArtStyle}
+     * @memberof GetChatbotResponse
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GetChatbotResponse
+     */
+    nextGen?: boolean;
     /**
      *
      * @type {Array<WallPost>}

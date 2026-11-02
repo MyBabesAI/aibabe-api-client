@@ -123,6 +123,18 @@ export interface GetAboutChatbotResponse {
     loras: Array<LoraName> | null;
     /**
      * 
+     * @type {{ [key: string]: number; }}
+     * @memberof GetAboutChatbotResponse
+     */
+    loraWeights?: { [key: string]: number; } | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetAboutChatbotResponse
+     */
+    age?: number | null;
+    /**
+     * 
      * @type {boolean}
      * @memberof GetAboutChatbotResponse
      */
@@ -184,6 +196,8 @@ export function GetAboutChatbotResponseFromJSONTyped(json: any, ignoreDiscrimina
         'looksDescription': json['looks_description'],
         'artStyle': ArtStyleFromJSON(json['art_style']),
         'loras': (json['loras'] == null ? null : (json['loras'] as Array<any>).map(LoraNameFromJSON)),
+        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'age': json['age'] == null ? undefined : json['age'],
         'generationStated': json['generation_stated'],
         'profilePicture': json['profile_picture'],
         'greetings': json['greetings'],
@@ -212,6 +226,8 @@ export function GetAboutChatbotResponseFromJSONTyped(json: any, ignoreDiscrimina
         'looks_description': value['looksDescription'],
         'art_style': ArtStyleToJSON(value['artStyle']),
         'loras': (value['loras'] == null ? null : (value['loras'] as Array<any>).map(LoraNameToJSON)),
+        'lora_weights': value['loraWeights'],
+        'age': value['age'],
         'generation_stated': value['generationStated'],
         'profile_picture': value['profilePicture'],
         'greetings': value['greetings'],

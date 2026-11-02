@@ -20,6 +20,13 @@ import {
     VideoModelConfigToJSON,
     VideoModelConfigToJSONTyped,
 } from './VideoModelConfig';
+import type { VideoReferenceTemplate } from './VideoReferenceTemplate';
+import {
+    VideoReferenceTemplateFromJSON,
+    VideoReferenceTemplateFromJSONTyped,
+    VideoReferenceTemplateToJSON,
+    VideoReferenceTemplateToJSONTyped,
+} from './VideoReferenceTemplate';
 
 /**
  * 
@@ -39,6 +46,12 @@ export interface VideoConfigResponse {
      * @memberof VideoConfigResponse
      */
     extensionModels: { [key: string]: VideoModelConfig; };
+    /**
+     * 
+     * @type {Array<VideoReferenceTemplate>}
+     * @memberof VideoConfigResponse
+     */
+    referenceTemplates?: Array<VideoReferenceTemplate>;
 }
 
 /**
@@ -62,6 +75,7 @@ export function VideoConfigResponseFromJSONTyped(json: any, ignoreDiscriminator:
         
         'generationModels': (mapValues(json['generation_models'], VideoModelConfigFromJSON)),
         'extensionModels': (mapValues(json['extension_models'], VideoModelConfigFromJSON)),
+        'referenceTemplates': json['reference_templates'] == null ? undefined : ((json['reference_templates'] as Array<any>).map(VideoReferenceTemplateFromJSON)),
     };
 }
 
@@ -78,6 +92,7 @@ export function VideoConfigResponseFromJSONTyped(json: any, ignoreDiscriminator:
         
         'generation_models': (mapValues(value['generationModels'], VideoModelConfigToJSON)),
         'extension_models': (mapValues(value['extensionModels'], VideoModelConfigToJSON)),
+        'reference_templates': value['referenceTemplates'] == null ? undefined : ((value['referenceTemplates'] as Array<any>).map(VideoReferenceTemplateToJSON)),
     };
 }
 

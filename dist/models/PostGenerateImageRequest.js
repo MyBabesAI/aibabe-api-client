@@ -18,6 +18,7 @@ exports.PostGenerateImageRequestFromJSON = PostGenerateImageRequestFromJSON;
 exports.PostGenerateImageRequestFromJSONTyped = PostGenerateImageRequestFromJSONTyped;
 exports.PostGenerateImageRequestToJSON = PostGenerateImageRequestToJSON;
 exports.PostGenerateImageRequestToJSONTyped = PostGenerateImageRequestToJSONTyped;
+const BlueprintRef_1 = require("./BlueprintRef");
 const ImageAspectRatio_1 = require("./ImageAspectRatio");
 const LoraName_1 = require("./LoraName");
 /**
@@ -50,6 +51,8 @@ function PostGenerateImageRequestFromJSONTyped(json, ignoreDiscriminator) {
         'loras': json['loras'] == null ? undefined : (json['loras'].map(LoraName_1.LoraNameFromJSON)),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, ImageAspectRatio_1.ImageAspectRatioFromJSON)(json['aspect_ratio']),
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
+        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'mentions': json['mentions'] == null ? undefined : (json['mentions'].map(BlueprintRef_1.BlueprintRefFromJSON)),
     };
 }
 function PostGenerateImageRequestToJSON(json) {
@@ -68,6 +71,8 @@ function PostGenerateImageRequestToJSONTyped(value, ignoreDiscriminator = false)
         'loras': value['loras'] == null ? undefined : (value['loras'].map(LoraName_1.LoraNameToJSON)),
         'aspect_ratio': (0, ImageAspectRatio_1.ImageAspectRatioToJSON)(value['aspectRatio']),
         'original_image_id': value['originalImageId'],
+        'lora_weights': value['loraWeights'],
+        'mentions': value['mentions'] == null ? undefined : (value['mentions'].map(BlueprintRef_1.BlueprintRefToJSON)),
     };
 }
 //# sourceMappingURL=PostGenerateImageRequest.js.map

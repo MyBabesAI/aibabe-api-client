@@ -44,6 +44,12 @@ export interface GetVideoGenerationTagsResponse {
     originalImageId: string;
     /**
      *
+     * @type {Array<string>}
+     * @memberof GetVideoGenerationTagsResponse
+     */
+    inputImageIds: Array<string>;
+    /**
+     *
      * @type {Array<VideoLoraName>}
      * @memberof GetVideoGenerationTagsResponse
      */

@@ -42,6 +42,7 @@ function PostConversationSettingsRequestFromJSONTyped(json, ignoreDiscriminator)
         'sfwFilterOn': json['sfw_filter_on'] == null ? undefined : json['sfw_filter_on'],
         'audioReferenceId': json['audio_reference_id'] == null ? undefined : json['audio_reference_id'],
         'memoryTurnedOn': json['memory_turned_on'] == null ? undefined : json['memory_turned_on'],
+        'userPersonaId': json['user_persona_id'] == null ? undefined : json['user_persona_id'],
         'chatbotId': json['chatbot_id'],
     };
 }
@@ -59,6 +60,7 @@ function PostConversationSettingsRequestToJSONTyped(value, ignoreDiscriminator =
         'sfw_filter_on': value['sfwFilterOn'],
         'audio_reference_id': value['audioReferenceId'],
         'memory_turned_on': value['memoryTurnedOn'],
+        'user_persona_id': value['userPersonaId'],
         'chatbot_id': value['chatbotId'],
     };
 }

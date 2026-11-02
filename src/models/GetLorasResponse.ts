@@ -34,6 +34,13 @@ import {
     ImageModToJSON,
     ImageModToJSONTyped,
 } from './ImageMod';
+import type { ImageCastTemplate } from './ImageCastTemplate';
+import {
+    ImageCastTemplateFromJSON,
+    ImageCastTemplateFromJSONTyped,
+    ImageCastTemplateToJSON,
+    ImageCastTemplateToJSONTyped,
+} from './ImageCastTemplate';
 import type { VideoMod } from './VideoMod';
 import {
     VideoModFromJSON,
@@ -78,6 +85,12 @@ export interface GetLorasResponse {
      * @memberof GetLorasResponse
      */
     videoPresets: { [key: string]: Array<VideoPreset>; };
+    /**
+     * 
+     * @type {Array<ImageCastTemplate>}
+     * @memberof GetLorasResponse
+     */
+    castTemplates?: Array<ImageCastTemplate>;
 }
 
 /**
@@ -106,6 +119,7 @@ export function GetLorasResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'videoModsByModel': json['video_mods_by_model'] == null ? undefined : json['video_mods_by_model'],
         'imagePresets': json['image_presets'],
         'videoPresets': json['video_presets'],
+        'castTemplates': json['cast_templates'] == null ? undefined : ((json['cast_templates'] as Array<any>).map(ImageCastTemplateFromJSON)),
     };
 }
 
@@ -125,6 +139,7 @@ export function GetLorasResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
         'video_mods_by_model': value['videoModsByModel'],
         'image_presets': value['imagePresets'],
         'video_presets': value['videoPresets'],
+        'cast_templates': value['castTemplates'] == null ? undefined : ((value['castTemplates'] as Array<any>).map(ImageCastTemplateToJSON)),
     };
 }
 

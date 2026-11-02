@@ -33,6 +33,8 @@ function instanceOfGetVideoGenerationTagsResponse(value) {
         return false;
     if (!('originalImageId' in value) || value['originalImageId'] === undefined)
         return false;
+    if (!('inputImageIds' in value) || value['inputImageIds'] === undefined)
+        return false;
     if (!('loras' in value) || value['loras'] === undefined)
         return false;
     if (!('model' in value) || value['model'] === undefined)
@@ -51,6 +53,7 @@ function GetVideoGenerationTagsResponseFromJSONTyped(json, ignoreDiscriminator) 
         'downloadUrl': json['download_url'],
         'chatbotName': json['chatbot_name'],
         'originalImageId': json['original_image_id'],
+        'inputImageIds': json['input_image_ids'],
         'loras': (json['loras'].map(VideoLoraName_1.VideoLoraNameFromJSON)),
         'model': (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, VideoAspectRatio_1.VideoAspectRatioFromJSON)(json['aspect_ratio']),
@@ -69,6 +72,7 @@ function GetVideoGenerationTagsResponseToJSONTyped(value, ignoreDiscriminator = 
         'download_url': value['downloadUrl'],
         'chatbot_name': value['chatbotName'],
         'original_image_id': value['originalImageId'],
+        'input_image_ids': value['inputImageIds'],
         'loras': (value['loras'].map(VideoLoraName_1.VideoLoraNameToJSON)),
         'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
         'aspect_ratio': (0, VideoAspectRatio_1.VideoAspectRatioToJSON)(value['aspectRatio']),

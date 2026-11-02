@@ -15,6 +15,7 @@
 
 import * as runtime from '../runtime';
 import type {
+  ArtStyle,
   CharacterAboutPageReview,
   CharacterIdentityPageReview,
   CharacterPersonalityPageReview,
@@ -24,6 +25,7 @@ import type {
   GetChatbotResponse,
   GetCustomChatbotResponse,
   GetIdentityChatbotResponse,
+  GetImageLooksResponse,
   GetPersonalityChatbotResponse,
   HTTPValidationError,
   PatchCustomChatbotRequest,
@@ -34,14 +36,20 @@ import type {
   PostAdvancedChatbotPublishResponse,
   PostAdvancedIdentityPayload,
   PostAdvancedPersonalityPayload,
+  PostAdvancedRecreateResponse,
   PostCustomAboutPagePayload,
   PostCustomChatbotResponse,
   PostCustomChatbotV2Payload,
+  PostMigrateStyleRequest,
+  PostMigrateStyleResponse,
   PostProfilePictureResponse,
+  PostSelfDescriptionResponse,
   SortFilter,
   VisibilityFilter,
 } from '../models/index';
 import {
+    ArtStyleFromJSON,
+    ArtStyleToJSON,
     CharacterAboutPageReviewFromJSON,
     CharacterAboutPageReviewToJSON,
     CharacterIdentityPageReviewFromJSON,
@@ -60,6 +68,8 @@ import {
     GetCustomChatbotResponseToJSON,
     GetIdentityChatbotResponseFromJSON,
     GetIdentityChatbotResponseToJSON,
+    GetImageLooksResponseFromJSON,
+    GetImageLooksResponseToJSON,
     GetPersonalityChatbotResponseFromJSON,
     GetPersonalityChatbotResponseToJSON,
     HTTPValidationErrorFromJSON,
@@ -80,14 +90,22 @@ import {
     PostAdvancedIdentityPayloadToJSON,
     PostAdvancedPersonalityPayloadFromJSON,
     PostAdvancedPersonalityPayloadToJSON,
+    PostAdvancedRecreateResponseFromJSON,
+    PostAdvancedRecreateResponseToJSON,
     PostCustomAboutPagePayloadFromJSON,
     PostCustomAboutPagePayloadToJSON,
     PostCustomChatbotResponseFromJSON,
     PostCustomChatbotResponseToJSON,
     PostCustomChatbotV2PayloadFromJSON,
     PostCustomChatbotV2PayloadToJSON,
+    PostMigrateStyleRequestFromJSON,
+    PostMigrateStyleRequestToJSON,
+    PostMigrateStyleResponseFromJSON,
+    PostMigrateStyleResponseToJSON,
     PostProfilePictureResponseFromJSON,
     PostProfilePictureResponseToJSON,
+    PostSelfDescriptionResponseFromJSON,
+    PostSelfDescriptionResponseToJSON,
     SortFilterFromJSON,
     SortFilterToJSON,
     VisibilityFilterFromJSON,
@@ -112,12 +130,20 @@ export interface DeleteImageChatbotChatbotIdImageDeleteRequest {
     imageName: string;
 }
 
+export interface DescribeSelfChatbotAdvancedSelfDescriptionPostRequest {
+    selfie: Blob;
+}
+
 export interface EditChatbotChatbotChatbotIdRemixPostRequest {
     chatbotId: string;
 }
 
 export interface GetAboutChatbotAdvancedAboutGetRequest {
     raiseIfNotFound?: boolean;
+}
+
+export interface GetBuilderLooksChatbotAdvancedLooksGetRequest {
+    artStyle?: ArtStyle | null;
 }
 
 export interface GetChatbotChatbotIdGetRequest {
@@ -144,6 +170,8 @@ export interface ListChatbotGetRequest {
     sort?: SortFilter;
     visibility?: VisibilityFilter;
     folderId?: string | null;
+    characterStyle?: ListChatbotGetCharacterStyleEnum;
+    nextGen?: boolean | null;
 }
 
 export interface ListRemixedChatbotsChatbotRemixedChatbotIdGetRequest {
@@ -151,6 +179,11 @@ export interface ListRemixedChatbotsChatbotRemixedChatbotIdGetRequest {
     paginationToken?: string | null;
     limit?: number;
     sort?: SortFilter;
+}
+
+export interface MigrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePostRequest {
+    chatbotId: string;
+    postMigrateStyleRequest: PostMigrateStyleRequest;
 }
 
 export interface PostAboutChatbotAdvancedAboutPostRequest {
@@ -175,6 +208,10 @@ export interface PostProfilePicChatbotAdvancedProfilePicturePostRequest {
 
 export interface PublishAdvancedChatbotChatbotAdvancedPublishPostRequest {
     postAdvancedChatbotPublishPayload: PostAdvancedChatbotPublishPayload;
+}
+
+export interface RecreateBabeChatbotAdvancedRecreatePostRequest {
+    trendId: string;
 }
 
 export interface UpdateCustomChatbotChatbotCustomChatbotIdPatchRequest {
@@ -357,6 +394,62 @@ export class ChatbotApi extends runtime.BaseAPI {
     }
 
     /**
+     * Reads the member\'s own selfie into a look description for their persona: the client sends it as the `description` of PUT /blueprints/persona (with a sentence-style art_style). The selfie is sent to the vision model inline and never stored; only the returned text is kept, by the client. 422 self_photo_unreadable unless it shows exactly one adult face.
+     * Describe Self
+     */
+    async describeSelfChatbotAdvancedSelfDescriptionPostRaw(requestParameters: DescribeSelfChatbotAdvancedSelfDescriptionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostSelfDescriptionResponse>> {
+        if (requestParameters['selfie'] == null) {
+            throw new runtime.RequiredError(
+                'selfie',
+                'Required parameter "selfie" was null or undefined when calling describeSelfChatbotAdvancedSelfDescriptionPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const consumes: runtime.Consume[] = [
+            { contentType: 'multipart/form-data' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+
+        let formParams: { append(param: string, value: any): any };
+        let useForm = false;
+        // use FormData to transmit files using content-type "multipart/form-data"
+        useForm = canConsumeForm;
+        if (useForm) {
+            formParams = new FormData();
+        } else {
+            formParams = new URLSearchParams();
+        }
+
+        if (requestParameters['selfie'] != null) {
+            formParams.append('selfie', requestParameters['selfie'] as any);
+        }
+
+        const response = await this.request({
+            path: `/chatbot/advanced/self-description`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostSelfDescriptionResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Reads the member\'s own selfie into a look description for their persona: the client sends it as the `description` of PUT /blueprints/persona (with a sentence-style art_style). The selfie is sent to the vision model inline and never stored; only the returned text is kept, by the client. 422 self_photo_unreadable unless it shows exactly one adult face.
+     * Describe Self
+     */
+    async describeSelfChatbotAdvancedSelfDescriptionPost(requestParameters: DescribeSelfChatbotAdvancedSelfDescriptionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostSelfDescriptionResponse> {
+        const response = await this.describeSelfChatbotAdvancedSelfDescriptionPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Edit Chatbot
      */
     async editChatbotChatbotChatbotIdRemixPostRaw(requestParameters: EditChatbotChatbotChatbotIdRemixPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -420,6 +513,38 @@ export class ChatbotApi extends runtime.BaseAPI {
      */
     async getAboutChatbotAdvancedAboutGet(requestParameters: GetAboutChatbotAdvancedAboutGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAboutChatbotResponse> {
         const response = await this.getAboutChatbotAdvancedAboutGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * The draft\'s look sliders: the LoRAs her pictures render with (a recreated babe\'s own look, the style\'s and her picked mods) and the mods she may add, at the strengths she has (her saved lora_weights over the defaults). Sent back as lora_weights on POST /advanced/profile-picture.
+     * Get Builder Looks
+     */
+    async getBuilderLooksChatbotAdvancedLooksGetRaw(requestParameters: GetBuilderLooksChatbotAdvancedLooksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetImageLooksResponse>> {
+        const queryParameters: any = {};
+
+        if (requestParameters['artStyle'] != null) {
+            queryParameters['art_style'] = requestParameters['artStyle'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chatbot/advanced/looks`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetImageLooksResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * The draft\'s look sliders: the LoRAs her pictures render with (a recreated babe\'s own look, the style\'s and her picked mods) and the mods she may add, at the strengths she has (her saved lora_weights over the defaults). Sent back as lora_weights on POST /advanced/profile-picture.
+     * Get Builder Looks
+     */
+    async getBuilderLooksChatbotAdvancedLooksGet(requestParameters: GetBuilderLooksChatbotAdvancedLooksGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageLooksResponse> {
+        const response = await this.getBuilderLooksChatbotAdvancedLooksGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -583,6 +708,14 @@ export class ChatbotApi extends runtime.BaseAPI {
             queryParameters['folder_id'] = requestParameters['folderId'];
         }
 
+        if (requestParameters['characterStyle'] != null) {
+            queryParameters['character_style'] = requestParameters['characterStyle'];
+        }
+
+        if (requestParameters['nextGen'] != null) {
+            queryParameters['next_gen'] = requestParameters['nextGen'];
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
@@ -645,6 +778,49 @@ export class ChatbotApi extends runtime.BaseAPI {
      */
     async listRemixedChatbotsChatbotRemixedChatbotIdGet(requestParameters: ListRemixedChatbotsChatbotRemixedChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetChatbotListResponse> {
         const response = await this.listRemixedChatbotsChatbotRemixedChatbotIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Migrate Custom Chatbot Style
+     */
+    async migrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePostRaw(requestParameters: MigrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostMigrateStyleResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling migrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePost().'
+            );
+        }
+
+        if (requestParameters['postMigrateStyleRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postMigrateStyleRequest',
+                'Required parameter "postMigrateStyleRequest" was null or undefined when calling migrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chatbot/custom/{chatbot_id}/migrate-style`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostMigrateStyleRequestToJSON(requestParameters['postMigrateStyleRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostMigrateStyleResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Migrate Custom Chatbot Style
+     */
+    async migrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePost(requestParameters: MigrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostMigrateStyleResponse> {
+        const response = await this.migrateCustomChatbotStyleChatbotCustomChatbotIdMigrateStylePostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -865,6 +1041,60 @@ export class ChatbotApi extends runtime.BaseAPI {
     }
 
     /**
+     * Starts a fresh advanced-builder draft of the woman in a published babe trend\'s picture (which never leaves the server): her look text, art style, photo look and a fixed seed. Replaces an unpublished draft.
+     * Recreate Babe
+     */
+    async recreateBabeChatbotAdvancedRecreatePostRaw(requestParameters: RecreateBabeChatbotAdvancedRecreatePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAdvancedRecreateResponse>> {
+        if (requestParameters['trendId'] == null) {
+            throw new runtime.RequiredError(
+                'trendId',
+                'Required parameter "trendId" was null or undefined when calling recreateBabeChatbotAdvancedRecreatePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const consumes: runtime.Consume[] = [
+            { contentType: 'application/x-www-form-urlencoded' },
+        ];
+        // @ts-ignore: canConsumeForm may be unused
+        const canConsumeForm = runtime.canConsumeForm(consumes);
+
+        let formParams: { append(param: string, value: any): any };
+        let useForm = false;
+        if (useForm) {
+            formParams = new FormData();
+        } else {
+            formParams = new URLSearchParams();
+        }
+
+        if (requestParameters['trendId'] != null) {
+            formParams.append('trend_id', requestParameters['trendId'] as any);
+        }
+
+        const response = await this.request({
+            path: `/chatbot/advanced/recreate`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: formParams,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostAdvancedRecreateResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Starts a fresh advanced-builder draft of the woman in a published babe trend\'s picture (which never leaves the server): her look text, art style, photo look and a fixed seed. Replaces an unpublished draft.
+     * Recreate Babe
+     */
+    async recreateBabeChatbotAdvancedRecreatePost(requestParameters: RecreateBabeChatbotAdvancedRecreatePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAdvancedRecreateResponse> {
+        const response = await this.recreateBabeChatbotAdvancedRecreatePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Reset Advanced Chatbot Builder
      */
     async resetAdvancedChatbotBuilderChatbotAdvancedDeleteRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -942,3 +1172,12 @@ export class ChatbotApi extends runtime.BaseAPI {
     }
 
 }
+
+/**
+ * @export
+ */
+export const ListChatbotGetCharacterStyleEnum = {
+    Realistic: 'realistic',
+    Anime: 'anime'
+} as const;
+export type ListChatbotGetCharacterStyleEnum = typeof ListChatbotGetCharacterStyleEnum[keyof typeof ListChatbotGetCharacterStyleEnum];

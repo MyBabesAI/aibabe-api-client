@@ -90,6 +90,13 @@ import {
     PublicUserPreviewWithFollowToJSON,
     PublicUserPreviewWithFollowToJSONTyped,
 } from './PublicUserPreviewWithFollow';
+import type { CastMember } from './CastMember';
+import {
+    CastMemberFromJSON,
+    CastMemberFromJSONTyped,
+    CastMemberToJSON,
+    CastMemberToJSONTyped,
+} from './CastMember';
 import type { ChatbotPreview } from './ChatbotPreview';
 import {
     ChatbotPreviewFromJSON,
@@ -234,6 +241,18 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     ageEstimation?: AdminAgeEstimation;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    moderationCharged?: boolean;
+    /**
+     * 
+     * @type {Array<CastMember>}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    cast?: Array<CastMember>;
     /**
      * 
      * @type {string}
@@ -393,6 +412,8 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
+        'moderationCharged': json['moderation_charged'] == null ? undefined : json['moderation_charged'],
+        'cast': json['cast'] == null ? undefined : ((json['cast'] as Array<any>).map(CastMemberFromJSON)),
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'title': json['title'],
@@ -440,6 +461,8 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'width': value['width'],
         'height': value['height'],
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
+        'moderation_charged': value['moderationCharged'],
+        'cast': value['cast'] == null ? undefined : ((value['cast'] as Array<any>).map(CastMemberToJSON)),
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'title': value['title'],

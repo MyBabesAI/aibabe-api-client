@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { VideoModelConfig } from './VideoModelConfig';
+import type { VideoReferenceTemplate } from './VideoReferenceTemplate';
 /**
  *
  * @export
@@ -32,6 +33,12 @@ export interface VideoConfigResponse {
     extensionModels: {
         [key: string]: VideoModelConfig;
     };
+    /**
+     *
+     * @type {Array<VideoReferenceTemplate>}
+     * @memberof VideoConfigResponse
+     */
+    referenceTemplates?: Array<VideoReferenceTemplate>;
 }
 /**
  * Check if a given object implements the VideoConfigResponse interface.

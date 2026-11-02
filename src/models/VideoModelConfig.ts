@@ -122,6 +122,18 @@ export interface VideoModelConfig {
     multishotSupported: boolean;
     /**
      * 
+     * @type {boolean}
+     * @memberof VideoModelConfig
+     */
+    trendsSupported?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof VideoModelConfig
+     */
+    maxInputImages?: number;
+    /**
+     * 
      * @type {Array<VideoAspectRatio>}
      * @memberof VideoModelConfig
      */
@@ -186,6 +198,8 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         'modsAvailable': json['mods_available'],
         'templatesAvailable': json['templates_available'],
         'multishotSupported': json['multishot_supported'],
+        'trendsSupported': json['trends_supported'] == null ? undefined : json['trends_supported'],
+        'maxInputImages': json['max_input_images'] == null ? undefined : json['max_input_images'],
         'aspectRatios': ((json['aspect_ratios'] as Array<any>).map(VideoAspectRatioFromJSON)),
     };
 }
@@ -213,6 +227,8 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         'mods_available': value['modsAvailable'],
         'templates_available': value['templatesAvailable'],
         'multishot_supported': value['multishotSupported'],
+        'trends_supported': value['trendsSupported'],
+        'max_input_images': value['maxInputImages'],
         'aspect_ratios': ((value['aspectRatios'] as Array<any>).map(VideoAspectRatioToJSON)),
     };
 }

@@ -9,8 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { EyeColor } from './EyeColor';
 import type { BeardStyle } from './BeardStyle';
+import type { ButtSize } from './ButtSize';
 import type { BodyType } from './BodyType';
+import type { BreastSize } from './BreastSize';
 import type { HairColor } from './HairColor';
 import type { HairStyle } from './HairStyle';
 /**
@@ -43,6 +46,24 @@ export interface AvatarLooksV2 {
      * @memberof AvatarLooksV2
      */
     beard?: BeardStyle | null;
+    /**
+     *
+     * @type {BreastSize}
+     * @memberof AvatarLooksV2
+     */
+    breastSize?: BreastSize | null;
+    /**
+     *
+     * @type {ButtSize}
+     * @memberof AvatarLooksV2
+     */
+    buttSize?: ButtSize | null;
+    /**
+     *
+     * @type {EyeColor}
+     * @memberof AvatarLooksV2
+     */
+    eyeColor?: EyeColor | null;
 }
 /**
  * Check if a given object implements the AvatarLooksV2 interface.

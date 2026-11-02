@@ -18,8 +18,11 @@ exports.AvatarLooksV2FromJSON = AvatarLooksV2FromJSON;
 exports.AvatarLooksV2FromJSONTyped = AvatarLooksV2FromJSONTyped;
 exports.AvatarLooksV2ToJSON = AvatarLooksV2ToJSON;
 exports.AvatarLooksV2ToJSONTyped = AvatarLooksV2ToJSONTyped;
+const EyeColor_1 = require("./EyeColor");
 const BeardStyle_1 = require("./BeardStyle");
+const ButtSize_1 = require("./ButtSize");
 const BodyType_1 = require("./BodyType");
+const BreastSize_1 = require("./BreastSize");
 const HairColor_1 = require("./HairColor");
 const HairStyle_1 = require("./HairStyle");
 /**
@@ -44,6 +47,9 @@ function AvatarLooksV2FromJSONTyped(json, ignoreDiscriminator) {
         'hairColor': (0, HairColor_1.HairColorFromJSON)(json['hair_color']),
         'hairStyle': json['hair_style'] == null ? undefined : (0, HairStyle_1.HairStyleFromJSON)(json['hair_style']),
         'beard': json['beard'] == null ? undefined : (0, BeardStyle_1.BeardStyleFromJSON)(json['beard']),
+        'breastSize': json['breast_size'] == null ? undefined : (0, BreastSize_1.BreastSizeFromJSON)(json['breast_size']),
+        'buttSize': json['butt_size'] == null ? undefined : (0, ButtSize_1.ButtSizeFromJSON)(json['butt_size']),
+        'eyeColor': json['eye_color'] == null ? undefined : (0, EyeColor_1.EyeColorFromJSON)(json['eye_color']),
     };
 }
 function AvatarLooksV2ToJSON(json) {
@@ -58,6 +64,9 @@ function AvatarLooksV2ToJSONTyped(value, ignoreDiscriminator = false) {
         'hair_color': (0, HairColor_1.HairColorToJSON)(value['hairColor']),
         'hair_style': (0, HairStyle_1.HairStyleToJSON)(value['hairStyle']),
         'beard': (0, BeardStyle_1.BeardStyleToJSON)(value['beard']),
+        'breast_size': (0, BreastSize_1.BreastSizeToJSON)(value['breastSize']),
+        'butt_size': (0, ButtSize_1.ButtSizeToJSON)(value['buttSize']),
+        'eye_color': (0, EyeColor_1.EyeColorToJSON)(value['eyeColor']),
     };
 }
 //# sourceMappingURL=AvatarLooksV2.js.map

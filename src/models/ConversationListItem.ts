@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ConversationListParticipant } from './ConversationListParticipant';
+import {
+    ConversationListParticipantFromJSON,
+    ConversationListParticipantFromJSONTyped,
+    ConversationListParticipantToJSON,
+    ConversationListParticipantToJSONTyped,
+} from './ConversationListParticipant';
+
 /**
  * 
  * @export
@@ -73,6 +81,12 @@ export interface ConversationListItem {
      * @memberof ConversationListItem
      */
     coverImage?: string | null;
+    /**
+     * 
+     * @type {Array<ConversationListParticipant>}
+     * @memberof ConversationListItem
+     */
+    participants?: Array<ConversationListParticipant>;
 }
 
 
@@ -117,6 +131,7 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
         'storyId': json['story_id'] == null ? undefined : json['story_id'],
         'storyEpisodeId': json['story_episode_id'] == null ? undefined : json['story_episode_id'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
+        'participants': json['participants'] == null ? undefined : ((json['participants'] as Array<any>).map(ConversationListParticipantFromJSON)),
     };
 }
 
@@ -140,6 +155,7 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
         'story_id': value['storyId'],
         'story_episode_id': value['storyEpisodeId'],
         'cover_image': value['coverImage'],
+        'participants': value['participants'] == null ? undefined : ((value['participants'] as Array<any>).map(ConversationListParticipantToJSON)),
     };
 }
 

@@ -20,6 +20,7 @@ exports.VideoConfigResponseToJSON = VideoConfigResponseToJSON;
 exports.VideoConfigResponseToJSONTyped = VideoConfigResponseToJSONTyped;
 const runtime_1 = require("../runtime");
 const VideoModelConfig_1 = require("./VideoModelConfig");
+const VideoReferenceTemplate_1 = require("./VideoReferenceTemplate");
 /**
  * Check if a given object implements the VideoConfigResponse interface.
  */
@@ -40,6 +41,7 @@ function VideoConfigResponseFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'generationModels': ((0, runtime_1.mapValues)(json['generation_models'], VideoModelConfig_1.VideoModelConfigFromJSON)),
         'extensionModels': ((0, runtime_1.mapValues)(json['extension_models'], VideoModelConfig_1.VideoModelConfigFromJSON)),
+        'referenceTemplates': json['reference_templates'] == null ? undefined : (json['reference_templates'].map(VideoReferenceTemplate_1.VideoReferenceTemplateFromJSON)),
     };
 }
 function VideoConfigResponseToJSON(json) {
@@ -52,6 +54,7 @@ function VideoConfigResponseToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'generation_models': ((0, runtime_1.mapValues)(value['generationModels'], VideoModelConfig_1.VideoModelConfigToJSON)),
         'extension_models': ((0, runtime_1.mapValues)(value['extensionModels'], VideoModelConfig_1.VideoModelConfigToJSON)),
+        'reference_templates': value['referenceTemplates'] == null ? undefined : (value['referenceTemplates'].map(VideoReferenceTemplate_1.VideoReferenceTemplateToJSON)),
     };
 }
 //# sourceMappingURL=VideoConfigResponse.js.map

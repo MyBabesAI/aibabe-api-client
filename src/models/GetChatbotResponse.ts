@@ -20,6 +20,13 @@ import {
     BlacklistCardToJSON,
     BlacklistCardToJSONTyped,
 } from './BlacklistCard';
+import type { ArtStyle } from './ArtStyle';
+import {
+    ArtStyleFromJSON,
+    ArtStyleFromJSONTyped,
+    ArtStyleToJSON,
+    ArtStyleToJSONTyped,
+} from './ArtStyle';
 import type { ContentType } from './ContentType';
 import {
     ContentTypeFromJSON,
@@ -98,6 +105,24 @@ export interface GetChatbotResponse {
     characterAge: number;
     /**
      * 
+     * @type {string}
+     * @memberof GetChatbotResponse
+     */
+    characterStyle?: string | null;
+    /**
+     * 
+     * @type {ArtStyle}
+     * @memberof GetChatbotResponse
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetChatbotResponse
+     */
+    nextGen?: boolean;
+    /**
+     * 
      * @type {Array<WallPost>}
      * @memberof GetChatbotResponse
      */
@@ -151,6 +176,9 @@ export function GetChatbotResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         'coverContentType': json['cover_content_type'] == null ? undefined : ContentTypeFromJSON(json['cover_content_type']),
         'fullBio': json['full_bio'],
         'characterAge': json['character_age'],
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
+        'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
         'posts': ((json['posts'] as Array<any>).map(WallPostFromJSON)),
         'galleries': ((json['galleries'] as Array<any>).map(GalleryItemFromJSON)),
         'unlockAllPrice': json['unlock_all_price'],
@@ -176,6 +204,9 @@ export function GetChatbotResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         'cover_content_type': ContentTypeToJSON(value['coverContentType']),
         'full_bio': value['fullBio'],
         'character_age': value['characterAge'],
+        'character_style': value['characterStyle'],
+        'art_style': ArtStyleToJSON(value['artStyle']),
+        'next_gen': value['nextGen'],
         'posts': ((value['posts'] as Array<any>).map(WallPostToJSON)),
         'galleries': ((value['galleries'] as Array<any>).map(GalleryItemToJSON)),
         'unlock_all_price': value['unlockAllPrice'],

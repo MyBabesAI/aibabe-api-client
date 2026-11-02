@@ -88,6 +88,20 @@ export interface GetAboutChatbotResponse {
     loras: Array<LoraName> | null;
     /**
      *
+     * @type {{ [key: string]: number; }}
+     * @memberof GetAboutChatbotResponse
+     */
+    loraWeights?: {
+        [key: string]: number;
+    } | null;
+    /**
+     *
+     * @type {number}
+     * @memberof GetAboutChatbotResponse
+     */
+    age?: number | null;
+    /**
+     *
      * @type {boolean}
      * @memberof GetAboutChatbotResponse
      */

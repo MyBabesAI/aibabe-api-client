@@ -27,7 +27,8 @@ exports.ContentType = {
     Picture: 'picture',
     Video: 'video',
     Character: 'character',
-    Story: 'story'
+    Story: 'story',
+    Scenario: 'scenario'
 };
 function instanceOfContentType(value) {
     for (const key in exports.ContentType) {

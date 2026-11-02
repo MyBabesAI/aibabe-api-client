@@ -55,6 +55,13 @@ import {
     ImageContentToJSON,
     ImageContentToJSONTyped,
 } from './ImageContent';
+import type { ScenarioPreview } from './ScenarioPreview';
+import {
+    ScenarioPreviewFromJSON,
+    ScenarioPreviewFromJSONTyped,
+    ScenarioPreviewToJSON,
+    ScenarioPreviewToJSONTyped,
+} from './ScenarioPreview';
 import type { StoryPreview } from './StoryPreview';
 import {
     StoryPreviewFromJSON,
@@ -87,6 +94,12 @@ export interface WallPost {
      * @memberof WallPost
      */
     story: StoryPreview | null;
+    /**
+     * 
+     * @type {ScenarioPreview}
+     * @memberof WallPost
+     */
+    scenario?: ScenarioPreview | null;
     /**
      * 
      * @type {ImageContent}
@@ -208,6 +221,7 @@ export function WallPostFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'id': json['id'],
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'story': StoryPreviewFromJSON(json['story']),
+        'scenario': json['scenario'] == null ? undefined : ScenarioPreviewFromJSON(json['scenario']),
         'picture': ImageContentFromJSON(json['picture']),
         'video': VideoContentFromJSON(json['video']),
         'likes': json['likes'],
@@ -239,6 +253,7 @@ export function WallPostFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'id': value['id'],
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'story': StoryPreviewToJSON(value['story']),
+        'scenario': ScenarioPreviewToJSON(value['scenario']),
         'picture': ImageContentToJSON(value['picture']),
         'video': VideoContentToJSON(value['video']),
         'likes': value['likes'],

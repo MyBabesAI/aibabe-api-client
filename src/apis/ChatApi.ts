@@ -15,7 +15,9 @@
 
 import * as runtime from '../runtime';
 import type {
+  ChatConfigResponse,
   ChatReponse,
+  ConversationParticipant,
   CreateAnonymousConversationRequest,
   CreateAnonymousConversationResponse,
   GetAnonymousConversationResponse,
@@ -33,15 +35,22 @@ import type {
   PostAnonymousChatResponse,
   PostChatRequest,
   PostChatSuggestionRequest,
+  PostConversationParticipantRequest,
+  PostConversationParticipantResponse,
   PostConversationSettingsRequest,
   PostLiveRoleplayRequest,
   PostLiveRoleplayResponse,
+  ScenarioStartRequest,
+  ScenarioStartResponse,
   SeedConversationResponse,
-  TokenPricingConfigResponse,
 } from '../models/index';
 import {
+    ChatConfigResponseFromJSON,
+    ChatConfigResponseToJSON,
     ChatReponseFromJSON,
     ChatReponseToJSON,
+    ConversationParticipantFromJSON,
+    ConversationParticipantToJSON,
     CreateAnonymousConversationRequestFromJSON,
     CreateAnonymousConversationRequestToJSON,
     CreateAnonymousConversationResponseFromJSON,
@@ -76,17 +85,28 @@ import {
     PostChatRequestToJSON,
     PostChatSuggestionRequestFromJSON,
     PostChatSuggestionRequestToJSON,
+    PostConversationParticipantRequestFromJSON,
+    PostConversationParticipantRequestToJSON,
+    PostConversationParticipantResponseFromJSON,
+    PostConversationParticipantResponseToJSON,
     PostConversationSettingsRequestFromJSON,
     PostConversationSettingsRequestToJSON,
     PostLiveRoleplayRequestFromJSON,
     PostLiveRoleplayRequestToJSON,
     PostLiveRoleplayResponseFromJSON,
     PostLiveRoleplayResponseToJSON,
+    ScenarioStartRequestFromJSON,
+    ScenarioStartRequestToJSON,
+    ScenarioStartResponseFromJSON,
+    ScenarioStartResponseToJSON,
     SeedConversationResponseFromJSON,
     SeedConversationResponseToJSON,
-    TokenPricingConfigResponseFromJSON,
-    TokenPricingConfigResponseToJSON,
 } from '../models/index';
+
+export interface AddParticipantChatConversationConversationIdParticipantsPostRequest {
+    conversationId: string;
+    postConversationParticipantRequest: PostConversationParticipantRequest;
+}
 
 export interface AnonymousChatChatAnonymousChatbotIdPostRequest {
     chatbotId: string;
@@ -191,8 +211,18 @@ export interface RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest {
     postChatRequest: PostChatRequest;
 }
 
+export interface RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest {
+    conversationId: string;
+    chatbotId: string;
+}
+
 export interface ResetConversationChatConversationConversationIdResetPostRequest {
     conversationId: string;
+}
+
+export interface RestartScenarioChatConversationConversationIdScenarioRestartPostRequest {
+    conversationId: string;
+    scenarioStartRequest: ScenarioStartRequest;
 }
 
 export interface SeedConversationChatChatbotIdSeedPutRequest {
@@ -218,6 +248,51 @@ export interface UpdateMessageChatMessageMessageIdPatchRequest {
  * 
  */
 export class ChatApi extends runtime.BaseAPI {
+
+    /**
+     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction itself is never stored or shown. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
+     * Add Participant
+     */
+    async addParticipantChatConversationConversationIdParticipantsPostRaw(requestParameters: AddParticipantChatConversationConversationIdParticipantsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostConversationParticipantResponse>> {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError(
+                'conversationId',
+                'Required parameter "conversationId" was null or undefined when calling addParticipantChatConversationConversationIdParticipantsPost().'
+            );
+        }
+
+        if (requestParameters['postConversationParticipantRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postConversationParticipantRequest',
+                'Required parameter "postConversationParticipantRequest" was null or undefined when calling addParticipantChatConversationConversationIdParticipantsPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/participants`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostConversationParticipantRequestToJSON(requestParameters['postConversationParticipantRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostConversationParticipantResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction itself is never stored or shown. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
+     * Add Participant
+     */
+    async addParticipantChatConversationConversationIdParticipantsPost(requestParameters: AddParticipantChatConversationConversationIdParticipantsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationParticipantResponse> {
+        const response = await this.addParticipantChatConversationConversationIdParticipantsPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
 
     /**
      * Anonymous Chat
@@ -842,7 +917,7 @@ export class ChatApi extends runtime.BaseAPI {
     /**
      * Get Chat Config
      */
-    async getChatConfigChatConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenPricingConfigResponse>> {
+    async getChatConfigChatConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatConfigResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -854,13 +929,13 @@ export class ChatApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => TokenPricingConfigResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ChatConfigResponseFromJSON(jsonValue));
     }
 
     /**
      * Get Chat Config
      */
-    async getChatConfigChatConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse> {
+    async getChatConfigChatConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatConfigResponse> {
         const response = await this.getChatConfigChatConfigGetRaw(initOverrides);
         return await response.value();
     }
@@ -1095,6 +1170,48 @@ export class ChatApi extends runtime.BaseAPI {
     }
 
     /**
+     * Remove a character from the cast. Her messages stay; the host can leave too as long as one member remains.
+     * Remove Participant
+     */
+    async removeParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRaw(requestParameters: RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ConversationParticipant>>> {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError(
+                'conversationId',
+                'Required parameter "conversationId" was null or undefined when calling removeParticipantChatConversationConversationIdParticipantsChatbotIdDelete().'
+            );
+        }
+
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling removeParticipantChatConversationConversationIdParticipantsChatbotIdDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/participants/{chatbot_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ConversationParticipantFromJSON));
+    }
+
+    /**
+     * Remove a character from the cast. Her messages stay; the host can leave too as long as one member remains.
+     * Remove Participant
+     */
+    async removeParticipantChatConversationConversationIdParticipantsChatbotIdDelete(requestParameters: RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ConversationParticipant>> {
+        const response = await this.removeParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Reset Conversation
      */
     async resetConversationChatConversationConversationIdResetPostRaw(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
@@ -1128,6 +1245,51 @@ export class ChatApi extends runtime.BaseAPI {
      */
     async resetConversationChatConversationConversationIdResetPost(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.resetConversationChatConversationConversationIdResetPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the same replacement semantics as starting from the post.
+     * Restart Scenario
+     */
+    async restartScenarioChatConversationConversationIdScenarioRestartPostRaw(requestParameters: RestartScenarioChatConversationConversationIdScenarioRestartPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScenarioStartResponse>> {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError(
+                'conversationId',
+                'Required parameter "conversationId" was null or undefined when calling restartScenarioChatConversationConversationIdScenarioRestartPost().'
+            );
+        }
+
+        if (requestParameters['scenarioStartRequest'] == null) {
+            throw new runtime.RequiredError(
+                'scenarioStartRequest',
+                'Required parameter "scenarioStartRequest" was null or undefined when calling restartScenarioChatConversationConversationIdScenarioRestartPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/scenario/restart`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ScenarioStartRequestToJSON(requestParameters['scenarioStartRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ScenarioStartResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the same replacement semantics as starting from the post.
+     * Restart Scenario
+     */
+    async restartScenarioChatConversationConversationIdScenarioRestartPost(requestParameters: RestartScenarioChatConversationConversationIdScenarioRestartPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScenarioStartResponse> {
+        const response = await this.restartScenarioChatConversationConversationIdScenarioRestartPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

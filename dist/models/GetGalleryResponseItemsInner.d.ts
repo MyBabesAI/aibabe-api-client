@@ -18,6 +18,7 @@ import type { AdminAgeEstimation } from './AdminAgeEstimation';
 import type { StoryCoverOrientation } from './StoryCoverOrientation';
 import type { VideoGenerationStatus } from './VideoGenerationStatus';
 import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
+import type { CastMember } from './CastMember';
 import type { ChatbotPreview } from './ChatbotPreview';
 import type { StoryPlayState } from './StoryPlayState';
 import type { StoryChatDifficulty } from './StoryChatDifficulty';
@@ -130,6 +131,18 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     ageEstimation?: AdminAgeEstimation;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    moderationCharged?: boolean;
+    /**
+     *
+     * @type {Array<CastMember>}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    cast?: Array<CastMember>;
     /**
      *
      * @type {string}
