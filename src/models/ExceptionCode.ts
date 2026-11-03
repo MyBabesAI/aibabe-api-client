@@ -56,6 +56,7 @@ export const ExceptionCode = {
     AdvancedCharacterBuilderBusy: 'advanced_character_builder_busy',
     AdvancedCharacterBuilderDataMissing: 'advanced_character_builder_data_missing',
     AdvancedCharacterBuilderFailedToCreateTags: 'advanced_character_builder_failed_to_create_tags',
+    AdvancedCharacterBuilderTooManyMods: 'advanced_character_builder_too_many_mods',
     AdvancedCharacterBuilderProfileModerationException: 'advanced_character_builder_profile_moderation_exception',
     CharacterProfileTagsInvalid: 'character_profile_tags_invalid',
     CharacterProfileAgeInvalid: 'character_profile_age_invalid',

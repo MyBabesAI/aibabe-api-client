@@ -52,6 +52,7 @@ export declare const ExceptionCode: {
     readonly AdvancedCharacterBuilderBusy: "advanced_character_builder_busy";
     readonly AdvancedCharacterBuilderDataMissing: "advanced_character_builder_data_missing";
     readonly AdvancedCharacterBuilderFailedToCreateTags: "advanced_character_builder_failed_to_create_tags";
+    readonly AdvancedCharacterBuilderTooManyMods: "advanced_character_builder_too_many_mods";
     readonly AdvancedCharacterBuilderProfileModerationException: "advanced_character_builder_profile_moderation_exception";
     readonly CharacterProfileTagsInvalid: "character_profile_tags_invalid";
     readonly CharacterProfileAgeInvalid: "character_profile_age_invalid";
