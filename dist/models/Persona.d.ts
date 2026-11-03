@@ -74,6 +74,12 @@ export interface Persona {
     thumbnailUrl?: string | null;
     /**
      *
+     * @type {boolean}
+     * @memberof Persona
+     */
+    isDefault?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof Persona
      */

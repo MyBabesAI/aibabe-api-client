@@ -181,6 +181,8 @@ export declare const ExceptionCode: {
     readonly VideoReferenceRolesMismatch: "video_reference_roles_mismatch";
     readonly VideoReferenceBabeNotOwnPicture: "video_reference_babe_not_own_picture";
     readonly VideoReferenceRoleRepeated: "video_reference_role_repeated";
+    readonly VideoPersonaRequired: "video_persona_required";
+    readonly VideoPersonaNeedsPortrait: "video_persona_needs_portrait";
     readonly SelfPhotoUnreadable: "self_photo_unreadable";
     readonly ImagenModelSingleCharacter: "imagen_model_single_character";
     readonly ImagenTooManyCharacters: "imagen_too_many_characters";
@@ -345,6 +347,7 @@ export declare const ExceptionCode: {
     readonly ScenarioUpToDate: "scenario_up_to_date";
     readonly PersonaNotFound: "persona_not_found";
     readonly PersonaExists: "persona_exists";
+    readonly PersonaLimitReached: "persona_limit_reached";
     readonly PersonaSourceNotOwn: "persona_source_not_own";
 };
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];

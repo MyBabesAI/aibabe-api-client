@@ -27,6 +27,27 @@ import {
     VideoReferenceTemplateToJSON,
     VideoReferenceTemplateToJSONTyped,
 } from './VideoReferenceTemplate';
+import type { VideoMultishotTemplateView } from './VideoMultishotTemplateView';
+import {
+    VideoMultishotTemplateViewFromJSON,
+    VideoMultishotTemplateViewFromJSONTyped,
+    VideoMultishotTemplateViewToJSON,
+    VideoMultishotTemplateViewToJSONTyped,
+} from './VideoMultishotTemplateView';
+import type { VideoReferenceMoodTag } from './VideoReferenceMoodTag';
+import {
+    VideoReferenceMoodTagFromJSON,
+    VideoReferenceMoodTagFromJSONTyped,
+    VideoReferenceMoodTagToJSON,
+    VideoReferenceMoodTagToJSONTyped,
+} from './VideoReferenceMoodTag';
+import type { VideoTemplateCategoryTag } from './VideoTemplateCategoryTag';
+import {
+    VideoTemplateCategoryTagFromJSON,
+    VideoTemplateCategoryTagFromJSONTyped,
+    VideoTemplateCategoryTagToJSON,
+    VideoTemplateCategoryTagToJSONTyped,
+} from './VideoTemplateCategoryTag';
 
 /**
  * 
@@ -52,6 +73,24 @@ export interface VideoConfigResponse {
      * @memberof VideoConfigResponse
      */
     referenceTemplates?: Array<VideoReferenceTemplate>;
+    /**
+     * 
+     * @type {Array<VideoTemplateCategoryTag>}
+     * @memberof VideoConfigResponse
+     */
+    templateCategories?: Array<VideoTemplateCategoryTag>;
+    /**
+     * 
+     * @type {Array<VideoReferenceMoodTag>}
+     * @memberof VideoConfigResponse
+     */
+    referenceTemplateMoods?: Array<VideoReferenceMoodTag>;
+    /**
+     * 
+     * @type {Array<VideoMultishotTemplateView>}
+     * @memberof VideoConfigResponse
+     */
+    multishotTemplates?: Array<VideoMultishotTemplateView>;
 }
 
 /**
@@ -76,6 +115,9 @@ export function VideoConfigResponseFromJSONTyped(json: any, ignoreDiscriminator:
         'generationModels': (mapValues(json['generation_models'], VideoModelConfigFromJSON)),
         'extensionModels': (mapValues(json['extension_models'], VideoModelConfigFromJSON)),
         'referenceTemplates': json['reference_templates'] == null ? undefined : ((json['reference_templates'] as Array<any>).map(VideoReferenceTemplateFromJSON)),
+        'templateCategories': json['template_categories'] == null ? undefined : ((json['template_categories'] as Array<any>).map(VideoTemplateCategoryTagFromJSON)),
+        'referenceTemplateMoods': json['reference_template_moods'] == null ? undefined : ((json['reference_template_moods'] as Array<any>).map(VideoReferenceMoodTagFromJSON)),
+        'multishotTemplates': json['multishot_templates'] == null ? undefined : ((json['multishot_templates'] as Array<any>).map(VideoMultishotTemplateViewFromJSON)),
     };
 }
 
@@ -93,6 +135,9 @@ export function VideoConfigResponseFromJSONTyped(json: any, ignoreDiscriminator:
         'generation_models': (mapValues(value['generationModels'], VideoModelConfigToJSON)),
         'extension_models': (mapValues(value['extensionModels'], VideoModelConfigToJSON)),
         'reference_templates': value['referenceTemplates'] == null ? undefined : ((value['referenceTemplates'] as Array<any>).map(VideoReferenceTemplateToJSON)),
+        'template_categories': value['templateCategories'] == null ? undefined : ((value['templateCategories'] as Array<any>).map(VideoTemplateCategoryTagToJSON)),
+        'reference_template_moods': value['referenceTemplateMoods'] == null ? undefined : ((value['referenceTemplateMoods'] as Array<any>).map(VideoReferenceMoodTagToJSON)),
+        'multishot_templates': value['multishotTemplates'] == null ? undefined : ((value['multishotTemplates'] as Array<any>).map(VideoMultishotTemplateViewToJSON)),
     };
 }
 

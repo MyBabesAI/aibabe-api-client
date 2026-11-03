@@ -104,6 +104,12 @@ export interface ImageToVideoRequest {
     inputImageRoles?: Array<VideoReferenceImage> | null;
     /**
      * 
+     * @type {boolean}
+     * @memberof ImageToVideoRequest
+     */
+    withPersona?: boolean;
+    /**
+     * 
      * @type {string}
      * @memberof ImageToVideoRequest
      */
@@ -234,6 +240,7 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'inputImageId': json['input_image_id'],
         'inputImageIds': json['input_image_ids'] == null ? undefined : json['input_image_ids'],
         'inputImageRoles': json['input_image_roles'] == null ? undefined : ((json['input_image_roles'] as Array<any>).map(VideoReferenceImageFromJSON)),
+        'withPersona': json['with_persona'] == null ? undefined : json['with_persona'],
         'resolution': json['resolution'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(VideoLoraNameFromJSON)),
         'negativePrompt': json['negative_prompt'] == null ? undefined : json['negative_prompt'],
@@ -268,6 +275,7 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'input_image_id': value['inputImageId'],
         'input_image_ids': value['inputImageIds'],
         'input_image_roles': value['inputImageRoles'] == null ? undefined : ((value['inputImageRoles'] as Array<any>).map(VideoReferenceImageToJSON)),
+        'with_persona': value['withPersona'],
         'resolution': value['resolution'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(VideoLoraNameToJSON)),
         'negative_prompt': value['negativePrompt'],

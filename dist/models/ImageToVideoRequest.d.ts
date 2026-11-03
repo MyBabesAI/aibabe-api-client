@@ -75,6 +75,12 @@ export interface ImageToVideoRequest {
     inputImageRoles?: Array<VideoReferenceImage> | null;
     /**
      *
+     * @type {boolean}
+     * @memberof ImageToVideoRequest
+     */
+    withPersona?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof ImageToVideoRequest
      */

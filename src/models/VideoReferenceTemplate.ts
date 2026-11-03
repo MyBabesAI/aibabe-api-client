@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { VideoTemplateCategory } from './VideoTemplateCategory';
+import {
+    VideoTemplateCategoryFromJSON,
+    VideoTemplateCategoryFromJSONTyped,
+    VideoTemplateCategoryToJSON,
+    VideoTemplateCategoryToJSONTyped,
+} from './VideoTemplateCategory';
 import type { VideoReferenceRole } from './VideoReferenceRole';
 import {
     VideoReferenceRoleFromJSON,
@@ -20,6 +27,13 @@ import {
     VideoReferenceRoleToJSON,
     VideoReferenceRoleToJSONTyped,
 } from './VideoReferenceRole';
+import type { VideoReferenceMood } from './VideoReferenceMood';
+import {
+    VideoReferenceMoodFromJSON,
+    VideoReferenceMoodFromJSONTyped,
+    VideoReferenceMoodToJSON,
+    VideoReferenceMoodToJSONTyped,
+} from './VideoReferenceMood';
 
 /**
  * 
@@ -41,10 +55,28 @@ export interface VideoReferenceTemplate {
     name: string;
     /**
      * 
+     * @type {VideoTemplateCategory}
+     * @memberof VideoReferenceTemplate
+     */
+    category: VideoTemplateCategory;
+    /**
+     * 
+     * @type {VideoReferenceMood}
+     * @memberof VideoReferenceTemplate
+     */
+    mood: VideoReferenceMood;
+    /**
+     * 
      * @type {Array<VideoReferenceRole>}
      * @memberof VideoReferenceTemplate
      */
     roles: Array<VideoReferenceRole>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof VideoReferenceTemplate
+     */
+    withYou?: boolean;
     /**
      * 
      * @type {string}
@@ -53,11 +85,25 @@ export interface VideoReferenceTemplate {
     prompt: string;
     /**
      * 
+     * @type {number}
+     * @memberof VideoReferenceTemplate
+     */
+    duration: number;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof VideoReferenceTemplate
+     */
+    speech?: Array<string>;
+    /**
+     * 
      * @type {boolean}
      * @memberof VideoReferenceTemplate
      */
     explicit?: boolean;
 }
+
+
 
 /**
  * Check if a given object implements the VideoReferenceTemplate interface.
@@ -65,8 +111,11 @@ export interface VideoReferenceTemplate {
 export function instanceOfVideoReferenceTemplate(value: object): value is VideoReferenceTemplate {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('category' in value) || value['category'] === undefined) return false;
+    if (!('mood' in value) || value['mood'] === undefined) return false;
     if (!('roles' in value) || value['roles'] === undefined) return false;
     if (!('prompt' in value) || value['prompt'] === undefined) return false;
+    if (!('duration' in value) || value['duration'] === undefined) return false;
     return true;
 }
 
@@ -82,8 +131,13 @@ export function VideoReferenceTemplateFromJSONTyped(json: any, ignoreDiscriminat
         
         'id': json['id'],
         'name': json['name'],
+        'category': VideoTemplateCategoryFromJSON(json['category']),
+        'mood': VideoReferenceMoodFromJSON(json['mood']),
         'roles': ((json['roles'] as Array<any>).map(VideoReferenceRoleFromJSON)),
+        'withYou': json['with_you'] == null ? undefined : json['with_you'],
         'prompt': json['prompt'],
+        'duration': json['duration'],
+        'speech': json['speech'] == null ? undefined : json['speech'],
         'explicit': json['explicit'] == null ? undefined : json['explicit'],
     };
 }
@@ -101,8 +155,13 @@ export function VideoReferenceTemplateFromJSONTyped(json: any, ignoreDiscriminat
         
         'id': value['id'],
         'name': value['name'],
+        'category': VideoTemplateCategoryToJSON(value['category']),
+        'mood': VideoReferenceMoodToJSON(value['mood']),
         'roles': ((value['roles'] as Array<any>).map(VideoReferenceRoleToJSON)),
+        'with_you': value['withYou'],
         'prompt': value['prompt'],
+        'duration': value['duration'],
+        'speech': value['speech'],
         'explicit': value['explicit'],
     };
 }

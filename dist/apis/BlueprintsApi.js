@@ -80,6 +80,34 @@ class BlueprintsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Adds a persona (409 persona_limit_reached past PERSONA_LIMIT); it becomes the default only when the member had none.
+     * Create Persona
+     */
+    async createPersonaBlueprintsPersonasPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['putPersonaRequest'] == null) {
+            throw new runtime.RequiredError('putPersonaRequest', 'Required parameter "putPersonaRequest" was null or undefined when calling createPersonaBlueprintsPersonasPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/blueprints/personas`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PutPersonaRequestToJSON)(requestParameters['putPersonaRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PersonaFromJSON)(jsonValue));
+    }
+    /**
+     * Adds a persona (409 persona_limit_reached past PERSONA_LIMIT); it becomes the default only when the member had none.
+     * Create Persona
+     */
+    async createPersonaBlueprintsPersonasPost(requestParameters, initOverrides) {
+        const response = await this.createPersonaBlueprintsPersonasPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Delete Element
      */
     async deleteElementBlueprintsElementsElementIdDeleteRaw(requestParameters, initOverrides) {
@@ -101,6 +129,29 @@ class BlueprintsApi extends runtime.BaseAPI {
      */
     async deleteElementBlueprintsElementsElementIdDelete(requestParameters, initOverrides) {
         await this.deleteElementBlueprintsElementsElementIdDeleteRaw(requestParameters, initOverrides);
+    }
+    /**
+     * Delete One Persona
+     */
+    async deleteOnePersonaBlueprintsPersonasPersonaIdDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['personaId'] == null) {
+            throw new runtime.RequiredError('personaId', 'Required parameter "personaId" was null or undefined when calling deleteOnePersonaBlueprintsPersonasPersonaIdDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/blueprints/personas/{persona_id}`.replace(`{${"persona_id"}}`, encodeURIComponent(String(requestParameters['personaId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.VoidApiResponse(response);
+    }
+    /**
+     * Delete One Persona
+     */
+    async deleteOnePersonaBlueprintsPersonasPersonaIdDelete(requestParameters, initOverrides) {
+        await this.deleteOnePersonaBlueprintsPersonasPersonaIdDeleteRaw(requestParameters, initOverrides);
     }
     /**
      * Delete Persona
@@ -210,7 +261,30 @@ class BlueprintsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A picture uses the member\'s persona of its own style family, whichever \"@Me\" was sent.
+     * List Personas
+     */
+    async listPersonasBlueprintsPersonasGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/blueprints/personas`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(index_1.PersonaFromJSON));
+    }
+    /**
+     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A picture uses the member\'s persona of its own style family, whichever \"@Me\" was sent.
+     * List Personas
+     */
+    async listPersonasBlueprintsPersonasGet(initOverrides) {
+        const response = await this.listPersonasBlueprintsPersonasGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as another persona (409 persona_limit_reached at the limit); replace=true takes the default persona\'s place instead.
      * Persona From Character
      */
     async personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters, initOverrides) {
@@ -231,7 +305,7 @@ class BlueprintsApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PersonaFromJSON)(jsonValue));
     }
     /**
-     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as another persona (409 persona_limit_reached at the limit); replace=true takes the default persona\'s place instead.
      * Persona From Character
      */
     async personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters, initOverrides) {
@@ -265,6 +339,61 @@ class BlueprintsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * A new persona with this one\'s description on another style (\"make an anime version of me\"); render its portrait in the new style and set it with portrait_picture_id.
+     * Restyle Persona
+     */
+    async restylePersonaBlueprintsPersonasPersonaIdRestylePostRaw(requestParameters, initOverrides) {
+        if (requestParameters['personaId'] == null) {
+            throw new runtime.RequiredError('personaId', 'Required parameter "personaId" was null or undefined when calling restylePersonaBlueprintsPersonasPersonaIdRestylePost().');
+        }
+        if (requestParameters['restylePersonaRequest'] == null) {
+            throw new runtime.RequiredError('restylePersonaRequest', 'Required parameter "restylePersonaRequest" was null or undefined when calling restylePersonaBlueprintsPersonasPersonaIdRestylePost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/blueprints/personas/{persona_id}/restyle`.replace(`{${"persona_id"}}`, encodeURIComponent(String(requestParameters['personaId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.RestylePersonaRequestToJSON)(requestParameters['restylePersonaRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PersonaFromJSON)(jsonValue));
+    }
+    /**
+     * A new persona with this one\'s description on another style (\"make an anime version of me\"); render its portrait in the new style and set it with portrait_picture_id.
+     * Restyle Persona
+     */
+    async restylePersonaBlueprintsPersonasPersonaIdRestylePost(requestParameters, initOverrides) {
+        const response = await this.restylePersonaBlueprintsPersonasPersonaIdRestylePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Set Default Persona
+     */
+    async setDefaultPersonaBlueprintsPersonasPersonaIdDefaultPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['personaId'] == null) {
+            throw new runtime.RequiredError('personaId', 'Required parameter "personaId" was null or undefined when calling setDefaultPersonaBlueprintsPersonasPersonaIdDefaultPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/blueprints/personas/{persona_id}/default`.replace(`{${"persona_id"}}`, encodeURIComponent(String(requestParameters['personaId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PersonaFromJSON)(jsonValue));
+    }
+    /**
+     * Set Default Persona
+     */
+    async setDefaultPersonaBlueprintsPersonasPersonaIdDefaultPost(requestParameters, initOverrides) {
+        const response = await this.setDefaultPersonaBlueprintsPersonasPersonaIdDefaultPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Update Element
      */
     async updateElementBlueprintsElementsElementIdPatchRaw(requestParameters, initOverrides) {
@@ -291,6 +420,35 @@ class BlueprintsApi extends runtime.BaseAPI {
      */
     async updateElementBlueprintsElementsElementIdPatch(requestParameters, initOverrides) {
         const response = await this.updateElementBlueprintsElementsElementIdPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Update Persona
+     */
+    async updatePersonaBlueprintsPersonasPersonaIdPutRaw(requestParameters, initOverrides) {
+        if (requestParameters['personaId'] == null) {
+            throw new runtime.RequiredError('personaId', 'Required parameter "personaId" was null or undefined when calling updatePersonaBlueprintsPersonasPersonaIdPut().');
+        }
+        if (requestParameters['putPersonaRequest'] == null) {
+            throw new runtime.RequiredError('putPersonaRequest', 'Required parameter "putPersonaRequest" was null or undefined when calling updatePersonaBlueprintsPersonasPersonaIdPut().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/blueprints/personas/{persona_id}`.replace(`{${"persona_id"}}`, encodeURIComponent(String(requestParameters['personaId']))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PutPersonaRequestToJSON)(requestParameters['putPersonaRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PersonaFromJSON)(jsonValue));
+    }
+    /**
+     * Update Persona
+     */
+    async updatePersonaBlueprintsPersonasPersonaIdPut(requestParameters, initOverrides) {
+        const response = await this.updatePersonaBlueprintsPersonasPersonaIdPutRaw(requestParameters, initOverrides);
         return await response.value();
     }
 }
