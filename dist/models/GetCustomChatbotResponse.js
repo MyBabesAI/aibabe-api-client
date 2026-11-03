@@ -26,6 +26,8 @@ const ChatbotPreview_1 = require("./ChatbotPreview");
 const PostDetailsWithDate_1 = require("./PostDetailsWithDate");
 const ContentType_1 = require("./ContentType");
 const TagData_1 = require("./TagData");
+const Gender_1 = require("./Gender");
+const SexualOrientation_1 = require("./SexualOrientation");
 /**
  * Check if a given object implements the GetCustomChatbotResponse interface.
  */
@@ -69,6 +71,8 @@ function GetCustomChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
         'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
+        'gender': json['gender'] == null ? undefined : (0, Gender_1.GenderFromJSON)(json['gender']),
+        'sexualOrientation': json['sexual_orientation'] == null ? undefined : (0, SexualOrientation_1.SexualOrientationFromJSON)(json['sexual_orientation']),
         'tags': (json['tags'].map(TagData_1.TagDataFromJSON)),
         'chatCount': json['chat_count'],
         'createdFrom': (0, ChatbotCreatedOrigin_1.ChatbotCreatedOriginFromJSON)(json['created_from']),
@@ -100,6 +104,8 @@ function GetCustomChatbotResponseToJSONTyped(value, ignoreDiscriminator = false)
         'character_style': value['characterStyle'],
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'next_gen': value['nextGen'],
+        'gender': (0, Gender_1.GenderToJSON)(value['gender']),
+        'sexual_orientation': (0, SexualOrientation_1.SexualOrientationToJSON)(value['sexualOrientation']),
         'tags': (value['tags'].map(TagData_1.TagDataToJSON)),
         'chat_count': value['chatCount'],
         'created_from': (0, ChatbotCreatedOrigin_1.ChatbotCreatedOriginToJSON)(value['createdFrom']),

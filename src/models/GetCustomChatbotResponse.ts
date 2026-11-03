@@ -69,6 +69,20 @@ import {
     TagDataToJSON,
     TagDataToJSONTyped,
 } from './TagData';
+import type { Gender } from './Gender';
+import {
+    GenderFromJSON,
+    GenderFromJSONTyped,
+    GenderToJSON,
+    GenderToJSONTyped,
+} from './Gender';
+import type { SexualOrientation } from './SexualOrientation';
+import {
+    SexualOrientationFromJSON,
+    SexualOrientationFromJSONTyped,
+    SexualOrientationToJSON,
+    SexualOrientationToJSONTyped,
+} from './SexualOrientation';
 
 /**
  * 
@@ -142,6 +156,18 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     nextGen?: boolean;
+    /**
+     * 
+     * @type {Gender}
+     * @memberof GetCustomChatbotResponse
+     */
+    gender?: Gender | null;
+    /**
+     * 
+     * @type {SexualOrientation}
+     * @memberof GetCustomChatbotResponse
+     */
+    sexualOrientation?: SexualOrientation | null;
     /**
      * 
      * @type {Array<TagData>}
@@ -243,6 +269,8 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
         'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
         'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
+        'gender': json['gender'] == null ? undefined : GenderFromJSON(json['gender']),
+        'sexualOrientation': json['sexual_orientation'] == null ? undefined : SexualOrientationFromJSON(json['sexual_orientation']),
         'tags': ((json['tags'] as Array<any>).map(TagDataFromJSON)),
         'chatCount': json['chat_count'],
         'createdFrom': ChatbotCreatedOriginFromJSON(json['created_from']),
@@ -278,6 +306,8 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'character_style': value['characterStyle'],
         'art_style': ArtStyleToJSON(value['artStyle']),
         'next_gen': value['nextGen'],
+        'gender': GenderToJSON(value['gender']),
+        'sexual_orientation': SexualOrientationToJSON(value['sexualOrientation']),
         'tags': ((value['tags'] as Array<any>).map(TagDataToJSON)),
         'chat_count': value['chatCount'],
         'created_from': ChatbotCreatedOriginToJSON(value['createdFrom']),

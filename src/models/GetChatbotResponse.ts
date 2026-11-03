@@ -34,6 +34,13 @@ import {
     ContentTypeToJSON,
     ContentTypeToJSONTyped,
 } from './ContentType';
+import type { Gender } from './Gender';
+import {
+    GenderFromJSON,
+    GenderFromJSONTyped,
+    GenderToJSON,
+    GenderToJSONTyped,
+} from './Gender';
 import type { GalleryItem } from './GalleryItem';
 import {
     GalleryItemFromJSON,
@@ -41,6 +48,13 @@ import {
     GalleryItemToJSON,
     GalleryItemToJSONTyped,
 } from './GalleryItem';
+import type { SexualOrientation } from './SexualOrientation';
+import {
+    SexualOrientationFromJSON,
+    SexualOrientationFromJSONTyped,
+    SexualOrientationToJSON,
+    SexualOrientationToJSONTyped,
+} from './SexualOrientation';
 import type { WallPost } from './WallPost';
 import {
     WallPostFromJSON,
@@ -123,6 +137,18 @@ export interface GetChatbotResponse {
     nextGen?: boolean;
     /**
      * 
+     * @type {Gender}
+     * @memberof GetChatbotResponse
+     */
+    gender?: Gender | null;
+    /**
+     * 
+     * @type {SexualOrientation}
+     * @memberof GetChatbotResponse
+     */
+    sexualOrientation?: SexualOrientation | null;
+    /**
+     * 
      * @type {Array<WallPost>}
      * @memberof GetChatbotResponse
      */
@@ -179,6 +205,8 @@ export function GetChatbotResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
         'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
         'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
+        'gender': json['gender'] == null ? undefined : GenderFromJSON(json['gender']),
+        'sexualOrientation': json['sexual_orientation'] == null ? undefined : SexualOrientationFromJSON(json['sexual_orientation']),
         'posts': ((json['posts'] as Array<any>).map(WallPostFromJSON)),
         'galleries': ((json['galleries'] as Array<any>).map(GalleryItemFromJSON)),
         'unlockAllPrice': json['unlock_all_price'],
@@ -207,6 +235,8 @@ export function GetChatbotResponseFromJSONTyped(json: any, ignoreDiscriminator: 
         'character_style': value['characterStyle'],
         'art_style': ArtStyleToJSON(value['artStyle']),
         'next_gen': value['nextGen'],
+        'gender': GenderToJSON(value['gender']),
+        'sexual_orientation': SexualOrientationToJSON(value['sexualOrientation']),
         'posts': ((value['posts'] as Array<any>).map(WallPostToJSON)),
         'galleries': ((value['galleries'] as Array<any>).map(GalleryItemToJSON)),
         'unlock_all_price': value['unlockAllPrice'],
