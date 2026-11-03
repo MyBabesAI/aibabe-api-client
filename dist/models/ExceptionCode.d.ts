@@ -348,6 +348,7 @@ export declare const ExceptionCode: {
     readonly PersonaNotFound: "persona_not_found";
     readonly PersonaExists: "persona_exists";
     readonly PersonaLimitReached: "persona_limit_reached";
+    readonly PersonaStyleTaken: "persona_style_taken";
     readonly PersonaSourceNotOwn: "persona_source_not_own";
 };
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];

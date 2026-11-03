@@ -61,12 +61,12 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      */
     createElementBlueprintsElementsPost(requestParameters: CreateElementBlueprintsElementsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ElementBlueprint>;
     /**
-     * Adds a persona (409 persona_limit_reached past PERSONA_LIMIT); it becomes the default only when the member had none.
+     * Adds a persona: one realistic and one anime at most (409 persona_style_taken for a second of a family). It becomes the default only when the member had none.
      * Create Persona
      */
     createPersonaBlueprintsPersonasPostRaw(requestParameters: CreatePersonaBlueprintsPersonasPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
     /**
-     * Adds a persona (409 persona_limit_reached past PERSONA_LIMIT); it becomes the default only when the member had none.
+     * Adds a persona: one realistic and one anime at most (409 persona_style_taken for a second of a family). It becomes the default only when the member had none.
      * Create Persona
      */
     createPersonaBlueprintsPersonasPost(requestParameters: CreatePersonaBlueprintsPersonasPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
@@ -137,12 +137,12 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      */
     listPersonasBlueprintsPersonasGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Persona>>;
     /**
-     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as another persona (409 persona_limit_reached at the limit); replace=true takes the default persona\'s place instead.
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as the persona of her style family (409 persona_style_taken when the member has one); replace=true takes that persona\'s place instead.
      * Persona From Character
      */
     personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
     /**
-     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as another persona (409 persona_limit_reached at the limit); replace=true takes the default persona\'s place instead.
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as the persona of her style family (409 persona_style_taken when the member has one); replace=true takes that persona\'s place instead.
      * Persona From Character
      */
     personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
@@ -155,12 +155,12 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      */
     putPersonaBlueprintsPersonaPut(requestParameters: PutPersonaBlueprintsPersonaPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
     /**
-     * A new persona with this one\'s description on another style (\"make an anime version of me\"); render its portrait in the new style and set it with portrait_picture_id.
+     * A new persona with this one\'s description on another style (\"make an anime version of me\"); 409 persona_style_taken when the member already has one of that family. Render its portrait in the new style and set it with portrait_picture_id.
      * Restyle Persona
      */
     restylePersonaBlueprintsPersonasPersonaIdRestylePostRaw(requestParameters: RestylePersonaBlueprintsPersonasPersonaIdRestylePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
     /**
-     * A new persona with this one\'s description on another style (\"make an anime version of me\"); render its portrait in the new style and set it with portrait_picture_id.
+     * A new persona with this one\'s description on another style (\"make an anime version of me\"); 409 persona_style_taken when the member already has one of that family. Render its portrait in the new style and set it with portrait_picture_id.
      * Restyle Persona
      */
     restylePersonaBlueprintsPersonasPersonaIdRestylePost(requestParameters: RestylePersonaBlueprintsPersonasPersonaIdRestylePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;

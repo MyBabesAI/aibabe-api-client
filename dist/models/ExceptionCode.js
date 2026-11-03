@@ -358,6 +358,7 @@ exports.ExceptionCode = {
     PersonaNotFound: 'persona_not_found',
     PersonaExists: 'persona_exists',
     PersonaLimitReached: 'persona_limit_reached',
+    PersonaStyleTaken: 'persona_style_taken',
     PersonaSourceNotOwn: 'persona_source_not_own'
 };
 function instanceOfExceptionCode(value) {
