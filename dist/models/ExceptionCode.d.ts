@@ -274,6 +274,7 @@ export declare const ExceptionCode: {
     readonly GalleryChatbotFilterConflict: "gallery_chatbot_filter_conflict";
     readonly GalleryOwnerFilterInvalid: "gallery_owner_filter_invalid";
     readonly GalleryFolderNotFound: "gallery_folder_not_found";
+    readonly BillingReconciliationInProgress: "billing_reconciliation_in_progress";
 };
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 export declare function instanceOfExceptionCode(value: any): boolean;
