@@ -142,7 +142,7 @@ export interface GetGalleryResponseItemsInner {
      * @type {Array<CastMember>}
      * @memberof GetGalleryResponseItemsInner
      */
-    cast?: Array<CastMember>;
+    characters?: Array<CastMember>;
     /**
      *
      * @type {string}

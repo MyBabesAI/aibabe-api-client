@@ -66,7 +66,7 @@ export interface ImageContent {
      * @type {Array<CastMember>}
      * @memberof ImageContent
      */
-    cast?: Array<CastMember>;
+    characters?: Array<CastMember>;
 }
 /**
  * Check if a given object implements the ImageContent interface.

@@ -47,7 +47,7 @@ function ImageContentFromJSONTyped(json, ignoreDiscriminator) {
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : (0, AdminAgeEstimation_1.AdminAgeEstimationFromJSON)(json['age_estimation']),
         'loras': json['loras'] == null ? undefined : (json['loras'].map(ImageLookLora_1.ImageLookLoraFromJSON)),
-        'cast': json['cast'] == null ? undefined : (json['cast'].map(CastMember_1.CastMemberFromJSON)),
+        'characters': json['characters'] == null ? undefined : (json['characters'].map(CastMember_1.CastMemberFromJSON)),
     };
 }
 function ImageContentToJSON(json) {
@@ -65,7 +65,7 @@ function ImageContentToJSONTyped(value, ignoreDiscriminator = false) {
         'height': value['height'],
         'age_estimation': (0, AdminAgeEstimation_1.AdminAgeEstimationToJSON)(value['ageEstimation']),
         'loras': value['loras'] == null ? undefined : (value['loras'].map(ImageLookLora_1.ImageLookLoraToJSON)),
-        'cast': value['cast'] == null ? undefined : (value['cast'].map(CastMember_1.CastMemberToJSON)),
+        'characters': value['characters'] == null ? undefined : (value['characters'].map(CastMember_1.CastMemberToJSON)),
     };
 }
 //# sourceMappingURL=ImageContent.js.map

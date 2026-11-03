@@ -86,7 +86,7 @@ function GeneratedImagesFromJSONTyped(json, ignoreDiscriminator) {
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : (0, AdminAgeEstimation_1.AdminAgeEstimationFromJSON)(json['age_estimation']),
         'moderationCharged': json['moderation_charged'] == null ? undefined : json['moderation_charged'],
-        'cast': json['cast'] == null ? undefined : (json['cast'].map(CastMember_1.CastMemberFromJSON)),
+        'characters': json['characters'] == null ? undefined : (json['characters'].map(CastMember_1.CastMemberFromJSON)),
     };
 }
 function GeneratedImagesToJSON(json) {
@@ -115,7 +115,7 @@ function GeneratedImagesToJSONTyped(value, ignoreDiscriminator = false) {
         'height': value['height'],
         'age_estimation': (0, AdminAgeEstimation_1.AdminAgeEstimationToJSON)(value['ageEstimation']),
         'moderation_charged': value['moderationCharged'],
-        'cast': value['cast'] == null ? undefined : (value['cast'].map(CastMember_1.CastMemberToJSON)),
+        'characters': value['characters'] == null ? undefined : (value['characters'].map(CastMember_1.CastMemberToJSON)),
     };
 }
 //# sourceMappingURL=GeneratedImages.js.map
