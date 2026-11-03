@@ -376,22 +376,22 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     removeParticipantChatConversationConversationIdParticipantsChatbotIdDelete(requestParameters: RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ConversationParticipant>>;
     /**
-     * Back to the greeting. A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
+     * Back to the greeting with the host alone (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     resetConversationChatConversationConversationIdResetPostRaw(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
     /**
-     * Back to the greeting. A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
+     * Back to the greeting with the host alone (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     resetConversationChatConversationConversationIdResetPost(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
-     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the same replacement semantics as starting from the post.
+     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the cast the chat was started with (the reader\'s own characters keep their slots); the request\'s replacements override slots like when starting from the post.
      * Restart Scenario
      */
     restartScenarioChatConversationConversationIdScenarioRestartPostRaw(requestParameters: RestartScenarioChatConversationConversationIdScenarioRestartPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScenarioStartResponse>>;
     /**
-     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the same replacement semantics as starting from the post.
+     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the cast the chat was started with (the reader\'s own characters keep their slots); the request\'s replacements override slots like when starting from the post.
      * Restart Scenario
      */
     restartScenarioChatConversationConversationIdScenarioRestartPost(requestParameters: RestartScenarioChatConversationConversationIdScenarioRestartPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScenarioStartResponse>;

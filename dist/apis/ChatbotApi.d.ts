@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, CharacterAboutPageReview, CharacterIdentityPageReview, CharacterPersonalityPageReview, ChatbotType, GetAboutChatbotResponse, GetChatbotListResponse, GetChatbotResponse, GetCustomChatbotResponse, GetIdentityChatbotResponse, GetImageLooksResponse, GetPersonalityChatbotResponse, GetReferenceImagesResponse, IdentityPreviewResponse, PatchCustomChatbotRequest, PostAdvancedCharacterBuilderSuggestionPayload, PostAdvancedCharacterBuilderSuggestionResponse, PostAdvancedChatbotProfilePicture, PostAdvancedChatbotPublishPayload, PostAdvancedChatbotPublishResponse, PostAdvancedIdentityPayload, PostAdvancedPersonalityPayload, PostAdvancedRecreateResponse, PostCustomAboutPagePayload, PostCustomChatbotResponse, PostCustomChatbotV2Payload, PostIdentityPreviewRequest, PostMigrateStyleRequest, PostMigrateStyleResponse, PostProfilePictureResponse, PostReferenceImagesResponse, PostSelfDescriptionResponse, PutWardrobeRequest, SortFilter, VisibilityFilter, Wardrobe } from '../models/index';
+import type { ArtStyle, CharacterAboutPageReview, CharacterIdentityPageReview, CharacterPersonalityPageReview, ChatbotType, GetAboutChatbotResponse, GetChatbotListResponse, GetChatbotResponse, GetCustomChatbotResponse, GetIdentityChatbotResponse, GetImageLooksResponse, GetPersonalityChatbotResponse, GetReferenceImagesResponse, IdentityPreviewResponse, PatchCustomChatbotRequest, PostAdvancedCharacterBuilderSuggestionPayload, PostAdvancedCharacterBuilderSuggestionResponse, PostAdvancedChatbotProfilePicture, PostAdvancedChatbotPublishPayload, PostAdvancedChatbotPublishResponse, PostAdvancedIdentityPayload, PostAdvancedPersonalityPayload, PostAdvancedRecreateResponse, PostCustomAboutPagePayload, PostCustomChatbotResponse, PostCustomChatbotV2Payload, PostIdentityPreviewRequest, PostMigrateStyleRequest, PostMigrateStyleResponse, PostProfilePictureResponse, PostReferenceImagesRequest, PostReferenceImagesResponse, PostSelfDescriptionResponse, PutWardrobeRequest, SortFilter, VisibilityFilter, Wardrobe } from '../models/index';
 export interface AttachmentChatbotChatbotIdAttachmentGetRequest {
     chatbotId: string;
     imageName: string;
@@ -84,6 +84,7 @@ export interface PostCharacterBuilderSuggestionChatbotAdvancedSuggestionPostRequ
 }
 export interface PostCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRequest {
     chatbotId: string;
+    postReferenceImagesRequest?: PostReferenceImagesRequest;
 }
 export interface PostIdentityChatbotAdvancedIdentityPostRequest {
     postAdvancedIdentityPayload: PostAdvancedIdentityPayload;
@@ -272,12 +273,12 @@ export declare class ChatbotApi extends runtime.BaseAPI {
      */
     postCharacterBuilderSuggestionChatbotAdvancedSuggestionPost(requestParameters: PostCharacterBuilderSuggestionChatbotAdvancedSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAdvancedCharacterBuilderSuggestionResponse>;
     /**
-     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
      * Post Custom Chatbot Reference Images
      */
     postCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRaw(requestParameters: PostCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostReferenceImagesResponse>>;
     /**
-     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
      * Post Custom Chatbot Reference Images
      */
     postCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPost(requestParameters: PostCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostReferenceImagesResponse>;

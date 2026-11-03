@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlueprintConfigResponse, CreateElementBlueprintRequest, ElementBlueprint, ElementBlueprintKind, GetElementBlueprintsResponse, GetMentionsResponse, GetReferenceImagesResponse, Persona, PostReferenceImagesResponse, PutPersonaRequest, PutWardrobeRequest, RestylePersonaRequest, UpdateElementBlueprintRequest, Wardrobe } from '../models/index';
+import type { BlueprintConfigResponse, CreateElementBlueprintRequest, ElementBlueprint, ElementBlueprintKind, GetElementBlueprintsResponse, GetMentionsResponse, GetReferenceImagesResponse, Persona, PostReferenceImagesRequest, PostReferenceImagesResponse, PutPersonaRequest, PutWardrobeRequest, RestylePersonaRequest, UpdateElementBlueprintRequest, Wardrobe } from '../models/index';
 export interface CreateElementBlueprintsElementsPostRequest {
     createElementBlueprintRequest: CreateElementBlueprintRequest;
 }
@@ -38,6 +38,7 @@ export interface PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest {
 }
 export interface PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRequest {
     personaId: string;
+    postReferenceImagesRequest?: PostReferenceImagesRequest;
 }
 export interface PutPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePutRequest {
     personaId: string;
@@ -165,12 +166,12 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      */
     personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
     /**
-     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way); the result arrives on the `reference_images_status_change` websocket event.
      * Post Persona Reference Images
      */
     postPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRaw(requestParameters: PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostReferenceImagesResponse>>;
     /**
-     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way); the result arrives on the `reference_images_status_change` websocket event.
      * Post Persona Reference Images
      */
     postPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPost(requestParameters: PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostReferenceImagesResponse>;

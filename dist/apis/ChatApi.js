@@ -822,7 +822,7 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Back to the greeting. A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
+     * Back to the greeting with the host alone (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     async resetConversationChatConversationConversationIdResetPostRaw(requestParameters, initOverrides) {
@@ -845,7 +845,7 @@ class ChatApi extends runtime.BaseAPI {
         }
     }
     /**
-     * Back to the greeting. A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
+     * Back to the greeting with the host alone (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     async resetConversationChatConversationConversationIdResetPost(requestParameters, initOverrides) {
@@ -853,7 +853,7 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the same replacement semantics as starting from the post.
+     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the cast the chat was started with (the reader\'s own characters keep their slots); the request\'s replacements override slots like when starting from the post.
      * Restart Scenario
      */
     async restartScenarioChatConversationConversationIdScenarioRestartPostRaw(requestParameters, initOverrides) {
@@ -876,7 +876,7 @@ class ChatApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ScenarioStartResponseFromJSON)(jsonValue));
     }
     /**
-     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the same replacement semantics as starting from the post.
+     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the cast the chat was started with (the reader\'s own characters keep their slots); the request\'s replacements override slots like when starting from the post.
      * Restart Scenario
      */
     async restartScenarioChatConversationConversationIdScenarioRestartPost(requestParameters, initOverrides) {

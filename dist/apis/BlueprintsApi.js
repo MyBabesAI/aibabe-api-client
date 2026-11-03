@@ -341,7 +341,7 @@ class BlueprintsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way); the result arrives on the `reference_images_status_change` websocket event.
      * Post Persona Reference Images
      */
     async postPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRaw(requestParameters, initOverrides) {
@@ -350,16 +350,18 @@ class BlueprintsApi extends runtime.BaseAPI {
         }
         const queryParameters = {};
         const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
         const response = await this.request({
             path: `/blueprints/personas/{persona_id}/reference-images`.replace(`{${"persona_id"}}`, encodeURIComponent(String(requestParameters['personaId']))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: (0, index_1.PostReferenceImagesRequestToJSON)(requestParameters['postReferenceImagesRequest']),
         }, initOverrides);
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostReferenceImagesResponseFromJSON)(jsonValue));
     }
     /**
-     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way); the result arrives on the `reference_images_status_change` websocket event.
      * Post Persona Reference Images
      */
     async postPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPost(requestParameters, initOverrides) {

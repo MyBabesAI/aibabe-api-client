@@ -365,6 +365,7 @@ export * from './PostProfilePictureResponse';
 export * from './PostPublishResponse';
 export * from './PostRatingRequest';
 export * from './PostRatingResponse';
+export * from './PostReferenceImagesRequest';
 export * from './PostReferenceImagesResponse';
 export * from './PostReportRequest';
 export * from './PostReportUserRequest';

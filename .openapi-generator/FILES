@@ -403,6 +403,7 @@ src/models/PostProfilePictureResponse.ts
 src/models/PostPublishResponse.ts
 src/models/PostRatingRequest.ts
 src/models/PostRatingResponse.ts
+src/models/PostReferenceImagesRequest.ts
 src/models/PostReferenceImagesResponse.ts
 src/models/PostReportRequest.ts
 src/models/PostReportUserRequest.ts

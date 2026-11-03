@@ -24,6 +24,7 @@ import type {
   GetReferenceImagesResponse,
   HTTPValidationError,
   Persona,
+  PostReferenceImagesRequest,
   PostReferenceImagesResponse,
   PutPersonaRequest,
   PutWardrobeRequest,
@@ -50,6 +51,8 @@ import {
     HTTPValidationErrorToJSON,
     PersonaFromJSON,
     PersonaToJSON,
+    PostReferenceImagesRequestFromJSON,
+    PostReferenceImagesRequestToJSON,
     PostReferenceImagesResponseFromJSON,
     PostReferenceImagesResponseToJSON,
     PutPersonaRequestFromJSON,
@@ -99,6 +102,7 @@ export interface PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest {
 
 export interface PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRequest {
     personaId: string;
+    postReferenceImagesRequest?: PostReferenceImagesRequest;
 }
 
 export interface PutPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePutRequest {
@@ -510,7 +514,7 @@ export class BlueprintsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way); the result arrives on the `reference_images_status_change` websocket event.
      * Post Persona Reference Images
      */
     async postPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRaw(requestParameters: PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostReferenceImagesResponse>> {
@@ -525,18 +529,21 @@ export class BlueprintsApi extends runtime.BaseAPI {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+        headerParameters['Content-Type'] = 'application/json';
+
         const response = await this.request({
             path: `/blueprints/personas/{persona_id}/reference-images`.replace(`{${"persona_id"}}`, encodeURIComponent(String(requestParameters['personaId']))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: PostReferenceImagesRequestToJSON(requestParameters['postReferenceImagesRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PostReferenceImagesResponseFromJSON(jsonValue));
     }
 
     /**
-     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way); the result arrives on the `reference_images_status_change` websocket event.
      * Post Persona Reference Images
      */
     async postPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPost(requestParameters: PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostReferenceImagesResponse> {

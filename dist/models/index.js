@@ -383,6 +383,7 @@ __exportStar(require("./PostProfilePictureResponse"), exports);
 __exportStar(require("./PostPublishResponse"), exports);
 __exportStar(require("./PostRatingRequest"), exports);
 __exportStar(require("./PostRatingResponse"), exports);
+__exportStar(require("./PostReferenceImagesRequest"), exports);
 __exportStar(require("./PostReferenceImagesResponse"), exports);
 __exportStar(require("./PostReportRequest"), exports);
 __exportStar(require("./PostReportUserRequest"), exports);

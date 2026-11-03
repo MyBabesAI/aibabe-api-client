@@ -46,6 +46,7 @@ import type {
   PostMigrateStyleRequest,
   PostMigrateStyleResponse,
   PostProfilePictureResponse,
+  PostReferenceImagesRequest,
   PostReferenceImagesResponse,
   PostSelfDescriptionResponse,
   PutWardrobeRequest,
@@ -116,6 +117,8 @@ import {
     PostMigrateStyleResponseToJSON,
     PostProfilePictureResponseFromJSON,
     PostProfilePictureResponseToJSON,
+    PostReferenceImagesRequestFromJSON,
+    PostReferenceImagesRequestToJSON,
     PostReferenceImagesResponseFromJSON,
     PostReferenceImagesResponseToJSON,
     PostSelfDescriptionResponseFromJSON,
@@ -222,6 +225,7 @@ export interface PostCharacterBuilderSuggestionChatbotAdvancedSuggestionPostRequ
 
 export interface PostCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRequest {
     chatbotId: string;
+    postReferenceImagesRequest?: PostReferenceImagesRequest;
 }
 
 export interface PostIdentityChatbotAdvancedIdentityPostRequest {
@@ -1002,7 +1006,7 @@ export class ChatbotApi extends runtime.BaseAPI {
     }
 
     /**
-     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
      * Post Custom Chatbot Reference Images
      */
     async postCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRaw(requestParameters: PostCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostReferenceImagesResponse>> {
@@ -1017,18 +1021,21 @@ export class ChatbotApi extends runtime.BaseAPI {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+        headerParameters['Content-Type'] = 'application/json';
+
         const response = await this.request({
             path: `/chatbot/custom/{chatbot_id}/reference-images`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: PostReferenceImagesRequestToJSON(requestParameters['postReferenceImagesRequest']),
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PostReferenceImagesResponseFromJSON(jsonValue));
     }
 
     /**
-     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
      * Post Custom Chatbot Reference Images
      */
     async postCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPost(requestParameters: PostCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostReferenceImagesResponse> {
