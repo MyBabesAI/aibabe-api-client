@@ -201,6 +201,7 @@ export declare const ExceptionCode: {
     readonly ShareVideoNonOwnedForbidden: "share_video_non_owned_forbidden";
     readonly ShareImageNonOwnedForbidden: "share_image_non_owned_forbidden";
     readonly ShareCharacterNonOwnedForbidden: "share_character_non_owned_forbidden";
+    readonly ShareMediaNotFinished: "share_media_not_finished";
     readonly CharacterNotFound: "character_not_found";
     readonly InvalidPlanId: "invalid_plan_id";
     readonly InvalidAddonId: "invalid_addon_id";
