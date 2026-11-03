@@ -193,6 +193,8 @@ export const ExceptionCode = {
     VideoReferenceRoleRepeated: 'video_reference_role_repeated',
     VideoMentionKindUnsupported: 'video_mention_kind_unsupported',
     VideoMentionWithoutPicture: 'video_mention_without_picture',
+    VideoPersonaRequired: 'video_persona_required',
+    VideoPersonaNeedsPortrait: 'video_persona_needs_portrait',
     SelfPhotoUnreadable: 'self_photo_unreadable',
     ImagenModelSingleCharacter: 'imagen_model_single_character',
     ImagenTooManyCharacters: 'imagen_too_many_characters',
@@ -359,6 +361,8 @@ export const ExceptionCode = {
     ScenarioUpToDate: 'scenario_up_to_date',
     PersonaNotFound: 'persona_not_found',
     PersonaExists: 'persona_exists',
+    PersonaLimitReached: 'persona_limit_reached',
+    PersonaStyleTaken: 'persona_style_taken',
     PersonaSourceNotOwn: 'persona_source_not_own'
 } as const;
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];

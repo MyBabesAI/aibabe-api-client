@@ -18,7 +18,9 @@ exports.VideoReferenceTemplateFromJSON = VideoReferenceTemplateFromJSON;
 exports.VideoReferenceTemplateFromJSONTyped = VideoReferenceTemplateFromJSONTyped;
 exports.VideoReferenceTemplateToJSON = VideoReferenceTemplateToJSON;
 exports.VideoReferenceTemplateToJSONTyped = VideoReferenceTemplateToJSONTyped;
+const VideoTemplateCategory_1 = require("./VideoTemplateCategory");
 const VideoReferenceRole_1 = require("./VideoReferenceRole");
+const VideoReferenceMood_1 = require("./VideoReferenceMood");
 /**
  * Check if a given object implements the VideoReferenceTemplate interface.
  */
@@ -27,9 +29,15 @@ function instanceOfVideoReferenceTemplate(value) {
         return false;
     if (!('name' in value) || value['name'] === undefined)
         return false;
+    if (!('category' in value) || value['category'] === undefined)
+        return false;
+    if (!('mood' in value) || value['mood'] === undefined)
+        return false;
     if (!('roles' in value) || value['roles'] === undefined)
         return false;
     if (!('prompt' in value) || value['prompt'] === undefined)
+        return false;
+    if (!('duration' in value) || value['duration'] === undefined)
         return false;
     return true;
 }
@@ -43,8 +51,13 @@ function VideoReferenceTemplateFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'id': json['id'],
         'name': json['name'],
+        'category': (0, VideoTemplateCategory_1.VideoTemplateCategoryFromJSON)(json['category']),
+        'mood': (0, VideoReferenceMood_1.VideoReferenceMoodFromJSON)(json['mood']),
         'roles': (json['roles'].map(VideoReferenceRole_1.VideoReferenceRoleFromJSON)),
+        'withYou': json['with_you'] == null ? undefined : json['with_you'],
         'prompt': json['prompt'],
+        'duration': json['duration'],
+        'speech': json['speech'] == null ? undefined : json['speech'],
         'explicit': json['explicit'] == null ? undefined : json['explicit'],
     };
 }
@@ -58,8 +71,13 @@ function VideoReferenceTemplateToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'id': value['id'],
         'name': value['name'],
+        'category': (0, VideoTemplateCategory_1.VideoTemplateCategoryToJSON)(value['category']),
+        'mood': (0, VideoReferenceMood_1.VideoReferenceMoodToJSON)(value['mood']),
         'roles': (value['roles'].map(VideoReferenceRole_1.VideoReferenceRoleToJSON)),
+        'with_you': value['withYou'],
         'prompt': value['prompt'],
+        'duration': value['duration'],
+        'speech': value['speech'],
         'explicit': value['explicit'],
     };
 }

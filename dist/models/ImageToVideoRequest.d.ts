@@ -82,6 +82,12 @@ export interface ImageToVideoRequest {
     mentions?: Array<BlueprintRef>;
     /**
      *
+     * @type {boolean}
+     * @memberof ImageToVideoRequest
+     */
+    withPersona?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof ImageToVideoRequest
      */

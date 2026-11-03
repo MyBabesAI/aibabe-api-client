@@ -10,12 +10,24 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlueprintConfigResponse, CreateElementBlueprintRequest, ElementBlueprint, ElementBlueprintKind, GetElementBlueprintsResponse, GetMentionsResponse, GetReferenceImagesResponse, Persona, PostReferenceImagesResponse, PutPersonaRequest, PutWardrobeRequest, UpdateElementBlueprintRequest, Wardrobe } from '../models/index';
+import type { BlueprintConfigResponse, CreateElementBlueprintRequest, ElementBlueprint, ElementBlueprintKind, GetElementBlueprintsResponse, GetMentionsResponse, GetReferenceImagesResponse, Persona, PostReferenceImagesResponse, PutPersonaRequest, PutWardrobeRequest, RestylePersonaRequest, UpdateElementBlueprintRequest, Wardrobe } from '../models/index';
 export interface CreateElementBlueprintsElementsPostRequest {
     createElementBlueprintRequest: CreateElementBlueprintRequest;
 }
+export interface CreatePersonaBlueprintsPersonasPostRequest {
+    putPersonaRequest: PutPersonaRequest;
+}
 export interface DeleteElementBlueprintsElementsElementIdDeleteRequest {
     elementId: string;
+}
+export interface DeleteOnePersonaBlueprintsPersonasPersonaIdDeleteRequest {
+    personaId: string;
+}
+export interface GetPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesGetRequest {
+    personaId: string;
+}
+export interface GetPersonaWardrobeBlueprintsPersonasPersonaIdWardrobeGetRequest {
+    personaId: string;
 }
 export interface ListElementsBlueprintsElementsGetRequest {
     kind?: ElementBlueprintKind | null;
@@ -24,15 +36,27 @@ export interface PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest {
     chatbotId: string;
     replace?: boolean;
 }
-export interface PutPersonaBlueprintsPersonaPutRequest {
-    putPersonaRequest: PutPersonaRequest;
+export interface PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRequest {
+    personaId: string;
 }
-export interface PutPersonaWardrobeBlueprintsPersonaWardrobePutRequest {
+export interface PutPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePutRequest {
+    personaId: string;
     putWardrobeRequest: PutWardrobeRequest;
+}
+export interface RestylePersonaBlueprintsPersonasPersonaIdRestylePostRequest {
+    personaId: string;
+    restylePersonaRequest: RestylePersonaRequest;
+}
+export interface SetDefaultPersonaBlueprintsPersonasPersonaIdDefaultPostRequest {
+    personaId: string;
 }
 export interface UpdateElementBlueprintsElementsElementIdPatchRequest {
     elementId: string;
     updateElementBlueprintRequest: UpdateElementBlueprintRequest;
+}
+export interface UpdatePersonaBlueprintsPersonasPersonaIdPutRequest {
+    personaId: string;
+    putPersonaRequest: PutPersonaRequest;
 }
 /**
  *
@@ -47,6 +71,16 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      */
     createElementBlueprintsElementsPost(requestParameters: CreateElementBlueprintsElementsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ElementBlueprint>;
     /**
+     * Adds a persona: one realistic and one anime at most (409 persona_style_taken for a second of a family). It becomes the default only when the member had none.
+     * Create Persona
+     */
+    createPersonaBlueprintsPersonasPostRaw(requestParameters: CreatePersonaBlueprintsPersonasPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
+    /**
+     * Adds a persona: one realistic and one anime at most (409 persona_style_taken for a second of a family). It becomes the default only when the member had none.
+     * Create Persona
+     */
+    createPersonaBlueprintsPersonasPost(requestParameters: CreatePersonaBlueprintsPersonasPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
+    /**
      * Delete Element
      */
     deleteElementBlueprintsElementsElementIdDeleteRaw(requestParameters: DeleteElementBlueprintsElementsElementIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
@@ -55,13 +89,13 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      */
     deleteElementBlueprintsElementsElementIdDelete(requestParameters: DeleteElementBlueprintsElementsElementIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
-     * Delete Persona
+     * Delete One Persona
      */
-    deletePersonaBlueprintsPersonaDeleteRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteOnePersonaBlueprintsPersonasPersonaIdDeleteRaw(requestParameters: DeleteOnePersonaBlueprintsPersonasPersonaIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
-     * Delete Persona
+     * Delete One Persona
      */
-    deletePersonaBlueprintsPersonaDelete(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    deleteOnePersonaBlueprintsPersonasPersonaIdDelete(requestParameters: DeleteOnePersonaBlueprintsPersonasPersonaIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      * Get Blueprint Config
      */
@@ -81,19 +115,19 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
     /**
      * Get Persona Reference Images
      */
-    getPersonaReferenceImagesBlueprintsPersonaReferenceImagesGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetReferenceImagesResponse>>;
+    getPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesGetRaw(requestParameters: GetPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetReferenceImagesResponse>>;
     /**
      * Get Persona Reference Images
      */
-    getPersonaReferenceImagesBlueprintsPersonaReferenceImagesGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetReferenceImagesResponse>;
+    getPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesGet(requestParameters: GetPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetReferenceImagesResponse>;
     /**
      * Get Persona Wardrobe
      */
-    getPersonaWardrobeBlueprintsPersonaWardrobeGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Wardrobe>>;
+    getPersonaWardrobeBlueprintsPersonasPersonaIdWardrobeGetRaw(requestParameters: GetPersonaWardrobeBlueprintsPersonasPersonaIdWardrobeGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Wardrobe>>;
     /**
      * Get Persona Wardrobe
      */
-    getPersonaWardrobeBlueprintsPersonaWardrobeGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Wardrobe>;
+    getPersonaWardrobeBlueprintsPersonasPersonaIdWardrobeGet(requestParameters: GetPersonaWardrobeBlueprintsPersonasPersonaIdWardrobeGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Wardrobe>;
     /**
      * List Elements
      */
@@ -111,12 +145,22 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      */
     listMentionsBlueprintsMentionsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetMentionsResponse>;
     /**
-     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A picture uses the member\'s persona of its own style family, whichever \"@Me\" was sent.
+     * List Personas
+     */
+    listPersonasBlueprintsPersonasGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Persona>>>;
+    /**
+     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A picture uses the member\'s persona of its own style family, whichever \"@Me\" was sent.
+     * List Personas
+     */
+    listPersonasBlueprintsPersonasGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Persona>>;
+    /**
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as the persona of her style family (409 persona_style_taken when the member has one); replace=true takes that persona\'s place instead.
      * Persona From Character
      */
     personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
     /**
-     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_exists unless replace=true, which replaces the current persona.
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as the persona of her style family (409 persona_style_taken when the member has one); replace=true takes that persona\'s place instead.
      * Persona From Character
      */
     personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
@@ -124,28 +168,38 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
      * Post Persona Reference Images
      */
-    postPersonaReferenceImagesBlueprintsPersonaReferenceImagesPostRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostReferenceImagesResponse>>;
+    postPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRaw(requestParameters: PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostReferenceImagesResponse>>;
     /**
      * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose (paid like a profile picture); the result arrives on the `reference_images_status_change` websocket event.
      * Post Persona Reference Images
      */
-    postPersonaReferenceImagesBlueprintsPersonaReferenceImagesPost(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostReferenceImagesResponse>;
-    /**
-     * Put Persona
-     */
-    putPersonaBlueprintsPersonaPutRaw(requestParameters: PutPersonaBlueprintsPersonaPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
-    /**
-     * Put Persona
-     */
-    putPersonaBlueprintsPersonaPut(requestParameters: PutPersonaBlueprintsPersonaPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
+    postPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPost(requestParameters: PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostReferenceImagesResponse>;
     /**
      * Put Persona Wardrobe
      */
-    putPersonaWardrobeBlueprintsPersonaWardrobePutRaw(requestParameters: PutPersonaWardrobeBlueprintsPersonaWardrobePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Wardrobe>>;
+    putPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePutRaw(requestParameters: PutPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Wardrobe>>;
     /**
      * Put Persona Wardrobe
      */
-    putPersonaWardrobeBlueprintsPersonaWardrobePut(requestParameters: PutPersonaWardrobeBlueprintsPersonaWardrobePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Wardrobe>;
+    putPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePut(requestParameters: PutPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Wardrobe>;
+    /**
+     * A new persona with this one\'s description on another style (\"make an anime version of me\"); 409 persona_style_taken when the member already has one of that family. Render its portrait in the new style and set it with portrait_picture_id.
+     * Restyle Persona
+     */
+    restylePersonaBlueprintsPersonasPersonaIdRestylePostRaw(requestParameters: RestylePersonaBlueprintsPersonasPersonaIdRestylePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
+    /**
+     * A new persona with this one\'s description on another style (\"make an anime version of me\"); 409 persona_style_taken when the member already has one of that family. Render its portrait in the new style and set it with portrait_picture_id.
+     * Restyle Persona
+     */
+    restylePersonaBlueprintsPersonasPersonaIdRestylePost(requestParameters: RestylePersonaBlueprintsPersonasPersonaIdRestylePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
+    /**
+     * Set Default Persona
+     */
+    setDefaultPersonaBlueprintsPersonasPersonaIdDefaultPostRaw(requestParameters: SetDefaultPersonaBlueprintsPersonasPersonaIdDefaultPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
+    /**
+     * Set Default Persona
+     */
+    setDefaultPersonaBlueprintsPersonasPersonaIdDefaultPost(requestParameters: SetDefaultPersonaBlueprintsPersonasPersonaIdDefaultPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
     /**
      * Update Element
      */
@@ -154,5 +208,13 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      * Update Element
      */
     updateElementBlueprintsElementsElementIdPatch(requestParameters: UpdateElementBlueprintsElementsElementIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ElementBlueprint>;
+    /**
+     * Update Persona
+     */
+    updatePersonaBlueprintsPersonasPersonaIdPutRaw(requestParameters: UpdatePersonaBlueprintsPersonasPersonaIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
+    /**
+     * Update Persona
+     */
+    updatePersonaBlueprintsPersonasPersonaIdPut(requestParameters: UpdatePersonaBlueprintsPersonasPersonaIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
 }
 //# sourceMappingURL=BlueprintsApi.d.ts.map

@@ -97,6 +97,12 @@ export interface Persona {
     thumbnailUrl?: string | null;
     /**
      * 
+     * @type {boolean}
+     * @memberof Persona
+     */
+    isDefault?: boolean;
+    /**
+     * 
      * @type {string}
      * @memberof Persona
      */
@@ -168,6 +174,7 @@ export function PersonaFromJSONTyped(json: any, ignoreDiscriminator: boolean): P
         'avatarBlueprintId': json['avatar_blueprint_id'],
         'artStyle': ArtStyleFromJSON(json['art_style']),
         'thumbnailUrl': json['thumbnail_url'] == null ? undefined : json['thumbnail_url'],
+        'isDefault': json['is_default'] == null ? undefined : json['is_default'],
         'description': json['description'],
         'details': json['details'],
         'sentenceStyle': json['sentence_style'],
@@ -196,6 +203,7 @@ export function PersonaFromJSONTyped(json: any, ignoreDiscriminator: boolean): P
         'avatar_blueprint_id': value['avatarBlueprintId'],
         'art_style': ArtStyleToJSON(value['artStyle']),
         'thumbnail_url': value['thumbnailUrl'],
+        'is_default': value['isDefault'],
         'description': value['description'],
         'details': value['details'],
         'sentence_style': value['sentenceStyle'],

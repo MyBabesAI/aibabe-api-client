@@ -9,7 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { VideoTemplateCategory } from './VideoTemplateCategory';
 import type { VideoReferenceRole } from './VideoReferenceRole';
+import type { VideoReferenceMood } from './VideoReferenceMood';
 /**
  *
  * @export
@@ -30,16 +32,46 @@ export interface VideoReferenceTemplate {
     name: string;
     /**
      *
+     * @type {VideoTemplateCategory}
+     * @memberof VideoReferenceTemplate
+     */
+    category: VideoTemplateCategory;
+    /**
+     *
+     * @type {VideoReferenceMood}
+     * @memberof VideoReferenceTemplate
+     */
+    mood: VideoReferenceMood;
+    /**
+     *
      * @type {Array<VideoReferenceRole>}
      * @memberof VideoReferenceTemplate
      */
     roles: Array<VideoReferenceRole>;
     /**
      *
+     * @type {boolean}
+     * @memberof VideoReferenceTemplate
+     */
+    withYou?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof VideoReferenceTemplate
      */
     prompt: string;
+    /**
+     *
+     * @type {number}
+     * @memberof VideoReferenceTemplate
+     */
+    duration: number;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof VideoReferenceTemplate
+     */
+    speech?: Array<string>;
     /**
      *
      * @type {boolean}
