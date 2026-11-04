@@ -19,6 +19,7 @@ exports.ChatMessageDetailFromJSONTyped = ChatMessageDetailFromJSONTyped;
 exports.ChatMessageDetailToJSON = ChatMessageDetailToJSON;
 exports.ChatMessageDetailToJSONTyped = ChatMessageDetailToJSONTyped;
 const Status_1 = require("./Status");
+const CastMember_1 = require("./CastMember");
 const BlacklistCard_1 = require("./BlacklistCard");
 const GeneratedAudioStatus_1 = require("./GeneratedAudioStatus");
 const Type_1 = require("./Type");
@@ -65,6 +66,7 @@ function ChatMessageDetailFromJSONTyped(json, ignoreDiscriminator) {
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
         'originalImageUrl': json['original_image_url'] == null ? undefined : json['original_image_url'],
         'blacklist': json['blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['blacklist']),
+        'characters': json['characters'] == null ? undefined : (json['characters'].map(CastMember_1.CastMemberFromJSON)),
         'speakerChatbotId': json['speaker_chatbot_id'] == null ? undefined : json['speaker_chatbot_id'],
         'userPersonaId': json['user_persona_id'] == null ? undefined : json['user_persona_id'],
         'inherited': json['inherited'] == null ? undefined : json['inherited'],
@@ -93,6 +95,7 @@ function ChatMessageDetailToJSONTyped(value, ignoreDiscriminator = false) {
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['blacklist']),
+        'characters': value['characters'] == null ? undefined : (value['characters'].map(CastMember_1.CastMemberToJSON)),
         'speaker_chatbot_id': value['speakerChatbotId'],
         'user_persona_id': value['userPersonaId'],
         'inherited': value['inherited'],

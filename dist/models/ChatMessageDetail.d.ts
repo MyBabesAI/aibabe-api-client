@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { Status } from './Status';
+import type { CastMember } from './CastMember';
 import type { BlacklistCard } from './BlacklistCard';
 import type { GeneratedAudioStatus } from './GeneratedAudioStatus';
 import type { Type } from './Type';
@@ -104,6 +105,12 @@ export interface ChatMessageDetail {
      * @memberof ChatMessageDetail
      */
     blacklist?: BlacklistCard | null;
+    /**
+     *
+     * @type {Array<CastMember>}
+     * @memberof ChatMessageDetail
+     */
+    characters?: Array<CastMember>;
     /**
      *
      * @type {string}
