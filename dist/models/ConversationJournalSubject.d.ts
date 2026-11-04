@@ -27,6 +27,12 @@ export interface ConversationJournalSubject {
      * @memberof ConversationJournalSubject
      */
     name: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationJournalSubject
+     */
+    avatarUrl?: string | null;
 }
 /**
  * Check if a given object implements the ConversationJournalSubject interface.

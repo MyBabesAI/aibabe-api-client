@@ -31,6 +31,12 @@ export interface ConversationJournalSubject {
      * @memberof ConversationJournalSubject
      */
     name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationJournalSubject
+     */
+    avatarUrl?: string | null;
 }
 
 /**
@@ -54,6 +60,7 @@ export function ConversationJournalSubjectFromJSONTyped(json: any, ignoreDiscrim
         
         'id': json['id'],
         'name': json['name'],
+        'avatarUrl': json['avatar_url'] == null ? undefined : json['avatar_url'],
     };
 }
 
@@ -70,6 +77,7 @@ export function ConversationJournalSubjectFromJSONTyped(json: any, ignoreDiscrim
         
         'id': value['id'],
         'name': value['name'],
+        'avatar_url': value['avatarUrl'],
     };
 }
 
