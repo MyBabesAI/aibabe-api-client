@@ -609,7 +609,7 @@ class ChatbotApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names, each from its own text (`texts` stores the member\'s; a view without one gets a text prepared from her appearance first). One creator generation per view, all or nothing; needs a profile picture (409 `reference_images_require_profile_picture`). The texts are what her pictures and videos describe her by; the result arrives on the `reference_images_status_change` websocket event.
      * Post Custom Chatbot Reference Images
      */
     async postCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRaw(requestParameters, initOverrides) {
@@ -629,7 +629,7 @@ class ChatbotApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostReferenceImagesResponseFromJSON)(jsonValue));
     }
     /**
-     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names, each from its own text (`texts` stores the member\'s; a view without one gets a text prepared from her appearance first). One creator generation per view, all or nothing; needs a profile picture (409 `reference_images_require_profile_picture`). The texts are what her pictures and videos describe her by; the result arrives on the `reference_images_status_change` websocket event.
      * Post Custom Chatbot Reference Images
      */
     async postCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPost(requestParameters, initOverrides) {
@@ -660,34 +660,6 @@ class ChatbotApi extends runtime.BaseAPI {
      */
     async postIdentityChatbotAdvancedIdentityPost(requestParameters, initOverrides) {
         const response = await this.postIdentityChatbotAdvancedIdentityPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
-     * What the builder would make of the look text: the moderation verdict, the structured looks and the compiled prompts, with nothing written to the draft and no attempt spent. The review and the tag pass are LLM calls, hence the per-user rate limit.
-     * Post Identity Preview
-     */
-    async postIdentityPreviewChatbotAdvancedIdentityPreviewPostRaw(requestParameters, initOverrides) {
-        if (requestParameters['postIdentityPreviewRequest'] == null) {
-            throw new runtime.RequiredError('postIdentityPreviewRequest', 'Required parameter "postIdentityPreviewRequest" was null or undefined when calling postIdentityPreviewChatbotAdvancedIdentityPreviewPost().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        headerParameters['Content-Type'] = 'application/json';
-        const response = await this.request({
-            path: `/chatbot/advanced/identity-preview`,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: (0, index_1.PostIdentityPreviewRequestToJSON)(requestParameters['postIdentityPreviewRequest']),
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.IdentityPreviewResponseFromJSON)(jsonValue));
-    }
-    /**
-     * What the builder would make of the look text: the moderation verdict, the structured looks and the compiled prompts, with nothing written to the draft and no attempt spent. The review and the tag pass are LLM calls, hence the per-user rate limit.
-     * Post Identity Preview
-     */
-    async postIdentityPreviewChatbotAdvancedIdentityPreviewPost(requestParameters, initOverrides) {
-        const response = await this.postIdentityPreviewChatbotAdvancedIdentityPreviewPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

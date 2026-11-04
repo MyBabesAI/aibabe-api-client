@@ -166,12 +166,12 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      */
     personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
     /**
-     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way); the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names, each from its own text (`texts` stores the member\'s; a view without one gets a text prepared from the persona\'s appearance first). One creator generation per view, all or nothing; needs a portrait (409 `reference_images_require_profile_picture`); the result arrives on the `reference_images_status_change` websocket event.
      * Post Persona Reference Images
      */
     postPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRaw(requestParameters: PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostReferenceImagesResponse>>;
     /**
-     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way); the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names, each from its own text (`texts` stores the member\'s; a view without one gets a text prepared from the persona\'s appearance first). One creator generation per view, all or nothing; needs a portrait (409 `reference_images_require_profile_picture`); the result arrives on the `reference_images_status_change` websocket event.
      * Post Persona Reference Images
      */
     postPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPost(requestParameters: PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostReferenceImagesResponse>;

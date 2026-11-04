@@ -19,6 +19,7 @@ exports.PostReferenceImagesRequestFromJSONTyped = PostReferenceImagesRequestFrom
 exports.PostReferenceImagesRequestToJSON = PostReferenceImagesRequestToJSON;
 exports.PostReferenceImagesRequestToJSONTyped = PostReferenceImagesRequestToJSONTyped;
 const ReferenceImageView_1 = require("./ReferenceImageView");
+const ReferenceTexts_1 = require("./ReferenceTexts");
 /**
  * Check if a given object implements the PostReferenceImagesRequest interface.
  */
@@ -34,6 +35,7 @@ function PostReferenceImagesRequestFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'views': json['views'] == null ? undefined : (json['views'].map(ReferenceImageView_1.ReferenceImageViewFromJSON)),
+        'texts': json['texts'] == null ? undefined : (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['texts']),
     };
 }
 function PostReferenceImagesRequestToJSON(json) {
@@ -45,6 +47,7 @@ function PostReferenceImagesRequestToJSONTyped(value, ignoreDiscriminator = fals
     }
     return {
         'views': value['views'] == null ? undefined : (value['views'].map(ReferenceImageView_1.ReferenceImageViewToJSON)),
+        'texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['texts']),
     };
 }
 //# sourceMappingURL=PostReferenceImagesRequest.js.map

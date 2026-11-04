@@ -42,6 +42,7 @@ function CreatorGenerationChargeFromJSONTyped(json, ignoreDiscriminator) {
         'limit': json['limit'],
         'tokensCharged': json['tokens_charged'],
         'resetAt': json['reset_at'] == null ? undefined : json['reset_at'],
+        'count': json['count'] == null ? undefined : json['count'],
     };
 }
 function CreatorGenerationChargeToJSON(json) {
@@ -56,6 +57,7 @@ function CreatorGenerationChargeToJSONTyped(value, ignoreDiscriminator = false) 
         'limit': value['limit'],
         'tokens_charged': value['tokensCharged'],
         'reset_at': value['resetAt'],
+        'count': value['count'],
     };
 }
 //# sourceMappingURL=CreatorGenerationCharge.js.map

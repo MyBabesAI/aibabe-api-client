@@ -11,7 +11,7 @@
  */
 import type { ReferenceImageView } from './ReferenceImageView';
 /**
- *
+ * One view of the set: its text (`prompt`) and its render (`url`); either may be missing until it is written or rendered.
  * @export
  * @interface ReferenceImage
  */
@@ -33,7 +33,13 @@ export interface ReferenceImage {
      * @type {string}
      * @memberof ReferenceImage
      */
-    url: string;
+    url?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ReferenceImage
+     */
+    prompt?: string | null;
     /**
      *
      * @type {Date}

@@ -20,9 +20,17 @@ import {
     ReferenceImageViewToJSON,
     ReferenceImageViewToJSONTyped,
 } from './ReferenceImageView';
+import type { ReferenceTexts } from './ReferenceTexts';
+import {
+    ReferenceTextsFromJSON,
+    ReferenceTextsFromJSONTyped,
+    ReferenceTextsToJSON,
+    ReferenceTextsToJSONTyped,
+} from './ReferenceTexts';
 
 /**
- * Which of the set to render; the whole set (face, front and back) when absent or empty.
+ * Which of the set to render (the whole set - face, front and back - when absent or empty) and, optionally, the texts to
+ * render them from; a view without a stored text gets one prepared from the compiled appearance first.
  * @export
  * @interface PostReferenceImagesRequest
  */
@@ -33,6 +41,12 @@ export interface PostReferenceImagesRequest {
      * @memberof PostReferenceImagesRequest
      */
     views?: Array<ReferenceImageView> | null;
+    /**
+     * 
+     * @type {ReferenceTexts}
+     * @memberof PostReferenceImagesRequest
+     */
+    texts?: ReferenceTexts | null;
 }
 
 /**
@@ -53,6 +67,7 @@ export function PostReferenceImagesRequestFromJSONTyped(json: any, ignoreDiscrim
     return {
         
         'views': json['views'] == null ? undefined : ((json['views'] as Array<any>).map(ReferenceImageViewFromJSON)),
+        'texts': json['texts'] == null ? undefined : ReferenceTextsFromJSON(json['texts']),
     };
 }
 
@@ -68,6 +83,7 @@ export function PostReferenceImagesRequestFromJSONTyped(json: any, ignoreDiscrim
     return {
         
         'views': value['views'] == null ? undefined : ((value['views'] as Array<any>).map(ReferenceImageViewToJSON)),
+        'texts': ReferenceTextsToJSON(value['texts']),
     };
 }
 

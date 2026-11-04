@@ -77,7 +77,6 @@ src/models/AdminUpdatePromotionRequest.ts
 src/models/AdminUserFeatureFlagsResponse.ts
 src/models/AdminUserJourneyListItem.ts
 src/models/AdminUserJourneysResponse.ts
-src/models/AdvancedCharacterProfilePicTags.ts
 src/models/AgeVerificationAlternativeProvider.ts
 src/models/AgeVerificationStatusResponse.ts
 src/models/AnnouncementNotification.ts
@@ -272,8 +271,6 @@ src/models/HairStyle.ts
 src/models/HubTag.ts
 src/models/HubTagsResponse.ts
 src/models/Id.ts
-src/models/IdentityPreviewResponse.ts
-src/models/IdentityPreviewReview.ts
 src/models/ImageAspectRatio.ts
 src/models/ImageCastTemplate.ts
 src/models/ImageConfigResponse.ts
@@ -291,6 +288,7 @@ src/models/ImageToVideoFromChatPayload.ts
 src/models/ImageToVideoModel.ts
 src/models/ImageToVideoRecommendationPayload.ts
 src/models/ImageToVideoRequest.ts
+src/models/ImageView.ts
 src/models/InstanceDetails.ts
 src/models/InstanceProvider.ts
 src/models/InstanceType.ts
@@ -388,7 +386,6 @@ src/models/PostFastForwardSubscriptionResponse.ts
 src/models/PostFollowUserRequest.ts
 src/models/PostGenerateImageRequest.ts
 src/models/PostGenerateSceneRequest.ts
-src/models/PostIdentityPreviewRequest.ts
 src/models/PostImagenResponse.ts
 src/models/PostInstanceDestroyRequest.ts
 src/models/PostInstanceDestroyResponse.ts
@@ -456,6 +453,7 @@ src/models/RedeemGiftCodeRequest.ts
 src/models/RedeemGiftCodeResponse.ts
 src/models/ReferenceImage.ts
 src/models/ReferenceImageView.ts
+src/models/ReferenceTexts.ts
 src/models/RemainingFreeUsesResponse.ts
 src/models/ResponseGetWanTaskStatusVideoWanTaskTaskIdGet.ts
 src/models/RestylePersonaRequest.ts

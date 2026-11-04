@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, CharacterAboutPageReview, CharacterIdentityPageReview, CharacterPersonalityPageReview, ChatbotType, GetAboutChatbotResponse, GetChatbotListResponse, GetChatbotResponse, GetCustomChatbotResponse, GetIdentityChatbotResponse, GetImageLooksResponse, GetPersonalityChatbotResponse, GetReferenceImagesResponse, IdentityPreviewResponse, PatchCustomChatbotRequest, PostAdvancedCharacterBuilderSuggestionPayload, PostAdvancedCharacterBuilderSuggestionResponse, PostAdvancedChatbotProfilePicture, PostAdvancedChatbotPublishPayload, PostAdvancedChatbotPublishResponse, PostAdvancedIdentityPayload, PostAdvancedPersonalityPayload, PostAdvancedRecreateResponse, PostCustomAboutPagePayload, PostCustomChatbotResponse, PostCustomChatbotV2Payload, PostIdentityPreviewRequest, PostMigrateStyleRequest, PostMigrateStyleResponse, PostProfilePictureResponse, PostReferenceImagesRequest, PostReferenceImagesResponse, PostSelfDescriptionResponse, PutWardrobeRequest, SortFilter, VisibilityFilter, Wardrobe } from '../models/index';
+import type { ArtStyle, CharacterAboutPageReview, CharacterIdentityPageReview, CharacterPersonalityPageReview, ChatbotType, GetAboutChatbotResponse, GetChatbotListResponse, GetChatbotResponse, GetCustomChatbotResponse, GetIdentityChatbotResponse, GetImageLooksResponse, GetPersonalityChatbotResponse, GetReferenceImagesResponse, PatchCustomChatbotRequest, PostAdvancedCharacterBuilderSuggestionPayload, PostAdvancedCharacterBuilderSuggestionResponse, PostAdvancedChatbotProfilePicture, PostAdvancedChatbotPublishPayload, PostAdvancedChatbotPublishResponse, PostAdvancedIdentityPayload, PostAdvancedPersonalityPayload, PostAdvancedRecreateResponse, PostCustomAboutPagePayload, PostCustomChatbotResponse, PostCustomChatbotV2Payload, PostMigrateStyleRequest, PostMigrateStyleResponse, PostProfilePictureResponse, PostReferenceImagesRequest, PostReferenceImagesResponse, PostSelfDescriptionResponse, PutWardrobeRequest, SortFilter, VisibilityFilter, Wardrobe } from '../models/index';
 export interface AttachmentChatbotChatbotIdAttachmentGetRequest {
     chatbotId: string;
     imageName: string;
@@ -88,9 +88,6 @@ export interface PostCustomChatbotReferenceImagesChatbotCustomChatbotIdReference
 }
 export interface PostIdentityChatbotAdvancedIdentityPostRequest {
     postAdvancedIdentityPayload: PostAdvancedIdentityPayload;
-}
-export interface PostIdentityPreviewChatbotAdvancedIdentityPreviewPostRequest {
-    postIdentityPreviewRequest: PostIdentityPreviewRequest;
 }
 export interface PostPersonalityChatbotAdvancedPersonalityPostRequest {
     postAdvancedPersonalityPayload: PostAdvancedPersonalityPayload;
@@ -273,12 +270,12 @@ export declare class ChatbotApi extends runtime.BaseAPI {
      */
     postCharacterBuilderSuggestionChatbotAdvancedSuggestionPost(requestParameters: PostCharacterBuilderSuggestionChatbotAdvancedSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAdvancedCharacterBuilderSuggestionResponse>;
     /**
-     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names, each from its own text (`texts` stores the member\'s; a view without one gets a text prepared from her appearance first). One creator generation per view, all or nothing; needs a profile picture (409 `reference_images_require_profile_picture`). The texts are what her pictures and videos describe her by; the result arrives on the `reference_images_status_change` websocket event.
      * Post Custom Chatbot Reference Images
      */
     postCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRaw(requestParameters: PostCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostReferenceImagesResponse>>;
     /**
-     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names (paid like a profile picture either way). Once stored, the face replaces the profile picture as the identity reference of her chat and scene pictures; the result arrives on the `reference_images_status_change` websocket event.
+     * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names, each from its own text (`texts` stores the member\'s; a view without one gets a text prepared from her appearance first). One creator generation per view, all or nothing; needs a profile picture (409 `reference_images_require_profile_picture`). The texts are what her pictures and videos describe her by; the result arrives on the `reference_images_status_change` websocket event.
      * Post Custom Chatbot Reference Images
      */
     postCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPost(requestParameters: PostCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostReferenceImagesResponse>;
@@ -290,16 +287,6 @@ export declare class ChatbotApi extends runtime.BaseAPI {
      * Post Identity
      */
     postIdentityChatbotAdvancedIdentityPost(requestParameters: PostIdentityChatbotAdvancedIdentityPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CharacterIdentityPageReview>;
-    /**
-     * What the builder would make of the look text: the moderation verdict, the structured looks and the compiled prompts, with nothing written to the draft and no attempt spent. The review and the tag pass are LLM calls, hence the per-user rate limit.
-     * Post Identity Preview
-     */
-    postIdentityPreviewChatbotAdvancedIdentityPreviewPostRaw(requestParameters: PostIdentityPreviewChatbotAdvancedIdentityPreviewPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IdentityPreviewResponse>>;
-    /**
-     * What the builder would make of the look text: the moderation verdict, the structured looks and the compiled prompts, with nothing written to the draft and no attempt spent. The review and the tag pass are LLM calls, hence the per-user rate limit.
-     * Post Identity Preview
-     */
-    postIdentityPreviewChatbotAdvancedIdentityPreviewPost(requestParameters: PostIdentityPreviewChatbotAdvancedIdentityPreviewPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IdentityPreviewResponse>;
     /**
      * Post Personality
      */

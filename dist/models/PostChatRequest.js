@@ -18,6 +18,7 @@ exports.PostChatRequestFromJSON = PostChatRequestFromJSON;
 exports.PostChatRequestFromJSONTyped = PostChatRequestFromJSONTyped;
 exports.PostChatRequestToJSON = PostChatRequestToJSON;
 exports.PostChatRequestToJSONTyped = PostChatRequestToJSONTyped;
+const ImageView_1 = require("./ImageView");
 const ChatMode_1 = require("./ChatMode");
 /**
  * Check if a given object implements the PostChatRequest interface.
@@ -47,6 +48,7 @@ function PostChatRequestFromJSONTyped(json, ignoreDiscriminator) {
         'debug': json['debug'] == null ? undefined : json['debug'],
         'conversationId': json['conversation_id'],
         'onlyImage': json['only_image'] == null ? undefined : json['only_image'],
+        'imageView': json['image_view'] == null ? undefined : (0, ImageView_1.ImageViewFromJSON)(json['image_view']),
         'chatMode': json['chat_mode'] == null ? undefined : (0, ChatMode_1.ChatModeFromJSON)(json['chat_mode']),
         'forkFromMessageId': json['fork_from_message_id'] == null ? undefined : json['fork_from_message_id'],
     };
@@ -65,6 +67,7 @@ function PostChatRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'debug': value['debug'],
         'conversation_id': value['conversationId'],
         'only_image': value['onlyImage'],
+        'image_view': (0, ImageView_1.ImageViewToJSON)(value['imageView']),
         'chat_mode': (0, ChatMode_1.ChatModeToJSON)(value['chatMode']),
         'fork_from_message_id': value['forkFromMessageId'],
     };

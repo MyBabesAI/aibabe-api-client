@@ -11,7 +11,7 @@
  */
 import type { CreatorGenerationCharge } from './CreatorGenerationCharge';
 /**
- * The face, front and back references are rendered by a worker; `reference_images_status_change` reports the result.
+ * The views are rendered by a worker, one creator generation each; `reference_images_status_change` reports the result.
  * @export
  * @interface PostReferenceImagesResponse
  */

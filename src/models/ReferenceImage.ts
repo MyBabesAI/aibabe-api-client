@@ -22,7 +22,7 @@ import {
 } from './ReferenceImageView';
 
 /**
- * 
+ * One view of the set: its text (`prompt`) and its render (`url`); either may be missing until it is written or rendered.
  * @export
  * @interface ReferenceImage
  */
@@ -44,7 +44,13 @@ export interface ReferenceImage {
      * @type {string}
      * @memberof ReferenceImage
      */
-    url: string;
+    url?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReferenceImage
+     */
+    prompt?: string | null;
     /**
      * 
      * @type {Date}
@@ -61,7 +67,6 @@ export interface ReferenceImage {
 export function instanceOfReferenceImage(value: object): value is ReferenceImage {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('view' in value) || value['view'] === undefined) return false;
-    if (!('url' in value) || value['url'] === undefined) return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     return true;
 }
@@ -78,7 +83,8 @@ export function ReferenceImageFromJSONTyped(json: any, ignoreDiscriminator: bool
         
         'id': json['id'],
         'view': ReferenceImageViewFromJSON(json['view']),
-        'url': json['url'],
+        'url': json['url'] == null ? undefined : json['url'],
+        'prompt': json['prompt'] == null ? undefined : json['prompt'],
         'createdAt': (new Date(json['created_at'])),
     };
 }
@@ -97,6 +103,7 @@ export function ReferenceImageFromJSONTyped(json: any, ignoreDiscriminator: bool
         'id': value['id'],
         'view': ReferenceImageViewToJSON(value['view']),
         'url': value['url'],
+        'prompt': value['prompt'],
         'created_at': ((value['createdAt']).toISOString()),
     };
 }

@@ -19,6 +19,7 @@ exports.PostAdvancedCharacterBuilderSuggestionResponseFromJSONTyped = PostAdvanc
 exports.PostAdvancedCharacterBuilderSuggestionResponseToJSON = PostAdvancedCharacterBuilderSuggestionResponseToJSON;
 exports.PostAdvancedCharacterBuilderSuggestionResponseToJSONTyped = PostAdvancedCharacterBuilderSuggestionResponseToJSONTyped;
 const CharacterBuilderSuggestionField_1 = require("./CharacterBuilderSuggestionField");
+const ReferenceTexts_1 = require("./ReferenceTexts");
 /**
  * Check if a given object implements the PostAdvancedCharacterBuilderSuggestionResponse interface.
  */
@@ -39,6 +40,7 @@ function PostAdvancedCharacterBuilderSuggestionResponseFromJSONTyped(json, ignor
     return {
         'fieldName': (0, CharacterBuilderSuggestionField_1.CharacterBuilderSuggestionFieldFromJSON)(json['field_name']),
         'suggestion': json['suggestion'],
+        'viewTexts': json['view_texts'] == null ? undefined : (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['view_texts']),
     };
 }
 function PostAdvancedCharacterBuilderSuggestionResponseToJSON(json) {
@@ -51,6 +53,7 @@ function PostAdvancedCharacterBuilderSuggestionResponseToJSONTyped(value, ignore
     return {
         'field_name': (0, CharacterBuilderSuggestionField_1.CharacterBuilderSuggestionFieldToJSON)(value['fieldName']),
         'suggestion': value['suggestion'],
+        'view_texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['viewTexts']),
     };
 }
 //# sourceMappingURL=PostAdvancedCharacterBuilderSuggestionResponse.js.map

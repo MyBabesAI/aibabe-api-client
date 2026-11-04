@@ -27,8 +27,6 @@ function instanceOfReferenceImage(value) {
         return false;
     if (!('view' in value) || value['view'] === undefined)
         return false;
-    if (!('url' in value) || value['url'] === undefined)
-        return false;
     if (!('createdAt' in value) || value['createdAt'] === undefined)
         return false;
     return true;
@@ -43,7 +41,8 @@ function ReferenceImageFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'id': json['id'],
         'view': (0, ReferenceImageView_1.ReferenceImageViewFromJSON)(json['view']),
-        'url': json['url'],
+        'url': json['url'] == null ? undefined : json['url'],
+        'prompt': json['prompt'] == null ? undefined : json['prompt'],
         'createdAt': (new Date(json['created_at'])),
     };
 }
@@ -58,6 +57,7 @@ function ReferenceImageToJSONTyped(value, ignoreDiscriminator = false) {
         'id': value['id'],
         'view': (0, ReferenceImageView_1.ReferenceImageViewToJSON)(value['view']),
         'url': value['url'],
+        'prompt': value['prompt'],
         'created_at': ((value['createdAt']).toISOString()),
     };
 }

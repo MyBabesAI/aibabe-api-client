@@ -340,7 +340,7 @@ export declare const ExceptionCode: {
     readonly BlueprintNotOwned: "blueprint_not_owned";
     readonly BlueprintOutfitMemberInvalid: "blueprint_outfit_member_invalid";
     readonly WardrobeItemInvalid: "wardrobe_item_invalid";
-    readonly IdentityPreviewRateLimited: "identity_preview_rate_limited";
+    readonly ReferenceImagesRequireProfilePicture: "reference_images_require_profile_picture";
     readonly ImageSubjectLimitExceeded: "image_subject_limit_exceeded";
     readonly ImageCastRequiresSentenceStyle: "image_cast_requires_sentence_style";
     readonly ChatbotRequiresSentenceStyle: "chatbot_requires_sentence_style";
