@@ -128,6 +128,7 @@ src/models/ChatAdminDetails.ts
 src/models/ChatCastConfig.ts
 src/models/ChatConfigResponse.ts
 src/models/ChatForkConfig.ts
+src/models/ChatJournalSlot.ts
 src/models/ChatMessageDetail.ts
 src/models/ChatMode.ts
 src/models/ChatReponse.ts
@@ -147,6 +148,8 @@ src/models/ContentItem.ts
 src/models/ContentOrigin.ts
 src/models/ContentType.ts
 src/models/ContentTypes.ts
+src/models/ConversationJournalEntry.ts
+src/models/ConversationJournalSubject.ts
 src/models/ConversationListItem.ts
 src/models/ConversationListParticipant.ts
 src/models/ConversationMessageFeedback.ts
@@ -231,6 +234,7 @@ src/models/GetChatbotListResponse.ts
 src/models/GetChatbotResponse.ts
 src/models/GetClaimablesResponse.ts
 src/models/GetConversationBranchesResponse.ts
+src/models/GetConversationJournalResponse.ts
 src/models/GetConversationMessagesResponse.ts
 src/models/GetConversationResponse.ts
 src/models/GetCustomChatbotResponse.ts

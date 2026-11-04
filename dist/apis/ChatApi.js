@@ -345,6 +345,32 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * The conversation\'s state sheet (summary, surroundings, and position / clothing / relationship per person), kept by the journal judge after every turn of a sentence-style chat; `chat_journal_updated` on the websocket says when to refetch. Empty entries for chats without a journal.
+     * Conversation Journal
+     */
+    async conversationJournalChatConversationConversationIdJournalGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling conversationJournalChatConversationConversationIdJournalGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/journal`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationJournalResponseFromJSON)(jsonValue));
+    }
+    /**
+     * The conversation\'s state sheet (summary, surroundings, and position / clothing / relationship per person), kept by the journal judge after every turn of a sentence-style chat; `chat_journal_updated` on the websocket says when to refetch. Empty entries for chats without a journal.
+     * Conversation Journal
+     */
+    async conversationJournalChatConversationConversationIdJournalGet(requestParameters, initOverrides) {
+        const response = await this.conversationJournalChatConversationConversationIdJournalGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Conversation Messages
      */
     async conversationMessagesChatChatbotIdMessagesConversationIdGetRaw(requestParameters, initOverrides) {

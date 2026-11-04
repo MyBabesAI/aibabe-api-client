@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatConfigResponse, ChatReponse, ConversationParticipant, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
+import type { ChatConfigResponse, ChatReponse, ConversationParticipant, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationJournalResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
 export interface AddParticipantChatConversationConversationIdParticipantsPostRequest {
     conversationId: string;
     postConversationParticipantRequest: PostConversationParticipantRequest;
@@ -53,6 +53,9 @@ export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
     limit?: number;
     includeAdmin?: boolean;
+}
+export interface ConversationJournalChatConversationConversationIdJournalGetRequest {
+    conversationId: string;
 }
 export interface ConversationMessagesChatChatbotIdMessagesConversationIdGetRequest {
     conversationId: string;
@@ -227,6 +230,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Conversation
      */
     conversationChatChatbotIdGet(requestParameters: ConversationChatChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationResponse>;
+    /**
+     * The conversation\'s state sheet (summary, surroundings, and position / clothing / relationship per person), kept by the journal judge after every turn of a sentence-style chat; `chat_journal_updated` on the websocket says when to refetch. Empty entries for chats without a journal.
+     * Conversation Journal
+     */
+    conversationJournalChatConversationConversationIdJournalGetRaw(requestParameters: ConversationJournalChatConversationConversationIdJournalGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationJournalResponse>>;
+    /**
+     * The conversation\'s state sheet (summary, surroundings, and position / clothing / relationship per person), kept by the journal judge after every turn of a sentence-style chat; `chat_journal_updated` on the websocket says when to refetch. Empty entries for chats without a journal.
+     * Conversation Journal
+     */
+    conversationJournalChatConversationConversationIdJournalGet(requestParameters: ConversationJournalChatConversationConversationIdJournalGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationJournalResponse>;
     /**
      * Conversation Messages
      */

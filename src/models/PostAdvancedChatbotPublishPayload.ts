@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ReferenceTexts } from './ReferenceTexts';
+import {
+    ReferenceTextsFromJSON,
+    ReferenceTextsFromJSONTyped,
+    ReferenceTextsToJSON,
+    ReferenceTextsToJSONTyped,
+} from './ReferenceTexts';
+
 /**
  * 
  * @export
@@ -31,6 +39,12 @@ export interface PostAdvancedChatbotPublishPayload {
      * @memberof PostAdvancedChatbotPublishPayload
      */
     profilePicture?: string | null;
+    /**
+     * 
+     * @type {ReferenceTexts}
+     * @memberof PostAdvancedChatbotPublishPayload
+     */
+    referenceTexts?: ReferenceTexts | null;
 }
 
 /**
@@ -52,6 +66,7 @@ export function PostAdvancedChatbotPublishPayloadFromJSONTyped(json: any, ignore
         
         'referenceAudioId': json['reference_audio_id'] == null ? undefined : json['reference_audio_id'],
         'profilePicture': json['profile_picture'] == null ? undefined : json['profile_picture'],
+        'referenceTexts': json['reference_texts'] == null ? undefined : ReferenceTextsFromJSON(json['reference_texts']),
     };
 }
 
@@ -68,6 +83,7 @@ export function PostAdvancedChatbotPublishPayloadFromJSONTyped(json: any, ignore
         
         'reference_audio_id': value['referenceAudioId'],
         'profile_picture': value['profilePicture'],
+        'reference_texts': ReferenceTextsToJSON(value['referenceTexts']),
     };
 }
 
