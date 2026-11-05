@@ -60,6 +60,7 @@ __exportStar(require("./AdminUserJourneysResponse"), exports);
 __exportStar(require("./AgeVerificationAlternativeProvider"), exports);
 __exportStar(require("./AgeVerificationStatusResponse"), exports);
 __exportStar(require("./AnnouncementNotification"), exports);
+__exportStar(require("./AppearanceAttempt"), exports);
 __exportStar(require("./AppearanceDraft"), exports);
 __exportStar(require("./AppearanceReference"), exports);
 __exportStar(require("./AppearanceStagedReference"), exports);

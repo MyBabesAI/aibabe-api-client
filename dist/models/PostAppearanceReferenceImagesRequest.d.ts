@@ -30,6 +30,12 @@ export interface PostAppearanceReferenceImagesRequest {
      * @memberof PostAppearanceReferenceImagesRequest
      */
     texts?: ReferenceTexts;
+    /**
+     *
+     * @type {string}
+     * @memberof PostAppearanceReferenceImagesRequest
+     */
+    attemptRequestId?: string | null;
 }
 /**
  * Check if a given object implements the PostAppearanceReferenceImagesRequest interface.

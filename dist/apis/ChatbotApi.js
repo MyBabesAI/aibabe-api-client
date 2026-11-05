@@ -666,7 +666,7 @@ class ChatbotApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Renders a new profile picture from a new general description, in the character\'s own art style, one creator generation. Nothing on the character changes: the render and the view texts rewritten from the new appearance wait as a draft until the appearance is saved; the picture is a gallery scene whatever happens. The description goes through the builder\'s picture-page review (403 with the reason). The result arrives on `custom_chatbot_generation_status_change`.
+     * Renders a profile picture from the general description, in the character\'s own art style, one creator generation. Nothing on the character changes: the render and the view texts rewritten from the appearance join the edit\'s attempts until one is saved. The picture stays in the gallery whatever happens: under the character when the description is her current one, as a scene otherwise. The description goes through the builder\'s picture-page review (403 with the reason). The result arrives on `custom_chatbot_generation_status_change`.
      * Post Custom Chatbot Appearance Profile Picture
      */
     async postCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePostRaw(requestParameters, initOverrides) {
@@ -689,7 +689,7 @@ class ChatbotApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostAppearanceJobResponseFromJSON)(jsonValue));
     }
     /**
-     * Renders a new profile picture from a new general description, in the character\'s own art style, one creator generation. Nothing on the character changes: the render and the view texts rewritten from the new appearance wait as a draft until the appearance is saved; the picture is a gallery scene whatever happens. The description goes through the builder\'s picture-page review (403 with the reason). The result arrives on `custom_chatbot_generation_status_change`.
+     * Renders a profile picture from the general description, in the character\'s own art style, one creator generation. Nothing on the character changes: the render and the view texts rewritten from the appearance join the edit\'s attempts until one is saved. The picture stays in the gallery whatever happens: under the character when the description is her current one, as a scene otherwise. The description goes through the builder\'s picture-page review (403 with the reason). The result arrives on `custom_chatbot_generation_status_change`.
      * Post Custom Chatbot Appearance Profile Picture
      */
     async postCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePost(requestParameters, initOverrides) {
@@ -857,7 +857,7 @@ class ChatbotApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Save: a changed description applies the draft rendered from exactly that text (409 `appearance_profile_picture_required` otherwise): the compiled appearance, the profile picture, the profile\'s looks and the look text. The view texts are stored (a picture rendered from another text turns outdated and stops standing in as a reference), staged renders become the live pictures, the draft is cleared. The member\'s own texts are moderated first (400 `moderation_flagged` with the reason).
+     * Save: `attempt_request_id` applies that attempt (the compiled appearance, the profile picture, the profile\'s looks and the look text; its gallery picture is filed under the character); without one the live picture stays and the description must be the current one (409 `appearance_profile_picture_required` when the words and the picture do not match). The view texts are stored (a picture rendered from another text turns outdated and stops standing in as a reference), staged renders become the live pictures, every attempt is dropped. The member\'s own texts are moderated first (400 `moderation_flagged` with the reason).
      * Put Custom Chatbot Appearance
      */
     async putCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePutRaw(requestParameters, initOverrides) {
@@ -885,7 +885,7 @@ class ChatbotApi extends runtime.BaseAPI {
         }
     }
     /**
-     * Save: a changed description applies the draft rendered from exactly that text (409 `appearance_profile_picture_required` otherwise): the compiled appearance, the profile picture, the profile\'s looks and the look text. The view texts are stored (a picture rendered from another text turns outdated and stops standing in as a reference), staged renders become the live pictures, the draft is cleared. The member\'s own texts are moderated first (400 `moderation_flagged` with the reason).
+     * Save: `attempt_request_id` applies that attempt (the compiled appearance, the profile picture, the profile\'s looks and the look text; its gallery picture is filed under the character); without one the live picture stays and the description must be the current one (409 `appearance_profile_picture_required` when the words and the picture do not match). The view texts are stored (a picture rendered from another text turns outdated and stops standing in as a reference), staged renders become the live pictures, every attempt is dropped. The member\'s own texts are moderated first (400 `moderation_flagged` with the reason).
      * Put Custom Chatbot Appearance
      */
     async putCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePut(requestParameters, initOverrides) {

@@ -20,6 +20,7 @@ exports.GetAppearanceResponseToJSON = GetAppearanceResponseToJSON;
 exports.GetAppearanceResponseToJSONTyped = GetAppearanceResponseToJSONTyped;
 const AppearanceStagedReference_1 = require("./AppearanceStagedReference");
 const AppearanceDraft_1 = require("./AppearanceDraft");
+const AppearanceAttempt_1 = require("./AppearanceAttempt");
 const AppearanceReference_1 = require("./AppearanceReference");
 /**
  * Check if a given object implements the GetAppearanceResponse interface.
@@ -48,6 +49,7 @@ function GetAppearanceResponseFromJSONTyped(json, ignoreDiscriminator) {
         'references': (json['references'].map(AppearanceReference_1.AppearanceReferenceFromJSON)),
         'stagedReferences': (json['staged_references'].map(AppearanceStagedReference_1.AppearanceStagedReferenceFromJSON)),
         'draft': json['draft'] == null ? undefined : (0, AppearanceDraft_1.AppearanceDraftFromJSON)(json['draft']),
+        'attempts': json['attempts'] == null ? undefined : (json['attempts'].map(AppearanceAttempt_1.AppearanceAttemptFromJSON)),
     };
 }
 function GetAppearanceResponseToJSON(json) {
@@ -63,6 +65,7 @@ function GetAppearanceResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'references': (value['references'].map(AppearanceReference_1.AppearanceReferenceToJSON)),
         'staged_references': (value['stagedReferences'].map(AppearanceStagedReference_1.AppearanceStagedReferenceToJSON)),
         'draft': (0, AppearanceDraft_1.AppearanceDraftToJSON)(value['draft']),
+        'attempts': value['attempts'] == null ? undefined : (value['attempts'].map(AppearanceAttempt_1.AppearanceAttemptToJSON)),
     };
 }
 //# sourceMappingURL=GetAppearanceResponse.js.map

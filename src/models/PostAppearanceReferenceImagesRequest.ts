@@ -47,6 +47,12 @@ export interface PostAppearanceReferenceImagesRequest {
      * @memberof PostAppearanceReferenceImagesRequest
      */
     texts?: ReferenceTexts;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostAppearanceReferenceImagesRequest
+     */
+    attemptRequestId?: string | null;
 }
 
 /**
@@ -68,6 +74,7 @@ export function PostAppearanceReferenceImagesRequestFromJSONTyped(json: any, ign
         
         'views': json['views'] == null ? undefined : ((json['views'] as Array<any>).map(ReferenceImageViewFromJSON)),
         'texts': json['texts'] == null ? undefined : ReferenceTextsFromJSON(json['texts']),
+        'attemptRequestId': json['attempt_request_id'] == null ? undefined : json['attempt_request_id'],
     };
 }
 
@@ -84,6 +91,7 @@ export function PostAppearanceReferenceImagesRequestFromJSONTyped(json: any, ign
         
         'views': value['views'] == null ? undefined : ((value['views'] as Array<any>).map(ReferenceImageViewToJSON)),
         'texts': ReferenceTextsToJSON(value['texts']),
+        'attempt_request_id': value['attemptRequestId'],
     };
 }
 

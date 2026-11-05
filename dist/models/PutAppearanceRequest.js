@@ -33,6 +33,7 @@ function PutAppearanceRequestFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
+        'attemptRequestId': json['attempt_request_id'] == null ? undefined : json['attempt_request_id'],
         'description': json['description'] == null ? undefined : json['description'],
         'texts': json['texts'] == null ? undefined : (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['texts']),
     };
@@ -45,6 +46,7 @@ function PutAppearanceRequestToJSONTyped(value, ignoreDiscriminator = false) {
         return value;
     }
     return {
+        'attempt_request_id': value['attemptRequestId'],
         'description': value['description'],
         'texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['texts']),
     };

@@ -36,6 +36,7 @@ function PostAppearanceReferenceImagesRequestFromJSONTyped(json, ignoreDiscrimin
     return {
         'views': json['views'] == null ? undefined : (json['views'].map(ReferenceImageView_1.ReferenceImageViewFromJSON)),
         'texts': json['texts'] == null ? undefined : (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['texts']),
+        'attemptRequestId': json['attempt_request_id'] == null ? undefined : json['attempt_request_id'],
     };
 }
 function PostAppearanceReferenceImagesRequestToJSON(json) {
@@ -48,6 +49,7 @@ function PostAppearanceReferenceImagesRequestToJSONTyped(value, ignoreDiscrimina
     return {
         'views': value['views'] == null ? undefined : (value['views'].map(ReferenceImageView_1.ReferenceImageViewToJSON)),
         'texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['texts']),
+        'attempt_request_id': value['attemptRequestId'],
     };
 }
 //# sourceMappingURL=PostAppearanceReferenceImagesRequest.js.map

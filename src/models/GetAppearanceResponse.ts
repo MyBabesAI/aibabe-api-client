@@ -27,6 +27,13 @@ import {
     AppearanceDraftToJSON,
     AppearanceDraftToJSONTyped,
 } from './AppearanceDraft';
+import type { AppearanceAttempt } from './AppearanceAttempt';
+import {
+    AppearanceAttemptFromJSON,
+    AppearanceAttemptFromJSONTyped,
+    AppearanceAttemptToJSON,
+    AppearanceAttemptToJSONTyped,
+} from './AppearanceAttempt';
 import type { AppearanceReference } from './AppearanceReference';
 import {
     AppearanceReferenceFromJSON,
@@ -71,6 +78,12 @@ export interface GetAppearanceResponse {
      * @memberof GetAppearanceResponse
      */
     draft?: AppearanceDraft | null;
+    /**
+     * 
+     * @type {Array<AppearanceAttempt>}
+     * @memberof GetAppearanceResponse
+     */
+    attempts?: Array<AppearanceAttempt>;
 }
 
 /**
@@ -99,6 +112,7 @@ export function GetAppearanceResponseFromJSONTyped(json: any, ignoreDiscriminato
         'references': ((json['references'] as Array<any>).map(AppearanceReferenceFromJSON)),
         'stagedReferences': ((json['staged_references'] as Array<any>).map(AppearanceStagedReferenceFromJSON)),
         'draft': json['draft'] == null ? undefined : AppearanceDraftFromJSON(json['draft']),
+        'attempts': json['attempts'] == null ? undefined : ((json['attempts'] as Array<any>).map(AppearanceAttemptFromJSON)),
     };
 }
 
@@ -118,6 +132,7 @@ export function GetAppearanceResponseFromJSONTyped(json: any, ignoreDiscriminato
         'references': ((value['references'] as Array<any>).map(AppearanceReferenceToJSON)),
         'staged_references': ((value['stagedReferences'] as Array<any>).map(AppearanceStagedReferenceToJSON)),
         'draft': AppearanceDraftToJSON(value['draft']),
+        'attempts': value['attempts'] == null ? undefined : ((value['attempts'] as Array<any>).map(AppearanceAttemptToJSON)),
     };
 }
 

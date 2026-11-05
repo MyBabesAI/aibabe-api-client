@@ -44,6 +44,7 @@ export * from './AdminUserJourneysResponse';
 export * from './AgeVerificationAlternativeProvider';
 export * from './AgeVerificationStatusResponse';
 export * from './AnnouncementNotification';
+export * from './AppearanceAttempt';
 export * from './AppearanceDraft';
 export * from './AppearanceReference';
 export * from './AppearanceStagedReference';

@@ -11,6 +11,7 @@
  */
 import type { AppearanceStagedReference } from './AppearanceStagedReference';
 import type { AppearanceDraft } from './AppearanceDraft';
+import type { AppearanceAttempt } from './AppearanceAttempt';
 import type { AppearanceReference } from './AppearanceReference';
 /**
  *
@@ -48,6 +49,12 @@ export interface GetAppearanceResponse {
      * @memberof GetAppearanceResponse
      */
     draft?: AppearanceDraft | null;
+    /**
+     *
+     * @type {Array<AppearanceAttempt>}
+     * @memberof GetAppearanceResponse
+     */
+    attempts?: Array<AppearanceAttempt>;
 }
 /**
  * Check if a given object implements the GetAppearanceResponse interface.

@@ -80,6 +80,7 @@ src/models/AdminUserJourneysResponse.ts
 src/models/AgeVerificationAlternativeProvider.ts
 src/models/AgeVerificationStatusResponse.ts
 src/models/AnnouncementNotification.ts
+src/models/AppearanceAttempt.ts
 src/models/AppearanceDraft.ts
 src/models/AppearanceReference.ts
 src/models/AppearanceStagedReference.ts

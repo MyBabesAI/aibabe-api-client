@@ -22,13 +22,20 @@ import {
 } from './ReferenceTexts';
 
 /**
- * Save: the general description (a changed one needs the staged profile picture rendered from exactly that text, 409
- * `appearance_profile_picture_required` otherwise) and the view texts to store (a missing view keeps its text; the draft's
- * rewritten texts fill the views the payload does not name).
+ * Save: the attempt to apply (its picture becomes the profile picture, its description the appearance; None keeps
+ * the live picture, and then the description must be the current one, 409 `appearance_profile_picture_required`
+ * otherwise) and the view texts to store (a missing view keeps its text; the attempt's rewritten texts fill the views
+ * the payload does not name).
  * @export
  * @interface PutAppearanceRequest
  */
 export interface PutAppearanceRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof PutAppearanceRequest
+     */
+    attemptRequestId?: string | null;
     /**
      * 
      * @type {string}
@@ -60,6 +67,7 @@ export function PutAppearanceRequestFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
+        'attemptRequestId': json['attempt_request_id'] == null ? undefined : json['attempt_request_id'],
         'description': json['description'] == null ? undefined : json['description'],
         'texts': json['texts'] == null ? undefined : ReferenceTextsFromJSON(json['texts']),
     };
@@ -76,6 +84,7 @@ export function PutAppearanceRequestFromJSONTyped(json: any, ignoreDiscriminator
 
     return {
         
+        'attempt_request_id': value['attemptRequestId'],
         'description': value['description'],
         'texts': ReferenceTextsToJSON(value['texts']),
     };
