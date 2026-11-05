@@ -352,6 +352,8 @@ exports.ExceptionCode = {
     BlueprintOutfitMemberInvalid: 'blueprint_outfit_member_invalid',
     WardrobeItemInvalid: 'wardrobe_item_invalid',
     ReferenceImagesRequireProfilePicture: 'reference_images_require_profile_picture',
+    AppearanceNotEditable: 'appearance_not_editable',
+    AppearanceProfilePictureRequired: 'appearance_profile_picture_required',
     ImageSubjectLimitExceeded: 'image_subject_limit_exceeded',
     ImageCastRequiresSentenceStyle: 'image_cast_requires_sentence_style',
     ChatbotRequiresSentenceStyle: 'chatbot_requires_sentence_style',

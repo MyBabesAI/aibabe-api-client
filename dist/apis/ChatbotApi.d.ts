@@ -10,13 +10,16 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, CharacterAboutPageReview, CharacterIdentityPageReview, CharacterPersonalityPageReview, ChatbotType, GetAboutChatbotResponse, GetChatbotListResponse, GetChatbotResponse, GetCustomChatbotResponse, GetIdentityChatbotResponse, GetImageLooksResponse, GetPersonalityChatbotResponse, GetReferenceImagesResponse, PatchCustomChatbotRequest, PostAdvancedCharacterBuilderSuggestionPayload, PostAdvancedCharacterBuilderSuggestionResponse, PostAdvancedChatbotProfilePicture, PostAdvancedChatbotPublishPayload, PostAdvancedChatbotPublishResponse, PostAdvancedIdentityPayload, PostAdvancedPersonalityPayload, PostAdvancedRecreateResponse, PostCustomAboutPagePayload, PostCustomChatbotResponse, PostCustomChatbotV2Payload, PostMigrateStyleRequest, PostMigrateStyleResponse, PostProfilePictureResponse, PostReferenceImagesRequest, PostReferenceImagesResponse, PostSelfDescriptionResponse, PutWardrobeRequest, SortFilter, VisibilityFilter, Wardrobe } from '../models/index';
+import type { ArtStyle, CharacterAboutPageReview, CharacterIdentityPageReview, CharacterPersonalityPageReview, ChatbotType, GetAboutChatbotResponse, GetAppearanceResponse, GetChatbotListResponse, GetChatbotResponse, GetCustomChatbotResponse, GetIdentityChatbotResponse, GetImageLooksResponse, GetPersonalityChatbotResponse, GetReferenceImagesResponse, PatchCustomChatbotRequest, PostAdvancedCharacterBuilderSuggestionPayload, PostAdvancedCharacterBuilderSuggestionResponse, PostAdvancedChatbotProfilePicture, PostAdvancedChatbotPublishPayload, PostAdvancedChatbotPublishResponse, PostAdvancedIdentityPayload, PostAdvancedPersonalityPayload, PostAdvancedRecreateResponse, PostAppearanceJobResponse, PostAppearanceProfilePictureRequest, PostAppearanceReferenceImagesRequest, PostCustomAboutPagePayload, PostCustomChatbotResponse, PostCustomChatbotV2Payload, PostMigrateStyleRequest, PostMigrateStyleResponse, PostProfilePictureResponse, PostReferenceImagesRequest, PostReferenceImagesResponse, PostSelfDescriptionResponse, PutAppearanceRequest, PutWardrobeRequest, SortFilter, VisibilityFilter, Wardrobe } from '../models/index';
 export interface AttachmentChatbotChatbotIdAttachmentGetRequest {
     chatbotId: string;
     imageName: string;
 }
 export interface CreateCustomChatbotV2ChatbotCustomV2PostRequest {
     postCustomChatbotV2Payload: PostCustomChatbotV2Payload;
+}
+export interface DeleteCustomChatbotAppearanceDraftChatbotCustomChatbotIdAppearanceDraftDeleteRequest {
+    chatbotId: string;
 }
 export interface DeleteCustomChatbotChatbotCustomChatbotIdDeleteRequest {
     chatbotId: string;
@@ -38,6 +41,9 @@ export interface GetBuilderLooksChatbotAdvancedLooksGetRequest {
     artStyle?: ArtStyle | null;
 }
 export interface GetChatbotChatbotIdGetRequest {
+    chatbotId: string;
+}
+export interface GetCustomChatbotAppearanceChatbotCustomChatbotIdAppearanceGetRequest {
     chatbotId: string;
 }
 export interface GetCustomChatbotChatbotCustomChatbotIdGetRequest {
@@ -82,6 +88,14 @@ export interface PostAboutChatbotAdvancedAboutPostRequest {
 export interface PostCharacterBuilderSuggestionChatbotAdvancedSuggestionPostRequest {
     postAdvancedCharacterBuilderSuggestionPayload: PostAdvancedCharacterBuilderSuggestionPayload;
 }
+export interface PostCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePostRequest {
+    chatbotId: string;
+    postAppearanceProfilePictureRequest: PostAppearanceProfilePictureRequest;
+}
+export interface PostCustomChatbotAppearanceReferenceImagesChatbotCustomChatbotIdAppearanceReferenceImagesPostRequest {
+    chatbotId: string;
+    postAppearanceReferenceImagesRequest?: PostAppearanceReferenceImagesRequest;
+}
 export interface PostCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRequest {
     chatbotId: string;
     postReferenceImagesRequest?: PostReferenceImagesRequest;
@@ -97,6 +111,10 @@ export interface PostProfilePicChatbotAdvancedProfilePicturePostRequest {
 }
 export interface PublishAdvancedChatbotChatbotAdvancedPublishPostRequest {
     postAdvancedChatbotPublishPayload: PostAdvancedChatbotPublishPayload;
+}
+export interface PutCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePutRequest {
+    chatbotId: string;
+    putAppearanceRequest: PutAppearanceRequest;
 }
 export interface PutCustomChatbotWardrobeChatbotCustomChatbotIdWardrobePutRequest {
     chatbotId: string;
@@ -129,6 +147,16 @@ export declare class ChatbotApi extends runtime.BaseAPI {
      * Create Custom Chatbot V2
      */
     createCustomChatbotV2ChatbotCustomV2Post(requestParameters: CreateCustomChatbotV2ChatbotCustomV2PostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostCustomChatbotResponse>;
+    /**
+     * Cancel: drops the staged renders and the draft. Nothing is refunded; a staged profile picture stays a gallery scene, staged reference renders are lost, the live pictures stay as they were.
+     * Delete Custom Chatbot Appearance Draft
+     */
+    deleteCustomChatbotAppearanceDraftChatbotCustomChatbotIdAppearanceDraftDeleteRaw(requestParameters: DeleteCustomChatbotAppearanceDraftChatbotCustomChatbotIdAppearanceDraftDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Cancel: drops the staged renders and the draft. Nothing is refunded; a staged profile picture stays a gallery scene, staged reference renders are lost, the live pictures stay as they were.
+     * Delete Custom Chatbot Appearance Draft
+     */
+    deleteCustomChatbotAppearanceDraftChatbotCustomChatbotIdAppearanceDraftDelete(requestParameters: DeleteCustomChatbotAppearanceDraftChatbotCustomChatbotIdAppearanceDraftDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Delete Custom Chatbot
      */
@@ -189,6 +217,16 @@ export declare class ChatbotApi extends runtime.BaseAPI {
      * Get
      */
     getChatbotChatbotIdGet(requestParameters: GetChatbotChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetChatbotResponse>;
+    /**
+     * The character\'s appearance as the Customize box edits it: the general description, the three reference views (text, picture and whether the picture still matches its text) and the staged, unsaved work (a new profile picture rendered from a new description, renders of the views from new texts). `editable` is false for a tags-style character (migrate her to a next-gen style first).
+     * Get Custom Chatbot Appearance
+     */
+    getCustomChatbotAppearanceChatbotCustomChatbotIdAppearanceGetRaw(requestParameters: GetCustomChatbotAppearanceChatbotCustomChatbotIdAppearanceGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAppearanceResponse>>;
+    /**
+     * The character\'s appearance as the Customize box edits it: the general description, the three reference views (text, picture and whether the picture still matches its text) and the staged, unsaved work (a new profile picture rendered from a new description, renders of the views from new texts). `editable` is false for a tags-style character (migrate her to a next-gen style first).
+     * Get Custom Chatbot Appearance
+     */
+    getCustomChatbotAppearanceChatbotCustomChatbotIdAppearanceGet(requestParameters: GetCustomChatbotAppearanceChatbotCustomChatbotIdAppearanceGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAppearanceResponse>;
     /**
      * Get Custom Chatbot
      */
@@ -270,6 +308,26 @@ export declare class ChatbotApi extends runtime.BaseAPI {
      */
     postCharacterBuilderSuggestionChatbotAdvancedSuggestionPost(requestParameters: PostCharacterBuilderSuggestionChatbotAdvancedSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAdvancedCharacterBuilderSuggestionResponse>;
     /**
+     * Renders a new profile picture from a new general description, in the character\'s own art style, one creator generation. Nothing on the character changes: the render and the view texts rewritten from the new appearance wait as a draft until the appearance is saved; the picture is a gallery scene whatever happens. The description goes through the builder\'s picture-page review (403 with the reason). The result arrives on `custom_chatbot_generation_status_change`.
+     * Post Custom Chatbot Appearance Profile Picture
+     */
+    postCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePostRaw(requestParameters: PostCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAppearanceJobResponse>>;
+    /**
+     * Renders a new profile picture from a new general description, in the character\'s own art style, one creator generation. Nothing on the character changes: the render and the view texts rewritten from the new appearance wait as a draft until the appearance is saved; the picture is a gallery scene whatever happens. The description goes through the builder\'s picture-page review (403 with the reason). The result arrives on `custom_chatbot_generation_status_change`.
+     * Post Custom Chatbot Appearance Profile Picture
+     */
+    postCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePost(requestParameters: PostCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAppearanceJobResponse>;
+    /**
+     * Staged renders of the reference views from the dialog\'s current texts (one creator generation per view, all or nothing); they replace the live pictures on Save and are dropped on Cancel, without refunds. The face anchor is the staged profile picture when one exists, else the live one (409 `appearance_profile_picture_required` without either). `reference_images_status_change` carries `staged`.
+     * Post Custom Chatbot Appearance Reference Images
+     */
+    postCustomChatbotAppearanceReferenceImagesChatbotCustomChatbotIdAppearanceReferenceImagesPostRaw(requestParameters: PostCustomChatbotAppearanceReferenceImagesChatbotCustomChatbotIdAppearanceReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAppearanceJobResponse>>;
+    /**
+     * Staged renders of the reference views from the dialog\'s current texts (one creator generation per view, all or nothing); they replace the live pictures on Save and are dropped on Cancel, without refunds. The face anchor is the staged profile picture when one exists, else the live one (409 `appearance_profile_picture_required` without either). `reference_images_status_change` carries `staged`.
+     * Post Custom Chatbot Appearance Reference Images
+     */
+    postCustomChatbotAppearanceReferenceImagesChatbotCustomChatbotIdAppearanceReferenceImagesPost(requestParameters: PostCustomChatbotAppearanceReferenceImagesChatbotCustomChatbotIdAppearanceReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAppearanceJobResponse>;
+    /**
      * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names, each from its own text (`texts` stores the member\'s; a view without one gets a text prepared from her appearance first). One creator generation per view, all or nothing; needs a profile picture (409 `reference_images_require_profile_picture`). The texts are what her pictures and videos describe her by; the result arrives on the `reference_images_status_change` websocket event.
      * Post Custom Chatbot Reference Images
      */
@@ -311,6 +369,16 @@ export declare class ChatbotApi extends runtime.BaseAPI {
      * Publish Advanced Chatbot
      */
     publishAdvancedChatbotChatbotAdvancedPublishPost(requestParameters: PublishAdvancedChatbotChatbotAdvancedPublishPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAdvancedChatbotPublishResponse>;
+    /**
+     * Save: a changed description applies the draft rendered from exactly that text (409 `appearance_profile_picture_required` otherwise): the compiled appearance, the profile picture, the profile\'s looks and the look text. The view texts are stored (a picture rendered from another text turns outdated and stops standing in as a reference), staged renders become the live pictures, the draft is cleared. The member\'s own texts are moderated first (400 `moderation_flagged` with the reason).
+     * Put Custom Chatbot Appearance
+     */
+    putCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePutRaw(requestParameters: PutCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Save: a changed description applies the draft rendered from exactly that text (409 `appearance_profile_picture_required` otherwise): the compiled appearance, the profile picture, the profile\'s looks and the look text. The view texts are stored (a picture rendered from another text turns outdated and stops standing in as a reference), staged renders become the live pictures, the draft is cleared. The member\'s own texts are moderated first (400 `moderation_flagged` with the reason).
+     * Put Custom Chatbot Appearance
+     */
+    putCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePut(requestParameters: PutCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Put Custom Chatbot Wardrobe
      */

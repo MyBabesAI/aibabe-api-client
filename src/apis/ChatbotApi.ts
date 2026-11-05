@@ -21,6 +21,7 @@ import type {
   CharacterPersonalityPageReview,
   ChatbotType,
   GetAboutChatbotResponse,
+  GetAppearanceResponse,
   GetChatbotListResponse,
   GetChatbotResponse,
   GetCustomChatbotResponse,
@@ -38,6 +39,9 @@ import type {
   PostAdvancedIdentityPayload,
   PostAdvancedPersonalityPayload,
   PostAdvancedRecreateResponse,
+  PostAppearanceJobResponse,
+  PostAppearanceProfilePictureRequest,
+  PostAppearanceReferenceImagesRequest,
   PostCustomAboutPagePayload,
   PostCustomChatbotResponse,
   PostCustomChatbotV2Payload,
@@ -47,6 +51,7 @@ import type {
   PostReferenceImagesRequest,
   PostReferenceImagesResponse,
   PostSelfDescriptionResponse,
+  PutAppearanceRequest,
   PutWardrobeRequest,
   SortFilter,
   VisibilityFilter,
@@ -65,6 +70,8 @@ import {
     ChatbotTypeToJSON,
     GetAboutChatbotResponseFromJSON,
     GetAboutChatbotResponseToJSON,
+    GetAppearanceResponseFromJSON,
+    GetAppearanceResponseToJSON,
     GetChatbotListResponseFromJSON,
     GetChatbotListResponseToJSON,
     GetChatbotResponseFromJSON,
@@ -99,6 +106,12 @@ import {
     PostAdvancedPersonalityPayloadToJSON,
     PostAdvancedRecreateResponseFromJSON,
     PostAdvancedRecreateResponseToJSON,
+    PostAppearanceJobResponseFromJSON,
+    PostAppearanceJobResponseToJSON,
+    PostAppearanceProfilePictureRequestFromJSON,
+    PostAppearanceProfilePictureRequestToJSON,
+    PostAppearanceReferenceImagesRequestFromJSON,
+    PostAppearanceReferenceImagesRequestToJSON,
     PostCustomAboutPagePayloadFromJSON,
     PostCustomAboutPagePayloadToJSON,
     PostCustomChatbotResponseFromJSON,
@@ -117,6 +130,8 @@ import {
     PostReferenceImagesResponseToJSON,
     PostSelfDescriptionResponseFromJSON,
     PostSelfDescriptionResponseToJSON,
+    PutAppearanceRequestFromJSON,
+    PutAppearanceRequestToJSON,
     PutWardrobeRequestFromJSON,
     PutWardrobeRequestToJSON,
     SortFilterFromJSON,
@@ -134,6 +149,10 @@ export interface AttachmentChatbotChatbotIdAttachmentGetRequest {
 
 export interface CreateCustomChatbotV2ChatbotCustomV2PostRequest {
     postCustomChatbotV2Payload: PostCustomChatbotV2Payload;
+}
+
+export interface DeleteCustomChatbotAppearanceDraftChatbotCustomChatbotIdAppearanceDraftDeleteRequest {
+    chatbotId: string;
 }
 
 export interface DeleteCustomChatbotChatbotCustomChatbotIdDeleteRequest {
@@ -162,6 +181,10 @@ export interface GetBuilderLooksChatbotAdvancedLooksGetRequest {
 }
 
 export interface GetChatbotChatbotIdGetRequest {
+    chatbotId: string;
+}
+
+export interface GetCustomChatbotAppearanceChatbotCustomChatbotIdAppearanceGetRequest {
     chatbotId: string;
 }
 
@@ -217,6 +240,16 @@ export interface PostCharacterBuilderSuggestionChatbotAdvancedSuggestionPostRequ
     postAdvancedCharacterBuilderSuggestionPayload: PostAdvancedCharacterBuilderSuggestionPayload;
 }
 
+export interface PostCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePostRequest {
+    chatbotId: string;
+    postAppearanceProfilePictureRequest: PostAppearanceProfilePictureRequest;
+}
+
+export interface PostCustomChatbotAppearanceReferenceImagesChatbotCustomChatbotIdAppearanceReferenceImagesPostRequest {
+    chatbotId: string;
+    postAppearanceReferenceImagesRequest?: PostAppearanceReferenceImagesRequest;
+}
+
 export interface PostCustomChatbotReferenceImagesChatbotCustomChatbotIdReferenceImagesPostRequest {
     chatbotId: string;
     postReferenceImagesRequest?: PostReferenceImagesRequest;
@@ -236,6 +269,11 @@ export interface PostProfilePicChatbotAdvancedProfilePicturePostRequest {
 
 export interface PublishAdvancedChatbotChatbotAdvancedPublishPostRequest {
     postAdvancedChatbotPublishPayload: PostAdvancedChatbotPublishPayload;
+}
+
+export interface PutCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePutRequest {
+    chatbotId: string;
+    putAppearanceRequest: PutAppearanceRequest;
 }
 
 export interface PutCustomChatbotWardrobeChatbotCustomChatbotIdWardrobePutRequest {
@@ -338,6 +376,45 @@ export class ChatbotApi extends runtime.BaseAPI {
      */
     async createCustomChatbotV2ChatbotCustomV2Post(requestParameters: CreateCustomChatbotV2ChatbotCustomV2PostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostCustomChatbotResponse> {
         const response = await this.createCustomChatbotV2ChatbotCustomV2PostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Cancel: drops the staged renders and the draft. Nothing is refunded; a staged profile picture stays a gallery scene, staged reference renders are lost, the live pictures stay as they were.
+     * Delete Custom Chatbot Appearance Draft
+     */
+    async deleteCustomChatbotAppearanceDraftChatbotCustomChatbotIdAppearanceDraftDeleteRaw(requestParameters: DeleteCustomChatbotAppearanceDraftChatbotCustomChatbotIdAppearanceDraftDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling deleteCustomChatbotAppearanceDraftChatbotCustomChatbotIdAppearanceDraftDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chatbot/custom/{chatbot_id}/appearance/draft`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Cancel: drops the staged renders and the draft. Nothing is refunded; a staged profile picture stays a gallery scene, staged reference renders are lost, the live pictures stay as they were.
+     * Delete Custom Chatbot Appearance Draft
+     */
+    async deleteCustomChatbotAppearanceDraftChatbotCustomChatbotIdAppearanceDraftDelete(requestParameters: DeleteCustomChatbotAppearanceDraftChatbotCustomChatbotIdAppearanceDraftDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.deleteCustomChatbotAppearanceDraftChatbotCustomChatbotIdAppearanceDraftDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -611,6 +688,41 @@ export class ChatbotApi extends runtime.BaseAPI {
      */
     async getChatbotChatbotIdGet(requestParameters: GetChatbotChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetChatbotResponse> {
         const response = await this.getChatbotChatbotIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * The character\'s appearance as the Customize box edits it: the general description, the three reference views (text, picture and whether the picture still matches its text) and the staged, unsaved work (a new profile picture rendered from a new description, renders of the views from new texts). `editable` is false for a tags-style character (migrate her to a next-gen style first).
+     * Get Custom Chatbot Appearance
+     */
+    async getCustomChatbotAppearanceChatbotCustomChatbotIdAppearanceGetRaw(requestParameters: GetCustomChatbotAppearanceChatbotCustomChatbotIdAppearanceGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAppearanceResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling getCustomChatbotAppearanceChatbotCustomChatbotIdAppearanceGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chatbot/custom/{chatbot_id}/appearance`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetAppearanceResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * The character\'s appearance as the Customize box edits it: the general description, the three reference views (text, picture and whether the picture still matches its text) and the staged, unsaved work (a new profile picture rendered from a new description, renders of the views from new texts). `editable` is false for a tags-style character (migrate her to a next-gen style first).
+     * Get Custom Chatbot Appearance
+     */
+    async getCustomChatbotAppearanceChatbotCustomChatbotIdAppearanceGet(requestParameters: GetCustomChatbotAppearanceChatbotCustomChatbotIdAppearanceGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAppearanceResponse> {
+        const response = await this.getCustomChatbotAppearanceChatbotCustomChatbotIdAppearanceGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -996,6 +1108,89 @@ export class ChatbotApi extends runtime.BaseAPI {
     }
 
     /**
+     * Renders a new profile picture from a new general description, in the character\'s own art style, one creator generation. Nothing on the character changes: the render and the view texts rewritten from the new appearance wait as a draft until the appearance is saved; the picture is a gallery scene whatever happens. The description goes through the builder\'s picture-page review (403 with the reason). The result arrives on `custom_chatbot_generation_status_change`.
+     * Post Custom Chatbot Appearance Profile Picture
+     */
+    async postCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePostRaw(requestParameters: PostCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAppearanceJobResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling postCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePost().'
+            );
+        }
+
+        if (requestParameters['postAppearanceProfilePictureRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postAppearanceProfilePictureRequest',
+                'Required parameter "postAppearanceProfilePictureRequest" was null or undefined when calling postCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chatbot/custom/{chatbot_id}/appearance/profile-picture`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostAppearanceProfilePictureRequestToJSON(requestParameters['postAppearanceProfilePictureRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostAppearanceJobResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Renders a new profile picture from a new general description, in the character\'s own art style, one creator generation. Nothing on the character changes: the render and the view texts rewritten from the new appearance wait as a draft until the appearance is saved; the picture is a gallery scene whatever happens. The description goes through the builder\'s picture-page review (403 with the reason). The result arrives on `custom_chatbot_generation_status_change`.
+     * Post Custom Chatbot Appearance Profile Picture
+     */
+    async postCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePost(requestParameters: PostCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAppearanceJobResponse> {
+        const response = await this.postCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Staged renders of the reference views from the dialog\'s current texts (one creator generation per view, all or nothing); they replace the live pictures on Save and are dropped on Cancel, without refunds. The face anchor is the staged profile picture when one exists, else the live one (409 `appearance_profile_picture_required` without either). `reference_images_status_change` carries `staged`.
+     * Post Custom Chatbot Appearance Reference Images
+     */
+    async postCustomChatbotAppearanceReferenceImagesChatbotCustomChatbotIdAppearanceReferenceImagesPostRaw(requestParameters: PostCustomChatbotAppearanceReferenceImagesChatbotCustomChatbotIdAppearanceReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAppearanceJobResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling postCustomChatbotAppearanceReferenceImagesChatbotCustomChatbotIdAppearanceReferenceImagesPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chatbot/custom/{chatbot_id}/appearance/reference-images`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostAppearanceReferenceImagesRequestToJSON(requestParameters['postAppearanceReferenceImagesRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostAppearanceJobResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Staged renders of the reference views from the dialog\'s current texts (one creator generation per view, all or nothing); they replace the live pictures on Save and are dropped on Cancel, without refunds. The face anchor is the staged profile picture when one exists, else the live one (409 `appearance_profile_picture_required` without either). `reference_images_status_change` carries `staged`.
+     * Post Custom Chatbot Appearance Reference Images
+     */
+    async postCustomChatbotAppearanceReferenceImagesChatbotCustomChatbotIdAppearanceReferenceImagesPost(requestParameters: PostCustomChatbotAppearanceReferenceImagesChatbotCustomChatbotIdAppearanceReferenceImagesPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAppearanceJobResponse> {
+        const response = await this.postCustomChatbotAppearanceReferenceImagesChatbotCustomChatbotIdAppearanceReferenceImagesPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Renders the character\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names, each from its own text (`texts` stores the member\'s; a view without one gets a text prepared from her appearance first). One creator generation per view, all or nothing; needs a profile picture (409 `reference_images_require_profile_picture`). The texts are what her pictures and videos describe her by; the result arrives on the `reference_images_status_change` websocket event.
      * Post Custom Chatbot Reference Images
      */
@@ -1174,6 +1369,55 @@ export class ChatbotApi extends runtime.BaseAPI {
      */
     async publishAdvancedChatbotChatbotAdvancedPublishPost(requestParameters: PublishAdvancedChatbotChatbotAdvancedPublishPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAdvancedChatbotPublishResponse> {
         const response = await this.publishAdvancedChatbotChatbotAdvancedPublishPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Save: a changed description applies the draft rendered from exactly that text (409 `appearance_profile_picture_required` otherwise): the compiled appearance, the profile picture, the profile\'s looks and the look text. The view texts are stored (a picture rendered from another text turns outdated and stops standing in as a reference), staged renders become the live pictures, the draft is cleared. The member\'s own texts are moderated first (400 `moderation_flagged` with the reason).
+     * Put Custom Chatbot Appearance
+     */
+    async putCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePutRaw(requestParameters: PutCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling putCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePut().'
+            );
+        }
+
+        if (requestParameters['putAppearanceRequest'] == null) {
+            throw new runtime.RequiredError(
+                'putAppearanceRequest',
+                'Required parameter "putAppearanceRequest" was null or undefined when calling putCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePut().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chatbot/custom/{chatbot_id}/appearance`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PutAppearanceRequestToJSON(requestParameters['putAppearanceRequest']),
+        }, initOverrides);
+
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse<any>(response);
+        } else {
+            return new runtime.TextApiResponse(response) as any;
+        }
+    }
+
+    /**
+     * Save: a changed description applies the draft rendered from exactly that text (409 `appearance_profile_picture_required` otherwise): the compiled appearance, the profile picture, the profile\'s looks and the look text. The view texts are stored (a picture rendered from another text turns outdated and stops standing in as a reference), staged renders become the live pictures, the draft is cleared. The member\'s own texts are moderated first (400 `moderation_flagged` with the reason).
+     * Put Custom Chatbot Appearance
+     */
+    async putCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePut(requestParameters: PutCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+        const response = await this.putCustomChatbotAppearanceChatbotCustomChatbotIdAppearancePutRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

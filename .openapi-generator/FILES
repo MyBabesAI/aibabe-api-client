@@ -80,6 +80,9 @@ src/models/AdminUserJourneysResponse.ts
 src/models/AgeVerificationAlternativeProvider.ts
 src/models/AgeVerificationStatusResponse.ts
 src/models/AnnouncementNotification.ts
+src/models/AppearanceDraft.ts
+src/models/AppearanceReference.ts
+src/models/AppearanceStagedReference.ts
 src/models/ArtStyle.ts
 src/models/AuraSubcategory.ts
 src/models/AvatarFieldValue.ts
@@ -230,6 +233,7 @@ src/models/GeneratedImages.ts
 src/models/GeneratedVideos.ts
 src/models/GetAboutChatbotResponse.ts
 src/models/GetAnonymousConversationResponse.ts
+src/models/GetAppearanceResponse.ts
 src/models/GetChatbotListResponse.ts
 src/models/GetChatbotResponse.ts
 src/models/GetClaimablesResponse.ts
@@ -369,6 +373,9 @@ src/models/PostAdvancedPersonalityPayload.ts
 src/models/PostAdvancedRecreateResponse.ts
 src/models/PostAnonymousChatRequest.ts
 src/models/PostAnonymousChatResponse.ts
+src/models/PostAppearanceJobResponse.ts
+src/models/PostAppearanceProfilePictureRequest.ts
+src/models/PostAppearanceReferenceImagesRequest.ts
 src/models/PostCategoryValues.ts
 src/models/PostChatRequest.ts
 src/models/PostChatSuggestionRequest.ts
@@ -445,6 +452,7 @@ src/models/PublicUserPreview.ts
 src/models/PublicUserPreviewWithFollow.ts
 src/models/PutAdminSaleOfferRequest.ts
 src/models/PutAdminUserFeatureFlagsRequest.ts
+src/models/PutAppearanceRequest.ts
 src/models/PutFollowNotificationsRequest.ts
 src/models/PutPasswordRequest.ts
 src/models/PutPersonaRequest.ts
