@@ -148,11 +148,11 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-  export function ListChatbotItemToJSON(json: any): ListChatbotItem {
-      return ListChatbotItemToJSONTyped(json, false);
-  }
+export function ListChatbotItemToJSON(json: any): ListChatbotItem {
+    return ListChatbotItemToJSONTyped(json, false);
+}
 
-  export function ListChatbotItemToJSONTyped(value?: ListChatbotItem | null, ignoreDiscriminator: boolean = false): any {
+export function ListChatbotItemToJSONTyped(value?: ListChatbotItem | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

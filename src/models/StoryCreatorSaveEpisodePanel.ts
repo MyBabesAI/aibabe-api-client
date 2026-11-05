@@ -278,11 +278,11 @@ export function StoryCreatorSaveEpisodePanelFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function StoryCreatorSaveEpisodePanelToJSON(json: any): StoryCreatorSaveEpisodePanel {
-      return StoryCreatorSaveEpisodePanelToJSONTyped(json, false);
-  }
+export function StoryCreatorSaveEpisodePanelToJSON(json: any): StoryCreatorSaveEpisodePanel {
+    return StoryCreatorSaveEpisodePanelToJSONTyped(json, false);
+}
 
-  export function StoryCreatorSaveEpisodePanelToJSONTyped(value?: StoryCreatorSaveEpisodePanel | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorSaveEpisodePanelToJSONTyped(value?: StoryCreatorSaveEpisodePanel | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

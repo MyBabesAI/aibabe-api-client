@@ -231,11 +231,11 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-  export function GeneratedImagesToJSON(json: any): GeneratedImages {
-      return GeneratedImagesToJSONTyped(json, false);
-  }
+export function GeneratedImagesToJSON(json: any): GeneratedImages {
+    return GeneratedImagesToJSONTyped(json, false);
+}
 
-  export function GeneratedImagesToJSONTyped(value?: GeneratedImages | null, ignoreDiscriminator: boolean = false): any {
+export function GeneratedImagesToJSONTyped(value?: GeneratedImages | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

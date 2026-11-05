@@ -118,6 +118,13 @@ import {
     StoryChatDifficultyToJSON,
     StoryChatDifficultyToJSONTyped,
 } from './StoryChatDifficulty';
+import type { ImageToVideoModel } from './ImageToVideoModel';
+import {
+    ImageToVideoModelFromJSON,
+    ImageToVideoModelFromJSONTyped,
+    ImageToVideoModelToJSON,
+    ImageToVideoModelToJSONTyped,
+} from './ImageToVideoModel';
 import type { StoryRating } from './StoryRating';
 import {
     StoryRatingFromJSON,
@@ -246,6 +253,12 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     originalImageUrl: string;
+    /**
+     * 
+     * @type {ImageToVideoModel}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    model?: ImageToVideoModel;
     /**
      * 
      * @type {string}
@@ -395,6 +408,7 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
+        'model': json['model'] == null ? undefined : ImageToVideoModelFromJSON(json['model']),
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
@@ -412,11 +426,11 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function GetGalleryResponseItemsInnerToJSON(json: any): GetGalleryResponseItemsInner {
-      return GetGalleryResponseItemsInnerToJSONTyped(json, false);
-  }
+export function GetGalleryResponseItemsInnerToJSON(json: any): GetGalleryResponseItemsInner {
+    return GetGalleryResponseItemsInnerToJSONTyped(json, false);
+}
 
-  export function GetGalleryResponseItemsInnerToJSONTyped(value?: GetGalleryResponseItemsInner | null, ignoreDiscriminator: boolean = false): any {
+export function GetGalleryResponseItemsInnerToJSONTyped(value?: GetGalleryResponseItemsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -442,6 +456,7 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
+        'model': ImageToVideoModelToJSON(value['model']),
         'title': value['title'],
         'description': value['description'],
         'cover_image': value['coverImage'],

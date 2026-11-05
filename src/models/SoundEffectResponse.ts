@@ -49,11 +49,11 @@ export function SoundEffectResponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function SoundEffectResponseToJSON(json: any): SoundEffectResponse {
-      return SoundEffectResponseToJSONTyped(json, false);
-  }
+export function SoundEffectResponseToJSON(json: any): SoundEffectResponse {
+    return SoundEffectResponseToJSONTyped(json, false);
+}
 
-  export function SoundEffectResponseToJSONTyped(value?: SoundEffectResponse | null, ignoreDiscriminator: boolean = false): any {
+export function SoundEffectResponseToJSONTyped(value?: SoundEffectResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

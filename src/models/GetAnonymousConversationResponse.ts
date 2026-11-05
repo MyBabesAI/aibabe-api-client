@@ -147,11 +147,11 @@ export function GetAnonymousConversationResponseFromJSONTyped(json: any, ignoreD
     };
 }
 
-  export function GetAnonymousConversationResponseToJSON(json: any): GetAnonymousConversationResponse {
-      return GetAnonymousConversationResponseToJSONTyped(json, false);
-  }
+export function GetAnonymousConversationResponseToJSON(json: any): GetAnonymousConversationResponse {
+    return GetAnonymousConversationResponseToJSONTyped(json, false);
+}
 
-  export function GetAnonymousConversationResponseToJSONTyped(value?: GetAnonymousConversationResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetAnonymousConversationResponseToJSONTyped(value?: GetAnonymousConversationResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

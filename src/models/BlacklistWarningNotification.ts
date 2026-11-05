@@ -157,11 +157,11 @@ export function BlacklistWarningNotificationFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function BlacklistWarningNotificationToJSON(json: any): BlacklistWarningNotification {
-      return BlacklistWarningNotificationToJSONTyped(json, false);
-  }
+export function BlacklistWarningNotificationToJSON(json: any): BlacklistWarningNotification {
+    return BlacklistWarningNotificationToJSONTyped(json, false);
+}
 
-  export function BlacklistWarningNotificationToJSONTyped(value?: BlacklistWarningNotification | null, ignoreDiscriminator: boolean = false): any {
+export function BlacklistWarningNotificationToJSONTyped(value?: BlacklistWarningNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

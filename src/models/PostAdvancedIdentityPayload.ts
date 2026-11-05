@@ -97,11 +97,11 @@ export function PostAdvancedIdentityPayloadFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function PostAdvancedIdentityPayloadToJSON(json: any): PostAdvancedIdentityPayload {
-      return PostAdvancedIdentityPayloadToJSONTyped(json, false);
-  }
+export function PostAdvancedIdentityPayloadToJSON(json: any): PostAdvancedIdentityPayload {
+    return PostAdvancedIdentityPayloadToJSONTyped(json, false);
+}
 
-  export function PostAdvancedIdentityPayloadToJSONTyped(value?: PostAdvancedIdentityPayload | null, ignoreDiscriminator: boolean = false): any {
+export function PostAdvancedIdentityPayloadToJSONTyped(value?: PostAdvancedIdentityPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

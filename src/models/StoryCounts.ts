@@ -139,11 +139,11 @@ export function StoryCountsFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-  export function StoryCountsToJSON(json: any): StoryCounts {
-      return StoryCountsToJSONTyped(json, false);
-  }
+export function StoryCountsToJSON(json: any): StoryCounts {
+    return StoryCountsToJSONTyped(json, false);
+}
 
-  export function StoryCountsToJSONTyped(value?: StoryCounts | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCountsToJSONTyped(value?: StoryCounts | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

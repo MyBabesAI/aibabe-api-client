@@ -118,11 +118,11 @@ export function PostGenerateImageRequestFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function PostGenerateImageRequestToJSON(json: any): PostGenerateImageRequest {
-      return PostGenerateImageRequestToJSONTyped(json, false);
-  }
+export function PostGenerateImageRequestToJSON(json: any): PostGenerateImageRequest {
+    return PostGenerateImageRequestToJSONTyped(json, false);
+}
 
-  export function PostGenerateImageRequestToJSONTyped(value?: PostGenerateImageRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostGenerateImageRequestToJSONTyped(value?: PostGenerateImageRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

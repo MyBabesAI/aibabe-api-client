@@ -76,11 +76,11 @@ export function GalleryFolderCountsFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function GalleryFolderCountsToJSON(json: any): GalleryFolderCounts {
-      return GalleryFolderCountsToJSONTyped(json, false);
-  }
+export function GalleryFolderCountsToJSON(json: any): GalleryFolderCounts {
+    return GalleryFolderCountsToJSONTyped(json, false);
+}
 
-  export function GalleryFolderCountsToJSONTyped(value?: GalleryFolderCounts | null, ignoreDiscriminator: boolean = false): any {
+export function GalleryFolderCountsToJSONTyped(value?: GalleryFolderCounts | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -136,11 +136,11 @@ export function SaleOfferResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function SaleOfferResponseToJSON(json: any): SaleOfferResponse {
-      return SaleOfferResponseToJSONTyped(json, false);
-  }
+export function SaleOfferResponseToJSON(json: any): SaleOfferResponse {
+    return SaleOfferResponseToJSONTyped(json, false);
+}
 
-  export function SaleOfferResponseToJSONTyped(value?: SaleOfferResponse | null, ignoreDiscriminator: boolean = false): any {
+export function SaleOfferResponseToJSONTyped(value?: SaleOfferResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

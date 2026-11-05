@@ -139,11 +139,11 @@ export function GetConversationResponseFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function GetConversationResponseToJSON(json: any): GetConversationResponse {
-      return GetConversationResponseToJSONTyped(json, false);
-  }
+export function GetConversationResponseToJSON(json: any): GetConversationResponse {
+    return GetConversationResponseToJSONTyped(json, false);
+}
 
-  export function GetConversationResponseToJSONTyped(value?: GetConversationResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetConversationResponseToJSONTyped(value?: GetConversationResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

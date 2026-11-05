@@ -105,11 +105,11 @@ export function CharacterAboutPageReviewFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function CharacterAboutPageReviewToJSON(json: any): CharacterAboutPageReview {
-      return CharacterAboutPageReviewToJSONTyped(json, false);
-  }
+export function CharacterAboutPageReviewToJSON(json: any): CharacterAboutPageReview {
+    return CharacterAboutPageReviewToJSONTyped(json, false);
+}
 
-  export function CharacterAboutPageReviewToJSONTyped(value?: CharacterAboutPageReview | null, ignoreDiscriminator: boolean = false): any {
+export function CharacterAboutPageReviewToJSONTyped(value?: CharacterAboutPageReview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ImageToVideoModel } from './ImageToVideoModel';
 import type { MediaOrigin } from './MediaOrigin';
 import type { AdminAgeEstimation } from './AdminAgeEstimation';
 /**
@@ -77,6 +78,12 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     durationSeconds?: number | null;
+    /**
+     *
+     * @type {ImageToVideoModel}
+     * @memberof VideoContent
+     */
+    model?: ImageToVideoModel | null;
 }
 /**
  * Check if a given object implements the VideoContent interface.

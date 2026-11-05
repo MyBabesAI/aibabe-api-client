@@ -48,11 +48,11 @@ export function ChatAdminDetailsFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function ChatAdminDetailsToJSON(json: any): ChatAdminDetails {
-      return ChatAdminDetailsToJSONTyped(json, false);
-  }
+export function ChatAdminDetailsToJSON(json: any): ChatAdminDetails {
+    return ChatAdminDetailsToJSONTyped(json, false);
+}
 
-  export function ChatAdminDetailsToJSONTyped(value?: ChatAdminDetails | null, ignoreDiscriminator: boolean = false): any {
+export function ChatAdminDetailsToJSONTyped(value?: ChatAdminDetails | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

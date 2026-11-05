@@ -94,11 +94,11 @@ export function PostStoryMessageRequestFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function PostStoryMessageRequestToJSON(json: any): PostStoryMessageRequest {
-      return PostStoryMessageRequestToJSONTyped(json, false);
-  }
+export function PostStoryMessageRequestToJSON(json: any): PostStoryMessageRequest {
+    return PostStoryMessageRequestToJSONTyped(json, false);
+}
 
-  export function PostStoryMessageRequestToJSONTyped(value?: PostStoryMessageRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostStoryMessageRequestToJSONTyped(value?: PostStoryMessageRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ImageToVideoModel } from './ImageToVideoModel';
+import {
+    ImageToVideoModelFromJSON,
+    ImageToVideoModelFromJSONTyped,
+    ImageToVideoModelToJSON,
+    ImageToVideoModelToJSONTyped,
+} from './ImageToVideoModel';
 import type { MediaOrigin } from './MediaOrigin';
 import {
     MediaOriginFromJSON,
@@ -94,6 +101,12 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     durationSeconds?: number | null;
+    /**
+     * 
+     * @type {ImageToVideoModel}
+     * @memberof VideoContent
+     */
+    model?: ImageToVideoModel | null;
 }
 
 
@@ -130,14 +143,15 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'durationSeconds': json['duration_seconds'] == null ? undefined : json['duration_seconds'],
+        'model': json['model'] == null ? undefined : ImageToVideoModelFromJSON(json['model']),
     };
 }
 
-  export function VideoContentToJSON(json: any): VideoContent {
-      return VideoContentToJSONTyped(json, false);
-  }
+export function VideoContentToJSON(json: any): VideoContent {
+    return VideoContentToJSONTyped(json, false);
+}
 
-  export function VideoContentToJSONTyped(value?: VideoContent | null, ignoreDiscriminator: boolean = false): any {
+export function VideoContentToJSONTyped(value?: VideoContent | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -154,6 +168,7 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'duration_seconds': value['durationSeconds'],
+        'model': ImageToVideoModelToJSON(value['model']),
     };
 }
 

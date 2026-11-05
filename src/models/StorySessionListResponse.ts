@@ -57,11 +57,11 @@ export function StorySessionListResponseFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function StorySessionListResponseToJSON(json: any): StorySessionListResponse {
-      return StorySessionListResponseToJSONTyped(json, false);
-  }
+export function StorySessionListResponseToJSON(json: any): StorySessionListResponse {
+    return StorySessionListResponseToJSONTyped(json, false);
+}
 
-  export function StorySessionListResponseToJSONTyped(value?: StorySessionListResponse | null, ignoreDiscriminator: boolean = false): any {
+export function StorySessionListResponseToJSONTyped(value?: StorySessionListResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

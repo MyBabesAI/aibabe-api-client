@@ -56,11 +56,11 @@ export function PostResumeSubscriptionResponseFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function PostResumeSubscriptionResponseToJSON(json: any): PostResumeSubscriptionResponse {
-      return PostResumeSubscriptionResponseToJSONTyped(json, false);
-  }
+export function PostResumeSubscriptionResponseToJSON(json: any): PostResumeSubscriptionResponse {
+    return PostResumeSubscriptionResponseToJSONTyped(json, false);
+}
 
-  export function PostResumeSubscriptionResponseToJSONTyped(value?: PostResumeSubscriptionResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostResumeSubscriptionResponseToJSONTyped(value?: PostResumeSubscriptionResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

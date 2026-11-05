@@ -57,11 +57,11 @@ export function StoryCreatorStoryResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function StoryCreatorStoryResponseToJSON(json: any): StoryCreatorStoryResponse {
-      return StoryCreatorStoryResponseToJSONTyped(json, false);
-  }
+export function StoryCreatorStoryResponseToJSON(json: any): StoryCreatorStoryResponse {
+    return StoryCreatorStoryResponseToJSONTyped(json, false);
+}
 
-  export function StoryCreatorStoryResponseToJSONTyped(value?: StoryCreatorStoryResponse | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorStoryResponseToJSONTyped(value?: StoryCreatorStoryResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -65,11 +65,11 @@ export function VideoConfigResponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function VideoConfigResponseToJSON(json: any): VideoConfigResponse {
-      return VideoConfigResponseToJSONTyped(json, false);
-  }
+export function VideoConfigResponseToJSON(json: any): VideoConfigResponse {
+    return VideoConfigResponseToJSONTyped(json, false);
+}
 
-  export function VideoConfigResponseToJSONTyped(value?: VideoConfigResponse | null, ignoreDiscriminator: boolean = false): any {
+export function VideoConfigResponseToJSONTyped(value?: VideoConfigResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

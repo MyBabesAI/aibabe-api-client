@@ -49,11 +49,11 @@ export function DeleteBulkMemoryRequestFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function DeleteBulkMemoryRequestToJSON(json: any): DeleteBulkMemoryRequest {
-      return DeleteBulkMemoryRequestToJSONTyped(json, false);
-  }
+export function DeleteBulkMemoryRequestToJSON(json: any): DeleteBulkMemoryRequest {
+    return DeleteBulkMemoryRequestToJSONTyped(json, false);
+}
 
-  export function DeleteBulkMemoryRequestToJSONTyped(value?: DeleteBulkMemoryRequest | null, ignoreDiscriminator: boolean = false): any {
+export function DeleteBulkMemoryRequestToJSONTyped(value?: DeleteBulkMemoryRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

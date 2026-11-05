@@ -126,11 +126,11 @@ export function PostCustomAboutPagePayloadFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function PostCustomAboutPagePayloadToJSON(json: any): PostCustomAboutPagePayload {
-      return PostCustomAboutPagePayloadToJSONTyped(json, false);
-  }
+export function PostCustomAboutPagePayloadToJSON(json: any): PostCustomAboutPagePayload {
+    return PostCustomAboutPagePayloadToJSONTyped(json, false);
+}
 
-  export function PostCustomAboutPagePayloadToJSONTyped(value?: PostCustomAboutPagePayload | null, ignoreDiscriminator: boolean = false): any {
+export function PostCustomAboutPagePayloadToJSONTyped(value?: PostCustomAboutPagePayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

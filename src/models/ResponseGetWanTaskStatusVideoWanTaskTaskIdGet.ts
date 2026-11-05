@@ -119,11 +119,11 @@ export function ResponseGetWanTaskStatusVideoWanTaskTaskIdGetFromJSONTyped(json:
     };
 }
 
-  export function ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSON(json: any): ResponseGetWanTaskStatusVideoWanTaskTaskIdGet {
-      return ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSONTyped(json, false);
-  }
+export function ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSON(json: any): ResponseGetWanTaskStatusVideoWanTaskTaskIdGet {
+    return ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSONTyped(json, false);
+}
 
-  export function ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSONTyped(value?: ResponseGetWanTaskStatusVideoWanTaskTaskIdGet | null, ignoreDiscriminator: boolean = false): any {
+export function ResponseGetWanTaskStatusVideoWanTaskTaskIdGetToJSONTyped(value?: ResponseGetWanTaskStatusVideoWanTaskTaskIdGet | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

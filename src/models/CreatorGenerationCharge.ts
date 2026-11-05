@@ -72,11 +72,11 @@ export function CreatorGenerationChargeFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function CreatorGenerationChargeToJSON(json: any): CreatorGenerationCharge {
-      return CreatorGenerationChargeToJSONTyped(json, false);
-  }
+export function CreatorGenerationChargeToJSON(json: any): CreatorGenerationCharge {
+    return CreatorGenerationChargeToJSONTyped(json, false);
+}
 
-  export function CreatorGenerationChargeToJSONTyped(value?: CreatorGenerationCharge | null, ignoreDiscriminator: boolean = false): any {
+export function CreatorGenerationChargeToJSONTyped(value?: CreatorGenerationCharge | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

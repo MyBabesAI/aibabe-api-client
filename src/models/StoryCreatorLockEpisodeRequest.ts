@@ -75,11 +75,11 @@ export function StoryCreatorLockEpisodeRequestFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function StoryCreatorLockEpisodeRequestToJSON(json: any): StoryCreatorLockEpisodeRequest {
-      return StoryCreatorLockEpisodeRequestToJSONTyped(json, false);
-  }
+export function StoryCreatorLockEpisodeRequestToJSON(json: any): StoryCreatorLockEpisodeRequest {
+    return StoryCreatorLockEpisodeRequestToJSONTyped(json, false);
+}
 
-  export function StoryCreatorLockEpisodeRequestToJSONTyped(value?: StoryCreatorLockEpisodeRequest | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorLockEpisodeRequestToJSONTyped(value?: StoryCreatorLockEpisodeRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -65,11 +65,11 @@ export function AdminMarkTransactionRefundedResponseFromJSONTyped(json: any, ign
     };
 }
 
-  export function AdminMarkTransactionRefundedResponseToJSON(json: any): AdminMarkTransactionRefundedResponse {
-      return AdminMarkTransactionRefundedResponseToJSONTyped(json, false);
-  }
+export function AdminMarkTransactionRefundedResponseToJSON(json: any): AdminMarkTransactionRefundedResponse {
+    return AdminMarkTransactionRefundedResponseToJSONTyped(json, false);
+}
 
-  export function AdminMarkTransactionRefundedResponseToJSONTyped(value?: AdminMarkTransactionRefundedResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminMarkTransactionRefundedResponseToJSONTyped(value?: AdminMarkTransactionRefundedResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -31,6 +31,7 @@ const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
 const ChatbotPreview_1 = require("./ChatbotPreview");
 const StoryPlayState_1 = require("./StoryPlayState");
 const StoryChatDifficulty_1 = require("./StoryChatDifficulty");
+const ImageToVideoModel_1 = require("./ImageToVideoModel");
 const StoryRating_1 = require("./StoryRating");
 /**
  * @export
@@ -103,6 +104,7 @@ function GetGalleryResponseItemsInnerFromJSONTyped(json, ignoreDiscriminator) {
         'ageEstimation': json['age_estimation'] == null ? undefined : (0, AdminAgeEstimation_1.AdminAgeEstimationFromJSON)(json['age_estimation']),
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
+        'model': json['model'] == null ? undefined : (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
@@ -146,6 +148,7 @@ function GetGalleryResponseItemsInnerToJSONTyped(value, ignoreDiscriminator = fa
         'age_estimation': (0, AdminAgeEstimation_1.AdminAgeEstimationToJSON)(value['ageEstimation']),
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
+        'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
         'title': value['title'],
         'description': value['description'],
         'cover_image': value['coverImage'],

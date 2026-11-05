@@ -98,11 +98,11 @@ export function GetImageGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function GetImageGenerationTagsResponseToJSON(json: any): GetImageGenerationTagsResponse {
-      return GetImageGenerationTagsResponseToJSONTyped(json, false);
-  }
+export function GetImageGenerationTagsResponseToJSON(json: any): GetImageGenerationTagsResponse {
+    return GetImageGenerationTagsResponseToJSONTyped(json, false);
+}
 
-  export function GetImageGenerationTagsResponseToJSONTyped(value?: GetImageGenerationTagsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetImageGenerationTagsResponseToJSONTyped(value?: GetImageGenerationTagsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

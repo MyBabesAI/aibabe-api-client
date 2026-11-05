@@ -91,11 +91,11 @@ export function CharacterIdentityPageReviewFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function CharacterIdentityPageReviewToJSON(json: any): CharacterIdentityPageReview {
-      return CharacterIdentityPageReviewToJSONTyped(json, false);
-  }
+export function CharacterIdentityPageReviewToJSON(json: any): CharacterIdentityPageReview {
+    return CharacterIdentityPageReviewToJSONTyped(json, false);
+}
 
-  export function CharacterIdentityPageReviewToJSONTyped(value?: CharacterIdentityPageReview | null, ignoreDiscriminator: boolean = false): any {
+export function CharacterIdentityPageReviewToJSONTyped(value?: CharacterIdentityPageReview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -227,11 +227,11 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function ImageToVideoRequestToJSON(json: any): ImageToVideoRequest {
-      return ImageToVideoRequestToJSONTyped(json, false);
-  }
+export function ImageToVideoRequestToJSON(json: any): ImageToVideoRequest {
+    return ImageToVideoRequestToJSONTyped(json, false);
+}
 
-  export function ImageToVideoRequestToJSONTyped(value?: ImageToVideoRequest | null, ignoreDiscriminator: boolean = false): any {
+export function ImageToVideoRequestToJSONTyped(value?: ImageToVideoRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

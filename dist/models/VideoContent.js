@@ -18,6 +18,7 @@ exports.VideoContentFromJSON = VideoContentFromJSON;
 exports.VideoContentFromJSONTyped = VideoContentFromJSONTyped;
 exports.VideoContentToJSON = VideoContentToJSON;
 exports.VideoContentToJSONTyped = VideoContentToJSONTyped;
+const ImageToVideoModel_1 = require("./ImageToVideoModel");
 const MediaOrigin_1 = require("./MediaOrigin");
 const AdminAgeEstimation_1 = require("./AdminAgeEstimation");
 /**
@@ -54,6 +55,7 @@ function VideoContentFromJSONTyped(json, ignoreDiscriminator) {
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'durationSeconds': json['duration_seconds'] == null ? undefined : json['duration_seconds'],
+        'model': json['model'] == null ? undefined : (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
     };
 }
 function VideoContentToJSON(json) {
@@ -74,6 +76,7 @@ function VideoContentToJSONTyped(value, ignoreDiscriminator = false) {
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'duration_seconds': value['durationSeconds'],
+        'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
     };
 }
 //# sourceMappingURL=VideoContent.js.map

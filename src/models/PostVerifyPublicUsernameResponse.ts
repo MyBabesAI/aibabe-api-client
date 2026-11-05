@@ -56,11 +56,11 @@ export function PostVerifyPublicUsernameResponseFromJSONTyped(json: any, ignoreD
     };
 }
 
-  export function PostVerifyPublicUsernameResponseToJSON(json: any): PostVerifyPublicUsernameResponse {
-      return PostVerifyPublicUsernameResponseToJSONTyped(json, false);
-  }
+export function PostVerifyPublicUsernameResponseToJSON(json: any): PostVerifyPublicUsernameResponse {
+    return PostVerifyPublicUsernameResponseToJSONTyped(json, false);
+}
 
-  export function PostVerifyPublicUsernameResponseToJSONTyped(value?: PostVerifyPublicUsernameResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostVerifyPublicUsernameResponseToJSONTyped(value?: PostVerifyPublicUsernameResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

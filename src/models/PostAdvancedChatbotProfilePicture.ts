@@ -95,11 +95,11 @@ export function PostAdvancedChatbotProfilePictureFromJSONTyped(json: any, ignore
     };
 }
 
-  export function PostAdvancedChatbotProfilePictureToJSON(json: any): PostAdvancedChatbotProfilePicture {
-      return PostAdvancedChatbotProfilePictureToJSONTyped(json, false);
-  }
+export function PostAdvancedChatbotProfilePictureToJSON(json: any): PostAdvancedChatbotProfilePicture {
+    return PostAdvancedChatbotProfilePictureToJSONTyped(json, false);
+}
 
-  export function PostAdvancedChatbotProfilePictureToJSONTyped(value?: PostAdvancedChatbotProfilePicture | null, ignoreDiscriminator: boolean = false): any {
+export function PostAdvancedChatbotProfilePictureToJSONTyped(value?: PostAdvancedChatbotProfilePicture | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

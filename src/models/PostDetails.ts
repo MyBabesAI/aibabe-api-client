@@ -65,11 +65,11 @@ export function PostDetailsFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-  export function PostDetailsToJSON(json: any): PostDetails {
-      return PostDetailsToJSONTyped(json, false);
-  }
+export function PostDetailsToJSON(json: any): PostDetails {
+    return PostDetailsToJSONTyped(json, false);
+}
 
-  export function PostDetailsToJSONTyped(value?: PostDetails | null, ignoreDiscriminator: boolean = false): any {
+export function PostDetailsToJSONTyped(value?: PostDetails | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

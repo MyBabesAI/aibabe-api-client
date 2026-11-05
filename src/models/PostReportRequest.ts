@@ -57,11 +57,11 @@ export function PostReportRequestFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function PostReportRequestToJSON(json: any): PostReportRequest {
-      return PostReportRequestToJSONTyped(json, false);
-  }
+export function PostReportRequestToJSON(json: any): PostReportRequest {
+    return PostReportRequestToJSONTyped(json, false);
+}
 
-  export function PostReportRequestToJSONTyped(value?: PostReportRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostReportRequestToJSONTyped(value?: PostReportRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

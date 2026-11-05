@@ -95,11 +95,11 @@ export function VideoDurationOptionsFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function VideoDurationOptionsToJSON(json: any): VideoDurationOptions {
-      return VideoDurationOptionsToJSONTyped(json, false);
-  }
+export function VideoDurationOptionsToJSON(json: any): VideoDurationOptions {
+    return VideoDurationOptionsToJSONTyped(json, false);
+}
 
-  export function VideoDurationOptionsToJSONTyped(value?: VideoDurationOptions | null, ignoreDiscriminator: boolean = false): any {
+export function VideoDurationOptionsToJSONTyped(value?: VideoDurationOptions | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

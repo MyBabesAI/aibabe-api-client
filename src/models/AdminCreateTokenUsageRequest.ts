@@ -148,11 +148,11 @@ export function AdminCreateTokenUsageRequestFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function AdminCreateTokenUsageRequestToJSON(json: any): AdminCreateTokenUsageRequest {
-      return AdminCreateTokenUsageRequestToJSONTyped(json, false);
-  }
+export function AdminCreateTokenUsageRequestToJSON(json: any): AdminCreateTokenUsageRequest {
+    return AdminCreateTokenUsageRequestToJSONTyped(json, false);
+}
 
-  export function AdminCreateTokenUsageRequestToJSONTyped(value?: AdminCreateTokenUsageRequest | null, ignoreDiscriminator: boolean = false): any {
+export function AdminCreateTokenUsageRequestToJSONTyped(value?: AdminCreateTokenUsageRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

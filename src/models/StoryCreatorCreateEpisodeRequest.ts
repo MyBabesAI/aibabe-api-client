@@ -83,11 +83,11 @@ export function StoryCreatorCreateEpisodeRequestFromJSONTyped(json: any, ignoreD
     };
 }
 
-  export function StoryCreatorCreateEpisodeRequestToJSON(json: any): StoryCreatorCreateEpisodeRequest {
-      return StoryCreatorCreateEpisodeRequestToJSONTyped(json, false);
-  }
+export function StoryCreatorCreateEpisodeRequestToJSON(json: any): StoryCreatorCreateEpisodeRequest {
+    return StoryCreatorCreateEpisodeRequestToJSONTyped(json, false);
+}
 
-  export function StoryCreatorCreateEpisodeRequestToJSONTyped(value?: StoryCreatorCreateEpisodeRequest | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorCreateEpisodeRequestToJSONTyped(value?: StoryCreatorCreateEpisodeRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

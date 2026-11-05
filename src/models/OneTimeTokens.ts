@@ -36,11 +36,11 @@ export function OneTimeTokensFromJSONTyped(json: any, ignoreDiscriminator: boole
     return json;
 }
 
-  export function OneTimeTokensToJSON(json: any): OneTimeTokens {
-      return OneTimeTokensToJSONTyped(json, false);
-  }
+export function OneTimeTokensToJSON(json: any): OneTimeTokens {
+    return OneTimeTokensToJSONTyped(json, false);
+}
 
-  export function OneTimeTokensToJSONTyped(value?: OneTimeTokens | null, ignoreDiscriminator: boolean = false): any {
+export function OneTimeTokensToJSONTyped(value?: OneTimeTokens | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

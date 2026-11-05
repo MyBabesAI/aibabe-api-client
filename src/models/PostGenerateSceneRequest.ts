@@ -154,11 +154,11 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function PostGenerateSceneRequestToJSON(json: any): PostGenerateSceneRequest {
-      return PostGenerateSceneRequestToJSONTyped(json, false);
-  }
+export function PostGenerateSceneRequestToJSON(json: any): PostGenerateSceneRequest {
+    return PostGenerateSceneRequestToJSONTyped(json, false);
+}
 
-  export function PostGenerateSceneRequestToJSONTyped(value?: PostGenerateSceneRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostGenerateSceneRequestToJSONTyped(value?: PostGenerateSceneRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

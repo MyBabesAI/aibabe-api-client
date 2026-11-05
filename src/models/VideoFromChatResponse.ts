@@ -49,11 +49,11 @@ export function VideoFromChatResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function VideoFromChatResponseToJSON(json: any): VideoFromChatResponse {
-      return VideoFromChatResponseToJSONTyped(json, false);
-  }
+export function VideoFromChatResponseToJSON(json: any): VideoFromChatResponse {
+    return VideoFromChatResponseToJSONTyped(json, false);
+}
 
-  export function VideoFromChatResponseToJSONTyped(value?: VideoFromChatResponse | null, ignoreDiscriminator: boolean = false): any {
+export function VideoFromChatResponseToJSONTyped(value?: VideoFromChatResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

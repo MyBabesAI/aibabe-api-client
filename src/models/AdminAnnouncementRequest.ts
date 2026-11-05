@@ -70,11 +70,11 @@ export function AdminAnnouncementRequestFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function AdminAnnouncementRequestToJSON(json: any): AdminAnnouncementRequest {
-      return AdminAnnouncementRequestToJSONTyped(json, false);
-  }
+export function AdminAnnouncementRequestToJSON(json: any): AdminAnnouncementRequest {
+    return AdminAnnouncementRequestToJSONTyped(json, false);
+}
 
-  export function AdminAnnouncementRequestToJSONTyped(value?: AdminAnnouncementRequest | null, ignoreDiscriminator: boolean = false): any {
+export function AdminAnnouncementRequestToJSONTyped(value?: AdminAnnouncementRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

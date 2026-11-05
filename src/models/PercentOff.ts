@@ -36,11 +36,11 @@ export function PercentOffFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     return json;
 }
 
-  export function PercentOffToJSON(json: any): PercentOff {
-      return PercentOffToJSONTyped(json, false);
-  }
+export function PercentOffToJSON(json: any): PercentOff {
+    return PercentOffToJSONTyped(json, false);
+}
 
-  export function PercentOffToJSONTyped(value?: PercentOff | null, ignoreDiscriminator: boolean = false): any {
+export function PercentOffToJSONTyped(value?: PercentOff | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

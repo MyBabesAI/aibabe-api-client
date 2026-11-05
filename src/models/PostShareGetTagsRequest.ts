@@ -59,11 +59,11 @@ export function PostShareGetTagsRequestFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function PostShareGetTagsRequestToJSON(json: any): PostShareGetTagsRequest {
-      return PostShareGetTagsRequestToJSONTyped(json, false);
-  }
+export function PostShareGetTagsRequestToJSON(json: any): PostShareGetTagsRequest {
+    return PostShareGetTagsRequestToJSONTyped(json, false);
+}
 
-  export function PostShareGetTagsRequestToJSONTyped(value?: PostShareGetTagsRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostShareGetTagsRequestToJSONTyped(value?: PostShareGetTagsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

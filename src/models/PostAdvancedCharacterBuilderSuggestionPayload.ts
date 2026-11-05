@@ -122,11 +122,11 @@ export function PostAdvancedCharacterBuilderSuggestionPayloadFromJSONTyped(json:
     };
 }
 
-  export function PostAdvancedCharacterBuilderSuggestionPayloadToJSON(json: any): PostAdvancedCharacterBuilderSuggestionPayload {
-      return PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped(json, false);
-  }
+export function PostAdvancedCharacterBuilderSuggestionPayloadToJSON(json: any): PostAdvancedCharacterBuilderSuggestionPayload {
+    return PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped(json, false);
+}
 
-  export function PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped(value?: PostAdvancedCharacterBuilderSuggestionPayload | null, ignoreDiscriminator: boolean = false): any {
+export function PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped(value?: PostAdvancedCharacterBuilderSuggestionPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

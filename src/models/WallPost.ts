@@ -225,11 +225,11 @@ export function WallPostFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     };
 }
 
-  export function WallPostToJSON(json: any): WallPost {
-      return WallPostToJSONTyped(json, false);
-  }
+export function WallPostToJSON(json: any): WallPost {
+    return WallPostToJSONTyped(json, false);
+}
 
-  export function WallPostToJSONTyped(value?: WallPost | null, ignoreDiscriminator: boolean = false): any {
+export function WallPostToJSONTyped(value?: WallPost | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -173,6 +173,20 @@ export declare const ExceptionCode: {
     readonly ImageOrVideoNotFound: "image_or_video_not_found";
     readonly VideoUploadImageFailed: "video_upload_image_failed";
     readonly VideoSizeNotSupported: "video_size_not_supported";
+    readonly VideoEditorDisabled: "video_editor_disabled";
+    readonly VideoEditorUploadInvalid: "video_editor_upload_invalid";
+    readonly VideoEditorUploadMissing: "video_editor_upload_missing";
+    readonly VideoEditorProjectInvalid: "video_editor_project_invalid";
+    readonly VideoEditorProjectTooLong: "video_editor_project_too_long";
+    readonly VideoEditorAssetNotOwned: "video_editor_asset_not_owned";
+    readonly VideoEditorUploadRejected: "video_editor_upload_rejected";
+    readonly VideoEditorUploadTooLarge: "video_editor_upload_too_large";
+    readonly VideoEditorQuotaReached: "video_editor_quota_reached";
+    readonly VideoEditorProjectNotFound: "video_editor_project_not_found";
+    readonly VideoEditorProjectConflict: "video_editor_project_conflict";
+    readonly VideoEditorProjectLimitReached: "video_editor_project_limit_reached";
+    readonly VideoEditorExportNotFound: "video_editor_export_not_found";
+    readonly VideoEditorRecipeUnavailable: "video_editor_recipe_unavailable";
     readonly AspectRatioNotSupported: "aspect_ratio_not_supported";
     readonly VideoCropWithoutRatio: "video_crop_without_ratio";
     readonly VideoRetrieveFailed: "video_retrieve_failed";
@@ -201,7 +215,6 @@ export declare const ExceptionCode: {
     readonly ShareVideoNonOwnedForbidden: "share_video_non_owned_forbidden";
     readonly ShareImageNonOwnedForbidden: "share_image_non_owned_forbidden";
     readonly ShareCharacterNonOwnedForbidden: "share_character_non_owned_forbidden";
-    readonly ShareMediaNotFinished: "share_media_not_finished";
     readonly CharacterNotFound: "character_not_found";
     readonly InvalidPlanId: "invalid_plan_id";
     readonly InvalidAddonId: "invalid_addon_id";
@@ -274,7 +287,6 @@ export declare const ExceptionCode: {
     readonly GalleryChatbotFilterConflict: "gallery_chatbot_filter_conflict";
     readonly GalleryOwnerFilterInvalid: "gallery_owner_filter_invalid";
     readonly GalleryFolderNotFound: "gallery_folder_not_found";
-    readonly BillingReconciliationInProgress: "billing_reconciliation_in_progress";
 };
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 export declare function instanceOfExceptionCode(value: any): boolean;

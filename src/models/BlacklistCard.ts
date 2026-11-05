@@ -131,11 +131,11 @@ export function BlacklistCardFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-  export function BlacklistCardToJSON(json: any): BlacklistCard {
-      return BlacklistCardToJSONTyped(json, false);
-  }
+export function BlacklistCardToJSON(json: any): BlacklistCard {
+    return BlacklistCardToJSONTyped(json, false);
+}
 
-  export function BlacklistCardToJSONTyped(value?: BlacklistCard | null, ignoreDiscriminator: boolean = false): any {
+export function BlacklistCardToJSONTyped(value?: BlacklistCard | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

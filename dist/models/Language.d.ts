@@ -19,13 +19,8 @@ export declare const Language: {
     readonly Fr: "fr";
     readonly Es: "es";
     readonly It: "it";
+    readonly Cs: "cs";
     readonly Pl: "pl";
-    readonly Nl: "nl";
-    readonly Nb: "nb";
-    readonly Da: "da";
-    readonly Fi: "fi";
-    readonly PtBr: "pt_br";
-    readonly PtPt: "pt_pt";
     readonly Ko: "ko";
     readonly Ja: "ja";
     readonly Vi: "vi";

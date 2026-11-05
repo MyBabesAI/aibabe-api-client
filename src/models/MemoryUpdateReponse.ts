@@ -49,11 +49,11 @@ export function MemoryUpdateReponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function MemoryUpdateReponseToJSON(json: any): MemoryUpdateReponse {
-      return MemoryUpdateReponseToJSONTyped(json, false);
-  }
+export function MemoryUpdateReponseToJSON(json: any): MemoryUpdateReponse {
+    return MemoryUpdateReponseToJSONTyped(json, false);
+}
 
-  export function MemoryUpdateReponseToJSONTyped(value?: MemoryUpdateReponse | null, ignoreDiscriminator: boolean = false): any {
+export function MemoryUpdateReponseToJSONTyped(value?: MemoryUpdateReponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

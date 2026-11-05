@@ -90,11 +90,11 @@ export function PingRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-  export function PingRequestToJSON(json: any): PingRequest {
-      return PingRequestToJSONTyped(json, false);
-  }
+export function PingRequestToJSON(json: any): PingRequest {
+    return PingRequestToJSONTyped(json, false);
+}
 
-  export function PingRequestToJSONTyped(value?: PingRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PingRequestToJSONTyped(value?: PingRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

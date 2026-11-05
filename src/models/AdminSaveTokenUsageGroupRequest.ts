@@ -86,11 +86,11 @@ export function AdminSaveTokenUsageGroupRequestFromJSONTyped(json: any, ignoreDi
     };
 }
 
-  export function AdminSaveTokenUsageGroupRequestToJSON(json: any): AdminSaveTokenUsageGroupRequest {
-      return AdminSaveTokenUsageGroupRequestToJSONTyped(json, false);
-  }
+export function AdminSaveTokenUsageGroupRequestToJSON(json: any): AdminSaveTokenUsageGroupRequest {
+    return AdminSaveTokenUsageGroupRequestToJSONTyped(json, false);
+}
 
-  export function AdminSaveTokenUsageGroupRequestToJSONTyped(value?: AdminSaveTokenUsageGroupRequest | null, ignoreDiscriminator: boolean = false): any {
+export function AdminSaveTokenUsageGroupRequestToJSONTyped(value?: AdminSaveTokenUsageGroupRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

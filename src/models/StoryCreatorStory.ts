@@ -272,11 +272,11 @@ export function StoryCreatorStoryFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function StoryCreatorStoryToJSON(json: any): StoryCreatorStory {
-      return StoryCreatorStoryToJSONTyped(json, false);
-  }
+export function StoryCreatorStoryToJSON(json: any): StoryCreatorStory {
+    return StoryCreatorStoryToJSONTyped(json, false);
+}
 
-  export function StoryCreatorStoryToJSONTyped(value?: StoryCreatorStory | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorStoryToJSONTyped(value?: StoryCreatorStory | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

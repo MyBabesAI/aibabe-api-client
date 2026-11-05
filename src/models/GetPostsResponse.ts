@@ -64,11 +64,11 @@ export function GetPostsResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function GetPostsResponseToJSON(json: any): GetPostsResponse {
-      return GetPostsResponseToJSONTyped(json, false);
-  }
+export function GetPostsResponseToJSON(json: any): GetPostsResponse {
+    return GetPostsResponseToJSONTyped(json, false);
+}
 
-  export function GetPostsResponseToJSONTyped(value?: GetPostsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetPostsResponseToJSONTyped(value?: GetPostsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

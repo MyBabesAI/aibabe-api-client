@@ -49,11 +49,11 @@ export function PostPasswordResetFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function PostPasswordResetToJSON(json: any): PostPasswordReset {
-      return PostPasswordResetToJSONTyped(json, false);
-  }
+export function PostPasswordResetToJSON(json: any): PostPasswordReset {
+    return PostPasswordResetToJSONTyped(json, false);
+}
 
-  export function PostPasswordResetToJSONTyped(value?: PostPasswordReset | null, ignoreDiscriminator: boolean = false): any {
+export function PostPasswordResetToJSONTyped(value?: PostPasswordReset | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

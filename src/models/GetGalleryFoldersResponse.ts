@@ -57,11 +57,11 @@ export function GetGalleryFoldersResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function GetGalleryFoldersResponseToJSON(json: any): GetGalleryFoldersResponse {
-      return GetGalleryFoldersResponseToJSONTyped(json, false);
-  }
+export function GetGalleryFoldersResponseToJSON(json: any): GetGalleryFoldersResponse {
+    return GetGalleryFoldersResponseToJSONTyped(json, false);
+}
 
-  export function GetGalleryFoldersResponseToJSONTyped(value?: GetGalleryFoldersResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetGalleryFoldersResponseToJSONTyped(value?: GetGalleryFoldersResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

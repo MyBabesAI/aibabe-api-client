@@ -96,11 +96,11 @@ export function EventSubmissionRequestFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function EventSubmissionRequestToJSON(json: any): EventSubmissionRequest {
-      return EventSubmissionRequestToJSONTyped(json, false);
-  }
+export function EventSubmissionRequestToJSON(json: any): EventSubmissionRequest {
+    return EventSubmissionRequestToJSONTyped(json, false);
+}
 
-  export function EventSubmissionRequestToJSONTyped(value?: EventSubmissionRequest | null, ignoreDiscriminator: boolean = false): any {
+export function EventSubmissionRequestToJSONTyped(value?: EventSubmissionRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

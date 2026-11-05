@@ -75,11 +75,11 @@ export function ImageModFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     };
 }
 
-  export function ImageModToJSON(json: any): ImageMod {
-      return ImageModToJSONTyped(json, false);
-  }
+export function ImageModToJSON(json: any): ImageMod {
+    return ImageModToJSONTyped(json, false);
+}
 
-  export function ImageModToJSONTyped(value?: ImageMod | null, ignoreDiscriminator: boolean = false): any {
+export function ImageModToJSONTyped(value?: ImageMod | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

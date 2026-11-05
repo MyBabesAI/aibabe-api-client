@@ -57,11 +57,11 @@ export function GetGeneratedImageFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function GetGeneratedImageToJSON(json: any): GetGeneratedImage {
-      return GetGeneratedImageToJSONTyped(json, false);
-  }
+export function GetGeneratedImageToJSON(json: any): GetGeneratedImage {
+    return GetGeneratedImageToJSONTyped(json, false);
+}
 
-  export function GetGeneratedImageToJSONTyped(value?: GetGeneratedImage | null, ignoreDiscriminator: boolean = false): any {
+export function GetGeneratedImageToJSONTyped(value?: GetGeneratedImage | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

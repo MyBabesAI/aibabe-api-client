@@ -57,11 +57,11 @@ export function PostStoryMediaResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function PostStoryMediaResponseToJSON(json: any): PostStoryMediaResponse {
-      return PostStoryMediaResponseToJSONTyped(json, false);
-  }
+export function PostStoryMediaResponseToJSON(json: any): PostStoryMediaResponse {
+    return PostStoryMediaResponseToJSONTyped(json, false);
+}
 
-  export function PostStoryMediaResponseToJSONTyped(value?: PostStoryMediaResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostStoryMediaResponseToJSONTyped(value?: PostStoryMediaResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

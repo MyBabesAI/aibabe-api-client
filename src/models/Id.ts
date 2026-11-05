@@ -36,11 +36,11 @@ export function IdFromJSONTyped(json: any, ignoreDiscriminator: boolean): Id {
     return json;
 }
 
-  export function IdToJSON(json: any): Id {
-      return IdToJSONTyped(json, false);
-  }
+export function IdToJSON(json: any): Id {
+    return IdToJSONTyped(json, false);
+}
 
-  export function IdToJSONTyped(value?: Id | null, ignoreDiscriminator: boolean = false): any {
+export function IdToJSONTyped(value?: Id | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

@@ -91,11 +91,11 @@ export function StoryCreatorPurchaseEpisodeResponseFromJSONTyped(json: any, igno
     };
 }
 
-  export function StoryCreatorPurchaseEpisodeResponseToJSON(json: any): StoryCreatorPurchaseEpisodeResponse {
-      return StoryCreatorPurchaseEpisodeResponseToJSONTyped(json, false);
-  }
+export function StoryCreatorPurchaseEpisodeResponseToJSON(json: any): StoryCreatorPurchaseEpisodeResponse {
+    return StoryCreatorPurchaseEpisodeResponseToJSONTyped(json, false);
+}
 
-  export function StoryCreatorPurchaseEpisodeResponseToJSONTyped(value?: StoryCreatorPurchaseEpisodeResponse | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorPurchaseEpisodeResponseToJSONTyped(value?: StoryCreatorPurchaseEpisodeResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

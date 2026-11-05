@@ -712,7 +712,6 @@ export class SubscriptionsApi extends runtime.BaseAPI {
     }
 
     /**
-     * One run at a time: a call while another run (the worker\'s hourly one, or a retried trigger) holds the lock answers 409 instead of charging the same candidates a minute behind it.
      * Reconcile Billing
      */
     async reconcileBillingSubscriptionReconcileBillingPostRaw(requestParameters: ReconcileBillingSubscriptionReconcileBillingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BillingReconciliationResponse>> {
@@ -735,7 +734,6 @@ export class SubscriptionsApi extends runtime.BaseAPI {
     }
 
     /**
-     * One run at a time: a call while another run (the worker\'s hourly one, or a retried trigger) holds the lock answers 409 instead of charging the same candidates a minute behind it.
      * Reconcile Billing
      */
     async reconcileBillingSubscriptionReconcileBillingPost(requestParameters: ReconcileBillingSubscriptionReconcileBillingPostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BillingReconciliationResponse> {

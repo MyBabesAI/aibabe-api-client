@@ -102,11 +102,11 @@ export function AvatarLooksV2FromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-  export function AvatarLooksV2ToJSON(json: any): AvatarLooksV2 {
-      return AvatarLooksV2ToJSONTyped(json, false);
-  }
+export function AvatarLooksV2ToJSON(json: any): AvatarLooksV2 {
+    return AvatarLooksV2ToJSONTyped(json, false);
+}
 
-  export function AvatarLooksV2ToJSONTyped(value?: AvatarLooksV2 | null, ignoreDiscriminator: boolean = false): any {
+export function AvatarLooksV2ToJSONTyped(value?: AvatarLooksV2 | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

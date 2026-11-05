@@ -80,11 +80,11 @@ export function VideoPresetFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-  export function VideoPresetToJSON(json: any): VideoPreset {
-      return VideoPresetToJSONTyped(json, false);
-  }
+export function VideoPresetToJSON(json: any): VideoPreset {
+    return VideoPresetToJSONTyped(json, false);
+}
 
-  export function VideoPresetToJSONTyped(value?: VideoPreset | null, ignoreDiscriminator: boolean = false): any {
+export function VideoPresetToJSONTyped(value?: VideoPreset | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

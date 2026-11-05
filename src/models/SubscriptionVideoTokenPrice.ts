@@ -111,11 +111,11 @@ export function SubscriptionVideoTokenPriceFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function SubscriptionVideoTokenPriceToJSON(json: any): SubscriptionVideoTokenPrice {
-      return SubscriptionVideoTokenPriceToJSONTyped(json, false);
-  }
+export function SubscriptionVideoTokenPriceToJSON(json: any): SubscriptionVideoTokenPrice {
+    return SubscriptionVideoTokenPriceToJSONTyped(json, false);
+}
 
-  export function SubscriptionVideoTokenPriceToJSONTyped(value?: SubscriptionVideoTokenPrice | null, ignoreDiscriminator: boolean = false): any {
+export function SubscriptionVideoTokenPriceToJSONTyped(value?: SubscriptionVideoTokenPrice | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

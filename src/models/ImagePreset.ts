@@ -79,11 +79,11 @@ export function ImagePresetFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-  export function ImagePresetToJSON(json: any): ImagePreset {
-      return ImagePresetToJSONTyped(json, false);
-  }
+export function ImagePresetToJSON(json: any): ImagePreset {
+    return ImagePresetToJSONTyped(json, false);
+}
 
-  export function ImagePresetToJSONTyped(value?: ImagePreset | null, ignoreDiscriminator: boolean = false): any {
+export function ImagePresetToJSONTyped(value?: ImagePreset | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

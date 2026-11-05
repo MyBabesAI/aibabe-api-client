@@ -177,11 +177,11 @@ export function PatchUserPreferenceProfileRequestFromJSONTyped(json: any, ignore
     };
 }
 
-  export function PatchUserPreferenceProfileRequestToJSON(json: any): PatchUserPreferenceProfileRequest {
-      return PatchUserPreferenceProfileRequestToJSONTyped(json, false);
-  }
+export function PatchUserPreferenceProfileRequestToJSON(json: any): PatchUserPreferenceProfileRequest {
+    return PatchUserPreferenceProfileRequestToJSONTyped(json, false);
+}
 
-  export function PatchUserPreferenceProfileRequestToJSONTyped(value?: PatchUserPreferenceProfileRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PatchUserPreferenceProfileRequestToJSONTyped(value?: PatchUserPreferenceProfileRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

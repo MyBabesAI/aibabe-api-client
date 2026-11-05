@@ -65,11 +65,11 @@ export function PostStoryAdminActionRequestFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function PostStoryAdminActionRequestToJSON(json: any): PostStoryAdminActionRequest {
-      return PostStoryAdminActionRequestToJSONTyped(json, false);
-  }
+export function PostStoryAdminActionRequestToJSON(json: any): PostStoryAdminActionRequest {
+    return PostStoryAdminActionRequestToJSONTyped(json, false);
+}
 
-  export function PostStoryAdminActionRequestToJSONTyped(value?: PostStoryAdminActionRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostStoryAdminActionRequestToJSONTyped(value?: PostStoryAdminActionRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

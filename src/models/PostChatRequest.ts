@@ -104,11 +104,11 @@ export function PostChatRequestFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-  export function PostChatRequestToJSON(json: any): PostChatRequest {
-      return PostChatRequestToJSONTyped(json, false);
-  }
+export function PostChatRequestToJSON(json: any): PostChatRequest {
+    return PostChatRequestToJSONTyped(json, false);
+}
 
-  export function PostChatRequestToJSONTyped(value?: PostChatRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostChatRequestToJSONTyped(value?: PostChatRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

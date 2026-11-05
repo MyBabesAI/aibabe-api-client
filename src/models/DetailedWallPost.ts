@@ -263,11 +263,11 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function DetailedWallPostToJSON(json: any): DetailedWallPost {
-      return DetailedWallPostToJSONTyped(json, false);
-  }
+export function DetailedWallPostToJSON(json: any): DetailedWallPost {
+    return DetailedWallPostToJSONTyped(json, false);
+}
 
-  export function DetailedWallPostToJSONTyped(value?: DetailedWallPost | null, ignoreDiscriminator: boolean = false): any {
+export function DetailedWallPostToJSONTyped(value?: DetailedWallPost | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

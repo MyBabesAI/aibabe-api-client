@@ -83,11 +83,11 @@ export function EpisodeCountsFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-  export function EpisodeCountsToJSON(json: any): EpisodeCounts {
-      return EpisodeCountsToJSONTyped(json, false);
-  }
+export function EpisodeCountsToJSON(json: any): EpisodeCounts {
+    return EpisodeCountsToJSONTyped(json, false);
+}
 
-  export function EpisodeCountsToJSONTyped(value?: EpisodeCounts | null, ignoreDiscriminator: boolean = false): any {
+export function EpisodeCountsToJSONTyped(value?: EpisodeCounts | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

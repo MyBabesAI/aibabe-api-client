@@ -183,6 +183,20 @@ exports.ExceptionCode = {
     ImageOrVideoNotFound: 'image_or_video_not_found',
     VideoUploadImageFailed: 'video_upload_image_failed',
     VideoSizeNotSupported: 'video_size_not_supported',
+    VideoEditorDisabled: 'video_editor_disabled',
+    VideoEditorUploadInvalid: 'video_editor_upload_invalid',
+    VideoEditorUploadMissing: 'video_editor_upload_missing',
+    VideoEditorProjectInvalid: 'video_editor_project_invalid',
+    VideoEditorProjectTooLong: 'video_editor_project_too_long',
+    VideoEditorAssetNotOwned: 'video_editor_asset_not_owned',
+    VideoEditorUploadRejected: 'video_editor_upload_rejected',
+    VideoEditorUploadTooLarge: 'video_editor_upload_too_large',
+    VideoEditorQuotaReached: 'video_editor_quota_reached',
+    VideoEditorProjectNotFound: 'video_editor_project_not_found',
+    VideoEditorProjectConflict: 'video_editor_project_conflict',
+    VideoEditorProjectLimitReached: 'video_editor_project_limit_reached',
+    VideoEditorExportNotFound: 'video_editor_export_not_found',
+    VideoEditorRecipeUnavailable: 'video_editor_recipe_unavailable',
     AspectRatioNotSupported: 'aspect_ratio_not_supported',
     VideoCropWithoutRatio: 'video_crop_without_ratio',
     VideoRetrieveFailed: 'video_retrieve_failed',
@@ -211,7 +225,6 @@ exports.ExceptionCode = {
     ShareVideoNonOwnedForbidden: 'share_video_non_owned_forbidden',
     ShareImageNonOwnedForbidden: 'share_image_non_owned_forbidden',
     ShareCharacterNonOwnedForbidden: 'share_character_non_owned_forbidden',
-    ShareMediaNotFinished: 'share_media_not_finished',
     CharacterNotFound: 'character_not_found',
     InvalidPlanId: 'invalid_plan_id',
     InvalidAddonId: 'invalid_addon_id',
@@ -283,8 +296,7 @@ exports.ExceptionCode = {
     PromotionOverlap: 'promotion_overlap',
     GalleryChatbotFilterConflict: 'gallery_chatbot_filter_conflict',
     GalleryOwnerFilterInvalid: 'gallery_owner_filter_invalid',
-    GalleryFolderNotFound: 'gallery_folder_not_found',
-    BillingReconciliationInProgress: 'billing_reconciliation_in_progress'
+    GalleryFolderNotFound: 'gallery_folder_not_found'
 };
 function instanceOfExceptionCode(value) {
     for (const key in exports.ExceptionCode) {

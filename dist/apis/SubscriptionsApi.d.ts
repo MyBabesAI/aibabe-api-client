@@ -200,12 +200,10 @@ export declare class SubscriptionsApi extends runtime.BaseAPI {
      */
     rapydCallbackSuccessSubscriptionRapydCallbackSuccessGet(requestParameters?: RapydCallbackSuccessSubscriptionRapydCallbackSuccessGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
-     * One run at a time: a call while another run (the worker\'s hourly one, or a retried trigger) holds the lock answers 409 instead of charging the same candidates a minute behind it.
      * Reconcile Billing
      */
     reconcileBillingSubscriptionReconcileBillingPostRaw(requestParameters: ReconcileBillingSubscriptionReconcileBillingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BillingReconciliationResponse>>;
     /**
-     * One run at a time: a call while another run (the worker\'s hourly one, or a retried trigger) holds the lock answers 409 instead of charging the same candidates a minute behind it.
      * Reconcile Billing
      */
     reconcileBillingSubscriptionReconcileBillingPost(requestParameters?: ReconcileBillingSubscriptionReconcileBillingPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BillingReconciliationResponse>;

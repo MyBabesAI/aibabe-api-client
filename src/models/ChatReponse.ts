@@ -87,11 +87,11 @@ export function ChatReponseFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-  export function ChatReponseToJSON(json: any): ChatReponse {
-      return ChatReponseToJSONTyped(json, false);
-  }
+export function ChatReponseToJSON(json: any): ChatReponse {
+    return ChatReponseToJSONTyped(json, false);
+}
 
-  export function ChatReponseToJSONTyped(value?: ChatReponse | null, ignoreDiscriminator: boolean = false): any {
+export function ChatReponseToJSONTyped(value?: ChatReponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

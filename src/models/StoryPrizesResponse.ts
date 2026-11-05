@@ -80,11 +80,11 @@ export function StoryPrizesResponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function StoryPrizesResponseToJSON(json: any): StoryPrizesResponse {
-      return StoryPrizesResponseToJSONTyped(json, false);
-  }
+export function StoryPrizesResponseToJSON(json: any): StoryPrizesResponse {
+    return StoryPrizesResponseToJSONTyped(json, false);
+}
 
-  export function StoryPrizesResponseToJSONTyped(value?: StoryPrizesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function StoryPrizesResponseToJSONTyped(value?: StoryPrizesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

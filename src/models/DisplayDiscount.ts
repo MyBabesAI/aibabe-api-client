@@ -36,11 +36,11 @@ export function DisplayDiscountFromJSONTyped(json: any, ignoreDiscriminator: boo
     return json;
 }
 
-  export function DisplayDiscountToJSON(json: any): DisplayDiscount {
-      return DisplayDiscountToJSONTyped(json, false);
-  }
+export function DisplayDiscountToJSON(json: any): DisplayDiscount {
+    return DisplayDiscountToJSONTyped(json, false);
+}
 
-  export function DisplayDiscountToJSONTyped(value?: DisplayDiscount | null, ignoreDiscriminator: boolean = false): any {
+export function DisplayDiscountToJSONTyped(value?: DisplayDiscount | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

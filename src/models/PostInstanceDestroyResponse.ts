@@ -49,11 +49,11 @@ export function PostInstanceDestroyResponseFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function PostInstanceDestroyResponseToJSON(json: any): PostInstanceDestroyResponse {
-      return PostInstanceDestroyResponseToJSONTyped(json, false);
-  }
+export function PostInstanceDestroyResponseToJSON(json: any): PostInstanceDestroyResponse {
+    return PostInstanceDestroyResponseToJSONTyped(json, false);
+}
 
-  export function PostInstanceDestroyResponseToJSONTyped(value?: PostInstanceDestroyResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostInstanceDestroyResponseToJSONTyped(value?: PostInstanceDestroyResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

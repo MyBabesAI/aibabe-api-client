@@ -120,11 +120,11 @@ export function ChatbotInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-  export function ChatbotInfoToJSON(json: any): ChatbotInfo {
-      return ChatbotInfoToJSONTyped(json, false);
-  }
+export function ChatbotInfoToJSON(json: any): ChatbotInfo {
+    return ChatbotInfoToJSONTyped(json, false);
+}
 
-  export function ChatbotInfoToJSONTyped(value?: ChatbotInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ChatbotInfoToJSONTyped(value?: ChatbotInfo | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

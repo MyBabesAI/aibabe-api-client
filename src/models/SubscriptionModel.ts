@@ -226,11 +226,11 @@ export function SubscriptionModelFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function SubscriptionModelToJSON(json: any): SubscriptionModel {
-      return SubscriptionModelToJSONTyped(json, false);
-  }
+export function SubscriptionModelToJSON(json: any): SubscriptionModel {
+    return SubscriptionModelToJSONTyped(json, false);
+}
 
-  export function SubscriptionModelToJSONTyped(value?: SubscriptionModel | null, ignoreDiscriminator: boolean = false): any {
+export function SubscriptionModelToJSONTyped(value?: SubscriptionModel | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

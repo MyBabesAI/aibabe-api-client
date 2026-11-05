@@ -101,11 +101,11 @@ export function TimedBadgeTypeFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-  export function TimedBadgeTypeToJSON(json: any): TimedBadgeType {
-      return TimedBadgeTypeToJSONTyped(json, false);
-  }
+export function TimedBadgeTypeToJSON(json: any): TimedBadgeType {
+    return TimedBadgeTypeToJSONTyped(json, false);
+}
 
-  export function TimedBadgeTypeToJSONTyped(value?: TimedBadgeType | null, ignoreDiscriminator: boolean = false): any {
+export function TimedBadgeTypeToJSONTyped(value?: TimedBadgeType | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

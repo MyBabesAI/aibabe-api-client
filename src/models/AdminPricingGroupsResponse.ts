@@ -72,11 +72,11 @@ export function AdminPricingGroupsResponseFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function AdminPricingGroupsResponseToJSON(json: any): AdminPricingGroupsResponse {
-      return AdminPricingGroupsResponseToJSONTyped(json, false);
-  }
+export function AdminPricingGroupsResponseToJSON(json: any): AdminPricingGroupsResponse {
+    return AdminPricingGroupsResponseToJSONTyped(json, false);
+}
 
-  export function AdminPricingGroupsResponseToJSONTyped(value?: AdminPricingGroupsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminPricingGroupsResponseToJSONTyped(value?: AdminPricingGroupsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

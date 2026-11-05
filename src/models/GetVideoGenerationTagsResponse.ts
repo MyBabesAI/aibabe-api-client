@@ -127,11 +127,11 @@ export function GetVideoGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function GetVideoGenerationTagsResponseToJSON(json: any): GetVideoGenerationTagsResponse {
-      return GetVideoGenerationTagsResponseToJSONTyped(json, false);
-  }
+export function GetVideoGenerationTagsResponseToJSON(json: any): GetVideoGenerationTagsResponse {
+    return GetVideoGenerationTagsResponseToJSONTyped(json, false);
+}
 
-  export function GetVideoGenerationTagsResponseToJSONTyped(value?: GetVideoGenerationTagsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetVideoGenerationTagsResponseToJSONTyped(value?: GetVideoGenerationTagsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

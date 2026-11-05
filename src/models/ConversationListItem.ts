@@ -120,11 +120,11 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function ConversationListItemToJSON(json: any): ConversationListItem {
-      return ConversationListItemToJSONTyped(json, false);
-  }
+export function ConversationListItemToJSON(json: any): ConversationListItem {
+    return ConversationListItemToJSONTyped(json, false);
+}
 
-  export function ConversationListItemToJSONTyped(value?: ConversationListItem | null, ignoreDiscriminator: boolean = false): any {
+export function ConversationListItemToJSONTyped(value?: ConversationListItem | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

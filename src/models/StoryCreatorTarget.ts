@@ -126,11 +126,11 @@ export function StoryCreatorTargetFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function StoryCreatorTargetToJSON(json: any): StoryCreatorTarget {
-      return StoryCreatorTargetToJSONTyped(json, false);
-  }
+export function StoryCreatorTargetToJSON(json: any): StoryCreatorTarget {
+    return StoryCreatorTargetToJSONTyped(json, false);
+}
 
-  export function StoryCreatorTargetToJSONTyped(value?: StoryCreatorTarget | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorTargetToJSONTyped(value?: StoryCreatorTarget | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

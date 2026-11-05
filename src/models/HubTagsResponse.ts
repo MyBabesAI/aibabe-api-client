@@ -57,11 +57,11 @@ export function HubTagsResponseFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-  export function HubTagsResponseToJSON(json: any): HubTagsResponse {
-      return HubTagsResponseToJSONTyped(json, false);
-  }
+export function HubTagsResponseToJSON(json: any): HubTagsResponse {
+    return HubTagsResponseToJSONTyped(json, false);
+}
 
-  export function HubTagsResponseToJSONTyped(value?: HubTagsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function HubTagsResponseToJSONTyped(value?: HubTagsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
