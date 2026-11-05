@@ -53,6 +53,7 @@ function ScenarioChatInfoFromJSONTyped(json, ignoreDiscriminator) {
         'newerVersionExists': json['newer_version_exists'],
         'title': json['title'],
         'premise': json['premise'],
+        'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
         'deleted': json['deleted'] == null ? undefined : json['deleted'],
     };
 }
@@ -71,6 +72,7 @@ function ScenarioChatInfoToJSONTyped(value, ignoreDiscriminator = false) {
         'newer_version_exists': value['newerVersionExists'],
         'title': value['title'],
         'premise': value['premise'],
+        'cover_url': value['coverUrl'],
         'deleted': value['deleted'],
     };
 }

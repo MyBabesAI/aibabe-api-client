@@ -59,6 +59,12 @@ export interface ScenarioChatInfo {
     premise: string;
     /**
      *
+     * @type {string}
+     * @memberof ScenarioChatInfo
+     */
+    coverUrl?: string | null;
+    /**
+     *
      * @type {boolean}
      * @memberof ScenarioChatInfo
      */

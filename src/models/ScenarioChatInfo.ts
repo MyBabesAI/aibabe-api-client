@@ -63,6 +63,12 @@ export interface ScenarioChatInfo {
     premise: string;
     /**
      * 
+     * @type {string}
+     * @memberof ScenarioChatInfo
+     */
+    coverUrl?: string | null;
+    /**
+     * 
      * @type {boolean}
      * @memberof ScenarioChatInfo
      */
@@ -100,6 +106,7 @@ export function ScenarioChatInfoFromJSONTyped(json: any, ignoreDiscriminator: bo
         'newerVersionExists': json['newer_version_exists'],
         'title': json['title'],
         'premise': json['premise'],
+        'coverUrl': json['cover_url'] == null ? undefined : json['cover_url'],
         'deleted': json['deleted'] == null ? undefined : json['deleted'],
     };
 }
@@ -122,6 +129,7 @@ export function ScenarioChatInfoFromJSONTyped(json: any, ignoreDiscriminator: bo
         'newer_version_exists': value['newerVersionExists'],
         'title': value['title'],
         'premise': value['premise'],
+        'cover_url': value['coverUrl'],
         'deleted': value['deleted'],
     };
 }
