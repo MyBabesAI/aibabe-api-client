@@ -84,6 +84,12 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     model?: ImageToVideoModel | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof VideoContent
+     */
+    hasRecipe?: boolean;
 }
 /**
  * Check if a given object implements the VideoContent interface.

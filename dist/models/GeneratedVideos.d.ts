@@ -129,6 +129,12 @@ export interface GeneratedVideos {
      * @memberof GeneratedVideos
      */
     model?: ImageToVideoModel | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GeneratedVideos
+     */
+    hasRecipe?: boolean;
 }
 /**
  * @export

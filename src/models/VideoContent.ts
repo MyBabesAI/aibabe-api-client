@@ -107,6 +107,12 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     model?: ImageToVideoModel | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof VideoContent
+     */
+    hasRecipe?: boolean;
 }
 
 
@@ -144,6 +150,7 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'originalImageUrl': json['original_image_url'],
         'durationSeconds': json['duration_seconds'] == null ? undefined : json['duration_seconds'],
         'model': json['model'] == null ? undefined : ImageToVideoModelFromJSON(json['model']),
+        'hasRecipe': json['has_recipe'] == null ? undefined : json['has_recipe'],
     };
 }
 
@@ -169,6 +176,7 @@ export function VideoContentToJSONTyped(value?: VideoContent | null, ignoreDiscr
         'original_image_url': value['originalImageUrl'],
         'duration_seconds': value['durationSeconds'],
         'model': ImageToVideoModelToJSON(value['model']),
+        'has_recipe': value['hasRecipe'],
     };
 }
 

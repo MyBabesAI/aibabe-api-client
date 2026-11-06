@@ -170,6 +170,12 @@ export interface GeneratedVideos {
      * @memberof GeneratedVideos
      */
     model?: ImageToVideoModel | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GeneratedVideos
+     */
+    hasRecipe?: boolean;
 }
 
 
@@ -229,6 +235,7 @@ export function GeneratedVideosFromJSONTyped(json: any, ignoreDiscriminator: boo
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'model': json['model'] == null ? undefined : ImageToVideoModelFromJSON(json['model']),
+        'hasRecipe': json['has_recipe'] == null ? undefined : json['has_recipe'],
     };
 }
 
@@ -261,6 +268,7 @@ export function GeneratedVideosToJSONTyped(value?: GeneratedVideos | null, ignor
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'model': ImageToVideoModelToJSON(value['model']),
+        'has_recipe': value['hasRecipe'],
     };
 }
 

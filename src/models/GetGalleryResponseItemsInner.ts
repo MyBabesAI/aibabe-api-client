@@ -261,6 +261,12 @@ export interface GetGalleryResponseItemsInner {
     model?: ImageToVideoModel;
     /**
      * 
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    hasRecipe?: boolean;
+    /**
+     * 
      * @type {string}
      * @memberof GetGalleryResponseItemsInner
      */
@@ -409,6 +415,7 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'model': json['model'] == null ? undefined : ImageToVideoModelFromJSON(json['model']),
+        'hasRecipe': json['has_recipe'] == null ? undefined : json['has_recipe'],
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
@@ -457,6 +464,7 @@ export function GetGalleryResponseItemsInnerToJSONTyped(value?: GetGalleryRespon
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'model': ImageToVideoModelToJSON(value['model']),
+        'has_recipe': value['hasRecipe'],
         'title': value['title'],
         'description': value['description'],
         'cover_image': value['coverImage'],

@@ -86,6 +86,7 @@ function GeneratedVideosFromJSONTyped(json, ignoreDiscriminator) {
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'model': json['model'] == null ? undefined : (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
+        'hasRecipe': json['has_recipe'] == null ? undefined : json['has_recipe'],
     };
 }
 function GeneratedVideosToJSON(json) {
@@ -114,6 +115,7 @@ function GeneratedVideosToJSONTyped(value, ignoreDiscriminator = false) {
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
+        'has_recipe': value['hasRecipe'],
     };
 }
 //# sourceMappingURL=GeneratedVideos.js.map

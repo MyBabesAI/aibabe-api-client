@@ -151,6 +151,12 @@ export interface GetGalleryResponseItemsInner {
     model?: ImageToVideoModel;
     /**
      *
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    hasRecipe?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof GetGalleryResponseItemsInner
      */

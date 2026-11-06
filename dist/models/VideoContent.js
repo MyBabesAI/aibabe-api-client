@@ -56,6 +56,7 @@ function VideoContentFromJSONTyped(json, ignoreDiscriminator) {
         'originalImageUrl': json['original_image_url'],
         'durationSeconds': json['duration_seconds'] == null ? undefined : json['duration_seconds'],
         'model': json['model'] == null ? undefined : (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
+        'hasRecipe': json['has_recipe'] == null ? undefined : json['has_recipe'],
     };
 }
 function VideoContentToJSON(json) {
@@ -77,6 +78,7 @@ function VideoContentToJSONTyped(value, ignoreDiscriminator = false) {
         'original_image_url': value['originalImageUrl'],
         'duration_seconds': value['durationSeconds'],
         'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
+        'has_recipe': value['hasRecipe'],
     };
 }
 //# sourceMappingURL=VideoContent.js.map
