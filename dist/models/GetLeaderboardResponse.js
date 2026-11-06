@@ -36,6 +36,8 @@ function GetLeaderboardResponseFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'leaderboard': (json['leaderboard'].map(LeaderboardEntry_1.LeaderboardEntryFromJSON)),
+        'viewer': json['viewer'] == null ? undefined : (0, LeaderboardEntry_1.LeaderboardEntryFromJSON)(json['viewer']),
+        'paginationToken': json['pagination_token'] == null ? undefined : json['pagination_token'],
     };
 }
 function GetLeaderboardResponseToJSON(json) {
@@ -47,6 +49,8 @@ function GetLeaderboardResponseToJSONTyped(value, ignoreDiscriminator = false) {
     }
     return {
         'leaderboard': (value['leaderboard'].map(LeaderboardEntry_1.LeaderboardEntryToJSON)),
+        'viewer': (0, LeaderboardEntry_1.LeaderboardEntryToJSON)(value['viewer']),
+        'pagination_token': value['paginationToken'],
     };
 }
 //# sourceMappingURL=GetLeaderboardResponse.js.map

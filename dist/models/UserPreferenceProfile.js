@@ -18,6 +18,7 @@ exports.UserPreferenceProfileFromJSON = UserPreferenceProfileFromJSON;
 exports.UserPreferenceProfileFromJSONTyped = UserPreferenceProfileFromJSONTyped;
 exports.UserPreferenceProfileToJSON = UserPreferenceProfileToJSON;
 exports.UserPreferenceProfileToJSONTyped = UserPreferenceProfileToJSONTyped;
+const Language_1 = require("./Language");
 const LLM_1 = require("./LLM");
 const ImageSendingMode_1 = require("./ImageSendingMode");
 /**
@@ -39,6 +40,7 @@ function UserPreferenceProfileFromJSONTyped(json, ignoreDiscriminator) {
         'preferredOrientations': json['preferred_orientations'] == null ? undefined : json['preferred_orientations'],
         'pronouns': json['pronouns'] == null ? undefined : json['pronouns'],
         'chatNickname': json['chat_nickname'] == null ? undefined : json['chat_nickname'],
+        'language': json['language'] == null ? undefined : (0, Language_1.LanguageFromJSON)(json['language']),
         'llmModel': json['llm_model'] == null ? undefined : (0, LLM_1.LLMFromJSON)(json['llm_model']),
         'chatNympho': json['chat_nympho'] == null ? undefined : json['chat_nympho'],
         'chatAutoSuggestions': json['chat_auto_suggestions'] == null ? undefined : json['chat_auto_suggestions'],
@@ -65,6 +67,7 @@ function UserPreferenceProfileToJSONTyped(value, ignoreDiscriminator = false) {
         'preferred_orientations': value['preferredOrientations'],
         'pronouns': value['pronouns'],
         'chat_nickname': value['chatNickname'],
+        'language': (0, Language_1.LanguageToJSON)(value['language']),
         'llm_model': (0, LLM_1.LLMToJSON)(value['llmModel']),
         'chat_nympho': value['chatNympho'],
         'chat_auto_suggestions': value['chatAutoSuggestions'],

@@ -205,6 +205,7 @@ export const ExceptionCode = {
     ShareVideoNonOwnedForbidden: 'share_video_non_owned_forbidden',
     ShareImageNonOwnedForbidden: 'share_image_non_owned_forbidden',
     ShareCharacterNonOwnedForbidden: 'share_character_non_owned_forbidden',
+    ShareMediaNotFinished: 'share_media_not_finished',
     CharacterNotFound: 'character_not_found',
     InvalidPlanId: 'invalid_plan_id',
     InvalidAddonId: 'invalid_addon_id',
@@ -249,6 +250,7 @@ export const ExceptionCode = {
     NotificationNotCreated: 'notification_not_created',
     NotificationNotFound: 'notification_not_found',
     NotificationNotDeletable: 'notification_not_deletable',
+    AnnouncementNotFound: 'announcement_not_found',
     AgeVerificationDisabled: 'age_verification_disabled',
     AgeVerificationInvalidPayload: 'age_verification_invalid_payload',
     AgeVerificationTicketNotFound: 'age_verification_ticket_not_found',
@@ -259,6 +261,7 @@ export const ExceptionCode = {
     StoryEpisodeSequentialLocked: 'story_episode_sequential_locked',
     StoryEpisodeLocked: 'story_episode_locked',
     StoryEpisodeNotPlayable: 'story_episode_not_playable',
+    StoryChatPanelNotWon: 'story_chat_panel_not_won',
     StoryEpisodeInteractive: 'story_episode_interactive',
     StoryChatPanelTargetsRequired: 'story_chat_panel_targets_required',
     StoryEpisodeRatingRequiresPlay: 'story_episode_rating_requires_play',
@@ -274,7 +277,8 @@ export const ExceptionCode = {
     PromotionOverlap: 'promotion_overlap',
     GalleryChatbotFilterConflict: 'gallery_chatbot_filter_conflict',
     GalleryOwnerFilterInvalid: 'gallery_owner_filter_invalid',
-    GalleryFolderNotFound: 'gallery_folder_not_found'
+    GalleryFolderNotFound: 'gallery_folder_not_found',
+    BillingReconciliationInProgress: 'billing_reconciliation_in_progress'
 } as const;
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 

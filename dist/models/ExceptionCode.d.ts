@@ -201,6 +201,7 @@ export declare const ExceptionCode: {
     readonly ShareVideoNonOwnedForbidden: "share_video_non_owned_forbidden";
     readonly ShareImageNonOwnedForbidden: "share_image_non_owned_forbidden";
     readonly ShareCharacterNonOwnedForbidden: "share_character_non_owned_forbidden";
+    readonly ShareMediaNotFinished: "share_media_not_finished";
     readonly CharacterNotFound: "character_not_found";
     readonly InvalidPlanId: "invalid_plan_id";
     readonly InvalidAddonId: "invalid_addon_id";
@@ -245,6 +246,7 @@ export declare const ExceptionCode: {
     readonly NotificationNotCreated: "notification_not_created";
     readonly NotificationNotFound: "notification_not_found";
     readonly NotificationNotDeletable: "notification_not_deletable";
+    readonly AnnouncementNotFound: "announcement_not_found";
     readonly AgeVerificationDisabled: "age_verification_disabled";
     readonly AgeVerificationInvalidPayload: "age_verification_invalid_payload";
     readonly AgeVerificationTicketNotFound: "age_verification_ticket_not_found";
@@ -255,6 +257,7 @@ export declare const ExceptionCode: {
     readonly StoryEpisodeSequentialLocked: "story_episode_sequential_locked";
     readonly StoryEpisodeLocked: "story_episode_locked";
     readonly StoryEpisodeNotPlayable: "story_episode_not_playable";
+    readonly StoryChatPanelNotWon: "story_chat_panel_not_won";
     readonly StoryEpisodeInteractive: "story_episode_interactive";
     readonly StoryChatPanelTargetsRequired: "story_chat_panel_targets_required";
     readonly StoryEpisodeRatingRequiresPlay: "story_episode_rating_requires_play";
@@ -271,6 +274,7 @@ export declare const ExceptionCode: {
     readonly GalleryChatbotFilterConflict: "gallery_chatbot_filter_conflict";
     readonly GalleryOwnerFilterInvalid: "gallery_owner_filter_invalid";
     readonly GalleryFolderNotFound: "gallery_folder_not_found";
+    readonly BillingReconciliationInProgress: "billing_reconciliation_in_progress";
 };
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];
 export declare function instanceOfExceptionCode(value: any): boolean;

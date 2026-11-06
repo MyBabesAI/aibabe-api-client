@@ -16,6 +16,7 @@ import type { UserEpisodeProgressType } from './UserEpisodeProgressType';
 import type { StoryCreatorEpisodePrice } from './StoryCreatorEpisodePrice';
 import type { EpisodeCounts } from './EpisodeCounts';
 import type { EpisodeVisibility } from './EpisodeVisibility';
+import type { EpisodePanelType } from './EpisodePanelType';
 import type { EpisodeRating } from './EpisodeRating';
 import type { AccessType } from './AccessType';
 /**
@@ -198,6 +199,12 @@ export interface StoryCreatorEpisode {
      * @memberof StoryCreatorEpisode
      */
     sessions?: Array<StoryCreatorSessionSummary>;
+    /**
+     *
+     * @type {Array<EpisodePanelType>}
+     * @memberof StoryCreatorEpisode
+     */
+    panelTypes?: Array<EpisodePanelType>;
 }
 /**
  * Check if a given object implements the StoryCreatorEpisode interface.

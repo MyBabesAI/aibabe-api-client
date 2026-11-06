@@ -62,6 +62,13 @@ import {
     ContentTypeToJSON,
     ContentTypeToJSONTyped,
 } from './ContentType';
+import type { AnnouncementNotification } from './AnnouncementNotification';
+import {
+    AnnouncementNotificationFromJSON,
+    AnnouncementNotificationFromJSONTyped,
+    AnnouncementNotificationToJSON,
+    AnnouncementNotificationToJSONTyped,
+} from './AnnouncementNotification';
 import type { BadgeAwardedNotification } from './BadgeAwardedNotification';
 import {
     BadgeAwardedNotificationFromJSON,
@@ -367,6 +374,24 @@ export interface NotificationItemsResponseNotificationsInner {
      * @memberof NotificationItemsResponseNotificationsInner
      */
     card: BlacklistCard;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationItemsResponseNotificationsInner
+     */
+    title: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationItemsResponseNotificationsInner
+     */
+    body?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof NotificationItemsResponseNotificationsInner
+     */
+    url?: string;
 }
 
 
@@ -396,6 +421,7 @@ export function instanceOfNotificationItemsResponseNotificationsInner(value: obj
     if (!('targetId' in value) || value['targetId'] === undefined) return false;
     if (!('galleryTab' in value) || value['galleryTab'] === undefined) return false;
     if (!('card' in value) || value['card'] === undefined) return false;
+    if (!('title' in value) || value['title'] === undefined) return false;
     return true;
 }
 
@@ -440,6 +466,9 @@ export function NotificationItemsResponseNotificationsInnerFromJSONTyped(json: a
         'targetId': json['target_id'],
         'galleryTab': GalleryTabFromJSON(json['gallery_tab']),
         'card': BlacklistCardFromJSON(json['card']),
+        'title': json['title'],
+        'body': json['body'] == null ? undefined : json['body'],
+        'url': json['url'] == null ? undefined : json['url'],
     };
 }
 
@@ -485,6 +514,9 @@ export function NotificationItemsResponseNotificationsInnerFromJSONTyped(json: a
         'target_id': value['targetId'],
         'gallery_tab': GalleryTabToJSON(value['galleryTab']),
         'card': BlacklistCardToJSON(value['card']),
+        'title': value['title'],
+        'body': value['body'],
+        'url': value['url'],
     };
 }
 

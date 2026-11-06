@@ -22,6 +22,11 @@ export declare const LLM: {
     readonly Serenity: "serenity";
     readonly Scarlett: "scarlett";
     readonly ScarlettPremium: "scarlett_premium";
+    readonly MimoPro: "mimo_pro";
+    readonly DeepseekPro: "deepseek_pro";
+    readonly MinimaxM3: "minimax_m3";
+    readonly Glm53: "glm_53";
+    readonly KimiK26: "kimi_k26";
     readonly LemonadePremium: "lemonade_premium";
     readonly GemmaPremium: "gemma_premium";
     readonly Shieldstral: "shieldstral";
