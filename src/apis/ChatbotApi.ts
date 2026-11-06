@@ -39,6 +39,8 @@ import type {
   PostAdvancedIdentityPayload,
   PostAdvancedPersonalityPayload,
   PostAdvancedRecreateResponse,
+  PostAppearanceDescribeRequest,
+  PostAppearanceDescribeResponse,
   PostAppearanceJobResponse,
   PostAppearanceProfilePictureRequest,
   PostAppearanceReferenceImagesRequest,
@@ -106,6 +108,10 @@ import {
     PostAdvancedPersonalityPayloadToJSON,
     PostAdvancedRecreateResponseFromJSON,
     PostAdvancedRecreateResponseToJSON,
+    PostAppearanceDescribeRequestFromJSON,
+    PostAppearanceDescribeRequestToJSON,
+    PostAppearanceDescribeResponseFromJSON,
+    PostAppearanceDescribeResponseToJSON,
     PostAppearanceJobResponseFromJSON,
     PostAppearanceJobResponseToJSON,
     PostAppearanceProfilePictureRequestFromJSON,
@@ -238,6 +244,11 @@ export interface PostAboutChatbotAdvancedAboutPostRequest {
 
 export interface PostCharacterBuilderSuggestionChatbotAdvancedSuggestionPostRequest {
     postAdvancedCharacterBuilderSuggestionPayload: PostAdvancedCharacterBuilderSuggestionPayload;
+}
+
+export interface PostCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePostRequest {
+    chatbotId: string;
+    postAppearanceDescribeRequest: PostAppearanceDescribeRequest;
 }
 
 export interface PostCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePostRequest {
@@ -1104,6 +1115,51 @@ export class ChatbotApi extends runtime.BaseAPI {
      */
     async postCharacterBuilderSuggestionChatbotAdvancedSuggestionPost(requestParameters: PostCharacterBuilderSuggestionChatbotAdvancedSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAdvancedCharacterBuilderSuggestionResponse> {
         const response = await this.postCharacterBuilderSuggestionChatbotAdvancedSuggestionPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * AI Describe for the Customize box, free and stored nowhere. Target `description`: a general description written from who she is (name, gender, bio, personality, the dialog\'s wording as a hint), with the three view texts after it, as the builder\'s AI Describe. Target `views`: the named views\' texts (all when none is named) written from the dialog\'s description, or from her compiled appearance when that is empty (409 `appearance_description_required` with neither). A view the answer lacked comes back null.
+     * Post Custom Chatbot Appearance Describe
+     */
+    async postCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePostRaw(requestParameters: PostCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAppearanceDescribeResponse>> {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling postCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePost().'
+            );
+        }
+
+        if (requestParameters['postAppearanceDescribeRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postAppearanceDescribeRequest',
+                'Required parameter "postAppearanceDescribeRequest" was null or undefined when calling postCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chatbot/custom/{chatbot_id}/appearance/describe`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostAppearanceDescribeRequestToJSON(requestParameters['postAppearanceDescribeRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostAppearanceDescribeResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * AI Describe for the Customize box, free and stored nowhere. Target `description`: a general description written from who she is (name, gender, bio, personality, the dialog\'s wording as a hint), with the three view texts after it, as the builder\'s AI Describe. Target `views`: the named views\' texts (all when none is named) written from the dialog\'s description, or from her compiled appearance when that is empty (409 `appearance_description_required` with neither). A view the answer lacked comes back null.
+     * Post Custom Chatbot Appearance Describe
+     */
+    async postCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePost(requestParameters: PostCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAppearanceDescribeResponse> {
+        const response = await this.postCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

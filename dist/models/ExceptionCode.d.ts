@@ -345,6 +345,7 @@ export declare const ExceptionCode: {
     readonly ReferenceImagesRequireProfilePicture: "reference_images_require_profile_picture";
     readonly AppearanceNotEditable: "appearance_not_editable";
     readonly AppearanceProfilePictureRequired: "appearance_profile_picture_required";
+    readonly AppearanceDescriptionRequired: "appearance_description_required";
     readonly ImageSubjectLimitExceeded: "image_subject_limit_exceeded";
     readonly ImageCastRequiresSentenceStyle: "image_cast_requires_sentence_style";
     readonly ChatbotRequiresSentenceStyle: "chatbot_requires_sentence_style";

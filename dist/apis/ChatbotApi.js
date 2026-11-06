@@ -666,6 +666,37 @@ class ChatbotApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * AI Describe for the Customize box, free and stored nowhere. Target `description`: a general description written from who she is (name, gender, bio, personality, the dialog\'s wording as a hint), with the three view texts after it, as the builder\'s AI Describe. Target `views`: the named views\' texts (all when none is named) written from the dialog\'s description, or from her compiled appearance when that is empty (409 `appearance_description_required` with neither). A view the answer lacked comes back null.
+     * Post Custom Chatbot Appearance Describe
+     */
+    async postCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePostRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling postCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePost().');
+        }
+        if (requestParameters['postAppearanceDescribeRequest'] == null) {
+            throw new runtime.RequiredError('postAppearanceDescribeRequest', 'Required parameter "postAppearanceDescribeRequest" was null or undefined when calling postCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chatbot/custom/{chatbot_id}/appearance/describe`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostAppearanceDescribeRequestToJSON)(requestParameters['postAppearanceDescribeRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostAppearanceDescribeResponseFromJSON)(jsonValue));
+    }
+    /**
+     * AI Describe for the Customize box, free and stored nowhere. Target `description`: a general description written from who she is (name, gender, bio, personality, the dialog\'s wording as a hint), with the three view texts after it, as the builder\'s AI Describe. Target `views`: the named views\' texts (all when none is named) written from the dialog\'s description, or from her compiled appearance when that is empty (409 `appearance_description_required` with neither). A view the answer lacked comes back null.
+     * Post Custom Chatbot Appearance Describe
+     */
+    async postCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePost(requestParameters, initOverrides) {
+        const response = await this.postCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Renders a profile picture from the general description, in the character\'s own art style, one creator generation. Nothing on the character changes: the render and the view texts rewritten from the appearance join the edit\'s attempts until one is saved. The picture stays in the gallery whatever happens: under the character when the description is her current one, as a scene otherwise. The description goes through the builder\'s picture-page review (403 with the reason). The result arrives on `custom_chatbot_generation_status_change`.
      * Post Custom Chatbot Appearance Profile Picture
      */

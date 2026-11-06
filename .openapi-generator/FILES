@@ -81,6 +81,7 @@ src/models/AgeVerificationAlternativeProvider.ts
 src/models/AgeVerificationStatusResponse.ts
 src/models/AnnouncementNotification.ts
 src/models/AppearanceAttempt.ts
+src/models/AppearanceDescribeTarget.ts
 src/models/AppearanceDraft.ts
 src/models/AppearanceReference.ts
 src/models/AppearanceStagedReference.ts
@@ -374,6 +375,8 @@ src/models/PostAdvancedPersonalityPayload.ts
 src/models/PostAdvancedRecreateResponse.ts
 src/models/PostAnonymousChatRequest.ts
 src/models/PostAnonymousChatResponse.ts
+src/models/PostAppearanceDescribeRequest.ts
+src/models/PostAppearanceDescribeResponse.ts
 src/models/PostAppearanceJobResponse.ts
 src/models/PostAppearanceProfilePictureRequest.ts
 src/models/PostAppearanceReferenceImagesRequest.ts

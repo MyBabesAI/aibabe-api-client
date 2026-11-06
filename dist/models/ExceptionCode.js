@@ -355,6 +355,7 @@ exports.ExceptionCode = {
     ReferenceImagesRequireProfilePicture: 'reference_images_require_profile_picture',
     AppearanceNotEditable: 'appearance_not_editable',
     AppearanceProfilePictureRequired: 'appearance_profile_picture_required',
+    AppearanceDescriptionRequired: 'appearance_description_required',
     ImageSubjectLimitExceeded: 'image_subject_limit_exceeded',
     ImageCastRequiresSentenceStyle: 'image_cast_requires_sentence_style',
     ChatbotRequiresSentenceStyle: 'chatbot_requires_sentence_style',

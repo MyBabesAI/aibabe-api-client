@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, CharacterAboutPageReview, CharacterIdentityPageReview, CharacterPersonalityPageReview, ChatbotType, GetAboutChatbotResponse, GetAppearanceResponse, GetChatbotListResponse, GetChatbotResponse, GetCustomChatbotResponse, GetIdentityChatbotResponse, GetImageLooksResponse, GetPersonalityChatbotResponse, GetReferenceImagesResponse, PatchCustomChatbotRequest, PostAdvancedCharacterBuilderSuggestionPayload, PostAdvancedCharacterBuilderSuggestionResponse, PostAdvancedChatbotProfilePicture, PostAdvancedChatbotPublishPayload, PostAdvancedChatbotPublishResponse, PostAdvancedIdentityPayload, PostAdvancedPersonalityPayload, PostAdvancedRecreateResponse, PostAppearanceJobResponse, PostAppearanceProfilePictureRequest, PostAppearanceReferenceImagesRequest, PostCustomAboutPagePayload, PostCustomChatbotResponse, PostCustomChatbotV2Payload, PostMigrateStyleRequest, PostMigrateStyleResponse, PostProfilePictureResponse, PostReferenceImagesRequest, PostReferenceImagesResponse, PostSelfDescriptionResponse, PutAppearanceRequest, PutWardrobeRequest, SortFilter, VisibilityFilter, Wardrobe } from '../models/index';
+import type { ArtStyle, CharacterAboutPageReview, CharacterIdentityPageReview, CharacterPersonalityPageReview, ChatbotType, GetAboutChatbotResponse, GetAppearanceResponse, GetChatbotListResponse, GetChatbotResponse, GetCustomChatbotResponse, GetIdentityChatbotResponse, GetImageLooksResponse, GetPersonalityChatbotResponse, GetReferenceImagesResponse, PatchCustomChatbotRequest, PostAdvancedCharacterBuilderSuggestionPayload, PostAdvancedCharacterBuilderSuggestionResponse, PostAdvancedChatbotProfilePicture, PostAdvancedChatbotPublishPayload, PostAdvancedChatbotPublishResponse, PostAdvancedIdentityPayload, PostAdvancedPersonalityPayload, PostAdvancedRecreateResponse, PostAppearanceDescribeRequest, PostAppearanceDescribeResponse, PostAppearanceJobResponse, PostAppearanceProfilePictureRequest, PostAppearanceReferenceImagesRequest, PostCustomAboutPagePayload, PostCustomChatbotResponse, PostCustomChatbotV2Payload, PostMigrateStyleRequest, PostMigrateStyleResponse, PostProfilePictureResponse, PostReferenceImagesRequest, PostReferenceImagesResponse, PostSelfDescriptionResponse, PutAppearanceRequest, PutWardrobeRequest, SortFilter, VisibilityFilter, Wardrobe } from '../models/index';
 export interface AttachmentChatbotChatbotIdAttachmentGetRequest {
     chatbotId: string;
     imageName: string;
@@ -87,6 +87,10 @@ export interface PostAboutChatbotAdvancedAboutPostRequest {
 }
 export interface PostCharacterBuilderSuggestionChatbotAdvancedSuggestionPostRequest {
     postAdvancedCharacterBuilderSuggestionPayload: PostAdvancedCharacterBuilderSuggestionPayload;
+}
+export interface PostCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePostRequest {
+    chatbotId: string;
+    postAppearanceDescribeRequest: PostAppearanceDescribeRequest;
 }
 export interface PostCustomChatbotAppearanceProfilePictureChatbotCustomChatbotIdAppearanceProfilePicturePostRequest {
     chatbotId: string;
@@ -307,6 +311,16 @@ export declare class ChatbotApi extends runtime.BaseAPI {
      * Post Character Builder Suggestion
      */
     postCharacterBuilderSuggestionChatbotAdvancedSuggestionPost(requestParameters: PostCharacterBuilderSuggestionChatbotAdvancedSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAdvancedCharacterBuilderSuggestionResponse>;
+    /**
+     * AI Describe for the Customize box, free and stored nowhere. Target `description`: a general description written from who she is (name, gender, bio, personality, the dialog\'s wording as a hint), with the three view texts after it, as the builder\'s AI Describe. Target `views`: the named views\' texts (all when none is named) written from the dialog\'s description, or from her compiled appearance when that is empty (409 `appearance_description_required` with neither). A view the answer lacked comes back null.
+     * Post Custom Chatbot Appearance Describe
+     */
+    postCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePostRaw(requestParameters: PostCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAppearanceDescribeResponse>>;
+    /**
+     * AI Describe for the Customize box, free and stored nowhere. Target `description`: a general description written from who she is (name, gender, bio, personality, the dialog\'s wording as a hint), with the three view texts after it, as the builder\'s AI Describe. Target `views`: the named views\' texts (all when none is named) written from the dialog\'s description, or from her compiled appearance when that is empty (409 `appearance_description_required` with neither). A view the answer lacked comes back null.
+     * Post Custom Chatbot Appearance Describe
+     */
+    postCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePost(requestParameters: PostCustomChatbotAppearanceDescribeChatbotCustomChatbotIdAppearanceDescribePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAppearanceDescribeResponse>;
     /**
      * Renders a profile picture from the general description, in the character\'s own art style, one creator generation. Nothing on the character changes: the render and the view texts rewritten from the appearance join the edit\'s attempts until one is saved. The picture stays in the gallery whatever happens: under the character when the description is her current one, as a scene otherwise. The description goes through the builder\'s picture-page review (403 with the reason). The result arrives on `custom_chatbot_generation_status_change`.
      * Post Custom Chatbot Appearance Profile Picture
