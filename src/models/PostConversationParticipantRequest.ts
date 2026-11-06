@@ -37,6 +37,12 @@ export interface PostConversationParticipantRequest {
      * @memberof PostConversationParticipantRequest
      */
     requestId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostConversationParticipantRequest
+     */
+    hostChatbotId?: string | null;
 }
 
 /**
@@ -60,6 +66,7 @@ export function PostConversationParticipantRequestFromJSONTyped(json: any, ignor
         'chatbotId': json['chatbot_id'],
         'introduction': json['introduction'] == null ? undefined : json['introduction'],
         'requestId': json['request_id'] == null ? undefined : json['request_id'],
+        'hostChatbotId': json['host_chatbot_id'] == null ? undefined : json['host_chatbot_id'],
     };
 }
 
@@ -77,6 +84,7 @@ export function PostConversationParticipantRequestFromJSONTyped(json: any, ignor
         'chatbot_id': value['chatbotId'],
         'introduction': value['introduction'],
         'request_id': value['requestId'],
+        'host_chatbot_id': value['hostChatbotId'],
     };
 }
 

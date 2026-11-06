@@ -37,6 +37,7 @@ function PostConversationParticipantRequestFromJSONTyped(json, ignoreDiscriminat
         'chatbotId': json['chatbot_id'],
         'introduction': json['introduction'] == null ? undefined : json['introduction'],
         'requestId': json['request_id'] == null ? undefined : json['request_id'],
+        'hostChatbotId': json['host_chatbot_id'] == null ? undefined : json['host_chatbot_id'],
     };
 }
 function PostConversationParticipantRequestToJSON(json) {
@@ -50,6 +51,7 @@ function PostConversationParticipantRequestToJSONTyped(value, ignoreDiscriminato
         'chatbot_id': value['chatbotId'],
         'introduction': value['introduction'],
         'request_id': value['requestId'],
+        'host_chatbot_id': value['hostChatbotId'],
     };
 }
 //# sourceMappingURL=PostConversationParticipantRequest.js.map
