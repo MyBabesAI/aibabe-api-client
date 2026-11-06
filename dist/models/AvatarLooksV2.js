@@ -31,8 +31,6 @@ const HairStyle_1 = require("./HairStyle");
 function instanceOfAvatarLooksV2(value) {
     if (!('bodyType' in value) || value['bodyType'] === undefined)
         return false;
-    if (!('hairColor' in value) || value['hairColor'] === undefined)
-        return false;
     return true;
 }
 function AvatarLooksV2FromJSON(json) {
@@ -44,7 +42,7 @@ function AvatarLooksV2FromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'bodyType': (0, BodyType_1.BodyTypeFromJSON)(json['body_type']),
-        'hairColor': (0, HairColor_1.HairColorFromJSON)(json['hair_color']),
+        'hairColor': json['hair_color'] == null ? undefined : (0, HairColor_1.HairColorFromJSON)(json['hair_color']),
         'hairStyle': json['hair_style'] == null ? undefined : (0, HairStyle_1.HairStyleFromJSON)(json['hair_style']),
         'beard': json['beard'] == null ? undefined : (0, BeardStyle_1.BeardStyleFromJSON)(json['beard']),
         'breastSize': json['breast_size'] == null ? undefined : (0, BreastSize_1.BreastSizeFromJSON)(json['breast_size']),

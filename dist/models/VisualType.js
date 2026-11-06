@@ -54,7 +54,24 @@ exports.VisualType = {
     Soldier: 'soldier',
     OldMoney: 'old_money',
     Vampire: 'vampire',
-    GreekGod: 'greek_god'
+    GreekGod: 'greek_god',
+    GymBaddie: 'gym_baddie',
+    CityGirl: 'city_girl',
+    Cosplay: 'cosplay',
+    KittyGirl: 'kitty_girl',
+    CarGirl: 'car_girl',
+    Mykonos: 'mykonos',
+    RichGirl: 'rich_girl',
+    GamerKitty: 'gamer_kitty',
+    SkateGirl: 'skate_girl',
+    GothicNinja: 'gothic_ninja',
+    CuteGenz: 'cute_genz',
+    ModernBeauty: 'modern_beauty',
+    Elegant: 'elegant',
+    Casual: 'casual',
+    Hippie: 'hippie',
+    Fishnets: 'fishnets',
+    BeachGirl: 'beach_girl'
 };
 function instanceOfVisualType(value) {
     for (const key in exports.VisualType) {

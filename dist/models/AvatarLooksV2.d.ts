@@ -33,7 +33,7 @@ export interface AvatarLooksV2 {
      * @type {HairColor}
      * @memberof AvatarLooksV2
      */
-    hairColor: HairColor;
+    hairColor?: HairColor;
     /**
      *
      * @type {HairStyle}
