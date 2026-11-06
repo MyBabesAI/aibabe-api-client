@@ -267,6 +267,7 @@ exports.ExceptionCode = {
     ShareVideoNonOwnedForbidden: 'share_video_non_owned_forbidden',
     ShareImageNonOwnedForbidden: 'share_image_non_owned_forbidden',
     ShareCharacterNonOwnedForbidden: 'share_character_non_owned_forbidden',
+    ShareMediaNotFinished: 'share_media_not_finished',
     CharacterNotFound: 'character_not_found',
     InvalidPlanId: 'invalid_plan_id',
     InvalidAddonId: 'invalid_addon_id',
@@ -360,7 +361,8 @@ exports.ExceptionCode = {
     PersonaExists: 'persona_exists',
     PersonaLimitReached: 'persona_limit_reached',
     PersonaStyleTaken: 'persona_style_taken',
-    PersonaSourceNotOwn: 'persona_source_not_own'
+    PersonaSourceNotOwn: 'persona_source_not_own',
+    BillingReconciliationInProgress: 'billing_reconciliation_in_progress'
 };
 function instanceOfExceptionCode(value) {
     for (const key in exports.ExceptionCode) {
