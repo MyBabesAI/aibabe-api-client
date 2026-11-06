@@ -19,13 +19,14 @@ export declare const LLM: {
     readonly Qwen3: "qwen3";
     readonly Qwen3Premium: "qwen3_premium";
     readonly Gemma4Instruct: "gemma4_instruct";
-    readonly Gemma4InstructOptimized: "gemma4_instruct_optimized";
     readonly Serenity: "serenity";
     readonly Scarlett: "scarlett";
     readonly ScarlettPremium: "scarlett_premium";
-    readonly ScarlettOptimized: "scarlett_optimized";
-    readonly ScarlettPremiumOptimized: "scarlett_premium_optimized";
     readonly MimoPro: "mimo_pro";
+    readonly DeepseekPro: "deepseek_pro";
+    readonly MinimaxM3: "minimax_m3";
+    readonly Glm53: "glm_53";
+    readonly KimiK26: "kimi_k26";
     readonly LemonadePremium: "lemonade_premium";
     readonly GemmaPremium: "gemma_premium";
     readonly Shieldstral: "shieldstral";

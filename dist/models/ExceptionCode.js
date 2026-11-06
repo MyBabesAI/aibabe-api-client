@@ -225,6 +225,7 @@ exports.ExceptionCode = {
     ShareVideoNonOwnedForbidden: 'share_video_non_owned_forbidden',
     ShareImageNonOwnedForbidden: 'share_image_non_owned_forbidden',
     ShareCharacterNonOwnedForbidden: 'share_character_non_owned_forbidden',
+    ShareMediaNotFinished: 'share_media_not_finished',
     CharacterNotFound: 'character_not_found',
     InvalidPlanId: 'invalid_plan_id',
     InvalidAddonId: 'invalid_addon_id',
@@ -296,7 +297,8 @@ exports.ExceptionCode = {
     PromotionOverlap: 'promotion_overlap',
     GalleryChatbotFilterConflict: 'gallery_chatbot_filter_conflict',
     GalleryOwnerFilterInvalid: 'gallery_owner_filter_invalid',
-    GalleryFolderNotFound: 'gallery_folder_not_found'
+    GalleryFolderNotFound: 'gallery_folder_not_found',
+    BillingReconciliationInProgress: 'billing_reconciliation_in_progress'
 };
 function instanceOfExceptionCode(value) {
     for (const key in exports.ExceptionCode) {
