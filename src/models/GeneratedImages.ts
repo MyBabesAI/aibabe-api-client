@@ -189,7 +189,7 @@ export interface GeneratedImages {
      * @type {Array<CastMember>}
      * @memberof GeneratedImages
      */
-    cast?: Array<CastMember>;
+    characters?: Array<CastMember>;
 }
 
 
@@ -248,7 +248,7 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
         'moderationCharged': json['moderation_charged'] == null ? undefined : json['moderation_charged'],
-        'cast': json['cast'] == null ? undefined : ((json['cast'] as Array<any>).map(CastMemberFromJSON)),
+        'characters': json['characters'] == null ? undefined : ((json['characters'] as Array<any>).map(CastMemberFromJSON)),
     };
 }
 
@@ -281,7 +281,7 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'height': value['height'],
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
         'moderation_charged': value['moderationCharged'],
-        'cast': value['cast'] == null ? undefined : ((value['cast'] as Array<any>).map(CastMemberToJSON)),
+        'characters': value['characters'] == null ? undefined : ((value['characters'] as Array<any>).map(CastMemberToJSON)),
     };
 }
 

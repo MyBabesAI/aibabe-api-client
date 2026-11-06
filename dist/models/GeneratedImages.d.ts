@@ -136,7 +136,7 @@ export interface GeneratedImages {
      * @type {Array<CastMember>}
      * @memberof GeneratedImages
      */
-    cast?: Array<CastMember>;
+    characters?: Array<CastMember>;
 }
 /**
  * @export

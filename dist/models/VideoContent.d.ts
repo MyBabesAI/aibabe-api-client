@@ -66,7 +66,7 @@ export interface VideoContent {
      * @type {Array<CastMember>}
      * @memberof VideoContent
      */
-    cast?: Array<CastMember>;
+    characters?: Array<CastMember>;
     /**
      *
      * @type {string}
