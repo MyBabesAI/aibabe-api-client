@@ -18,6 +18,7 @@ import type {
   ArtStyle,
   BabeTag,
   HTTPValidationError,
+  Language,
   Models,
   PreviewChatbotIds,
   SubjectGenders,
@@ -48,6 +49,8 @@ import {
     BabeTagToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
+    LanguageFromJSON,
+    LanguageToJSON,
     ModelsFromJSON,
     ModelsToJSON,
     PreviewChatbotIdsFromJSON,
@@ -141,6 +144,7 @@ export interface DeleteTrendTrendsTrendIdDeleteRequest {
 
 export interface GetCategoriesTrendsCategoriesGetRequest {
     genders?: string | null;
+    lang?: Language | null;
 }
 
 export interface GetTrendSourceTrendsSourceGetRequest {
@@ -149,6 +153,7 @@ export interface GetTrendSourceTrendsSourceGetRequest {
 
 export interface GetTrendTrendsTrendIdGetRequest {
     trendId: string;
+    lang?: Language | null;
 }
 
 export interface GetTrendsTrendsGetRequest {
@@ -156,6 +161,7 @@ export interface GetTrendsTrendsGetRequest {
     filter?: TrendListFilter;
     mediaType?: TrendMediaType | null;
     genders?: string | null;
+    lang?: Language | null;
 }
 
 export interface RecreateTrendTrendsTrendIdRecreatePostRequest {
@@ -549,6 +555,10 @@ export class TrendsApi extends runtime.BaseAPI {
             queryParameters['genders'] = requestParameters['genders'];
         }
 
+        if (requestParameters['lang'] != null) {
+            queryParameters['lang'] = requestParameters['lang'];
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
@@ -622,6 +632,10 @@ export class TrendsApi extends runtime.BaseAPI {
 
         const queryParameters: any = {};
 
+        if (requestParameters['lang'] != null) {
+            queryParameters['lang'] = requestParameters['lang'];
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
@@ -662,6 +676,10 @@ export class TrendsApi extends runtime.BaseAPI {
 
         if (requestParameters['genders'] != null) {
             queryParameters['genders'] = requestParameters['genders'];
+        }
+
+        if (requestParameters['lang'] != null) {
+            queryParameters['lang'] = requestParameters['lang'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

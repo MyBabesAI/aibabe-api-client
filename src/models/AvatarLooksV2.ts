@@ -80,7 +80,7 @@ export interface AvatarLooksV2 {
      * @type {HairColor}
      * @memberof AvatarLooksV2
      */
-    hairColor: HairColor;
+    hairColor?: HairColor;
     /**
      * 
      * @type {HairStyle}
@@ -120,7 +120,6 @@ export interface AvatarLooksV2 {
  */
 export function instanceOfAvatarLooksV2(value: object): value is AvatarLooksV2 {
     if (!('bodyType' in value) || value['bodyType'] === undefined) return false;
-    if (!('hairColor' in value) || value['hairColor'] === undefined) return false;
     return true;
 }
 
@@ -135,7 +134,7 @@ export function AvatarLooksV2FromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'bodyType': BodyTypeFromJSON(json['body_type']),
-        'hairColor': HairColorFromJSON(json['hair_color']),
+        'hairColor': json['hair_color'] == null ? undefined : HairColorFromJSON(json['hair_color']),
         'hairStyle': json['hair_style'] == null ? undefined : HairStyleFromJSON(json['hair_style']),
         'beard': json['beard'] == null ? undefined : BeardStyleFromJSON(json['beard']),
         'breastSize': json['breast_size'] == null ? undefined : BreastSizeFromJSON(json['breast_size']),

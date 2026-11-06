@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, BabeTag, Models, PreviewChatbotIds, SubjectGenders, Tags, TrendCategoryCreateRequest, TrendCategoryListResponse, TrendCategoryResponse, TrendCategoryUpdateRequest, TrendFromPostRequest, TrendListFilter, TrendListResponse, TrendMediaType, TrendMode, TrendPreviewRequest, TrendPreviewResponse, TrendRecreateRequest, TrendRecreateResponse, TrendResponse, TrendSourceResponse, VideoAspectRatio, VideoLoras, VideoResolution } from '../models/index';
+import type { ArtStyle, BabeTag, Language, Models, PreviewChatbotIds, SubjectGenders, Tags, TrendCategoryCreateRequest, TrendCategoryListResponse, TrendCategoryResponse, TrendCategoryUpdateRequest, TrendFromPostRequest, TrendListFilter, TrendListResponse, TrendMediaType, TrendMode, TrendPreviewRequest, TrendPreviewResponse, TrendRecreateRequest, TrendRecreateResponse, TrendResponse, TrendSourceResponse, VideoAspectRatio, VideoLoras, VideoResolution } from '../models/index';
 export interface CreateCategoryTrendsCategoriesPostRequest {
     trendCategoryCreateRequest: TrendCategoryCreateRequest;
 }
@@ -53,18 +53,21 @@ export interface DeleteTrendTrendsTrendIdDeleteRequest {
 }
 export interface GetCategoriesTrendsCategoriesGetRequest {
     genders?: string | null;
+    lang?: Language | null;
 }
 export interface GetTrendSourceTrendsSourceGetRequest {
     generationId: string;
 }
 export interface GetTrendTrendsTrendIdGetRequest {
     trendId: string;
+    lang?: Language | null;
 }
 export interface GetTrendsTrendsGetRequest {
     category?: string | null;
     filter?: TrendListFilter;
     mediaType?: TrendMediaType | null;
     genders?: string | null;
+    lang?: Language | null;
 }
 export interface RecreateTrendTrendsTrendIdRecreatePostRequest {
     trendId: string;

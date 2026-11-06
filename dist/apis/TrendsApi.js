@@ -316,6 +316,9 @@ class TrendsApi extends runtime.BaseAPI {
         if (requestParameters['genders'] != null) {
             queryParameters['genders'] = requestParameters['genders'];
         }
+        if (requestParameters['lang'] != null) {
+            queryParameters['lang'] = requestParameters['lang'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/trends/categories`,
@@ -370,6 +373,9 @@ class TrendsApi extends runtime.BaseAPI {
             throw new runtime.RequiredError('trendId', 'Required parameter "trendId" was null or undefined when calling getTrendTrendsTrendIdGet().');
         }
         const queryParameters = {};
+        if (requestParameters['lang'] != null) {
+            queryParameters['lang'] = requestParameters['lang'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/trends/{trend_id}`.replace(`{${"trend_id"}}`, encodeURIComponent(String(requestParameters['trendId']))),
@@ -402,6 +408,9 @@ class TrendsApi extends runtime.BaseAPI {
         }
         if (requestParameters['genders'] != null) {
             queryParameters['genders'] = requestParameters['genders'];
+        }
+        if (requestParameters['lang'] != null) {
+            queryParameters['lang'] = requestParameters['lang'];
         }
         const headerParameters = {};
         const response = await this.request({
