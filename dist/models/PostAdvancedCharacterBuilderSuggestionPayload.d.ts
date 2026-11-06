@@ -66,6 +66,12 @@ export interface PostAdvancedCharacterBuilderSuggestionPayload {
      * @memberof PostAdvancedCharacterBuilderSuggestionPayload
      */
     currentExampleConversation?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PostAdvancedCharacterBuilderSuggestionPayload
+     */
+    currentLookDescription?: string | null;
 }
 /**
  * Check if a given object implements the PostAdvancedCharacterBuilderSuggestionPayload interface.
