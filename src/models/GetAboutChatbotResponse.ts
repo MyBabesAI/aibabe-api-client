@@ -48,6 +48,13 @@ import {
     SexualOrientationToJSON,
     SexualOrientationToJSONTyped,
 } from './SexualOrientation';
+import type { ReferenceTexts } from './ReferenceTexts';
+import {
+    ReferenceTextsFromJSON,
+    ReferenceTextsFromJSONTyped,
+    ReferenceTextsToJSON,
+    ReferenceTextsToJSONTyped,
+} from './ReferenceTexts';
 
 /**
  * 
@@ -151,6 +158,18 @@ export interface GetAboutChatbotResponse {
      * @memberof GetAboutChatbotResponse
      */
     greetings: string | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof GetAboutChatbotResponse
+     */
+    alternativeGreetings?: Array<string>;
+    /**
+     * 
+     * @type {ReferenceTexts}
+     * @memberof GetAboutChatbotResponse
+     */
+    referenceTexts?: ReferenceTexts | null;
 }
 
 
@@ -201,6 +220,8 @@ export function GetAboutChatbotResponseFromJSONTyped(json: any, ignoreDiscrimina
         'generationStated': json['generation_stated'],
         'profilePicture': json['profile_picture'],
         'greetings': json['greetings'],
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : json['alternative_greetings'],
+        'referenceTexts': json['reference_texts'] == null ? undefined : ReferenceTextsFromJSON(json['reference_texts']),
     };
 }
 
@@ -231,6 +252,8 @@ export function GetAboutChatbotResponseFromJSONTyped(json: any, ignoreDiscrimina
         'generation_stated': value['generationStated'],
         'profile_picture': value['profilePicture'],
         'greetings': value['greetings'],
+        'alternative_greetings': value['alternativeGreetings'],
+        'reference_texts': ReferenceTextsToJSON(value['referenceTexts']),
     };
 }
 

@@ -56,6 +56,12 @@ export interface PostAdvancedCharacterBuilderSuggestionPayload {
     currentGreetings?: string | null;
     /**
      *
+     * @type {Array<string>}
+     * @memberof PostAdvancedCharacterBuilderSuggestionPayload
+     */
+    currentAlternativeGreetings?: Array<string> | null;
+    /**
+     *
      * @type {string}
      * @memberof PostAdvancedCharacterBuilderSuggestionPayload
      */

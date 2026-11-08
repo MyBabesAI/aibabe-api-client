@@ -39,6 +39,7 @@ function CharacterAboutPageReviewFromJSONTyped(json, ignoreDiscriminator) {
         'sexualOrientation': json['sexual_orientation'] == null ? undefined : (0, AvatarOptionalField_1.AvatarOptionalFieldFromJSON)(json['sexual_orientation']),
         'bio': json['bio'] == null ? undefined : (0, AvatarRequiredField_1.AvatarRequiredFieldFromJSON)(json['bio']),
         'greetings': json['greetings'] == null ? undefined : (0, AvatarRequiredField_1.AvatarRequiredFieldFromJSON)(json['greetings']),
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : (0, AvatarOptionalField_1.AvatarOptionalFieldFromJSON)(json['alternative_greetings']),
         'story': json['story'] == null ? undefined : (0, AvatarRequiredField_1.AvatarRequiredFieldFromJSON)(json['story']),
         'exampleConversation': json['example_conversation'] == null ? undefined : (0, AvatarOptionalField_1.AvatarOptionalFieldFromJSON)(json['example_conversation']),
     };
@@ -56,6 +57,7 @@ function CharacterAboutPageReviewToJSONTyped(value, ignoreDiscriminator = false)
         'sexual_orientation': (0, AvatarOptionalField_1.AvatarOptionalFieldToJSON)(value['sexualOrientation']),
         'bio': (0, AvatarRequiredField_1.AvatarRequiredFieldToJSON)(value['bio']),
         'greetings': (0, AvatarRequiredField_1.AvatarRequiredFieldToJSON)(value['greetings']),
+        'alternative_greetings': (0, AvatarOptionalField_1.AvatarOptionalFieldToJSON)(value['alternativeGreetings']),
         'story': (0, AvatarRequiredField_1.AvatarRequiredFieldToJSON)(value['story']),
         'example_conversation': (0, AvatarOptionalField_1.AvatarOptionalFieldToJSON)(value['exampleConversation']),
     };

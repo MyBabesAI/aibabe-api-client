@@ -79,6 +79,12 @@ export interface PostCustomAboutPagePayload {
     greetings: string;
     /**
      * 
+     * @type {Array<string>}
+     * @memberof PostCustomAboutPagePayload
+     */
+    alternativeGreetings?: Array<string>;
+    /**
+     * 
      * @type {string}
      * @memberof PostCustomAboutPagePayload
      */
@@ -121,6 +127,7 @@ export function PostCustomAboutPagePayloadFromJSONTyped(json: any, ignoreDiscrim
         'furryVisualType': json['furry_visual_type'] == null ? undefined : FurryVisualTypeFromJSON(json['furry_visual_type']),
         'bio': json['bio'],
         'greetings': json['greetings'],
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : json['alternative_greetings'],
         'story': json['story'],
         'exampleConversation': json['example_conversation'],
     };
@@ -143,6 +150,7 @@ export function PostCustomAboutPagePayloadFromJSONTyped(json: any, ignoreDiscrim
         'furry_visual_type': FurryVisualTypeToJSON(value['furryVisualType']),
         'bio': value['bio'],
         'greetings': value['greetings'],
+        'alternative_greetings': value['alternativeGreetings'],
         'story': value['story'],
         'example_conversation': value['exampleConversation'],
     };

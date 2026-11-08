@@ -23,6 +23,7 @@ const FurryVisualType_1 = require("./FurryVisualType");
 const Gender_1 = require("./Gender");
 const LoraName_1 = require("./LoraName");
 const SexualOrientation_1 = require("./SexualOrientation");
+const ReferenceTexts_1 = require("./ReferenceTexts");
 /**
  * Check if a given object implements the GetAboutChatbotResponse interface.
  */
@@ -79,6 +80,8 @@ function GetAboutChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'generationStated': json['generation_stated'],
         'profilePicture': json['profile_picture'],
         'greetings': json['greetings'],
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : json['alternative_greetings'],
+        'referenceTexts': json['reference_texts'] == null ? undefined : (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['reference_texts']),
     };
 }
 function GetAboutChatbotResponseToJSON(json) {
@@ -105,6 +108,8 @@ function GetAboutChatbotResponseToJSONTyped(value, ignoreDiscriminator = false) 
         'generation_stated': value['generationStated'],
         'profile_picture': value['profilePicture'],
         'greetings': value['greetings'],
+        'alternative_greetings': value['alternativeGreetings'],
+        'reference_texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['referenceTexts']),
     };
 }
 //# sourceMappingURL=GetAboutChatbotResponse.js.map

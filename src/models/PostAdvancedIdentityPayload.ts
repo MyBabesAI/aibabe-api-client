@@ -54,6 +54,12 @@ export interface PostAdvancedIdentityPayload {
     greetings: string;
     /**
      * 
+     * @type {Array<string>}
+     * @memberof PostAdvancedIdentityPayload
+     */
+    alternativeGreetings?: Array<string>;
+    /**
+     * 
      * @type {Gender}
      * @memberof PostAdvancedIdentityPayload
      */
@@ -92,6 +98,7 @@ export function PostAdvancedIdentityPayloadFromJSONTyped(json: any, ignoreDiscri
         'name': json['name'],
         'bio': json['bio'],
         'greetings': json['greetings'],
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : json['alternative_greetings'],
         'gender': GenderFromJSON(json['gender']),
         'sexualOrientation': json['sexual_orientation'] == null ? undefined : SexualOrientationFromJSON(json['sexual_orientation']),
     };
@@ -111,6 +118,7 @@ export function PostAdvancedIdentityPayloadFromJSONTyped(json: any, ignoreDiscri
         'name': value['name'],
         'bio': value['bio'],
         'greetings': value['greetings'],
+        'alternative_greetings': value['alternativeGreetings'],
         'gender': GenderToJSON(value['gender']),
         'sexual_orientation': SexualOrientationToJSON(value['sexualOrientation']),
     };
