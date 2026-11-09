@@ -119,12 +119,6 @@ export interface GetConversationResponse {
     scene?: ChatSceneDetails | null;
     /**
      * 
-     * @type {ChatSceneDetails}
-     * @memberof GetConversationResponse
-     */
-    admin?: ChatSceneDetails | null;
-    /**
-     * 
      * @type {Array<ConversationParticipant>}
      * @memberof GetConversationResponse
      */
@@ -192,7 +186,6 @@ export function GetConversationResponseFromJSONTyped(json: any, ignoreDiscrimina
         'postDetails': PostDetailsFromJSON(json['post_details']),
         'paginationToken': json['pagination_token'] == null ? undefined : json['pagination_token'],
         'scene': json['scene'] == null ? undefined : ChatSceneDetailsFromJSON(json['scene']),
-        'admin': json['admin'] == null ? undefined : ChatSceneDetailsFromJSON(json['admin']),
         'participants': json['participants'] == null ? undefined : ((json['participants'] as Array<any>).map(ConversationParticipantFromJSON)),
         'scenario': json['scenario'] == null ? undefined : ScenarioChatInfoFromJSON(json['scenario']),
         'title': json['title'] == null ? undefined : json['title'],
@@ -221,7 +214,6 @@ export function GetConversationResponseFromJSONTyped(json: any, ignoreDiscrimina
         'post_details': PostDetailsToJSON(value['postDetails']),
         'pagination_token': value['paginationToken'],
         'scene': ChatSceneDetailsToJSON(value['scene']),
-        'admin': ChatSceneDetailsToJSON(value['admin']),
         'participants': value['participants'] == null ? undefined : ((value['participants'] as Array<any>).map(ConversationParticipantToJSON)),
         'scenario': ScenarioChatInfoToJSON(value['scenario']),
         'title': value['title'],

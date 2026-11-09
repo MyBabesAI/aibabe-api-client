@@ -72,12 +72,6 @@ export interface GetConversationResponse {
     scene?: ChatSceneDetails | null;
     /**
      *
-     * @type {ChatSceneDetails}
-     * @memberof GetConversationResponse
-     */
-    admin?: ChatSceneDetails | null;
-    /**
-     *
      * @type {Array<ConversationParticipant>}
      * @memberof GetConversationResponse
      */

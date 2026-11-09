@@ -297,9 +297,6 @@ class ChatApi extends runtime.BaseAPI {
         if (requestParameters['includeScene'] != null) {
             queryParameters['include_scene'] = requestParameters['includeScene'];
         }
-        if (requestParameters['includeAdmin'] != null) {
-            queryParameters['include_admin'] = requestParameters['includeAdmin'];
-        }
         const headerParameters = {};
         const response = await this.request({
             path: `/chat/conversation/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
@@ -330,9 +327,6 @@ class ChatApi extends runtime.BaseAPI {
         }
         if (requestParameters['includeScene'] != null) {
             queryParameters['include_scene'] = requestParameters['includeScene'];
-        }
-        if (requestParameters['includeAdmin'] != null) {
-            queryParameters['include_admin'] = requestParameters['includeAdmin'];
         }
         const headerParameters = {};
         const response = await this.request({

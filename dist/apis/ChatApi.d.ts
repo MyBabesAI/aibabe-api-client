@@ -48,13 +48,11 @@ export interface ConversationByIdChatConversationConversationIdGetRequest {
     conversationId: string;
     limit?: number;
     includeScene?: boolean;
-    includeAdmin?: boolean;
 }
 export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
     limit?: number;
     includeScene?: boolean;
-    includeAdmin?: boolean;
 }
 export interface ConversationJournalChatConversationConversationIdJournalGetRequest {
     conversationId: string;

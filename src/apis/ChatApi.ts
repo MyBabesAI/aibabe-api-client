@@ -157,14 +157,12 @@ export interface ConversationByIdChatConversationConversationIdGetRequest {
     conversationId: string;
     limit?: number;
     includeScene?: boolean;
-    includeAdmin?: boolean;
 }
 
 export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
     limit?: number;
     includeScene?: boolean;
-    includeAdmin?: boolean;
 }
 
 export interface ConversationJournalChatConversationConversationIdJournalGetRequest {
@@ -642,10 +640,6 @@ export class ChatApi extends runtime.BaseAPI {
             queryParameters['include_scene'] = requestParameters['includeScene'];
         }
 
-        if (requestParameters['includeAdmin'] != null) {
-            queryParameters['include_admin'] = requestParameters['includeAdmin'];
-        }
-
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
@@ -686,10 +680,6 @@ export class ChatApi extends runtime.BaseAPI {
 
         if (requestParameters['includeScene'] != null) {
             queryParameters['include_scene'] = requestParameters['includeScene'];
-        }
-
-        if (requestParameters['includeAdmin'] != null) {
-            queryParameters['include_admin'] = requestParameters['includeAdmin'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
