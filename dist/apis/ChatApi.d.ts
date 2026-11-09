@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatConfigResponse, ChatReponse, ChatSceneDetails, ConversationParticipant, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationJournalResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchConversationSceneRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
+import type { ChatConfigResponse, ChatReponse, ChatSceneDetails, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationJournalResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchConversationSceneRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationParticipantLeaveRequest, PostConversationParticipantLeaveResponse, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
 export interface AddParticipantChatConversationConversationIdParticipantsPostRequest {
     conversationId: string;
     postConversationParticipantRequest: PostConversationParticipantRequest;
@@ -96,6 +96,11 @@ export interface GenerateImageOnMessageChatChatbotIdMessageRequestIdImagePostReq
 export interface GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest {
     chatbotId: string;
 }
+export interface LeaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRequest {
+    conversationId: string;
+    chatbotId: string;
+    postConversationParticipantLeaveRequest: PostConversationParticipantLeaveRequest;
+}
 export interface LiveRoleplayChatChatbotIdLiveRoleplayPostRequest {
     chatbotId: string;
     postLiveRoleplayRequest: PostLiveRoleplayRequest;
@@ -111,10 +116,6 @@ export interface RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest {
     chatbotId: string;
     messageId: string;
     postChatRequest: PostChatRequest;
-}
-export interface RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest {
-    conversationId: string;
-    chatbotId: string;
 }
 export interface ResetConversationChatConversationConversationIdResetPostRequest {
     conversationId: string;
@@ -155,12 +156,12 @@ export interface UpdateMessageChatMessageMessageIdPatchRequest {
  */
 export declare class ChatApi extends runtime.BaseAPI {
     /**
-     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction itself is never stored or shown. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
+     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction is stored as a narrator row of the chat (`event`), ahead of her first reply. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
      * Add Participant
      */
     addParticipantChatConversationConversationIdParticipantsPostRaw(requestParameters: AddParticipantChatConversationConversationIdParticipantsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostConversationParticipantResponse>>;
     /**
-     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction itself is never stored or shown. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
+     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction is stored as a narrator row of the chat (`event`), ahead of her first reply. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
      * Add Participant
      */
     addParticipantChatConversationConversationIdParticipantsPost(requestParameters: AddParticipantChatConversationConversationIdParticipantsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationParticipantResponse>;
@@ -351,6 +352,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGet(requestParameters: GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLiveRoleplayHistoryResponse>;
     /**
+     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.
+     * Leave Participant
+     */
+    leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRaw(requestParameters: LeaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostConversationParticipantLeaveResponse>>;
+    /**
+     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.
+     * Leave Participant
+     */
+    leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePost(requestParameters: LeaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationParticipantLeaveResponse>;
+    /**
      * Live Roleplay
      */
     liveRoleplayChatChatbotIdLiveRoleplayPostRaw(requestParameters: LiveRoleplayChatChatbotIdLiveRoleplayPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostLiveRoleplayResponse>>;
@@ -386,16 +397,6 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Regenerate
      */
     regenerateChatChatbotIdMessageMessageIdRegeneratePost(requestParameters: RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse>;
-    /**
-     * Remove a character from the cast. Her messages stay; the host can leave too as long as one member remains.
-     * Remove Participant
-     */
-    removeParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRaw(requestParameters: RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ConversationParticipant>>>;
-    /**
-     * Remove a character from the cast. Her messages stay; the host can leave too as long as one member remains.
-     * Remove Participant
-     */
-    removeParticipantChatConversationConversationIdParticipantsChatbotIdDelete(requestParameters: RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ConversationParticipant>>;
     /**
      * Back to the greeting with the host alone (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation

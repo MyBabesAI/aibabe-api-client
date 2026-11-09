@@ -387,6 +387,8 @@ src/models/PostChatSuggestionRequest.ts
 src/models/PostCheckoutResponse.ts
 src/models/PostCheckoutSessionRequest.ts
 src/models/PostClaimRequest.ts
+src/models/PostConversationParticipantLeaveRequest.ts
+src/models/PostConversationParticipantLeaveResponse.ts
 src/models/PostConversationParticipantRequest.ts
 src/models/PostConversationParticipantResponse.ts
 src/models/PostConversationSettingsRequest.ts

@@ -19,6 +19,7 @@ exports.PostConversationParticipantResponseFromJSONTyped = PostConversationParti
 exports.PostConversationParticipantResponseToJSON = PostConversationParticipantResponseToJSON;
 exports.PostConversationParticipantResponseToJSONTyped = PostConversationParticipantResponseToJSONTyped;
 const ConversationParticipant_1 = require("./ConversationParticipant");
+const ChatMessageDetail_1 = require("./ChatMessageDetail");
 /**
  * Check if a given object implements the PostConversationParticipantResponse interface.
  */
@@ -28,6 +29,8 @@ function instanceOfPostConversationParticipantResponse(value) {
     if (!('requestId' in value) || value['requestId'] === undefined)
         return false;
     if (!('assistantMessageId' in value) || value['assistantMessageId'] === undefined)
+        return false;
+    if (!('event' in value) || value['event'] === undefined)
         return false;
     return true;
 }
@@ -43,6 +46,7 @@ function PostConversationParticipantResponseFromJSONTyped(json, ignoreDiscrimina
         'requestId': json['request_id'],
         'assistantMessageId': json['assistant_message_id'],
         'remainingFreeMessages': json['remaining_free_messages'] == null ? undefined : json['remaining_free_messages'],
+        'event': (0, ChatMessageDetail_1.ChatMessageDetailFromJSON)(json['event']),
     };
 }
 function PostConversationParticipantResponseToJSON(json) {
@@ -57,6 +61,7 @@ function PostConversationParticipantResponseToJSONTyped(value, ignoreDiscriminat
         'request_id': value['requestId'],
         'assistant_message_id': value['assistantMessageId'],
         'remaining_free_messages': value['remainingFreeMessages'],
+        'event': (0, ChatMessageDetail_1.ChatMessageDetailToJSON)(value['event']),
     };
 }
 //# sourceMappingURL=PostConversationParticipantResponse.js.map

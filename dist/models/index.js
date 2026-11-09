@@ -367,6 +367,8 @@ __exportStar(require("./PostChatSuggestionRequest"), exports);
 __exportStar(require("./PostCheckoutResponse"), exports);
 __exportStar(require("./PostCheckoutSessionRequest"), exports);
 __exportStar(require("./PostClaimRequest"), exports);
+__exportStar(require("./PostConversationParticipantLeaveRequest"), exports);
+__exportStar(require("./PostConversationParticipantLeaveResponse"), exports);
 __exportStar(require("./PostConversationParticipantRequest"), exports);
 __exportStar(require("./PostConversationParticipantResponse"), exports);
 __exportStar(require("./PostConversationSettingsRequest"), exports);

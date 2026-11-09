@@ -20,6 +20,13 @@ import {
     ConversationParticipantToJSON,
     ConversationParticipantToJSONTyped,
 } from './ConversationParticipant';
+import type { ChatMessageDetail } from './ChatMessageDetail';
+import {
+    ChatMessageDetailFromJSON,
+    ChatMessageDetailFromJSONTyped,
+    ChatMessageDetailToJSON,
+    ChatMessageDetailToJSONTyped,
+} from './ChatMessageDetail';
 
 /**
  * 
@@ -51,6 +58,12 @@ export interface PostConversationParticipantResponse {
      * @memberof PostConversationParticipantResponse
      */
     remainingFreeMessages?: number | null;
+    /**
+     * 
+     * @type {ChatMessageDetail}
+     * @memberof PostConversationParticipantResponse
+     */
+    event: ChatMessageDetail;
 }
 
 /**
@@ -60,6 +73,7 @@ export function instanceOfPostConversationParticipantResponse(value: object): va
     if (!('participants' in value) || value['participants'] === undefined) return false;
     if (!('requestId' in value) || value['requestId'] === undefined) return false;
     if (!('assistantMessageId' in value) || value['assistantMessageId'] === undefined) return false;
+    if (!('event' in value) || value['event'] === undefined) return false;
     return true;
 }
 
@@ -77,6 +91,7 @@ export function PostConversationParticipantResponseFromJSONTyped(json: any, igno
         'requestId': json['request_id'],
         'assistantMessageId': json['assistant_message_id'],
         'remainingFreeMessages': json['remaining_free_messages'] == null ? undefined : json['remaining_free_messages'],
+        'event': ChatMessageDetailFromJSON(json['event']),
     };
 }
 
@@ -95,6 +110,7 @@ export function PostConversationParticipantResponseFromJSONTyped(json: any, igno
         'request_id': value['requestId'],
         'assistant_message_id': value['assistantMessageId'],
         'remaining_free_messages': value['remainingFreeMessages'],
+        'event': ChatMessageDetailToJSON(value['event']),
     };
 }
 

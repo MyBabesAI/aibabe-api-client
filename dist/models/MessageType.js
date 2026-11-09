@@ -26,7 +26,9 @@ exports.MessageTypeToJSONTyped = MessageTypeToJSONTyped;
 exports.MessageType = {
     Text: 'text',
     Image: 'image',
-    Video: 'video'
+    Video: 'video',
+    CastJoin: 'cast_join',
+    CastLeave: 'cast_leave'
 };
 function instanceOfMessageType(value) {
     for (const key in exports.MessageType) {

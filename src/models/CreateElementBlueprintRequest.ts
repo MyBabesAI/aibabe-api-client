@@ -63,6 +63,12 @@ export interface CreateElementBlueprintRequest {
      * @memberof CreateElementBlueprintRequest
      */
     memberIds?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateElementBlueprintRequest
+     */
+    pictureId?: string | null;
 }
 
 
@@ -92,6 +98,7 @@ export function CreateElementBlueprintRequestFromJSONTyped(json: any, ignoreDisc
         'description': json['description'] == null ? undefined : json['description'],
         'details': json['details'] == null ? undefined : json['details'],
         'memberIds': json['member_ids'] == null ? undefined : json['member_ids'],
+        'pictureId': json['picture_id'] == null ? undefined : json['picture_id'],
     };
 }
 
@@ -112,6 +119,7 @@ export function CreateElementBlueprintRequestFromJSONTyped(json: any, ignoreDisc
         'description': value['description'],
         'details': value['details'],
         'member_ids': value['memberIds'],
+        'picture_id': value['pictureId'],
     };
 }
 

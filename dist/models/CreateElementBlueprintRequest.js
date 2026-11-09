@@ -43,6 +43,7 @@ function CreateElementBlueprintRequestFromJSONTyped(json, ignoreDiscriminator) {
         'description': json['description'] == null ? undefined : json['description'],
         'details': json['details'] == null ? undefined : json['details'],
         'memberIds': json['member_ids'] == null ? undefined : json['member_ids'],
+        'pictureId': json['picture_id'] == null ? undefined : json['picture_id'],
     };
 }
 function CreateElementBlueprintRequestToJSON(json) {
@@ -59,6 +60,7 @@ function CreateElementBlueprintRequestToJSONTyped(value, ignoreDiscriminator = f
         'description': value['description'],
         'details': value['details'],
         'member_ids': value['memberIds'],
+        'picture_id': value['pictureId'],
     };
 }
 //# sourceMappingURL=CreateElementBlueprintRequest.js.map

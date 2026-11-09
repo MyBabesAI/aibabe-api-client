@@ -19,6 +19,7 @@ exports.ElementBlueprintFromJSONTyped = ElementBlueprintFromJSONTyped;
 exports.ElementBlueprintToJSON = ElementBlueprintToJSON;
 exports.ElementBlueprintToJSONTyped = ElementBlueprintToJSONTyped;
 const ElementBlueprintKind_1 = require("./ElementBlueprintKind");
+const ImageGenerationStatus_1 = require("./ImageGenerationStatus");
 /**
  * Check if a given object implements the ElementBlueprint interface.
  */
@@ -63,6 +64,9 @@ function ElementBlueprintFromJSONTyped(json, ignoreDiscriminator) {
         'memberIds': json['member_ids'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
+        'pictureId': json['picture_id'] == null ? undefined : json['picture_id'],
+        'pictureUrl': json['picture_url'] == null ? undefined : json['picture_url'],
+        'pictureStatus': json['picture_status'] == null ? undefined : (0, ImageGenerationStatus_1.ImageGenerationStatusFromJSON)(json['picture_status']),
     };
 }
 function ElementBlueprintToJSON(json) {
@@ -83,6 +87,9 @@ function ElementBlueprintToJSONTyped(value, ignoreDiscriminator = false) {
         'member_ids': value['memberIds'],
         'created_at': ((value['createdAt']).toISOString()),
         'updated_at': ((value['updatedAt']).toISOString()),
+        'picture_id': value['pictureId'],
+        'picture_url': value['pictureUrl'],
+        'picture_status': (0, ImageGenerationStatus_1.ImageGenerationStatusToJSON)(value['pictureStatus']),
     };
 }
 //# sourceMappingURL=ElementBlueprint.js.map

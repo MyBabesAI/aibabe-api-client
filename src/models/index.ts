@@ -351,6 +351,8 @@ export * from './PostChatSuggestionRequest';
 export * from './PostCheckoutResponse';
 export * from './PostCheckoutSessionRequest';
 export * from './PostClaimRequest';
+export * from './PostConversationParticipantLeaveRequest';
+export * from './PostConversationParticipantLeaveResponse';
 export * from './PostConversationParticipantRequest';
 export * from './PostConversationParticipantResponse';
 export * from './PostConversationSettingsRequest';

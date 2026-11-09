@@ -54,6 +54,12 @@ export interface CreateElementBlueprintRequest {
      * @memberof CreateElementBlueprintRequest
      */
     memberIds?: Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof CreateElementBlueprintRequest
+     */
+    pictureId?: string | null;
 }
 /**
  * Check if a given object implements the CreateElementBlueprintRequest interface.

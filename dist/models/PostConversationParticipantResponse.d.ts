@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ConversationParticipant } from './ConversationParticipant';
+import type { ChatMessageDetail } from './ChatMessageDetail';
 /**
  *
  * @export
@@ -40,6 +41,12 @@ export interface PostConversationParticipantResponse {
      * @memberof PostConversationParticipantResponse
      */
     remainingFreeMessages?: number | null;
+    /**
+     *
+     * @type {ChatMessageDetail}
+     * @memberof PostConversationParticipantResponse
+     */
+    event: ChatMessageDetail;
 }
 /**
  * Check if a given object implements the PostConversationParticipantResponse interface.

@@ -20,6 +20,13 @@ import {
     ElementBlueprintKindToJSON,
     ElementBlueprintKindToJSONTyped,
 } from './ElementBlueprintKind';
+import type { ImageGenerationStatus } from './ImageGenerationStatus';
+import {
+    ImageGenerationStatusFromJSON,
+    ImageGenerationStatusFromJSONTyped,
+    ImageGenerationStatusToJSON,
+    ImageGenerationStatusToJSONTyped,
+} from './ImageGenerationStatus';
 
 /**
  * 
@@ -87,6 +94,24 @@ export interface ElementBlueprint {
      * @memberof ElementBlueprint
      */
     updatedAt: Date;
+    /**
+     * 
+     * @type {string}
+     * @memberof ElementBlueprint
+     */
+    pictureId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ElementBlueprint
+     */
+    pictureUrl?: string | null;
+    /**
+     * 
+     * @type {ImageGenerationStatus}
+     * @memberof ElementBlueprint
+     */
+    pictureStatus?: ImageGenerationStatus | null;
 }
 
 
@@ -128,6 +153,9 @@ export function ElementBlueprintFromJSONTyped(json: any, ignoreDiscriminator: bo
         'memberIds': json['member_ids'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
+        'pictureId': json['picture_id'] == null ? undefined : json['picture_id'],
+        'pictureUrl': json['picture_url'] == null ? undefined : json['picture_url'],
+        'pictureStatus': json['picture_status'] == null ? undefined : ImageGenerationStatusFromJSON(json['picture_status']),
     };
 }
 
@@ -152,6 +180,9 @@ export function ElementBlueprintFromJSONTyped(json: any, ignoreDiscriminator: bo
         'member_ids': value['memberIds'],
         'created_at': ((value['createdAt']).toISOString()),
         'updated_at': ((value['updatedAt']).toISOString()),
+        'picture_id': value['pictureId'],
+        'picture_url': value['pictureUrl'],
+        'picture_status': ImageGenerationStatusToJSON(value['pictureStatus']),
     };
 }
 

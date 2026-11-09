@@ -18,7 +18,6 @@ import type {
   ChatConfigResponse,
   ChatReponse,
   ChatSceneDetails,
-  ConversationParticipant,
   CreateAnonymousConversationRequest,
   CreateAnonymousConversationResponse,
   GetAnonymousConversationResponse,
@@ -40,6 +39,8 @@ import type {
   PostAnonymousChatResponse,
   PostChatRequest,
   PostChatSuggestionRequest,
+  PostConversationParticipantLeaveRequest,
+  PostConversationParticipantLeaveResponse,
   PostConversationParticipantRequest,
   PostConversationParticipantResponse,
   PostConversationSettingsRequest,
@@ -56,8 +57,6 @@ import {
     ChatReponseToJSON,
     ChatSceneDetailsFromJSON,
     ChatSceneDetailsToJSON,
-    ConversationParticipantFromJSON,
-    ConversationParticipantToJSON,
     CreateAnonymousConversationRequestFromJSON,
     CreateAnonymousConversationRequestToJSON,
     CreateAnonymousConversationResponseFromJSON,
@@ -100,6 +99,10 @@ import {
     PostChatRequestToJSON,
     PostChatSuggestionRequestFromJSON,
     PostChatSuggestionRequestToJSON,
+    PostConversationParticipantLeaveRequestFromJSON,
+    PostConversationParticipantLeaveRequestToJSON,
+    PostConversationParticipantLeaveResponseFromJSON,
+    PostConversationParticipantLeaveResponseToJSON,
     PostConversationParticipantRequestFromJSON,
     PostConversationParticipantRequestToJSON,
     PostConversationParticipantResponseFromJSON,
@@ -224,6 +227,12 @@ export interface GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest {
     chatbotId: string;
 }
 
+export interface LeaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRequest {
+    conversationId: string;
+    chatbotId: string;
+    postConversationParticipantLeaveRequest: PostConversationParticipantLeaveRequest;
+}
+
 export interface LiveRoleplayChatChatbotIdLiveRoleplayPostRequest {
     chatbotId: string;
     postLiveRoleplayRequest: PostLiveRoleplayRequest;
@@ -242,11 +251,6 @@ export interface RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest {
     chatbotId: string;
     messageId: string;
     postChatRequest: PostChatRequest;
-}
-
-export interface RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest {
-    conversationId: string;
-    chatbotId: string;
 }
 
 export interface ResetConversationChatConversationConversationIdResetPostRequest {
@@ -298,7 +302,7 @@ export interface UpdateMessageChatMessageMessageIdPatchRequest {
 export class ChatApi extends runtime.BaseAPI {
 
     /**
-     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction itself is never stored or shown. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
+     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction is stored as a narrator row of the chat (`event`), ahead of her first reply. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
      * Add Participant
      */
     async addParticipantChatConversationConversationIdParticipantsPostRaw(requestParameters: AddParticipantChatConversationConversationIdParticipantsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostConversationParticipantResponse>> {
@@ -334,7 +338,7 @@ export class ChatApi extends runtime.BaseAPI {
     }
 
     /**
-     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction itself is never stored or shown. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
+     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction is stored as a narrator row of the chat (`event`), ahead of her first reply. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
      * Add Participant
      */
     async addParticipantChatConversationConversationIdParticipantsPost(requestParameters: AddParticipantChatConversationConversationIdParticipantsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationParticipantResponse> {
@@ -1198,6 +1202,58 @@ export class ChatApi extends runtime.BaseAPI {
     }
 
     /**
+     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.
+     * Leave Participant
+     */
+    async leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRaw(requestParameters: LeaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostConversationParticipantLeaveResponse>> {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError(
+                'conversationId',
+                'Required parameter "conversationId" was null or undefined when calling leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePost().'
+            );
+        }
+
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError(
+                'chatbotId',
+                'Required parameter "chatbotId" was null or undefined when calling leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePost().'
+            );
+        }
+
+        if (requestParameters['postConversationParticipantLeaveRequest'] == null) {
+            throw new runtime.RequiredError(
+                'postConversationParticipantLeaveRequest',
+                'Required parameter "postConversationParticipantLeaveRequest" was null or undefined when calling leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/participants/{chatbot_id}/leave`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostConversationParticipantLeaveRequestToJSON(requestParameters['postConversationParticipantLeaveRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostConversationParticipantLeaveResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.
+     * Leave Participant
+     */
+    async leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePost(requestParameters: LeaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationParticipantLeaveResponse> {
+        const response = await this.leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
      * Live Roleplay
      */
     async liveRoleplayChatChatbotIdLiveRoleplayPostRaw(requestParameters: LiveRoleplayChatChatbotIdLiveRoleplayPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostLiveRoleplayResponse>> {
@@ -1364,48 +1420,6 @@ export class ChatApi extends runtime.BaseAPI {
      */
     async regenerateChatChatbotIdMessageMessageIdRegeneratePost(requestParameters: RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse> {
         const response = await this.regenerateChatChatbotIdMessageMessageIdRegeneratePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Remove a character from the cast. Her messages stay; the host can leave too as long as one member remains.
-     * Remove Participant
-     */
-    async removeParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRaw(requestParameters: RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<ConversationParticipant>>> {
-        if (requestParameters['conversationId'] == null) {
-            throw new runtime.RequiredError(
-                'conversationId',
-                'Required parameter "conversationId" was null or undefined when calling removeParticipantChatConversationConversationIdParticipantsChatbotIdDelete().'
-            );
-        }
-
-        if (requestParameters['chatbotId'] == null) {
-            throw new runtime.RequiredError(
-                'chatbotId',
-                'Required parameter "chatbotId" was null or undefined when calling removeParticipantChatConversationConversationIdParticipantsChatbotIdDelete().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/chat/conversation/{conversation_id}/participants/{chatbot_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ConversationParticipantFromJSON));
-    }
-
-    /**
-     * Remove a character from the cast. Her messages stay; the host can leave too as long as one member remains.
-     * Remove Participant
-     */
-    async removeParticipantChatConversationConversationIdParticipantsChatbotIdDelete(requestParameters: RemoveParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<ConversationParticipant>> {
-        const response = await this.removeParticipantChatConversationConversationIdParticipantsChatbotIdDeleteRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ElementBlueprintKind } from './ElementBlueprintKind';
+import type { ImageGenerationStatus } from './ImageGenerationStatus';
 /**
  *
  * @export
@@ -78,6 +79,24 @@ export interface ElementBlueprint {
      * @memberof ElementBlueprint
      */
     updatedAt: Date;
+    /**
+     *
+     * @type {string}
+     * @memberof ElementBlueprint
+     */
+    pictureId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ElementBlueprint
+     */
+    pictureUrl?: string | null;
+    /**
+     *
+     * @type {ImageGenerationStatus}
+     * @memberof ElementBlueprint
+     */
+    pictureStatus?: ImageGenerationStatus | null;
 }
 /**
  * Check if a given object implements the ElementBlueprint interface.
