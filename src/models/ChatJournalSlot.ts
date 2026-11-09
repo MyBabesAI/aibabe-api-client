@@ -14,8 +14,9 @@
 
 
 /**
- * The state sheet of an ordinary or group chat: one current value per slot, overwritten on change. The general
- * slots describe the conversation; the subject slots are kept per person (a character or the user).
+ * The state sheet of an ordinary or group chat: one current value per slot, overwritten on change, plus the
+ * chronicle. The general slots describe the conversation; the subject slots are kept per person (a character or the
+ * user); `history` is append-only: one entry per story beat, the user's reminder of the story, never a prompt's.
  * @export
  */
 export const ChatJournalSlot = {
@@ -23,7 +24,8 @@ export const ChatJournalSlot = {
     Surroundings: 'surroundings',
     Position: 'position',
     Clothing: 'clothing',
-    Relationship: 'relationship'
+    Relationship: 'relationship',
+    History: 'history'
 } as const;
 export type ChatJournalSlot = typeof ChatJournalSlot[keyof typeof ChatJournalSlot];
 

@@ -29,6 +29,7 @@ exports.PostType = {
     Character: 'character',
     Story: 'story',
     Scenario: 'scenario',
+    Babes: 'babes',
     Media: 'media',
     All: 'all'
 };

@@ -23,6 +23,7 @@ export const PostType = {
     Character: 'character',
     Story: 'story',
     Scenario: 'scenario',
+    Babes: 'babes',
     Media: 'media',
     All: 'all'
 } as const;

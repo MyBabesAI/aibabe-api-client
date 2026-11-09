@@ -19,6 +19,7 @@ export declare const PostType: {
     readonly Character: "character";
     readonly Story: "story";
     readonly Scenario: "scenario";
+    readonly Babes: "babes";
     readonly Media: "media";
     readonly All: "all";
 };
