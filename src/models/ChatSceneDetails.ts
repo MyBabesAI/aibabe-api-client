@@ -16,29 +16,29 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface ChatAdminDetails
+ * @interface ChatSceneDetails
  */
-export interface ChatAdminDetails {
+export interface ChatSceneDetails {
     /**
      * 
      * @type {string}
-     * @memberof ChatAdminDetails
+     * @memberof ChatSceneDetails
      */
     imageContext?: string | null;
 }
 
 /**
- * Check if a given object implements the ChatAdminDetails interface.
+ * Check if a given object implements the ChatSceneDetails interface.
  */
-export function instanceOfChatAdminDetails(value: object): value is ChatAdminDetails {
+export function instanceOfChatSceneDetails(value: object): value is ChatSceneDetails {
     return true;
 }
 
-export function ChatAdminDetailsFromJSON(json: any): ChatAdminDetails {
-    return ChatAdminDetailsFromJSONTyped(json, false);
+export function ChatSceneDetailsFromJSON(json: any): ChatSceneDetails {
+    return ChatSceneDetailsFromJSONTyped(json, false);
 }
 
-export function ChatAdminDetailsFromJSONTyped(json: any, ignoreDiscriminator: boolean): ChatAdminDetails {
+export function ChatSceneDetailsFromJSONTyped(json: any, ignoreDiscriminator: boolean): ChatSceneDetails {
     if (json == null) {
         return json;
     }
@@ -48,11 +48,11 @@ export function ChatAdminDetailsFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function ChatAdminDetailsToJSON(json: any): ChatAdminDetails {
-      return ChatAdminDetailsToJSONTyped(json, false);
+  export function ChatSceneDetailsToJSON(json: any): ChatSceneDetails {
+      return ChatSceneDetailsToJSONTyped(json, false);
   }
 
-  export function ChatAdminDetailsToJSONTyped(value?: ChatAdminDetails | null, ignoreDiscriminator: boolean = false): any {
+  export function ChatSceneDetailsToJSONTyped(value?: ChatSceneDetails | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

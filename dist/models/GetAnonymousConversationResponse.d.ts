@@ -11,8 +11,8 @@
  */
 import type { ScenarioChatInfo } from './ScenarioChatInfo';
 import type { ChatbotInfo } from './ChatbotInfo';
+import type { ChatSceneDetails } from './ChatSceneDetails';
 import type { PostDetails } from './PostDetails';
-import type { ChatAdminDetails } from './ChatAdminDetails';
 import type { ConversationParticipant } from './ConversationParticipant';
 import type { ChatMessageDetail } from './ChatMessageDetail';
 import type { ConversationSettings } from './ConversationSettings';
@@ -66,10 +66,16 @@ export interface GetAnonymousConversationResponse {
     paginationToken?: string | null;
     /**
      *
-     * @type {ChatAdminDetails}
+     * @type {ChatSceneDetails}
      * @memberof GetAnonymousConversationResponse
      */
-    admin?: ChatAdminDetails | null;
+    scene?: ChatSceneDetails | null;
+    /**
+     *
+     * @type {ChatSceneDetails}
+     * @memberof GetAnonymousConversationResponse
+     */
+    admin?: ChatSceneDetails | null;
     /**
      *
      * @type {Array<ConversationParticipant>}

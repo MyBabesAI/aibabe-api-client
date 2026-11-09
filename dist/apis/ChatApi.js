@@ -294,6 +294,9 @@ class ChatApi extends runtime.BaseAPI {
         if (requestParameters['limit'] != null) {
             queryParameters['limit'] = requestParameters['limit'];
         }
+        if (requestParameters['includeScene'] != null) {
+            queryParameters['include_scene'] = requestParameters['includeScene'];
+        }
         if (requestParameters['includeAdmin'] != null) {
             queryParameters['include_admin'] = requestParameters['includeAdmin'];
         }
@@ -324,6 +327,9 @@ class ChatApi extends runtime.BaseAPI {
         const queryParameters = {};
         if (requestParameters['limit'] != null) {
             queryParameters['limit'] = requestParameters['limit'];
+        }
+        if (requestParameters['includeScene'] != null) {
+            queryParameters['include_scene'] = requestParameters['includeScene'];
         }
         if (requestParameters['includeAdmin'] != null) {
             queryParameters['include_admin'] = requestParameters['includeAdmin'];
@@ -908,6 +914,34 @@ class ChatApi extends runtime.BaseAPI {
     async restartScenarioChatConversationConversationIdScenarioRestartPost(requestParameters, initOverrides) {
         const response = await this.restartScenarioChatConversationConversationIdScenarioRestartPostRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+    /**
+     * Return the chat to a message: every text turn after it is deleted. Pictures and clips made in between stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Rewind Conversation
+     */
+    async rewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete().');
+        }
+        if (requestParameters['messageId'] == null) {
+            throw new runtime.RequiredError('messageId', 'Required parameter "messageId" was null or undefined when calling rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/messages/after/{message_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"message_id"}}`, encodeURIComponent(String(requestParameters['messageId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.VoidApiResponse(response);
+    }
+    /**
+     * Return the chat to a message: every text turn after it is deleted. Pictures and clips made in between stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Rewind Conversation
+     */
+    async rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete(requestParameters, initOverrides) {
+        await this.rewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRaw(requestParameters, initOverrides);
     }
     /**
      * Import the funnel\'s scripted opening for a signed-in user, idempotently.  The reels funnel plays its script client-side and gates sending on login, so the client calls this right after login and before the first real message. If the user already has a conversation with this chatbot it is returned untouched (seeded=false) - retries and returning users are both no-ops, never conflicts.

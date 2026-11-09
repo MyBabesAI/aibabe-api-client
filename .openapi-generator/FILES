@@ -129,7 +129,6 @@ src/models/CharacterPreset.ts
 src/models/CharacterPresetCard.ts
 src/models/CharacterPresetCategory.ts
 src/models/CharacterPresetLibrary.ts
-src/models/ChatAdminDetails.ts
 src/models/ChatCastConfig.ts
 src/models/ChatConfigResponse.ts
 src/models/ChatForkConfig.ts
@@ -138,6 +137,7 @@ src/models/ChatMessageDetail.ts
 src/models/ChatMode.ts
 src/models/ChatReponse.ts
 src/models/ChatRole.ts
+src/models/ChatSceneDetails.ts
 src/models/ChatbotCreatedOrigin.ts
 src/models/ChatbotInfo.ts
 src/models/ChatbotPreview.ts

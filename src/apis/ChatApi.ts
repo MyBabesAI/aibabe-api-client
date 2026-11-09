@@ -156,12 +156,14 @@ export interface ConversationBranchesChatConversationConversationIdBranchesGetRe
 export interface ConversationByIdChatConversationConversationIdGetRequest {
     conversationId: string;
     limit?: number;
+    includeScene?: boolean;
     includeAdmin?: boolean;
 }
 
 export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
     limit?: number;
+    includeScene?: boolean;
     includeAdmin?: boolean;
 }
 
@@ -250,6 +252,11 @@ export interface ResetConversationChatConversationConversationIdResetPostRequest
 export interface RestartScenarioChatConversationConversationIdScenarioRestartPostRequest {
     conversationId: string;
     scenarioStartRequest: ScenarioStartRequest;
+}
+
+export interface RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest {
+    conversationId: string;
+    messageId: string;
 }
 
 export interface SeedConversationChatChatbotIdSeedPutRequest {
@@ -631,6 +638,10 @@ export class ChatApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
+        if (requestParameters['includeScene'] != null) {
+            queryParameters['include_scene'] = requestParameters['includeScene'];
+        }
+
         if (requestParameters['includeAdmin'] != null) {
             queryParameters['include_admin'] = requestParameters['includeAdmin'];
         }
@@ -671,6 +682,10 @@ export class ChatApi extends runtime.BaseAPI {
 
         if (requestParameters['limit'] != null) {
             queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        if (requestParameters['includeScene'] != null) {
+            queryParameters['include_scene'] = requestParameters['includeScene'];
         }
 
         if (requestParameters['includeAdmin'] != null) {
@@ -1475,6 +1490,47 @@ export class ChatApi extends runtime.BaseAPI {
     async restartScenarioChatConversationConversationIdScenarioRestartPost(requestParameters: RestartScenarioChatConversationConversationIdScenarioRestartPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScenarioStartResponse> {
         const response = await this.restartScenarioChatConversationConversationIdScenarioRestartPostRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+
+    /**
+     * Return the chat to a message: every text turn after it is deleted. Pictures and clips made in between stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Rewind Conversation
+     */
+    async rewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRaw(requestParameters: RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError(
+                'conversationId',
+                'Required parameter "conversationId" was null or undefined when calling rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete().'
+            );
+        }
+
+        if (requestParameters['messageId'] == null) {
+            throw new runtime.RequiredError(
+                'messageId',
+                'Required parameter "messageId" was null or undefined when calling rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/messages/after/{message_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"message_id"}}`, encodeURIComponent(String(requestParameters['messageId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Return the chat to a message: every text turn after it is deleted. Pictures and clips made in between stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Rewind Conversation
+     */
+    async rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete(requestParameters: RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.rewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRaw(requestParameters, initOverrides);
     }
 
     /**

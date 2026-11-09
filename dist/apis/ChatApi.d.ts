@@ -47,11 +47,13 @@ export interface ConversationBranchesChatConversationConversationIdBranchesGetRe
 export interface ConversationByIdChatConversationConversationIdGetRequest {
     conversationId: string;
     limit?: number;
+    includeScene?: boolean;
     includeAdmin?: boolean;
 }
 export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
     limit?: number;
+    includeScene?: boolean;
     includeAdmin?: boolean;
 }
 export interface ConversationJournalChatConversationConversationIdJournalGetRequest {
@@ -122,6 +124,10 @@ export interface ResetConversationChatConversationConversationIdResetPostRequest
 export interface RestartScenarioChatConversationConversationIdScenarioRestartPostRequest {
     conversationId: string;
     scenarioStartRequest: ScenarioStartRequest;
+}
+export interface RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest {
+    conversationId: string;
+    messageId: string;
 }
 export interface SeedConversationChatChatbotIdSeedPutRequest {
     chatbotId: string;
@@ -408,6 +414,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Restart Scenario
      */
     restartScenarioChatConversationConversationIdScenarioRestartPost(requestParameters: RestartScenarioChatConversationConversationIdScenarioRestartPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScenarioStartResponse>;
+    /**
+     * Return the chat to a message: every text turn after it is deleted. Pictures and clips made in between stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Rewind Conversation
+     */
+    rewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRaw(requestParameters: RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Return the chat to a message: every text turn after it is deleted. Pictures and clips made in between stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Rewind Conversation
+     */
+    rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete(requestParameters: RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      * Import the funnel\'s scripted opening for a signed-in user, idempotently.  The reels funnel plays its script client-side and gates sending on login, so the client calls this right after login and before the first real message. If the user already has a conversation with this chatbot it is returned untouched (seeded=false) - retries and returning users are both no-ops, never conflicts.
      * Seed Conversation
