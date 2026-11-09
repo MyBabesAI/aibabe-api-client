@@ -70,6 +70,7 @@ export declare const ExceptionCode: {
     readonly ConversationUpdateNonOwnedForbidden: "conversation_update_non_owned_forbidden";
     readonly ConversationResetNonOwnedForbidden: "conversation_reset_non_owned_forbidden";
     readonly ConversationMemoryNotFound: "conversation_memory_not_found";
+    readonly ConversationSceneNotFound: "conversation_scene_not_found";
     readonly ConversationForkMessageNotFound: "conversation_fork_message_not_found";
     readonly ConversationForkDepthExceeded: "conversation_fork_depth_exceeded";
     readonly ConversationBranchLimitReached: "conversation_branch_limit_reached";

@@ -18,6 +18,7 @@ exports.AppearanceAttemptFromJSON = AppearanceAttemptFromJSON;
 exports.AppearanceAttemptFromJSONTyped = AppearanceAttemptFromJSONTyped;
 exports.AppearanceAttemptToJSON = AppearanceAttemptToJSON;
 exports.AppearanceAttemptToJSONTyped = AppearanceAttemptToJSONTyped;
+const ArtStyle_1 = require("./ArtStyle");
 const ReferenceTexts_1 = require("./ReferenceTexts");
 /**
  * Check if a given object implements the AppearanceAttempt interface.
@@ -47,6 +48,7 @@ function AppearanceAttemptFromJSONTyped(json, ignoreDiscriminator) {
         'description': json['description'],
         'profilePictureUrl': json['profile_picture_url'],
         'viewTexts': (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['view_texts']),
+        'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'createdAt': (new Date(json['created_at'])),
     };
 }
@@ -62,6 +64,7 @@ function AppearanceAttemptToJSONTyped(value, ignoreDiscriminator = false) {
         'description': value['description'],
         'profile_picture_url': value['profilePictureUrl'],
         'view_texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['viewTexts']),
+        'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'created_at': ((value['createdAt']).toISOString()),
     };
 }

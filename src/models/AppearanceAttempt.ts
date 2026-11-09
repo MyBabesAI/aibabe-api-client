@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ArtStyle } from './ArtStyle';
+import {
+    ArtStyleFromJSON,
+    ArtStyleFromJSONTyped,
+    ArtStyleToJSON,
+    ArtStyleToJSONTyped,
+} from './ArtStyle';
 import type { ReferenceTexts } from './ReferenceTexts';
 import {
     ReferenceTextsFromJSON,
@@ -54,11 +61,19 @@ export interface AppearanceAttempt {
     viewTexts: ReferenceTexts;
     /**
      * 
+     * @type {ArtStyle}
+     * @memberof AppearanceAttempt
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     * 
      * @type {Date}
      * @memberof AppearanceAttempt
      */
     createdAt: Date;
 }
+
+
 
 /**
  * Check if a given object implements the AppearanceAttempt interface.
@@ -86,6 +101,7 @@ export function AppearanceAttemptFromJSONTyped(json: any, ignoreDiscriminator: b
         'description': json['description'],
         'profilePictureUrl': json['profile_picture_url'],
         'viewTexts': ReferenceTextsFromJSON(json['view_texts']),
+        'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
         'createdAt': (new Date(json['created_at'])),
     };
 }
@@ -105,6 +121,7 @@ export function AppearanceAttemptFromJSONTyped(json: any, ignoreDiscriminator: b
         'description': value['description'],
         'profile_picture_url': value['profilePictureUrl'],
         'view_texts': ReferenceTextsToJSON(value['viewTexts']),
+        'art_style': ArtStyleToJSON(value['artStyle']),
         'created_at': ((value['createdAt']).toISOString()),
     };
 }

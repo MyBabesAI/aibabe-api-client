@@ -1005,6 +1005,37 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Rewrites the scene block (Location / Position / Clothing, people as @Name) the chat\'s pictures start from; the next reply\'s keeper replaces it again as usual.
+     * Update Conversation Scene
+     */
+    async updateConversationSceneChatConversationConversationIdScenePatchRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling updateConversationSceneChatConversationConversationIdScenePatch().');
+        }
+        if (requestParameters['patchConversationSceneRequest'] == null) {
+            throw new runtime.RequiredError('patchConversationSceneRequest', 'Required parameter "patchConversationSceneRequest" was null or undefined when calling updateConversationSceneChatConversationConversationIdScenePatch().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/scene`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PatchConversationSceneRequestToJSON)(requestParameters['patchConversationSceneRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChatSceneDetailsFromJSON)(jsonValue));
+    }
+    /**
+     * Rewrites the scene block (Location / Position / Clothing, people as @Name) the chat\'s pictures start from; the next reply\'s keeper replaces it again as usual.
+     * Update Conversation Scene
+     */
+    async updateConversationSceneChatConversationConversationIdScenePatch(requestParameters, initOverrides) {
+        const response = await this.updateConversationSceneChatConversationConversationIdScenePatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Update Conversation Settings
      */
     async updateConversationSettingsChatConversationConversationIdSettingsPatchRaw(requestParameters, initOverrides) {

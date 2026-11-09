@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatConfigResponse, ChatReponse, ConversationParticipant, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationJournalResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
+import type { ChatConfigResponse, ChatReponse, ChatSceneDetails, ConversationParticipant, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationJournalResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchConversationSceneRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
 export interface AddParticipantChatConversationConversationIdParticipantsPostRequest {
     conversationId: string;
     postConversationParticipantRequest: PostConversationParticipantRequest;
@@ -134,6 +134,10 @@ export interface SeedConversationChatChatbotIdSeedPutRequest {
 export interface UpdateConversationChatConversationConversationIdPatchRequest {
     conversationId: string;
     patchConversationRequest: PatchConversationRequest;
+}
+export interface UpdateConversationSceneChatConversationConversationIdScenePatchRequest {
+    conversationId: string;
+    patchConversationSceneRequest: PatchConversationSceneRequest;
 }
 export interface UpdateConversationSettingsChatConversationConversationIdSettingsPatchRequest {
     conversationId: string;
@@ -442,6 +446,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Update Conversation
      */
     updateConversationChatConversationConversationIdPatch(requestParameters: UpdateConversationChatConversationConversationIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Rewrites the scene block (Location / Position / Clothing, people as @Name) the chat\'s pictures start from; the next reply\'s keeper replaces it again as usual.
+     * Update Conversation Scene
+     */
+    updateConversationSceneChatConversationConversationIdScenePatchRaw(requestParameters: UpdateConversationSceneChatConversationConversationIdScenePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatSceneDetails>>;
+    /**
+     * Rewrites the scene block (Location / Position / Clothing, people as @Name) the chat\'s pictures start from; the next reply\'s keeper replaces it again as usual.
+     * Update Conversation Scene
+     */
+    updateConversationSceneChatConversationConversationIdScenePatch(requestParameters: UpdateConversationSceneChatConversationConversationIdScenePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatSceneDetails>;
     /**
      * Update Conversation Settings
      */

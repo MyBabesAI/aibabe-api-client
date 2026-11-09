@@ -17,6 +17,7 @@ import * as runtime from '../runtime';
 import type {
   ChatConfigResponse,
   ChatReponse,
+  ChatSceneDetails,
   ConversationParticipant,
   CreateAnonymousConversationRequest,
   CreateAnonymousConversationResponse,
@@ -33,6 +34,7 @@ import type {
   MessageCheckResponse,
   PatchChatMessageRequest,
   PatchConversationRequest,
+  PatchConversationSceneRequest,
   PatchImageModerationPromptRequest,
   PostAnonymousChatRequest,
   PostAnonymousChatResponse,
@@ -52,6 +54,8 @@ import {
     ChatConfigResponseToJSON,
     ChatReponseFromJSON,
     ChatReponseToJSON,
+    ChatSceneDetailsFromJSON,
+    ChatSceneDetailsToJSON,
     ConversationParticipantFromJSON,
     ConversationParticipantToJSON,
     CreateAnonymousConversationRequestFromJSON,
@@ -84,6 +88,8 @@ import {
     PatchChatMessageRequestToJSON,
     PatchConversationRequestFromJSON,
     PatchConversationRequestToJSON,
+    PatchConversationSceneRequestFromJSON,
+    PatchConversationSceneRequestToJSON,
     PatchImageModerationPromptRequestFromJSON,
     PatchImageModerationPromptRequestToJSON,
     PostAnonymousChatRequestFromJSON,
@@ -265,6 +271,11 @@ export interface SeedConversationChatChatbotIdSeedPutRequest {
 export interface UpdateConversationChatConversationConversationIdPatchRequest {
     conversationId: string;
     patchConversationRequest: PatchConversationRequest;
+}
+
+export interface UpdateConversationSceneChatConversationConversationIdScenePatchRequest {
+    conversationId: string;
+    patchConversationSceneRequest: PatchConversationSceneRequest;
 }
 
 export interface UpdateConversationSettingsChatConversationConversationIdSettingsPatchRequest {
@@ -1614,6 +1625,51 @@ export class ChatApi extends runtime.BaseAPI {
      */
     async updateConversationChatConversationConversationIdPatch(requestParameters: UpdateConversationChatConversationConversationIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
         const response = await this.updateConversationChatConversationConversationIdPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Rewrites the scene block (Location / Position / Clothing, people as @Name) the chat\'s pictures start from; the next reply\'s keeper replaces it again as usual.
+     * Update Conversation Scene
+     */
+    async updateConversationSceneChatConversationConversationIdScenePatchRaw(requestParameters: UpdateConversationSceneChatConversationConversationIdScenePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatSceneDetails>> {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError(
+                'conversationId',
+                'Required parameter "conversationId" was null or undefined when calling updateConversationSceneChatConversationConversationIdScenePatch().'
+            );
+        }
+
+        if (requestParameters['patchConversationSceneRequest'] == null) {
+            throw new runtime.RequiredError(
+                'patchConversationSceneRequest',
+                'Required parameter "patchConversationSceneRequest" was null or undefined when calling updateConversationSceneChatConversationConversationIdScenePatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/scene`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PatchConversationSceneRequestToJSON(requestParameters['patchConversationSceneRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ChatSceneDetailsFromJSON(jsonValue));
+    }
+
+    /**
+     * Rewrites the scene block (Location / Position / Clothing, people as @Name) the chat\'s pictures start from; the next reply\'s keeper replaces it again as usual.
+     * Update Conversation Scene
+     */
+    async updateConversationSceneChatConversationConversationIdScenePatch(requestParameters: UpdateConversationSceneChatConversationConversationIdScenePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatSceneDetails> {
+        const response = await this.updateConversationSceneChatConversationConversationIdScenePatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

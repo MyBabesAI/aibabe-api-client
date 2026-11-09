@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ArtStyle } from './ArtStyle';
 import type { ReferenceTexts } from './ReferenceTexts';
 /**
  * One profile picture rendered in this edit, with the description it came from and the view texts rewritten from
@@ -41,6 +42,12 @@ export interface AppearanceAttempt {
      * @memberof AppearanceAttempt
      */
     viewTexts: ReferenceTexts;
+    /**
+     *
+     * @type {ArtStyle}
+     * @memberof AppearanceAttempt
+     */
+    artStyle?: ArtStyle | null;
     /**
      *
      * @type {Date}

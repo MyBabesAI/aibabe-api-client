@@ -65,6 +65,12 @@ export interface ChatbotInfo {
      * @memberof ChatbotInfo
      */
     tags: Array<TagData>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ChatbotInfo
+     */
+    nextGen?: boolean;
 }
 /**
  * Check if a given object implements the ChatbotInfo interface.

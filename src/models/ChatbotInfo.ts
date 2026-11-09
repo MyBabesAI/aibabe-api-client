@@ -82,6 +82,12 @@ export interface ChatbotInfo {
      * @memberof ChatbotInfo
      */
     tags: Array<TagData>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ChatbotInfo
+     */
+    nextGen?: boolean;
 }
 
 /**
@@ -117,6 +123,7 @@ export function ChatbotInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'createdBy': PublicUserPreviewWithFollowFromJSON(json['created_by']),
         'messageCount': json['message_count'],
         'tags': ((json['tags'] as Array<any>).map(TagDataFromJSON)),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
     };
 }
 
@@ -139,6 +146,7 @@ export function ChatbotInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'created_by': PublicUserPreviewWithFollowToJSON(value['createdBy']),
         'message_count': value['messageCount'],
         'tags': ((value['tags'] as Array<any>).map(TagDataToJSON)),
+        'next_gen': value['nextGen'],
     };
 }
 

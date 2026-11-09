@@ -350,6 +350,7 @@ src/models/OneTimeTokens.ts
 src/models/OwnerFilter.ts
 src/models/PatchChatMessageRequest.ts
 src/models/PatchConversationRequest.ts
+src/models/PatchConversationSceneRequest.ts
 src/models/PatchCustomChatbotRequest.ts
 src/models/PatchFollowNotificationsRequest.ts
 src/models/PatchImageModerationPromptRequest.ts

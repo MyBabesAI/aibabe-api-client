@@ -80,6 +80,7 @@ exports.ExceptionCode = {
     ConversationUpdateNonOwnedForbidden: 'conversation_update_non_owned_forbidden',
     ConversationResetNonOwnedForbidden: 'conversation_reset_non_owned_forbidden',
     ConversationMemoryNotFound: 'conversation_memory_not_found',
+    ConversationSceneNotFound: 'conversation_scene_not_found',
     ConversationForkMessageNotFound: 'conversation_fork_message_not_found',
     ConversationForkDepthExceeded: 'conversation_fork_depth_exceeded',
     ConversationBranchLimitReached: 'conversation_branch_limit_reached',

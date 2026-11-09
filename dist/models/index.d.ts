@@ -312,6 +312,7 @@ export * from './OneTimeTokens';
 export * from './OwnerFilter';
 export * from './PatchChatMessageRequest';
 export * from './PatchConversationRequest';
+export * from './PatchConversationSceneRequest';
 export * from './PatchCustomChatbotRequest';
 export * from './PatchFollowNotificationsRequest';
 export * from './PatchImageModerationPromptRequest';

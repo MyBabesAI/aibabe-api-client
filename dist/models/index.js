@@ -330,6 +330,7 @@ __exportStar(require("./OneTimeTokens"), exports);
 __exportStar(require("./OwnerFilter"), exports);
 __exportStar(require("./PatchChatMessageRequest"), exports);
 __exportStar(require("./PatchConversationRequest"), exports);
+__exportStar(require("./PatchConversationSceneRequest"), exports);
 __exportStar(require("./PatchCustomChatbotRequest"), exports);
 __exportStar(require("./PatchFollowNotificationsRequest"), exports);
 __exportStar(require("./PatchImageModerationPromptRequest"), exports);
