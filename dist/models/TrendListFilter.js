@@ -25,7 +25,9 @@ exports.TrendListFilterToJSONTyped = TrendListFilterToJSONTyped;
  */
 exports.TrendListFilter = {
     Trending: 'trending',
-    Newest: 'newest'
+    Newest: 'newest',
+    Collected: 'collected',
+    Community: 'community'
 };
 function instanceOfTrendListFilter(value) {
     for (const key in exports.TrendListFilter) {

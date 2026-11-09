@@ -337,6 +337,56 @@ class TrendsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * How many trends the same parameters list, per tag and per category: the page\'s chips read this instead of scanning the whole list.
+     * Get Trend Facets
+     */
+    async getTrendFacetsTrendsFacetsGetRaw(requestParameters, initOverrides) {
+        const queryParameters = {};
+        if (requestParameters['category'] != null) {
+            queryParameters['category'] = requestParameters['category'];
+        }
+        if (requestParameters['filter'] != null) {
+            queryParameters['filter'] = requestParameters['filter'];
+        }
+        if (requestParameters['mediaType'] != null) {
+            queryParameters['media_type'] = requestParameters['mediaType'];
+        }
+        if (requestParameters['genders'] != null) {
+            queryParameters['genders'] = requestParameters['genders'];
+        }
+        if (requestParameters['style'] != null) {
+            queryParameters['style'] = requestParameters['style'];
+        }
+        if (requestParameters['excludeFuta'] != null) {
+            queryParameters['exclude_futa'] = requestParameters['excludeFuta'];
+        }
+        if (requestParameters['excludeBabes'] != null) {
+            queryParameters['exclude_babes'] = requestParameters['excludeBabes'];
+        }
+        if (requestParameters['tags'] != null) {
+            queryParameters['tags'] = requestParameters['tags'];
+        }
+        if (requestParameters['excludeTags'] != null) {
+            queryParameters['exclude_tags'] = requestParameters['excludeTags'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/trends/facets`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.TrendFacetsResponseFromJSON)(jsonValue));
+    }
+    /**
+     * How many trends the same parameters list, per tag and per category: the page\'s chips read this instead of scanning the whole list.
+     * Get Trend Facets
+     */
+    async getTrendFacetsTrendsFacetsGet(requestParameters = {}, initOverrides) {
+        const response = await this.getTrendFacetsTrendsFacetsGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * The trend a picture or video was recreated from; 404 when it is not a trend recreation.
      * Get Trend Source
      */
@@ -408,6 +458,27 @@ class TrendsApi extends runtime.BaseAPI {
         }
         if (requestParameters['genders'] != null) {
             queryParameters['genders'] = requestParameters['genders'];
+        }
+        if (requestParameters['style'] != null) {
+            queryParameters['style'] = requestParameters['style'];
+        }
+        if (requestParameters['excludeFuta'] != null) {
+            queryParameters['exclude_futa'] = requestParameters['excludeFuta'];
+        }
+        if (requestParameters['excludeBabes'] != null) {
+            queryParameters['exclude_babes'] = requestParameters['excludeBabes'];
+        }
+        if (requestParameters['tags'] != null) {
+            queryParameters['tags'] = requestParameters['tags'];
+        }
+        if (requestParameters['excludeTags'] != null) {
+            queryParameters['exclude_tags'] = requestParameters['excludeTags'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
         if (requestParameters['lang'] != null) {
             queryParameters['lang'] = requestParameters['lang'];

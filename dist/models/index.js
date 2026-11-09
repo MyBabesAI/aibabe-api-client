@@ -586,6 +586,7 @@ __exportStar(require("./TrendCategoryCreateRequest"), exports);
 __exportStar(require("./TrendCategoryListResponse"), exports);
 __exportStar(require("./TrendCategoryResponse"), exports);
 __exportStar(require("./TrendCategoryUpdateRequest"), exports);
+__exportStar(require("./TrendFacetsResponse"), exports);
 __exportStar(require("./TrendFromPostRequest"), exports);
 __exportStar(require("./TrendListFilter"), exports);
 __exportStar(require("./TrendListResponse"), exports);

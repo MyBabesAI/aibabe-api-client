@@ -36,6 +36,8 @@ function TrendListResponseFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'items': (json['items'].map(TrendResponse_1.TrendResponseFromJSON)),
+        'nextOffset': json['next_offset'] == null ? undefined : json['next_offset'],
+        'total': json['total'] == null ? undefined : json['total'],
     };
 }
 function TrendListResponseToJSON(json) {
@@ -47,6 +49,8 @@ function TrendListResponseToJSONTyped(value, ignoreDiscriminator = false) {
     }
     return {
         'items': (value['items'].map(TrendResponse_1.TrendResponseToJSON)),
+        'next_offset': value['nextOffset'],
+        'total': value['total'],
     };
 }
 //# sourceMappingURL=TrendListResponse.js.map

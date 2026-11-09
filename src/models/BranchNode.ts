@@ -79,6 +79,18 @@ export interface BranchNode {
      * @memberof BranchNode
      */
     descendantCount: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof BranchNode
+     */
+    firstUserMessage?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof BranchNode
+     */
+    parentContinuation?: string | null;
 }
 
 /**
@@ -118,6 +130,8 @@ export function BranchNodeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'messageCountOwn': json['message_count_own'],
         'isCurrent': json['is_current'],
         'descendantCount': json['descendant_count'],
+        'firstUserMessage': json['first_user_message'] == null ? undefined : json['first_user_message'],
+        'parentContinuation': json['parent_continuation'] == null ? undefined : json['parent_continuation'],
     };
 }
 
@@ -142,6 +156,8 @@ export function BranchNodeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         'message_count_own': value['messageCountOwn'],
         'is_current': value['isCurrent'],
         'descendant_count': value['descendantCount'],
+        'first_user_message': value['firstUserMessage'],
+        'parent_continuation': value['parentContinuation'],
     };
 }
 

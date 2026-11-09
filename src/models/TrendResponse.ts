@@ -216,6 +216,12 @@ export interface TrendResponse {
     prompt?: string | null;
     /**
      * 
+     * @type {boolean}
+     * @memberof TrendResponse
+     */
+    castsYou?: boolean;
+    /**
+     * 
      * @type {number}
      * @memberof TrendResponse
      */
@@ -339,6 +345,7 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'tags': json['tags'] == null ? undefined : json['tags'],
         'subjectGenders': json['subject_genders'] == null ? undefined : json['subject_genders'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
+        'castsYou': json['casts_you'] == null ? undefined : json['casts_you'],
         'characterCount': json['character_count'] == null ? undefined : json['character_count'],
         'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
         'targetPhrase': json['target_phrase'] == null ? undefined : json['target_phrase'],
@@ -387,6 +394,7 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'tags': value['tags'],
         'subject_genders': value['subjectGenders'],
         'prompt': value['prompt'],
+        'casts_you': value['castsYou'],
         'character_count': value['characterCount'],
         'character_style': value['characterStyle'],
         'target_phrase': value['targetPhrase'],

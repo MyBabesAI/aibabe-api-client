@@ -16,6 +16,8 @@
 export declare const TrendListFilter: {
     readonly Trending: "trending";
     readonly Newest: "newest";
+    readonly Collected: "collected";
+    readonly Community: "community";
 };
 export type TrendListFilter = typeof TrendListFilter[keyof typeof TrendListFilter];
 export declare function instanceOfTrendListFilter(value: any): boolean;

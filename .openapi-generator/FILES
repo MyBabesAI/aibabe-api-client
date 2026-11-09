@@ -606,6 +606,7 @@ src/models/TrendCategoryCreateRequest.ts
 src/models/TrendCategoryListResponse.ts
 src/models/TrendCategoryResponse.ts
 src/models/TrendCategoryUpdateRequest.ts
+src/models/TrendFacetsResponse.ts
 src/models/TrendFromPostRequest.ts
 src/models/TrendListFilter.ts
 src/models/TrendListResponse.ts

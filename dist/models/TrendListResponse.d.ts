@@ -22,6 +22,18 @@ export interface TrendListResponse {
      * @memberof TrendListResponse
      */
     items: Array<TrendResponse>;
+    /**
+     *
+     * @type {number}
+     * @memberof TrendListResponse
+     */
+    nextOffset?: number | null;
+    /**
+     *
+     * @type {number}
+     * @memberof TrendListResponse
+     */
+    total?: number | null;
 }
 /**
  * Check if a given object implements the TrendListResponse interface.

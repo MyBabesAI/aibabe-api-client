@@ -163,6 +163,12 @@ export interface TrendResponse {
     prompt?: string | null;
     /**
      *
+     * @type {boolean}
+     * @memberof TrendResponse
+     */
+    castsYou?: boolean;
+    /**
+     *
      * @type {number}
      * @memberof TrendResponse
      */

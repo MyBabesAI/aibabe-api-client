@@ -75,6 +75,18 @@ export interface BranchNode {
      * @memberof BranchNode
      */
     descendantCount: number;
+    /**
+     *
+     * @type {string}
+     * @memberof BranchNode
+     */
+    firstUserMessage?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof BranchNode
+     */
+    parentContinuation?: string | null;
 }
 /**
  * Check if a given object implements the BranchNode interface.
