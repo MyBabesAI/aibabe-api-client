@@ -19,7 +19,9 @@
  */
 export const TrendListFilter = {
     Trending: 'trending',
-    Newest: 'newest'
+    Newest: 'newest',
+    Collected: 'collected',
+    Community: 'community'
 } as const;
 export type TrendListFilter = typeof TrendListFilter[keyof typeof TrendListFilter];
 

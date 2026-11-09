@@ -33,6 +33,18 @@ export interface TrendListResponse {
      * @memberof TrendListResponse
      */
     items: Array<TrendResponse>;
+    /**
+     * 
+     * @type {number}
+     * @memberof TrendListResponse
+     */
+    nextOffset?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof TrendListResponse
+     */
+    total?: number | null;
 }
 
 /**
@@ -54,6 +66,8 @@ export function TrendListResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'items': ((json['items'] as Array<any>).map(TrendResponseFromJSON)),
+        'nextOffset': json['next_offset'] == null ? undefined : json['next_offset'],
+        'total': json['total'] == null ? undefined : json['total'],
     };
 }
 
@@ -69,6 +83,8 @@ export function TrendListResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'items': ((value['items'] as Array<any>).map(TrendResponseToJSON)),
+        'next_offset': value['nextOffset'],
+        'total': value['total'],
     };
 }
 

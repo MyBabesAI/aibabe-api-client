@@ -540,6 +540,7 @@ export * from './TrendCategoryCreateRequest';
 export * from './TrendCategoryListResponse';
 export * from './TrendCategoryResponse';
 export * from './TrendCategoryUpdateRequest';
+export * from './TrendFacetsResponse';
 export * from './TrendFromPostRequest';
 export * from './TrendListFilter';
 export * from './TrendListResponse';

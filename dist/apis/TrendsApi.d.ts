@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, BabeTag, Language, Models, PreviewChatbotIds, SubjectGenders, Tags, TrendCategoryCreateRequest, TrendCategoryListResponse, TrendCategoryResponse, TrendCategoryUpdateRequest, TrendFromPostRequest, TrendListFilter, TrendListResponse, TrendMediaType, TrendMode, TrendPreviewRequest, TrendPreviewResponse, TrendRecreateRequest, TrendRecreateResponse, TrendResponse, TrendSourceResponse, VideoAspectRatio, VideoLoras, VideoResolution } from '../models/index';
+import type { ArtStyle, BabeTag, Language, Models, PreviewChatbotIds, SubjectGenders, Tags, TrendCategoryCreateRequest, TrendCategoryListResponse, TrendCategoryResponse, TrendCategoryUpdateRequest, TrendFacetsResponse, TrendFromPostRequest, TrendListFilter, TrendListResponse, TrendMediaType, TrendMode, TrendPreviewRequest, TrendPreviewResponse, TrendRecreateRequest, TrendRecreateResponse, TrendResponse, TrendSourceResponse, VideoAspectRatio, VideoLoras, VideoResolution } from '../models/index';
 export interface CreateCategoryTrendsCategoriesPostRequest {
     trendCategoryCreateRequest: TrendCategoryCreateRequest;
 }
@@ -55,6 +55,17 @@ export interface GetCategoriesTrendsCategoriesGetRequest {
     genders?: string | null;
     lang?: Language | null;
 }
+export interface GetTrendFacetsTrendsFacetsGetRequest {
+    category?: string | null;
+    filter?: TrendListFilter;
+    mediaType?: TrendMediaType | null;
+    genders?: string | null;
+    style?: string | null;
+    excludeFuta?: boolean;
+    excludeBabes?: boolean;
+    tags?: string | null;
+    excludeTags?: string | null;
+}
 export interface GetTrendSourceTrendsSourceGetRequest {
     generationId: string;
 }
@@ -67,6 +78,13 @@ export interface GetTrendsTrendsGetRequest {
     filter?: TrendListFilter;
     mediaType?: TrendMediaType | null;
     genders?: string | null;
+    style?: string | null;
+    excludeFuta?: boolean;
+    excludeBabes?: boolean;
+    tags?: string | null;
+    excludeTags?: string | null;
+    limit?: number | null;
+    offset?: number;
     lang?: Language | null;
 }
 export interface RecreateTrendTrendsTrendIdRecreatePostRequest {
@@ -179,6 +197,16 @@ export declare class TrendsApi extends runtime.BaseAPI {
      * Get Categories
      */
     getCategoriesTrendsCategoriesGet(requestParameters?: GetCategoriesTrendsCategoriesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendCategoryListResponse>;
+    /**
+     * How many trends the same parameters list, per tag and per category: the page\'s chips read this instead of scanning the whole list.
+     * Get Trend Facets
+     */
+    getTrendFacetsTrendsFacetsGetRaw(requestParameters: GetTrendFacetsTrendsFacetsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TrendFacetsResponse>>;
+    /**
+     * How many trends the same parameters list, per tag and per category: the page\'s chips read this instead of scanning the whole list.
+     * Get Trend Facets
+     */
+    getTrendFacetsTrendsFacetsGet(requestParameters?: GetTrendFacetsTrendsFacetsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TrendFacetsResponse>;
     /**
      * The trend a picture or video was recreated from; 404 when it is not a trend recreation.
      * Get Trend Source
