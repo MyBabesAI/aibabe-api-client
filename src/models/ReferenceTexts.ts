@@ -62,11 +62,11 @@ export function ReferenceTextsFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-  export function ReferenceTextsToJSON(json: any): ReferenceTexts {
-      return ReferenceTextsToJSONTyped(json, false);
-  }
+export function ReferenceTextsToJSON(json: any): ReferenceTexts {
+    return ReferenceTextsToJSONTyped(json, false);
+}
 
-  export function ReferenceTextsToJSONTyped(value?: ReferenceTexts | null, ignoreDiscriminator: boolean = false): any {
+export function ReferenceTextsToJSONTyped(value?: ReferenceTexts | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

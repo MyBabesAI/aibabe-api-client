@@ -19,6 +19,7 @@ export declare const MessageType: {
     readonly Video: "video";
     readonly CastJoin: "cast_join";
     readonly CastLeave: "cast_leave";
+    readonly PersonaSwitch: "persona_switch";
 };
 export type MessageType = typeof MessageType[keyof typeof MessageType];
 export declare function instanceOfMessageType(value: any): boolean;

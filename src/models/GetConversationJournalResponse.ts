@@ -72,11 +72,11 @@ export function GetConversationJournalResponseFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function GetConversationJournalResponseToJSON(json: any): GetConversationJournalResponse {
-      return GetConversationJournalResponseToJSONTyped(json, false);
-  }
+export function GetConversationJournalResponseToJSON(json: any): GetConversationJournalResponse {
+    return GetConversationJournalResponseToJSONTyped(json, false);
+}
 
-  export function GetConversationJournalResponseToJSONTyped(value?: GetConversationJournalResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetConversationJournalResponseToJSONTyped(value?: GetConversationJournalResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

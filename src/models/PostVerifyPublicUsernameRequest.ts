@@ -49,11 +49,11 @@ export function PostVerifyPublicUsernameRequestFromJSONTyped(json: any, ignoreDi
     };
 }
 
-  export function PostVerifyPublicUsernameRequestToJSON(json: any): PostVerifyPublicUsernameRequest {
-      return PostVerifyPublicUsernameRequestToJSONTyped(json, false);
-  }
+export function PostVerifyPublicUsernameRequestToJSON(json: any): PostVerifyPublicUsernameRequest {
+    return PostVerifyPublicUsernameRequestToJSONTyped(json, false);
+}
 
-  export function PostVerifyPublicUsernameRequestToJSONTyped(value?: PostVerifyPublicUsernameRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostVerifyPublicUsernameRequestToJSONTyped(value?: PostVerifyPublicUsernameRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -81,11 +81,11 @@ export function ConversationJournalEntryFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function ConversationJournalEntryToJSON(json: any): ConversationJournalEntry {
-      return ConversationJournalEntryToJSONTyped(json, false);
-  }
+export function ConversationJournalEntryToJSON(json: any): ConversationJournalEntry {
+    return ConversationJournalEntryToJSONTyped(json, false);
+}
 
-  export function ConversationJournalEntryToJSONTyped(value?: ConversationJournalEntry | null, ignoreDiscriminator: boolean = false): any {
+export function ConversationJournalEntryToJSONTyped(value?: ConversationJournalEntry | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

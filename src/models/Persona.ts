@@ -183,11 +183,11 @@ export function PersonaFromJSONTyped(json: any, ignoreDiscriminator: boolean): P
     };
 }
 
-  export function PersonaToJSON(json: any): Persona {
-      return PersonaToJSONTyped(json, false);
-  }
+export function PersonaToJSON(json: any): Persona {
+    return PersonaToJSONTyped(json, false);
+}
 
-  export function PersonaToJSONTyped(value?: Persona | null, ignoreDiscriminator: boolean = false): any {
+export function PersonaToJSONTyped(value?: Persona | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

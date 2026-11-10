@@ -57,11 +57,11 @@ export function ConfirmAgeVerificationResponseFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function ConfirmAgeVerificationResponseToJSON(json: any): ConfirmAgeVerificationResponse {
-      return ConfirmAgeVerificationResponseToJSONTyped(json, false);
-  }
+export function ConfirmAgeVerificationResponseToJSON(json: any): ConfirmAgeVerificationResponse {
+    return ConfirmAgeVerificationResponseToJSONTyped(json, false);
+}
 
-  export function ConfirmAgeVerificationResponseToJSONTyped(value?: ConfirmAgeVerificationResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ConfirmAgeVerificationResponseToJSONTyped(value?: ConfirmAgeVerificationResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

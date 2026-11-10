@@ -80,11 +80,11 @@ export function CharacterPresetLibraryFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function CharacterPresetLibraryToJSON(json: any): CharacterPresetLibrary {
-      return CharacterPresetLibraryToJSONTyped(json, false);
-  }
+export function CharacterPresetLibraryToJSON(json: any): CharacterPresetLibrary {
+    return CharacterPresetLibraryToJSONTyped(json, false);
+}
 
-  export function CharacterPresetLibraryToJSONTyped(value?: CharacterPresetLibrary | null, ignoreDiscriminator: boolean = false): any {
+export function CharacterPresetLibraryToJSONTyped(value?: CharacterPresetLibrary | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -81,11 +81,11 @@ export function ImageToVideoRecommendationPayloadFromJSONTyped(json: any, ignore
     };
 }
 
-  export function ImageToVideoRecommendationPayloadToJSON(json: any): ImageToVideoRecommendationPayload {
-      return ImageToVideoRecommendationPayloadToJSONTyped(json, false);
-  }
+export function ImageToVideoRecommendationPayloadToJSON(json: any): ImageToVideoRecommendationPayload {
+    return ImageToVideoRecommendationPayloadToJSONTyped(json, false);
+}
 
-  export function ImageToVideoRecommendationPayloadToJSONTyped(value?: ImageToVideoRecommendationPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ImageToVideoRecommendationPayloadToJSONTyped(value?: ImageToVideoRecommendationPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -27,8 +27,20 @@ import type {
   SeedanceImageToVideoCompletionPayload,
   SeedanceImageToVideoResponse,
   VideoConfigResponse,
+  VideoEditorSaveRequest,
+  VideoEditorSaveResponse,
+  VideoEditorUploadRequest,
+  VideoEditorUploadResponse,
+  VideoExportDetail,
+  VideoExportRecipe,
   VideoFromChatResponse,
   VideoMergeResult,
+  VideoProjectCreateRequest,
+  VideoProjectDetail,
+  VideoProjectListResponse,
+  VideoProjectRenameRequest,
+  VideoProjectSummary,
+  VideoProjectUpdateRequest,
   VideoResolution,
   WanExtendVideoCompletionPayload,
   WanImageToVideoCompletionPayload,
@@ -59,10 +71,34 @@ import {
     SeedanceImageToVideoResponseToJSON,
     VideoConfigResponseFromJSON,
     VideoConfigResponseToJSON,
+    VideoEditorSaveRequestFromJSON,
+    VideoEditorSaveRequestToJSON,
+    VideoEditorSaveResponseFromJSON,
+    VideoEditorSaveResponseToJSON,
+    VideoEditorUploadRequestFromJSON,
+    VideoEditorUploadRequestToJSON,
+    VideoEditorUploadResponseFromJSON,
+    VideoEditorUploadResponseToJSON,
+    VideoExportDetailFromJSON,
+    VideoExportDetailToJSON,
+    VideoExportRecipeFromJSON,
+    VideoExportRecipeToJSON,
     VideoFromChatResponseFromJSON,
     VideoFromChatResponseToJSON,
     VideoMergeResultFromJSON,
     VideoMergeResultToJSON,
+    VideoProjectCreateRequestFromJSON,
+    VideoProjectCreateRequestToJSON,
+    VideoProjectDetailFromJSON,
+    VideoProjectDetailToJSON,
+    VideoProjectListResponseFromJSON,
+    VideoProjectListResponseToJSON,
+    VideoProjectRenameRequestFromJSON,
+    VideoProjectRenameRequestToJSON,
+    VideoProjectSummaryFromJSON,
+    VideoProjectSummaryToJSON,
+    VideoProjectUpdateRequestFromJSON,
+    VideoProjectUpdateRequestToJSON,
     VideoResolutionFromJSON,
     VideoResolutionToJSON,
     WanExtendVideoCompletionPayloadFromJSON,
@@ -180,6 +216,44 @@ export interface GenerationTagsVideoVideoIdTagsGetRequest {
 export interface GetWanTaskStatusVideoWanTaskTaskIdGetRequest {
     taskId: string;
     provider?: GetWanTaskStatusVideoWanTaskTaskIdGetProviderEnum;
+}
+
+export interface VideoEditorExportRecipeVideoEditorExportsVideoIdRecipeGetRequest {
+    videoId: string;
+}
+
+export interface VideoEditorExportVideoEditorExportsVideoIdGetRequest {
+    videoId: string;
+}
+
+export interface VideoEditorProjectCreateVideoEditorProjectsPostRequest {
+    videoProjectCreateRequest: VideoProjectCreateRequest;
+}
+
+export interface VideoEditorProjectDeleteVideoEditorProjectsProjectIdDeleteRequest {
+    projectId: string;
+}
+
+export interface VideoEditorProjectRenameVideoEditorProjectsProjectIdPatchRequest {
+    projectId: string;
+    videoProjectRenameRequest: VideoProjectRenameRequest;
+}
+
+export interface VideoEditorProjectSaveVideoEditorProjectsProjectIdPutRequest {
+    projectId: string;
+    videoProjectUpdateRequest: VideoProjectUpdateRequest;
+}
+
+export interface VideoEditorProjectVideoEditorProjectsProjectIdGetRequest {
+    projectId: string;
+}
+
+export interface VideoEditorSaveVideoEditorSavePostRequest {
+    videoEditorSaveRequest: VideoEditorSaveRequest;
+}
+
+export interface VideoEditorUploadVideoEditorUploadPostRequest {
+    videoEditorUploadRequest: VideoEditorUploadRequest;
 }
 
 export interface VideoLastFrameVideoVideoIdLastFrameGetRequest {
@@ -1164,6 +1238,377 @@ export class VideoApi extends runtime.BaseAPI {
      */
     async getWanTaskStatusVideoWanTaskTaskIdGet(requestParameters: GetWanTaskStatusVideoWanTaskTaskIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseGetWanTaskStatusVideoWanTaskTaskIdGet> {
         const response = await this.getWanTaskStatusVideoWanTaskTaskIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * What a published editor export was made from, for \"Make my own\": its template or Custom setup choices, library track and frame, never its owner\'s media. 404 for a video that is not an export, is not published (unless the caller owns it), or was cut on the timeline (video_editor_recipe_unavailable).
+     * Video Editor Export Recipe
+     */
+    async videoEditorExportRecipeVideoEditorExportsVideoIdRecipeGetRaw(requestParameters: VideoEditorExportRecipeVideoEditorExportsVideoIdRecipeGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoExportRecipe>> {
+        if (requestParameters['videoId'] == null) {
+            throw new runtime.RequiredError(
+                'videoId',
+                'Required parameter "videoId" was null or undefined when calling videoEditorExportRecipeVideoEditorExportsVideoIdRecipeGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/video/editor/exports/{video_id}/recipe`.replace(`{${"video_id"}}`, encodeURIComponent(String(requestParameters['videoId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VideoExportRecipeFromJSON(jsonValue));
+    }
+
+    /**
+     * What a published editor export was made from, for \"Make my own\": its template or Custom setup choices, library track and frame, never its owner\'s media. 404 for a video that is not an export, is not published (unless the caller owns it), or was cut on the timeline (video_editor_recipe_unavailable).
+     * Video Editor Export Recipe
+     */
+    async videoEditorExportRecipeVideoEditorExportsVideoIdRecipeGet(requestParameters: VideoEditorExportRecipeVideoEditorExportsVideoIdRecipeGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoExportRecipe> {
+        const response = await this.videoEditorExportRecipeVideoEditorExportsVideoIdRecipeGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * The caller\'s own export as it was made: the stored document and its gallery assets, for \"Edit again\".
+     * Video Editor Export
+     */
+    async videoEditorExportVideoEditorExportsVideoIdGetRaw(requestParameters: VideoEditorExportVideoEditorExportsVideoIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoExportDetail>> {
+        if (requestParameters['videoId'] == null) {
+            throw new runtime.RequiredError(
+                'videoId',
+                'Required parameter "videoId" was null or undefined when calling videoEditorExportVideoEditorExportsVideoIdGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/video/editor/exports/{video_id}`.replace(`{${"video_id"}}`, encodeURIComponent(String(requestParameters['videoId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VideoExportDetailFromJSON(jsonValue));
+    }
+
+    /**
+     * The caller\'s own export as it was made: the stored document and its gallery assets, for \"Edit again\".
+     * Video Editor Export
+     */
+    async videoEditorExportVideoEditorExportsVideoIdGet(requestParameters: VideoEditorExportVideoEditorExportsVideoIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoExportDetail> {
+        const response = await this.videoEditorExportVideoEditorExportsVideoIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Save a new draft: the edit decision list, validated like an export, stored as version 1.
+     * Video Editor Project Create
+     */
+    async videoEditorProjectCreateVideoEditorProjectsPostRaw(requestParameters: VideoEditorProjectCreateVideoEditorProjectsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoProjectSummary>> {
+        if (requestParameters['videoProjectCreateRequest'] == null) {
+            throw new runtime.RequiredError(
+                'videoProjectCreateRequest',
+                'Required parameter "videoProjectCreateRequest" was null or undefined when calling videoEditorProjectCreateVideoEditorProjectsPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/video/editor/projects`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: VideoProjectCreateRequestToJSON(requestParameters['videoProjectCreateRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VideoProjectSummaryFromJSON(jsonValue));
+    }
+
+    /**
+     * Save a new draft: the edit decision list, validated like an export, stored as version 1.
+     * Video Editor Project Create
+     */
+    async videoEditorProjectCreateVideoEditorProjectsPost(requestParameters: VideoEditorProjectCreateVideoEditorProjectsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoProjectSummary> {
+        const response = await this.videoEditorProjectCreateVideoEditorProjectsPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Soft-delete a draft; deleting one that is already gone succeeds too.
+     * Video Editor Project Delete
+     */
+    async videoEditorProjectDeleteVideoEditorProjectsProjectIdDeleteRaw(requestParameters: VideoEditorProjectDeleteVideoEditorProjectsProjectIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters['projectId'] == null) {
+            throw new runtime.RequiredError(
+                'projectId',
+                'Required parameter "projectId" was null or undefined when calling videoEditorProjectDeleteVideoEditorProjectsProjectIdDelete().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/video/editor/projects/{project_id}`.replace(`{${"project_id"}}`, encodeURIComponent(String(requestParameters['projectId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Soft-delete a draft; deleting one that is already gone succeeds too.
+     * Video Editor Project Delete
+     */
+    async videoEditorProjectDeleteVideoEditorProjectsProjectIdDelete(requestParameters: VideoEditorProjectDeleteVideoEditorProjectsProjectIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.videoEditorProjectDeleteVideoEditorProjectsProjectIdDeleteRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * Rename a draft (and its document\'s title); the version moves on.
+     * Video Editor Project Rename
+     */
+    async videoEditorProjectRenameVideoEditorProjectsProjectIdPatchRaw(requestParameters: VideoEditorProjectRenameVideoEditorProjectsProjectIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoProjectSummary>> {
+        if (requestParameters['projectId'] == null) {
+            throw new runtime.RequiredError(
+                'projectId',
+                'Required parameter "projectId" was null or undefined when calling videoEditorProjectRenameVideoEditorProjectsProjectIdPatch().'
+            );
+        }
+
+        if (requestParameters['videoProjectRenameRequest'] == null) {
+            throw new runtime.RequiredError(
+                'videoProjectRenameRequest',
+                'Required parameter "videoProjectRenameRequest" was null or undefined when calling videoEditorProjectRenameVideoEditorProjectsProjectIdPatch().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/video/editor/projects/{project_id}`.replace(`{${"project_id"}}`, encodeURIComponent(String(requestParameters['projectId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: VideoProjectRenameRequestToJSON(requestParameters['videoProjectRenameRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VideoProjectSummaryFromJSON(jsonValue));
+    }
+
+    /**
+     * Rename a draft (and its document\'s title); the version moves on.
+     * Video Editor Project Rename
+     */
+    async videoEditorProjectRenameVideoEditorProjectsProjectIdPatch(requestParameters: VideoEditorProjectRenameVideoEditorProjectsProjectIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoProjectSummary> {
+        const response = await this.videoEditorProjectRenameVideoEditorProjectsProjectIdPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Store the whole document over the version the editor based it on; 409 when the draft moved on since.
+     * Video Editor Project Save
+     */
+    async videoEditorProjectSaveVideoEditorProjectsProjectIdPutRaw(requestParameters: VideoEditorProjectSaveVideoEditorProjectsProjectIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoProjectSummary>> {
+        if (requestParameters['projectId'] == null) {
+            throw new runtime.RequiredError(
+                'projectId',
+                'Required parameter "projectId" was null or undefined when calling videoEditorProjectSaveVideoEditorProjectsProjectIdPut().'
+            );
+        }
+
+        if (requestParameters['videoProjectUpdateRequest'] == null) {
+            throw new runtime.RequiredError(
+                'videoProjectUpdateRequest',
+                'Required parameter "videoProjectUpdateRequest" was null or undefined when calling videoEditorProjectSaveVideoEditorProjectsProjectIdPut().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/video/editor/projects/{project_id}`.replace(`{${"project_id"}}`, encodeURIComponent(String(requestParameters['projectId']))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: VideoProjectUpdateRequestToJSON(requestParameters['videoProjectUpdateRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VideoProjectSummaryFromJSON(jsonValue));
+    }
+
+    /**
+     * Store the whole document over the version the editor based it on; 409 when the draft moved on since.
+     * Video Editor Project Save
+     */
+    async videoEditorProjectSaveVideoEditorProjectsProjectIdPut(requestParameters: VideoEditorProjectSaveVideoEditorProjectsProjectIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoProjectSummary> {
+        const response = await this.videoEditorProjectSaveVideoEditorProjectsProjectIdPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * One draft with its document and every gallery asset it uses, resolved (or marked missing).
+     * Video Editor Project
+     */
+    async videoEditorProjectVideoEditorProjectsProjectIdGetRaw(requestParameters: VideoEditorProjectVideoEditorProjectsProjectIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoProjectDetail>> {
+        if (requestParameters['projectId'] == null) {
+            throw new runtime.RequiredError(
+                'projectId',
+                'Required parameter "projectId" was null or undefined when calling videoEditorProjectVideoEditorProjectsProjectIdGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/video/editor/projects/{project_id}`.replace(`{${"project_id"}}`, encodeURIComponent(String(requestParameters['projectId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VideoProjectDetailFromJSON(jsonValue));
+    }
+
+    /**
+     * One draft with its document and every gallery asset it uses, resolved (or marked missing).
+     * Video Editor Project
+     */
+    async videoEditorProjectVideoEditorProjectsProjectIdGet(requestParameters: VideoEditorProjectVideoEditorProjectsProjectIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoProjectDetail> {
+        const response = await this.videoEditorProjectVideoEditorProjectsProjectIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * The caller\'s saved editor drafts, newest edit first; all of them, the per-user cap bounds the list.
+     * Video Editor Projects
+     */
+    async videoEditorProjectsVideoEditorProjectsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoProjectListResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/video/editor/projects`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VideoProjectListResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * The caller\'s saved editor drafts, newest edit first; all of them, the per-user cap bounds the list.
+     * Video Editor Projects
+     */
+    async videoEditorProjectsVideoEditorProjectsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoProjectListResponse> {
+        const response = await this.videoEditorProjectsVideoEditorProjectsGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Register an uploaded export as an unpublished gallery video once the object is in place.
+     * Video Editor Save
+     */
+    async videoEditorSaveVideoEditorSavePostRaw(requestParameters: VideoEditorSaveVideoEditorSavePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoEditorSaveResponse>> {
+        if (requestParameters['videoEditorSaveRequest'] == null) {
+            throw new runtime.RequiredError(
+                'videoEditorSaveRequest',
+                'Required parameter "videoEditorSaveRequest" was null or undefined when calling videoEditorSaveVideoEditorSavePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/video/editor/save`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: VideoEditorSaveRequestToJSON(requestParameters['videoEditorSaveRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VideoEditorSaveResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Register an uploaded export as an unpublished gallery video once the object is in place.
+     * Video Editor Save
+     */
+    async videoEditorSaveVideoEditorSavePost(requestParameters: VideoEditorSaveVideoEditorSavePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoEditorSaveResponse> {
+        const response = await this.videoEditorSaveVideoEditorSavePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * A presigned upload for a browser video-editor export: the edit list is checked, the size bounded, and the editor PUTs the file straight to object storage (decision 15).
+     * Video Editor Upload
+     */
+    async videoEditorUploadVideoEditorUploadPostRaw(requestParameters: VideoEditorUploadVideoEditorUploadPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoEditorUploadResponse>> {
+        if (requestParameters['videoEditorUploadRequest'] == null) {
+            throw new runtime.RequiredError(
+                'videoEditorUploadRequest',
+                'Required parameter "videoEditorUploadRequest" was null or undefined when calling videoEditorUploadVideoEditorUploadPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/video/editor/upload`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: VideoEditorUploadRequestToJSON(requestParameters['videoEditorUploadRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => VideoEditorUploadResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * A presigned upload for a browser video-editor export: the edit list is checked, the size bounded, and the editor PUTs the file straight to object storage (decision 15).
+     * Video Editor Upload
+     */
+    async videoEditorUploadVideoEditorUploadPost(requestParameters: VideoEditorUploadVideoEditorUploadPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoEditorUploadResponse> {
+        const response = await this.videoEditorUploadVideoEditorUploadPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

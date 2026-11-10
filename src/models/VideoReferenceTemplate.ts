@@ -142,11 +142,11 @@ export function VideoReferenceTemplateFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function VideoReferenceTemplateToJSON(json: any): VideoReferenceTemplate {
-      return VideoReferenceTemplateToJSONTyped(json, false);
-  }
+export function VideoReferenceTemplateToJSON(json: any): VideoReferenceTemplate {
+    return VideoReferenceTemplateToJSONTyped(json, false);
+}
 
-  export function VideoReferenceTemplateToJSONTyped(value?: VideoReferenceTemplate | null, ignoreDiscriminator: boolean = false): any {
+export function VideoReferenceTemplateToJSONTyped(value?: VideoReferenceTemplate | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

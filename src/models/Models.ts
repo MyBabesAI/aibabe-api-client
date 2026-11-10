@@ -36,11 +36,11 @@ export function ModelsFromJSONTyped(json: any, ignoreDiscriminator: boolean): Mo
     return json;
 }
 
-  export function ModelsToJSON(json: any): Models {
-      return ModelsToJSONTyped(json, false);
-  }
+export function ModelsToJSON(json: any): Models {
+    return ModelsToJSONTyped(json, false);
+}
 
-  export function ModelsToJSONTyped(value?: Models | null, ignoreDiscriminator: boolean = false): any {
+export function ModelsToJSONTyped(value?: Models | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

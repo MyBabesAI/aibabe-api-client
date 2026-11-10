@@ -111,11 +111,11 @@ export function ScenarioChatInfoFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function ScenarioChatInfoToJSON(json: any): ScenarioChatInfo {
-      return ScenarioChatInfoToJSONTyped(json, false);
-  }
+export function ScenarioChatInfoToJSON(json: any): ScenarioChatInfo {
+    return ScenarioChatInfoToJSONTyped(json, false);
+}
 
-  export function ScenarioChatInfoToJSONTyped(value?: ScenarioChatInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ScenarioChatInfoToJSONTyped(value?: ScenarioChatInfo | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

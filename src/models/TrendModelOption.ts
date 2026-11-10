@@ -72,11 +72,11 @@ export function TrendModelOptionFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function TrendModelOptionToJSON(json: any): TrendModelOption {
-      return TrendModelOptionToJSONTyped(json, false);
-  }
+export function TrendModelOptionToJSON(json: any): TrendModelOption {
+    return TrendModelOptionToJSONTyped(json, false);
+}
 
-  export function TrendModelOptionToJSONTyped(value?: TrendModelOption | null, ignoreDiscriminator: boolean = false): any {
+export function TrendModelOptionToJSONTyped(value?: TrendModelOption | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

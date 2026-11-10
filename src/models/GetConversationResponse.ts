@@ -153,6 +153,18 @@ export interface GetConversationResponse {
      * @memberof GetConversationResponse
      */
     forkPointAt?: Date | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetConversationResponse
+     */
+    personaEstablished?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetConversationResponse
+     */
+    personaDeleted?: boolean;
 }
 
 /**
@@ -192,14 +204,16 @@ export function GetConversationResponseFromJSONTyped(json: any, ignoreDiscrimina
         'parentConversationId': json['parent_conversation_id'] == null ? undefined : json['parent_conversation_id'],
         'rootConversationId': json['root_conversation_id'] == null ? undefined : json['root_conversation_id'],
         'forkPointAt': json['fork_point_at'] == null ? undefined : (new Date(json['fork_point_at'])),
+        'personaEstablished': json['persona_established'] == null ? undefined : json['persona_established'],
+        'personaDeleted': json['persona_deleted'] == null ? undefined : json['persona_deleted'],
     };
 }
 
-  export function GetConversationResponseToJSON(json: any): GetConversationResponse {
-      return GetConversationResponseToJSONTyped(json, false);
-  }
+export function GetConversationResponseToJSON(json: any): GetConversationResponse {
+    return GetConversationResponseToJSONTyped(json, false);
+}
 
-  export function GetConversationResponseToJSONTyped(value?: GetConversationResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetConversationResponseToJSONTyped(value?: GetConversationResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -220,6 +234,8 @@ export function GetConversationResponseFromJSONTyped(json: any, ignoreDiscrimina
         'parent_conversation_id': value['parentConversationId'],
         'root_conversation_id': value['rootConversationId'],
         'fork_point_at': value['forkPointAt'] == null ? undefined : ((value['forkPointAt'] as any).toISOString()),
+        'persona_established': value['personaEstablished'],
+        'persona_deleted': value['personaDeleted'],
     };
 }
 

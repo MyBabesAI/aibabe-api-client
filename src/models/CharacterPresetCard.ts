@@ -153,11 +153,11 @@ export function CharacterPresetCardFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function CharacterPresetCardToJSON(json: any): CharacterPresetCard {
-      return CharacterPresetCardToJSONTyped(json, false);
-  }
+export function CharacterPresetCardToJSON(json: any): CharacterPresetCard {
+    return CharacterPresetCardToJSONTyped(json, false);
+}
 
-  export function CharacterPresetCardToJSONTyped(value?: CharacterPresetCard | null, ignoreDiscriminator: boolean = false): any {
+export function CharacterPresetCardToJSONTyped(value?: CharacterPresetCard | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

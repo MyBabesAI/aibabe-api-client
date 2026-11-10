@@ -72,11 +72,11 @@ export function PostAppearanceJobResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function PostAppearanceJobResponseToJSON(json: any): PostAppearanceJobResponse {
-      return PostAppearanceJobResponseToJSONTyped(json, false);
-  }
+export function PostAppearanceJobResponseToJSON(json: any): PostAppearanceJobResponse {
+    return PostAppearanceJobResponseToJSONTyped(json, false);
+}
 
-  export function PostAppearanceJobResponseToJSONTyped(value?: PostAppearanceJobResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostAppearanceJobResponseToJSONTyped(value?: PostAppearanceJobResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -115,11 +115,11 @@ export function GetLeaderboardRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function GetLeaderboardRequestToJSON(json: any): GetLeaderboardRequest {
-      return GetLeaderboardRequestToJSONTyped(json, false);
-  }
+export function GetLeaderboardRequestToJSON(json: any): GetLeaderboardRequest {
+    return GetLeaderboardRequestToJSONTyped(json, false);
+}
 
-  export function GetLeaderboardRequestToJSONTyped(value?: GetLeaderboardRequest | null, ignoreDiscriminator: boolean = false): any {
+export function GetLeaderboardRequestToJSONTyped(value?: GetLeaderboardRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

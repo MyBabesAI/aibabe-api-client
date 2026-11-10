@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminSeedanceModel, ExtendVideoPayload, GetVideoGenerationTagsResponse, ImageToVideoFromChatPayload, ImageToVideoRecommendationPayload, ImageToVideoRequest, LastVideoFrameResponse, ResponseGetWanTaskStatusVideoWanTaskTaskIdGet, SeedanceImageToVideoCompletionPayload, SeedanceImageToVideoResponse, VideoConfigResponse, VideoFromChatResponse, VideoMergeResult, VideoResolution, WanExtendVideoCompletionPayload, WanImageToVideoCompletionPayload, WanImageToVideoResponse } from '../models/index';
+import type { AdminSeedanceModel, ExtendVideoPayload, GetVideoGenerationTagsResponse, ImageToVideoFromChatPayload, ImageToVideoRecommendationPayload, ImageToVideoRequest, LastVideoFrameResponse, ResponseGetWanTaskStatusVideoWanTaskTaskIdGet, SeedanceImageToVideoCompletionPayload, SeedanceImageToVideoResponse, VideoConfigResponse, VideoEditorSaveRequest, VideoEditorSaveResponse, VideoEditorUploadRequest, VideoEditorUploadResponse, VideoExportDetail, VideoExportRecipe, VideoFromChatResponse, VideoMergeResult, VideoProjectCreateRequest, VideoProjectDetail, VideoProjectListResponse, VideoProjectRenameRequest, VideoProjectSummary, VideoProjectUpdateRequest, VideoResolution, WanExtendVideoCompletionPayload, WanImageToVideoCompletionPayload, WanImageToVideoResponse } from '../models/index';
 export interface AttachmentVideoVideoIdAttachmentGetRequest {
     videoId: string;
     videoName: string;
@@ -101,6 +101,35 @@ export interface GenerationTagsVideoVideoIdTagsGetRequest {
 export interface GetWanTaskStatusVideoWanTaskTaskIdGetRequest {
     taskId: string;
     provider?: GetWanTaskStatusVideoWanTaskTaskIdGetProviderEnum;
+}
+export interface VideoEditorExportRecipeVideoEditorExportsVideoIdRecipeGetRequest {
+    videoId: string;
+}
+export interface VideoEditorExportVideoEditorExportsVideoIdGetRequest {
+    videoId: string;
+}
+export interface VideoEditorProjectCreateVideoEditorProjectsPostRequest {
+    videoProjectCreateRequest: VideoProjectCreateRequest;
+}
+export interface VideoEditorProjectDeleteVideoEditorProjectsProjectIdDeleteRequest {
+    projectId: string;
+}
+export interface VideoEditorProjectRenameVideoEditorProjectsProjectIdPatchRequest {
+    projectId: string;
+    videoProjectRenameRequest: VideoProjectRenameRequest;
+}
+export interface VideoEditorProjectSaveVideoEditorProjectsProjectIdPutRequest {
+    projectId: string;
+    videoProjectUpdateRequest: VideoProjectUpdateRequest;
+}
+export interface VideoEditorProjectVideoEditorProjectsProjectIdGetRequest {
+    projectId: string;
+}
+export interface VideoEditorSaveVideoEditorSavePostRequest {
+    videoEditorSaveRequest: VideoEditorSaveRequest;
+}
+export interface VideoEditorUploadVideoEditorUploadPostRequest {
+    videoEditorUploadRequest: VideoEditorUploadRequest;
 }
 export interface VideoLastFrameVideoVideoIdLastFrameGetRequest {
     videoId: string;
@@ -261,6 +290,106 @@ export declare class VideoApi extends runtime.BaseAPI {
      * Get Wan Task Status
      */
     getWanTaskStatusVideoWanTaskTaskIdGet(requestParameters: GetWanTaskStatusVideoWanTaskTaskIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ResponseGetWanTaskStatusVideoWanTaskTaskIdGet>;
+    /**
+     * What a published editor export was made from, for \"Make my own\": its template or Custom setup choices, library track and frame, never its owner\'s media. 404 for a video that is not an export, is not published (unless the caller owns it), or was cut on the timeline (video_editor_recipe_unavailable).
+     * Video Editor Export Recipe
+     */
+    videoEditorExportRecipeVideoEditorExportsVideoIdRecipeGetRaw(requestParameters: VideoEditorExportRecipeVideoEditorExportsVideoIdRecipeGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoExportRecipe>>;
+    /**
+     * What a published editor export was made from, for \"Make my own\": its template or Custom setup choices, library track and frame, never its owner\'s media. 404 for a video that is not an export, is not published (unless the caller owns it), or was cut on the timeline (video_editor_recipe_unavailable).
+     * Video Editor Export Recipe
+     */
+    videoEditorExportRecipeVideoEditorExportsVideoIdRecipeGet(requestParameters: VideoEditorExportRecipeVideoEditorExportsVideoIdRecipeGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoExportRecipe>;
+    /**
+     * The caller\'s own export as it was made: the stored document and its gallery assets, for \"Edit again\".
+     * Video Editor Export
+     */
+    videoEditorExportVideoEditorExportsVideoIdGetRaw(requestParameters: VideoEditorExportVideoEditorExportsVideoIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoExportDetail>>;
+    /**
+     * The caller\'s own export as it was made: the stored document and its gallery assets, for \"Edit again\".
+     * Video Editor Export
+     */
+    videoEditorExportVideoEditorExportsVideoIdGet(requestParameters: VideoEditorExportVideoEditorExportsVideoIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoExportDetail>;
+    /**
+     * Save a new draft: the edit decision list, validated like an export, stored as version 1.
+     * Video Editor Project Create
+     */
+    videoEditorProjectCreateVideoEditorProjectsPostRaw(requestParameters: VideoEditorProjectCreateVideoEditorProjectsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoProjectSummary>>;
+    /**
+     * Save a new draft: the edit decision list, validated like an export, stored as version 1.
+     * Video Editor Project Create
+     */
+    videoEditorProjectCreateVideoEditorProjectsPost(requestParameters: VideoEditorProjectCreateVideoEditorProjectsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoProjectSummary>;
+    /**
+     * Soft-delete a draft; deleting one that is already gone succeeds too.
+     * Video Editor Project Delete
+     */
+    videoEditorProjectDeleteVideoEditorProjectsProjectIdDeleteRaw(requestParameters: VideoEditorProjectDeleteVideoEditorProjectsProjectIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Soft-delete a draft; deleting one that is already gone succeeds too.
+     * Video Editor Project Delete
+     */
+    videoEditorProjectDeleteVideoEditorProjectsProjectIdDelete(requestParameters: VideoEditorProjectDeleteVideoEditorProjectsProjectIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Rename a draft (and its document\'s title); the version moves on.
+     * Video Editor Project Rename
+     */
+    videoEditorProjectRenameVideoEditorProjectsProjectIdPatchRaw(requestParameters: VideoEditorProjectRenameVideoEditorProjectsProjectIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoProjectSummary>>;
+    /**
+     * Rename a draft (and its document\'s title); the version moves on.
+     * Video Editor Project Rename
+     */
+    videoEditorProjectRenameVideoEditorProjectsProjectIdPatch(requestParameters: VideoEditorProjectRenameVideoEditorProjectsProjectIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoProjectSummary>;
+    /**
+     * Store the whole document over the version the editor based it on; 409 when the draft moved on since.
+     * Video Editor Project Save
+     */
+    videoEditorProjectSaveVideoEditorProjectsProjectIdPutRaw(requestParameters: VideoEditorProjectSaveVideoEditorProjectsProjectIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoProjectSummary>>;
+    /**
+     * Store the whole document over the version the editor based it on; 409 when the draft moved on since.
+     * Video Editor Project Save
+     */
+    videoEditorProjectSaveVideoEditorProjectsProjectIdPut(requestParameters: VideoEditorProjectSaveVideoEditorProjectsProjectIdPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoProjectSummary>;
+    /**
+     * One draft with its document and every gallery asset it uses, resolved (or marked missing).
+     * Video Editor Project
+     */
+    videoEditorProjectVideoEditorProjectsProjectIdGetRaw(requestParameters: VideoEditorProjectVideoEditorProjectsProjectIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoProjectDetail>>;
+    /**
+     * One draft with its document and every gallery asset it uses, resolved (or marked missing).
+     * Video Editor Project
+     */
+    videoEditorProjectVideoEditorProjectsProjectIdGet(requestParameters: VideoEditorProjectVideoEditorProjectsProjectIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoProjectDetail>;
+    /**
+     * The caller\'s saved editor drafts, newest edit first; all of them, the per-user cap bounds the list.
+     * Video Editor Projects
+     */
+    videoEditorProjectsVideoEditorProjectsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoProjectListResponse>>;
+    /**
+     * The caller\'s saved editor drafts, newest edit first; all of them, the per-user cap bounds the list.
+     * Video Editor Projects
+     */
+    videoEditorProjectsVideoEditorProjectsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoProjectListResponse>;
+    /**
+     * Register an uploaded export as an unpublished gallery video once the object is in place.
+     * Video Editor Save
+     */
+    videoEditorSaveVideoEditorSavePostRaw(requestParameters: VideoEditorSaveVideoEditorSavePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoEditorSaveResponse>>;
+    /**
+     * Register an uploaded export as an unpublished gallery video once the object is in place.
+     * Video Editor Save
+     */
+    videoEditorSaveVideoEditorSavePost(requestParameters: VideoEditorSaveVideoEditorSavePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoEditorSaveResponse>;
+    /**
+     * A presigned upload for a browser video-editor export: the edit list is checked, the size bounded, and the editor PUTs the file straight to object storage (decision 15).
+     * Video Editor Upload
+     */
+    videoEditorUploadVideoEditorUploadPostRaw(requestParameters: VideoEditorUploadVideoEditorUploadPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<VideoEditorUploadResponse>>;
+    /**
+     * A presigned upload for a browser video-editor export: the edit list is checked, the size bounded, and the editor PUTs the file straight to object storage (decision 15).
+     * Video Editor Upload
+     */
+    videoEditorUploadVideoEditorUploadPost(requestParameters: VideoEditorUploadVideoEditorUploadPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<VideoEditorUploadResponse>;
     /**
      * Video Last Frame
      */

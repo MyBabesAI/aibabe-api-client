@@ -49,11 +49,11 @@ export function TrendPreviewResponseFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function TrendPreviewResponseToJSON(json: any): TrendPreviewResponse {
-      return TrendPreviewResponseToJSONTyped(json, false);
-  }
+export function TrendPreviewResponseToJSON(json: any): TrendPreviewResponse {
+    return TrendPreviewResponseToJSONTyped(json, false);
+}
 
-  export function TrendPreviewResponseToJSONTyped(value?: TrendPreviewResponse | null, ignoreDiscriminator: boolean = false): any {
+export function TrendPreviewResponseToJSONTyped(value?: TrendPreviewResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

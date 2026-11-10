@@ -71,11 +71,11 @@ export function PostReferenceImagesRequestFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function PostReferenceImagesRequestToJSON(json: any): PostReferenceImagesRequest {
-      return PostReferenceImagesRequestToJSONTyped(json, false);
-  }
+export function PostReferenceImagesRequestToJSON(json: any): PostReferenceImagesRequest {
+    return PostReferenceImagesRequestToJSONTyped(json, false);
+}
 
-  export function PostReferenceImagesRequestToJSONTyped(value?: PostReferenceImagesRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostReferenceImagesRequestToJSONTyped(value?: PostReferenceImagesRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -59,11 +59,11 @@ export function StoryCreatorUpdateEpisodeVisibilityRequestFromJSONTyped(json: an
     };
 }
 
-  export function StoryCreatorUpdateEpisodeVisibilityRequestToJSON(json: any): StoryCreatorUpdateEpisodeVisibilityRequest {
-      return StoryCreatorUpdateEpisodeVisibilityRequestToJSONTyped(json, false);
-  }
+export function StoryCreatorUpdateEpisodeVisibilityRequestToJSON(json: any): StoryCreatorUpdateEpisodeVisibilityRequest {
+    return StoryCreatorUpdateEpisodeVisibilityRequestToJSONTyped(json, false);
+}
 
-  export function StoryCreatorUpdateEpisodeVisibilityRequestToJSONTyped(value?: StoryCreatorUpdateEpisodeVisibilityRequest | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorUpdateEpisodeVisibilityRequestToJSONTyped(value?: StoryCreatorUpdateEpisodeVisibilityRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

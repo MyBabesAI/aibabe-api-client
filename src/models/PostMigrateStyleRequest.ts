@@ -59,11 +59,11 @@ export function PostMigrateStyleRequestFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function PostMigrateStyleRequestToJSON(json: any): PostMigrateStyleRequest {
-      return PostMigrateStyleRequestToJSONTyped(json, false);
-  }
+export function PostMigrateStyleRequestToJSON(json: any): PostMigrateStyleRequest {
+    return PostMigrateStyleRequestToJSONTyped(json, false);
+}
 
-  export function PostMigrateStyleRequestToJSONTyped(value?: PostMigrateStyleRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostMigrateStyleRequestToJSONTyped(value?: PostMigrateStyleRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

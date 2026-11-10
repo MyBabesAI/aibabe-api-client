@@ -123,11 +123,11 @@ export function GetLorasResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function GetLorasResponseToJSON(json: any): GetLorasResponse {
-      return GetLorasResponseToJSONTyped(json, false);
-  }
+export function GetLorasResponseToJSON(json: any): GetLorasResponse {
+    return GetLorasResponseToJSONTyped(json, false);
+}
 
-  export function GetLorasResponseToJSONTyped(value?: GetLorasResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetLorasResponseToJSONTyped(value?: GetLorasResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

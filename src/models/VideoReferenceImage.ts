@@ -66,11 +66,11 @@ export function VideoReferenceImageFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function VideoReferenceImageToJSON(json: any): VideoReferenceImage {
-      return VideoReferenceImageToJSONTyped(json, false);
-  }
+export function VideoReferenceImageToJSON(json: any): VideoReferenceImage {
+    return VideoReferenceImageToJSONTyped(json, false);
+}
 
-  export function VideoReferenceImageToJSONTyped(value?: VideoReferenceImage | null, ignoreDiscriminator: boolean = false): any {
+export function VideoReferenceImageToJSONTyped(value?: VideoReferenceImage | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

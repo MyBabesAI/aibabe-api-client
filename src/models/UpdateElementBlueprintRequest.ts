@@ -76,11 +76,11 @@ export function UpdateElementBlueprintRequestFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function UpdateElementBlueprintRequestToJSON(json: any): UpdateElementBlueprintRequest {
-      return UpdateElementBlueprintRequestToJSONTyped(json, false);
-  }
+export function UpdateElementBlueprintRequestToJSON(json: any): UpdateElementBlueprintRequest {
+    return UpdateElementBlueprintRequestToJSONTyped(json, false);
+}
 
-  export function UpdateElementBlueprintRequestToJSONTyped(value?: UpdateElementBlueprintRequest | null, ignoreDiscriminator: boolean = false): any {
+export function UpdateElementBlueprintRequestToJSONTyped(value?: UpdateElementBlueprintRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

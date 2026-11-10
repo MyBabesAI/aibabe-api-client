@@ -78,11 +78,11 @@ export function VideoQualityConfigFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function VideoQualityConfigToJSON(json: any): VideoQualityConfig {
-      return VideoQualityConfigToJSONTyped(json, false);
-  }
+export function VideoQualityConfigToJSON(json: any): VideoQualityConfig {
+    return VideoQualityConfigToJSONTyped(json, false);
+}
 
-  export function VideoQualityConfigToJSONTyped(value?: VideoQualityConfig | null, ignoreDiscriminator: boolean = false): any {
+export function VideoQualityConfigToJSONTyped(value?: VideoQualityConfig | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

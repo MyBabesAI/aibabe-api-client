@@ -36,11 +36,11 @@ export function PreviewChatbotIdsFromJSONTyped(json: any, ignoreDiscriminator: b
     return json;
 }
 
-  export function PreviewChatbotIdsToJSON(json: any): PreviewChatbotIds {
-      return PreviewChatbotIdsToJSONTyped(json, false);
-  }
+export function PreviewChatbotIdsToJSON(json: any): PreviewChatbotIds {
+    return PreviewChatbotIdsToJSONTyped(json, false);
+}
 
-  export function PreviewChatbotIdsToJSONTyped(value?: PreviewChatbotIds | null, ignoreDiscriminator: boolean = false): any {
+export function PreviewChatbotIdsToJSONTyped(value?: PreviewChatbotIds | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

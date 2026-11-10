@@ -29,6 +29,24 @@ export interface PostConversationParticipantLeaveResponse {
      * @memberof PostConversationParticipantLeaveResponse
      */
     event: ChatMessageDetail;
+    /**
+     *
+     * @type {string}
+     * @memberof PostConversationParticipantLeaveResponse
+     */
+    requestId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PostConversationParticipantLeaveResponse
+     */
+    assistantMessageId: string;
+    /**
+     *
+     * @type {number}
+     * @memberof PostConversationParticipantLeaveResponse
+     */
+    remainingFreeMessages?: number | null;
 }
 /**
  * Check if a given object implements the PostConversationParticipantLeaveResponse interface.

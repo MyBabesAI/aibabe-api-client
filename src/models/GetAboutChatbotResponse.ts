@@ -225,11 +225,11 @@ export function GetAboutChatbotResponseFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function GetAboutChatbotResponseToJSON(json: any): GetAboutChatbotResponse {
-      return GetAboutChatbotResponseToJSONTyped(json, false);
-  }
+export function GetAboutChatbotResponseToJSON(json: any): GetAboutChatbotResponse {
+    return GetAboutChatbotResponseToJSONTyped(json, false);
+}
 
-  export function GetAboutChatbotResponseToJSONTyped(value?: GetAboutChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetAboutChatbotResponseToJSONTyped(value?: GetAboutChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

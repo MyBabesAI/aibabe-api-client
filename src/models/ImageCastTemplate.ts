@@ -132,11 +132,11 @@ export function ImageCastTemplateFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function ImageCastTemplateToJSON(json: any): ImageCastTemplate {
-      return ImageCastTemplateToJSONTyped(json, false);
-  }
+export function ImageCastTemplateToJSON(json: any): ImageCastTemplate {
+    return ImageCastTemplateToJSONTyped(json, false);
+}
 
-  export function ImageCastTemplateToJSONTyped(value?: ImageCastTemplate | null, ignoreDiscriminator: boolean = false): any {
+export function ImageCastTemplateToJSONTyped(value?: ImageCastTemplate | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

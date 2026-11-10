@@ -95,11 +95,11 @@ export function GetImageLooksResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function GetImageLooksResponseToJSON(json: any): GetImageLooksResponse {
-      return GetImageLooksResponseToJSONTyped(json, false);
-  }
+export function GetImageLooksResponseToJSON(json: any): GetImageLooksResponse {
+    return GetImageLooksResponseToJSONTyped(json, false);
+}
 
-  export function GetImageLooksResponseToJSONTyped(value?: GetImageLooksResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetImageLooksResponseToJSONTyped(value?: GetImageLooksResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

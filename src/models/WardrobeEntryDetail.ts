@@ -89,11 +89,11 @@ export function WardrobeEntryDetailFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function WardrobeEntryDetailToJSON(json: any): WardrobeEntryDetail {
-      return WardrobeEntryDetailToJSONTyped(json, false);
-  }
+export function WardrobeEntryDetailToJSON(json: any): WardrobeEntryDetail {
+    return WardrobeEntryDetailToJSONTyped(json, false);
+}
 
-  export function WardrobeEntryDetailToJSONTyped(value?: WardrobeEntryDetail | null, ignoreDiscriminator: boolean = false): any {
+export function WardrobeEntryDetailToJSONTyped(value?: WardrobeEntryDetail | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

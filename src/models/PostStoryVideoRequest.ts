@@ -57,11 +57,11 @@ export function PostStoryVideoRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function PostStoryVideoRequestToJSON(json: any): PostStoryVideoRequest {
-      return PostStoryVideoRequestToJSONTyped(json, false);
-  }
+export function PostStoryVideoRequestToJSON(json: any): PostStoryVideoRequest {
+    return PostStoryVideoRequestToJSONTyped(json, false);
+}
 
-  export function PostStoryVideoRequestToJSONTyped(value?: PostStoryVideoRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostStoryVideoRequestToJSONTyped(value?: PostStoryVideoRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -49,11 +49,11 @@ export function TrendRecreateCharacterFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function TrendRecreateCharacterToJSON(json: any): TrendRecreateCharacter {
-      return TrendRecreateCharacterToJSONTyped(json, false);
-  }
+export function TrendRecreateCharacterToJSON(json: any): TrendRecreateCharacter {
+    return TrendRecreateCharacterToJSONTyped(json, false);
+}
 
-  export function TrendRecreateCharacterToJSONTyped(value?: TrendRecreateCharacter | null, ignoreDiscriminator: boolean = false): any {
+export function TrendRecreateCharacterToJSONTyped(value?: TrendRecreateCharacter | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

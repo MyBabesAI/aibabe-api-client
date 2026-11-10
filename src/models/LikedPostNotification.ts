@@ -120,11 +120,11 @@ export function LikedPostNotificationFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function LikedPostNotificationToJSON(json: any): LikedPostNotification {
-      return LikedPostNotificationToJSONTyped(json, false);
-  }
+export function LikedPostNotificationToJSON(json: any): LikedPostNotification {
+    return LikedPostNotificationToJSONTyped(json, false);
+}
 
-  export function LikedPostNotificationToJSONTyped(value?: LikedPostNotification | null, ignoreDiscriminator: boolean = false): any {
+export function LikedPostNotificationToJSONTyped(value?: LikedPostNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

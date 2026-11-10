@@ -56,11 +56,11 @@ export function ConfigRefreshRequestFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function ConfigRefreshRequestToJSON(json: any): ConfigRefreshRequest {
-      return ConfigRefreshRequestToJSONTyped(json, false);
-  }
+export function ConfigRefreshRequestToJSON(json: any): ConfigRefreshRequest {
+    return ConfigRefreshRequestToJSONTyped(json, false);
+}
 
-  export function ConfigRefreshRequestToJSONTyped(value?: ConfigRefreshRequest | null, ignoreDiscriminator: boolean = false): any {
+export function ConfigRefreshRequestToJSONTyped(value?: ConfigRefreshRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

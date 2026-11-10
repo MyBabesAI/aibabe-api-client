@@ -80,11 +80,11 @@ export function CastMemberFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     };
 }
 
-  export function CastMemberToJSON(json: any): CastMember {
-      return CastMemberToJSONTyped(json, false);
-  }
+export function CastMemberToJSON(json: any): CastMember {
+    return CastMemberToJSONTyped(json, false);
+}
 
-  export function CastMemberToJSONTyped(value?: CastMember | null, ignoreDiscriminator: boolean = false): any {
+export function CastMemberToJSONTyped(value?: CastMember | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -106,6 +106,18 @@ export interface GetConversationResponse {
      * @memberof GetConversationResponse
      */
     forkPointAt?: Date | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GetConversationResponse
+     */
+    personaEstablished?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GetConversationResponse
+     */
+    personaDeleted?: boolean;
 }
 /**
  * Check if a given object implements the GetConversationResponse interface.

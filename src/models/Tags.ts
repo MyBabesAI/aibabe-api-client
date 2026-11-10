@@ -36,11 +36,11 @@ export function TagsFromJSONTyped(json: any, ignoreDiscriminator: boolean): Tags
     return json;
 }
 
-  export function TagsToJSON(json: any): Tags {
-      return TagsToJSONTyped(json, false);
-  }
+export function TagsToJSON(json: any): Tags {
+    return TagsToJSONTyped(json, false);
+}
 
-  export function TagsToJSONTyped(value?: Tags | null, ignoreDiscriminator: boolean = false): any {
+export function TagsToJSONTyped(value?: Tags | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

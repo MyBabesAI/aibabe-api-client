@@ -64,11 +64,11 @@ export function GetGalleryResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function GetGalleryResponseToJSON(json: any): GetGalleryResponse {
-      return GetGalleryResponseToJSONTyped(json, false);
-  }
+export function GetGalleryResponseToJSON(json: any): GetGalleryResponse {
+    return GetGalleryResponseToJSONTyped(json, false);
+}
 
-  export function GetGalleryResponseToJSONTyped(value?: GetGalleryResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetGalleryResponseToJSONTyped(value?: GetGalleryResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

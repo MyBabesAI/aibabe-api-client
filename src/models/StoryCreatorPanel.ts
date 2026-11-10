@@ -279,11 +279,11 @@ export function StoryCreatorPanelFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function StoryCreatorPanelToJSON(json: any): StoryCreatorPanel {
-      return StoryCreatorPanelToJSONTyped(json, false);
-  }
+export function StoryCreatorPanelToJSON(json: any): StoryCreatorPanel {
+    return StoryCreatorPanelToJSONTyped(json, false);
+}
 
-  export function StoryCreatorPanelToJSONTyped(value?: StoryCreatorPanel | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorPanelToJSONTyped(value?: StoryCreatorPanel | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

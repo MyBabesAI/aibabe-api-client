@@ -66,11 +66,11 @@ export function RestylePersonaRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function RestylePersonaRequestToJSON(json: any): RestylePersonaRequest {
-      return RestylePersonaRequestToJSONTyped(json, false);
-  }
+export function RestylePersonaRequestToJSON(json: any): RestylePersonaRequest {
+    return RestylePersonaRequestToJSONTyped(json, false);
+}
 
-  export function RestylePersonaRequestToJSONTyped(value?: RestylePersonaRequest | null, ignoreDiscriminator: boolean = false): any {
+export function RestylePersonaRequestToJSONTyped(value?: RestylePersonaRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

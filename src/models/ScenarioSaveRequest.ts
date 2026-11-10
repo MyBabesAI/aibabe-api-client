@@ -94,11 +94,11 @@ export function ScenarioSaveRequestFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function ScenarioSaveRequestToJSON(json: any): ScenarioSaveRequest {
-      return ScenarioSaveRequestToJSONTyped(json, false);
-  }
+export function ScenarioSaveRequestToJSON(json: any): ScenarioSaveRequest {
+    return ScenarioSaveRequestToJSONTyped(json, false);
+}
 
-  export function ScenarioSaveRequestToJSONTyped(value?: ScenarioSaveRequest | null, ignoreDiscriminator: boolean = false): any {
+export function ScenarioSaveRequestToJSONTyped(value?: ScenarioSaveRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

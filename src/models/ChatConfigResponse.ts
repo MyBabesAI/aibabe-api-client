@@ -95,11 +95,11 @@ export function ChatConfigResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function ChatConfigResponseToJSON(json: any): ChatConfigResponse {
-      return ChatConfigResponseToJSONTyped(json, false);
-  }
+export function ChatConfigResponseToJSON(json: any): ChatConfigResponse {
+    return ChatConfigResponseToJSONTyped(json, false);
+}
 
-  export function ChatConfigResponseToJSONTyped(value?: ChatConfigResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ChatConfigResponseToJSONTyped(value?: ChatConfigResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

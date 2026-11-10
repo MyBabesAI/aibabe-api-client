@@ -76,11 +76,11 @@ export function PostAdvancedRecreateResponseFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function PostAdvancedRecreateResponseToJSON(json: any): PostAdvancedRecreateResponse {
-      return PostAdvancedRecreateResponseToJSONTyped(json, false);
-  }
+export function PostAdvancedRecreateResponseToJSON(json: any): PostAdvancedRecreateResponse {
+    return PostAdvancedRecreateResponseToJSONTyped(json, false);
+}
 
-  export function PostAdvancedRecreateResponseToJSONTyped(value?: PostAdvancedRecreateResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostAdvancedRecreateResponseToJSONTyped(value?: PostAdvancedRecreateResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

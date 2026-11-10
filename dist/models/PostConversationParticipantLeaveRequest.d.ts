@@ -21,6 +21,12 @@ export interface PostConversationParticipantLeaveRequest {
      * @memberof PostConversationParticipantLeaveRequest
      */
     farewell?: string | null;
+    /**
+     * The request id the reactions to the leaving stream under
+     * @type {string}
+     * @memberof PostConversationParticipantLeaveRequest
+     */
+    requestId?: string;
 }
 /**
  * Check if a given object implements the PostConversationParticipantLeaveRequest interface.

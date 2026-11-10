@@ -159,11 +159,11 @@ export function ElementBlueprintFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function ElementBlueprintToJSON(json: any): ElementBlueprint {
-      return ElementBlueprintToJSONTyped(json, false);
-  }
+export function ElementBlueprintToJSON(json: any): ElementBlueprint {
+    return ElementBlueprintToJSONTyped(json, false);
+}
 
-  export function ElementBlueprintToJSONTyped(value?: ElementBlueprint | null, ignoreDiscriminator: boolean = false): any {
+export function ElementBlueprintToJSONTyped(value?: ElementBlueprint | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

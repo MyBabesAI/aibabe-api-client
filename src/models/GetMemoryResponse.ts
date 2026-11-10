@@ -81,11 +81,11 @@ export function GetMemoryResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function GetMemoryResponseToJSON(json: any): GetMemoryResponse {
-      return GetMemoryResponseToJSONTyped(json, false);
-  }
+export function GetMemoryResponseToJSON(json: any): GetMemoryResponse {
+    return GetMemoryResponseToJSONTyped(json, false);
+}
 
-  export function GetMemoryResponseToJSONTyped(value?: GetMemoryResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetMemoryResponseToJSONTyped(value?: GetMemoryResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

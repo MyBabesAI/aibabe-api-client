@@ -57,11 +57,11 @@ export function WardrobeFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     };
 }
 
-  export function WardrobeToJSON(json: any): Wardrobe {
-      return WardrobeToJSONTyped(json, false);
-  }
+export function WardrobeToJSON(json: any): Wardrobe {
+    return WardrobeToJSONTyped(json, false);
+}
 
-  export function WardrobeToJSONTyped(value?: Wardrobe | null, ignoreDiscriminator: boolean = false): any {
+export function WardrobeToJSONTyped(value?: Wardrobe | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

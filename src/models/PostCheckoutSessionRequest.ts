@@ -79,11 +79,11 @@ export function PostCheckoutSessionRequestFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function PostCheckoutSessionRequestToJSON(json: any): PostCheckoutSessionRequest {
-      return PostCheckoutSessionRequestToJSONTyped(json, false);
-  }
+export function PostCheckoutSessionRequestToJSON(json: any): PostCheckoutSessionRequest {
+    return PostCheckoutSessionRequestToJSONTyped(json, false);
+}
 
-  export function PostCheckoutSessionRequestToJSONTyped(value?: PostCheckoutSessionRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostCheckoutSessionRequestToJSONTyped(value?: PostCheckoutSessionRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

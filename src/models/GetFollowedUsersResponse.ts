@@ -57,11 +57,11 @@ export function GetFollowedUsersResponseFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function GetFollowedUsersResponseToJSON(json: any): GetFollowedUsersResponse {
-      return GetFollowedUsersResponseToJSONTyped(json, false);
-  }
+export function GetFollowedUsersResponseToJSON(json: any): GetFollowedUsersResponse {
+    return GetFollowedUsersResponseToJSONTyped(json, false);
+}
 
-  export function GetFollowedUsersResponseToJSONTyped(value?: GetFollowedUsersResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetFollowedUsersResponseToJSONTyped(value?: GetFollowedUsersResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -116,11 +116,11 @@ export function GetAppearanceResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function GetAppearanceResponseToJSON(json: any): GetAppearanceResponse {
-      return GetAppearanceResponseToJSONTyped(json, false);
-  }
+export function GetAppearanceResponseToJSON(json: any): GetAppearanceResponse {
+    return GetAppearanceResponseToJSONTyped(json, false);
+}
 
-  export function GetAppearanceResponseToJSONTyped(value?: GetAppearanceResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetAppearanceResponseToJSONTyped(value?: GetAppearanceResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

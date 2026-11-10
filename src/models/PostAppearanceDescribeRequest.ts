@@ -83,11 +83,11 @@ export function PostAppearanceDescribeRequestFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function PostAppearanceDescribeRequestToJSON(json: any): PostAppearanceDescribeRequest {
-      return PostAppearanceDescribeRequestToJSONTyped(json, false);
-  }
+export function PostAppearanceDescribeRequestToJSON(json: any): PostAppearanceDescribeRequest {
+    return PostAppearanceDescribeRequestToJSONTyped(json, false);
+}
 
-  export function PostAppearanceDescribeRequestToJSONTyped(value?: PostAppearanceDescribeRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostAppearanceDescribeRequestToJSONTyped(value?: PostAppearanceDescribeRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

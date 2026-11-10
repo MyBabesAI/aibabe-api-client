@@ -807,6 +807,278 @@ class VideoApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * What a published editor export was made from, for \"Make my own\": its template or Custom setup choices, library track and frame, never its owner\'s media. 404 for a video that is not an export, is not published (unless the caller owns it), or was cut on the timeline (video_editor_recipe_unavailable).
+     * Video Editor Export Recipe
+     */
+    async videoEditorExportRecipeVideoEditorExportsVideoIdRecipeGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['videoId'] == null) {
+            throw new runtime.RequiredError('videoId', 'Required parameter "videoId" was null or undefined when calling videoEditorExportRecipeVideoEditorExportsVideoIdRecipeGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/video/editor/exports/{video_id}/recipe`.replace(`{${"video_id"}}`, encodeURIComponent(String(requestParameters['videoId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.VideoExportRecipeFromJSON)(jsonValue));
+    }
+    /**
+     * What a published editor export was made from, for \"Make my own\": its template or Custom setup choices, library track and frame, never its owner\'s media. 404 for a video that is not an export, is not published (unless the caller owns it), or was cut on the timeline (video_editor_recipe_unavailable).
+     * Video Editor Export Recipe
+     */
+    async videoEditorExportRecipeVideoEditorExportsVideoIdRecipeGet(requestParameters, initOverrides) {
+        const response = await this.videoEditorExportRecipeVideoEditorExportsVideoIdRecipeGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * The caller\'s own export as it was made: the stored document and its gallery assets, for \"Edit again\".
+     * Video Editor Export
+     */
+    async videoEditorExportVideoEditorExportsVideoIdGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['videoId'] == null) {
+            throw new runtime.RequiredError('videoId', 'Required parameter "videoId" was null or undefined when calling videoEditorExportVideoEditorExportsVideoIdGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/video/editor/exports/{video_id}`.replace(`{${"video_id"}}`, encodeURIComponent(String(requestParameters['videoId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.VideoExportDetailFromJSON)(jsonValue));
+    }
+    /**
+     * The caller\'s own export as it was made: the stored document and its gallery assets, for \"Edit again\".
+     * Video Editor Export
+     */
+    async videoEditorExportVideoEditorExportsVideoIdGet(requestParameters, initOverrides) {
+        const response = await this.videoEditorExportVideoEditorExportsVideoIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Save a new draft: the edit decision list, validated like an export, stored as version 1.
+     * Video Editor Project Create
+     */
+    async videoEditorProjectCreateVideoEditorProjectsPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['videoProjectCreateRequest'] == null) {
+            throw new runtime.RequiredError('videoProjectCreateRequest', 'Required parameter "videoProjectCreateRequest" was null or undefined when calling videoEditorProjectCreateVideoEditorProjectsPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/video/editor/projects`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.VideoProjectCreateRequestToJSON)(requestParameters['videoProjectCreateRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.VideoProjectSummaryFromJSON)(jsonValue));
+    }
+    /**
+     * Save a new draft: the edit decision list, validated like an export, stored as version 1.
+     * Video Editor Project Create
+     */
+    async videoEditorProjectCreateVideoEditorProjectsPost(requestParameters, initOverrides) {
+        const response = await this.videoEditorProjectCreateVideoEditorProjectsPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Soft-delete a draft; deleting one that is already gone succeeds too.
+     * Video Editor Project Delete
+     */
+    async videoEditorProjectDeleteVideoEditorProjectsProjectIdDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['projectId'] == null) {
+            throw new runtime.RequiredError('projectId', 'Required parameter "projectId" was null or undefined when calling videoEditorProjectDeleteVideoEditorProjectsProjectIdDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/video/editor/projects/{project_id}`.replace(`{${"project_id"}}`, encodeURIComponent(String(requestParameters['projectId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.VoidApiResponse(response);
+    }
+    /**
+     * Soft-delete a draft; deleting one that is already gone succeeds too.
+     * Video Editor Project Delete
+     */
+    async videoEditorProjectDeleteVideoEditorProjectsProjectIdDelete(requestParameters, initOverrides) {
+        await this.videoEditorProjectDeleteVideoEditorProjectsProjectIdDeleteRaw(requestParameters, initOverrides);
+    }
+    /**
+     * Rename a draft (and its document\'s title); the version moves on.
+     * Video Editor Project Rename
+     */
+    async videoEditorProjectRenameVideoEditorProjectsProjectIdPatchRaw(requestParameters, initOverrides) {
+        if (requestParameters['projectId'] == null) {
+            throw new runtime.RequiredError('projectId', 'Required parameter "projectId" was null or undefined when calling videoEditorProjectRenameVideoEditorProjectsProjectIdPatch().');
+        }
+        if (requestParameters['videoProjectRenameRequest'] == null) {
+            throw new runtime.RequiredError('videoProjectRenameRequest', 'Required parameter "videoProjectRenameRequest" was null or undefined when calling videoEditorProjectRenameVideoEditorProjectsProjectIdPatch().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/video/editor/projects/{project_id}`.replace(`{${"project_id"}}`, encodeURIComponent(String(requestParameters['projectId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.VideoProjectRenameRequestToJSON)(requestParameters['videoProjectRenameRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.VideoProjectSummaryFromJSON)(jsonValue));
+    }
+    /**
+     * Rename a draft (and its document\'s title); the version moves on.
+     * Video Editor Project Rename
+     */
+    async videoEditorProjectRenameVideoEditorProjectsProjectIdPatch(requestParameters, initOverrides) {
+        const response = await this.videoEditorProjectRenameVideoEditorProjectsProjectIdPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Store the whole document over the version the editor based it on; 409 when the draft moved on since.
+     * Video Editor Project Save
+     */
+    async videoEditorProjectSaveVideoEditorProjectsProjectIdPutRaw(requestParameters, initOverrides) {
+        if (requestParameters['projectId'] == null) {
+            throw new runtime.RequiredError('projectId', 'Required parameter "projectId" was null or undefined when calling videoEditorProjectSaveVideoEditorProjectsProjectIdPut().');
+        }
+        if (requestParameters['videoProjectUpdateRequest'] == null) {
+            throw new runtime.RequiredError('videoProjectUpdateRequest', 'Required parameter "videoProjectUpdateRequest" was null or undefined when calling videoEditorProjectSaveVideoEditorProjectsProjectIdPut().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/video/editor/projects/{project_id}`.replace(`{${"project_id"}}`, encodeURIComponent(String(requestParameters['projectId']))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.VideoProjectUpdateRequestToJSON)(requestParameters['videoProjectUpdateRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.VideoProjectSummaryFromJSON)(jsonValue));
+    }
+    /**
+     * Store the whole document over the version the editor based it on; 409 when the draft moved on since.
+     * Video Editor Project Save
+     */
+    async videoEditorProjectSaveVideoEditorProjectsProjectIdPut(requestParameters, initOverrides) {
+        const response = await this.videoEditorProjectSaveVideoEditorProjectsProjectIdPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * One draft with its document and every gallery asset it uses, resolved (or marked missing).
+     * Video Editor Project
+     */
+    async videoEditorProjectVideoEditorProjectsProjectIdGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['projectId'] == null) {
+            throw new runtime.RequiredError('projectId', 'Required parameter "projectId" was null or undefined when calling videoEditorProjectVideoEditorProjectsProjectIdGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/video/editor/projects/{project_id}`.replace(`{${"project_id"}}`, encodeURIComponent(String(requestParameters['projectId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.VideoProjectDetailFromJSON)(jsonValue));
+    }
+    /**
+     * One draft with its document and every gallery asset it uses, resolved (or marked missing).
+     * Video Editor Project
+     */
+    async videoEditorProjectVideoEditorProjectsProjectIdGet(requestParameters, initOverrides) {
+        const response = await this.videoEditorProjectVideoEditorProjectsProjectIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * The caller\'s saved editor drafts, newest edit first; all of them, the per-user cap bounds the list.
+     * Video Editor Projects
+     */
+    async videoEditorProjectsVideoEditorProjectsGetRaw(initOverrides) {
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/video/editor/projects`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.VideoProjectListResponseFromJSON)(jsonValue));
+    }
+    /**
+     * The caller\'s saved editor drafts, newest edit first; all of them, the per-user cap bounds the list.
+     * Video Editor Projects
+     */
+    async videoEditorProjectsVideoEditorProjectsGet(initOverrides) {
+        const response = await this.videoEditorProjectsVideoEditorProjectsGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
+     * Register an uploaded export as an unpublished gallery video once the object is in place.
+     * Video Editor Save
+     */
+    async videoEditorSaveVideoEditorSavePostRaw(requestParameters, initOverrides) {
+        if (requestParameters['videoEditorSaveRequest'] == null) {
+            throw new runtime.RequiredError('videoEditorSaveRequest', 'Required parameter "videoEditorSaveRequest" was null or undefined when calling videoEditorSaveVideoEditorSavePost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/video/editor/save`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.VideoEditorSaveRequestToJSON)(requestParameters['videoEditorSaveRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.VideoEditorSaveResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Register an uploaded export as an unpublished gallery video once the object is in place.
+     * Video Editor Save
+     */
+    async videoEditorSaveVideoEditorSavePost(requestParameters, initOverrides) {
+        const response = await this.videoEditorSaveVideoEditorSavePostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * A presigned upload for a browser video-editor export: the edit list is checked, the size bounded, and the editor PUTs the file straight to object storage (decision 15).
+     * Video Editor Upload
+     */
+    async videoEditorUploadVideoEditorUploadPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['videoEditorUploadRequest'] == null) {
+            throw new runtime.RequiredError('videoEditorUploadRequest', 'Required parameter "videoEditorUploadRequest" was null or undefined when calling videoEditorUploadVideoEditorUploadPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/video/editor/upload`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.VideoEditorUploadRequestToJSON)(requestParameters['videoEditorUploadRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.VideoEditorUploadResponseFromJSON)(jsonValue));
+    }
+    /**
+     * A presigned upload for a browser video-editor export: the edit list is checked, the size bounded, and the editor PUTs the file straight to object storage (decision 15).
+     * Video Editor Upload
+     */
+    async videoEditorUploadVideoEditorUploadPost(requestParameters, initOverrides) {
+        const response = await this.videoEditorUploadVideoEditorUploadPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Video Last Frame
      */
     async videoLastFrameVideoVideoIdLastFrameGetRaw(requestParameters, initOverrides) {

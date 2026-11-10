@@ -56,11 +56,11 @@ export function PutWardrobeRequestFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function PutWardrobeRequestToJSON(json: any): PutWardrobeRequest {
-      return PutWardrobeRequestToJSONTyped(json, false);
-  }
+export function PutWardrobeRequestToJSON(json: any): PutWardrobeRequest {
+    return PutWardrobeRequestToJSONTyped(json, false);
+}
 
-  export function PutWardrobeRequestToJSONTyped(value?: PutWardrobeRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PutWardrobeRequestToJSONTyped(value?: PutWardrobeRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

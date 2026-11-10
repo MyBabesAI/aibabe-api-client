@@ -115,11 +115,11 @@ export function GetQualityControlImageFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function GetQualityControlImageToJSON(json: any): GetQualityControlImage {
-      return GetQualityControlImageToJSONTyped(json, false);
-  }
+export function GetQualityControlImageToJSON(json: any): GetQualityControlImage {
+    return GetQualityControlImageToJSONTyped(json, false);
+}
 
-  export function GetQualityControlImageToJSONTyped(value?: GetQualityControlImage | null, ignoreDiscriminator: boolean = false): any {
+export function GetQualityControlImageToJSONTyped(value?: GetQualityControlImage | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

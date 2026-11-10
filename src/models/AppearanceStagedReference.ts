@@ -74,11 +74,11 @@ export function AppearanceStagedReferenceFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function AppearanceStagedReferenceToJSON(json: any): AppearanceStagedReference {
-      return AppearanceStagedReferenceToJSONTyped(json, false);
-  }
+export function AppearanceStagedReferenceToJSON(json: any): AppearanceStagedReference {
+    return AppearanceStagedReferenceToJSONTyped(json, false);
+}
 
-  export function AppearanceStagedReferenceToJSONTyped(value?: AppearanceStagedReference | null, ignoreDiscriminator: boolean = false): any {
+export function AppearanceStagedReferenceToJSONTyped(value?: AppearanceStagedReference | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

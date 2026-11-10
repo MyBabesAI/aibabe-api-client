@@ -90,11 +90,11 @@ export function StoryCreatorUpdateEpisodeRequestFromJSONTyped(json: any, ignoreD
     };
 }
 
-  export function StoryCreatorUpdateEpisodeRequestToJSON(json: any): StoryCreatorUpdateEpisodeRequest {
-      return StoryCreatorUpdateEpisodeRequestToJSONTyped(json, false);
-  }
+export function StoryCreatorUpdateEpisodeRequestToJSON(json: any): StoryCreatorUpdateEpisodeRequest {
+    return StoryCreatorUpdateEpisodeRequestToJSONTyped(json, false);
+}
 
-  export function StoryCreatorUpdateEpisodeRequestToJSONTyped(value?: StoryCreatorUpdateEpisodeRequest | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorUpdateEpisodeRequestToJSONTyped(value?: StoryCreatorUpdateEpisodeRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

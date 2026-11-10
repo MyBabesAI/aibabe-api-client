@@ -116,11 +116,11 @@ export function ScenarioPreviewFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-  export function ScenarioPreviewToJSON(json: any): ScenarioPreview {
-      return ScenarioPreviewToJSONTyped(json, false);
-  }
+export function ScenarioPreviewToJSON(json: any): ScenarioPreview {
+    return ScenarioPreviewToJSONTyped(json, false);
+}
 
-  export function ScenarioPreviewToJSONTyped(value?: ScenarioPreview | null, ignoreDiscriminator: boolean = false): any {
+export function ScenarioPreviewToJSONTyped(value?: ScenarioPreview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

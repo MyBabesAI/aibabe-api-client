@@ -46,6 +46,24 @@ export interface PostConversationParticipantLeaveResponse {
      * @memberof PostConversationParticipantLeaveResponse
      */
     event: ChatMessageDetail;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostConversationParticipantLeaveResponse
+     */
+    requestId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostConversationParticipantLeaveResponse
+     */
+    assistantMessageId: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof PostConversationParticipantLeaveResponse
+     */
+    remainingFreeMessages?: number | null;
 }
 
 /**
@@ -54,6 +72,8 @@ export interface PostConversationParticipantLeaveResponse {
 export function instanceOfPostConversationParticipantLeaveResponse(value: object): value is PostConversationParticipantLeaveResponse {
     if (!('participants' in value) || value['participants'] === undefined) return false;
     if (!('event' in value) || value['event'] === undefined) return false;
+    if (!('requestId' in value) || value['requestId'] === undefined) return false;
+    if (!('assistantMessageId' in value) || value['assistantMessageId'] === undefined) return false;
     return true;
 }
 
@@ -69,14 +89,17 @@ export function PostConversationParticipantLeaveResponseFromJSONTyped(json: any,
         
         'participants': ((json['participants'] as Array<any>).map(ConversationParticipantFromJSON)),
         'event': ChatMessageDetailFromJSON(json['event']),
+        'requestId': json['request_id'],
+        'assistantMessageId': json['assistant_message_id'],
+        'remainingFreeMessages': json['remaining_free_messages'] == null ? undefined : json['remaining_free_messages'],
     };
 }
 
-  export function PostConversationParticipantLeaveResponseToJSON(json: any): PostConversationParticipantLeaveResponse {
-      return PostConversationParticipantLeaveResponseToJSONTyped(json, false);
-  }
+export function PostConversationParticipantLeaveResponseToJSON(json: any): PostConversationParticipantLeaveResponse {
+    return PostConversationParticipantLeaveResponseToJSONTyped(json, false);
+}
 
-  export function PostConversationParticipantLeaveResponseToJSONTyped(value?: PostConversationParticipantLeaveResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostConversationParticipantLeaveResponseToJSONTyped(value?: PostConversationParticipantLeaveResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -85,6 +108,9 @@ export function PostConversationParticipantLeaveResponseFromJSONTyped(json: any,
         
         'participants': ((value['participants'] as Array<any>).map(ConversationParticipantToJSON)),
         'event': ChatMessageDetailToJSON(value['event']),
+        'request_id': value['requestId'],
+        'assistant_message_id': value['assistantMessageId'],
+        'remaining_free_messages': value['remainingFreeMessages'],
     };
 }
 

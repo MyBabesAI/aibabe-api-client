@@ -71,11 +71,11 @@ export function TrendListResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function TrendListResponseToJSON(json: any): TrendListResponse {
-      return TrendListResponseToJSONTyped(json, false);
-  }
+export function TrendListResponseToJSON(json: any): TrendListResponse {
+    return TrendListResponseToJSONTyped(json, false);
+}
 
-  export function TrendListResponseToJSONTyped(value?: TrendListResponse | null, ignoreDiscriminator: boolean = false): any {
+export function TrendListResponseToJSONTyped(value?: TrendListResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

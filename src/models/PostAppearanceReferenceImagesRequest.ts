@@ -78,11 +78,11 @@ export function PostAppearanceReferenceImagesRequestFromJSONTyped(json: any, ign
     };
 }
 
-  export function PostAppearanceReferenceImagesRequestToJSON(json: any): PostAppearanceReferenceImagesRequest {
-      return PostAppearanceReferenceImagesRequestToJSONTyped(json, false);
-  }
+export function PostAppearanceReferenceImagesRequestToJSON(json: any): PostAppearanceReferenceImagesRequest {
+    return PostAppearanceReferenceImagesRequestToJSONTyped(json, false);
+}
 
-  export function PostAppearanceReferenceImagesRequestToJSONTyped(value?: PostAppearanceReferenceImagesRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostAppearanceReferenceImagesRequestToJSONTyped(value?: PostAppearanceReferenceImagesRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

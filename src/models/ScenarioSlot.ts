@@ -80,11 +80,11 @@ export function ScenarioSlotFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-  export function ScenarioSlotToJSON(json: any): ScenarioSlot {
-      return ScenarioSlotToJSONTyped(json, false);
-  }
+export function ScenarioSlotToJSON(json: any): ScenarioSlot {
+    return ScenarioSlotToJSONTyped(json, false);
+}
 
-  export function ScenarioSlotToJSONTyped(value?: ScenarioSlot | null, ignoreDiscriminator: boolean = false): any {
+export function ScenarioSlotToJSONTyped(value?: ScenarioSlot | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

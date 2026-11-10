@@ -82,11 +82,11 @@ export function AppearanceDraftFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-  export function AppearanceDraftToJSON(json: any): AppearanceDraft {
-      return AppearanceDraftToJSONTyped(json, false);
-  }
+export function AppearanceDraftToJSON(json: any): AppearanceDraft {
+    return AppearanceDraftToJSONTyped(json, false);
+}
 
-  export function AppearanceDraftToJSONTyped(value?: AppearanceDraft | null, ignoreDiscriminator: boolean = false): any {
+export function AppearanceDraftToJSONTyped(value?: AppearanceDraft | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

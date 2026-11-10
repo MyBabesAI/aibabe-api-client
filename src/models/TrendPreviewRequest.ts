@@ -70,11 +70,11 @@ export function TrendPreviewRequestFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function TrendPreviewRequestToJSON(json: any): TrendPreviewRequest {
-      return TrendPreviewRequestToJSONTyped(json, false);
-  }
+export function TrendPreviewRequestToJSON(json: any): TrendPreviewRequest {
+    return TrendPreviewRequestToJSONTyped(json, false);
+}
 
-  export function TrendPreviewRequestToJSONTyped(value?: TrendPreviewRequest | null, ignoreDiscriminator: boolean = false): any {
+export function TrendPreviewRequestToJSONTyped(value?: TrendPreviewRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

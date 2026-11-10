@@ -66,11 +66,11 @@ export function SaleOfferProductPriceFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function SaleOfferProductPriceToJSON(json: any): SaleOfferProductPrice {
-      return SaleOfferProductPriceToJSONTyped(json, false);
-  }
+export function SaleOfferProductPriceToJSON(json: any): SaleOfferProductPrice {
+    return SaleOfferProductPriceToJSONTyped(json, false);
+}
 
-  export function SaleOfferProductPriceToJSONTyped(value?: SaleOfferProductPrice | null, ignoreDiscriminator: boolean = false): any {
+export function SaleOfferProductPriceToJSONTyped(value?: SaleOfferProductPrice | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

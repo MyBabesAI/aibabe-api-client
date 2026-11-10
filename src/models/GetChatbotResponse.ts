@@ -213,11 +213,11 @@ export function GetChatbotResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function GetChatbotResponseToJSON(json: any): GetChatbotResponse {
-      return GetChatbotResponseToJSONTyped(json, false);
-  }
+export function GetChatbotResponseToJSON(json: any): GetChatbotResponse {
+    return GetChatbotResponseToJSONTyped(json, false);
+}
 
-  export function GetChatbotResponseToJSONTyped(value?: GetChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetChatbotResponseToJSONTyped(value?: GetChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

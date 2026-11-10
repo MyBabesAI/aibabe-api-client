@@ -105,11 +105,11 @@ export function GeneratedAudioItemFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function GeneratedAudioItemToJSON(json: any): GeneratedAudioItem {
-      return GeneratedAudioItemToJSONTyped(json, false);
-  }
+export function GeneratedAudioItemToJSON(json: any): GeneratedAudioItem {
+    return GeneratedAudioItemToJSONTyped(json, false);
+}
 
-  export function GeneratedAudioItemToJSONTyped(value?: GeneratedAudioItem | null, ignoreDiscriminator: boolean = false): any {
+export function GeneratedAudioItemToJSONTyped(value?: GeneratedAudioItem | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

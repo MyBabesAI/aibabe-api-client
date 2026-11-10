@@ -57,11 +57,11 @@ export function ChatForkConfigFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-  export function ChatForkConfigToJSON(json: any): ChatForkConfig {
-      return ChatForkConfigToJSONTyped(json, false);
-  }
+export function ChatForkConfigToJSON(json: any): ChatForkConfig {
+    return ChatForkConfigToJSONTyped(json, false);
+}
 
-  export function ChatForkConfigToJSONTyped(value?: ChatForkConfig | null, ignoreDiscriminator: boolean = false): any {
+export function ChatForkConfigToJSONTyped(value?: ChatForkConfig | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -73,11 +73,11 @@ export function TrendCategoryResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function TrendCategoryResponseToJSON(json: any): TrendCategoryResponse {
-      return TrendCategoryResponseToJSONTyped(json, false);
-  }
+export function TrendCategoryResponseToJSON(json: any): TrendCategoryResponse {
+    return TrendCategoryResponseToJSONTyped(json, false);
+}
 
-  export function TrendCategoryResponseToJSONTyped(value?: TrendCategoryResponse | null, ignoreDiscriminator: boolean = false): any {
+export function TrendCategoryResponseToJSONTyped(value?: TrendCategoryResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

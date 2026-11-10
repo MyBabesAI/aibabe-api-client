@@ -130,11 +130,11 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-  export function ImageContentToJSON(json: any): ImageContent {
-      return ImageContentToJSONTyped(json, false);
-  }
+export function ImageContentToJSON(json: any): ImageContent {
+    return ImageContentToJSONTyped(json, false);
+}
 
-  export function ImageContentToJSONTyped(value?: ImageContent | null, ignoreDiscriminator: boolean = false): any {
+export function ImageContentToJSONTyped(value?: ImageContent | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

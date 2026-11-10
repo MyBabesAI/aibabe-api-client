@@ -78,11 +78,11 @@ export function TrendFromPostRequestFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function TrendFromPostRequestToJSON(json: any): TrendFromPostRequest {
-      return TrendFromPostRequestToJSONTyped(json, false);
-  }
+export function TrendFromPostRequestToJSON(json: any): TrendFromPostRequest {
+    return TrendFromPostRequestToJSONTyped(json, false);
+}
 
-  export function TrendFromPostRequestToJSONTyped(value?: TrendFromPostRequest | null, ignoreDiscriminator: boolean = false): any {
+export function TrendFromPostRequestToJSONTyped(value?: TrendFromPostRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

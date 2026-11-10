@@ -25,6 +25,12 @@ export interface PostConversationParticipantLeaveRequest {
      * @memberof PostConversationParticipantLeaveRequest
      */
     farewell?: string | null;
+    /**
+     * The request id the reactions to the leaving stream under
+     * @type {string}
+     * @memberof PostConversationParticipantLeaveRequest
+     */
+    requestId?: string;
 }
 
 /**
@@ -45,14 +51,15 @@ export function PostConversationParticipantLeaveRequestFromJSONTyped(json: any, 
     return {
         
         'farewell': json['farewell'] == null ? undefined : json['farewell'],
+        'requestId': json['request_id'] == null ? undefined : json['request_id'],
     };
 }
 
-  export function PostConversationParticipantLeaveRequestToJSON(json: any): PostConversationParticipantLeaveRequest {
-      return PostConversationParticipantLeaveRequestToJSONTyped(json, false);
-  }
+export function PostConversationParticipantLeaveRequestToJSON(json: any): PostConversationParticipantLeaveRequest {
+    return PostConversationParticipantLeaveRequestToJSONTyped(json, false);
+}
 
-  export function PostConversationParticipantLeaveRequestToJSONTyped(value?: PostConversationParticipantLeaveRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostConversationParticipantLeaveRequestToJSONTyped(value?: PostConversationParticipantLeaveRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -60,6 +67,7 @@ export function PostConversationParticipantLeaveRequestFromJSONTyped(json: any, 
     return {
         
         'farewell': value['farewell'],
+        'request_id': value['requestId'],
     };
 }
 

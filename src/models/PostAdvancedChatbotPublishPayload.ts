@@ -70,11 +70,11 @@ export function PostAdvancedChatbotPublishPayloadFromJSONTyped(json: any, ignore
     };
 }
 
-  export function PostAdvancedChatbotPublishPayloadToJSON(json: any): PostAdvancedChatbotPublishPayload {
-      return PostAdvancedChatbotPublishPayloadToJSONTyped(json, false);
-  }
+export function PostAdvancedChatbotPublishPayloadToJSON(json: any): PostAdvancedChatbotPublishPayload {
+    return PostAdvancedChatbotPublishPayloadToJSONTyped(json, false);
+}
 
-  export function PostAdvancedChatbotPublishPayloadToJSONTyped(value?: PostAdvancedChatbotPublishPayload | null, ignoreDiscriminator: boolean = false): any {
+export function PostAdvancedChatbotPublishPayloadToJSONTyped(value?: PostAdvancedChatbotPublishPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

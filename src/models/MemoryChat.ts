@@ -57,11 +57,11 @@ export function MemoryChatFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     };
 }
 
-  export function MemoryChatToJSON(json: any): MemoryChat {
-      return MemoryChatToJSONTyped(json, false);
-  }
+export function MemoryChatToJSON(json: any): MemoryChat {
+    return MemoryChatToJSONTyped(json, false);
+}
 
-  export function MemoryChatToJSONTyped(value?: MemoryChat | null, ignoreDiscriminator: boolean = false): any {
+export function MemoryChatToJSONTyped(value?: MemoryChat | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -237,11 +237,11 @@ export function StorySessionDetailResponseFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function StorySessionDetailResponseToJSON(json: any): StorySessionDetailResponse {
-      return StorySessionDetailResponseToJSONTyped(json, false);
-  }
+export function StorySessionDetailResponseToJSON(json: any): StorySessionDetailResponse {
+    return StorySessionDetailResponseToJSONTyped(json, false);
+}
 
-  export function StorySessionDetailResponseToJSONTyped(value?: StorySessionDetailResponse | null, ignoreDiscriminator: boolean = false): any {
+export function StorySessionDetailResponseToJSONTyped(value?: StorySessionDetailResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

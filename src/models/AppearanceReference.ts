@@ -98,11 +98,11 @@ export function AppearanceReferenceFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function AppearanceReferenceToJSON(json: any): AppearanceReference {
-      return AppearanceReferenceToJSONTyped(json, false);
-  }
+export function AppearanceReferenceToJSON(json: any): AppearanceReference {
+    return AppearanceReferenceToJSONTyped(json, false);
+}
 
-  export function AppearanceReferenceToJSONTyped(value?: AppearanceReference | null, ignoreDiscriminator: boolean = false): any {
+export function AppearanceReferenceToJSONTyped(value?: AppearanceReference | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

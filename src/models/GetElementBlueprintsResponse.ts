@@ -57,11 +57,11 @@ export function GetElementBlueprintsResponseFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function GetElementBlueprintsResponseToJSON(json: any): GetElementBlueprintsResponse {
-      return GetElementBlueprintsResponseToJSONTyped(json, false);
-  }
+export function GetElementBlueprintsResponseToJSON(json: any): GetElementBlueprintsResponse {
+    return GetElementBlueprintsResponseToJSONTyped(json, false);
+}
 
-  export function GetElementBlueprintsResponseToJSONTyped(value?: GetElementBlueprintsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetElementBlueprintsResponseToJSONTyped(value?: GetElementBlueprintsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

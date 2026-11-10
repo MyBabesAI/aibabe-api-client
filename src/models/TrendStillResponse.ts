@@ -57,11 +57,11 @@ export function TrendStillResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function TrendStillResponseToJSON(json: any): TrendStillResponse {
-      return TrendStillResponseToJSONTyped(json, false);
-  }
+export function TrendStillResponseToJSON(json: any): TrendStillResponse {
+    return TrendStillResponseToJSONTyped(json, false);
+}
 
-  export function TrendStillResponseToJSONTyped(value?: TrendStillResponse | null, ignoreDiscriminator: boolean = false): any {
+export function TrendStillResponseToJSONTyped(value?: TrendStillResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

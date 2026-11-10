@@ -65,11 +65,11 @@ export function ConversationListParticipantFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function ConversationListParticipantToJSON(json: any): ConversationListParticipant {
-      return ConversationListParticipantToJSONTyped(json, false);
-  }
+export function ConversationListParticipantToJSON(json: any): ConversationListParticipant {
+    return ConversationListParticipantToJSONTyped(json, false);
+}
 
-  export function ConversationListParticipantToJSONTyped(value?: ConversationListParticipant | null, ignoreDiscriminator: boolean = false): any {
+export function ConversationListParticipantToJSONTyped(value?: ConversationListParticipant | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

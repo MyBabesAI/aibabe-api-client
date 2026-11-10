@@ -73,11 +73,11 @@ export function BabeTagFromJSONTyped(json: any, ignoreDiscriminator: boolean): B
     };
 }
 
-  export function BabeTagToJSON(json: any): BabeTag {
-      return BabeTagToJSONTyped(json, false);
-  }
+export function BabeTagToJSON(json: any): BabeTag {
+    return BabeTagToJSONTyped(json, false);
+}
 
-  export function BabeTagToJSONTyped(value?: BabeTag | null, ignoreDiscriminator: boolean = false): any {
+export function BabeTagToJSONTyped(value?: BabeTag | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -48,11 +48,11 @@ export function AdminMarkTransactionRefundedRequestFromJSONTyped(json: any, igno
     };
 }
 
-  export function AdminMarkTransactionRefundedRequestToJSON(json: any): AdminMarkTransactionRefundedRequest {
-      return AdminMarkTransactionRefundedRequestToJSONTyped(json, false);
-  }
+export function AdminMarkTransactionRefundedRequestToJSON(json: any): AdminMarkTransactionRefundedRequest {
+    return AdminMarkTransactionRefundedRequestToJSONTyped(json, false);
+}
 
-  export function AdminMarkTransactionRefundedRequestToJSONTyped(value?: AdminMarkTransactionRefundedRequest | null, ignoreDiscriminator: boolean = false): any {
+export function AdminMarkTransactionRefundedRequestToJSONTyped(value?: AdminMarkTransactionRefundedRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

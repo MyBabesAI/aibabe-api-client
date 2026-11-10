@@ -72,11 +72,11 @@ export function ImageLookLoraFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-  export function ImageLookLoraToJSON(json: any): ImageLookLora {
-      return ImageLookLoraToJSONTyped(json, false);
-  }
+export function ImageLookLoraToJSON(json: any): ImageLookLora {
+    return ImageLookLoraToJSONTyped(json, false);
+}
 
-  export function ImageLookLoraToJSONTyped(value?: ImageLookLora | null, ignoreDiscriminator: boolean = false): any {
+export function ImageLookLoraToJSONTyped(value?: ImageLookLora | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -204,11 +204,11 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function VideoModelConfigToJSON(json: any): VideoModelConfig {
-      return VideoModelConfigToJSONTyped(json, false);
-  }
+export function VideoModelConfigToJSON(json: any): VideoModelConfig {
+    return VideoModelConfigToJSONTyped(json, false);
+}
 
-  export function VideoModelConfigToJSONTyped(value?: VideoModelConfig | null, ignoreDiscriminator: boolean = false): any {
+export function VideoModelConfigToJSONTyped(value?: VideoModelConfig | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

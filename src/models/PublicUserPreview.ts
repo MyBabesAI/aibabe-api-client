@@ -81,11 +81,11 @@ export function PublicUserPreviewFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function PublicUserPreviewToJSON(json: any): PublicUserPreview {
-      return PublicUserPreviewToJSONTyped(json, false);
-  }
+export function PublicUserPreviewToJSON(json: any): PublicUserPreview {
+    return PublicUserPreviewToJSONTyped(json, false);
+}
 
-  export function PublicUserPreviewToJSONTyped(value?: PublicUserPreview | null, ignoreDiscriminator: boolean = false): any {
+export function PublicUserPreviewToJSONTyped(value?: PublicUserPreview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

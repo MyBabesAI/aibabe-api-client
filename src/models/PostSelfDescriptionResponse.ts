@@ -75,11 +75,11 @@ export function PostSelfDescriptionResponseFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function PostSelfDescriptionResponseToJSON(json: any): PostSelfDescriptionResponse {
-      return PostSelfDescriptionResponseToJSONTyped(json, false);
-  }
+export function PostSelfDescriptionResponseToJSON(json: any): PostSelfDescriptionResponse {
+    return PostSelfDescriptionResponseToJSONTyped(json, false);
+}
 
-  export function PostSelfDescriptionResponseToJSONTyped(value?: PostSelfDescriptionResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostSelfDescriptionResponseToJSONTyped(value?: PostSelfDescriptionResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

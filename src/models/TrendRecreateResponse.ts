@@ -72,11 +72,11 @@ export function TrendRecreateResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function TrendRecreateResponseToJSON(json: any): TrendRecreateResponse {
-      return TrendRecreateResponseToJSONTyped(json, false);
-  }
+export function TrendRecreateResponseToJSON(json: any): TrendRecreateResponse {
+    return TrendRecreateResponseToJSONTyped(json, false);
+}
 
-  export function TrendRecreateResponseToJSONTyped(value?: TrendRecreateResponse | null, ignoreDiscriminator: boolean = false): any {
+export function TrendRecreateResponseToJSONTyped(value?: TrendRecreateResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

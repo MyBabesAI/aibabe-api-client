@@ -67,11 +67,11 @@ export function VideoTemplateCategoryTagFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function VideoTemplateCategoryTagToJSON(json: any): VideoTemplateCategoryTag {
-      return VideoTemplateCategoryTagToJSONTyped(json, false);
-  }
+export function VideoTemplateCategoryTagToJSON(json: any): VideoTemplateCategoryTag {
+    return VideoTemplateCategoryTagToJSONTyped(json, false);
+}
 
-  export function VideoTemplateCategoryTagToJSONTyped(value?: VideoTemplateCategoryTag | null, ignoreDiscriminator: boolean = false): any {
+export function VideoTemplateCategoryTagToJSONTyped(value?: VideoTemplateCategoryTag | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

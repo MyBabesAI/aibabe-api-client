@@ -360,11 +360,11 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-  export function TrendResponseToJSON(json: any): TrendResponse {
-      return TrendResponseToJSONTyped(json, false);
-  }
+export function TrendResponseToJSON(json: any): TrendResponse {
+    return TrendResponseToJSONTyped(json, false);
+}
 
-  export function TrendResponseToJSONTyped(value?: TrendResponse | null, ignoreDiscriminator: boolean = false): any {
+export function TrendResponseToJSONTyped(value?: TrendResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

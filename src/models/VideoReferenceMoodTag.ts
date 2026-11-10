@@ -67,11 +67,11 @@ export function VideoReferenceMoodTagFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function VideoReferenceMoodTagToJSON(json: any): VideoReferenceMoodTag {
-      return VideoReferenceMoodTagToJSONTyped(json, false);
-  }
+export function VideoReferenceMoodTagToJSON(json: any): VideoReferenceMoodTag {
+    return VideoReferenceMoodTagToJSONTyped(json, false);
+}
 
-  export function VideoReferenceMoodTagToJSONTyped(value?: VideoReferenceMoodTag | null, ignoreDiscriminator: boolean = false): any {
+export function VideoReferenceMoodTagToJSONTyped(value?: VideoReferenceMoodTag | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

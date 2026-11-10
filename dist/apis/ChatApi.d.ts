@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatConfigResponse, ChatReponse, ChatSceneDetails, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationJournalResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchConversationSceneRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationParticipantLeaveRequest, PostConversationParticipantLeaveResponse, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
+import type { ChatConfigResponse, ChatReponse, ChatSceneDetails, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationJournalResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchConversationSceneRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationParticipantLeaveRequest, PostConversationParticipantLeaveResponse, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationPersonaRequest, PostConversationPersonaResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
 export interface AddParticipantChatConversationConversationIdParticipantsPostRequest {
     conversationId: string;
     postConversationParticipantRequest: PostConversationParticipantRequest;
@@ -131,6 +131,10 @@ export interface RewindConversationChatConversationConversationIdMessagesAfterMe
 export interface SeedConversationChatChatbotIdSeedPutRequest {
     chatbotId: string;
     createAnonymousConversationRequest: CreateAnonymousConversationRequest;
+}
+export interface SwitchPersonaChatConversationConversationIdPersonaPostRequest {
+    conversationId: string;
+    postConversationPersonaRequest: PostConversationPersonaRequest;
 }
 export interface UpdateConversationChatConversationConversationIdPatchRequest {
     conversationId: string;
@@ -352,12 +356,12 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGet(requestParameters: GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLiveRoleplayHistoryResponse>;
     /**
-     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.
+     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.  The leaving is a turn like an invite: whoever stays reacts to it, at least one character, streaming under the returned ids. It counts as a message; when the allowance is used up the row is still written and nobody reacts.
      * Leave Participant
      */
     leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRaw(requestParameters: LeaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostConversationParticipantLeaveResponse>>;
     /**
-     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.
+     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.  The leaving is a turn like an invite: whoever stays reacts to it, at least one character, streaming under the returned ids. It counts as a message; when the allowance is used up the row is still written and nobody reacts.
      * Leave Participant
      */
     leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePost(requestParameters: LeaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationParticipantLeaveResponse>;
@@ -437,6 +441,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Seed Conversation
      */
     seedConversationChatChatbotIdSeedPut(requestParameters: SeedConversationChatChatbotIdSeedPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedConversationResponse>;
+    /**
+     * Play the chat as another of the caller\'s personas.  Until a message was sent as a persona in this chat (`persona_established` false) the persona is simply set: no row, no turn, `switched` false. After that the change is part of the story: a narrator row (`narration`, or \"@Old left and @New appeared.\") and a turn in which at least one character reacts, streaming under the returned ids like after an invite. A chat whose persona was deleted (`persona_deleted`) may instead pass `quiet`: it carries on as the new persona with no row and no turn, and the deleted persona\'s messages read as the new one. 409 `conversation_persona_same` when nothing would change.
+     * Switch Persona
+     */
+    switchPersonaChatConversationConversationIdPersonaPostRaw(requestParameters: SwitchPersonaChatConversationConversationIdPersonaPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostConversationPersonaResponse>>;
+    /**
+     * Play the chat as another of the caller\'s personas.  Until a message was sent as a persona in this chat (`persona_established` false) the persona is simply set: no row, no turn, `switched` false. After that the change is part of the story: a narrator row (`narration`, or \"@Old left and @New appeared.\") and a turn in which at least one character reacts, streaming under the returned ids like after an invite. A chat whose persona was deleted (`persona_deleted`) may instead pass `quiet`: it carries on as the new persona with no row and no turn, and the deleted persona\'s messages read as the new one. 409 `conversation_persona_same` when nothing would change.
+     * Switch Persona
+     */
+    switchPersonaChatConversationConversationIdPersonaPost(requestParameters: SwitchPersonaChatConversationConversationIdPersonaPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationPersonaResponse>;
     /**
      * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
      * Update Conversation

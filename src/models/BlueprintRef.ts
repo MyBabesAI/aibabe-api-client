@@ -67,11 +67,11 @@ export function BlueprintRefFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-  export function BlueprintRefToJSON(json: any): BlueprintRef {
-      return BlueprintRefToJSONTyped(json, false);
-  }
+export function BlueprintRefToJSON(json: any): BlueprintRef {
+    return BlueprintRefToJSONTyped(json, false);
+}
 
-  export function BlueprintRefToJSONTyped(value?: BlueprintRef | null, ignoreDiscriminator: boolean = false): any {
+export function BlueprintRefToJSONTyped(value?: BlueprintRef | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -130,11 +130,11 @@ export function AdminTokenUsageGroupResponseFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function AdminTokenUsageGroupResponseToJSON(json: any): AdminTokenUsageGroupResponse {
-      return AdminTokenUsageGroupResponseToJSONTyped(json, false);
-  }
+export function AdminTokenUsageGroupResponseToJSON(json: any): AdminTokenUsageGroupResponse {
+    return AdminTokenUsageGroupResponseToJSONTyped(json, false);
+}
 
-  export function AdminTokenUsageGroupResponseToJSONTyped(value?: AdminTokenUsageGroupResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminTokenUsageGroupResponseToJSONTyped(value?: AdminTokenUsageGroupResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -57,11 +57,11 @@ export function GetMentionsResponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function GetMentionsResponseToJSON(json: any): GetMentionsResponse {
-      return GetMentionsResponseToJSONTyped(json, false);
-  }
+export function GetMentionsResponseToJSON(json: any): GetMentionsResponse {
+    return GetMentionsResponseToJSONTyped(json, false);
+}
 
-  export function GetMentionsResponseToJSONTyped(value?: GetMentionsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetMentionsResponseToJSONTyped(value?: GetMentionsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -49,11 +49,11 @@ export function WanImageToVideoResponseFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function WanImageToVideoResponseToJSON(json: any): WanImageToVideoResponse {
-      return WanImageToVideoResponseToJSONTyped(json, false);
-  }
+export function WanImageToVideoResponseToJSON(json: any): WanImageToVideoResponse {
+    return WanImageToVideoResponseToJSONTyped(json, false);
+}
 
-  export function WanImageToVideoResponseToJSONTyped(value?: WanImageToVideoResponse | null, ignoreDiscriminator: boolean = false): any {
+export function WanImageToVideoResponseToJSONTyped(value?: WanImageToVideoResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

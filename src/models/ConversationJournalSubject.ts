@@ -64,11 +64,11 @@ export function ConversationJournalSubjectFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function ConversationJournalSubjectToJSON(json: any): ConversationJournalSubject {
-      return ConversationJournalSubjectToJSONTyped(json, false);
-  }
+export function ConversationJournalSubjectToJSON(json: any): ConversationJournalSubject {
+    return ConversationJournalSubjectToJSONTyped(json, false);
+}
 
-  export function ConversationJournalSubjectToJSONTyped(value?: ConversationJournalSubject | null, ignoreDiscriminator: boolean = false): any {
+export function ConversationJournalSubjectToJSONTyped(value?: ConversationJournalSubject | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

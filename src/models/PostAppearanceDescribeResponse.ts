@@ -63,11 +63,11 @@ export function PostAppearanceDescribeResponseFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function PostAppearanceDescribeResponseToJSON(json: any): PostAppearanceDescribeResponse {
-      return PostAppearanceDescribeResponseToJSONTyped(json, false);
-  }
+export function PostAppearanceDescribeResponseToJSON(json: any): PostAppearanceDescribeResponse {
+    return PostAppearanceDescribeResponseToJSONTyped(json, false);
+}
 
-  export function PostAppearanceDescribeResponseToJSONTyped(value?: PostAppearanceDescribeResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostAppearanceDescribeResponseToJSONTyped(value?: PostAppearanceDescribeResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

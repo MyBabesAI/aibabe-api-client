@@ -178,11 +178,11 @@ export function ScenarioResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function ScenarioResponseToJSON(json: any): ScenarioResponse {
-      return ScenarioResponseToJSONTyped(json, false);
-  }
+export function ScenarioResponseToJSON(json: any): ScenarioResponse {
+    return ScenarioResponseToJSONTyped(json, false);
+}
 
-  export function ScenarioResponseToJSONTyped(value?: ScenarioResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ScenarioResponseToJSONTyped(value?: ScenarioResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

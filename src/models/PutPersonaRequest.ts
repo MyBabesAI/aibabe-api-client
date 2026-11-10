@@ -136,11 +136,11 @@ export function PutPersonaRequestFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function PutPersonaRequestToJSON(json: any): PutPersonaRequest {
-      return PutPersonaRequestToJSONTyped(json, false);
-  }
+export function PutPersonaRequestToJSON(json: any): PutPersonaRequest {
+    return PutPersonaRequestToJSONTyped(json, false);
+}
 
-  export function PutPersonaRequestToJSONTyped(value?: PutPersonaRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PutPersonaRequestToJSONTyped(value?: PutPersonaRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

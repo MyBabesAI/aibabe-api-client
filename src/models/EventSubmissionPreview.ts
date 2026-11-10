@@ -81,11 +81,11 @@ export function EventSubmissionPreviewFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function EventSubmissionPreviewToJSON(json: any): EventSubmissionPreview {
-      return EventSubmissionPreviewToJSONTyped(json, false);
-  }
+export function EventSubmissionPreviewToJSON(json: any): EventSubmissionPreview {
+    return EventSubmissionPreviewToJSONTyped(json, false);
+}
 
-  export function EventSubmissionPreviewToJSONTyped(value?: EventSubmissionPreview | null, ignoreDiscriminator: boolean = false): any {
+export function EventSubmissionPreviewToJSONTyped(value?: EventSubmissionPreview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

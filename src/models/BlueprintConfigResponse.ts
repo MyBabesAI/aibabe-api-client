@@ -48,11 +48,11 @@ export function BlueprintConfigResponseFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function BlueprintConfigResponseToJSON(json: any): BlueprintConfigResponse {
-      return BlueprintConfigResponseToJSONTyped(json, false);
-  }
+export function BlueprintConfigResponseToJSON(json: any): BlueprintConfigResponse {
+    return BlueprintConfigResponseToJSONTyped(json, false);
+}
 
-  export function BlueprintConfigResponseToJSONTyped(value?: BlueprintConfigResponse | null, ignoreDiscriminator: boolean = false): any {
+export function BlueprintConfigResponseToJSONTyped(value?: BlueprintConfigResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

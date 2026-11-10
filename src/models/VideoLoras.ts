@@ -36,11 +36,11 @@ export function VideoLorasFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     return json;
 }
 
-  export function VideoLorasToJSON(json: any): VideoLoras {
-      return VideoLorasToJSONTyped(json, false);
-  }
+export function VideoLorasToJSON(json: any): VideoLoras {
+    return VideoLorasToJSONTyped(json, false);
+}
 
-  export function VideoLorasToJSONTyped(value?: VideoLoras | null, ignoreDiscriminator: boolean = false): any {
+export function VideoLorasToJSONTyped(value?: VideoLoras | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

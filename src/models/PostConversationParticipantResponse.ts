@@ -95,11 +95,11 @@ export function PostConversationParticipantResponseFromJSONTyped(json: any, igno
     };
 }
 
-  export function PostConversationParticipantResponseToJSON(json: any): PostConversationParticipantResponse {
-      return PostConversationParticipantResponseToJSONTyped(json, false);
-  }
+export function PostConversationParticipantResponseToJSON(json: any): PostConversationParticipantResponse {
+    return PostConversationParticipantResponseToJSONTyped(json, false);
+}
 
-  export function PostConversationParticipantResponseToJSONTyped(value?: PostConversationParticipantResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostConversationParticipantResponseToJSONTyped(value?: PostConversationParticipantResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

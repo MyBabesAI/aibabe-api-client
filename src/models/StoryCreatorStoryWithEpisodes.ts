@@ -287,11 +287,11 @@ export function StoryCreatorStoryWithEpisodesFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function StoryCreatorStoryWithEpisodesToJSON(json: any): StoryCreatorStoryWithEpisodes {
-      return StoryCreatorStoryWithEpisodesToJSONTyped(json, false);
-  }
+export function StoryCreatorStoryWithEpisodesToJSON(json: any): StoryCreatorStoryWithEpisodes {
+    return StoryCreatorStoryWithEpisodesToJSONTyped(json, false);
+}
 
-  export function StoryCreatorStoryWithEpisodesToJSONTyped(value?: StoryCreatorStoryWithEpisodes | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorStoryWithEpisodesToJSONTyped(value?: StoryCreatorStoryWithEpisodes | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

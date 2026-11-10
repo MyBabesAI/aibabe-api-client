@@ -57,11 +57,11 @@ export function PreferenceOptionFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function PreferenceOptionToJSON(json: any): PreferenceOption {
-      return PreferenceOptionToJSONTyped(json, false);
-  }
+export function PreferenceOptionToJSON(json: any): PreferenceOption {
+    return PreferenceOptionToJSONTyped(json, false);
+}
 
-  export function PreferenceOptionToJSONTyped(value?: PreferenceOption | null, ignoreDiscriminator: boolean = false): any {
+export function PreferenceOptionToJSONTyped(value?: PreferenceOption | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

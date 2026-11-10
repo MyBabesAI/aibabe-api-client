@@ -115,11 +115,11 @@ export function PostConversationSettingsRequestFromJSONTyped(json: any, ignoreDi
     };
 }
 
-  export function PostConversationSettingsRequestToJSON(json: any): PostConversationSettingsRequest {
-      return PostConversationSettingsRequestToJSONTyped(json, false);
-  }
+export function PostConversationSettingsRequestToJSON(json: any): PostConversationSettingsRequest {
+    return PostConversationSettingsRequestToJSONTyped(json, false);
+}
 
-  export function PostConversationSettingsRequestToJSONTyped(value?: PostConversationSettingsRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostConversationSettingsRequestToJSONTyped(value?: PostConversationSettingsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

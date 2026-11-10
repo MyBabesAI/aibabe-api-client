@@ -102,11 +102,11 @@ export function ConversationParticipantFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function ConversationParticipantToJSON(json: any): ConversationParticipant {
-      return ConversationParticipantToJSONTyped(json, false);
-  }
+export function ConversationParticipantToJSON(json: any): ConversationParticipant {
+    return ConversationParticipantToJSONTyped(json, false);
+}
 
-  export function ConversationParticipantToJSONTyped(value?: ConversationParticipant | null, ignoreDiscriminator: boolean = false): any {
+export function ConversationParticipantToJSONTyped(value?: ConversationParticipant | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -165,11 +165,11 @@ export function PersonaAppearanceFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function PersonaAppearanceToJSON(json: any): PersonaAppearance {
-      return PersonaAppearanceToJSONTyped(json, false);
-  }
+export function PersonaAppearanceToJSON(json: any): PersonaAppearance {
+    return PersonaAppearanceToJSONTyped(json, false);
+}
 
-  export function PersonaAppearanceToJSONTyped(value?: PersonaAppearance | null, ignoreDiscriminator: boolean = false): any {
+export function PersonaAppearanceToJSONTyped(value?: PersonaAppearance | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

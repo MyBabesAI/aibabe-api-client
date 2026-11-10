@@ -108,11 +108,11 @@ export function AgeVerificationStatusResponseFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function AgeVerificationStatusResponseToJSON(json: any): AgeVerificationStatusResponse {
-      return AgeVerificationStatusResponseToJSONTyped(json, false);
-  }
+export function AgeVerificationStatusResponseToJSON(json: any): AgeVerificationStatusResponse {
+    return AgeVerificationStatusResponseToJSONTyped(json, false);
+}
 
-  export function AgeVerificationStatusResponseToJSONTyped(value?: AgeVerificationStatusResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AgeVerificationStatusResponseToJSONTyped(value?: AgeVerificationStatusResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

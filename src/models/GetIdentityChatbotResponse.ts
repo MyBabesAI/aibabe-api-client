@@ -127,11 +127,11 @@ export function GetIdentityChatbotResponseFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function GetIdentityChatbotResponseToJSON(json: any): GetIdentityChatbotResponse {
-      return GetIdentityChatbotResponseToJSONTyped(json, false);
-  }
+export function GetIdentityChatbotResponseToJSON(json: any): GetIdentityChatbotResponse {
+    return GetIdentityChatbotResponseToJSONTyped(json, false);
+}
 
-  export function GetIdentityChatbotResponseToJSONTyped(value?: GetIdentityChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetIdentityChatbotResponseToJSONTyped(value?: GetIdentityChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -48,11 +48,11 @@ export function ScenarioStartRequestFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function ScenarioStartRequestToJSON(json: any): ScenarioStartRequest {
-      return ScenarioStartRequestToJSONTyped(json, false);
-  }
+export function ScenarioStartRequestToJSON(json: any): ScenarioStartRequest {
+    return ScenarioStartRequestToJSONTyped(json, false);
+}
 
-  export function ScenarioStartRequestToJSONTyped(value?: ScenarioStartRequest | null, ignoreDiscriminator: boolean = false): any {
+export function ScenarioStartRequestToJSONTyped(value?: ScenarioStartRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

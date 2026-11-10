@@ -28,6 +28,10 @@ function instanceOfPostConversationParticipantLeaveResponse(value) {
         return false;
     if (!('event' in value) || value['event'] === undefined)
         return false;
+    if (!('requestId' in value) || value['requestId'] === undefined)
+        return false;
+    if (!('assistantMessageId' in value) || value['assistantMessageId'] === undefined)
+        return false;
     return true;
 }
 function PostConversationParticipantLeaveResponseFromJSON(json) {
@@ -40,6 +44,9 @@ function PostConversationParticipantLeaveResponseFromJSONTyped(json, ignoreDiscr
     return {
         'participants': (json['participants'].map(ConversationParticipant_1.ConversationParticipantFromJSON)),
         'event': (0, ChatMessageDetail_1.ChatMessageDetailFromJSON)(json['event']),
+        'requestId': json['request_id'],
+        'assistantMessageId': json['assistant_message_id'],
+        'remainingFreeMessages': json['remaining_free_messages'] == null ? undefined : json['remaining_free_messages'],
     };
 }
 function PostConversationParticipantLeaveResponseToJSON(json) {
@@ -52,6 +59,9 @@ function PostConversationParticipantLeaveResponseToJSONTyped(value, ignoreDiscri
     return {
         'participants': (value['participants'].map(ConversationParticipant_1.ConversationParticipantToJSON)),
         'event': (0, ChatMessageDetail_1.ChatMessageDetailToJSON)(value['event']),
+        'request_id': value['requestId'],
+        'assistant_message_id': value['assistantMessageId'],
+        'remaining_free_messages': value['remainingFreeMessages'],
     };
 }
 //# sourceMappingURL=PostConversationParticipantLeaveResponse.js.map

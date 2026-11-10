@@ -65,11 +65,11 @@ export function GetConversationBranchesResponseFromJSONTyped(json: any, ignoreDi
     };
 }
 
-  export function GetConversationBranchesResponseToJSON(json: any): GetConversationBranchesResponse {
-      return GetConversationBranchesResponseToJSONTyped(json, false);
-  }
+export function GetConversationBranchesResponseToJSON(json: any): GetConversationBranchesResponse {
+    return GetConversationBranchesResponseToJSONTyped(json, false);
+}
 
-  export function GetConversationBranchesResponseToJSONTyped(value?: GetConversationBranchesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetConversationBranchesResponseToJSONTyped(value?: GetConversationBranchesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

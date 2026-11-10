@@ -48,11 +48,11 @@ export function PatchConversationRequestFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function PatchConversationRequestToJSON(json: any): PatchConversationRequest {
-      return PatchConversationRequestToJSONTyped(json, false);
-  }
+export function PatchConversationRequestToJSON(json: any): PatchConversationRequest {
+    return PatchConversationRequestToJSONTyped(json, false);
+}
 
-  export function PatchConversationRequestToJSONTyped(value?: PatchConversationRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PatchConversationRequestToJSONTyped(value?: PatchConversationRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

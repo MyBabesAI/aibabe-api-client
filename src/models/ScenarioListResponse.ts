@@ -57,11 +57,11 @@ export function ScenarioListResponseFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function ScenarioListResponseToJSON(json: any): ScenarioListResponse {
-      return ScenarioListResponseToJSONTyped(json, false);
-  }
+export function ScenarioListResponseToJSON(json: any): ScenarioListResponse {
+    return ScenarioListResponseToJSONTyped(json, false);
+}
 
-  export function ScenarioListResponseToJSONTyped(value?: ScenarioListResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ScenarioListResponseToJSONTyped(value?: ScenarioListResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

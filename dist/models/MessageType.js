@@ -28,7 +28,8 @@ exports.MessageType = {
     Image: 'image',
     Video: 'video',
     CastJoin: 'cast_join',
-    CastLeave: 'cast_leave'
+    CastLeave: 'cast_leave',
+    PersonaSwitch: 'persona_switch'
 };
 function instanceOfMessageType(value) {
     for (const key in exports.MessageType) {

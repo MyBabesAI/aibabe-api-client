@@ -108,6 +108,18 @@ export interface GetAnonymousConversationResponse {
     forkPointAt?: Date | null;
     /**
      *
+     * @type {boolean}
+     * @memberof GetAnonymousConversationResponse
+     */
+    personaEstablished?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GetAnonymousConversationResponse
+     */
+    personaDeleted?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof GetAnonymousConversationResponse
      */

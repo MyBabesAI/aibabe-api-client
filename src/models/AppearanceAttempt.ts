@@ -106,11 +106,11 @@ export function AppearanceAttemptFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function AppearanceAttemptToJSON(json: any): AppearanceAttempt {
-      return AppearanceAttemptToJSONTyped(json, false);
-  }
+export function AppearanceAttemptToJSON(json: any): AppearanceAttempt {
+    return AppearanceAttemptToJSONTyped(json, false);
+}
 
-  export function AppearanceAttemptToJSONTyped(value?: AppearanceAttempt | null, ignoreDiscriminator: boolean = false): any {
+export function AppearanceAttemptToJSONTyped(value?: AppearanceAttempt | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

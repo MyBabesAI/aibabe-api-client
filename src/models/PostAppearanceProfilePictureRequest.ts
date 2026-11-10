@@ -49,11 +49,11 @@ export function PostAppearanceProfilePictureRequestFromJSONTyped(json: any, igno
     };
 }
 
-  export function PostAppearanceProfilePictureRequestToJSON(json: any): PostAppearanceProfilePictureRequest {
-      return PostAppearanceProfilePictureRequestToJSONTyped(json, false);
-  }
+export function PostAppearanceProfilePictureRequestToJSON(json: any): PostAppearanceProfilePictureRequest {
+    return PostAppearanceProfilePictureRequestToJSONTyped(json, false);
+}
 
-  export function PostAppearanceProfilePictureRequestToJSONTyped(value?: PostAppearanceProfilePictureRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostAppearanceProfilePictureRequestToJSONTyped(value?: PostAppearanceProfilePictureRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

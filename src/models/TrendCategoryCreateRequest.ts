@@ -64,11 +64,11 @@ export function TrendCategoryCreateRequestFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function TrendCategoryCreateRequestToJSON(json: any): TrendCategoryCreateRequest {
-      return TrendCategoryCreateRequestToJSONTyped(json, false);
-  }
+export function TrendCategoryCreateRequestToJSON(json: any): TrendCategoryCreateRequest {
+    return TrendCategoryCreateRequestToJSONTyped(json, false);
+}
 
-  export function TrendCategoryCreateRequestToJSONTyped(value?: TrendCategoryCreateRequest | null, ignoreDiscriminator: boolean = false): any {
+export function TrendCategoryCreateRequestToJSONTyped(value?: TrendCategoryCreateRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

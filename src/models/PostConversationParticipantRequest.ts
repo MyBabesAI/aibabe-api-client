@@ -70,11 +70,11 @@ export function PostConversationParticipantRequestFromJSONTyped(json: any, ignor
     };
 }
 
-  export function PostConversationParticipantRequestToJSON(json: any): PostConversationParticipantRequest {
-      return PostConversationParticipantRequestToJSONTyped(json, false);
-  }
+export function PostConversationParticipantRequestToJSON(json: any): PostConversationParticipantRequest {
+    return PostConversationParticipantRequestToJSONTyped(json, false);
+}
 
-  export function PostConversationParticipantRequestToJSONTyped(value?: PostConversationParticipantRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostConversationParticipantRequestToJSONTyped(value?: PostConversationParticipantRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -36,11 +36,11 @@ export function ContentTypesFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return json;
 }
 
-  export function ContentTypesToJSON(json: any): ContentTypes {
-      return ContentTypesToJSONTyped(json, false);
-  }
+export function ContentTypesToJSON(json: any): ContentTypes {
+    return ContentTypesToJSONTyped(json, false);
+}
 
-  export function ContentTypesToJSONTyped(value?: ContentTypes | null, ignoreDiscriminator: boolean = false): any {
+export function ContentTypesToJSONTyped(value?: ContentTypes | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

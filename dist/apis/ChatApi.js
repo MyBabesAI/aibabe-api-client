@@ -703,7 +703,7 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.
+     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.  The leaving is a turn like an invite: whoever stays reacts to it, at least one character, streaming under the returned ids. It counts as a message; when the allowance is used up the row is still written and nobody reacts.
      * Leave Participant
      */
     async leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRaw(requestParameters, initOverrides) {
@@ -729,7 +729,7 @@ class ChatApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostConversationParticipantLeaveResponseFromJSON)(jsonValue));
     }
     /**
-     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.
+     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.  The leaving is a turn like an invite: whoever stays reacts to it, at least one character, streaming under the returned ids. It counts as a message; when the allowance is used up the row is still written and nobody reacts.
      * Leave Participant
      */
     async leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePost(requestParameters, initOverrides) {
@@ -971,6 +971,37 @@ class ChatApi extends runtime.BaseAPI {
      */
     async seedConversationChatChatbotIdSeedPut(requestParameters, initOverrides) {
         const response = await this.seedConversationChatChatbotIdSeedPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Play the chat as another of the caller\'s personas.  Until a message was sent as a persona in this chat (`persona_established` false) the persona is simply set: no row, no turn, `switched` false. After that the change is part of the story: a narrator row (`narration`, or \"@Old left and @New appeared.\") and a turn in which at least one character reacts, streaming under the returned ids like after an invite. A chat whose persona was deleted (`persona_deleted`) may instead pass `quiet`: it carries on as the new persona with no row and no turn, and the deleted persona\'s messages read as the new one. 409 `conversation_persona_same` when nothing would change.
+     * Switch Persona
+     */
+    async switchPersonaChatConversationConversationIdPersonaPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling switchPersonaChatConversationConversationIdPersonaPost().');
+        }
+        if (requestParameters['postConversationPersonaRequest'] == null) {
+            throw new runtime.RequiredError('postConversationPersonaRequest', 'Required parameter "postConversationPersonaRequest" was null or undefined when calling switchPersonaChatConversationConversationIdPersonaPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/persona`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostConversationPersonaRequestToJSON)(requestParameters['postConversationPersonaRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostConversationPersonaResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Play the chat as another of the caller\'s personas.  Until a message was sent as a persona in this chat (`persona_established` false) the persona is simply set: no row, no turn, `switched` false. After that the change is part of the story: a narrator row (`narration`, or \"@Old left and @New appeared.\") and a turn in which at least one character reacts, streaming under the returned ids like after an invite. A chat whose persona was deleted (`persona_deleted`) may instead pass `quiet`: it carries on as the new persona with no row and no turn, and the deleted persona\'s messages read as the new one. 409 `conversation_persona_same` when nothing would change.
+     * Switch Persona
+     */
+    async switchPersonaChatConversationConversationIdPersonaPost(requestParameters, initOverrides) {
+        const response = await this.switchPersonaChatConversationConversationIdPersonaPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

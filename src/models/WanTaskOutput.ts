@@ -93,11 +93,11 @@ export function WanTaskOutputFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-  export function WanTaskOutputToJSON(json: any): WanTaskOutput {
-      return WanTaskOutputToJSONTyped(json, false);
-  }
+export function WanTaskOutputToJSON(json: any): WanTaskOutput {
+    return WanTaskOutputToJSONTyped(json, false);
+}
 
-  export function WanTaskOutputToJSONTyped(value?: WanTaskOutput | null, ignoreDiscriminator: boolean = false): any {
+export function WanTaskOutputToJSONTyped(value?: WanTaskOutput | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

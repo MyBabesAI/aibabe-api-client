@@ -56,11 +56,11 @@ export function ScenarioSlotRequestFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function ScenarioSlotRequestToJSON(json: any): ScenarioSlotRequest {
-      return ScenarioSlotRequestToJSONTyped(json, false);
-  }
+export function ScenarioSlotRequestToJSON(json: any): ScenarioSlotRequest {
+    return ScenarioSlotRequestToJSONTyped(json, false);
+}
 
-  export function ScenarioSlotRequestToJSONTyped(value?: ScenarioSlotRequest | null, ignoreDiscriminator: boolean = false): any {
+export function ScenarioSlotRequestToJSONTyped(value?: ScenarioSlotRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -64,11 +64,11 @@ export function StoryLibraryResponseFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function StoryLibraryResponseToJSON(json: any): StoryLibraryResponse {
-      return StoryLibraryResponseToJSONTyped(json, false);
-  }
+export function StoryLibraryResponseToJSON(json: any): StoryLibraryResponse {
+    return StoryLibraryResponseToJSONTyped(json, false);
+}
 
-  export function StoryLibraryResponseToJSONTyped(value?: StoryLibraryResponse | null, ignoreDiscriminator: boolean = false): any {
+export function StoryLibraryResponseToJSONTyped(value?: StoryLibraryResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

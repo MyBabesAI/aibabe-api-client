@@ -57,11 +57,11 @@ export function GetReferenceImagesResponseFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function GetReferenceImagesResponseToJSON(json: any): GetReferenceImagesResponse {
-      return GetReferenceImagesResponseToJSONTyped(json, false);
-  }
+export function GetReferenceImagesResponseToJSON(json: any): GetReferenceImagesResponse {
+    return GetReferenceImagesResponseToJSONTyped(json, false);
+}
 
-  export function GetReferenceImagesResponseToJSONTyped(value?: GetReferenceImagesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetReferenceImagesResponseToJSONTyped(value?: GetReferenceImagesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

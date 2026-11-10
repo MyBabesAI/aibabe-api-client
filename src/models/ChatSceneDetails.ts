@@ -48,11 +48,11 @@ export function ChatSceneDetailsFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function ChatSceneDetailsToJSON(json: any): ChatSceneDetails {
-      return ChatSceneDetailsToJSONTyped(json, false);
-  }
+export function ChatSceneDetailsToJSON(json: any): ChatSceneDetails {
+    return ChatSceneDetailsToJSONTyped(json, false);
+}
 
-  export function ChatSceneDetailsToJSONTyped(value?: ChatSceneDetails | null, ignoreDiscriminator: boolean = false): any {
+export function ChatSceneDetailsToJSONTyped(value?: ChatSceneDetails | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

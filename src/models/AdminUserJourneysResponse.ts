@@ -64,11 +64,11 @@ export function AdminUserJourneysResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function AdminUserJourneysResponseToJSON(json: any): AdminUserJourneysResponse {
-      return AdminUserJourneysResponseToJSONTyped(json, false);
-  }
+export function AdminUserJourneysResponseToJSON(json: any): AdminUserJourneysResponse {
+    return AdminUserJourneysResponseToJSONTyped(json, false);
+}
 
-  export function AdminUserJourneysResponseToJSONTyped(value?: AdminUserJourneysResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminUserJourneysResponseToJSONTyped(value?: AdminUserJourneysResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

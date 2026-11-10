@@ -73,11 +73,11 @@ export function ChatCastConfigFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-  export function ChatCastConfigToJSON(json: any): ChatCastConfig {
-      return ChatCastConfigToJSONTyped(json, false);
-  }
+export function ChatCastConfigToJSON(json: any): ChatCastConfig {
+    return ChatCastConfigToJSONTyped(json, false);
+}
 
-  export function ChatCastConfigToJSONTyped(value?: ChatCastConfig | null, ignoreDiscriminator: boolean = false): any {
+export function ChatCastConfigToJSONTyped(value?: ChatCastConfig | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

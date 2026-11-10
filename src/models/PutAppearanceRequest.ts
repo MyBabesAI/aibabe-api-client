@@ -73,11 +73,11 @@ export function PutAppearanceRequestFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function PutAppearanceRequestToJSON(json: any): PutAppearanceRequest {
-      return PutAppearanceRequestToJSONTyped(json, false);
-  }
+export function PutAppearanceRequestToJSON(json: any): PutAppearanceRequest {
+    return PutAppearanceRequestToJSONTyped(json, false);
+}
 
-  export function PutAppearanceRequestToJSONTyped(value?: PutAppearanceRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PutAppearanceRequestToJSONTyped(value?: PutAppearanceRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

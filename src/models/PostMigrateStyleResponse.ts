@@ -72,11 +72,11 @@ export function PostMigrateStyleResponseFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function PostMigrateStyleResponseToJSON(json: any): PostMigrateStyleResponse {
-      return PostMigrateStyleResponseToJSONTyped(json, false);
-  }
+export function PostMigrateStyleResponseToJSON(json: any): PostMigrateStyleResponse {
+    return PostMigrateStyleResponseToJSONTyped(json, false);
+}
 
-  export function PostMigrateStyleResponseToJSONTyped(value?: PostMigrateStyleResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostMigrateStyleResponseToJSONTyped(value?: PostMigrateStyleResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

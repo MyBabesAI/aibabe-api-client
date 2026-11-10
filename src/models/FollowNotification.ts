@@ -96,11 +96,11 @@ export function FollowNotificationFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function FollowNotificationToJSON(json: any): FollowNotification {
-      return FollowNotificationToJSONTyped(json, false);
-  }
+export function FollowNotificationToJSON(json: any): FollowNotification {
+    return FollowNotificationToJSONTyped(json, false);
+}
 
-  export function FollowNotificationToJSONTyped(value?: FollowNotification | null, ignoreDiscriminator: boolean = false): any {
+export function FollowNotificationToJSONTyped(value?: FollowNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

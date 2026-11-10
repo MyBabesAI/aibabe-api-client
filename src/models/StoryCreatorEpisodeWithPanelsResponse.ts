@@ -86,11 +86,11 @@ export function StoryCreatorEpisodeWithPanelsResponseFromJSONTyped(json: any, ig
     };
 }
 
-  export function StoryCreatorEpisodeWithPanelsResponseToJSON(json: any): StoryCreatorEpisodeWithPanelsResponse {
-      return StoryCreatorEpisodeWithPanelsResponseToJSONTyped(json, false);
-  }
+export function StoryCreatorEpisodeWithPanelsResponseToJSON(json: any): StoryCreatorEpisodeWithPanelsResponse {
+    return StoryCreatorEpisodeWithPanelsResponseToJSONTyped(json, false);
+}
 
-  export function StoryCreatorEpisodeWithPanelsResponseToJSONTyped(value?: StoryCreatorEpisodeWithPanelsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorEpisodeWithPanelsResponseToJSONTyped(value?: StoryCreatorEpisodeWithPanelsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

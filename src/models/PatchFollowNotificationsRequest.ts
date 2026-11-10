@@ -67,11 +67,11 @@ export function PatchFollowNotificationsRequestFromJSONTyped(json: any, ignoreDi
     };
 }
 
-  export function PatchFollowNotificationsRequestToJSON(json: any): PatchFollowNotificationsRequest {
-      return PatchFollowNotificationsRequestToJSONTyped(json, false);
-  }
+export function PatchFollowNotificationsRequestToJSON(json: any): PatchFollowNotificationsRequest {
+    return PatchFollowNotificationsRequestToJSONTyped(json, false);
+}
 
-  export function PatchFollowNotificationsRequestToJSONTyped(value?: PatchFollowNotificationsRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PatchFollowNotificationsRequestToJSONTyped(value?: PatchFollowNotificationsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

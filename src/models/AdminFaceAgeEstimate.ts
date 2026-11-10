@@ -80,11 +80,11 @@ export function AdminFaceAgeEstimateFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function AdminFaceAgeEstimateToJSON(json: any): AdminFaceAgeEstimate {
-      return AdminFaceAgeEstimateToJSONTyped(json, false);
-  }
+export function AdminFaceAgeEstimateToJSON(json: any): AdminFaceAgeEstimate {
+    return AdminFaceAgeEstimateToJSONTyped(json, false);
+}
 
-  export function AdminFaceAgeEstimateToJSONTyped(value?: AdminFaceAgeEstimate | null, ignoreDiscriminator: boolean = false): any {
+export function AdminFaceAgeEstimateToJSONTyped(value?: AdminFaceAgeEstimate | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

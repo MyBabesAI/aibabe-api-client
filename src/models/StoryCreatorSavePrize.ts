@@ -84,11 +84,11 @@ export function StoryCreatorSavePrizeFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function StoryCreatorSavePrizeToJSON(json: any): StoryCreatorSavePrize {
-      return StoryCreatorSavePrizeToJSONTyped(json, false);
-  }
+export function StoryCreatorSavePrizeToJSON(json: any): StoryCreatorSavePrize {
+    return StoryCreatorSavePrizeToJSONTyped(json, false);
+}
 
-  export function StoryCreatorSavePrizeToJSONTyped(value?: StoryCreatorSavePrize | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorSavePrizeToJSONTyped(value?: StoryCreatorSavePrize | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

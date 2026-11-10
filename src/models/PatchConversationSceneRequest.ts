@@ -49,11 +49,11 @@ export function PatchConversationSceneRequestFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function PatchConversationSceneRequestToJSON(json: any): PatchConversationSceneRequest {
-      return PatchConversationSceneRequestToJSONTyped(json, false);
-  }
+export function PatchConversationSceneRequestToJSON(json: any): PatchConversationSceneRequest {
+    return PatchConversationSceneRequestToJSONTyped(json, false);
+}
 
-  export function PatchConversationSceneRequestToJSONTyped(value?: PatchConversationSceneRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PatchConversationSceneRequestToJSONTyped(value?: PatchConversationSceneRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

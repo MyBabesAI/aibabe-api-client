@@ -284,11 +284,11 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function GetCustomChatbotResponseToJSON(json: any): GetCustomChatbotResponse {
-      return GetCustomChatbotResponseToJSONTyped(json, false);
-  }
+export function GetCustomChatbotResponseToJSON(json: any): GetCustomChatbotResponse {
+    return GetCustomChatbotResponseToJSONTyped(json, false);
+}
 
-  export function GetCustomChatbotResponseToJSONTyped(value?: GetCustomChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetCustomChatbotResponseToJSONTyped(value?: GetCustomChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

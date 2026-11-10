@@ -82,11 +82,11 @@ export function TrendSourceResponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function TrendSourceResponseToJSON(json: any): TrendSourceResponse {
-      return TrendSourceResponseToJSONTyped(json, false);
-  }
+export function TrendSourceResponseToJSON(json: any): TrendSourceResponse {
+    return TrendSourceResponseToJSONTyped(json, false);
+}
 
-  export function TrendSourceResponseToJSONTyped(value?: TrendSourceResponse | null, ignoreDiscriminator: boolean = false): any {
+export function TrendSourceResponseToJSONTyped(value?: TrendSourceResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

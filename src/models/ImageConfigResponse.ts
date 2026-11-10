@@ -73,11 +73,11 @@ export function ImageConfigResponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function ImageConfigResponseToJSON(json: any): ImageConfigResponse {
-      return ImageConfigResponseToJSONTyped(json, false);
-  }
+export function ImageConfigResponseToJSON(json: any): ImageConfigResponse {
+    return ImageConfigResponseToJSONTyped(json, false);
+}
 
-  export function ImageConfigResponseToJSONTyped(value?: ImageConfigResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ImageConfigResponseToJSONTyped(value?: ImageConfigResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

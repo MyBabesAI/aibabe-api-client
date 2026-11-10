@@ -86,11 +86,11 @@ export function AdminSavePricingGroupRequestFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function AdminSavePricingGroupRequestToJSON(json: any): AdminSavePricingGroupRequest {
-      return AdminSavePricingGroupRequestToJSONTyped(json, false);
-  }
+export function AdminSavePricingGroupRequestToJSON(json: any): AdminSavePricingGroupRequest {
+    return AdminSavePricingGroupRequestToJSONTyped(json, false);
+}
 
-  export function AdminSavePricingGroupRequestToJSONTyped(value?: AdminSavePricingGroupRequest | null, ignoreDiscriminator: boolean = false): any {
+export function AdminSavePricingGroupRequestToJSONTyped(value?: AdminSavePricingGroupRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

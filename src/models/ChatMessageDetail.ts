@@ -226,11 +226,11 @@ export function ChatMessageDetailFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function ChatMessageDetailToJSON(json: any): ChatMessageDetail {
-      return ChatMessageDetailToJSONTyped(json, false);
-  }
+export function ChatMessageDetailToJSON(json: any): ChatMessageDetail {
+    return ChatMessageDetailToJSONTyped(json, false);
+}
 
-  export function ChatMessageDetailToJSONTyped(value?: ChatMessageDetail | null, ignoreDiscriminator: boolean = false): any {
+export function ChatMessageDetailToJSONTyped(value?: ChatMessageDetail | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

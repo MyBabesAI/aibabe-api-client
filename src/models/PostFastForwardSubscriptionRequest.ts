@@ -58,11 +58,11 @@ export function PostFastForwardSubscriptionRequestFromJSONTyped(json: any, ignor
     };
 }
 
-  export function PostFastForwardSubscriptionRequestToJSON(json: any): PostFastForwardSubscriptionRequest {
-      return PostFastForwardSubscriptionRequestToJSONTyped(json, false);
-  }
+export function PostFastForwardSubscriptionRequestToJSON(json: any): PostFastForwardSubscriptionRequest {
+    return PostFastForwardSubscriptionRequestToJSONTyped(json, false);
+}
 
-  export function PostFastForwardSubscriptionRequestToJSONTyped(value?: PostFastForwardSubscriptionRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostFastForwardSubscriptionRequestToJSONTyped(value?: PostFastForwardSubscriptionRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

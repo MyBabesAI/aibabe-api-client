@@ -123,11 +123,11 @@ export function AdminUserJourneyListItemFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function AdminUserJourneyListItemToJSON(json: any): AdminUserJourneyListItem {
-      return AdminUserJourneyListItemToJSONTyped(json, false);
-  }
+export function AdminUserJourneyListItemToJSON(json: any): AdminUserJourneyListItem {
+    return AdminUserJourneyListItemToJSONTyped(json, false);
+}
 
-  export function AdminUserJourneyListItemToJSONTyped(value?: AdminUserJourneyListItem | null, ignoreDiscriminator: boolean = false): any {
+export function AdminUserJourneyListItemToJSONTyped(value?: AdminUserJourneyListItem | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

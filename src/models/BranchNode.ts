@@ -135,11 +135,11 @@ export function BranchNodeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     };
 }
 
-  export function BranchNodeToJSON(json: any): BranchNode {
-      return BranchNodeToJSONTyped(json, false);
-  }
+export function BranchNodeToJSON(json: any): BranchNode {
+    return BranchNodeToJSONTyped(json, false);
+}
 
-  export function BranchNodeToJSONTyped(value?: BranchNode | null, ignoreDiscriminator: boolean = false): any {
+export function BranchNodeToJSONTyped(value?: BranchNode | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

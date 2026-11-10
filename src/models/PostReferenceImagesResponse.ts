@@ -72,11 +72,11 @@ export function PostReferenceImagesResponseFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function PostReferenceImagesResponseToJSON(json: any): PostReferenceImagesResponse {
-      return PostReferenceImagesResponseToJSONTyped(json, false);
-  }
+export function PostReferenceImagesResponseToJSON(json: any): PostReferenceImagesResponse {
+    return PostReferenceImagesResponseToJSONTyped(json, false);
+}
 
-  export function PostReferenceImagesResponseToJSONTyped(value?: PostReferenceImagesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostReferenceImagesResponseToJSONTyped(value?: PostReferenceImagesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

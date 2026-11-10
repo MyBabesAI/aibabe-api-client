@@ -89,11 +89,11 @@ export function ReferenceImageFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-  export function ReferenceImageToJSON(json: any): ReferenceImage {
-      return ReferenceImageToJSONTyped(json, false);
-  }
+export function ReferenceImageToJSON(json: any): ReferenceImage {
+    return ReferenceImageToJSONTyped(json, false);
+}
 
-  export function ReferenceImageToJSONTyped(value?: ReferenceImage | null, ignoreDiscriminator: boolean = false): any {
+export function ReferenceImageToJSONTyped(value?: ReferenceImage | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

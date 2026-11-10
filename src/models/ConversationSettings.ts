@@ -107,11 +107,11 @@ export function ConversationSettingsFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function ConversationSettingsToJSON(json: any): ConversationSettings {
-      return ConversationSettingsToJSONTyped(json, false);
-  }
+export function ConversationSettingsToJSON(json: any): ConversationSettings {
+    return ConversationSettingsToJSONTyped(json, false);
+}
 
-  export function ConversationSettingsToJSONTyped(value?: ConversationSettings | null, ignoreDiscriminator: boolean = false): any {
+export function ConversationSettingsToJSONTyped(value?: ConversationSettings | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

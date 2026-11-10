@@ -36,11 +36,11 @@ export function SubjectGendersFromJSONTyped(json: any, ignoreDiscriminator: bool
     return json;
 }
 
-  export function SubjectGendersToJSON(json: any): SubjectGenders {
-      return SubjectGendersToJSONTyped(json, false);
-  }
+export function SubjectGendersToJSON(json: any): SubjectGenders {
+    return SubjectGendersToJSONTyped(json, false);
+}
 
-  export function SubjectGendersToJSONTyped(value?: SubjectGenders | null, ignoreDiscriminator: boolean = false): any {
+export function SubjectGendersToJSONTyped(value?: SubjectGenders | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

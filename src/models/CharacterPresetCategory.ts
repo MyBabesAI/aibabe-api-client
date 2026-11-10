@@ -89,11 +89,11 @@ export function CharacterPresetCategoryFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function CharacterPresetCategoryToJSON(json: any): CharacterPresetCategory {
-      return CharacterPresetCategoryToJSONTyped(json, false);
-  }
+export function CharacterPresetCategoryToJSON(json: any): CharacterPresetCategory {
+    return CharacterPresetCategoryToJSONTyped(json, false);
+}
 
-  export function CharacterPresetCategoryToJSONTyped(value?: CharacterPresetCategory | null, ignoreDiscriminator: boolean = false): any {
+export function CharacterPresetCategoryToJSONTyped(value?: CharacterPresetCategory | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

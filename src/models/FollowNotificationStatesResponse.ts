@@ -57,11 +57,11 @@ export function FollowNotificationStatesResponseFromJSONTyped(json: any, ignoreD
     };
 }
 
-  export function FollowNotificationStatesResponseToJSON(json: any): FollowNotificationStatesResponse {
-      return FollowNotificationStatesResponseToJSONTyped(json, false);
-  }
+export function FollowNotificationStatesResponseToJSON(json: any): FollowNotificationStatesResponse {
+    return FollowNotificationStatesResponseToJSONTyped(json, false);
+}
 
-  export function FollowNotificationStatesResponseToJSONTyped(value?: FollowNotificationStatesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function FollowNotificationStatesResponseToJSONTyped(value?: FollowNotificationStatesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

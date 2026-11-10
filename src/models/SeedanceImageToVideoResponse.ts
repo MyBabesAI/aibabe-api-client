@@ -49,11 +49,11 @@ export function SeedanceImageToVideoResponseFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function SeedanceImageToVideoResponseToJSON(json: any): SeedanceImageToVideoResponse {
-      return SeedanceImageToVideoResponseToJSONTyped(json, false);
-  }
+export function SeedanceImageToVideoResponseToJSON(json: any): SeedanceImageToVideoResponse {
+    return SeedanceImageToVideoResponseToJSONTyped(json, false);
+}
 
-  export function SeedanceImageToVideoResponseToJSONTyped(value?: SeedanceImageToVideoResponse | null, ignoreDiscriminator: boolean = false): any {
+export function SeedanceImageToVideoResponseToJSONTyped(value?: SeedanceImageToVideoResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

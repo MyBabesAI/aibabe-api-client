@@ -65,11 +65,11 @@ export function ScenarioStartResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function ScenarioStartResponseToJSON(json: any): ScenarioStartResponse {
-      return ScenarioStartResponseToJSONTyped(json, false);
-  }
+export function ScenarioStartResponseToJSON(json: any): ScenarioStartResponse {
+    return ScenarioStartResponseToJSONTyped(json, false);
+}
 
-  export function ScenarioStartResponseToJSONTyped(value?: ScenarioStartResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ScenarioStartResponseToJSONTyped(value?: ScenarioStartResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

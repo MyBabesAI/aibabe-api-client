@@ -71,11 +71,11 @@ export function WanExtendVideoCompletionPayloadFromJSONTyped(json: any, ignoreDi
     };
 }
 
-  export function WanExtendVideoCompletionPayloadToJSON(json: any): WanExtendVideoCompletionPayload {
-      return WanExtendVideoCompletionPayloadToJSONTyped(json, false);
-  }
+export function WanExtendVideoCompletionPayloadToJSON(json: any): WanExtendVideoCompletionPayload {
+    return WanExtendVideoCompletionPayloadToJSONTyped(json, false);
+}
 
-  export function WanExtendVideoCompletionPayloadToJSONTyped(value?: WanExtendVideoCompletionPayload | null, ignoreDiscriminator: boolean = false): any {
+export function WanExtendVideoCompletionPayloadToJSONTyped(value?: WanExtendVideoCompletionPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -62,11 +62,11 @@ export function TrendCategoryUpdateRequestFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function TrendCategoryUpdateRequestToJSON(json: any): TrendCategoryUpdateRequest {
-      return TrendCategoryUpdateRequestToJSONTyped(json, false);
-  }
+export function TrendCategoryUpdateRequestToJSON(json: any): TrendCategoryUpdateRequest {
+    return TrendCategoryUpdateRequestToJSONTyped(json, false);
+}
 
-  export function TrendCategoryUpdateRequestToJSONTyped(value?: TrendCategoryUpdateRequest | null, ignoreDiscriminator: boolean = false): any {
+export function TrendCategoryUpdateRequestToJSONTyped(value?: TrendCategoryUpdateRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

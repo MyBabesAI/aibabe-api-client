@@ -89,11 +89,11 @@ export function MentionCandidateFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function MentionCandidateToJSON(json: any): MentionCandidate {
-      return MentionCandidateToJSONTyped(json, false);
-  }
+export function MentionCandidateToJSON(json: any): MentionCandidate {
+    return MentionCandidateToJSONTyped(json, false);
+}
 
-  export function MentionCandidateToJSONTyped(value?: MentionCandidate | null, ignoreDiscriminator: boolean = false): any {
+export function MentionCandidateToJSONTyped(value?: MentionCandidate | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

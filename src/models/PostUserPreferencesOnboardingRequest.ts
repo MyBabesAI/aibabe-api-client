@@ -80,11 +80,11 @@ export function PostUserPreferencesOnboardingRequestFromJSONTyped(json: any, ign
     };
 }
 
-  export function PostUserPreferencesOnboardingRequestToJSON(json: any): PostUserPreferencesOnboardingRequest {
-      return PostUserPreferencesOnboardingRequestToJSONTyped(json, false);
-  }
+export function PostUserPreferencesOnboardingRequestToJSON(json: any): PostUserPreferencesOnboardingRequest {
+    return PostUserPreferencesOnboardingRequestToJSONTyped(json, false);
+}
 
-  export function PostUserPreferencesOnboardingRequestToJSONTyped(value?: PostUserPreferencesOnboardingRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostUserPreferencesOnboardingRequestToJSONTyped(value?: PostUserPreferencesOnboardingRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

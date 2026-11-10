@@ -49,11 +49,11 @@ export function DownscaleRequestFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function DownscaleRequestToJSON(json: any): DownscaleRequest {
-      return DownscaleRequestToJSONTyped(json, false);
-  }
+export function DownscaleRequestToJSON(json: any): DownscaleRequest {
+    return DownscaleRequestToJSONTyped(json, false);
+}
 
-  export function DownscaleRequestToJSONTyped(value?: DownscaleRequest | null, ignoreDiscriminator: boolean = false): any {
+export function DownscaleRequestToJSONTyped(value?: DownscaleRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

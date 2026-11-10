@@ -129,11 +129,11 @@ export function VideoMultishotTemplateViewFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function VideoMultishotTemplateViewToJSON(json: any): VideoMultishotTemplateView {
-      return VideoMultishotTemplateViewToJSONTyped(json, false);
-  }
+export function VideoMultishotTemplateViewToJSON(json: any): VideoMultishotTemplateView {
+    return VideoMultishotTemplateViewToJSONTyped(json, false);
+}
 
-  export function VideoMultishotTemplateViewToJSONTyped(value?: VideoMultishotTemplateView | null, ignoreDiscriminator: boolean = false): any {
+export function VideoMultishotTemplateViewToJSONTyped(value?: VideoMultishotTemplateView | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

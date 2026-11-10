@@ -65,11 +65,11 @@ export function TrendFacetsResponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function TrendFacetsResponseToJSON(json: any): TrendFacetsResponse {
-      return TrendFacetsResponseToJSONTyped(json, false);
-  }
+export function TrendFacetsResponseToJSON(json: any): TrendFacetsResponse {
+    return TrendFacetsResponseToJSONTyped(json, false);
+}
 
-  export function TrendFacetsResponseToJSONTyped(value?: TrendFacetsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function TrendFacetsResponseToJSONTyped(value?: TrendFacetsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

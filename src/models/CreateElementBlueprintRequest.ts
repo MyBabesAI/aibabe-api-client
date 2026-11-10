@@ -102,11 +102,11 @@ export function CreateElementBlueprintRequestFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function CreateElementBlueprintRequestToJSON(json: any): CreateElementBlueprintRequest {
-      return CreateElementBlueprintRequestToJSONTyped(json, false);
-  }
+export function CreateElementBlueprintRequestToJSON(json: any): CreateElementBlueprintRequest {
+    return CreateElementBlueprintRequestToJSONTyped(json, false);
+}
 
-  export function CreateElementBlueprintRequestToJSONTyped(value?: CreateElementBlueprintRequest | null, ignoreDiscriminator: boolean = false): any {
+export function CreateElementBlueprintRequestToJSONTyped(value?: CreateElementBlueprintRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -217,11 +217,11 @@ export function CharacterPresetFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-  export function CharacterPresetToJSON(json: any): CharacterPreset {
-      return CharacterPresetToJSONTyped(json, false);
-  }
+export function CharacterPresetToJSON(json: any): CharacterPreset {
+    return CharacterPresetToJSONTyped(json, false);
+}
 
-  export function CharacterPresetToJSONTyped(value?: CharacterPreset | null, ignoreDiscriminator: boolean = false): any {
+export function CharacterPresetToJSONTyped(value?: CharacterPreset | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

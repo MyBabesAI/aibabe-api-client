@@ -22,7 +22,8 @@ export const MessageType = {
     Image: 'image',
     Video: 'video',
     CastJoin: 'cast_join',
-    CastLeave: 'cast_leave'
+    CastLeave: 'cast_leave',
+    PersonaSwitch: 'persona_switch'
 } as const;
 export type MessageType = typeof MessageType[keyof typeof MessageType];
 
