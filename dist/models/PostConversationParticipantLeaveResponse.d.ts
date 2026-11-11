@@ -28,19 +28,19 @@ export interface PostConversationParticipantLeaveResponse {
      * @type {ChatMessageDetail}
      * @memberof PostConversationParticipantLeaveResponse
      */
-    event: ChatMessageDetail;
+    event?: ChatMessageDetail | null;
     /**
      *
      * @type {string}
      * @memberof PostConversationParticipantLeaveResponse
      */
-    requestId: string;
+    requestId?: string | null;
     /**
      *
      * @type {string}
      * @memberof PostConversationParticipantLeaveResponse
      */
-    assistantMessageId: string;
+    assistantMessageId?: string | null;
     /**
      *
      * @type {number}

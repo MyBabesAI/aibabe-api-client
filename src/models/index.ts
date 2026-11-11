@@ -405,6 +405,8 @@ export * from './PostLogin';
 export * from './PostMigrateStyleRequest';
 export * from './PostMigrateStyleResponse';
 export * from './PostPasswordReset';
+export * from './PostPersonaViewTextsRequest';
+export * from './PostPersonaViewTextsResponse';
 export * from './PostProfilePictureResponse';
 export * from './PostPublishResponse';
 export * from './PostRatingRequest';

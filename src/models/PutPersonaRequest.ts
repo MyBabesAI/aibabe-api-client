@@ -34,6 +34,13 @@ import {
     SexualOrientationToJSON,
     SexualOrientationToJSONTyped,
 } from './SexualOrientation';
+import type { ReferenceTexts } from './ReferenceTexts';
+import {
+    ReferenceTextsFromJSON,
+    ReferenceTextsFromJSONTyped,
+    ReferenceTextsToJSON,
+    ReferenceTextsToJSONTyped,
+} from './ReferenceTexts';
 import type { PersonaAppearance } from './PersonaAppearance';
 import {
     PersonaAppearanceFromJSON,
@@ -102,6 +109,12 @@ export interface PutPersonaRequest {
      * @memberof PutPersonaRequest
      */
     portraitPictureId?: string | null;
+    /**
+     * 
+     * @type {ReferenceTexts}
+     * @memberof PutPersonaRequest
+     */
+    viewTexts?: ReferenceTexts | null;
 }
 
 
@@ -133,6 +146,7 @@ export function PutPersonaRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         'description': json['description'] == null ? undefined : json['description'],
         'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
         'portraitPictureId': json['portrait_picture_id'] == null ? undefined : json['portrait_picture_id'],
+        'viewTexts': json['view_texts'] == null ? undefined : ReferenceTextsFromJSON(json['view_texts']),
     };
 }
 
@@ -156,6 +170,7 @@ export function PutPersonaRequestToJSONTyped(value?: PutPersonaRequest | null, i
         'description': value['description'],
         'art_style': ArtStyleToJSON(value['artStyle']),
         'portrait_picture_id': value['portraitPictureId'],
+        'view_texts': ReferenceTextsToJSON(value['viewTexts']),
     };
 }
 

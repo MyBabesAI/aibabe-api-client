@@ -440,6 +440,8 @@ src/models/PostLogin.ts
 src/models/PostMigrateStyleRequest.ts
 src/models/PostMigrateStyleResponse.ts
 src/models/PostPasswordReset.ts
+src/models/PostPersonaViewTextsRequest.ts
+src/models/PostPersonaViewTextsResponse.ts
 src/models/PostProfilePictureResponse.ts
 src/models/PostPublishResponse.ts
 src/models/PostRatingRequest.ts

@@ -45,19 +45,19 @@ export interface PostConversationParticipantLeaveResponse {
      * @type {ChatMessageDetail}
      * @memberof PostConversationParticipantLeaveResponse
      */
-    event: ChatMessageDetail;
+    event?: ChatMessageDetail | null;
     /**
      * 
      * @type {string}
      * @memberof PostConversationParticipantLeaveResponse
      */
-    requestId: string;
+    requestId?: string | null;
     /**
      * 
      * @type {string}
      * @memberof PostConversationParticipantLeaveResponse
      */
-    assistantMessageId: string;
+    assistantMessageId?: string | null;
     /**
      * 
      * @type {number}
@@ -71,9 +71,6 @@ export interface PostConversationParticipantLeaveResponse {
  */
 export function instanceOfPostConversationParticipantLeaveResponse(value: object): value is PostConversationParticipantLeaveResponse {
     if (!('participants' in value) || value['participants'] === undefined) return false;
-    if (!('event' in value) || value['event'] === undefined) return false;
-    if (!('requestId' in value) || value['requestId'] === undefined) return false;
-    if (!('assistantMessageId' in value) || value['assistantMessageId'] === undefined) return false;
     return true;
 }
 
@@ -88,9 +85,9 @@ export function PostConversationParticipantLeaveResponseFromJSONTyped(json: any,
     return {
         
         'participants': ((json['participants'] as Array<any>).map(ConversationParticipantFromJSON)),
-        'event': ChatMessageDetailFromJSON(json['event']),
-        'requestId': json['request_id'],
-        'assistantMessageId': json['assistant_message_id'],
+        'event': json['event'] == null ? undefined : ChatMessageDetailFromJSON(json['event']),
+        'requestId': json['request_id'] == null ? undefined : json['request_id'],
+        'assistantMessageId': json['assistant_message_id'] == null ? undefined : json['assistant_message_id'],
         'remainingFreeMessages': json['remaining_free_messages'] == null ? undefined : json['remaining_free_messages'],
     };
 }

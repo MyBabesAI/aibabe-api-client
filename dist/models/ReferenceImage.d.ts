@@ -42,6 +42,12 @@ export interface ReferenceImage {
     prompt?: string | null;
     /**
      *
+     * @type {boolean}
+     * @memberof ReferenceImage
+     */
+    active?: boolean;
+    /**
+     *
      * @type {Date}
      * @memberof ReferenceImage
      */

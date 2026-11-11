@@ -53,6 +53,12 @@ export interface ReferenceImage {
     prompt?: string | null;
     /**
      * 
+     * @type {boolean}
+     * @memberof ReferenceImage
+     */
+    active?: boolean;
+    /**
+     * 
      * @type {Date}
      * @memberof ReferenceImage
      */
@@ -85,6 +91,7 @@ export function ReferenceImageFromJSONTyped(json: any, ignoreDiscriminator: bool
         'view': ReferenceImageViewFromJSON(json['view']),
         'url': json['url'] == null ? undefined : json['url'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
+        'active': json['active'] == null ? undefined : json['active'],
         'createdAt': (new Date(json['created_at'])),
     };
 }
@@ -104,6 +111,7 @@ export function ReferenceImageToJSONTyped(value?: ReferenceImage | null, ignoreD
         'view': ReferenceImageViewToJSON(value['view']),
         'url': value['url'],
         'prompt': value['prompt'],
+        'active': value['active'],
         'created_at': ((value['createdAt']).toISOString()),
     };
 }

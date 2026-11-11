@@ -421,6 +421,8 @@ __exportStar(require("./PostLogin"), exports);
 __exportStar(require("./PostMigrateStyleRequest"), exports);
 __exportStar(require("./PostMigrateStyleResponse"), exports);
 __exportStar(require("./PostPasswordReset"), exports);
+__exportStar(require("./PostPersonaViewTextsRequest"), exports);
+__exportStar(require("./PostPersonaViewTextsResponse"), exports);
 __exportStar(require("./PostProfilePictureResponse"), exports);
 __exportStar(require("./PostPublishResponse"), exports);
 __exportStar(require("./PostRatingRequest"), exports);

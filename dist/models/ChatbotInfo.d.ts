@@ -71,6 +71,12 @@ export interface ChatbotInfo {
      * @memberof ChatbotInfo
      */
     nextGen?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof ChatbotInfo
+     */
+    characterStyle?: string | null;
 }
 /**
  * Check if a given object implements the ChatbotInfo interface.

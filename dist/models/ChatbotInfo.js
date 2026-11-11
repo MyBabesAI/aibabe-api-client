@@ -59,6 +59,7 @@ function ChatbotInfoFromJSONTyped(json, ignoreDiscriminator) {
         'messageCount': json['message_count'],
         'tags': (json['tags'].map(TagData_1.TagDataFromJSON)),
         'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
     };
 }
 function ChatbotInfoToJSON(json) {
@@ -78,6 +79,7 @@ function ChatbotInfoToJSONTyped(value, ignoreDiscriminator = false) {
         'message_count': value['messageCount'],
         'tags': (value['tags'].map(TagData_1.TagDataToJSON)),
         'next_gen': value['nextGen'],
+        'character_style': value['characterStyle'],
     };
 }
 //# sourceMappingURL=ChatbotInfo.js.map

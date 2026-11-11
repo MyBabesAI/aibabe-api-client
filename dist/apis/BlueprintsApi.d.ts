@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlueprintConfigResponse, CreateElementBlueprintRequest, ElementBlueprint, ElementBlueprintKind, GetElementBlueprintsResponse, GetMentionsResponse, GetReferenceImagesResponse, Persona, PostReferenceImagesRequest, PostReferenceImagesResponse, PutPersonaRequest, PutWardrobeRequest, RestylePersonaRequest, UpdateElementBlueprintRequest, Wardrobe } from '../models/index';
+import type { BlueprintConfigResponse, CreateElementBlueprintRequest, ElementBlueprint, ElementBlueprintKind, GetElementBlueprintsResponse, GetMentionsResponse, GetReferenceImagesResponse, Persona, PostPersonaViewTextsRequest, PostPersonaViewTextsResponse, PostReferenceImagesRequest, PostReferenceImagesResponse, PutPersonaRequest, PutWardrobeRequest, RestylePersonaRequest, UpdateElementBlueprintRequest, Wardrobe } from '../models/index';
 export interface CreateElementBlueprintsElementsPostRequest {
     createElementBlueprintRequest: CreateElementBlueprintRequest;
 }
@@ -22,6 +22,10 @@ export interface DeleteElementBlueprintsElementsElementIdDeleteRequest {
 }
 export interface DeleteOnePersonaBlueprintsPersonasPersonaIdDeleteRequest {
     personaId: string;
+}
+export interface DescribePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePostRequest {
+    personaId: string;
+    postPersonaViewTextsRequest?: PostPersonaViewTextsRequest;
 }
 export interface GetPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesGetRequest {
     personaId: string;
@@ -35,6 +39,9 @@ export interface ListElementsBlueprintsElementsGetRequest {
 export interface PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest {
     chatbotId: string;
     replace?: boolean;
+}
+export interface PostPersonaPortraitBlueprintsPersonasPersonaIdPortraitPostRequest {
+    personaId: string;
 }
 export interface PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRequest {
     personaId: string;
@@ -97,6 +104,16 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      * Delete One Persona
      */
     deleteOnePersonaBlueprintsPersonasPersonaIdDelete(requestParameters: DeleteOnePersonaBlueprintsPersonasPersonaIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * The three detail texts (face, front, back) written from the persona\'s appearance, or from the description in the body. Free; stores nothing: save them with the persona\'s `view_texts`.
+     * Describe Persona View Texts
+     */
+    describePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePostRaw(requestParameters: DescribePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostPersonaViewTextsResponse>>;
+    /**
+     * The three detail texts (face, front, back) written from the persona\'s appearance, or from the description in the body. Free; stores nothing: save them with the persona\'s `view_texts`.
+     * Describe Persona View Texts
+     */
+    describePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePost(requestParameters: DescribePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostPersonaViewTextsResponse>;
     /**
      * Get Blueprint Config
      */
@@ -165,6 +182,16 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      * Persona From Character
      */
     personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
+    /**
+     * Renders a new picture of the persona from its saved appearance and makes it the persona\'s portrait. One creator generation; the result arrives on the `reference_images_status_change` websocket event with `urls.portrait`.
+     * Post Persona Portrait
+     */
+    postPersonaPortraitBlueprintsPersonasPersonaIdPortraitPostRaw(requestParameters: PostPersonaPortraitBlueprintsPersonasPersonaIdPortraitPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostReferenceImagesResponse>>;
+    /**
+     * Renders a new picture of the persona from its saved appearance and makes it the persona\'s portrait. One creator generation; the result arrives on the `reference_images_status_change` websocket event with `urls.portrait`.
+     * Post Persona Portrait
+     */
+    postPersonaPortraitBlueprintsPersonasPersonaIdPortraitPost(requestParameters: PostPersonaPortraitBlueprintsPersonasPersonaIdPortraitPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostReferenceImagesResponse>;
     /**
      * Renders the persona\'s reference set: a face portrait and a front and a back full-body T-pose, or only the views the body names, each from its own text (`texts` stores the member\'s; a view without one gets a text prepared from the persona\'s appearance first). One creator generation per view, all or nothing; needs a portrait (409 `reference_images_require_profile_picture`); the result arrives on the `reference_images_status_change` websocket event.
      * Post Persona Reference Images

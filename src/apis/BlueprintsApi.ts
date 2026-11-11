@@ -24,6 +24,8 @@ import type {
   GetReferenceImagesResponse,
   HTTPValidationError,
   Persona,
+  PostPersonaViewTextsRequest,
+  PostPersonaViewTextsResponse,
   PostReferenceImagesRequest,
   PostReferenceImagesResponse,
   PutPersonaRequest,
@@ -51,6 +53,10 @@ import {
     HTTPValidationErrorToJSON,
     PersonaFromJSON,
     PersonaToJSON,
+    PostPersonaViewTextsRequestFromJSON,
+    PostPersonaViewTextsRequestToJSON,
+    PostPersonaViewTextsResponseFromJSON,
+    PostPersonaViewTextsResponseToJSON,
     PostReferenceImagesRequestFromJSON,
     PostReferenceImagesRequestToJSON,
     PostReferenceImagesResponseFromJSON,
@@ -83,6 +89,11 @@ export interface DeleteOnePersonaBlueprintsPersonasPersonaIdDeleteRequest {
     personaId: string;
 }
 
+export interface DescribePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePostRequest {
+    personaId: string;
+    postPersonaViewTextsRequest?: PostPersonaViewTextsRequest;
+}
+
 export interface GetPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesGetRequest {
     personaId: string;
 }
@@ -98,6 +109,10 @@ export interface ListElementsBlueprintsElementsGetRequest {
 export interface PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest {
     chatbotId: string;
     replace?: boolean;
+}
+
+export interface PostPersonaPortraitBlueprintsPersonasPersonaIdPortraitPostRequest {
+    personaId: string;
 }
 
 export interface PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceImagesPostRequest {
@@ -270,6 +285,44 @@ export class BlueprintsApi extends runtime.BaseAPI {
      */
     async deleteOnePersonaBlueprintsPersonasPersonaIdDelete(requestParameters: DeleteOnePersonaBlueprintsPersonasPersonaIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
         await this.deleteOnePersonaBlueprintsPersonasPersonaIdDeleteRaw(requestParameters, initOverrides);
+    }
+
+    /**
+     * The three detail texts (face, front, back) written from the persona\'s appearance, or from the description in the body. Free; stores nothing: save them with the persona\'s `view_texts`.
+     * Describe Persona View Texts
+     */
+    async describePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePostRaw(requestParameters: DescribePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostPersonaViewTextsResponse>> {
+        if (requestParameters['personaId'] == null) {
+            throw new runtime.RequiredError(
+                'personaId',
+                'Required parameter "personaId" was null or undefined when calling describePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/blueprints/personas/{persona_id}/view-texts/describe`.replace(`{${"persona_id"}}`, encodeURIComponent(String(requestParameters['personaId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PostPersonaViewTextsRequestToJSON(requestParameters['postPersonaViewTextsRequest']),
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostPersonaViewTextsResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * The three detail texts (face, front, back) written from the persona\'s appearance, or from the description in the body. Free; stores nothing: save them with the persona\'s `view_texts`.
+     * Describe Persona View Texts
+     */
+    async describePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePost(requestParameters: DescribePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostPersonaViewTextsResponse> {
+        const response = await this.describePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePostRaw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
@@ -510,6 +563,41 @@ export class BlueprintsApi extends runtime.BaseAPI {
      */
     async personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona> {
         const response = await this.personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Renders a new picture of the persona from its saved appearance and makes it the persona\'s portrait. One creator generation; the result arrives on the `reference_images_status_change` websocket event with `urls.portrait`.
+     * Post Persona Portrait
+     */
+    async postPersonaPortraitBlueprintsPersonasPersonaIdPortraitPostRaw(requestParameters: PostPersonaPortraitBlueprintsPersonasPersonaIdPortraitPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostReferenceImagesResponse>> {
+        if (requestParameters['personaId'] == null) {
+            throw new runtime.RequiredError(
+                'personaId',
+                'Required parameter "personaId" was null or undefined when calling postPersonaPortraitBlueprintsPersonasPersonaIdPortraitPost().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/blueprints/personas/{persona_id}/portrait`.replace(`{${"persona_id"}}`, encodeURIComponent(String(requestParameters['personaId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => PostReferenceImagesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * Renders a new picture of the persona from its saved appearance and makes it the persona\'s portrait. One creator generation; the result arrives on the `reference_images_status_change` websocket event with `urls.portrait`.
+     * Post Persona Portrait
+     */
+    async postPersonaPortraitBlueprintsPersonasPersonaIdPortraitPost(requestParameters: PostPersonaPortraitBlueprintsPersonasPersonaIdPortraitPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostReferenceImagesResponse> {
+        const response = await this.postPersonaPortraitBlueprintsPersonasPersonaIdPortraitPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

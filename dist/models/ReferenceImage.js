@@ -43,6 +43,7 @@ function ReferenceImageFromJSONTyped(json, ignoreDiscriminator) {
         'view': (0, ReferenceImageView_1.ReferenceImageViewFromJSON)(json['view']),
         'url': json['url'] == null ? undefined : json['url'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
+        'active': json['active'] == null ? undefined : json['active'],
         'createdAt': (new Date(json['created_at'])),
     };
 }
@@ -58,6 +59,7 @@ function ReferenceImageToJSONTyped(value, ignoreDiscriminator = false) {
         'view': (0, ReferenceImageView_1.ReferenceImageViewToJSON)(value['view']),
         'url': value['url'],
         'prompt': value['prompt'],
+        'active': value['active'],
         'created_at': ((value['createdAt']).toISOString()),
     };
 }

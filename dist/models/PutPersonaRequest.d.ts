@@ -12,6 +12,7 @@
 import type { ArtStyle } from './ArtStyle';
 import type { Gender } from './Gender';
 import type { SexualOrientation } from './SexualOrientation';
+import type { ReferenceTexts } from './ReferenceTexts';
 import type { PersonaAppearance } from './PersonaAppearance';
 /**
  *
@@ -73,6 +74,12 @@ export interface PutPersonaRequest {
      * @memberof PutPersonaRequest
      */
     portraitPictureId?: string | null;
+    /**
+     *
+     * @type {ReferenceTexts}
+     * @memberof PutPersonaRequest
+     */
+    viewTexts?: ReferenceTexts | null;
 }
 /**
  * Check if a given object implements the PutPersonaRequest interface.

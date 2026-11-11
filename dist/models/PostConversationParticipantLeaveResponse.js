@@ -26,12 +26,6 @@ const ChatMessageDetail_1 = require("./ChatMessageDetail");
 function instanceOfPostConversationParticipantLeaveResponse(value) {
     if (!('participants' in value) || value['participants'] === undefined)
         return false;
-    if (!('event' in value) || value['event'] === undefined)
-        return false;
-    if (!('requestId' in value) || value['requestId'] === undefined)
-        return false;
-    if (!('assistantMessageId' in value) || value['assistantMessageId'] === undefined)
-        return false;
     return true;
 }
 function PostConversationParticipantLeaveResponseFromJSON(json) {
@@ -43,9 +37,9 @@ function PostConversationParticipantLeaveResponseFromJSONTyped(json, ignoreDiscr
     }
     return {
         'participants': (json['participants'].map(ConversationParticipant_1.ConversationParticipantFromJSON)),
-        'event': (0, ChatMessageDetail_1.ChatMessageDetailFromJSON)(json['event']),
-        'requestId': json['request_id'],
-        'assistantMessageId': json['assistant_message_id'],
+        'event': json['event'] == null ? undefined : (0, ChatMessageDetail_1.ChatMessageDetailFromJSON)(json['event']),
+        'requestId': json['request_id'] == null ? undefined : json['request_id'],
+        'assistantMessageId': json['assistant_message_id'] == null ? undefined : json['assistant_message_id'],
         'remainingFreeMessages': json['remaining_free_messages'] == null ? undefined : json['remaining_free_messages'],
     };
 }

@@ -1680,7 +1680,7 @@ export class ChatApi extends runtime.BaseAPI {
     }
 
     /**
-     * Return the chat to a message: every text turn after it is deleted. Pictures and clips made in between stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
      * Rewind Conversation
      */
     async rewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRaw(requestParameters: RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
@@ -1713,7 +1713,7 @@ export class ChatApi extends runtime.BaseAPI {
     }
 
     /**
-     * Return the chat to a message: every text turn after it is deleted. Pictures and clips made in between stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
      * Rewind Conversation
      */
     async rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete(requestParameters: RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
