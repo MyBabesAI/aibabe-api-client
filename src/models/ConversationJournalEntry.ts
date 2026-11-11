@@ -57,6 +57,18 @@ export interface ConversationJournalEntry {
      * @memberof ConversationJournalEntry
      */
     id?: string | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ConversationJournalEntry
+     */
+    memoryOf?: Array<string>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ConversationJournalEntry
+     */
+    complete?: boolean;
 }
 
 
@@ -85,6 +97,8 @@ export function ConversationJournalEntryFromJSONTyped(json: any, ignoreDiscrimin
         'text': json['text'],
         'at': json['at'] == null ? undefined : json['at'],
         'id': json['id'] == null ? undefined : json['id'],
+        'memoryOf': json['memory_of'] == null ? undefined : json['memory_of'],
+        'complete': json['complete'] == null ? undefined : json['complete'],
     };
 }
 
@@ -104,6 +118,8 @@ export function ConversationJournalEntryToJSONTyped(value?: ConversationJournalE
         'text': value['text'],
         'at': value['at'],
         'id': value['id'],
+        'memory_of': value['memoryOf'],
+        'complete': value['complete'],
     };
 }
 

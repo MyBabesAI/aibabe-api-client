@@ -46,6 +46,18 @@ export interface ConversationJournalEntry {
      * @memberof ConversationJournalEntry
      */
     id?: string | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof ConversationJournalEntry
+     */
+    memoryOf?: Array<string>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ConversationJournalEntry
+     */
+    complete?: boolean;
 }
 /**
  * Check if a given object implements the ConversationJournalEntry interface.

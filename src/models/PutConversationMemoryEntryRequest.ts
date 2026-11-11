@@ -25,6 +25,12 @@ export interface PutConversationMemoryEntryRequest {
      * @memberof PutConversationMemoryEntryRequest
      */
     text: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof PutConversationMemoryEntryRequest
+     */
+    chatbotId?: string | null;
 }
 
 /**
@@ -46,6 +52,7 @@ export function PutConversationMemoryEntryRequestFromJSONTyped(json: any, ignore
     return {
         
         'text': json['text'],
+        'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
     };
 }
 
@@ -61,6 +68,7 @@ export function PutConversationMemoryEntryRequestToJSONTyped(value?: PutConversa
     return {
         
         'text': value['text'],
+        'chatbot_id': value['chatbotId'],
     };
 }
 

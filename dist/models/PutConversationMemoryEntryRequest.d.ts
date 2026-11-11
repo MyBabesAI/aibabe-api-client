@@ -21,6 +21,12 @@ export interface PutConversationMemoryEntryRequest {
      * @memberof PutConversationMemoryEntryRequest
      */
     text: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PutConversationMemoryEntryRequest
+     */
+    chatbotId?: string | null;
 }
 /**
  * Check if a given object implements the PutConversationMemoryEntryRequest interface.

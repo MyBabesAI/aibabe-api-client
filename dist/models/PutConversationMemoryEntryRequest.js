@@ -35,6 +35,7 @@ function PutConversationMemoryEntryRequestFromJSONTyped(json, ignoreDiscriminato
     }
     return {
         'text': json['text'],
+        'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
     };
 }
 function PutConversationMemoryEntryRequestToJSON(json) {
@@ -46,6 +47,7 @@ function PutConversationMemoryEntryRequestToJSONTyped(value, ignoreDiscriminator
     }
     return {
         'text': value['text'],
+        'chatbot_id': value['chatbotId'],
     };
 }
 //# sourceMappingURL=PutConversationMemoryEntryRequest.js.map

@@ -94,6 +94,7 @@ export interface DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRe
 export interface DeleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRequest {
     conversationId: string;
     entryId: string;
+    chatbotId?: string | null;
 }
 export interface DeleteMessageChatMessageMessageIdDeleteRequest {
     messageId: string;
@@ -177,12 +178,12 @@ export interface UpdateMessageChatMessageMessageIdPatchRequest {
  */
 export declare class ChatApi extends runtime.BaseAPI {
     /**
-     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
+     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. With `chatbot_id` only that character remembers it (404 `chatbot_not_found` when she is not in the chat). Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
      * Add Memory Entry
      */
     addMemoryEntryChatConversationConversationIdMemoryPostRaw(requestParameters: AddMemoryEntryChatConversationConversationIdMemoryPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationJournalResponse>>;
     /**
-     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
+     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. With `chatbot_id` only that character remembers it (404 `chatbot_not_found` when she is not in the chat). Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
      * Add Memory Entry
      */
     addMemoryEntryChatConversationConversationIdMemoryPost(requestParameters: AddMemoryEntryChatConversationConversationIdMemoryPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationJournalResponse>;
@@ -353,12 +354,12 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete(requestParameters: DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
-     * Premium: removes one Memory entry; the characters no longer know it from the next reply on.
+     * Premium: removes one Memory entry; the characters no longer know it from the next reply on. With `chatbot_id` only that character forgets it.
      * Delete Memory Entry
      */
     deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRaw(requestParameters: DeleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationJournalResponse>>;
     /**
-     * Premium: removes one Memory entry; the characters no longer know it from the next reply on.
+     * Premium: removes one Memory entry; the characters no longer know it from the next reply on. With `chatbot_id` only that character forgets it.
      * Delete Memory Entry
      */
     deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDelete(requestParameters: DeleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationJournalResponse>;
@@ -535,12 +536,12 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     updateImageModerationPromptChatImageModerationPromptPatch(requestParameters: UpdateImageModerationPromptChatImageModerationPromptPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
-     * Premium: rewrites one Memory entry (`id` of a history entry of the journal) in place. 404 `memory_entry_not_found` when the judge folded or rewrote it meanwhile: reload the journal.
+     * Premium: rewrites one Memory entry (`id` of a history entry of the journal). Without `chatbot_id` the entry itself, in place; with it only that character\'s Memory: an entry others remember too stays as it was for them and she gets the new text as a version of her own. 404 `memory_entry_not_found` when the judge summarised or rewrote it meanwhile, or the character does not remember it: reload the journal.
      * Update Memory Entry
      */
     updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRaw(requestParameters: UpdateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationJournalResponse>>;
     /**
-     * Premium: rewrites one Memory entry (`id` of a history entry of the journal) in place. 404 `memory_entry_not_found` when the judge folded or rewrote it meanwhile: reload the journal.
+     * Premium: rewrites one Memory entry (`id` of a history entry of the journal). Without `chatbot_id` the entry itself, in place; with it only that character\'s Memory: an entry others remember too stays as it was for them and she gets the new text as a version of her own. 404 `memory_entry_not_found` when the judge summarised or rewrote it meanwhile, or the character does not remember it: reload the journal.
      * Update Memory Entry
      */
     updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatch(requestParameters: UpdateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationJournalResponse>;

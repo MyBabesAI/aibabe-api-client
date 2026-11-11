@@ -54,7 +54,7 @@ const index_1 = require("../models/index");
  */
 class ChatApi extends runtime.BaseAPI {
     /**
-     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
+     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. With `chatbot_id` only that character remembers it (404 `chatbot_not_found` when she is not in the chat). Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
      * Add Memory Entry
      */
     async addMemoryEntryChatConversationConversationIdMemoryPostRaw(requestParameters, initOverrides) {
@@ -77,7 +77,7 @@ class ChatApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationJournalResponseFromJSON)(jsonValue));
     }
     /**
-     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
+     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. With `chatbot_id` only that character remembers it (404 `chatbot_not_found` when she is not in the chat). Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
      * Add Memory Entry
      */
     async addMemoryEntryChatConversationConversationIdMemoryPost(requestParameters, initOverrides) {
@@ -630,7 +630,7 @@ class ChatApi extends runtime.BaseAPI {
         await this.deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRaw(requestParameters, initOverrides);
     }
     /**
-     * Premium: removes one Memory entry; the characters no longer know it from the next reply on.
+     * Premium: removes one Memory entry; the characters no longer know it from the next reply on. With `chatbot_id` only that character forgets it.
      * Delete Memory Entry
      */
     async deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRaw(requestParameters, initOverrides) {
@@ -641,6 +641,9 @@ class ChatApi extends runtime.BaseAPI {
             throw new runtime.RequiredError('entryId', 'Required parameter "entryId" was null or undefined when calling deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDelete().');
         }
         const queryParameters = {};
+        if (requestParameters['chatbotId'] != null) {
+            queryParameters['chatbot_id'] = requestParameters['chatbotId'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/chat/conversation/{conversation_id}/memory/entries/{entry_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"entry_id"}}`, encodeURIComponent(String(requestParameters['entryId']))),
@@ -651,7 +654,7 @@ class ChatApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationJournalResponseFromJSON)(jsonValue));
     }
     /**
-     * Premium: removes one Memory entry; the characters no longer know it from the next reply on.
+     * Premium: removes one Memory entry; the characters no longer know it from the next reply on. With `chatbot_id` only that character forgets it.
      * Delete Memory Entry
      */
     async deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDelete(requestParameters, initOverrides) {
@@ -1226,7 +1229,7 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Premium: rewrites one Memory entry (`id` of a history entry of the journal) in place. 404 `memory_entry_not_found` when the judge folded or rewrote it meanwhile: reload the journal.
+     * Premium: rewrites one Memory entry (`id` of a history entry of the journal). Without `chatbot_id` the entry itself, in place; with it only that character\'s Memory: an entry others remember too stays as it was for them and she gets the new text as a version of her own. 404 `memory_entry_not_found` when the judge summarised or rewrote it meanwhile, or the character does not remember it: reload the journal.
      * Update Memory Entry
      */
     async updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRaw(requestParameters, initOverrides) {
@@ -1252,7 +1255,7 @@ class ChatApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationJournalResponseFromJSON)(jsonValue));
     }
     /**
-     * Premium: rewrites one Memory entry (`id` of a history entry of the journal) in place. 404 `memory_entry_not_found` when the judge folded or rewrote it meanwhile: reload the journal.
+     * Premium: rewrites one Memory entry (`id` of a history entry of the journal). Without `chatbot_id` the entry itself, in place; with it only that character\'s Memory: an entry others remember too stays as it was for them and she gets the new text as a version of her own. 404 `memory_entry_not_found` when the judge summarised or rewrote it meanwhile, or the character does not remember it: reload the journal.
      * Update Memory Entry
      */
     async updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatch(requestParameters, initOverrides) {
