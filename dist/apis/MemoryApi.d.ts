@@ -10,23 +10,8 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { DeleteBulkMemoryRequest, GetMemoryResponse, MemoryUpdateReponse } from '../models/index';
-export interface BulkDeleteMemoriesMemoryconversationConversationIdBulkDeleteRequest {
-    conversationId: string;
-    deleteBulkMemoryRequest: DeleteBulkMemoryRequest;
-}
-export interface DeleteMemoryMemoryConversationConversationIdMemoryMemoryIdDeleteRequest {
-    conversationId: string;
-    memoryId: string;
-}
+import type { GetMemoryResponse } from '../models/index';
 export interface GetMemoriesMemoryConversationIdGetRequest {
-    conversationId: string;
-}
-export interface PinMessageMemoryConversationConversationIdMemoryMessageIdPinPostRequest {
-    conversationId: string;
-    messageId: string;
-}
-export interface ResetMemoryMemoryConversationConversationIdResetPostRequest {
     conversationId: string;
 }
 export interface UpdateAboutUserMemoryConversationIdAboutUserPatchRequest {
@@ -38,22 +23,6 @@ export interface UpdateAboutUserMemoryConversationIdAboutUserPatchRequest {
  */
 export declare class MemoryApi extends runtime.BaseAPI {
     /**
-     * Bulk Delete Memories
-     */
-    bulkDeleteMemoriesMemoryconversationConversationIdBulkDeleteRaw(requestParameters: BulkDeleteMemoriesMemoryconversationConversationIdBulkDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemoryUpdateReponse>>;
-    /**
-     * Bulk Delete Memories
-     */
-    bulkDeleteMemoriesMemoryconversationConversationIdBulkDelete(requestParameters: BulkDeleteMemoriesMemoryconversationConversationIdBulkDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemoryUpdateReponse>;
-    /**
-     * Delete Memory
-     */
-    deleteMemoryMemoryConversationConversationIdMemoryMemoryIdDeleteRaw(requestParameters: DeleteMemoryMemoryConversationConversationIdMemoryMemoryIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemoryUpdateReponse>>;
-    /**
-     * Delete Memory
-     */
-    deleteMemoryMemoryConversationConversationIdMemoryMemoryIdDelete(requestParameters: DeleteMemoryMemoryConversationConversationIdMemoryMemoryIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemoryUpdateReponse>;
-    /**
      * Get Memories
      */
     getMemoriesMemoryConversationIdGetRaw(requestParameters: GetMemoriesMemoryConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetMemoryResponse>>;
@@ -61,22 +30,6 @@ export declare class MemoryApi extends runtime.BaseAPI {
      * Get Memories
      */
     getMemoriesMemoryConversationIdGet(requestParameters: GetMemoriesMemoryConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetMemoryResponse>;
-    /**
-     * Pin Message
-     */
-    pinMessageMemoryConversationConversationIdMemoryMessageIdPinPostRaw(requestParameters: PinMessageMemoryConversationConversationIdMemoryMessageIdPinPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemoryUpdateReponse>>;
-    /**
-     * Pin Message
-     */
-    pinMessageMemoryConversationConversationIdMemoryMessageIdPinPost(requestParameters: PinMessageMemoryConversationConversationIdMemoryMessageIdPinPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemoryUpdateReponse>;
-    /**
-     * Reset Memory
-     */
-    resetMemoryMemoryConversationConversationIdResetPostRaw(requestParameters: ResetMemoryMemoryConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
-    /**
-     * Reset Memory
-     */
-    resetMemoryMemoryConversationConversationIdResetPost(requestParameters: ResetMemoryMemoryConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Update About User
      */

@@ -49,12 +49,6 @@ export interface ConversationSettings {
     audioReferenceId?: string | null;
     /**
      *
-     * @type {boolean}
-     * @memberof ConversationSettings
-     */
-    memoryTurnedOn?: boolean | null;
-    /**
-     *
      * @type {string}
      * @memberof ConversationSettings
      */

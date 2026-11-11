@@ -15,42 +15,17 @@
 
 import * as runtime from '../runtime';
 import type {
-  DeleteBulkMemoryRequest,
   GetMemoryResponse,
   HTTPValidationError,
-  MemoryUpdateReponse,
 } from '../models/index';
 import {
-    DeleteBulkMemoryRequestFromJSON,
-    DeleteBulkMemoryRequestToJSON,
     GetMemoryResponseFromJSON,
     GetMemoryResponseToJSON,
     HTTPValidationErrorFromJSON,
     HTTPValidationErrorToJSON,
-    MemoryUpdateReponseFromJSON,
-    MemoryUpdateReponseToJSON,
 } from '../models/index';
 
-export interface BulkDeleteMemoriesMemoryconversationConversationIdBulkDeleteRequest {
-    conversationId: string;
-    deleteBulkMemoryRequest: DeleteBulkMemoryRequest;
-}
-
-export interface DeleteMemoryMemoryConversationConversationIdMemoryMemoryIdDeleteRequest {
-    conversationId: string;
-    memoryId: string;
-}
-
 export interface GetMemoriesMemoryConversationIdGetRequest {
-    conversationId: string;
-}
-
-export interface PinMessageMemoryConversationConversationIdMemoryMessageIdPinPostRequest {
-    conversationId: string;
-    messageId: string;
-}
-
-export interface ResetMemoryMemoryConversationConversationIdResetPostRequest {
     conversationId: string;
 }
 
@@ -63,89 +38,6 @@ export interface UpdateAboutUserMemoryConversationIdAboutUserPatchRequest {
  * 
  */
 export class MemoryApi extends runtime.BaseAPI {
-
-    /**
-     * Bulk Delete Memories
-     */
-    async bulkDeleteMemoriesMemoryconversationConversationIdBulkDeleteRaw(requestParameters: BulkDeleteMemoriesMemoryconversationConversationIdBulkDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemoryUpdateReponse>> {
-        if (requestParameters['conversationId'] == null) {
-            throw new runtime.RequiredError(
-                'conversationId',
-                'Required parameter "conversationId" was null or undefined when calling bulkDeleteMemoriesMemoryconversationConversationIdBulkDelete().'
-            );
-        }
-
-        if (requestParameters['deleteBulkMemoryRequest'] == null) {
-            throw new runtime.RequiredError(
-                'deleteBulkMemoryRequest',
-                'Required parameter "deleteBulkMemoryRequest" was null or undefined when calling bulkDeleteMemoriesMemoryconversationConversationIdBulkDelete().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/memoryconversation/{conversation_id}/bulk`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-            body: DeleteBulkMemoryRequestToJSON(requestParameters['deleteBulkMemoryRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => MemoryUpdateReponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Bulk Delete Memories
-     */
-    async bulkDeleteMemoriesMemoryconversationConversationIdBulkDelete(requestParameters: BulkDeleteMemoriesMemoryconversationConversationIdBulkDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemoryUpdateReponse> {
-        const response = await this.bulkDeleteMemoriesMemoryconversationConversationIdBulkDeleteRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Delete Memory
-     */
-    async deleteMemoryMemoryConversationConversationIdMemoryMemoryIdDeleteRaw(requestParameters: DeleteMemoryMemoryConversationConversationIdMemoryMemoryIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemoryUpdateReponse>> {
-        if (requestParameters['conversationId'] == null) {
-            throw new runtime.RequiredError(
-                'conversationId',
-                'Required parameter "conversationId" was null or undefined when calling deleteMemoryMemoryConversationConversationIdMemoryMemoryIdDelete().'
-            );
-        }
-
-        if (requestParameters['memoryId'] == null) {
-            throw new runtime.RequiredError(
-                'memoryId',
-                'Required parameter "memoryId" was null or undefined when calling deleteMemoryMemoryConversationConversationIdMemoryMemoryIdDelete().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/memory/conversation/{conversation_id}/memory/{memory_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"memory_id"}}`, encodeURIComponent(String(requestParameters['memoryId']))),
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => MemoryUpdateReponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Delete Memory
-     */
-    async deleteMemoryMemoryConversationConversationIdMemoryMemoryIdDelete(requestParameters: DeleteMemoryMemoryConversationConversationIdMemoryMemoryIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemoryUpdateReponse> {
-        const response = await this.deleteMemoryMemoryConversationConversationIdMemoryMemoryIdDeleteRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
 
     /**
      * Get Memories
@@ -177,83 +69,6 @@ export class MemoryApi extends runtime.BaseAPI {
      */
     async getMemoriesMemoryConversationIdGet(requestParameters: GetMemoriesMemoryConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetMemoryResponse> {
         const response = await this.getMemoriesMemoryConversationIdGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Pin Message
-     */
-    async pinMessageMemoryConversationConversationIdMemoryMessageIdPinPostRaw(requestParameters: PinMessageMemoryConversationConversationIdMemoryMessageIdPinPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<MemoryUpdateReponse>> {
-        if (requestParameters['conversationId'] == null) {
-            throw new runtime.RequiredError(
-                'conversationId',
-                'Required parameter "conversationId" was null or undefined when calling pinMessageMemoryConversationConversationIdMemoryMessageIdPinPost().'
-            );
-        }
-
-        if (requestParameters['messageId'] == null) {
-            throw new runtime.RequiredError(
-                'messageId',
-                'Required parameter "messageId" was null or undefined when calling pinMessageMemoryConversationConversationIdMemoryMessageIdPinPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/memory/conversation/{conversation_id}/memory/{message_id}/pin`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"message_id"}}`, encodeURIComponent(String(requestParameters['messageId']))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => MemoryUpdateReponseFromJSON(jsonValue));
-    }
-
-    /**
-     * Pin Message
-     */
-    async pinMessageMemoryConversationConversationIdMemoryMessageIdPinPost(requestParameters: PinMessageMemoryConversationConversationIdMemoryMessageIdPinPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MemoryUpdateReponse> {
-        const response = await this.pinMessageMemoryConversationConversationIdMemoryMessageIdPinPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Reset Memory
-     */
-    async resetMemoryMemoryConversationConversationIdResetPostRaw(requestParameters: ResetMemoryMemoryConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['conversationId'] == null) {
-            throw new runtime.RequiredError(
-                'conversationId',
-                'Required parameter "conversationId" was null or undefined when calling resetMemoryMemoryConversationConversationIdResetPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/memory/conversation/{conversation_id}/reset`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * Reset Memory
-     */
-    async resetMemoryMemoryConversationConversationIdResetPost(requestParameters: ResetMemoryMemoryConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
-        const response = await this.resetMemoryMemoryConversationConversationIdResetPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

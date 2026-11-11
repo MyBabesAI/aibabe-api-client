@@ -10,10 +10,14 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatConfigResponse, ChatReponse, ChatSceneDetails, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationJournalResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchConversationSceneRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationParticipantLeaveRequest, PostConversationParticipantLeaveResponse, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationPersonaRequest, PostConversationPersonaResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
+import type { ChatConfigResponse, ChatReponse, ChatSceneDetails, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationJournalResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchConversationSceneRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationMemoryResponse, PostConversationParticipantLeaveRequest, PostConversationParticipantLeaveResponse, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationPersonaRequest, PostConversationPersonaResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
 export interface AddParticipantChatConversationConversationIdParticipantsPostRequest {
     conversationId: string;
     postConversationParticipantRequest: PostConversationParticipantRequest;
+}
+export interface AddToMemoryChatConversationConversationIdMemoryMessageIdPostRequest {
+    conversationId: string;
+    messageId: string;
 }
 export interface AnonymousChatChatAnonymousChatbotIdPostRequest {
     chatbotId: string;
@@ -169,6 +173,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Add Participant
      */
     addParticipantChatConversationConversationIdParticipantsPost(requestParameters: AddParticipantChatConversationConversationIdParticipantsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationParticipantResponse>;
+    /**
+     * Add to Memory: the marked message (with the user\'s message it answers) goes to the journal judge, which writes what is worth remembering from it into the chat\'s Memory. Answers at once; the result arrives as `chat_journal_updated` with this request id and `memory_notes` (lines added, 0 = nothing new, -1 = failed).
+     * Add To Memory
+     */
+    addToMemoryChatConversationConversationIdMemoryMessageIdPostRaw(requestParameters: AddToMemoryChatConversationConversationIdMemoryMessageIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostConversationMemoryResponse>>;
+    /**
+     * Add to Memory: the marked message (with the user\'s message it answers) goes to the journal judge, which writes what is worth remembering from it into the chat\'s Memory. Answers at once; the result arrives as `chat_journal_updated` with this request id and `memory_notes` (lines added, 0 = nothing new, -1 = failed).
+     * Add To Memory
+     */
+    addToMemoryChatConversationConversationIdMemoryMessageIdPost(requestParameters: AddToMemoryChatConversationConversationIdMemoryMessageIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationMemoryResponse>;
     /**
      * Anonymous Chat
      */

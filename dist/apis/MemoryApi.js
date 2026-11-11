@@ -54,62 +54,6 @@ const index_1 = require("../models/index");
  */
 class MemoryApi extends runtime.BaseAPI {
     /**
-     * Bulk Delete Memories
-     */
-    async bulkDeleteMemoriesMemoryconversationConversationIdBulkDeleteRaw(requestParameters, initOverrides) {
-        if (requestParameters['conversationId'] == null) {
-            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling bulkDeleteMemoriesMemoryconversationConversationIdBulkDelete().');
-        }
-        if (requestParameters['deleteBulkMemoryRequest'] == null) {
-            throw new runtime.RequiredError('deleteBulkMemoryRequest', 'Required parameter "deleteBulkMemoryRequest" was null or undefined when calling bulkDeleteMemoriesMemoryconversationConversationIdBulkDelete().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        headerParameters['Content-Type'] = 'application/json';
-        const response = await this.request({
-            path: `/memoryconversation/{conversation_id}/bulk`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-            body: (0, index_1.DeleteBulkMemoryRequestToJSON)(requestParameters['deleteBulkMemoryRequest']),
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.MemoryUpdateReponseFromJSON)(jsonValue));
-    }
-    /**
-     * Bulk Delete Memories
-     */
-    async bulkDeleteMemoriesMemoryconversationConversationIdBulkDelete(requestParameters, initOverrides) {
-        const response = await this.bulkDeleteMemoriesMemoryconversationConversationIdBulkDeleteRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
-     * Delete Memory
-     */
-    async deleteMemoryMemoryConversationConversationIdMemoryMemoryIdDeleteRaw(requestParameters, initOverrides) {
-        if (requestParameters['conversationId'] == null) {
-            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling deleteMemoryMemoryConversationConversationIdMemoryMemoryIdDelete().');
-        }
-        if (requestParameters['memoryId'] == null) {
-            throw new runtime.RequiredError('memoryId', 'Required parameter "memoryId" was null or undefined when calling deleteMemoryMemoryConversationConversationIdMemoryMemoryIdDelete().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/memory/conversation/{conversation_id}/memory/{memory_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"memory_id"}}`, encodeURIComponent(String(requestParameters['memoryId']))),
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.MemoryUpdateReponseFromJSON)(jsonValue));
-    }
-    /**
-     * Delete Memory
-     */
-    async deleteMemoryMemoryConversationConversationIdMemoryMemoryIdDelete(requestParameters, initOverrides) {
-        const response = await this.deleteMemoryMemoryConversationConversationIdMemoryMemoryIdDeleteRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
      * Get Memories
      */
     async getMemoriesMemoryConversationIdGetRaw(requestParameters, initOverrides) {
@@ -131,62 +75,6 @@ class MemoryApi extends runtime.BaseAPI {
      */
     async getMemoriesMemoryConversationIdGet(requestParameters, initOverrides) {
         const response = await this.getMemoriesMemoryConversationIdGetRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
-     * Pin Message
-     */
-    async pinMessageMemoryConversationConversationIdMemoryMessageIdPinPostRaw(requestParameters, initOverrides) {
-        if (requestParameters['conversationId'] == null) {
-            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling pinMessageMemoryConversationConversationIdMemoryMessageIdPinPost().');
-        }
-        if (requestParameters['messageId'] == null) {
-            throw new runtime.RequiredError('messageId', 'Required parameter "messageId" was null or undefined when calling pinMessageMemoryConversationConversationIdMemoryMessageIdPinPost().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/memory/conversation/{conversation_id}/memory/{message_id}/pin`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"message_id"}}`, encodeURIComponent(String(requestParameters['messageId']))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.MemoryUpdateReponseFromJSON)(jsonValue));
-    }
-    /**
-     * Pin Message
-     */
-    async pinMessageMemoryConversationConversationIdMemoryMessageIdPinPost(requestParameters, initOverrides) {
-        const response = await this.pinMessageMemoryConversationConversationIdMemoryMessageIdPinPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
-     * Reset Memory
-     */
-    async resetMemoryMemoryConversationConversationIdResetPostRaw(requestParameters, initOverrides) {
-        if (requestParameters['conversationId'] == null) {
-            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling resetMemoryMemoryConversationConversationIdResetPost().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        const response = await this.request({
-            path: `/memory/conversation/{conversation_id}/reset`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse(response);
-        }
-        else {
-            return new runtime.TextApiResponse(response);
-        }
-    }
-    /**
-     * Reset Memory
-     */
-    async resetMemoryMemoryConversationConversationIdResetPost(requestParameters, initOverrides) {
-        const response = await this.resetMemoryMemoryConversationConversationIdResetPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

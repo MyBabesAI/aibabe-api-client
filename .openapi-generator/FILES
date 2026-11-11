@@ -170,7 +170,6 @@ src/models/CreatorGenerationCharge.ts
 src/models/CreatorGenerationQuotaStatus.ts
 src/models/CustomChatbotTheme.ts
 src/models/DateRangeFilter.ts
-src/models/DeleteBulkMemoryRequest.ts
 src/models/DeleteUserRequest.ts
 src/models/Detail.ts
 src/models/DetailedWallPost.ts
@@ -346,8 +345,6 @@ src/models/LoraName.ts
 src/models/MarketingCampaignName.ts
 src/models/MediaOrigin.ts
 src/models/MemoracekType.ts
-src/models/MemoryChat.ts
-src/models/MemoryUpdateReponse.ts
 src/models/MentionCandidate.ts
 src/models/MessageCheckResponse.ts
 src/models/MessageType.ts
@@ -415,6 +412,7 @@ src/models/PostChatSuggestionRequest.ts
 src/models/PostCheckoutResponse.ts
 src/models/PostCheckoutSessionRequest.ts
 src/models/PostClaimRequest.ts
+src/models/PostConversationMemoryResponse.ts
 src/models/PostConversationParticipantLeaveRequest.ts
 src/models/PostConversationParticipantLeaveResponse.ts
 src/models/PostConversationParticipantRequest.ts

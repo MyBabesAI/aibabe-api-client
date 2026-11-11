@@ -18,15 +18,10 @@ exports.GetMemoryResponseFromJSON = GetMemoryResponseFromJSON;
 exports.GetMemoryResponseFromJSONTyped = GetMemoryResponseFromJSONTyped;
 exports.GetMemoryResponseToJSON = GetMemoryResponseToJSON;
 exports.GetMemoryResponseToJSONTyped = GetMemoryResponseToJSONTyped;
-const MemoryChat_1 = require("./MemoryChat");
 /**
  * Check if a given object implements the GetMemoryResponse interface.
  */
 function instanceOfGetMemoryResponse(value) {
-    if (!('memories' in value) || value['memories'] === undefined)
-        return false;
-    if (!('savedCharCount' in value) || value['savedCharCount'] === undefined)
-        return false;
     if (!('savedAboutUserCharCount' in value) || value['savedAboutUserCharCount'] === undefined)
         return false;
     if (!('aboutUser' in value) || value['aboutUser'] === undefined)
@@ -41,8 +36,6 @@ function GetMemoryResponseFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'memories': (json['memories'].map(MemoryChat_1.MemoryChatFromJSON)),
-        'savedCharCount': json['saved_char_count'],
         'savedAboutUserCharCount': json['saved_about_user_char_count'],
         'aboutUser': json['about_user'],
     };
@@ -55,8 +48,6 @@ function GetMemoryResponseToJSONTyped(value, ignoreDiscriminator = false) {
         return value;
     }
     return {
-        'memories': (value['memories'].map(MemoryChat_1.MemoryChatToJSON)),
-        'saved_char_count': value['savedCharCount'],
         'saved_about_user_char_count': value['savedAboutUserCharCount'],
         'about_user': value['aboutUser'],
     };

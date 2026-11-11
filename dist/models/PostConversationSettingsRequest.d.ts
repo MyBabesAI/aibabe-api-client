@@ -49,12 +49,6 @@ export interface PostConversationSettingsRequest {
     audioReferenceId?: string | null;
     /**
      *
-     * @type {boolean}
-     * @memberof PostConversationSettingsRequest
-     */
-    memoryTurnedOn?: boolean | null;
-    /**
-     *
      * @type {string}
      * @memberof PostConversationSettingsRequest
      */

@@ -9,25 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { MemoryChat } from './MemoryChat';
 /**
  *
  * @export
  * @interface GetMemoryResponse
  */
 export interface GetMemoryResponse {
-    /**
-     *
-     * @type {Array<MemoryChat>}
-     * @memberof GetMemoryResponse
-     */
-    memories: Array<MemoryChat>;
-    /**
-     *
-     * @type {number}
-     * @memberof GetMemoryResponse
-     */
-    savedCharCount: number;
     /**
      *
      * @type {number}

@@ -85,6 +85,35 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Add to Memory: the marked message (with the user\'s message it answers) goes to the journal judge, which writes what is worth remembering from it into the chat\'s Memory. Answers at once; the result arrives as `chat_journal_updated` with this request id and `memory_notes` (lines added, 0 = nothing new, -1 = failed).
+     * Add To Memory
+     */
+    async addToMemoryChatConversationConversationIdMemoryMessageIdPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling addToMemoryChatConversationConversationIdMemoryMessageIdPost().');
+        }
+        if (requestParameters['messageId'] == null) {
+            throw new runtime.RequiredError('messageId', 'Required parameter "messageId" was null or undefined when calling addToMemoryChatConversationConversationIdMemoryMessageIdPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/memory/{message_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"message_id"}}`, encodeURIComponent(String(requestParameters['messageId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostConversationMemoryResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Add to Memory: the marked message (with the user\'s message it answers) goes to the journal judge, which writes what is worth remembering from it into the chat\'s Memory. Answers at once; the result arrives as `chat_journal_updated` with this request id and `memory_notes` (lines added, 0 = nothing new, -1 = failed).
+     * Add To Memory
+     */
+    async addToMemoryChatConversationConversationIdMemoryMessageIdPost(requestParameters, initOverrides) {
+        const response = await this.addToMemoryChatConversationConversationIdMemoryMessageIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Anonymous Chat
      */
     async anonymousChatChatAnonymousChatbotIdPostRaw(requestParameters, initOverrides) {

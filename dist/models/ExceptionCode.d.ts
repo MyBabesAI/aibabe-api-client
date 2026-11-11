@@ -79,14 +79,13 @@ export declare const ExceptionCode: {
     readonly ConversationHasBranches: "conversation_has_branches";
     readonly AssistantChatSessionNotFound: "assistant_chat_session_not_found";
     readonly MessageNotFound: "message_not_found";
-    readonly PinnedMemoryNotFound: "pinned_memory_not_found";
+    readonly MemoryMessageNotText: "memory_message_not_text";
     readonly AboutUserTooLong: "about_user_too_long";
     readonly AboutUserModerationException: "about_user_moderation_exception";
     readonly MessageModerationFlagged: "message_moderation_flagged";
     readonly ContentBlacklisted: "content_blacklisted";
     readonly ChatbotBlacklisted: "chatbot_blacklisted";
     readonly BlacklistModeUnsupported: "blacklist_mode_unsupported";
-    readonly PinnedMemoryCharLimitExceeded: "pinned_memory_char_limit_exceeded";
     readonly TokensInsufficient: "tokens_insufficient";
     readonly TokensInvalidAmount: "tokens_invalid_amount";
     readonly LimitsReached: "limits_reached";
