@@ -17,7 +17,6 @@ src/apis/GalleryApi.ts
 src/apis/HeartbeatApi.ts
 src/apis/ImageApi.ts
 src/apis/LeaderboardsApi.ts
-src/apis/MemoryApi.ts
 src/apis/NotificationApi.ts
 src/apis/PostApi.ts
 src/apis/PromotionApi.ts
@@ -289,7 +288,6 @@ src/models/GetLeaderboardRequest.ts
 src/models/GetLeaderboardResponse.ts
 src/models/GetLiveRoleplayHistoryResponse.ts
 src/models/GetLorasResponse.ts
-src/models/GetMemoryResponse.ts
 src/models/GetMentionsResponse.ts
 src/models/GetPersonalityChatbotResponse.ts
 src/models/GetPostsResponse.ts
@@ -488,6 +486,7 @@ src/models/PublicUserPreviewWithFollow.ts
 src/models/PutAdminSaleOfferRequest.ts
 src/models/PutAdminUserFeatureFlagsRequest.ts
 src/models/PutAppearanceRequest.ts
+src/models/PutConversationMemoryEntryRequest.ts
 src/models/PutFollowNotificationsRequest.ts
 src/models/PutPasswordRequest.ts
 src/models/PutPersonaRequest.ts

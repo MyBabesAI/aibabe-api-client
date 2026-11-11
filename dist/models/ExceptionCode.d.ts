@@ -80,8 +80,8 @@ export declare const ExceptionCode: {
     readonly AssistantChatSessionNotFound: "assistant_chat_session_not_found";
     readonly MessageNotFound: "message_not_found";
     readonly MemoryMessageNotText: "memory_message_not_text";
-    readonly AboutUserTooLong: "about_user_too_long";
-    readonly AboutUserModerationException: "about_user_moderation_exception";
+    readonly MemoryPremiumRequired: "memory_premium_required";
+    readonly MemoryEntryNotFound: "memory_entry_not_found";
     readonly MessageModerationFlagged: "message_moderation_flagged";
     readonly ContentBlacklisted: "content_blacklisted";
     readonly ChatbotBlacklisted: "chatbot_blacklisted";
@@ -205,6 +205,7 @@ export declare const ExceptionCode: {
     readonly VideoMentionKindUnsupported: "video_mention_kind_unsupported";
     readonly VideoMentionWithoutPicture: "video_mention_without_picture";
     readonly VideoPersonaRequired: "video_persona_required";
+    readonly VideoCharacterFamilyMismatch: "video_character_family_mismatch";
     readonly VideoPersonaNeedsPortrait: "video_persona_needs_portrait";
     readonly SelfPhotoUnreadable: "self_photo_unreadable";
     readonly ImagenModelSingleCharacter: "imagen_model_single_character";
@@ -365,6 +366,16 @@ export declare const ExceptionCode: {
     readonly ChatbotRequiresSentenceStyle: "chatbot_requires_sentence_style";
     readonly StyleMigrationInvalidTarget: "style_migration_invalid_target";
     readonly ConversationParticipantLimitReached: "conversation_participant_limit_reached";
+    readonly GroupChatRequiresPremium: "group_chat_requires_premium";
+    readonly GroupChatRequiresUltra: "group_chat_requires_ultra";
+    readonly ConversationLockedByPlan: "conversation_locked_by_plan";
+    readonly PersonaSwitchRequiresUltra: "persona_switch_requires_ultra";
+    readonly GroupChatMixedStyles: "group_chat_mixed_styles";
+    readonly PersonaStyleMismatch: "persona_style_mismatch";
+    readonly PersonaRequiresPremium: "persona_requires_premium";
+    readonly TrendCharactersRequirePremium: "trend_characters_require_premium";
+    readonly TrendCharactersRequireUltra: "trend_characters_require_ultra";
+    readonly TrendMixedStyles: "trend_mixed_styles";
     readonly ConversationParticipantExists: "conversation_participant_exists";
     readonly ConversationParticipantNotFound: "conversation_participant_not_found";
     readonly ConversationParticipantLastMember: "conversation_participant_last_member";

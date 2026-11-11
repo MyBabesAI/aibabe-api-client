@@ -51,6 +51,12 @@ export interface ConversationJournalEntry {
      * @memberof ConversationJournalEntry
      */
     at?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationJournalEntry
+     */
+    id?: string | null;
 }
 
 
@@ -78,6 +84,7 @@ export function ConversationJournalEntryFromJSONTyped(json: any, ignoreDiscrimin
         'subject': json['subject'] == null ? undefined : json['subject'],
         'text': json['text'],
         'at': json['at'] == null ? undefined : json['at'],
+        'id': json['id'] == null ? undefined : json['id'],
     };
 }
 
@@ -96,6 +103,7 @@ export function ConversationJournalEntryToJSONTyped(value?: ConversationJournalE
         'subject': value['subject'],
         'text': value['text'],
         'at': value['at'],
+        'id': value['id'],
     };
 }
 

@@ -14,7 +14,6 @@ export * from './GalleryApi';
 export * from './HeartbeatApi';
 export * from './ImageApi';
 export * from './LeaderboardsApi';
-export * from './MemoryApi';
 export * from './NotificationApi';
 export * from './PostApi';
 export * from './PromotionApi';

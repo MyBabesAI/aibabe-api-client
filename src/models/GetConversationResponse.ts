@@ -165,6 +165,12 @@ export interface GetConversationResponse {
      * @memberof GetConversationResponse
      */
     personaDeleted?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetConversationResponse
+     */
+    lockedByPlan?: boolean;
 }
 
 /**
@@ -206,6 +212,7 @@ export function GetConversationResponseFromJSONTyped(json: any, ignoreDiscrimina
         'forkPointAt': json['fork_point_at'] == null ? undefined : (new Date(json['fork_point_at'])),
         'personaEstablished': json['persona_established'] == null ? undefined : json['persona_established'],
         'personaDeleted': json['persona_deleted'] == null ? undefined : json['persona_deleted'],
+        'lockedByPlan': json['locked_by_plan'] == null ? undefined : json['locked_by_plan'],
     };
 }
 
@@ -236,6 +243,7 @@ export function GetConversationResponseToJSONTyped(value?: GetConversationRespon
         'fork_point_at': value['forkPointAt'] == null ? undefined : ((value['forkPointAt'] as any).toISOString()),
         'persona_established': value['personaEstablished'],
         'persona_deleted': value['personaDeleted'],
+        'locked_by_plan': value['lockedByPlan'],
     };
 }
 

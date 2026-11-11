@@ -26,6 +26,24 @@ export interface ChatCastConfig {
      * @type {number}
      * @memberof ChatCastConfig
      */
+    planMaxActiveParticipants: number;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ChatCastConfig
+     */
+    planPersonas: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ChatCastConfig
+     */
+    planPersonaSwitch: boolean;
+    /**
+     *
+     * @type {number}
+     * @memberof ChatCastConfig
+     */
     maxSpeakersPerTurn: number;
     /**
      *

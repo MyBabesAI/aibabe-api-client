@@ -10,7 +10,11 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatConfigResponse, ChatReponse, ChatSceneDetails, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationJournalResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchConversationSceneRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationMemoryResponse, PostConversationParticipantLeaveRequest, PostConversationParticipantLeaveResponse, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationPersonaRequest, PostConversationPersonaResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
+import type { ChatConfigResponse, ChatReponse, ChatSceneDetails, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationJournalResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchConversationSceneRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationMemoryResponse, PostConversationParticipantLeaveRequest, PostConversationParticipantLeaveResponse, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationPersonaRequest, PostConversationPersonaResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, PutConversationMemoryEntryRequest, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
+export interface AddMemoryEntryChatConversationConversationIdMemoryPostRequest {
+    conversationId: string;
+    putConversationMemoryEntryRequest: PutConversationMemoryEntryRequest;
+}
 export interface AddParticipantChatConversationConversationIdParticipantsPostRequest {
     conversationId: string;
     postConversationParticipantRequest: PostConversationParticipantRequest;
@@ -87,6 +91,10 @@ export interface DeleteConversationByIdChatConversationConversationIdDeleteReque
 export interface DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest {
     chatbotId: string;
 }
+export interface DeleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRequest {
+    conversationId: string;
+    entryId: string;
+}
 export interface DeleteMessageChatMessageMessageIdDeleteRequest {
     messageId: string;
     imageId?: string | null;
@@ -155,6 +163,11 @@ export interface UpdateConversationSettingsChatConversationConversationIdSetting
 export interface UpdateImageModerationPromptChatImageModerationPromptPatchRequest {
     patchImageModerationPromptRequest: PatchImageModerationPromptRequest;
 }
+export interface UpdateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRequest {
+    conversationId: string;
+    entryId: string;
+    putConversationMemoryEntryRequest: PutConversationMemoryEntryRequest;
+}
 export interface UpdateMessageChatMessageMessageIdPatchRequest {
     messageId: string;
     patchChatMessageRequest: PatchChatMessageRequest;
@@ -163,6 +176,16 @@ export interface UpdateMessageChatMessageMessageIdPatchRequest {
  *
  */
 export declare class ChatApi extends runtime.BaseAPI {
+    /**
+     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
+     * Add Memory Entry
+     */
+    addMemoryEntryChatConversationConversationIdMemoryPostRaw(requestParameters: AddMemoryEntryChatConversationConversationIdMemoryPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationJournalResponse>>;
+    /**
+     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
+     * Add Memory Entry
+     */
+    addMemoryEntryChatConversationConversationIdMemoryPost(requestParameters: AddMemoryEntryChatConversationConversationIdMemoryPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationJournalResponse>;
     /**
      * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction is stored as a narrator row of the chat (`event`), ahead of her first reply. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
      * Add Participant
@@ -329,6 +352,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Delete Live Roleplay Conversation
      */
     deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete(requestParameters: DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Premium: removes one Memory entry; the characters no longer know it from the next reply on.
+     * Delete Memory Entry
+     */
+    deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRaw(requestParameters: DeleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationJournalResponse>>;
+    /**
+     * Premium: removes one Memory entry; the characters no longer know it from the next reply on.
+     * Delete Memory Entry
+     */
+    deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDelete(requestParameters: DeleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationJournalResponse>;
     /**
      * Delete Message
      */
@@ -501,6 +534,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Update Image Moderation Prompt
      */
     updateImageModerationPromptChatImageModerationPromptPatch(requestParameters: UpdateImageModerationPromptChatImageModerationPromptPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Premium: rewrites one Memory entry (`id` of a history entry of the journal) in place. 404 `memory_entry_not_found` when the judge folded or rewrote it meanwhile: reload the journal.
+     * Update Memory Entry
+     */
+    updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRaw(requestParameters: UpdateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationJournalResponse>>;
+    /**
+     * Premium: rewrites one Memory entry (`id` of a history entry of the journal) in place. 404 `memory_entry_not_found` when the judge folded or rewrote it meanwhile: reload the journal.
+     * Update Memory Entry
+     */
+    updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatch(requestParameters: UpdateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationJournalResponse>;
     /**
      * Update Message
      */

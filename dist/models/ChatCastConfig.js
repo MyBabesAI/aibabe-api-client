@@ -24,6 +24,12 @@ exports.ChatCastConfigToJSONTyped = ChatCastConfigToJSONTyped;
 function instanceOfChatCastConfig(value) {
     if (!('maxActiveParticipants' in value) || value['maxActiveParticipants'] === undefined)
         return false;
+    if (!('planMaxActiveParticipants' in value) || value['planMaxActiveParticipants'] === undefined)
+        return false;
+    if (!('planPersonas' in value) || value['planPersonas'] === undefined)
+        return false;
+    if (!('planPersonaSwitch' in value) || value['planPersonaSwitch'] === undefined)
+        return false;
     if (!('maxSpeakersPerTurn' in value) || value['maxSpeakersPerTurn'] === undefined)
         return false;
     if (!('introductionMaxLength' in value) || value['introductionMaxLength'] === undefined)
@@ -41,6 +47,9 @@ function ChatCastConfigFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'maxActiveParticipants': json['max_active_participants'],
+        'planMaxActiveParticipants': json['plan_max_active_participants'],
+        'planPersonas': json['plan_personas'],
+        'planPersonaSwitch': json['plan_persona_switch'],
         'maxSpeakersPerTurn': json['max_speakers_per_turn'],
         'introductionMaxLength': json['introduction_max_length'],
         'scenarioMembersLocked': json['scenario_members_locked'],
@@ -55,6 +64,9 @@ function ChatCastConfigToJSONTyped(value, ignoreDiscriminator = false) {
     }
     return {
         'max_active_participants': value['maxActiveParticipants'],
+        'plan_max_active_participants': value['planMaxActiveParticipants'],
+        'plan_personas': value['planPersonas'],
+        'plan_persona_switch': value['planPersonaSwitch'],
         'max_speakers_per_turn': value['maxSpeakersPerTurn'],
         'introduction_max_length': value['introductionMaxLength'],
         'scenario_members_locked': value['scenarioMembersLocked'],

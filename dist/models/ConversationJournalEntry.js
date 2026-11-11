@@ -41,6 +41,7 @@ function ConversationJournalEntryFromJSONTyped(json, ignoreDiscriminator) {
         'subject': json['subject'] == null ? undefined : json['subject'],
         'text': json['text'],
         'at': json['at'] == null ? undefined : json['at'],
+        'id': json['id'] == null ? undefined : json['id'],
     };
 }
 function ConversationJournalEntryToJSON(json) {
@@ -55,6 +56,7 @@ function ConversationJournalEntryToJSONTyped(value, ignoreDiscriminator = false)
         'subject': value['subject'],
         'text': value['text'],
         'at': value['at'],
+        'id': value['id'],
     };
 }
 //# sourceMappingURL=ConversationJournalEntry.js.map

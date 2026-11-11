@@ -120,6 +120,12 @@ export interface GetAnonymousConversationResponse {
     personaDeleted?: boolean;
     /**
      *
+     * @type {boolean}
+     * @memberof GetAnonymousConversationResponse
+     */
+    lockedByPlan?: boolean;
+    /**
+     *
      * @type {string}
      * @memberof GetAnonymousConversationResponse
      */

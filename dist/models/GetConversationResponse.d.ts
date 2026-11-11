@@ -118,6 +118,12 @@ export interface GetConversationResponse {
      * @memberof GetConversationResponse
      */
     personaDeleted?: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GetConversationResponse
+     */
+    lockedByPlan?: boolean;
 }
 /**
  * Check if a given object implements the GetConversationResponse interface.

@@ -54,6 +54,37 @@ const index_1 = require("../models/index");
  */
 class ChatApi extends runtime.BaseAPI {
     /**
+     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
+     * Add Memory Entry
+     */
+    async addMemoryEntryChatConversationConversationIdMemoryPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling addMemoryEntryChatConversationConversationIdMemoryPost().');
+        }
+        if (requestParameters['putConversationMemoryEntryRequest'] == null) {
+            throw new runtime.RequiredError('putConversationMemoryEntryRequest', 'Required parameter "putConversationMemoryEntryRequest" was null or undefined when calling addMemoryEntryChatConversationConversationIdMemoryPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/memory`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PutConversationMemoryEntryRequestToJSON)(requestParameters['putConversationMemoryEntryRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationJournalResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
+     * Add Memory Entry
+     */
+    async addMemoryEntryChatConversationConversationIdMemoryPost(requestParameters, initOverrides) {
+        const response = await this.addMemoryEntryChatConversationConversationIdMemoryPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction is stored as a narrator row of the chat (`event`), ahead of her first reply. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
      * Add Participant
      */
@@ -597,6 +628,35 @@ class ChatApi extends runtime.BaseAPI {
      */
     async deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete(requestParameters, initOverrides) {
         await this.deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRaw(requestParameters, initOverrides);
+    }
+    /**
+     * Premium: removes one Memory entry; the characters no longer know it from the next reply on.
+     * Delete Memory Entry
+     */
+    async deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDelete().');
+        }
+        if (requestParameters['entryId'] == null) {
+            throw new runtime.RequiredError('entryId', 'Required parameter "entryId" was null or undefined when calling deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/memory/entries/{entry_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"entry_id"}}`, encodeURIComponent(String(requestParameters['entryId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationJournalResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Premium: removes one Memory entry; the characters no longer know it from the next reply on.
+     * Delete Memory Entry
+     */
+    async deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDelete(requestParameters, initOverrides) {
+        const response = await this.deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
     }
     /**
      * Delete Message
@@ -1163,6 +1223,40 @@ class ChatApi extends runtime.BaseAPI {
      */
     async updateImageModerationPromptChatImageModerationPromptPatch(requestParameters, initOverrides) {
         const response = await this.updateImageModerationPromptChatImageModerationPromptPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Premium: rewrites one Memory entry (`id` of a history entry of the journal) in place. 404 `memory_entry_not_found` when the judge folded or rewrote it meanwhile: reload the journal.
+     * Update Memory Entry
+     */
+    async updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatch().');
+        }
+        if (requestParameters['entryId'] == null) {
+            throw new runtime.RequiredError('entryId', 'Required parameter "entryId" was null or undefined when calling updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatch().');
+        }
+        if (requestParameters['putConversationMemoryEntryRequest'] == null) {
+            throw new runtime.RequiredError('putConversationMemoryEntryRequest', 'Required parameter "putConversationMemoryEntryRequest" was null or undefined when calling updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatch().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/memory/entries/{entry_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"entry_id"}}`, encodeURIComponent(String(requestParameters['entryId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PutConversationMemoryEntryRequestToJSON)(requestParameters['putConversationMemoryEntryRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationJournalResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Premium: rewrites one Memory entry (`id` of a history entry of the journal) in place. 404 `memory_entry_not_found` when the judge folded or rewrote it meanwhile: reload the journal.
+     * Update Memory Entry
+     */
+    async updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatch(requestParameters, initOverrides) {
+        const response = await this.updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

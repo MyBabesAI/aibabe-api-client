@@ -40,6 +40,12 @@ export interface ConversationJournalEntry {
      * @memberof ConversationJournalEntry
      */
     at?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationJournalEntry
+     */
+    id?: string | null;
 }
 /**
  * Check if a given object implements the ConversationJournalEntry interface.
