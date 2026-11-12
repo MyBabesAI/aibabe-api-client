@@ -47,6 +47,12 @@ export interface PostConversationParticipantLeaveResponse {
      * @memberof PostConversationParticipantLeaveResponse
      */
     remainingFreeMessages?: number | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PostConversationParticipantLeaveResponse
+     */
+    name?: string | null;
 }
 /**
  * Check if a given object implements the PostConversationParticipantLeaveResponse interface.

@@ -44,6 +44,12 @@ export interface ConversationListItem {
      * @type {string}
      * @memberof ConversationListItem
      */
+    hostChatbotId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationListItem
+     */
     latestBranchId?: string | null;
     /**
      * 
@@ -148,6 +154,7 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
         
         'chatbotId': json['chatbot_id'],
         'conversationId': json['conversation_id'] == null ? undefined : json['conversation_id'],
+        'hostChatbotId': json['host_chatbot_id'] == null ? undefined : json['host_chatbot_id'],
         'latestBranchId': json['latest_branch_id'] == null ? undefined : json['latest_branch_id'],
         'branchCount': json['branch_count'] == null ? undefined : json['branch_count'],
         'title': json['title'] == null ? undefined : json['title'],
@@ -176,6 +183,7 @@ export function ConversationListItemToJSONTyped(value?: ConversationListItem | n
         
         'chatbot_id': value['chatbotId'],
         'conversation_id': value['conversationId'],
+        'host_chatbot_id': value['hostChatbotId'],
         'latest_branch_id': value['latestBranchId'],
         'branch_count': value['branchCount'],
         'title': value['title'],

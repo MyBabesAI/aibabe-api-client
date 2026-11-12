@@ -27,6 +27,12 @@ export interface PostConversationParticipantLeaveRequest {
      * @memberof PostConversationParticipantLeaveRequest
      */
     requestId?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof PostConversationParticipantLeaveRequest
+     */
+    name?: string | null;
 }
 /**
  * Check if a given object implements the PostConversationParticipantLeaveRequest interface.

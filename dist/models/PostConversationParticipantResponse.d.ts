@@ -47,6 +47,12 @@ export interface PostConversationParticipantResponse {
      * @memberof PostConversationParticipantResponse
      */
     event: ChatMessageDetail;
+    /**
+     *
+     * @type {string}
+     * @memberof PostConversationParticipantResponse
+     */
+    name?: string | null;
 }
 /**
  * Check if a given object implements the PostConversationParticipantResponse interface.

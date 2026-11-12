@@ -64,6 +64,12 @@ export interface PostConversationParticipantResponse {
      * @memberof PostConversationParticipantResponse
      */
     event: ChatMessageDetail;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostConversationParticipantResponse
+     */
+    name?: string | null;
 }
 
 /**
@@ -92,6 +98,7 @@ export function PostConversationParticipantResponseFromJSONTyped(json: any, igno
         'assistantMessageId': json['assistant_message_id'],
         'remainingFreeMessages': json['remaining_free_messages'] == null ? undefined : json['remaining_free_messages'],
         'event': ChatMessageDetailFromJSON(json['event']),
+        'name': json['name'] == null ? undefined : json['name'],
     };
 }
 
@@ -111,6 +118,7 @@ export function PostConversationParticipantResponseToJSONTyped(value?: PostConve
         'assistant_message_id': value['assistantMessageId'],
         'remaining_free_messages': value['remainingFreeMessages'],
         'event': ChatMessageDetailToJSON(value['event']),
+        'name': value['name'],
     };
 }
 

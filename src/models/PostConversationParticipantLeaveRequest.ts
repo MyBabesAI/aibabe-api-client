@@ -31,6 +31,12 @@ export interface PostConversationParticipantLeaveRequest {
      * @memberof PostConversationParticipantLeaveRequest
      */
     requestId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostConversationParticipantLeaveRequest
+     */
+    name?: string | null;
 }
 
 /**
@@ -52,6 +58,7 @@ export function PostConversationParticipantLeaveRequestFromJSONTyped(json: any, 
         
         'farewell': json['farewell'] == null ? undefined : json['farewell'],
         'requestId': json['request_id'] == null ? undefined : json['request_id'],
+        'name': json['name'] == null ? undefined : json['name'],
     };
 }
 
@@ -68,6 +75,7 @@ export function PostConversationParticipantLeaveRequestToJSONTyped(value?: PostC
         
         'farewell': value['farewell'],
         'request_id': value['requestId'],
+        'name': value['name'],
     };
 }
 

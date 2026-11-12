@@ -140,6 +140,12 @@ export interface GetAnonymousConversationResponse {
      * @type {string}
      * @memberof GetAnonymousConversationResponse
      */
+    name?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetAnonymousConversationResponse
+     */
     parentConversationId?: string | null;
     /**
      * 
@@ -214,6 +220,7 @@ export function GetAnonymousConversationResponseFromJSONTyped(json: any, ignoreD
         'participants': json['participants'] == null ? undefined : ((json['participants'] as Array<any>).map(ConversationParticipantFromJSON)),
         'scenario': json['scenario'] == null ? undefined : ScenarioChatInfoFromJSON(json['scenario']),
         'title': json['title'] == null ? undefined : json['title'],
+        'name': json['name'] == null ? undefined : json['name'],
         'parentConversationId': json['parent_conversation_id'] == null ? undefined : json['parent_conversation_id'],
         'rootConversationId': json['root_conversation_id'] == null ? undefined : json['root_conversation_id'],
         'forkPointAt': json['fork_point_at'] == null ? undefined : (new Date(json['fork_point_at'])),
@@ -246,6 +253,7 @@ export function GetAnonymousConversationResponseToJSONTyped(value?: GetAnonymous
         'participants': value['participants'] == null ? undefined : ((value['participants'] as Array<any>).map(ConversationParticipantToJSON)),
         'scenario': ScenarioChatInfoToJSON(value['scenario']),
         'title': value['title'],
+        'name': value['name'],
         'parent_conversation_id': value['parentConversationId'],
         'root_conversation_id': value['rootConversationId'],
         'fork_point_at': value['forkPointAt'] == null ? undefined : ((value['forkPointAt'] as any).toISOString()),

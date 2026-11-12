@@ -53,6 +53,7 @@ function ConversationListItemFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'chatbotId': json['chatbot_id'],
         'conversationId': json['conversation_id'] == null ? undefined : json['conversation_id'],
+        'hostChatbotId': json['host_chatbot_id'] == null ? undefined : json['host_chatbot_id'],
         'latestBranchId': json['latest_branch_id'] == null ? undefined : json['latest_branch_id'],
         'branchCount': json['branch_count'] == null ? undefined : json['branch_count'],
         'title': json['title'] == null ? undefined : json['title'],
@@ -77,6 +78,7 @@ function ConversationListItemToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'chatbot_id': value['chatbotId'],
         'conversation_id': value['conversationId'],
+        'host_chatbot_id': value['hostChatbotId'],
         'latest_branch_id': value['latestBranchId'],
         'branch_count': value['branchCount'],
         'title': value['title'],
