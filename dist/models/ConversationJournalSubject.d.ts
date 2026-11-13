@@ -10,7 +10,8 @@
  * Do not edit the class manually.
  */
 /**
- * A person the journal tracks, for display: a character's chatbot id or "user", and the name the lines use.
+ * A person the journal tracks, for display: a character's chatbot id or "user", and the name the chat uses. The texts
+ * name people with mention tokens, `@{character:<chatbot id>|Name}` and `@{user_avatar:<id>|Name}` (the member).
  * @export
  * @interface ConversationJournalSubject
  */

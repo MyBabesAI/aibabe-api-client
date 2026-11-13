@@ -53,6 +53,12 @@ export interface ConversationSettings {
      * @memberof ConversationSettings
      */
     userPersonaId?: string | null;
+    /**
+     *
+     * @type {number}
+     * @memberof ConversationSettings
+     */
+    maxSpeakersPerTurn?: number | null;
 }
 /**
  * Check if a given object implements the ConversationSettings interface.

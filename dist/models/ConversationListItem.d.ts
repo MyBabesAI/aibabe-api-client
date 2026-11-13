@@ -33,6 +33,12 @@ export interface ConversationListItem {
      * @type {string}
      * @memberof ConversationListItem
      */
+    hostChatbotId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationListItem
+     */
     latestBranchId?: string | null;
     /**
      *

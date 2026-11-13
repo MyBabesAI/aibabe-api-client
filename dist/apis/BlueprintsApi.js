@@ -340,7 +340,7 @@ class BlueprintsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as the persona of her style family (409 persona_style_taken when the member has one); replace=true takes that persona\'s place instead.
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as the persona of her style family (409 persona_style_taken when the member has one); replace=true makes that persona her instead: it keeps its id, so the chats played as it go on.
      * Persona From Character
      */
     async personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters, initOverrides) {
@@ -361,7 +361,7 @@ class BlueprintsApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PersonaFromJSON)(jsonValue));
     }
     /**
-     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as the persona of her style family (409 persona_style_taken when the member has one); replace=true takes that persona\'s place instead.
+     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as the persona of her style family (409 persona_style_taken when the member has one); replace=true makes that persona her instead: it keeps its id, so the chats played as it go on.
      * Persona From Character
      */
     async personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters, initOverrides) {

@@ -93,6 +93,12 @@ export interface GetAnonymousConversationResponse {
      * @type {string}
      * @memberof GetAnonymousConversationResponse
      */
+    name?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GetAnonymousConversationResponse
+     */
     parentConversationId?: string | null;
     /**
      *

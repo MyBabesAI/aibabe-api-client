@@ -41,6 +41,9 @@ export interface AnonymousMessageChatAnonymousChatbotIdMessageIdGetRequest {
     chatbotId: string;
     messageId: string;
 }
+export interface CharacterConversationsChatCharacterChatbotIdConversationsGetRequest {
+    chatbotId: string;
+}
 export interface ChatChatChatbotIdPostRequest {
     chatbotId: string;
     postChatRequest: PostChatRequest;
@@ -68,6 +71,11 @@ export interface ConversationJournalChatConversationConversationIdJournalGetRequ
 export interface ConversationMessagesChatChatbotIdMessagesConversationIdGetRequest {
     conversationId: string;
     chatbotId: string;
+    paginationToken?: string | null;
+    limit?: number;
+}
+export interface ConversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRequest {
+    conversationId: string;
     paginationToken?: string | null;
     limit?: number;
 }
@@ -140,6 +148,7 @@ export interface RestartScenarioChatConversationConversationIdScenarioRestartPos
 export interface RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest {
     conversationId: string;
     messageId: string;
+    name?: string | null;
 }
 export interface SeedConversationChatChatbotIdSeedPutRequest {
     chatbotId: string;
@@ -240,6 +249,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     anonymousMessageChatAnonymousChatbotIdMessageIdGet(requestParameters: AnonymousMessageChatAnonymousChatbotIdMessageIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<MessageCheckResponse>;
     /**
+     * The caller\'s named chats the character is in (a cast, a scenario, a chat they named), by name. Her solo chat is not among them: it has no name and is what GET /chat/{chatbot_id} opens.
+     * Character Conversations
+     */
+    characterConversationsChatCharacterChatbotIdConversationsGetRaw(requestParameters: CharacterConversationsChatCharacterChatbotIdConversationsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListConversationsResponse>>;
+    /**
+     * The caller\'s named chats the character is in (a cast, a scenario, a chat they named), by name. Her solo chat is not among them: it has no name and is what GET /chat/{chatbot_id} opens.
+     * Character Conversations
+     */
+    characterConversationsChatCharacterChatbotIdConversationsGet(requestParameters: CharacterConversationsChatCharacterChatbotIdConversationsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListConversationsResponse>;
+    /**
      * Chat
      */
     chatChatChatbotIdPostRaw(requestParameters: ChatChatChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatReponse>>;
@@ -264,12 +283,12 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     conversationBranchesChatConversationConversationIdBranchesGet(requestParameters: ConversationBranchesChatConversationConversationIdBranchesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationBranchesResponse>;
     /**
-     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the solo chat with the character.
      * Conversation By Id
      */
     conversationByIdChatConversationConversationIdGetRaw(requestParameters: ConversationByIdChatConversationConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationResponse>>;
     /**
-     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the solo chat with the character.
      * Conversation By Id
      */
     conversationByIdChatConversationConversationIdGet(requestParameters: ConversationByIdChatConversationConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationResponse>;
@@ -299,6 +318,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Conversation Messages
      */
     conversationMessagesChatChatbotIdMessagesConversationIdGet(requestParameters: ConversationMessagesChatChatbotIdMessagesConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationMessagesResponse>;
+    /**
+     * The conversation\'s messages that have a voice message, paged like the history (oldest first inside a page, `pagination_token` reads the page before it); a branch lists its inherited ones too. For the chat sidebar\'s Audio tab, which otherwise only knows the voice messages of the history pages it has loaded.
+     * Conversation Voiced Messages
+     */
+    conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRaw(requestParameters: ConversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationMessagesResponse>>;
+    /**
+     * The conversation\'s messages that have a voice message, paged like the history (oldest first inside a page, `pagination_token` reads the page before it); a branch lists its inherited ones too. For the chat sidebar\'s Audio tab, which otherwise only knows the voice messages of the history pages it has loaded.
+     * Conversation Voiced Messages
+     */
+    conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGet(requestParameters: ConversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationMessagesResponse>;
     /**
      * Conversations
      */
@@ -450,12 +479,12 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     regenerateChatChatbotIdMessageMessageIdRegeneratePost(requestParameters: RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse>;
     /**
-     * Back to the greeting with the host alone (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
+     * Back to the greeting (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first), a cast the member put together 409 conversation_reset_group_forbidden (they return to a message instead).
      * Reset Conversation
      */
     resetConversationChatConversationConversationIdResetPostRaw(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
     /**
-     * Back to the greeting with the host alone (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
+     * Back to the greeting (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first), a cast the member put together 409 conversation_reset_group_forbidden (they return to a message instead).
      * Reset Conversation
      */
     resetConversationChatConversationConversationIdResetPost(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
@@ -470,12 +499,12 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     restartScenarioChatConversationConversationIdScenarioRestartPost(requestParameters: RestartScenarioChatConversationConversationIdScenarioRestartPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScenarioStartResponse>;
     /**
-     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history. A return that changes the cast (a join or a leaving after the message is undone) names the chat like any cast change: a name the member gave stays, a chat that reads as its cast follows it. `name` is asked for only when another chat of the member\'s carries the cast\'s name (409 conversation_name_taken) or the chat has branches (400 conversation_name_required); nothing is deleted then.
      * Rewind Conversation
      */
     rewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRaw(requestParameters: RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
     /**
-     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history. A return that changes the cast (a join or a leaving after the message is undone) names the chat like any cast change: a name the member gave stays, a chat that reads as its cast follows it. `name` is asked for only when another chat of the member\'s carries the cast\'s name (409 conversation_name_taken) or the chat has branches (400 conversation_name_required); nothing is deleted then.
      * Rewind Conversation
      */
     rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete(requestParameters: RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
@@ -500,12 +529,12 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     switchPersonaChatConversationConversationIdPersonaPost(requestParameters: SwitchPersonaChatConversationConversationIdPersonaPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationPersonaResponse>;
     /**
-     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Renames the conversation. A root\'s title is the chat\'s name: no other chat of the caller\'s may carry it (409 `conversation_name_taken`), naming a solo chat makes it a named chat, and a named chat cannot lose its name (400 `conversation_name_required`). A branch\'s title is its label in the branch switcher; an empty one clears it.
      * Update Conversation
      */
     updateConversationChatConversationConversationIdPatchRaw(requestParameters: UpdateConversationChatConversationConversationIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
     /**
-     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Renames the conversation. A root\'s title is the chat\'s name: no other chat of the caller\'s may carry it (409 `conversation_name_taken`), naming a solo chat makes it a named chat, and a named chat cannot lose its name (400 `conversation_name_required`). A branch\'s title is its label in the branch switcher; an empty one clears it.
      * Update Conversation
      */
     updateConversationChatConversationConversationIdPatch(requestParameters: UpdateConversationChatConversationConversationIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;

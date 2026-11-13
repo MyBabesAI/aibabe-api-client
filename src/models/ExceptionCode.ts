@@ -81,6 +81,7 @@ export const ExceptionCode = {
     ConversationMessageNotLast: 'conversation_message_not_last',
     ConversationMessageInherited: 'conversation_message_inherited',
     ConversationHasBranches: 'conversation_has_branches',
+    ConversationResetGroupForbidden: 'conversation_reset_group_forbidden',
     AssistantChatSessionNotFound: 'assistant_chat_session_not_found',
     MessageNotFound: 'message_not_found',
     MemoryMessageNotText: 'memory_message_not_text',
@@ -402,6 +403,8 @@ export const ExceptionCode = {
     ConversationPersonaSame: 'conversation_persona_same',
     ConversationPersonaDeleted: 'conversation_persona_deleted',
     ConversationPersonaQuietNotAllowed: 'conversation_persona_quiet_not_allowed',
+    ConversationNameTaken: 'conversation_name_taken',
+    ConversationNameRequired: 'conversation_name_required',
     BillingReconciliationInProgress: 'billing_reconciliation_in_progress'
 } as const;
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];

@@ -48,12 +48,6 @@ export interface ChatCastConfig {
      * @type {number}
      * @memberof ChatCastConfig
      */
-    maxSpeakersPerTurn: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ChatCastConfig
-     */
     introductionMaxLength: number;
     /**
      * 
@@ -71,7 +65,6 @@ export function instanceOfChatCastConfig(value: object): value is ChatCastConfig
     if (!('planMaxActiveParticipants' in value) || value['planMaxActiveParticipants'] === undefined) return false;
     if (!('planPersonas' in value) || value['planPersonas'] === undefined) return false;
     if (!('planPersonaSwitch' in value) || value['planPersonaSwitch'] === undefined) return false;
-    if (!('maxSpeakersPerTurn' in value) || value['maxSpeakersPerTurn'] === undefined) return false;
     if (!('introductionMaxLength' in value) || value['introductionMaxLength'] === undefined) return false;
     if (!('scenarioMembersLocked' in value) || value['scenarioMembersLocked'] === undefined) return false;
     return true;
@@ -91,7 +84,6 @@ export function ChatCastConfigFromJSONTyped(json: any, ignoreDiscriminator: bool
         'planMaxActiveParticipants': json['plan_max_active_participants'],
         'planPersonas': json['plan_personas'],
         'planPersonaSwitch': json['plan_persona_switch'],
-        'maxSpeakersPerTurn': json['max_speakers_per_turn'],
         'introductionMaxLength': json['introduction_max_length'],
         'scenarioMembersLocked': json['scenario_members_locked'],
     };
@@ -112,7 +104,6 @@ export function ChatCastConfigToJSONTyped(value?: ChatCastConfig | null, ignoreD
         'plan_max_active_participants': value['planMaxActiveParticipants'],
         'plan_personas': value['planPersonas'],
         'plan_persona_switch': value['planPersonaSwitch'],
-        'max_speakers_per_turn': value['maxSpeakersPerTurn'],
         'introduction_max_length': value['introductionMaxLength'],
         'scenario_members_locked': value['scenarioMembersLocked'],
     };

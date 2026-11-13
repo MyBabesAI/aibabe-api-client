@@ -47,6 +47,7 @@ function PostConversationParticipantResponseFromJSONTyped(json, ignoreDiscrimina
         'assistantMessageId': json['assistant_message_id'],
         'remainingFreeMessages': json['remaining_free_messages'] == null ? undefined : json['remaining_free_messages'],
         'event': (0, ChatMessageDetail_1.ChatMessageDetailFromJSON)(json['event']),
+        'name': json['name'] == null ? undefined : json['name'],
     };
 }
 function PostConversationParticipantResponseToJSON(json) {
@@ -62,6 +63,7 @@ function PostConversationParticipantResponseToJSONTyped(value, ignoreDiscriminat
         'assistant_message_id': value['assistantMessageId'],
         'remaining_free_messages': value['remainingFreeMessages'],
         'event': (0, ChatMessageDetail_1.ChatMessageDetailToJSON)(value['event']),
+        'name': value['name'],
     };
 }
 //# sourceMappingURL=PostConversationParticipantResponse.js.map

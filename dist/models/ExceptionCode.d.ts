@@ -77,6 +77,7 @@ export declare const ExceptionCode: {
     readonly ConversationMessageNotLast: "conversation_message_not_last";
     readonly ConversationMessageInherited: "conversation_message_inherited";
     readonly ConversationHasBranches: "conversation_has_branches";
+    readonly ConversationResetGroupForbidden: "conversation_reset_group_forbidden";
     readonly AssistantChatSessionNotFound: "assistant_chat_session_not_found";
     readonly MessageNotFound: "message_not_found";
     readonly MemoryMessageNotText: "memory_message_not_text";
@@ -398,6 +399,8 @@ export declare const ExceptionCode: {
     readonly ConversationPersonaSame: "conversation_persona_same";
     readonly ConversationPersonaDeleted: "conversation_persona_deleted";
     readonly ConversationPersonaQuietNotAllowed: "conversation_persona_quiet_not_allowed";
+    readonly ConversationNameTaken: "conversation_name_taken";
+    readonly ConversationNameRequired: "conversation_name_required";
     readonly BillingReconciliationInProgress: "billing_reconciliation_in_progress";
 };
 export type ExceptionCode = typeof ExceptionCode[keyof typeof ExceptionCode];

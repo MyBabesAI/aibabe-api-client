@@ -39,6 +39,12 @@ export interface PostConversationParticipantRequest {
      * @memberof PostConversationParticipantRequest
      */
     hostChatbotId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PostConversationParticipantRequest
+     */
+    name?: string | null;
 }
 /**
  * Check if a given object implements the PostConversationParticipantRequest interface.

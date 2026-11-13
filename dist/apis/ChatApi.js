@@ -261,6 +261,32 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * The caller\'s named chats the character is in (a cast, a scenario, a chat they named), by name. Her solo chat is not among them: it has no name and is what GET /chat/{chatbot_id} opens.
+     * Character Conversations
+     */
+    async characterConversationsChatCharacterChatbotIdConversationsGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling characterConversationsChatCharacterChatbotIdConversationsGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/character/{chatbot_id}/conversations`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ListConversationsResponseFromJSON)(jsonValue));
+    }
+    /**
+     * The caller\'s named chats the character is in (a cast, a scenario, a chat they named), by name. Her solo chat is not among them: it has no name and is what GET /chat/{chatbot_id} opens.
+     * Character Conversations
+     */
+    async characterConversationsChatCharacterChatbotIdConversationsGet(requestParameters, initOverrides) {
+        const response = await this.characterConversationsChatCharacterChatbotIdConversationsGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Chat
      */
     async chatChatChatbotIdPostRaw(requestParameters, initOverrides) {
@@ -343,7 +369,7 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the solo chat with the character.
      * Conversation By Id
      */
     async conversationByIdChatConversationConversationIdGetRaw(requestParameters, initOverrides) {
@@ -367,7 +393,7 @@ class ChatApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationResponseFromJSON)(jsonValue));
     }
     /**
-     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the solo chat with the character.
      * Conversation By Id
      */
     async conversationByIdChatConversationConversationIdGet(requestParameters, initOverrides) {
@@ -461,6 +487,38 @@ class ChatApi extends runtime.BaseAPI {
      */
     async conversationMessagesChatChatbotIdMessagesConversationIdGet(requestParameters, initOverrides) {
         const response = await this.conversationMessagesChatChatbotIdMessagesConversationIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * The conversation\'s messages that have a voice message, paged like the history (oldest first inside a page, `pagination_token` reads the page before it); a branch lists its inherited ones too. For the chat sidebar\'s Audio tab, which otherwise only knows the voice messages of the history pages it has loaded.
+     * Conversation Voiced Messages
+     */
+    async conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/voiced-messages`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationMessagesResponseFromJSON)(jsonValue));
+    }
+    /**
+     * The conversation\'s messages that have a voice message, paged like the history (oldest first inside a page, `pagination_token` reads the page before it); a branch lists its inherited ones too. For the chat sidebar\'s Audio tab, which otherwise only knows the voice messages of the history pages it has loaded.
+     * Conversation Voiced Messages
+     */
+    async conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGet(requestParameters, initOverrides) {
+        const response = await this.conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
@@ -945,7 +1003,7 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Back to the greeting with the host alone (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
+     * Back to the greeting (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first), a cast the member put together 409 conversation_reset_group_forbidden (they return to a message instead).
      * Reset Conversation
      */
     async resetConversationChatConversationConversationIdResetPostRaw(requestParameters, initOverrides) {
@@ -968,7 +1026,7 @@ class ChatApi extends runtime.BaseAPI {
         }
     }
     /**
-     * Back to the greeting with the host alone (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
+     * Back to the greeting (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first), a cast the member put together 409 conversation_reset_group_forbidden (they return to a message instead).
      * Reset Conversation
      */
     async resetConversationChatConversationConversationIdResetPost(requestParameters, initOverrides) {
@@ -1007,7 +1065,7 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history. A return that changes the cast (a join or a leaving after the message is undone) names the chat like any cast change: a name the member gave stays, a chat that reads as its cast follows it. `name` is asked for only when another chat of the member\'s carries the cast\'s name (409 conversation_name_taken) or the chat has branches (400 conversation_name_required); nothing is deleted then.
      * Rewind Conversation
      */
     async rewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRaw(requestParameters, initOverrides) {
@@ -1018,6 +1076,9 @@ class ChatApi extends runtime.BaseAPI {
             throw new runtime.RequiredError('messageId', 'Required parameter "messageId" was null or undefined when calling rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete().');
         }
         const queryParameters = {};
+        if (requestParameters['name'] != null) {
+            queryParameters['name'] = requestParameters['name'];
+        }
         const headerParameters = {};
         const response = await this.request({
             path: `/chat/conversation/{conversation_id}/messages/after/{message_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"message_id"}}`, encodeURIComponent(String(requestParameters['messageId']))),
@@ -1028,7 +1089,7 @@ class ChatApi extends runtime.BaseAPI {
         return new runtime.VoidApiResponse(response);
     }
     /**
-     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history. A return that changes the cast (a join or a leaving after the message is undone) names the chat like any cast change: a name the member gave stays, a chat that reads as its cast follows it. `name` is asked for only when another chat of the member\'s carries the cast\'s name (409 conversation_name_taken) or the chat has branches (400 conversation_name_required); nothing is deleted then.
      * Rewind Conversation
      */
     async rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete(requestParameters, initOverrides) {
@@ -1097,7 +1158,7 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Renames the conversation. A root\'s title is the chat\'s name: no other chat of the caller\'s may carry it (409 `conversation_name_taken`), naming a solo chat makes it a named chat, and a named chat cannot lose its name (400 `conversation_name_required`). A branch\'s title is its label in the branch switcher; an empty one clears it.
      * Update Conversation
      */
     async updateConversationChatConversationConversationIdPatchRaw(requestParameters, initOverrides) {
@@ -1125,7 +1186,7 @@ class ChatApi extends runtime.BaseAPI {
         }
     }
     /**
-     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Renames the conversation. A root\'s title is the chat\'s name: no other chat of the caller\'s may carry it (409 `conversation_name_taken`), naming a solo chat makes it a named chat, and a named chat cannot lose its name (400 `conversation_name_required`). A branch\'s title is its label in the branch switcher; an empty one clears it.
      * Update Conversation
      */
     async updateConversationChatConversationConversationIdPatch(requestParameters, initOverrides) {

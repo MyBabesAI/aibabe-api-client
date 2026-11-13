@@ -93,6 +93,12 @@ export interface GetConversationResponse {
      * @type {string}
      * @memberof GetConversationResponse
      */
+    name?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof GetConversationResponse
+     */
     parentConversationId?: string | null;
     /**
      *

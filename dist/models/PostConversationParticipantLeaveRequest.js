@@ -34,6 +34,7 @@ function PostConversationParticipantLeaveRequestFromJSONTyped(json, ignoreDiscri
     return {
         'farewell': json['farewell'] == null ? undefined : json['farewell'],
         'requestId': json['request_id'] == null ? undefined : json['request_id'],
+        'name': json['name'] == null ? undefined : json['name'],
     };
 }
 function PostConversationParticipantLeaveRequestToJSON(json) {
@@ -46,6 +47,7 @@ function PostConversationParticipantLeaveRequestToJSONTyped(value, ignoreDiscrim
     return {
         'farewell': value['farewell'],
         'request_id': value['requestId'],
+        'name': value['name'],
     };
 }
 //# sourceMappingURL=PostConversationParticipantLeaveRequest.js.map

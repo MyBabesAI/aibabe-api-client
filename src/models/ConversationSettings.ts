@@ -70,6 +70,12 @@ export interface ConversationSettings {
      * @memberof ConversationSettings
      */
     userPersonaId?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ConversationSettings
+     */
+    maxSpeakersPerTurn?: number | null;
 }
 
 
@@ -97,6 +103,7 @@ export function ConversationSettingsFromJSONTyped(json: any, ignoreDiscriminator
         'sfwFilterOn': json['sfw_filter_on'] == null ? undefined : json['sfw_filter_on'],
         'audioReferenceId': json['audio_reference_id'] == null ? undefined : json['audio_reference_id'],
         'userPersonaId': json['user_persona_id'] == null ? undefined : json['user_persona_id'],
+        'maxSpeakersPerTurn': json['max_speakers_per_turn'] == null ? undefined : json['max_speakers_per_turn'],
     };
 }
 
@@ -117,6 +124,7 @@ export function ConversationSettingsToJSONTyped(value?: ConversationSettings | n
         'sfw_filter_on': value['sfwFilterOn'],
         'audio_reference_id': value['audioReferenceId'],
         'user_persona_id': value['userPersonaId'],
+        'max_speakers_per_turn': value['maxSpeakersPerTurn'],
     };
 }
 
