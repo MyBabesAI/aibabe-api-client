@@ -55,6 +55,12 @@ export interface PostConversationSettingsRequest {
     userPersonaId?: string | null;
     /**
      *
+     * @type {number}
+     * @memberof PostConversationSettingsRequest
+     */
+    maxSpeakersPerTurn?: number | null;
+    /**
+     *
      * @type {string}
      * @memberof PostConversationSettingsRequest
      */

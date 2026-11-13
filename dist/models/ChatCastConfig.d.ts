@@ -44,12 +44,6 @@ export interface ChatCastConfig {
      * @type {number}
      * @memberof ChatCastConfig
      */
-    maxSpeakersPerTurn: number;
-    /**
-     *
-     * @type {number}
-     * @memberof ChatCastConfig
-     */
     introductionMaxLength: number;
     /**
      *
