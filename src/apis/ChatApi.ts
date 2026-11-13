@@ -211,6 +211,12 @@ export interface ConversationMessagesChatChatbotIdMessagesConversationIdGetReque
     limit?: number;
 }
 
+export interface ConversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRequest {
+    conversationId: string;
+    paginationToken?: string | null;
+    limit?: number;
+}
+
 export interface ConversationsChatGetRequest {
     paginationToken?: string | null;
     limit?: number;
@@ -963,6 +969,49 @@ export class ChatApi extends runtime.BaseAPI {
      */
     async conversationMessagesChatChatbotIdMessagesConversationIdGet(requestParameters: ConversationMessagesChatChatbotIdMessagesConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationMessagesResponse> {
         const response = await this.conversationMessagesChatChatbotIdMessagesConversationIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * The conversation\'s messages that have a voice message, paged like the history (oldest first inside a page, `pagination_token` reads the page before it); a branch lists its inherited ones too. For the chat sidebar\'s Audio tab, which otherwise only knows the voice messages of the history pages it has loaded.
+     * Conversation Voiced Messages
+     */
+    async conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRaw(requestParameters: ConversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationMessagesResponse>> {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError(
+                'conversationId',
+                'Required parameter "conversationId" was null or undefined when calling conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/voiced-messages`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetConversationMessagesResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * The conversation\'s messages that have a voice message, paged like the history (oldest first inside a page, `pagination_token` reads the page before it); a branch lists its inherited ones too. For the chat sidebar\'s Audio tab, which otherwise only knows the voice messages of the history pages it has loaded.
+     * Conversation Voiced Messages
+     */
+    async conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGet(requestParameters: ConversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationMessagesResponse> {
+        const response = await this.conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

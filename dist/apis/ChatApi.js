@@ -490,6 +490,38 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * The conversation\'s messages that have a voice message, paged like the history (oldest first inside a page, `pagination_token` reads the page before it); a branch lists its inherited ones too. For the chat sidebar\'s Audio tab, which otherwise only knows the voice messages of the history pages it has loaded.
+     * Conversation Voiced Messages
+     */
+    async conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['paginationToken'] != null) {
+            queryParameters['pagination_token'] = requestParameters['paginationToken'];
+        }
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/voiced-messages`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationMessagesResponseFromJSON)(jsonValue));
+    }
+    /**
+     * The conversation\'s messages that have a voice message, paged like the history (oldest first inside a page, `pagination_token` reads the page before it); a branch lists its inherited ones too. For the chat sidebar\'s Audio tab, which otherwise only knows the voice messages of the history pages it has loaded.
+     * Conversation Voiced Messages
+     */
+    async conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGet(requestParameters, initOverrides) {
+        const response = await this.conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Conversations
      */
     async conversationsChatGetRaw(requestParameters, initOverrides) {

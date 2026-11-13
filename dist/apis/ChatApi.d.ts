@@ -74,6 +74,11 @@ export interface ConversationMessagesChatChatbotIdMessagesConversationIdGetReque
     paginationToken?: string | null;
     limit?: number;
 }
+export interface ConversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRequest {
+    conversationId: string;
+    paginationToken?: string | null;
+    limit?: number;
+}
 export interface ConversationsChatGetRequest {
     paginationToken?: string | null;
     limit?: number;
@@ -313,6 +318,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Conversation Messages
      */
     conversationMessagesChatChatbotIdMessagesConversationIdGet(requestParameters: ConversationMessagesChatChatbotIdMessagesConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationMessagesResponse>;
+    /**
+     * The conversation\'s messages that have a voice message, paged like the history (oldest first inside a page, `pagination_token` reads the page before it); a branch lists its inherited ones too. For the chat sidebar\'s Audio tab, which otherwise only knows the voice messages of the history pages it has loaded.
+     * Conversation Voiced Messages
+     */
+    conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRaw(requestParameters: ConversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationMessagesResponse>>;
+    /**
+     * The conversation\'s messages that have a voice message, paged like the history (oldest first inside a page, `pagination_token` reads the page before it); a branch lists its inherited ones too. For the chat sidebar\'s Audio tab, which otherwise only knows the voice messages of the history pages it has loaded.
+     * Conversation Voiced Messages
+     */
+    conversationVoicedMessagesChatConversationConversationIdVoicedMessagesGet(requestParameters: ConversationVoicedMessagesChatConversationConversationIdVoicedMessagesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationMessagesResponse>;
     /**
      * Conversations
      */
