@@ -94,11 +94,11 @@ export function AvatarOptionalFieldFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function AvatarOptionalFieldToJSON(json: any): AvatarOptionalField {
-      return AvatarOptionalFieldToJSONTyped(json, false);
-  }
+export function AvatarOptionalFieldToJSON(json: any): AvatarOptionalField {
+    return AvatarOptionalFieldToJSONTyped(json, false);
+}
 
-  export function AvatarOptionalFieldToJSONTyped(value?: AvatarOptionalField | null, ignoreDiscriminator: boolean = false): any {
+export function AvatarOptionalFieldToJSONTyped(value?: AvatarOptionalField | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

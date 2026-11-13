@@ -27,6 +27,13 @@ import {
     LoraNameToJSON,
     LoraNameToJSONTyped,
 } from './LoraName';
+import type { MentionCandidate } from './MentionCandidate';
+import {
+    MentionCandidateFromJSON,
+    MentionCandidateFromJSONTyped,
+    MentionCandidateToJSON,
+    MentionCandidateToJSONTyped,
+} from './MentionCandidate';
 
 /**
  * 
@@ -64,6 +71,18 @@ export interface GetImageGenerationTagsResponse {
      * @memberof GetImageGenerationTagsResponse
      */
     artStyle: ArtStyle;
+    /**
+     * 
+     * @type {{ [key: string]: number; }}
+     * @memberof GetImageGenerationTagsResponse
+     */
+    loraWeights?: { [key: string]: number; } | null;
+    /**
+     * 
+     * @type {Array<MentionCandidate>}
+     * @memberof GetImageGenerationTagsResponse
+     */
+    mentions?: Array<MentionCandidate>;
 }
 
 
@@ -95,14 +114,16 @@ export function GetImageGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'chatbotName': json['chatbot_name'],
         'loras': ((json['loras'] as Array<any>).map(LoraNameFromJSON)),
         'artStyle': ArtStyleFromJSON(json['art_style']),
+        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'mentions': json['mentions'] == null ? undefined : ((json['mentions'] as Array<any>).map(MentionCandidateFromJSON)),
     };
 }
 
-  export function GetImageGenerationTagsResponseToJSON(json: any): GetImageGenerationTagsResponse {
-      return GetImageGenerationTagsResponseToJSONTyped(json, false);
-  }
+export function GetImageGenerationTagsResponseToJSON(json: any): GetImageGenerationTagsResponse {
+    return GetImageGenerationTagsResponseToJSONTyped(json, false);
+}
 
-  export function GetImageGenerationTagsResponseToJSONTyped(value?: GetImageGenerationTagsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetImageGenerationTagsResponseToJSONTyped(value?: GetImageGenerationTagsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -114,6 +135,8 @@ export function GetImageGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'chatbot_name': value['chatbotName'],
         'loras': ((value['loras'] as Array<any>).map(LoraNameToJSON)),
         'art_style': ArtStyleToJSON(value['artStyle']),
+        'lora_weights': value['loraWeights'],
+        'mentions': value['mentions'] == null ? undefined : ((value['mentions'] as Array<any>).map(MentionCandidateToJSON)),
     };
 }
 

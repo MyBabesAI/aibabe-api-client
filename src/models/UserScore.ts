@@ -72,11 +72,11 @@ export function UserScoreFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     };
 }
 
-  export function UserScoreToJSON(json: any): UserScore {
-      return UserScoreToJSONTyped(json, false);
-  }
+export function UserScoreToJSON(json: any): UserScore {
+    return UserScoreToJSONTyped(json, false);
+}
 
-  export function UserScoreToJSONTyped(value?: UserScore | null, ignoreDiscriminator: boolean = false): any {
+export function UserScoreToJSONTyped(value?: UserScore | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

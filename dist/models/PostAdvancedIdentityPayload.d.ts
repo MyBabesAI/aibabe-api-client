@@ -37,6 +37,12 @@ export interface PostAdvancedIdentityPayload {
     greetings: string;
     /**
      *
+     * @type {Array<string>}
+     * @memberof PostAdvancedIdentityPayload
+     */
+    alternativeGreetings?: Array<string>;
+    /**
+     *
      * @type {Gender}
      * @memberof PostAdvancedIdentityPayload
      */

@@ -18,6 +18,7 @@ export declare const CharacterBuilderSuggestionField: {
     readonly Greetings: "greetings";
     readonly Personality: "personality";
     readonly ProfilePic: "profile_pic";
+    readonly ExampleConversation: "example_conversation";
 };
 export type CharacterBuilderSuggestionField = typeof CharacterBuilderSuggestionField[keyof typeof CharacterBuilderSuggestionField];
 export declare function instanceOfCharacterBuilderSuggestionField(value: any): boolean;

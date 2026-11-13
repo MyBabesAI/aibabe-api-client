@@ -36,11 +36,11 @@ export function DiscountOriginalPriceFromJSONTyped(json: any, ignoreDiscriminato
     return json;
 }
 
-  export function DiscountOriginalPriceToJSON(json: any): DiscountOriginalPrice {
-      return DiscountOriginalPriceToJSONTyped(json, false);
-  }
+export function DiscountOriginalPriceToJSON(json: any): DiscountOriginalPrice {
+    return DiscountOriginalPriceToJSONTyped(json, false);
+}
 
-  export function DiscountOriginalPriceToJSONTyped(value?: DiscountOriginalPrice | null, ignoreDiscriminator: boolean = false): any {
+export function DiscountOriginalPriceToJSONTyped(value?: DiscountOriginalPrice | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

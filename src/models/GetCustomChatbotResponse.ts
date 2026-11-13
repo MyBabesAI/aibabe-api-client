@@ -34,6 +34,13 @@ import {
     BlacklistCardToJSON,
     BlacklistCardToJSONTyped,
 } from './BlacklistCard';
+import type { ArtStyle } from './ArtStyle';
+import {
+    ArtStyleFromJSON,
+    ArtStyleFromJSONTyped,
+    ArtStyleToJSON,
+    ArtStyleToJSONTyped,
+} from './ArtStyle';
 import type { ChatbotPreview } from './ChatbotPreview';
 import {
     ChatbotPreviewFromJSON,
@@ -62,6 +69,20 @@ import {
     TagDataToJSON,
     TagDataToJSONTyped,
 } from './TagData';
+import type { Gender } from './Gender';
+import {
+    GenderFromJSON,
+    GenderFromJSONTyped,
+    GenderToJSON,
+    GenderToJSONTyped,
+} from './Gender';
+import type { SexualOrientation } from './SexualOrientation';
+import {
+    SexualOrientationFromJSON,
+    SexualOrientationFromJSONTyped,
+    SexualOrientationToJSON,
+    SexualOrientationToJSONTyped,
+} from './SexualOrientation';
 
 /**
  * 
@@ -117,6 +138,36 @@ export interface GetCustomChatbotResponse {
      * @memberof GetCustomChatbotResponse
      */
     characterAge: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetCustomChatbotResponse
+     */
+    characterStyle?: string | null;
+    /**
+     * 
+     * @type {ArtStyle}
+     * @memberof GetCustomChatbotResponse
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetCustomChatbotResponse
+     */
+    nextGen?: boolean;
+    /**
+     * 
+     * @type {Gender}
+     * @memberof GetCustomChatbotResponse
+     */
+    gender?: Gender | null;
+    /**
+     * 
+     * @type {SexualOrientation}
+     * @memberof GetCustomChatbotResponse
+     */
+    sexualOrientation?: SexualOrientation | null;
     /**
      * 
      * @type {Array<TagData>}
@@ -215,6 +266,11 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'coverContentType': json['cover_content_type'] == null ? undefined : ContentTypeFromJSON(json['cover_content_type']),
         'fullBio': json['full_bio'],
         'characterAge': json['character_age'],
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
+        'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
+        'gender': json['gender'] == null ? undefined : GenderFromJSON(json['gender']),
+        'sexualOrientation': json['sexual_orientation'] == null ? undefined : SexualOrientationFromJSON(json['sexual_orientation']),
         'tags': ((json['tags'] as Array<any>).map(TagDataFromJSON)),
         'chatCount': json['chat_count'],
         'createdFrom': ChatbotCreatedOriginFromJSON(json['created_from']),
@@ -228,11 +284,11 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function GetCustomChatbotResponseToJSON(json: any): GetCustomChatbotResponse {
-      return GetCustomChatbotResponseToJSONTyped(json, false);
-  }
+export function GetCustomChatbotResponseToJSON(json: any): GetCustomChatbotResponse {
+    return GetCustomChatbotResponseToJSONTyped(json, false);
+}
 
-  export function GetCustomChatbotResponseToJSONTyped(value?: GetCustomChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetCustomChatbotResponseToJSONTyped(value?: GetCustomChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -247,6 +303,11 @@ export function GetCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimin
         'cover_content_type': ContentTypeToJSON(value['coverContentType']),
         'full_bio': value['fullBio'],
         'character_age': value['characterAge'],
+        'character_style': value['characterStyle'],
+        'art_style': ArtStyleToJSON(value['artStyle']),
+        'next_gen': value['nextGen'],
+        'gender': GenderToJSON(value['gender']),
+        'sexual_orientation': SexualOrientationToJSON(value['sexualOrientation']),
         'tags': ((value['tags'] as Array<any>).map(TagDataToJSON)),
         'chat_count': value['chatCount'],
         'created_from': ChatbotCreatedOriginToJSON(value['createdFrom']),

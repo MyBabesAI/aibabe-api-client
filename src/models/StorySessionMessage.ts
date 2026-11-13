@@ -155,11 +155,11 @@ export function StorySessionMessageFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function StorySessionMessageToJSON(json: any): StorySessionMessage {
-      return StorySessionMessageToJSONTyped(json, false);
-  }
+export function StorySessionMessageToJSON(json: any): StorySessionMessage {
+    return StorySessionMessageToJSONTyped(json, false);
+}
 
-  export function StorySessionMessageToJSONTyped(value?: StorySessionMessage | null, ignoreDiscriminator: boolean = false): any {
+export function StorySessionMessageToJSONTyped(value?: StorySessionMessage | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

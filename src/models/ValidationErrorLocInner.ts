@@ -36,11 +36,11 @@ export function ValidationErrorLocInnerFromJSONTyped(json: any, ignoreDiscrimina
     return json;
 }
 
-  export function ValidationErrorLocInnerToJSON(json: any): ValidationErrorLocInner {
-      return ValidationErrorLocInnerToJSONTyped(json, false);
-  }
+export function ValidationErrorLocInnerToJSON(json: any): ValidationErrorLocInner {
+    return ValidationErrorLocInnerToJSONTyped(json, false);
+}
 
-  export function ValidationErrorLocInnerToJSONTyped(value?: ValidationErrorLocInner | null, ignoreDiscriminator: boolean = false): any {
+export function ValidationErrorLocInnerToJSONTyped(value?: ValidationErrorLocInner | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

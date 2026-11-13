@@ -67,11 +67,11 @@ export function LiveRoleplaySeedMessageFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function LiveRoleplaySeedMessageToJSON(json: any): LiveRoleplaySeedMessage {
-      return LiveRoleplaySeedMessageToJSONTyped(json, false);
-  }
+export function LiveRoleplaySeedMessageToJSON(json: any): LiveRoleplaySeedMessage {
+    return LiveRoleplaySeedMessageToJSONTyped(json, false);
+}
 
-  export function LiveRoleplaySeedMessageToJSONTyped(value?: LiveRoleplaySeedMessage | null, ignoreDiscriminator: boolean = false): any {
+export function LiveRoleplaySeedMessageToJSONTyped(value?: LiveRoleplaySeedMessage | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

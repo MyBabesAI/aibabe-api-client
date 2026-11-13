@@ -203,11 +203,11 @@ export function UserInfoResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function UserInfoResponseToJSON(json: any): UserInfoResponse {
-      return UserInfoResponseToJSONTyped(json, false);
-  }
+export function UserInfoResponseToJSON(json: any): UserInfoResponse {
+    return UserInfoResponseToJSONTyped(json, false);
+}
 
-  export function UserInfoResponseToJSONTyped(value?: UserInfoResponse | null, ignoreDiscriminator: boolean = false): any {
+export function UserInfoResponseToJSONTyped(value?: UserInfoResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

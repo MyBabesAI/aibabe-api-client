@@ -66,6 +66,12 @@ export interface CharacterAboutPageReview {
     greetings?: AvatarRequiredField | null;
     /**
      * 
+     * @type {AvatarOptionalField}
+     * @memberof CharacterAboutPageReview
+     */
+    alternativeGreetings?: AvatarOptionalField | null;
+    /**
+     * 
      * @type {AvatarRequiredField}
      * @memberof CharacterAboutPageReview
      */
@@ -100,16 +106,17 @@ export function CharacterAboutPageReviewFromJSONTyped(json: any, ignoreDiscrimin
         'sexualOrientation': json['sexual_orientation'] == null ? undefined : AvatarOptionalFieldFromJSON(json['sexual_orientation']),
         'bio': json['bio'] == null ? undefined : AvatarRequiredFieldFromJSON(json['bio']),
         'greetings': json['greetings'] == null ? undefined : AvatarRequiredFieldFromJSON(json['greetings']),
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : AvatarOptionalFieldFromJSON(json['alternative_greetings']),
         'story': json['story'] == null ? undefined : AvatarRequiredFieldFromJSON(json['story']),
         'exampleConversation': json['example_conversation'] == null ? undefined : AvatarOptionalFieldFromJSON(json['example_conversation']),
     };
 }
 
-  export function CharacterAboutPageReviewToJSON(json: any): CharacterAboutPageReview {
-      return CharacterAboutPageReviewToJSONTyped(json, false);
-  }
+export function CharacterAboutPageReviewToJSON(json: any): CharacterAboutPageReview {
+    return CharacterAboutPageReviewToJSONTyped(json, false);
+}
 
-  export function CharacterAboutPageReviewToJSONTyped(value?: CharacterAboutPageReview | null, ignoreDiscriminator: boolean = false): any {
+export function CharacterAboutPageReviewToJSONTyped(value?: CharacterAboutPageReview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -121,6 +128,7 @@ export function CharacterAboutPageReviewFromJSONTyped(json: any, ignoreDiscrimin
         'sexual_orientation': AvatarOptionalFieldToJSON(value['sexualOrientation']),
         'bio': AvatarRequiredFieldToJSON(value['bio']),
         'greetings': AvatarRequiredFieldToJSON(value['greetings']),
+        'alternative_greetings': AvatarOptionalFieldToJSON(value['alternativeGreetings']),
         'story': AvatarRequiredFieldToJSON(value['story']),
         'example_conversation': AvatarOptionalFieldToJSON(value['exampleConversation']),
     };

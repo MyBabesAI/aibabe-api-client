@@ -19,8 +19,11 @@ exports.GetChatbotResponseFromJSONTyped = GetChatbotResponseFromJSONTyped;
 exports.GetChatbotResponseToJSON = GetChatbotResponseToJSON;
 exports.GetChatbotResponseToJSONTyped = GetChatbotResponseToJSONTyped;
 const BlacklistCard_1 = require("./BlacklistCard");
+const ArtStyle_1 = require("./ArtStyle");
 const ContentType_1 = require("./ContentType");
+const Gender_1 = require("./Gender");
 const GalleryItem_1 = require("./GalleryItem");
+const SexualOrientation_1 = require("./SexualOrientation");
 const WallPost_1 = require("./WallPost");
 /**
  * Check if a given object implements the GetChatbotResponse interface.
@@ -60,6 +63,11 @@ function GetChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'coverContentType': json['cover_content_type'] == null ? undefined : (0, ContentType_1.ContentTypeFromJSON)(json['cover_content_type']),
         'fullBio': json['full_bio'],
         'characterAge': json['character_age'],
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
+        'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
+        'gender': json['gender'] == null ? undefined : (0, Gender_1.GenderFromJSON)(json['gender']),
+        'sexualOrientation': json['sexual_orientation'] == null ? undefined : (0, SexualOrientation_1.SexualOrientationFromJSON)(json['sexual_orientation']),
         'posts': (json['posts'].map(WallPost_1.WallPostFromJSON)),
         'galleries': (json['galleries'].map(GalleryItem_1.GalleryItemFromJSON)),
         'unlockAllPrice': json['unlock_all_price'],
@@ -81,6 +89,11 @@ function GetChatbotResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'cover_content_type': (0, ContentType_1.ContentTypeToJSON)(value['coverContentType']),
         'full_bio': value['fullBio'],
         'character_age': value['characterAge'],
+        'character_style': value['characterStyle'],
+        'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
+        'next_gen': value['nextGen'],
+        'gender': (0, Gender_1.GenderToJSON)(value['gender']),
+        'sexual_orientation': (0, SexualOrientation_1.SexualOrientationToJSON)(value['sexualOrientation']),
         'posts': (value['posts'].map(WallPost_1.WallPostToJSON)),
         'galleries': (value['galleries'].map(GalleryItem_1.GalleryItemToJSON)),
         'unlock_all_price': value['unlockAllPrice'],

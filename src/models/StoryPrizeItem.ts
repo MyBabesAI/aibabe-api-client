@@ -88,11 +88,11 @@ export function StoryPrizeItemFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-  export function StoryPrizeItemToJSON(json: any): StoryPrizeItem {
-      return StoryPrizeItemToJSONTyped(json, false);
-  }
+export function StoryPrizeItemToJSON(json: any): StoryPrizeItem {
+    return StoryPrizeItemToJSONTyped(json, false);
+}
 
-  export function StoryPrizeItemToJSONTyped(value?: StoryPrizeItem | null, ignoreDiscriminator: boolean = false): any {
+export function StoryPrizeItemToJSONTyped(value?: StoryPrizeItem | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

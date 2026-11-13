@@ -129,11 +129,11 @@ export function AdminPromotionResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function AdminPromotionResponseToJSON(json: any): AdminPromotionResponse {
-      return AdminPromotionResponseToJSONTyped(json, false);
-  }
+export function AdminPromotionResponseToJSON(json: any): AdminPromotionResponse {
+    return AdminPromotionResponseToJSONTyped(json, false);
+}
 
-  export function AdminPromotionResponseToJSONTyped(value?: AdminPromotionResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminPromotionResponseToJSONTyped(value?: AdminPromotionResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

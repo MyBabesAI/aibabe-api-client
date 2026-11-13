@@ -82,6 +82,18 @@ export interface ChatbotInfo {
      * @memberof ChatbotInfo
      */
     tags: Array<TagData>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ChatbotInfo
+     */
+    nextGen?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ChatbotInfo
+     */
+    characterStyle?: string | null;
 }
 
 /**
@@ -117,14 +129,16 @@ export function ChatbotInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'createdBy': PublicUserPreviewWithFollowFromJSON(json['created_by']),
         'messageCount': json['message_count'],
         'tags': ((json['tags'] as Array<any>).map(TagDataFromJSON)),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
     };
 }
 
-  export function ChatbotInfoToJSON(json: any): ChatbotInfo {
-      return ChatbotInfoToJSONTyped(json, false);
-  }
+export function ChatbotInfoToJSON(json: any): ChatbotInfo {
+    return ChatbotInfoToJSONTyped(json, false);
+}
 
-  export function ChatbotInfoToJSONTyped(value?: ChatbotInfo | null, ignoreDiscriminator: boolean = false): any {
+export function ChatbotInfoToJSONTyped(value?: ChatbotInfo | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -139,6 +153,8 @@ export function ChatbotInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'created_by': PublicUserPreviewWithFollowToJSON(value['createdBy']),
         'message_count': value['messageCount'],
         'tags': ((value['tags'] as Array<any>).map(TagDataToJSON)),
+        'next_gen': value['nextGen'],
+        'character_style': value['characterStyle'],
     };
 }
 

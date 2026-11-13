@@ -74,11 +74,11 @@ export function VideoModFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     };
 }
 
-  export function VideoModToJSON(json: any): VideoMod {
-      return VideoModToJSONTyped(json, false);
-  }
+export function VideoModToJSON(json: any): VideoMod {
+    return VideoModToJSONTyped(json, false);
+}
 
-  export function VideoModToJSONTyped(value?: VideoMod | null, ignoreDiscriminator: boolean = false): any {
+export function VideoModToJSONTyped(value?: VideoMod | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

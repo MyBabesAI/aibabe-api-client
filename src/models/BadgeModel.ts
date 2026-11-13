@@ -184,11 +184,11 @@ export function BadgeModelFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     };
 }
 
-  export function BadgeModelToJSON(json: any): BadgeModel {
-      return BadgeModelToJSONTyped(json, false);
-  }
+export function BadgeModelToJSON(json: any): BadgeModel {
+    return BadgeModelToJSONTyped(json, false);
+}
 
-  export function BadgeModelToJSONTyped(value?: BadgeModel | null, ignoreDiscriminator: boolean = false): any {
+export function BadgeModelToJSONTyped(value?: BadgeModel | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -73,11 +73,11 @@ export function PostSaleOfferEventRequestFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function PostSaleOfferEventRequestToJSON(json: any): PostSaleOfferEventRequest {
-      return PostSaleOfferEventRequestToJSONTyped(json, false);
-  }
+export function PostSaleOfferEventRequestToJSON(json: any): PostSaleOfferEventRequest {
+    return PostSaleOfferEventRequestToJSONTyped(json, false);
+}
 
-  export function PostSaleOfferEventRequestToJSONTyped(value?: PostSaleOfferEventRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostSaleOfferEventRequestToJSONTyped(value?: PostSaleOfferEventRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

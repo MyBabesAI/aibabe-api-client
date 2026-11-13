@@ -28,6 +28,7 @@ exports.BlacklistTarget = {
     Picture: 'picture',
     Video: 'video',
     Story: 'story',
+    Scenario: 'scenario',
     User: 'user'
 };
 function instanceOfBlacklistTarget(value) {

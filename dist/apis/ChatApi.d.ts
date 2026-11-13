@@ -10,7 +10,19 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ChatReponse, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, SeedConversationResponse, TokenPricingConfigResponse } from '../models/index';
+import type { ChatConfigResponse, ChatReponse, ChatSceneDetails, CreateAnonymousConversationRequest, CreateAnonymousConversationResponse, GetAnonymousConversationResponse, GetConversationBranchesResponse, GetConversationJournalResponse, GetConversationMessagesResponse, GetConversationResponse, GetImageModerationPromptResponse, GetLiveRoleplayHistoryResponse, ListConversationsResponse, LiveRoleplaySessionResponse, MessageCheckResponse, PatchChatMessageRequest, PatchConversationRequest, PatchConversationSceneRequest, PatchImageModerationPromptRequest, PostAnonymousChatRequest, PostAnonymousChatResponse, PostChatRequest, PostChatSuggestionRequest, PostConversationMemoryResponse, PostConversationParticipantLeaveRequest, PostConversationParticipantLeaveResponse, PostConversationParticipantRequest, PostConversationParticipantResponse, PostConversationPersonaRequest, PostConversationPersonaResponse, PostConversationSettingsRequest, PostLiveRoleplayRequest, PostLiveRoleplayResponse, PutConversationMemoryEntryRequest, ScenarioStartRequest, ScenarioStartResponse, SeedConversationResponse } from '../models/index';
+export interface AddMemoryEntryChatConversationConversationIdMemoryPostRequest {
+    conversationId: string;
+    putConversationMemoryEntryRequest: PutConversationMemoryEntryRequest;
+}
+export interface AddParticipantChatConversationConversationIdParticipantsPostRequest {
+    conversationId: string;
+    postConversationParticipantRequest: PostConversationParticipantRequest;
+}
+export interface AddToMemoryChatConversationConversationIdMemoryMessageIdPostRequest {
+    conversationId: string;
+    messageId: string;
+}
 export interface AnonymousChatChatAnonymousChatbotIdPostRequest {
     chatbotId: string;
     postAnonymousChatRequest: PostAnonymousChatRequest;
@@ -37,10 +49,21 @@ export interface ChatSuggestionChatChatbotIdSuggestionPostRequest {
     chatbotId: string;
     postChatSuggestionRequest: PostChatSuggestionRequest;
 }
+export interface ConversationBranchesChatConversationConversationIdBranchesGetRequest {
+    conversationId: string;
+}
+export interface ConversationByIdChatConversationConversationIdGetRequest {
+    conversationId: string;
+    limit?: number;
+    includeScene?: boolean;
+}
 export interface ConversationChatChatbotIdGetRequest {
     chatbotId: string;
     limit?: number;
-    includeAdmin?: boolean;
+    includeScene?: boolean;
+}
+export interface ConversationJournalChatConversationConversationIdJournalGetRequest {
+    conversationId: string;
 }
 export interface ConversationMessagesChatChatbotIdMessagesConversationIdGetRequest {
     conversationId: string;
@@ -62,8 +85,16 @@ export interface DeleteAnonymousConversationChatAnonymousChatbotIdDeleteRequest 
 export interface DeleteChatChatChatbotIdDeleteRequest {
     chatbotId: string;
 }
+export interface DeleteConversationByIdChatConversationConversationIdDeleteRequest {
+    conversationId: string;
+}
 export interface DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest {
     chatbotId: string;
+}
+export interface DeleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRequest {
+    conversationId: string;
+    entryId: string;
+    chatbotId?: string | null;
 }
 export interface DeleteMessageChatMessageMessageIdDeleteRequest {
     messageId: string;
@@ -77,6 +108,11 @@ export interface GenerateImageOnMessageChatChatbotIdMessageRequestIdImagePostReq
 }
 export interface GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest {
     chatbotId: string;
+}
+export interface LeaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRequest {
+    conversationId: string;
+    chatbotId: string;
+    postConversationParticipantLeaveRequest: PostConversationParticipantLeaveRequest;
 }
 export interface LiveRoleplayChatChatbotIdLiveRoleplayPostRequest {
     chatbotId: string;
@@ -97,9 +133,29 @@ export interface RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest {
 export interface ResetConversationChatConversationConversationIdResetPostRequest {
     conversationId: string;
 }
+export interface RestartScenarioChatConversationConversationIdScenarioRestartPostRequest {
+    conversationId: string;
+    scenarioStartRequest: ScenarioStartRequest;
+}
+export interface RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest {
+    conversationId: string;
+    messageId: string;
+}
 export interface SeedConversationChatChatbotIdSeedPutRequest {
     chatbotId: string;
     createAnonymousConversationRequest: CreateAnonymousConversationRequest;
+}
+export interface SwitchPersonaChatConversationConversationIdPersonaPostRequest {
+    conversationId: string;
+    postConversationPersonaRequest: PostConversationPersonaRequest;
+}
+export interface UpdateConversationChatConversationConversationIdPatchRequest {
+    conversationId: string;
+    patchConversationRequest: PatchConversationRequest;
+}
+export interface UpdateConversationSceneChatConversationConversationIdScenePatchRequest {
+    conversationId: string;
+    patchConversationSceneRequest: PatchConversationSceneRequest;
 }
 export interface UpdateConversationSettingsChatConversationConversationIdSettingsPatchRequest {
     conversationId: string;
@@ -107,6 +163,11 @@ export interface UpdateConversationSettingsChatConversationConversationIdSetting
 }
 export interface UpdateImageModerationPromptChatImageModerationPromptPatchRequest {
     patchImageModerationPromptRequest: PatchImageModerationPromptRequest;
+}
+export interface UpdateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRequest {
+    conversationId: string;
+    entryId: string;
+    putConversationMemoryEntryRequest: PutConversationMemoryEntryRequest;
 }
 export interface UpdateMessageChatMessageMessageIdPatchRequest {
     messageId: string;
@@ -116,6 +177,36 @@ export interface UpdateMessageChatMessageMessageIdPatchRequest {
  *
  */
 export declare class ChatApi extends runtime.BaseAPI {
+    /**
+     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. With `chatbot_id` only that character remembers it (404 `chatbot_not_found` when she is not in the chat). Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
+     * Add Memory Entry
+     */
+    addMemoryEntryChatConversationConversationIdMemoryPostRaw(requestParameters: AddMemoryEntryChatConversationConversationIdMemoryPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationJournalResponse>>;
+    /**
+     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. With `chatbot_id` only that character remembers it (404 `chatbot_not_found` when she is not in the chat). Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
+     * Add Memory Entry
+     */
+    addMemoryEntryChatConversationConversationIdMemoryPost(requestParameters: AddMemoryEntryChatConversationConversationIdMemoryPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationJournalResponse>;
+    /**
+     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction is stored as a narrator row of the chat (`event`), ahead of her first reply. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
+     * Add Participant
+     */
+    addParticipantChatConversationConversationIdParticipantsPostRaw(requestParameters: AddParticipantChatConversationConversationIdParticipantsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostConversationParticipantResponse>>;
+    /**
+     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction is stored as a narrator row of the chat (`event`), ahead of her first reply. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
+     * Add Participant
+     */
+    addParticipantChatConversationConversationIdParticipantsPost(requestParameters: AddParticipantChatConversationConversationIdParticipantsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationParticipantResponse>;
+    /**
+     * Add to Memory: the marked message (with the user\'s message it answers) goes to the journal judge, which writes what is worth remembering from it into the chat\'s Memory. Answers at once; the result arrives as `chat_journal_updated` with this request id and `memory_notes` (lines added, 0 = nothing new, -1 = failed).
+     * Add To Memory
+     */
+    addToMemoryChatConversationConversationIdMemoryMessageIdPostRaw(requestParameters: AddToMemoryChatConversationConversationIdMemoryMessageIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostConversationMemoryResponse>>;
+    /**
+     * Add to Memory: the marked message (with the user\'s message it answers) goes to the journal judge, which writes what is worth remembering from it into the chat\'s Memory. Answers at once; the result arrives as `chat_journal_updated` with this request id and `memory_notes` (lines added, 0 = nothing new, -1 = failed).
+     * Add To Memory
+     */
+    addToMemoryChatConversationConversationIdMemoryMessageIdPost(requestParameters: AddToMemoryChatConversationConversationIdMemoryMessageIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationMemoryResponse>;
     /**
      * Anonymous Chat
      */
@@ -165,6 +256,24 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     chatSuggestionChatChatbotIdSuggestionPost(requestParameters: ChatSuggestionChatChatbotIdSuggestionPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse>;
     /**
+     * Conversation Branches
+     */
+    conversationBranchesChatConversationConversationIdBranchesGetRaw(requestParameters: ConversationBranchesChatConversationConversationIdBranchesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationBranchesResponse>>;
+    /**
+     * Conversation Branches
+     */
+    conversationBranchesChatConversationConversationIdBranchesGet(requestParameters: ConversationBranchesChatConversationConversationIdBranchesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationBranchesResponse>;
+    /**
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * Conversation By Id
+     */
+    conversationByIdChatConversationConversationIdGetRaw(requestParameters: ConversationByIdChatConversationConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationResponse>>;
+    /**
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * Conversation By Id
+     */
+    conversationByIdChatConversationConversationIdGet(requestParameters: ConversationByIdChatConversationConversationIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationResponse>;
+    /**
      * Conversation
      */
     conversationChatChatbotIdGetRaw(requestParameters: ConversationChatChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationResponse>>;
@@ -172,6 +281,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Conversation
      */
     conversationChatChatbotIdGet(requestParameters: ConversationChatChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationResponse>;
+    /**
+     * The conversation\'s state sheet (summary, surroundings, and position / clothing / relationship per person), kept by the journal judge after every turn of a sentence-style chat; `chat_journal_updated` on the websocket says when to refetch. Empty entries for chats without a journal.
+     * Conversation Journal
+     */
+    conversationJournalChatConversationConversationIdJournalGetRaw(requestParameters: ConversationJournalChatConversationConversationIdJournalGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationJournalResponse>>;
+    /**
+     * The conversation\'s state sheet (summary, surroundings, and position / clothing / relationship per person), kept by the journal judge after every turn of a sentence-style chat; `chat_journal_updated` on the websocket says when to refetch. Empty entries for chats without a journal.
+     * Conversation Journal
+     */
+    conversationJournalChatConversationConversationIdJournalGet(requestParameters: ConversationJournalChatConversationConversationIdJournalGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationJournalResponse>;
     /**
      * Conversation Messages
      */
@@ -215,6 +334,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     deleteChatChatChatbotIdDelete(requestParameters: DeleteChatChatChatbotIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
+     * Deletes the conversation with every branch under it; the root takes its whole tree (the branch list carries descendant_count for the confirmation).
+     * Delete Conversation By Id
+     */
+    deleteConversationByIdChatConversationConversationIdDeleteRaw(requestParameters: DeleteConversationByIdChatConversationConversationIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Deletes the conversation with every branch under it; the root takes its whole tree (the branch list carries descendant_count for the confirmation).
+     * Delete Conversation By Id
+     */
+    deleteConversationByIdChatConversationConversationIdDelete(requestParameters: DeleteConversationByIdChatConversationConversationIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
      * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards. Not counted against the per-IP burst limit: that limit paces reply generation, and a restart generates nothing, so resetting a whole series episode by episode must not eat into the replies that follow.
      * Delete Live Roleplay Conversation
      */
@@ -224,6 +353,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Delete Live Roleplay Conversation
      */
     deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete(requestParameters: DeleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    /**
+     * Premium: removes one Memory entry; the characters no longer know it from the next reply on. With `chatbot_id` only that character forgets it.
+     * Delete Memory Entry
+     */
+    deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRaw(requestParameters: DeleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationJournalResponse>>;
+    /**
+     * Premium: removes one Memory entry; the characters no longer know it from the next reply on. With `chatbot_id` only that character forgets it.
+     * Delete Memory Entry
+     */
+    deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDelete(requestParameters: DeleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationJournalResponse>;
     /**
      * Delete Message
      */
@@ -243,11 +382,11 @@ export declare class ChatApi extends runtime.BaseAPI {
     /**
      * Get Chat Config
      */
-    getChatConfigChatConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenPricingConfigResponse>>;
+    getChatConfigChatConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatConfigResponse>>;
     /**
      * Get Chat Config
      */
-    getChatConfigChatConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse>;
+    getChatConfigChatConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatConfigResponse>;
     /**
      * Get Image Moderation Prompt
      */
@@ -264,6 +403,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Get Live Roleplay History
      */
     getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGet(requestParameters: GetLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLiveRoleplayHistoryResponse>;
+    /**
+     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.  The leaving is a turn like an invite: whoever stays reacts to it, at least one character, streaming under the returned ids. It counts as a message; when the allowance is used up the row is still written and nobody reacts.
+     * Leave Participant
+     */
+    leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRaw(requestParameters: LeaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostConversationParticipantLeaveResponse>>;
+    /**
+     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.  The leaving is a turn like an invite: whoever stays reacts to it, at least one character, streaming under the returned ids. It counts as a message; when the allowance is used up the row is still written and nobody reacts.
+     * Leave Participant
+     */
+    leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePost(requestParameters: LeaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationParticipantLeaveResponse>;
     /**
      * Live Roleplay
      */
@@ -301,13 +450,35 @@ export declare class ChatApi extends runtime.BaseAPI {
      */
     regenerateChatChatbotIdMessageMessageIdRegeneratePost(requestParameters: RegenerateChatChatbotIdMessageMessageIdRegeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatReponse>;
     /**
+     * Back to the greeting with the host alone (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     resetConversationChatConversationConversationIdResetPostRaw(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
     /**
+     * Back to the greeting with the host alone (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     resetConversationChatConversationConversationIdResetPost(requestParameters: ResetConversationChatConversationConversationIdResetPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the cast the chat was started with (the reader\'s own characters keep their slots); the request\'s replacements override slots like when starting from the post.
+     * Restart Scenario
+     */
+    restartScenarioChatConversationConversationIdScenarioRestartPostRaw(requestParameters: RestartScenarioChatConversationConversationIdScenarioRestartPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ScenarioStartResponse>>;
+    /**
+     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the cast the chat was started with (the reader\'s own characters keep their slots); the request\'s replacements override slots like when starting from the post.
+     * Restart Scenario
+     */
+    restartScenarioChatConversationConversationIdScenarioRestartPost(requestParameters: RestartScenarioChatConversationConversationIdScenarioRestartPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ScenarioStartResponse>;
+    /**
+     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Rewind Conversation
+     */
+    rewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRaw(requestParameters: RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    /**
+     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Rewind Conversation
+     */
+    rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete(requestParameters: RewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
     /**
      * Import the funnel\'s scripted opening for a signed-in user, idempotently.  The reels funnel plays its script client-side and gates sending on login, so the client calls this right after login and before the first real message. If the user already has a conversation with this chatbot it is returned untouched (seeded=false) - retries and returning users are both no-ops, never conflicts.
      * Seed Conversation
@@ -318,6 +489,36 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Seed Conversation
      */
     seedConversationChatChatbotIdSeedPut(requestParameters: SeedConversationChatChatbotIdSeedPutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedConversationResponse>;
+    /**
+     * Play the chat as another of the caller\'s personas.  Until a message was sent as a persona in this chat (`persona_established` false) the persona is simply set: no row, no turn, `switched` false. After that the change is part of the story: a narrator row (`narration`, or \"@Old left and @New appeared.\") and a turn in which at least one character reacts, streaming under the returned ids like after an invite. A chat whose persona was deleted (`persona_deleted`) may instead pass `quiet`: it carries on as the new persona with no row and no turn, and the deleted persona\'s messages read as the new one. 409 `conversation_persona_same` when nothing would change.
+     * Switch Persona
+     */
+    switchPersonaChatConversationConversationIdPersonaPostRaw(requestParameters: SwitchPersonaChatConversationConversationIdPersonaPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostConversationPersonaResponse>>;
+    /**
+     * Play the chat as another of the caller\'s personas.  Until a message was sent as a persona in this chat (`persona_established` false) the persona is simply set: no row, no turn, `switched` false. After that the change is part of the story: a narrator row (`narration`, or \"@Old left and @New appeared.\") and a turn in which at least one character reacts, streaming under the returned ids like after an invite. A chat whose persona was deleted (`persona_deleted`) may instead pass `quiet`: it carries on as the new persona with no row and no turn, and the deleted persona\'s messages read as the new one. 409 `conversation_persona_same` when nothing would change.
+     * Switch Persona
+     */
+    switchPersonaChatConversationConversationIdPersonaPost(requestParameters: SwitchPersonaChatConversationConversationIdPersonaPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostConversationPersonaResponse>;
+    /**
+     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Update Conversation
+     */
+    updateConversationChatConversationConversationIdPatchRaw(requestParameters: UpdateConversationChatConversationConversationIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    /**
+     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Update Conversation
+     */
+    updateConversationChatConversationConversationIdPatch(requestParameters: UpdateConversationChatConversationConversationIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Rewrites the scene block (Location / Position / Clothing, people as @Name) the chat\'s pictures start from; the next reply\'s keeper replaces it again as usual.
+     * Update Conversation Scene
+     */
+    updateConversationSceneChatConversationConversationIdScenePatchRaw(requestParameters: UpdateConversationSceneChatConversationConversationIdScenePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ChatSceneDetails>>;
+    /**
+     * Rewrites the scene block (Location / Position / Clothing, people as @Name) the chat\'s pictures start from; the next reply\'s keeper replaces it again as usual.
+     * Update Conversation Scene
+     */
+    updateConversationSceneChatConversationConversationIdScenePatch(requestParameters: UpdateConversationSceneChatConversationConversationIdScenePatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ChatSceneDetails>;
     /**
      * Update Conversation Settings
      */
@@ -334,6 +535,16 @@ export declare class ChatApi extends runtime.BaseAPI {
      * Update Image Moderation Prompt
      */
     updateImageModerationPromptChatImageModerationPromptPatch(requestParameters: UpdateImageModerationPromptChatImageModerationPromptPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    /**
+     * Premium: rewrites one Memory entry (`id` of a history entry of the journal). Without `chatbot_id` the entry itself, in place; with it only that character\'s Memory: an entry others remember too stays as it was for them and she gets the new text as a version of her own. 404 `memory_entry_not_found` when the judge summarised or rewrote it meanwhile, or the character does not remember it: reload the journal.
+     * Update Memory Entry
+     */
+    updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRaw(requestParameters: UpdateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetConversationJournalResponse>>;
+    /**
+     * Premium: rewrites one Memory entry (`id` of a history entry of the journal). Without `chatbot_id` the entry itself, in place; with it only that character\'s Memory: an entry others remember too stays as it was for them and she gets the new text as a version of her own. 404 `memory_entry_not_found` when the judge summarised or rewrote it meanwhile, or the character does not remember it: reload the journal.
+     * Update Memory Entry
+     */
+    updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatch(requestParameters: UpdateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetConversationJournalResponse>;
     /**
      * Update Message
      */

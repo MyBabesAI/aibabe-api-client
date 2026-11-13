@@ -72,11 +72,11 @@ export function AdminSavePricingGroupRevisionsRequestFromJSONTyped(json: any, ig
     };
 }
 
-  export function AdminSavePricingGroupRevisionsRequestToJSON(json: any): AdminSavePricingGroupRevisionsRequest {
-      return AdminSavePricingGroupRevisionsRequestToJSONTyped(json, false);
-  }
+export function AdminSavePricingGroupRevisionsRequestToJSON(json: any): AdminSavePricingGroupRevisionsRequest {
+    return AdminSavePricingGroupRevisionsRequestToJSONTyped(json, false);
+}
 
-  export function AdminSavePricingGroupRevisionsRequestToJSONTyped(value?: AdminSavePricingGroupRevisionsRequest | null, ignoreDiscriminator: boolean = false): any {
+export function AdminSavePricingGroupRevisionsRequestToJSONTyped(value?: AdminSavePricingGroupRevisionsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

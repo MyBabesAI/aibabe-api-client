@@ -20,8 +20,8 @@ exports.AdminSeedanceModelFromJSONTyped = AdminSeedanceModelFromJSONTyped;
 exports.AdminSeedanceModelToJSON = AdminSeedanceModelToJSON;
 exports.AdminSeedanceModelToJSONTyped = AdminSeedanceModelToJSONTyped;
 /**
- * Models the admin Seedance generator offers. Values are the provider ids the endpoint always accepted,
- * so pre-dropdown callers that send them as free text keep working.
+ * Models the admin Seedance generator offers; a request always names one. Values are the provider ids the
+ * endpoint always accepted, so callers that send them as free text keep working.
  * @export
  */
 exports.AdminSeedanceModel = {

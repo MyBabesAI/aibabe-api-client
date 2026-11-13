@@ -160,11 +160,11 @@ export function CategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-  export function CategoryValuesToJSON(json: any): CategoryValues {
-      return CategoryValuesToJSONTyped(json, false);
-  }
+export function CategoryValuesToJSON(json: any): CategoryValues {
+    return CategoryValuesToJSONTyped(json, false);
+}
 
-  export function CategoryValuesToJSONTyped(value?: CategoryValues | null, ignoreDiscriminator: boolean = false): any {
+export function CategoryValuesToJSONTyped(value?: CategoryValues | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

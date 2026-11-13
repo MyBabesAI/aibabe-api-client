@@ -73,11 +73,11 @@ export function PostStoryMessageResponseFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function PostStoryMessageResponseToJSON(json: any): PostStoryMessageResponse {
-      return PostStoryMessageResponseToJSONTyped(json, false);
-  }
+export function PostStoryMessageResponseToJSON(json: any): PostStoryMessageResponse {
+    return PostStoryMessageResponseToJSONTyped(json, false);
+}
 
-  export function PostStoryMessageResponseToJSONTyped(value?: PostStoryMessageResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostStoryMessageResponseToJSONTyped(value?: PostStoryMessageResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

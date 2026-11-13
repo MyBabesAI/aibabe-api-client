@@ -96,11 +96,11 @@ export function AddonProductPriceFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function AddonProductPriceToJSON(json: any): AddonProductPrice {
-      return AddonProductPriceToJSONTyped(json, false);
-  }
+export function AddonProductPriceToJSON(json: any): AddonProductPrice {
+    return AddonProductPriceToJSONTyped(json, false);
+}
 
-  export function AddonProductPriceToJSONTyped(value?: AddonProductPrice | null, ignoreDiscriminator: boolean = false): any {
+export function AddonProductPriceToJSONTyped(value?: AddonProductPrice | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

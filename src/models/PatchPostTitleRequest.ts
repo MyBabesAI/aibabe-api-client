@@ -49,11 +49,11 @@ export function PatchPostTitleRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function PatchPostTitleRequestToJSON(json: any): PatchPostTitleRequest {
-      return PatchPostTitleRequestToJSONTyped(json, false);
-  }
+export function PatchPostTitleRequestToJSON(json: any): PatchPostTitleRequest {
+    return PatchPostTitleRequestToJSONTyped(json, false);
+}
 
-  export function PatchPostTitleRequestToJSONTyped(value?: PatchPostTitleRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PatchPostTitleRequestToJSONTyped(value?: PatchPostTitleRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -73,11 +73,11 @@ export function ChatbotPreviewFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-  export function ChatbotPreviewToJSON(json: any): ChatbotPreview {
-      return ChatbotPreviewToJSONTyped(json, false);
-  }
+export function ChatbotPreviewToJSON(json: any): ChatbotPreview {
+    return ChatbotPreviewToJSONTyped(json, false);
+}
 
-  export function ChatbotPreviewToJSONTyped(value?: ChatbotPreview | null, ignoreDiscriminator: boolean = false): any {
+export function ChatbotPreviewToJSONTyped(value?: ChatbotPreview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -49,11 +49,11 @@ export function LiveRoleplaySessionResponseFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function LiveRoleplaySessionResponseToJSON(json: any): LiveRoleplaySessionResponse {
-      return LiveRoleplaySessionResponseToJSONTyped(json, false);
-  }
+export function LiveRoleplaySessionResponseToJSON(json: any): LiveRoleplaySessionResponse {
+    return LiveRoleplaySessionResponseToJSONTyped(json, false);
+}
 
-  export function LiveRoleplaySessionResponseToJSONTyped(value?: LiveRoleplaySessionResponse | null, ignoreDiscriminator: boolean = false): any {
+export function LiveRoleplaySessionResponseToJSONTyped(value?: LiveRoleplaySessionResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

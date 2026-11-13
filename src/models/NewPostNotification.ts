@@ -134,11 +134,11 @@ export function NewPostNotificationFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function NewPostNotificationToJSON(json: any): NewPostNotification {
-      return NewPostNotificationToJSONTyped(json, false);
-  }
+export function NewPostNotificationToJSON(json: any): NewPostNotification {
+    return NewPostNotificationToJSONTyped(json, false);
+}
 
-  export function NewPostNotificationToJSONTyped(value?: NewPostNotification | null, ignoreDiscriminator: boolean = false): any {
+export function NewPostNotificationToJSONTyped(value?: NewPostNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

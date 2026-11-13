@@ -89,11 +89,11 @@ export function PostUserRequestFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-  export function PostUserRequestToJSON(json: any): PostUserRequest {
-      return PostUserRequestToJSONTyped(json, false);
-  }
+export function PostUserRequestToJSON(json: any): PostUserRequest {
+    return PostUserRequestToJSONTyped(json, false);
+}
 
-  export function PostUserRequestToJSONTyped(value?: PostUserRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostUserRequestToJSONTyped(value?: PostUserRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

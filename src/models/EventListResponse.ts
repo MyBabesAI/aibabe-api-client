@@ -57,11 +57,11 @@ export function EventListResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function EventListResponseToJSON(json: any): EventListResponse {
-      return EventListResponseToJSONTyped(json, false);
-  }
+export function EventListResponseToJSON(json: any): EventListResponse {
+    return EventListResponseToJSONTyped(json, false);
+}
 
-  export function EventListResponseToJSONTyped(value?: EventListResponse | null, ignoreDiscriminator: boolean = false): any {
+export function EventListResponseToJSONTyped(value?: EventListResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

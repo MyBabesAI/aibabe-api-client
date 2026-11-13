@@ -18,9 +18,11 @@ import type { AdminAgeEstimation } from './AdminAgeEstimation';
 import type { StoryCoverOrientation } from './StoryCoverOrientation';
 import type { VideoGenerationStatus } from './VideoGenerationStatus';
 import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
+import type { CastMember } from './CastMember';
 import type { ChatbotPreview } from './ChatbotPreview';
 import type { StoryPlayState } from './StoryPlayState';
 import type { StoryChatDifficulty } from './StoryChatDifficulty';
+import type { ImageToVideoModel } from './ImageToVideoModel';
 import type { StoryRating } from './StoryRating';
 /**
  *
@@ -132,6 +134,18 @@ export interface GetGalleryResponseItemsInner {
     ageEstimation?: AdminAgeEstimation;
     /**
      *
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    moderationCharged?: boolean;
+    /**
+     *
+     * @type {Array<CastMember>}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    characters?: Array<CastMember>;
+    /**
+     *
      * @type {string}
      * @memberof GetGalleryResponseItemsInner
      */
@@ -142,6 +156,18 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     originalImageUrl: string;
+    /**
+     *
+     * @type {ImageToVideoModel}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    model?: ImageToVideoModel;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    hasRecipe?: boolean;
     /**
      *
      * @type {string}

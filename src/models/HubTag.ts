@@ -95,11 +95,11 @@ export function HubTagFromJSONTyped(json: any, ignoreDiscriminator: boolean): Hu
     };
 }
 
-  export function HubTagToJSON(json: any): HubTag {
-      return HubTagToJSONTyped(json, false);
-  }
+export function HubTagToJSON(json: any): HubTag {
+    return HubTagToJSONTyped(json, false);
+}
 
-  export function HubTagToJSONTyped(value?: HubTag | null, ignoreDiscriminator: boolean = false): any {
+export function HubTagToJSONTyped(value?: HubTag | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

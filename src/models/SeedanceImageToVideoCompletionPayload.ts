@@ -98,11 +98,11 @@ export function SeedanceImageToVideoCompletionPayloadFromJSONTyped(json: any, ig
     };
 }
 
-  export function SeedanceImageToVideoCompletionPayloadToJSON(json: any): SeedanceImageToVideoCompletionPayload {
-      return SeedanceImageToVideoCompletionPayloadToJSONTyped(json, false);
-  }
+export function SeedanceImageToVideoCompletionPayloadToJSON(json: any): SeedanceImageToVideoCompletionPayload {
+    return SeedanceImageToVideoCompletionPayloadToJSONTyped(json, false);
+}
 
-  export function SeedanceImageToVideoCompletionPayloadToJSONTyped(value?: SeedanceImageToVideoCompletionPayload | null, ignoreDiscriminator: boolean = false): any {
+export function SeedanceImageToVideoCompletionPayloadToJSONTyped(value?: SeedanceImageToVideoCompletionPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

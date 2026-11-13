@@ -21,10 +21,13 @@ exports.GetCustomChatbotResponseToJSONTyped = GetCustomChatbotResponseToJSONType
 const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
 const ChatbotCreatedOrigin_1 = require("./ChatbotCreatedOrigin");
 const BlacklistCard_1 = require("./BlacklistCard");
+const ArtStyle_1 = require("./ArtStyle");
 const ChatbotPreview_1 = require("./ChatbotPreview");
 const PostDetailsWithDate_1 = require("./PostDetailsWithDate");
 const ContentType_1 = require("./ContentType");
 const TagData_1 = require("./TagData");
+const Gender_1 = require("./Gender");
+const SexualOrientation_1 = require("./SexualOrientation");
 /**
  * Check if a given object implements the GetCustomChatbotResponse interface.
  */
@@ -65,6 +68,11 @@ function GetCustomChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'coverContentType': json['cover_content_type'] == null ? undefined : (0, ContentType_1.ContentTypeFromJSON)(json['cover_content_type']),
         'fullBio': json['full_bio'],
         'characterAge': json['character_age'],
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
+        'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
+        'gender': json['gender'] == null ? undefined : (0, Gender_1.GenderFromJSON)(json['gender']),
+        'sexualOrientation': json['sexual_orientation'] == null ? undefined : (0, SexualOrientation_1.SexualOrientationFromJSON)(json['sexual_orientation']),
         'tags': (json['tags'].map(TagData_1.TagDataFromJSON)),
         'chatCount': json['chat_count'],
         'createdFrom': (0, ChatbotCreatedOrigin_1.ChatbotCreatedOriginFromJSON)(json['created_from']),
@@ -93,6 +101,11 @@ function GetCustomChatbotResponseToJSONTyped(value, ignoreDiscriminator = false)
         'cover_content_type': (0, ContentType_1.ContentTypeToJSON)(value['coverContentType']),
         'full_bio': value['fullBio'],
         'character_age': value['characterAge'],
+        'character_style': value['characterStyle'],
+        'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
+        'next_gen': value['nextGen'],
+        'gender': (0, Gender_1.GenderToJSON)(value['gender']),
+        'sexual_orientation': (0, SexualOrientation_1.SexualOrientationToJSON)(value['sexualOrientation']),
         'tags': (value['tags'].map(TagData_1.TagDataToJSON)),
         'chat_count': value['chatCount'],
         'created_from': (0, ChatbotCreatedOrigin_1.ChatbotCreatedOriginToJSON)(value['createdFrom']),

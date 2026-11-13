@@ -49,11 +49,11 @@ export function TrackConversionEventResponseFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function TrackConversionEventResponseToJSON(json: any): TrackConversionEventResponse {
-      return TrackConversionEventResponseToJSONTyped(json, false);
-  }
+export function TrackConversionEventResponseToJSON(json: any): TrackConversionEventResponse {
+    return TrackConversionEventResponseToJSONTyped(json, false);
+}
 
-  export function TrackConversionEventResponseToJSONTyped(value?: TrackConversionEventResponse | null, ignoreDiscriminator: boolean = false): any {
+export function TrackConversionEventResponseToJSONTyped(value?: TrackConversionEventResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

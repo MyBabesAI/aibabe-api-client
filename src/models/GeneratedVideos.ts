@@ -41,6 +41,13 @@ import {
     PostDetailsToJSON,
     PostDetailsToJSONTyped,
 } from './PostDetails';
+import type { ImageToVideoModel } from './ImageToVideoModel';
+import {
+    ImageToVideoModelFromJSON,
+    ImageToVideoModelFromJSONTyped,
+    ImageToVideoModelToJSON,
+    ImageToVideoModelToJSONTyped,
+} from './ImageToVideoModel';
 import type { VideoGenerationStatus } from './VideoGenerationStatus';
 import {
     VideoGenerationStatusFromJSON,
@@ -157,6 +164,18 @@ export interface GeneratedVideos {
      * @memberof GeneratedVideos
      */
     originalImageUrl: string | null;
+    /**
+     * 
+     * @type {ImageToVideoModel}
+     * @memberof GeneratedVideos
+     */
+    model?: ImageToVideoModel | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GeneratedVideos
+     */
+    hasRecipe?: boolean;
 }
 
 
@@ -215,14 +234,16 @@ export function GeneratedVideosFromJSONTyped(json: any, ignoreDiscriminator: boo
         'height': json['height'] == null ? undefined : json['height'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
+        'model': json['model'] == null ? undefined : ImageToVideoModelFromJSON(json['model']),
+        'hasRecipe': json['has_recipe'] == null ? undefined : json['has_recipe'],
     };
 }
 
-  export function GeneratedVideosToJSON(json: any): GeneratedVideos {
-      return GeneratedVideosToJSONTyped(json, false);
-  }
+export function GeneratedVideosToJSON(json: any): GeneratedVideos {
+    return GeneratedVideosToJSONTyped(json, false);
+}
 
-  export function GeneratedVideosToJSONTyped(value?: GeneratedVideos | null, ignoreDiscriminator: boolean = false): any {
+export function GeneratedVideosToJSONTyped(value?: GeneratedVideos | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -246,6 +267,8 @@ export function GeneratedVideosFromJSONTyped(json: any, ignoreDiscriminator: boo
         'height': value['height'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
+        'model': ImageToVideoModelToJSON(value['model']),
+        'has_recipe': value['hasRecipe'],
     };
 }
 

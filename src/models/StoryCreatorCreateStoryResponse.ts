@@ -102,11 +102,11 @@ export function StoryCreatorCreateStoryResponseFromJSONTyped(json: any, ignoreDi
     };
 }
 
-  export function StoryCreatorCreateStoryResponseToJSON(json: any): StoryCreatorCreateStoryResponse {
-      return StoryCreatorCreateStoryResponseToJSONTyped(json, false);
-  }
+export function StoryCreatorCreateStoryResponseToJSON(json: any): StoryCreatorCreateStoryResponse {
+    return StoryCreatorCreateStoryResponseToJSONTyped(json, false);
+}
 
-  export function StoryCreatorCreateStoryResponseToJSONTyped(value?: StoryCreatorCreateStoryResponse | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorCreateStoryResponseToJSONTyped(value?: StoryCreatorCreateStoryResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

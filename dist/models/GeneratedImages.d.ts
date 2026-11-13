@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow';
+import type { CastMember } from './CastMember';
 import type { BlacklistCard } from './BlacklistCard';
 import type { ArtStyle } from './ArtStyle';
 import type { ChatbotPreview } from './ChatbotPreview';
@@ -124,6 +125,18 @@ export interface GeneratedImages {
      * @memberof GeneratedImages
      */
     ageEstimation?: AdminAgeEstimation | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GeneratedImages
+     */
+    moderationCharged?: boolean | null;
+    /**
+     *
+     * @type {Array<CastMember>}
+     * @memberof GeneratedImages
+     */
+    characters?: Array<CastMember>;
 }
 /**
  * @export

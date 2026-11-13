@@ -19,7 +19,9 @@ exports.ImageToVideoRequestFromJSON = ImageToVideoRequestFromJSON;
 exports.ImageToVideoRequestFromJSONTyped = ImageToVideoRequestFromJSONTyped;
 exports.ImageToVideoRequestToJSON = ImageToVideoRequestToJSON;
 exports.ImageToVideoRequestToJSONTyped = ImageToVideoRequestToJSONTyped;
+const VideoReferenceImage_1 = require("./VideoReferenceImage");
 const VideoShot_1 = require("./VideoShot");
+const BlueprintRef_1 = require("./BlueprintRef");
 const VideoAspectRatio_1 = require("./VideoAspectRatio");
 const VideoLoraName_1 = require("./VideoLoraName");
 /**
@@ -83,6 +85,10 @@ function ImageToVideoRequestFromJSONTyped(json, ignoreDiscriminator) {
         'requestId': json['request_id'],
         'chatbotId': json['chatbot_id'],
         'inputImageId': json['input_image_id'],
+        'inputImageIds': json['input_image_ids'] == null ? undefined : json['input_image_ids'],
+        'inputImageRoles': json['input_image_roles'] == null ? undefined : (json['input_image_roles'].map(VideoReferenceImage_1.VideoReferenceImageFromJSON)),
+        'mentions': json['mentions'] == null ? undefined : (json['mentions'].map(BlueprintRef_1.BlueprintRefFromJSON)),
+        'withPersona': json['with_persona'] == null ? undefined : json['with_persona'],
         'resolution': json['resolution'],
         'loras': json['loras'] == null ? undefined : (json['loras'].map(VideoLoraName_1.VideoLoraNameFromJSON)),
         'negativePrompt': json['negative_prompt'] == null ? undefined : json['negative_prompt'],
@@ -111,6 +117,10 @@ function ImageToVideoRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'request_id': value['requestId'],
         'chatbot_id': value['chatbotId'],
         'input_image_id': value['inputImageId'],
+        'input_image_ids': value['inputImageIds'],
+        'input_image_roles': value['inputImageRoles'] == null ? undefined : (value['inputImageRoles'].map(VideoReferenceImage_1.VideoReferenceImageToJSON)),
+        'mentions': value['mentions'] == null ? undefined : (value['mentions'].map(BlueprintRef_1.BlueprintRefToJSON)),
+        'with_persona': value['withPersona'],
         'resolution': value['resolution'],
         'loras': value['loras'] == null ? undefined : (value['loras'].map(VideoLoraName_1.VideoLoraNameToJSON)),
         'negative_prompt': value['negativePrompt'],

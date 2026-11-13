@@ -49,6 +49,12 @@ export interface CharacterAboutPageReview {
     greetings?: AvatarRequiredField | null;
     /**
      *
+     * @type {AvatarOptionalField}
+     * @memberof CharacterAboutPageReview
+     */
+    alternativeGreetings?: AvatarOptionalField | null;
+    /**
+     *
      * @type {AvatarRequiredField}
      * @memberof CharacterAboutPageReview
      */

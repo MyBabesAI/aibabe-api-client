@@ -57,11 +57,11 @@ export function VideoShotFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     };
 }
 
-  export function VideoShotToJSON(json: any): VideoShot {
-      return VideoShotToJSONTyped(json, false);
-  }
+export function VideoShotToJSON(json: any): VideoShot {
+    return VideoShotToJSONTyped(json, false);
+}
 
-  export function VideoShotToJSONTyped(value?: VideoShot | null, ignoreDiscriminator: boolean = false): any {
+export function VideoShotToJSONTyped(value?: VideoShot | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

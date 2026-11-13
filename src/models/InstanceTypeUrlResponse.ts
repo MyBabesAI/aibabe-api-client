@@ -82,11 +82,11 @@ export function InstanceTypeUrlResponseFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function InstanceTypeUrlResponseToJSON(json: any): InstanceTypeUrlResponse {
-      return InstanceTypeUrlResponseToJSONTyped(json, false);
-  }
+export function InstanceTypeUrlResponseToJSON(json: any): InstanceTypeUrlResponse {
+    return InstanceTypeUrlResponseToJSONTyped(json, false);
+}
 
-  export function InstanceTypeUrlResponseToJSONTyped(value?: InstanceTypeUrlResponse | null, ignoreDiscriminator: boolean = false): any {
+export function InstanceTypeUrlResponseToJSONTyped(value?: InstanceTypeUrlResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -141,11 +141,11 @@ export function EventResultNotificationFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function EventResultNotificationToJSON(json: any): EventResultNotification {
-      return EventResultNotificationToJSONTyped(json, false);
-  }
+export function EventResultNotificationToJSON(json: any): EventResultNotification {
+    return EventResultNotificationToJSONTyped(json, false);
+}
 
-  export function EventResultNotificationToJSONTyped(value?: EventResultNotification | null, ignoreDiscriminator: boolean = false): any {
+export function EventResultNotificationToJSONTyped(value?: EventResultNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -78,11 +78,11 @@ export function InstanceDetailsFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-  export function InstanceDetailsToJSON(json: any): InstanceDetails {
-      return InstanceDetailsToJSONTyped(json, false);
-  }
+export function InstanceDetailsToJSON(json: any): InstanceDetails {
+    return InstanceDetailsToJSONTyped(json, false);
+}
 
-  export function InstanceDetailsToJSONTyped(value?: InstanceDetails | null, ignoreDiscriminator: boolean = false): any {
+export function InstanceDetailsToJSONTyped(value?: InstanceDetails | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

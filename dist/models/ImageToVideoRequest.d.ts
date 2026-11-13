@@ -9,7 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { VideoReferenceImage } from './VideoReferenceImage';
 import type { VideoShot } from './VideoShot';
+import type { BlueprintRef } from './BlueprintRef';
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import type { VideoLoraName } from './VideoLoraName';
 /**
@@ -60,6 +62,30 @@ export interface ImageToVideoRequest {
      * @memberof ImageToVideoRequest
      */
     inputImageId: string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof ImageToVideoRequest
+     */
+    inputImageIds?: Array<string> | null;
+    /**
+     *
+     * @type {Array<VideoReferenceImage>}
+     * @memberof ImageToVideoRequest
+     */
+    inputImageRoles?: Array<VideoReferenceImage> | null;
+    /**
+     *
+     * @type {Array<BlueprintRef>}
+     * @memberof ImageToVideoRequest
+     */
+    mentions?: Array<BlueprintRef>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ImageToVideoRequest
+     */
+    withPersona?: boolean;
     /**
      *
      * @type {string}

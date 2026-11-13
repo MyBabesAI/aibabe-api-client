@@ -90,6 +90,13 @@ import {
     PublicUserPreviewWithFollowToJSON,
     PublicUserPreviewWithFollowToJSONTyped,
 } from './PublicUserPreviewWithFollow';
+import type { CastMember } from './CastMember';
+import {
+    CastMemberFromJSON,
+    CastMemberFromJSONTyped,
+    CastMemberToJSON,
+    CastMemberToJSONTyped,
+} from './CastMember';
 import type { ChatbotPreview } from './ChatbotPreview';
 import {
     ChatbotPreviewFromJSON,
@@ -118,6 +125,13 @@ import {
     StoryChatDifficultyToJSON,
     StoryChatDifficultyToJSONTyped,
 } from './StoryChatDifficulty';
+import type { ImageToVideoModel } from './ImageToVideoModel';
+import {
+    ImageToVideoModelFromJSON,
+    ImageToVideoModelFromJSONTyped,
+    ImageToVideoModelToJSON,
+    ImageToVideoModelToJSONTyped,
+} from './ImageToVideoModel';
 import type { StoryRating } from './StoryRating';
 import {
     StoryRatingFromJSON,
@@ -236,6 +250,18 @@ export interface GetGalleryResponseItemsInner {
     ageEstimation?: AdminAgeEstimation;
     /**
      * 
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    moderationCharged?: boolean;
+    /**
+     * 
+     * @type {Array<CastMember>}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    characters?: Array<CastMember>;
+    /**
+     * 
      * @type {string}
      * @memberof GetGalleryResponseItemsInner
      */
@@ -246,6 +272,18 @@ export interface GetGalleryResponseItemsInner {
      * @memberof GetGalleryResponseItemsInner
      */
     originalImageUrl: string;
+    /**
+     * 
+     * @type {ImageToVideoModel}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    model?: ImageToVideoModel;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetGalleryResponseItemsInner
+     */
+    hasRecipe?: boolean;
     /**
      * 
      * @type {string}
@@ -393,8 +431,12 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
+        'moderationCharged': json['moderation_charged'] == null ? undefined : json['moderation_charged'],
+        'characters': json['characters'] == null ? undefined : ((json['characters'] as Array<any>).map(CastMemberFromJSON)),
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
+        'model': json['model'] == null ? undefined : ImageToVideoModelFromJSON(json['model']),
+        'hasRecipe': json['has_recipe'] == null ? undefined : json['has_recipe'],
         'title': json['title'],
         'description': json['description'] == null ? undefined : json['description'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
@@ -412,11 +454,11 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function GetGalleryResponseItemsInnerToJSON(json: any): GetGalleryResponseItemsInner {
-      return GetGalleryResponseItemsInnerToJSONTyped(json, false);
-  }
+export function GetGalleryResponseItemsInnerToJSON(json: any): GetGalleryResponseItemsInner {
+    return GetGalleryResponseItemsInnerToJSONTyped(json, false);
+}
 
-  export function GetGalleryResponseItemsInnerToJSONTyped(value?: GetGalleryResponseItemsInner | null, ignoreDiscriminator: boolean = false): any {
+export function GetGalleryResponseItemsInnerToJSONTyped(value?: GetGalleryResponseItemsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -440,8 +482,12 @@ export function GetGalleryResponseItemsInnerFromJSONTyped(json: any, ignoreDiscr
         'width': value['width'],
         'height': value['height'],
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
+        'moderation_charged': value['moderationCharged'],
+        'characters': value['characters'] == null ? undefined : ((value['characters'] as Array<any>).map(CastMemberToJSON)),
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
+        'model': ImageToVideoModelToJSON(value['model']),
+        'has_recipe': value['hasRecipe'],
         'title': value['title'],
         'description': value['description'],
         'cover_image': value['coverImage'],

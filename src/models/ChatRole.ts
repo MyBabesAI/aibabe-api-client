@@ -19,7 +19,8 @@
  */
 export const ChatRole = {
     User: 'user',
-    Assistant: 'assistant'
+    Assistant: 'assistant',
+    Narrator: 'narrator'
 } as const;
 export type ChatRole = typeof ChatRole[keyof typeof ChatRole];
 

@@ -49,11 +49,11 @@ export function TextToSpeechEnhanceRequestFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function TextToSpeechEnhanceRequestToJSON(json: any): TextToSpeechEnhanceRequest {
-      return TextToSpeechEnhanceRequestToJSONTyped(json, false);
-  }
+export function TextToSpeechEnhanceRequestToJSON(json: any): TextToSpeechEnhanceRequest {
+    return TextToSpeechEnhanceRequestToJSONTyped(json, false);
+}
 
-  export function TextToSpeechEnhanceRequestToJSONTyped(value?: TextToSpeechEnhanceRequest | null, ignoreDiscriminator: boolean = false): any {
+export function TextToSpeechEnhanceRequestToJSONTyped(value?: TextToSpeechEnhanceRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

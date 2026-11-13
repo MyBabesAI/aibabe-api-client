@@ -83,6 +83,12 @@ export interface GetIdentityChatbotResponse {
      * @memberof GetIdentityChatbotResponse
      */
     greetings: string | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof GetIdentityChatbotResponse
+     */
+    alternativeGreetings?: Array<string>;
 }
 
 
@@ -117,14 +123,15 @@ export function GetIdentityChatbotResponseFromJSONTyped(json: any, ignoreDiscrim
         'furryVisualType': json['furry_visual_type'] == null ? undefined : FurryVisualTypeFromJSON(json['furry_visual_type']),
         'bio': json['bio'],
         'greetings': json['greetings'],
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : json['alternative_greetings'],
     };
 }
 
-  export function GetIdentityChatbotResponseToJSON(json: any): GetIdentityChatbotResponse {
-      return GetIdentityChatbotResponseToJSONTyped(json, false);
-  }
+export function GetIdentityChatbotResponseToJSON(json: any): GetIdentityChatbotResponse {
+    return GetIdentityChatbotResponseToJSONTyped(json, false);
+}
 
-  export function GetIdentityChatbotResponseToJSONTyped(value?: GetIdentityChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetIdentityChatbotResponseToJSONTyped(value?: GetIdentityChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -138,6 +145,7 @@ export function GetIdentityChatbotResponseFromJSONTyped(json: any, ignoreDiscrim
         'furry_visual_type': FurryVisualTypeToJSON(value['furryVisualType']),
         'bio': value['bio'],
         'greetings': value['greetings'],
+        'alternative_greetings': value['alternativeGreetings'],
     };
 }
 

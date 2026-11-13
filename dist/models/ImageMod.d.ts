@@ -34,6 +34,12 @@ export interface ImageMod {
      * @memberof ImageMod
      */
     lora: LoraName;
+    /**
+     *
+     * @type {string}
+     * @memberof ImageMod
+     */
+    stripUrl?: string | null;
 }
 /**
  * Check if a given object implements the ImageMod interface.

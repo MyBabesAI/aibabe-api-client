@@ -81,11 +81,11 @@ export function PostLiveRoleplayResponseFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function PostLiveRoleplayResponseToJSON(json: any): PostLiveRoleplayResponse {
-      return PostLiveRoleplayResponseToJSONTyped(json, false);
-  }
+export function PostLiveRoleplayResponseToJSON(json: any): PostLiveRoleplayResponse {
+    return PostLiveRoleplayResponseToJSONTyped(json, false);
+}
 
-  export function PostLiveRoleplayResponseToJSONTyped(value?: PostLiveRoleplayResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostLiveRoleplayResponseToJSONTyped(value?: PostLiveRoleplayResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

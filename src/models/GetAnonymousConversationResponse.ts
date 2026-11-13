@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ScenarioChatInfo } from './ScenarioChatInfo';
+import {
+    ScenarioChatInfoFromJSON,
+    ScenarioChatInfoFromJSONTyped,
+    ScenarioChatInfoToJSON,
+    ScenarioChatInfoToJSONTyped,
+} from './ScenarioChatInfo';
 import type { ChatbotInfo } from './ChatbotInfo';
 import {
     ChatbotInfoFromJSON,
@@ -20,6 +27,13 @@ import {
     ChatbotInfoToJSON,
     ChatbotInfoToJSONTyped,
 } from './ChatbotInfo';
+import type { ChatSceneDetails } from './ChatSceneDetails';
+import {
+    ChatSceneDetailsFromJSON,
+    ChatSceneDetailsFromJSONTyped,
+    ChatSceneDetailsToJSON,
+    ChatSceneDetailsToJSONTyped,
+} from './ChatSceneDetails';
 import type { PostDetails } from './PostDetails';
 import {
     PostDetailsFromJSON,
@@ -27,13 +41,13 @@ import {
     PostDetailsToJSON,
     PostDetailsToJSONTyped,
 } from './PostDetails';
-import type { ChatAdminDetails } from './ChatAdminDetails';
+import type { ConversationParticipant } from './ConversationParticipant';
 import {
-    ChatAdminDetailsFromJSON,
-    ChatAdminDetailsFromJSONTyped,
-    ChatAdminDetailsToJSON,
-    ChatAdminDetailsToJSONTyped,
-} from './ChatAdminDetails';
+    ConversationParticipantFromJSON,
+    ConversationParticipantFromJSONTyped,
+    ConversationParticipantToJSON,
+    ConversationParticipantToJSONTyped,
+} from './ConversationParticipant';
 import type { ChatMessageDetail } from './ChatMessageDetail';
 import {
     ChatMessageDetailFromJSON,
@@ -99,10 +113,64 @@ export interface GetAnonymousConversationResponse {
     paginationToken?: string | null;
     /**
      * 
-     * @type {ChatAdminDetails}
+     * @type {ChatSceneDetails}
      * @memberof GetAnonymousConversationResponse
      */
-    admin?: ChatAdminDetails | null;
+    scene?: ChatSceneDetails | null;
+    /**
+     * 
+     * @type {Array<ConversationParticipant>}
+     * @memberof GetAnonymousConversationResponse
+     */
+    participants?: Array<ConversationParticipant>;
+    /**
+     * 
+     * @type {ScenarioChatInfo}
+     * @memberof GetAnonymousConversationResponse
+     */
+    scenario?: ScenarioChatInfo | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetAnonymousConversationResponse
+     */
+    title?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetAnonymousConversationResponse
+     */
+    parentConversationId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetAnonymousConversationResponse
+     */
+    rootConversationId?: string | null;
+    /**
+     * 
+     * @type {Date}
+     * @memberof GetAnonymousConversationResponse
+     */
+    forkPointAt?: Date | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetAnonymousConversationResponse
+     */
+    personaEstablished?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetAnonymousConversationResponse
+     */
+    personaDeleted?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetAnonymousConversationResponse
+     */
+    lockedByPlan?: boolean;
     /**
      * 
      * @type {string}
@@ -142,16 +210,25 @@ export function GetAnonymousConversationResponseFromJSONTyped(json: any, ignoreD
         'conversationId': json['conversation_id'],
         'postDetails': PostDetailsFromJSON(json['post_details']),
         'paginationToken': json['pagination_token'] == null ? undefined : json['pagination_token'],
-        'admin': json['admin'] == null ? undefined : ChatAdminDetailsFromJSON(json['admin']),
+        'scene': json['scene'] == null ? undefined : ChatSceneDetailsFromJSON(json['scene']),
+        'participants': json['participants'] == null ? undefined : ((json['participants'] as Array<any>).map(ConversationParticipantFromJSON)),
+        'scenario': json['scenario'] == null ? undefined : ScenarioChatInfoFromJSON(json['scenario']),
+        'title': json['title'] == null ? undefined : json['title'],
+        'parentConversationId': json['parent_conversation_id'] == null ? undefined : json['parent_conversation_id'],
+        'rootConversationId': json['root_conversation_id'] == null ? undefined : json['root_conversation_id'],
+        'forkPointAt': json['fork_point_at'] == null ? undefined : (new Date(json['fork_point_at'])),
+        'personaEstablished': json['persona_established'] == null ? undefined : json['persona_established'],
+        'personaDeleted': json['persona_deleted'] == null ? undefined : json['persona_deleted'],
+        'lockedByPlan': json['locked_by_plan'] == null ? undefined : json['locked_by_plan'],
         'recipientId': json['recipient_id'],
     };
 }
 
-  export function GetAnonymousConversationResponseToJSON(json: any): GetAnonymousConversationResponse {
-      return GetAnonymousConversationResponseToJSONTyped(json, false);
-  }
+export function GetAnonymousConversationResponseToJSON(json: any): GetAnonymousConversationResponse {
+    return GetAnonymousConversationResponseToJSONTyped(json, false);
+}
 
-  export function GetAnonymousConversationResponseToJSONTyped(value?: GetAnonymousConversationResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetAnonymousConversationResponseToJSONTyped(value?: GetAnonymousConversationResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -165,7 +242,16 @@ export function GetAnonymousConversationResponseFromJSONTyped(json: any, ignoreD
         'conversation_id': value['conversationId'],
         'post_details': PostDetailsToJSON(value['postDetails']),
         'pagination_token': value['paginationToken'],
-        'admin': ChatAdminDetailsToJSON(value['admin']),
+        'scene': ChatSceneDetailsToJSON(value['scene']),
+        'participants': value['participants'] == null ? undefined : ((value['participants'] as Array<any>).map(ConversationParticipantToJSON)),
+        'scenario': ScenarioChatInfoToJSON(value['scenario']),
+        'title': value['title'],
+        'parent_conversation_id': value['parentConversationId'],
+        'root_conversation_id': value['rootConversationId'],
+        'fork_point_at': value['forkPointAt'] == null ? undefined : ((value['forkPointAt'] as any).toISOString()),
+        'persona_established': value['personaEstablished'],
+        'persona_deleted': value['personaDeleted'],
+        'locked_by_plan': value['lockedByPlan'],
         'recipient_id': value['recipientId'],
     };
 }

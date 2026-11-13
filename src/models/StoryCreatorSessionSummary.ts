@@ -105,11 +105,11 @@ export function StoryCreatorSessionSummaryFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function StoryCreatorSessionSummaryToJSON(json: any): StoryCreatorSessionSummary {
-      return StoryCreatorSessionSummaryToJSONTyped(json, false);
-  }
+export function StoryCreatorSessionSummaryToJSON(json: any): StoryCreatorSessionSummary {
+    return StoryCreatorSessionSummaryToJSONTyped(json, false);
+}
 
-  export function StoryCreatorSessionSummaryToJSONTyped(value?: StoryCreatorSessionSummary | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorSessionSummaryToJSONTyped(value?: StoryCreatorSessionSummary | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

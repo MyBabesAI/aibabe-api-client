@@ -67,11 +67,11 @@ export function StoryCreatorEpisodePriceFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function StoryCreatorEpisodePriceToJSON(json: any): StoryCreatorEpisodePrice {
-      return StoryCreatorEpisodePriceToJSONTyped(json, false);
-  }
+export function StoryCreatorEpisodePriceToJSON(json: any): StoryCreatorEpisodePrice {
+    return StoryCreatorEpisodePriceToJSONTyped(json, false);
+}
 
-  export function StoryCreatorEpisodePriceToJSONTyped(value?: StoryCreatorEpisodePrice | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorEpisodePriceToJSONTyped(value?: StoryCreatorEpisodePrice | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

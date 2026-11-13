@@ -64,11 +64,11 @@ export function BadgePreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-  export function BadgePreviewToJSON(json: any): BadgePreview {
-      return BadgePreviewToJSONTyped(json, false);
-  }
+export function BadgePreviewToJSON(json: any): BadgePreview {
+    return BadgePreviewToJSONTyped(json, false);
+}
 
-  export function BadgePreviewToJSONTyped(value?: BadgePreview | null, ignoreDiscriminator: boolean = false): any {
+export function BadgePreviewToJSONTyped(value?: BadgePreview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

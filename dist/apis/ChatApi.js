@@ -54,6 +54,97 @@ const index_1 = require("../models/index");
  */
 class ChatApi extends runtime.BaseAPI {
     /**
+     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. With `chatbot_id` only that character remembers it (404 `chatbot_not_found` when she is not in the chat). Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
+     * Add Memory Entry
+     */
+    async addMemoryEntryChatConversationConversationIdMemoryPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling addMemoryEntryChatConversationConversationIdMemoryPost().');
+        }
+        if (requestParameters['putConversationMemoryEntryRequest'] == null) {
+            throw new runtime.RequiredError('putConversationMemoryEntryRequest', 'Required parameter "putConversationMemoryEntryRequest" was null or undefined when calling addMemoryEntryChatConversationConversationIdMemoryPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/memory`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PutConversationMemoryEntryRequestToJSON)(requestParameters['putConversationMemoryEntryRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationJournalResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Premium: the member writes a Memory entry of their own; it joins the current cast\'s section and is in the next reply\'s prompt. With `chatbot_id` only that character remembers it (404 `chatbot_not_found` when she is not in the chat). Moderated (400 `moderation_flagged` with the reason); 403 `memory_premium_required`. Answers the journal as it stands after the edit, like the two routes below.
+     * Add Memory Entry
+     */
+    async addMemoryEntryChatConversationConversationIdMemoryPost(requestParameters, initOverrides) {
+        const response = await this.addMemoryEntryChatConversationConversationIdMemoryPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction is stored as a narrator row of the chat (`event`), ahead of her first reply. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
+     * Add Participant
+     */
+    async addParticipantChatConversationConversationIdParticipantsPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling addParticipantChatConversationConversationIdParticipantsPost().');
+        }
+        if (requestParameters['postConversationParticipantRequest'] == null) {
+            throw new runtime.RequiredError('postConversationParticipantRequest', 'Required parameter "postConversationParticipantRequest" was null or undefined when calling addParticipantChatConversationConversationIdParticipantsPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/participants`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostConversationParticipantRequestToJSON)(requestParameters['postConversationParticipantRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostConversationParticipantResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Add one of the caller\'s own characters to the chat\'s cast.  The newcomer then writes her own first message, following `introduction` (\"She walks in as the new intern\") or the generic entrance when it is blank; it streams like any reply under the returned ids. The introduction is stored as a narrator row of the chat (`event`), ahead of her first reply. Only the chat\'s owner may add, only owned sentence-style characters can join, and the cast is capped (see GET /chat/config `cast`).
+     * Add Participant
+     */
+    async addParticipantChatConversationConversationIdParticipantsPost(requestParameters, initOverrides) {
+        const response = await this.addParticipantChatConversationConversationIdParticipantsPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Add to Memory: the marked message (with the user\'s message it answers) goes to the journal judge, which writes what is worth remembering from it into the chat\'s Memory. Answers at once; the result arrives as `chat_journal_updated` with this request id and `memory_notes` (lines added, 0 = nothing new, -1 = failed).
+     * Add To Memory
+     */
+    async addToMemoryChatConversationConversationIdMemoryMessageIdPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling addToMemoryChatConversationConversationIdMemoryMessageIdPost().');
+        }
+        if (requestParameters['messageId'] == null) {
+            throw new runtime.RequiredError('messageId', 'Required parameter "messageId" was null or undefined when calling addToMemoryChatConversationConversationIdMemoryMessageIdPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/memory/{message_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"message_id"}}`, encodeURIComponent(String(requestParameters['messageId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostConversationMemoryResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Add to Memory: the marked message (with the user\'s message it answers) goes to the journal judge, which writes what is worth remembering from it into the chat\'s Memory. Answers at once; the result arrives as `chat_journal_updated` with this request id and `memory_notes` (lines added, 0 = nothing new, -1 = failed).
+     * Add To Memory
+     */
+    async addToMemoryChatConversationConversationIdMemoryMessageIdPost(requestParameters, initOverrides) {
+        const response = await this.addToMemoryChatConversationConversationIdMemoryMessageIdPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Anonymous Chat
      */
     async anonymousChatChatAnonymousChatbotIdPostRaw(requestParameters, initOverrides) {
@@ -228,6 +319,62 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Conversation Branches
+     */
+    async conversationBranchesChatConversationConversationIdBranchesGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling conversationBranchesChatConversationConversationIdBranchesGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/branches`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationBranchesResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Conversation Branches
+     */
+    async conversationBranchesChatConversationConversationIdBranchesGet(requestParameters, initOverrides) {
+        const response = await this.conversationBranchesChatConversationConversationIdBranchesGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * Conversation By Id
+     */
+    async conversationByIdChatConversationConversationIdGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling conversationByIdChatConversationConversationIdGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
+        }
+        if (requestParameters['includeScene'] != null) {
+            queryParameters['include_scene'] = requestParameters['includeScene'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationResponseFromJSON)(jsonValue));
+    }
+    /**
+     * One conversation of the caller\'s by id (a branch reads its inherited history too), where GET /chat/{chatbot_id} resolves the latest conversation with the character.
+     * Conversation By Id
+     */
+    async conversationByIdChatConversationConversationIdGet(requestParameters, initOverrides) {
+        const response = await this.conversationByIdChatConversationConversationIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Conversation
      */
     async conversationChatChatbotIdGetRaw(requestParameters, initOverrides) {
@@ -238,8 +385,8 @@ class ChatApi extends runtime.BaseAPI {
         if (requestParameters['limit'] != null) {
             queryParameters['limit'] = requestParameters['limit'];
         }
-        if (requestParameters['includeAdmin'] != null) {
-            queryParameters['include_admin'] = requestParameters['includeAdmin'];
+        if (requestParameters['includeScene'] != null) {
+            queryParameters['include_scene'] = requestParameters['includeScene'];
         }
         const headerParameters = {};
         const response = await this.request({
@@ -255,6 +402,32 @@ class ChatApi extends runtime.BaseAPI {
      */
     async conversationChatChatbotIdGet(requestParameters, initOverrides) {
         const response = await this.conversationChatChatbotIdGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * The conversation\'s state sheet (summary, surroundings, and position / clothing / relationship per person), kept by the journal judge after every turn of a sentence-style chat; `chat_journal_updated` on the websocket says when to refetch. Empty entries for chats without a journal.
+     * Conversation Journal
+     */
+    async conversationJournalChatConversationConversationIdJournalGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling conversationJournalChatConversationConversationIdJournalGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/journal`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationJournalResponseFromJSON)(jsonValue));
+    }
+    /**
+     * The conversation\'s state sheet (summary, surroundings, and position / clothing / relationship per person), kept by the journal judge after every turn of a sentence-style chat; `chat_journal_updated` on the websocket says when to refetch. Empty entries for chats without a journal.
+     * Conversation Journal
+     */
+    async conversationJournalChatConversationConversationIdJournalGet(requestParameters, initOverrides) {
+        const response = await this.conversationJournalChatConversationConversationIdJournalGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
@@ -401,6 +574,37 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Deletes the conversation with every branch under it; the root takes its whole tree (the branch list carries descendant_count for the confirmation).
+     * Delete Conversation By Id
+     */
+    async deleteConversationByIdChatConversationConversationIdDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling deleteConversationByIdChatConversationConversationIdDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Deletes the conversation with every branch under it; the root takes its whole tree (the branch list carries descendant_count for the confirmation).
+     * Delete Conversation By Id
+     */
+    async deleteConversationByIdChatConversationConversationIdDelete(requestParameters, initOverrides) {
+        const response = await this.deleteConversationByIdChatConversationConversationIdDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Play the scene again from the top: the transcript and the affection score both go.  Serves guests and signed in callers alike, each deleting only their own scene. The next message starts a new conversation on its own, so there is nothing to create afterwards. Not counted against the per-IP burst limit: that limit paces reply generation, and a restart generates nothing, so resetting a whole series episode by episode must not eat into the replies that follow.
      * Delete Live Roleplay Conversation
      */
@@ -424,6 +628,38 @@ class ChatApi extends runtime.BaseAPI {
      */
     async deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDelete(requestParameters, initOverrides) {
         await this.deleteLiveRoleplayConversationChatChatbotIdLiveRoleplayDeleteRaw(requestParameters, initOverrides);
+    }
+    /**
+     * Premium: removes one Memory entry; the characters no longer know it from the next reply on. With `chatbot_id` only that character forgets it.
+     * Delete Memory Entry
+     */
+    async deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDelete().');
+        }
+        if (requestParameters['entryId'] == null) {
+            throw new runtime.RequiredError('entryId', 'Required parameter "entryId" was null or undefined when calling deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDelete().');
+        }
+        const queryParameters = {};
+        if (requestParameters['chatbotId'] != null) {
+            queryParameters['chatbot_id'] = requestParameters['chatbotId'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/memory/entries/{entry_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"entry_id"}}`, encodeURIComponent(String(requestParameters['entryId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationJournalResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Premium: removes one Memory entry; the characters no longer know it from the next reply on. With `chatbot_id` only that character forgets it.
+     * Delete Memory Entry
+     */
+    async deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDelete(requestParameters, initOverrides) {
+        const response = await this.deleteMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdDeleteRaw(requestParameters, initOverrides);
+        return await response.value();
     }
     /**
      * Delete Message
@@ -504,7 +740,7 @@ class ChatApi extends runtime.BaseAPI {
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.TokenPricingConfigResponseFromJSON)(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChatConfigResponseFromJSON)(jsonValue));
     }
     /**
      * Get Chat Config
@@ -556,6 +792,40 @@ class ChatApi extends runtime.BaseAPI {
      */
     async getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGet(requestParameters, initOverrides) {
         const response = await this.getLiveRoleplayHistoryChatChatbotIdLiveRoleplayGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.  The leaving is a turn like an invite: whoever stays reacts to it, at least one character, streaming under the returned ids. It counts as a message; when the allowance is used up the row is still written and nobody reacts.
+     * Leave Participant
+     */
+    async leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePost().');
+        }
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePost().');
+        }
+        if (requestParameters['postConversationParticipantLeaveRequest'] == null) {
+            throw new runtime.RequiredError('postConversationParticipantLeaveRequest', 'Required parameter "postConversationParticipantLeaveRequest" was null or undefined when calling leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/participants/{chatbot_id}/leave`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostConversationParticipantLeaveRequestToJSON)(requestParameters['postConversationParticipantLeaveRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostConversationParticipantLeaveResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Remove a character from the cast. Her messages stay and a narrator row tells the chat how she left (`farewell`, or the generic line); the host can leave too as long as one member remains.  The leaving is a turn like an invite: whoever stays reacts to it, at least one character, streaming under the returned ids. It counts as a message; when the allowance is used up the row is still written and nobody reacts.
+     * Leave Participant
+     */
+    async leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePost(requestParameters, initOverrides) {
+        const response = await this.leaveParticipantChatConversationConversationIdParticipantsChatbotIdLeavePostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
@@ -675,6 +945,7 @@ class ChatApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * Back to the greeting with the host alone (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     async resetConversationChatConversationConversationIdResetPostRaw(requestParameters, initOverrides) {
@@ -697,11 +968,71 @@ class ChatApi extends runtime.BaseAPI {
         }
     }
     /**
+     * Back to the greeting with the host alone (a scenario\'s cast stays). A branch becomes a conversation of its own; a conversation with branches answers 409 conversation_has_branches (delete them first).
      * Reset Conversation
      */
     async resetConversationChatConversationConversationIdResetPost(requestParameters, initOverrides) {
         const response = await this.resetConversationChatConversationConversationIdResetPostRaw(requestParameters, initOverrides);
         return await response.value();
+    }
+    /**
+     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the cast the chat was started with (the reader\'s own characters keep their slots); the request\'s replacements override slots like when starting from the post.
+     * Restart Scenario
+     */
+    async restartScenarioChatConversationConversationIdScenarioRestartPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling restartScenarioChatConversationConversationIdScenarioRestartPost().');
+        }
+        if (requestParameters['scenarioStartRequest'] == null) {
+            throw new runtime.RequiredError('scenarioStartRequest', 'Required parameter "scenarioStartRequest" was null or undefined when calling restartScenarioChatConversationConversationIdScenarioRestartPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/scenario/restart`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.ScenarioStartRequestToJSON)(requestParameters['scenarioStartRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ScenarioStartResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Start the scenario chat over on its newest version: the conversation and its messages are wiped and a fresh one is created with the cast the chat was started with (the reader\'s own characters keep their slots); the request\'s replacements override slots like when starting from the post.
+     * Restart Scenario
+     */
+    async restartScenarioChatConversationConversationIdScenarioRestartPost(requestParameters, initOverrides) {
+        const response = await this.restartScenarioChatConversationConversationIdScenarioRestartPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Rewind Conversation
+     */
+    async rewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete().');
+        }
+        if (requestParameters['messageId'] == null) {
+            throw new runtime.RequiredError('messageId', 'Required parameter "messageId" was null or undefined when calling rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/messages/after/{message_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"message_id"}}`, encodeURIComponent(String(requestParameters['messageId']))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.VoidApiResponse(response);
+    }
+    /**
+     * Return the chat to a message: every row after it is deleted, the picture and clip rows too. The pictures and clips themselves stay, in the gallery and the chat\'s media tabs. 404 for a message of another conversation (an inherited row), 409 while a branch reads the removed turns as its history.
+     * Rewind Conversation
+     */
+    async rewindConversationChatConversationConversationIdMessagesAfterMessageIdDelete(requestParameters, initOverrides) {
+        await this.rewindConversationChatConversationConversationIdMessagesAfterMessageIdDeleteRaw(requestParameters, initOverrides);
     }
     /**
      * Import the funnel\'s scripted opening for a signed-in user, idempotently.  The reels funnel plays its script client-side and gates sending on login, so the client calls this right after login and before the first real message. If the user already has a conversation with this chatbot it is returned untouched (seeded=false) - retries and returning users are both no-ops, never conflicts.
@@ -732,6 +1063,104 @@ class ChatApi extends runtime.BaseAPI {
      */
     async seedConversationChatChatbotIdSeedPut(requestParameters, initOverrides) {
         const response = await this.seedConversationChatChatbotIdSeedPutRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Play the chat as another of the caller\'s personas.  Until a message was sent as a persona in this chat (`persona_established` false) the persona is simply set: no row, no turn, `switched` false. After that the change is part of the story: a narrator row (`narration`, or \"@Old left and @New appeared.\") and a turn in which at least one character reacts, streaming under the returned ids like after an invite. A chat whose persona was deleted (`persona_deleted`) may instead pass `quiet`: it carries on as the new persona with no row and no turn, and the deleted persona\'s messages read as the new one. 409 `conversation_persona_same` when nothing would change.
+     * Switch Persona
+     */
+    async switchPersonaChatConversationConversationIdPersonaPostRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling switchPersonaChatConversationConversationIdPersonaPost().');
+        }
+        if (requestParameters['postConversationPersonaRequest'] == null) {
+            throw new runtime.RequiredError('postConversationPersonaRequest', 'Required parameter "postConversationPersonaRequest" was null or undefined when calling switchPersonaChatConversationConversationIdPersonaPost().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/persona`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PostConversationPersonaRequestToJSON)(requestParameters['postConversationPersonaRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostConversationPersonaResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Play the chat as another of the caller\'s personas.  Until a message was sent as a persona in this chat (`persona_established` false) the persona is simply set: no row, no turn, `switched` false. After that the change is part of the story: a narrator row (`narration`, or \"@Old left and @New appeared.\") and a turn in which at least one character reacts, streaming under the returned ids like after an invite. A chat whose persona was deleted (`persona_deleted`) may instead pass `quiet`: it carries on as the new persona with no row and no turn, and the deleted persona\'s messages read as the new one. 409 `conversation_persona_same` when nothing would change.
+     * Switch Persona
+     */
+    async switchPersonaChatConversationConversationIdPersonaPost(requestParameters, initOverrides) {
+        const response = await this.switchPersonaChatConversationConversationIdPersonaPostRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Update Conversation
+     */
+    async updateConversationChatConversationConversationIdPatchRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling updateConversationChatConversationConversationIdPatch().');
+        }
+        if (requestParameters['patchConversationRequest'] == null) {
+            throw new runtime.RequiredError('patchConversationRequest', 'Required parameter "patchConversationRequest" was null or undefined when calling updateConversationChatConversationConversationIdPatch().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PatchConversationRequestToJSON)(requestParameters['patchConversationRequest']),
+        }, initOverrides);
+        if (this.isJsonMime(response.headers.get('content-type'))) {
+            return new runtime.JSONApiResponse(response);
+        }
+        else {
+            return new runtime.TextApiResponse(response);
+        }
+    }
+    /**
+     * Renames the conversation (a branch\'s name in the branch switcher); an empty title clears it.
+     * Update Conversation
+     */
+    async updateConversationChatConversationConversationIdPatch(requestParameters, initOverrides) {
+        const response = await this.updateConversationChatConversationConversationIdPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Rewrites the scene block (Location / Position / Clothing, people as @Name) the chat\'s pictures start from; the next reply\'s keeper replaces it again as usual.
+     * Update Conversation Scene
+     */
+    async updateConversationSceneChatConversationConversationIdScenePatchRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling updateConversationSceneChatConversationConversationIdScenePatch().');
+        }
+        if (requestParameters['patchConversationSceneRequest'] == null) {
+            throw new runtime.RequiredError('patchConversationSceneRequest', 'Required parameter "patchConversationSceneRequest" was null or undefined when calling updateConversationSceneChatConversationConversationIdScenePatch().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/scene`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PatchConversationSceneRequestToJSON)(requestParameters['patchConversationSceneRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ChatSceneDetailsFromJSON)(jsonValue));
+    }
+    /**
+     * Rewrites the scene block (Location / Position / Clothing, people as @Name) the chat\'s pictures start from; the next reply\'s keeper replaces it again as usual.
+     * Update Conversation Scene
+     */
+    async updateConversationSceneChatConversationConversationIdScenePatch(requestParameters, initOverrides) {
+        const response = await this.updateConversationSceneChatConversationConversationIdScenePatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
@@ -797,6 +1226,40 @@ class ChatApi extends runtime.BaseAPI {
      */
     async updateImageModerationPromptChatImageModerationPromptPatch(requestParameters, initOverrides) {
         const response = await this.updateImageModerationPromptChatImageModerationPromptPatchRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * Premium: rewrites one Memory entry (`id` of a history entry of the journal). Without `chatbot_id` the entry itself, in place; with it only that character\'s Memory: an entry others remember too stays as it was for them and she gets the new text as a version of her own. 404 `memory_entry_not_found` when the judge summarised or rewrote it meanwhile, or the character does not remember it: reload the journal.
+     * Update Memory Entry
+     */
+    async updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRaw(requestParameters, initOverrides) {
+        if (requestParameters['conversationId'] == null) {
+            throw new runtime.RequiredError('conversationId', 'Required parameter "conversationId" was null or undefined when calling updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatch().');
+        }
+        if (requestParameters['entryId'] == null) {
+            throw new runtime.RequiredError('entryId', 'Required parameter "entryId" was null or undefined when calling updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatch().');
+        }
+        if (requestParameters['putConversationMemoryEntryRequest'] == null) {
+            throw new runtime.RequiredError('putConversationMemoryEntryRequest', 'Required parameter "putConversationMemoryEntryRequest" was null or undefined when calling updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatch().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        headerParameters['Content-Type'] = 'application/json';
+        const response = await this.request({
+            path: `/chat/conversation/{conversation_id}/memory/entries/{entry_id}`.replace(`{${"conversation_id"}}`, encodeURIComponent(String(requestParameters['conversationId']))).replace(`{${"entry_id"}}`, encodeURIComponent(String(requestParameters['entryId']))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: (0, index_1.PutConversationMemoryEntryRequestToJSON)(requestParameters['putConversationMemoryEntryRequest']),
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetConversationJournalResponseFromJSON)(jsonValue));
+    }
+    /**
+     * Premium: rewrites one Memory entry (`id` of a history entry of the journal). Without `chatbot_id` the entry itself, in place; with it only that character\'s Memory: an entry others remember too stays as it was for them and she gets the new text as a version of her own. 404 `memory_entry_not_found` when the judge summarised or rewrote it meanwhile, or the character does not remember it: reload the journal.
+     * Update Memory Entry
+     */
+    async updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatch(requestParameters, initOverrides) {
+        const response = await this.updateMemoryEntryChatConversationConversationIdMemoryEntriesEntryIdPatchRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

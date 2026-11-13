@@ -52,7 +52,8 @@ export const ArtStyle = {
     Truelookv2: 'truelookv2',
     Afterglowfuta: 'afterglowfuta',
     Anthrokrea: 'anthrokrea',
-    Furrykrea: 'furrykrea'
+    Furrykrea: 'furrykrea',
+    Mybaddies: 'mybaddies'
 } as const;
 export type ArtStyle = typeof ArtStyle[keyof typeof ArtStyle];
 

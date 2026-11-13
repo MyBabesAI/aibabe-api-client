@@ -111,11 +111,11 @@ export function StoryCreatorActorFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function StoryCreatorActorToJSON(json: any): StoryCreatorActor {
-      return StoryCreatorActorToJSONTyped(json, false);
-  }
+export function StoryCreatorActorToJSON(json: any): StoryCreatorActor {
+    return StoryCreatorActorToJSONTyped(json, false);
+}
 
-  export function StoryCreatorActorToJSONTyped(value?: StoryCreatorActor | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorActorToJSONTyped(value?: StoryCreatorActor | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -43,8 +43,10 @@ function PostAdvancedCharacterBuilderSuggestionPayloadFromJSONTyped(json, ignore
         'furryVisualType': json['furry_visual_type'] == null ? undefined : (0, FurryVisualType_1.FurryVisualTypeFromJSON)(json['furry_visual_type']),
         'currentBio': json['current_bio'] == null ? undefined : json['current_bio'],
         'currentGreetings': json['current_greetings'] == null ? undefined : json['current_greetings'],
+        'currentAlternativeGreetings': json['current_alternative_greetings'] == null ? undefined : json['current_alternative_greetings'],
         'currentStory': json['current_story'] == null ? undefined : json['current_story'],
         'currentExampleConversation': json['current_example_conversation'] == null ? undefined : json['current_example_conversation'],
+        'currentLookDescription': json['current_look_description'] == null ? undefined : json['current_look_description'],
     };
 }
 function PostAdvancedCharacterBuilderSuggestionPayloadToJSON(json) {
@@ -61,8 +63,10 @@ function PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped(value, ignoreD
         'furry_visual_type': (0, FurryVisualType_1.FurryVisualTypeToJSON)(value['furryVisualType']),
         'current_bio': value['currentBio'],
         'current_greetings': value['currentGreetings'],
+        'current_alternative_greetings': value['currentAlternativeGreetings'],
         'current_story': value['currentStory'],
         'current_example_conversation': value['currentExampleConversation'],
+        'current_look_description': value['currentLookDescription'],
     };
 }
 //# sourceMappingURL=PostAdvancedCharacterBuilderSuggestionPayload.js.map

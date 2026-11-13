@@ -73,11 +73,11 @@ export function AdminFaceBoxFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-  export function AdminFaceBoxToJSON(json: any): AdminFaceBox {
-      return AdminFaceBoxToJSONTyped(json, false);
-  }
+export function AdminFaceBoxToJSON(json: any): AdminFaceBox {
+    return AdminFaceBoxToJSONTyped(json, false);
+}
 
-  export function AdminFaceBoxToJSONTyped(value?: AdminFaceBox | null, ignoreDiscriminator: boolean = false): any {
+export function AdminFaceBoxToJSONTyped(value?: AdminFaceBox | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

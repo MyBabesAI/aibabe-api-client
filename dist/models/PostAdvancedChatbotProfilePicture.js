@@ -42,6 +42,8 @@ function PostAdvancedChatbotProfilePictureFromJSONTyped(json, ignoreDiscriminato
         'description': json['description'],
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'mods': json['mods'] == null ? undefined : (json['mods'].map(LoraName_1.LoraNameFromJSON)),
+        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'age': json['age'] == null ? undefined : json['age'],
         'furryVisualType': json['furry_visual_type'] == null ? undefined : (0, FurryVisualType_1.FurryVisualTypeFromJSON)(json['furry_visual_type']),
     };
 }
@@ -56,6 +58,8 @@ function PostAdvancedChatbotProfilePictureToJSONTyped(value, ignoreDiscriminator
         'description': value['description'],
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'mods': value['mods'] == null ? undefined : (value['mods'].map(LoraName_1.LoraNameToJSON)),
+        'lora_weights': value['loraWeights'],
+        'age': value['age'],
         'furry_visual_type': (0, FurryVisualType_1.FurryVisualTypeToJSON)(value['furryVisualType']),
     };
 }

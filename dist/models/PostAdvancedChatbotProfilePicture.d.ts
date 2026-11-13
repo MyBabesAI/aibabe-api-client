@@ -38,6 +38,20 @@ export interface PostAdvancedChatbotProfilePicture {
     mods?: Array<LoraName>;
     /**
      *
+     * @type {{ [key: string]: number; }}
+     * @memberof PostAdvancedChatbotProfilePicture
+     */
+    loraWeights?: {
+        [key: string]: number;
+    } | null;
+    /**
+     *
+     * @type {number}
+     * @memberof PostAdvancedChatbotProfilePicture
+     */
+    age?: number | null;
+    /**
+     *
      * @type {FurryVisualType}
      * @memberof PostAdvancedChatbotProfilePicture
      */

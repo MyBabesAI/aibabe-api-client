@@ -117,11 +117,11 @@ export function PatchCustomChatbotRequestFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function PatchCustomChatbotRequestToJSON(json: any): PatchCustomChatbotRequest {
-      return PatchCustomChatbotRequestToJSONTyped(json, false);
-  }
+export function PatchCustomChatbotRequestToJSON(json: any): PatchCustomChatbotRequest {
+    return PatchCustomChatbotRequestToJSONTyped(json, false);
+}
 
-  export function PatchCustomChatbotRequestToJSONTyped(value?: PatchCustomChatbotRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PatchCustomChatbotRequestToJSONTyped(value?: PatchCustomChatbotRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -117,11 +117,11 @@ export function ExploreOffsetSearchRequestFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function ExploreOffsetSearchRequestToJSON(json: any): ExploreOffsetSearchRequest {
-      return ExploreOffsetSearchRequestToJSONTyped(json, false);
-  }
+export function ExploreOffsetSearchRequestToJSON(json: any): ExploreOffsetSearchRequest {
+    return ExploreOffsetSearchRequestToJSONTyped(json, false);
+}
 
-  export function ExploreOffsetSearchRequestToJSONTyped(value?: ExploreOffsetSearchRequest | null, ignoreDiscriminator: boolean = false): any {
+export function ExploreOffsetSearchRequestToJSONTyped(value?: ExploreOffsetSearchRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

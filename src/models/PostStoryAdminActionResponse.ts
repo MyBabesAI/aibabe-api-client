@@ -81,11 +81,11 @@ export function PostStoryAdminActionResponseFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function PostStoryAdminActionResponseToJSON(json: any): PostStoryAdminActionResponse {
-      return PostStoryAdminActionResponseToJSONTyped(json, false);
-  }
+export function PostStoryAdminActionResponseToJSON(json: any): PostStoryAdminActionResponse {
+    return PostStoryAdminActionResponseToJSONTyped(json, false);
+}
 
-  export function PostStoryAdminActionResponseToJSONTyped(value?: PostStoryAdminActionResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostStoryAdminActionResponseToJSONTyped(value?: PostStoryAdminActionResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

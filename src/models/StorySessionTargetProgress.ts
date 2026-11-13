@@ -130,11 +130,11 @@ export function StorySessionTargetProgressFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function StorySessionTargetProgressToJSON(json: any): StorySessionTargetProgress {
-      return StorySessionTargetProgressToJSONTyped(json, false);
-  }
+export function StorySessionTargetProgressToJSON(json: any): StorySessionTargetProgress {
+    return StorySessionTargetProgressToJSONTyped(json, false);
+}
 
-  export function StorySessionTargetProgressToJSONTyped(value?: StorySessionTargetProgress | null, ignoreDiscriminator: boolean = false): any {
+export function StorySessionTargetProgressToJSONTyped(value?: StorySessionTargetProgress | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

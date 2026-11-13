@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 /**
- * How one poster / avatar generation was paid: a free daily slot or tokens.
+ * How a poster / avatar generation was paid: free daily slots, tokens, or (a reference sheet) both.
  * @export
  * @interface CreatorGenerationCharge
  */
@@ -39,6 +39,12 @@ export interface CreatorGenerationCharge {
      * @memberof CreatorGenerationCharge
      */
     resetAt?: number | null;
+    /**
+     *
+     * @type {number}
+     * @memberof CreatorGenerationCharge
+     */
+    count?: number;
 }
 /**
  * Check if a given object implements the CreatorGenerationCharge interface.

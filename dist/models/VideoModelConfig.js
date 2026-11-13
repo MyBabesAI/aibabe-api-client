@@ -86,6 +86,8 @@ function VideoModelConfigFromJSONTyped(json, ignoreDiscriminator) {
         'modsAvailable': json['mods_available'],
         'templatesAvailable': json['templates_available'],
         'multishotSupported': json['multishot_supported'],
+        'trendsSupported': json['trends_supported'] == null ? undefined : json['trends_supported'],
+        'maxInputImages': json['max_input_images'] == null ? undefined : json['max_input_images'],
         'aspectRatios': (json['aspect_ratios'].map(VideoAspectRatio_1.VideoAspectRatioFromJSON)),
     };
 }
@@ -109,6 +111,8 @@ function VideoModelConfigToJSONTyped(value, ignoreDiscriminator = false) {
         'mods_available': value['modsAvailable'],
         'templates_available': value['templatesAvailable'],
         'multishot_supported': value['multishotSupported'],
+        'trends_supported': value['trendsSupported'],
+        'max_input_images': value['maxInputImages'],
         'aspect_ratios': (value['aspectRatios'].map(VideoAspectRatio_1.VideoAspectRatioToJSON)),
     };
 }

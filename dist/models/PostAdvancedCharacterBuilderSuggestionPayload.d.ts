@@ -56,6 +56,12 @@ export interface PostAdvancedCharacterBuilderSuggestionPayload {
     currentGreetings?: string | null;
     /**
      *
+     * @type {Array<string>}
+     * @memberof PostAdvancedCharacterBuilderSuggestionPayload
+     */
+    currentAlternativeGreetings?: Array<string> | null;
+    /**
+     *
      * @type {string}
      * @memberof PostAdvancedCharacterBuilderSuggestionPayload
      */
@@ -66,6 +72,12 @@ export interface PostAdvancedCharacterBuilderSuggestionPayload {
      * @memberof PostAdvancedCharacterBuilderSuggestionPayload
      */
     currentExampleConversation?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PostAdvancedCharacterBuilderSuggestionPayload
+     */
+    currentLookDescription?: string | null;
 }
 /**
  * Check if a given object implements the PostAdvancedCharacterBuilderSuggestionPayload interface.

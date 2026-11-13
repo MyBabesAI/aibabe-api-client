@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { EyeColor } from './EyeColor';
+import {
+    EyeColorFromJSON,
+    EyeColorFromJSONTyped,
+    EyeColorToJSON,
+    EyeColorToJSONTyped,
+} from './EyeColor';
 import type { BeardStyle } from './BeardStyle';
 import {
     BeardStyleFromJSON,
@@ -20,6 +27,13 @@ import {
     BeardStyleToJSON,
     BeardStyleToJSONTyped,
 } from './BeardStyle';
+import type { ButtSize } from './ButtSize';
+import {
+    ButtSizeFromJSON,
+    ButtSizeFromJSONTyped,
+    ButtSizeToJSON,
+    ButtSizeToJSONTyped,
+} from './ButtSize';
 import type { BodyType } from './BodyType';
 import {
     BodyTypeFromJSON,
@@ -27,6 +41,13 @@ import {
     BodyTypeToJSON,
     BodyTypeToJSONTyped,
 } from './BodyType';
+import type { BreastSize } from './BreastSize';
+import {
+    BreastSizeFromJSON,
+    BreastSizeFromJSONTyped,
+    BreastSizeToJSON,
+    BreastSizeToJSONTyped,
+} from './BreastSize';
 import type { HairColor } from './HairColor';
 import {
     HairColorFromJSON,
@@ -59,7 +80,7 @@ export interface AvatarLooksV2 {
      * @type {HairColor}
      * @memberof AvatarLooksV2
      */
-    hairColor: HairColor;
+    hairColor?: HairColor;
     /**
      * 
      * @type {HairStyle}
@@ -72,6 +93,24 @@ export interface AvatarLooksV2 {
      * @memberof AvatarLooksV2
      */
     beard?: BeardStyle | null;
+    /**
+     * 
+     * @type {BreastSize}
+     * @memberof AvatarLooksV2
+     */
+    breastSize?: BreastSize | null;
+    /**
+     * 
+     * @type {ButtSize}
+     * @memberof AvatarLooksV2
+     */
+    buttSize?: ButtSize | null;
+    /**
+     * 
+     * @type {EyeColor}
+     * @memberof AvatarLooksV2
+     */
+    eyeColor?: EyeColor | null;
 }
 
 
@@ -81,7 +120,6 @@ export interface AvatarLooksV2 {
  */
 export function instanceOfAvatarLooksV2(value: object): value is AvatarLooksV2 {
     if (!('bodyType' in value) || value['bodyType'] === undefined) return false;
-    if (!('hairColor' in value) || value['hairColor'] === undefined) return false;
     return true;
 }
 
@@ -96,17 +134,20 @@ export function AvatarLooksV2FromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'bodyType': BodyTypeFromJSON(json['body_type']),
-        'hairColor': HairColorFromJSON(json['hair_color']),
+        'hairColor': json['hair_color'] == null ? undefined : HairColorFromJSON(json['hair_color']),
         'hairStyle': json['hair_style'] == null ? undefined : HairStyleFromJSON(json['hair_style']),
         'beard': json['beard'] == null ? undefined : BeardStyleFromJSON(json['beard']),
+        'breastSize': json['breast_size'] == null ? undefined : BreastSizeFromJSON(json['breast_size']),
+        'buttSize': json['butt_size'] == null ? undefined : ButtSizeFromJSON(json['butt_size']),
+        'eyeColor': json['eye_color'] == null ? undefined : EyeColorFromJSON(json['eye_color']),
     };
 }
 
-  export function AvatarLooksV2ToJSON(json: any): AvatarLooksV2 {
-      return AvatarLooksV2ToJSONTyped(json, false);
-  }
+export function AvatarLooksV2ToJSON(json: any): AvatarLooksV2 {
+    return AvatarLooksV2ToJSONTyped(json, false);
+}
 
-  export function AvatarLooksV2ToJSONTyped(value?: AvatarLooksV2 | null, ignoreDiscriminator: boolean = false): any {
+export function AvatarLooksV2ToJSONTyped(value?: AvatarLooksV2 | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -117,6 +158,9 @@ export function AvatarLooksV2FromJSONTyped(json: any, ignoreDiscriminator: boole
         'hair_color': HairColorToJSON(value['hairColor']),
         'hair_style': HairStyleToJSON(value['hairStyle']),
         'beard': BeardStyleToJSON(value['beard']),
+        'breast_size': BreastSizeToJSON(value['breastSize']),
+        'butt_size': ButtSizeToJSON(value['buttSize']),
+        'eye_color': EyeColorToJSON(value['eyeColor']),
     };
 }
 

@@ -44,11 +44,11 @@ export function AdminCreatePricingProductRequestSubscriptionTierFromJSONTyped(js
     return json;
 }
 
-  export function AdminCreatePricingProductRequestSubscriptionTierToJSON(json: any): AdminCreatePricingProductRequestSubscriptionTier {
-      return AdminCreatePricingProductRequestSubscriptionTierToJSONTyped(json, false);
-  }
+export function AdminCreatePricingProductRequestSubscriptionTierToJSON(json: any): AdminCreatePricingProductRequestSubscriptionTier {
+    return AdminCreatePricingProductRequestSubscriptionTierToJSONTyped(json, false);
+}
 
-  export function AdminCreatePricingProductRequestSubscriptionTierToJSONTyped(value?: AdminCreatePricingProductRequestSubscriptionTier | null, ignoreDiscriminator: boolean = false): any {
+export function AdminCreatePricingProductRequestSubscriptionTierToJSONTyped(value?: AdminCreatePricingProductRequestSubscriptionTier | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

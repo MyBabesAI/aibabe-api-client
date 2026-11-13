@@ -263,11 +263,11 @@ export function AdminCreatePricingProductRequestFromJSONTyped(json: any, ignoreD
     };
 }
 
-  export function AdminCreatePricingProductRequestToJSON(json: any): AdminCreatePricingProductRequest {
-      return AdminCreatePricingProductRequestToJSONTyped(json, false);
-  }
+export function AdminCreatePricingProductRequestToJSON(json: any): AdminCreatePricingProductRequest {
+    return AdminCreatePricingProductRequestToJSONTyped(json, false);
+}
 
-  export function AdminCreatePricingProductRequestToJSONTyped(value?: AdminCreatePricingProductRequest | null, ignoreDiscriminator: boolean = false): any {
+export function AdminCreatePricingProductRequestToJSONTyped(value?: AdminCreatePricingProductRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

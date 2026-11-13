@@ -125,11 +125,11 @@ export function BadgeAwardedNotificationFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function BadgeAwardedNotificationToJSON(json: any): BadgeAwardedNotification {
-      return BadgeAwardedNotificationToJSONTyped(json, false);
-  }
+export function BadgeAwardedNotificationToJSON(json: any): BadgeAwardedNotification {
+    return BadgeAwardedNotificationToJSONTyped(json, false);
+}
 
-  export function BadgeAwardedNotificationToJSONTyped(value?: BadgeAwardedNotification | null, ignoreDiscriminator: boolean = false): any {
+export function BadgeAwardedNotificationToJSONTyped(value?: BadgeAwardedNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ConversationListParticipant } from './ConversationListParticipant';
 /**
  *
  * @export
@@ -21,6 +22,30 @@ export interface ConversationListItem {
      * @memberof ConversationListItem
      */
     chatbotId: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    conversationId?: string | null;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    latestBranchId?: string | null;
+    /**
+     *
+     * @type {number}
+     * @memberof ConversationListItem
+     */
+    branchCount?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    title?: string | null;
     /**
      *
      * @type {string}
@@ -69,6 +94,12 @@ export interface ConversationListItem {
      * @memberof ConversationListItem
      */
     coverImage?: string | null;
+    /**
+     *
+     * @type {Array<ConversationListParticipant>}
+     * @memberof ConversationListItem
+     */
+    participants?: Array<ConversationListParticipant>;
 }
 /**
  * @export

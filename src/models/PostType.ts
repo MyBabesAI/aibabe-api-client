@@ -22,6 +22,8 @@ export const PostType = {
     Video: 'video',
     Character: 'character',
     Story: 'story',
+    Scenario: 'scenario',
+    Babes: 'babes',
     Media: 'media',
     All: 'all'
 } as const;

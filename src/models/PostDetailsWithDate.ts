@@ -73,11 +73,11 @@ export function PostDetailsWithDateFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function PostDetailsWithDateToJSON(json: any): PostDetailsWithDate {
-      return PostDetailsWithDateToJSONTyped(json, false);
-  }
+export function PostDetailsWithDateToJSON(json: any): PostDetailsWithDate {
+    return PostDetailsWithDateToJSONTyped(json, false);
+}
 
-  export function PostDetailsWithDateToJSONTyped(value?: PostDetailsWithDate | null, ignoreDiscriminator: boolean = false): any {
+export function PostDetailsWithDateToJSONTyped(value?: PostDetailsWithDate | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

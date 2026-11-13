@@ -36,11 +36,11 @@ export function Title1FromJSONTyped(json: any, ignoreDiscriminator: boolean): Ti
     return json;
 }
 
-  export function Title1ToJSON(json: any): Title1 {
-      return Title1ToJSONTyped(json, false);
-  }
+export function Title1ToJSON(json: any): Title1 {
+    return Title1ToJSONTyped(json, false);
+}
 
-  export function Title1ToJSONTyped(value?: Title1 | null, ignoreDiscriminator: boolean = false): any {
+export function Title1ToJSONTyped(value?: Title1 | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

@@ -330,11 +330,11 @@ export function StoryCreatorEpisodeFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function StoryCreatorEpisodeToJSON(json: any): StoryCreatorEpisode {
-      return StoryCreatorEpisodeToJSONTyped(json, false);
-  }
+export function StoryCreatorEpisodeToJSON(json: any): StoryCreatorEpisode {
+    return StoryCreatorEpisodeToJSONTyped(json, false);
+}
 
-  export function StoryCreatorEpisodeToJSONTyped(value?: StoryCreatorEpisode | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorEpisodeToJSONTyped(value?: StoryCreatorEpisode | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

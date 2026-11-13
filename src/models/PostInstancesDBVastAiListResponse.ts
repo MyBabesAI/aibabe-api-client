@@ -57,11 +57,11 @@ export function PostInstancesDBVastAiListResponseFromJSONTyped(json: any, ignore
     };
 }
 
-  export function PostInstancesDBVastAiListResponseToJSON(json: any): PostInstancesDBVastAiListResponse {
-      return PostInstancesDBVastAiListResponseToJSONTyped(json, false);
-  }
+export function PostInstancesDBVastAiListResponseToJSON(json: any): PostInstancesDBVastAiListResponse {
+    return PostInstancesDBVastAiListResponseToJSONTyped(json, false);
+}
 
-  export function PostInstancesDBVastAiListResponseToJSONTyped(value?: PostInstancesDBVastAiListResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostInstancesDBVastAiListResponseToJSONTyped(value?: PostInstancesDBVastAiListResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

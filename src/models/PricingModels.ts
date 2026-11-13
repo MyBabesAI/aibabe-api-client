@@ -44,11 +44,11 @@ export function PricingModelsFromJSONTyped(json: any, ignoreDiscriminator: boole
     return json;
 }
 
-  export function PricingModelsToJSON(json: any): PricingModels {
-      return PricingModelsToJSONTyped(json, false);
-  }
+export function PricingModelsToJSON(json: any): PricingModels {
+    return PricingModelsToJSONTyped(json, false);
+}
 
-  export function PricingModelsToJSONTyped(value?: PricingModels | null, ignoreDiscriminator: boolean = false): any {
+export function PricingModelsToJSONTyped(value?: PricingModels | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

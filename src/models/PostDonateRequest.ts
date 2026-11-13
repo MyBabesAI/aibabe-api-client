@@ -95,11 +95,11 @@ export function PostDonateRequestFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function PostDonateRequestToJSON(json: any): PostDonateRequest {
-      return PostDonateRequestToJSONTyped(json, false);
-  }
+export function PostDonateRequestToJSON(json: any): PostDonateRequest {
+    return PostDonateRequestToJSONTyped(json, false);
+}
 
-  export function PostDonateRequestToJSONTyped(value?: PostDonateRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostDonateRequestToJSONTyped(value?: PostDonateRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

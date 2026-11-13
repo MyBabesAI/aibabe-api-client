@@ -9,8 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CastMember } from './CastMember';
 import type { MediaOrigin } from './MediaOrigin';
 import type { AdminAgeEstimation } from './AdminAgeEstimation';
+import type { ImageLookLora } from './ImageLookLora';
 /**
  *
  * @export
@@ -53,6 +55,18 @@ export interface ImageContent {
      * @memberof ImageContent
      */
     ageEstimation?: AdminAgeEstimation | null;
+    /**
+     *
+     * @type {Array<ImageLookLora>}
+     * @memberof ImageContent
+     */
+    loras?: Array<ImageLookLora>;
+    /**
+     *
+     * @type {Array<CastMember>}
+     * @memberof ImageContent
+     */
+    characters?: Array<CastMember>;
 }
 /**
  * Check if a given object implements the ImageContent interface.

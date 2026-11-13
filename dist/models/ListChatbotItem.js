@@ -19,6 +19,7 @@ exports.ListChatbotItemFromJSONTyped = ListChatbotItemFromJSONTyped;
 exports.ListChatbotItemToJSON = ListChatbotItemToJSON;
 exports.ListChatbotItemToJSONTyped = ListChatbotItemToJSONTyped;
 const BlacklistCard_1 = require("./BlacklistCard");
+const ArtStyle_1 = require("./ArtStyle");
 const PostDetails_1 = require("./PostDetails");
 /**
  * Check if a given object implements the ListChatbotItem interface.
@@ -55,6 +56,9 @@ function ListChatbotItemFromJSONTyped(json, ignoreDiscriminator) {
         'profilePicture': json['profile_picture'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
+        'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
         'profileVideo': json['profile_video'],
         'blacklist': json['blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['blacklist']),
         'bio': json['bio'],
@@ -77,6 +81,9 @@ function ListChatbotItemToJSONTyped(value, ignoreDiscriminator = false) {
         'profile_picture': value['profilePicture'],
         'created_at': ((value['createdAt']).toISOString()),
         'updated_at': ((value['updatedAt']).toISOString()),
+        'character_style': value['characterStyle'],
+        'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
+        'next_gen': value['nextGen'],
         'profile_video': value['profileVideo'],
         'blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['blacklist']),
         'bio': value['bio'],

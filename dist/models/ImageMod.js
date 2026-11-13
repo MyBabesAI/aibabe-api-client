@@ -42,6 +42,7 @@ function ImageModFromJSONTyped(json, ignoreDiscriminator) {
         'name': json['name'],
         'url': json['url'],
         'lora': (0, LoraName_1.LoraNameFromJSON)(json['lora']),
+        'stripUrl': json['strip_url'] == null ? undefined : json['strip_url'],
     };
 }
 function ImageModToJSON(json) {
@@ -55,6 +56,7 @@ function ImageModToJSONTyped(value, ignoreDiscriminator = false) {
         'name': value['name'],
         'url': value['url'],
         'lora': (0, LoraName_1.LoraNameToJSON)(value['lora']),
+        'strip_url': value['stripUrl'],
     };
 }
 //# sourceMappingURL=ImageMod.js.map

@@ -18,9 +18,11 @@ exports.GetConversationResponseFromJSON = GetConversationResponseFromJSON;
 exports.GetConversationResponseFromJSONTyped = GetConversationResponseFromJSONTyped;
 exports.GetConversationResponseToJSON = GetConversationResponseToJSON;
 exports.GetConversationResponseToJSONTyped = GetConversationResponseToJSONTyped;
+const ScenarioChatInfo_1 = require("./ScenarioChatInfo");
 const ChatbotInfo_1 = require("./ChatbotInfo");
+const ChatSceneDetails_1 = require("./ChatSceneDetails");
 const PostDetails_1 = require("./PostDetails");
-const ChatAdminDetails_1 = require("./ChatAdminDetails");
+const ConversationParticipant_1 = require("./ConversationParticipant");
 const ChatMessageDetail_1 = require("./ChatMessageDetail");
 const ConversationSettings_1 = require("./ConversationSettings");
 /**
@@ -56,7 +58,16 @@ function GetConversationResponseFromJSONTyped(json, ignoreDiscriminator) {
         'conversationId': json['conversation_id'],
         'postDetails': (0, PostDetails_1.PostDetailsFromJSON)(json['post_details']),
         'paginationToken': json['pagination_token'] == null ? undefined : json['pagination_token'],
-        'admin': json['admin'] == null ? undefined : (0, ChatAdminDetails_1.ChatAdminDetailsFromJSON)(json['admin']),
+        'scene': json['scene'] == null ? undefined : (0, ChatSceneDetails_1.ChatSceneDetailsFromJSON)(json['scene']),
+        'participants': json['participants'] == null ? undefined : (json['participants'].map(ConversationParticipant_1.ConversationParticipantFromJSON)),
+        'scenario': json['scenario'] == null ? undefined : (0, ScenarioChatInfo_1.ScenarioChatInfoFromJSON)(json['scenario']),
+        'title': json['title'] == null ? undefined : json['title'],
+        'parentConversationId': json['parent_conversation_id'] == null ? undefined : json['parent_conversation_id'],
+        'rootConversationId': json['root_conversation_id'] == null ? undefined : json['root_conversation_id'],
+        'forkPointAt': json['fork_point_at'] == null ? undefined : (new Date(json['fork_point_at'])),
+        'personaEstablished': json['persona_established'] == null ? undefined : json['persona_established'],
+        'personaDeleted': json['persona_deleted'] == null ? undefined : json['persona_deleted'],
+        'lockedByPlan': json['locked_by_plan'] == null ? undefined : json['locked_by_plan'],
     };
 }
 function GetConversationResponseToJSON(json) {
@@ -74,7 +85,16 @@ function GetConversationResponseToJSONTyped(value, ignoreDiscriminator = false) 
         'conversation_id': value['conversationId'],
         'post_details': (0, PostDetails_1.PostDetailsToJSON)(value['postDetails']),
         'pagination_token': value['paginationToken'],
-        'admin': (0, ChatAdminDetails_1.ChatAdminDetailsToJSON)(value['admin']),
+        'scene': (0, ChatSceneDetails_1.ChatSceneDetailsToJSON)(value['scene']),
+        'participants': value['participants'] == null ? undefined : (value['participants'].map(ConversationParticipant_1.ConversationParticipantToJSON)),
+        'scenario': (0, ScenarioChatInfo_1.ScenarioChatInfoToJSON)(value['scenario']),
+        'title': value['title'],
+        'parent_conversation_id': value['parentConversationId'],
+        'root_conversation_id': value['rootConversationId'],
+        'fork_point_at': value['forkPointAt'] == null ? undefined : (value['forkPointAt'].toISOString()),
+        'persona_established': value['personaEstablished'],
+        'persona_deleted': value['personaDeleted'],
+        'locked_by_plan': value['lockedByPlan'],
     };
 }
 //# sourceMappingURL=GetConversationResponse.js.map

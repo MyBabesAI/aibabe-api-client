@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ImageView } from './ImageView';
+import {
+    ImageViewFromJSON,
+    ImageViewFromJSONTyped,
+    ImageViewToJSON,
+    ImageViewToJSONTyped,
+} from './ImageView';
 import type { ChatMode } from './ChatMode';
 import {
     ChatModeFromJSON,
@@ -65,10 +72,22 @@ export interface PostChatRequest {
     onlyImage?: boolean;
     /**
      * 
+     * @type {ImageView}
+     * @memberof PostChatRequest
+     */
+    imageView?: ImageView | null;
+    /**
+     * 
      * @type {ChatMode}
      * @memberof PostChatRequest
      */
     chatMode?: ChatMode | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostChatRequest
+     */
+    forkFromMessageId?: string | null;
 }
 
 
@@ -100,15 +119,17 @@ export function PostChatRequestFromJSONTyped(json: any, ignoreDiscriminator: boo
         'debug': json['debug'] == null ? undefined : json['debug'],
         'conversationId': json['conversation_id'],
         'onlyImage': json['only_image'] == null ? undefined : json['only_image'],
+        'imageView': json['image_view'] == null ? undefined : ImageViewFromJSON(json['image_view']),
         'chatMode': json['chat_mode'] == null ? undefined : ChatModeFromJSON(json['chat_mode']),
+        'forkFromMessageId': json['fork_from_message_id'] == null ? undefined : json['fork_from_message_id'],
     };
 }
 
-  export function PostChatRequestToJSON(json: any): PostChatRequest {
-      return PostChatRequestToJSONTyped(json, false);
-  }
+export function PostChatRequestToJSON(json: any): PostChatRequest {
+    return PostChatRequestToJSONTyped(json, false);
+}
 
-  export function PostChatRequestToJSONTyped(value?: PostChatRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostChatRequestToJSONTyped(value?: PostChatRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -121,7 +142,9 @@ export function PostChatRequestFromJSONTyped(json: any, ignoreDiscriminator: boo
         'debug': value['debug'],
         'conversation_id': value['conversationId'],
         'only_image': value['onlyImage'],
+        'image_view': ImageViewToJSON(value['imageView']),
         'chat_mode': ChatModeToJSON(value['chatMode']),
+        'fork_from_message_id': value['forkFromMessageId'],
     };
 }
 

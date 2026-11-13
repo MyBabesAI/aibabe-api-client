@@ -247,11 +247,11 @@ export function GalleryStoryFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-  export function GalleryStoryToJSON(json: any): GalleryStory {
-      return GalleryStoryToJSONTyped(json, false);
-  }
+export function GalleryStoryToJSON(json: any): GalleryStory {
+    return GalleryStoryToJSONTyped(json, false);
+}
 
-  export function GalleryStoryToJSONTyped(value?: GalleryStory | null, ignoreDiscriminator: boolean = false): any {
+export function GalleryStoryToJSONTyped(value?: GalleryStory | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

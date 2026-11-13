@@ -57,11 +57,11 @@ export function PromotionListResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function PromotionListResponseToJSON(json: any): PromotionListResponse {
-      return PromotionListResponseToJSONTyped(json, false);
-  }
+export function PromotionListResponseToJSON(json: any): PromotionListResponse {
+    return PromotionListResponseToJSONTyped(json, false);
+}
 
-  export function PromotionListResponseToJSONTyped(value?: PromotionListResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PromotionListResponseToJSONTyped(value?: PromotionListResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

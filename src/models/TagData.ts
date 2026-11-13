@@ -67,11 +67,11 @@ export function TagDataFromJSONTyped(json: any, ignoreDiscriminator: boolean): T
     };
 }
 
-  export function TagDataToJSON(json: any): TagData {
-      return TagDataToJSONTyped(json, false);
-  }
+export function TagDataToJSON(json: any): TagData {
+    return TagDataToJSONTyped(json, false);
+}
 
-  export function TagDataToJSONTyped(value?: TagData | null, ignoreDiscriminator: boolean = false): any {
+export function TagDataToJSONTyped(value?: TagData | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
