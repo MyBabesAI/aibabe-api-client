@@ -163,12 +163,12 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      */
     listMentionsBlueprintsMentionsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetMentionsResponse>;
     /**
-     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A picture uses the member\'s persona of its own style family, whichever \"@Me\" was sent.
+     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A persona of either style joins any picture: it is drawn from its words in the picture\'s style.
      * List Personas
      */
     listPersonasBlueprintsPersonasGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Persona>>>;
     /**
-     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A picture uses the member\'s persona of its own style family, whichever \"@Me\" was sent.
+     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A persona of either style joins any picture: it is drawn from its words in the picture\'s style.
      * List Personas
      */
     listPersonasBlueprintsPersonasGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Persona>>;

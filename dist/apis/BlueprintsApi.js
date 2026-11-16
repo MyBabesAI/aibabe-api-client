@@ -317,7 +317,7 @@ class BlueprintsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A picture uses the member\'s persona of its own style family, whichever \"@Me\" was sent.
+     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A persona of either style joins any picture: it is drawn from its words in the picture\'s style.
      * List Personas
      */
     async listPersonasBlueprintsPersonasGetRaw(initOverrides) {
@@ -332,7 +332,7 @@ class BlueprintsApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(index_1.PersonaFromJSON));
     }
     /**
-     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A picture uses the member\'s persona of its own style family, whichever \"@Me\" was sent.
+     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A persona of either style joins any picture: it is drawn from its words in the picture\'s style.
      * List Personas
      */
     async listPersonasBlueprintsPersonasGet(initOverrides) {

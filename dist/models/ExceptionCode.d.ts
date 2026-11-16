@@ -372,7 +372,6 @@ export declare const ExceptionCode: {
     readonly ConversationLockedByPlan: "conversation_locked_by_plan";
     readonly PersonaSwitchRequiresUltra: "persona_switch_requires_ultra";
     readonly GroupChatMixedStyles: "group_chat_mixed_styles";
-    readonly PersonaStyleMismatch: "persona_style_mismatch";
     readonly PersonaRequiresPremium: "persona_requires_premium";
     readonly TrendCharactersRequirePremium: "trend_characters_require_premium";
     readonly TrendCharactersRequireUltra: "trend_characters_require_ultra";
@@ -391,7 +390,6 @@ export declare const ExceptionCode: {
     readonly PersonaLimitReached: "persona_limit_reached";
     readonly PersonaStyleTaken: "persona_style_taken";
     readonly PersonaSourceNotOwn: "persona_source_not_own";
-    readonly PersonaLastNotDeletable: "persona_last_not_deletable";
     readonly ConversationPersonaSame: "conversation_persona_same";
     readonly ConversationPersonaDeleted: "conversation_persona_deleted";
     readonly ConversationPersonaQuietNotAllowed: "conversation_persona_quiet_not_allowed";
