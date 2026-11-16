@@ -483,6 +483,7 @@ class SubscriptionsApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * One run at a time: a call while another run (the worker\'s hourly one, or a retried trigger) holds the lock answers 409 instead of charging the same candidates a minute behind it.
      * Reconcile Billing
      */
     async reconcileBillingSubscriptionReconcileBillingPostRaw(requestParameters, initOverrides) {
@@ -500,6 +501,7 @@ class SubscriptionsApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.BillingReconciliationResponseFromJSON)(jsonValue));
     }
     /**
+     * One run at a time: a call while another run (the worker\'s hourly one, or a retried trigger) holds the lock answers 409 instead of charging the same candidates a minute behind it.
      * Reconcile Billing
      */
     async reconcileBillingSubscriptionReconcileBillingPost(requestParameters = {}, initOverrides) {

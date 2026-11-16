@@ -25,8 +25,10 @@ export declare const LLM: {
     readonly MimoPro: "mimo_pro";
     readonly DeepseekPro: "deepseek_pro";
     readonly MinimaxM3: "minimax_m3";
-    readonly Glm53: "glm_53";
     readonly KimiK26: "kimi_k26";
+    readonly Mimo: "mimo";
+    readonly Minimax: "minimax";
+    readonly Glm53: "glm_53";
     readonly LemonadePremium: "lemonade_premium";
     readonly GemmaPremium: "gemma_premium";
     readonly Shieldstral: "shieldstral";

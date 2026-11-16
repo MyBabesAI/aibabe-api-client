@@ -19,6 +19,7 @@ export declare const FeatureFlagName: {
     readonly Qwen3: "QWEN3";
     readonly Rapyd: "RAPYD";
     readonly ChatTester: "CHAT_TESTER";
+    readonly MimoDefaultChat: "MIMO_DEFAULT_CHAT";
 };
 export type FeatureFlagName = typeof FeatureFlagName[keyof typeof FeatureFlagName];
 export declare function instanceOfFeatureFlagName(value: any): boolean;

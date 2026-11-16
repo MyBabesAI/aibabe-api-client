@@ -22,7 +22,8 @@ export const FeatureFlagName = {
     MarketingBanners: 'MARKETING_BANNERS',
     Qwen3: 'QWEN3',
     Rapyd: 'RAPYD',
-    ChatTester: 'CHAT_TESTER'
+    ChatTester: 'CHAT_TESTER',
+    MimoDefaultChat: 'MIMO_DEFAULT_CHAT'
 } as const;
 export type FeatureFlagName = typeof FeatureFlagName[keyof typeof FeatureFlagName];
 
