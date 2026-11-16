@@ -388,11 +388,10 @@ export declare const ExceptionCode: {
     readonly PersonaNotFound: "persona_not_found";
     readonly PersonaExists: "persona_exists";
     readonly PersonaLimitReached: "persona_limit_reached";
-    readonly PersonaStyleTaken: "persona_style_taken";
     readonly PersonaSourceNotOwn: "persona_source_not_own";
     readonly ConversationPersonaSame: "conversation_persona_same";
-    readonly ConversationPersonaDeleted: "conversation_persona_deleted";
     readonly ConversationPersonaQuietNotAllowed: "conversation_persona_quiet_not_allowed";
+    readonly ConversationPersonaNameOverused: "conversation_persona_name_overused";
     readonly ConversationNameTaken: "conversation_name_taken";
     readonly ConversationNameRequired: "conversation_name_required";
     readonly BillingReconciliationInProgress: "billing_reconciliation_in_progress";

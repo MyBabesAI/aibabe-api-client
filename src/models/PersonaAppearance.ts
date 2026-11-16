@@ -34,13 +34,6 @@ import {
     EthnicityToJSON,
     EthnicityToJSONTyped,
 } from './Ethnicity';
-import type { ArtStyle } from './ArtStyle';
-import {
-    ArtStyleFromJSON,
-    ArtStyleFromJSONTyped,
-    ArtStyleToJSON,
-    ArtStyleToJSONTyped,
-} from './ArtStyle';
 import type { FurryVisualType } from './FurryVisualType';
 import {
     FurryVisualTypeFromJSON,
@@ -76,12 +69,6 @@ import {
  * @interface PersonaAppearance
  */
 export interface PersonaAppearance {
-    /**
-     * 
-     * @type {ArtStyle}
-     * @memberof PersonaAppearance
-     */
-    artStyle: ArtStyle;
     /**
      * 
      * @type {number}
@@ -138,7 +125,6 @@ export interface PersonaAppearance {
  * Check if a given object implements the PersonaAppearance interface.
  */
 export function instanceOfPersonaAppearance(value: object): value is PersonaAppearance {
-    if (!('artStyle' in value) || value['artStyle'] === undefined) return false;
     if (!('looks' in value) || value['looks'] === undefined) return false;
     return true;
 }
@@ -153,7 +139,6 @@ export function PersonaAppearanceFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'artStyle': ArtStyleFromJSON(json['art_style']),
         'age': json['age'] == null ? undefined : json['age'],
         'specialFeatures': json['special_features'] == null ? undefined : ((json['special_features'] as Array<any>).map(SpecialFeaturesFromJSON)),
         'ethnicity': json['ethnicity'] == null ? undefined : EthnicityFromJSON(json['ethnicity']),
@@ -176,7 +161,6 @@ export function PersonaAppearanceToJSONTyped(value?: PersonaAppearance | null, i
 
     return {
         
-        'art_style': ArtStyleToJSON(value['artStyle']),
         'age': value['age'],
         'special_features': value['specialFeatures'] == null ? undefined : ((value['specialFeatures'] as Array<any>).map(SpecialFeaturesToJSON)),
         'ethnicity': EthnicityToJSON(value['ethnicity']),

@@ -398,11 +398,10 @@ exports.ExceptionCode = {
     PersonaNotFound: 'persona_not_found',
     PersonaExists: 'persona_exists',
     PersonaLimitReached: 'persona_limit_reached',
-    PersonaStyleTaken: 'persona_style_taken',
     PersonaSourceNotOwn: 'persona_source_not_own',
     ConversationPersonaSame: 'conversation_persona_same',
-    ConversationPersonaDeleted: 'conversation_persona_deleted',
     ConversationPersonaQuietNotAllowed: 'conversation_persona_quiet_not_allowed',
+    ConversationPersonaNameOverused: 'conversation_persona_name_overused',
     ConversationNameTaken: 'conversation_name_taken',
     ConversationNameRequired: 'conversation_name_required',
     BillingReconciliationInProgress: 'billing_reconciliation_in_progress'

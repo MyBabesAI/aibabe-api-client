@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { ArtStyle } from './ArtStyle';
-import {
-    ArtStyleFromJSON,
-    ArtStyleFromJSONTyped,
-    ArtStyleToJSON,
-    ArtStyleToJSONTyped,
-} from './ArtStyle';
 import type { Gender } from './Gender';
 import {
     GenderFromJSON,
@@ -99,12 +92,6 @@ export interface PutPersonaRequest {
     description?: string | null;
     /**
      * 
-     * @type {ArtStyle}
-     * @memberof PutPersonaRequest
-     */
-    artStyle?: ArtStyle | null;
-    /**
-     * 
      * @type {string}
      * @memberof PutPersonaRequest
      */
@@ -144,7 +131,6 @@ export function PutPersonaRequestFromJSONTyped(json: any, ignoreDiscriminator: b
         'bio': json['bio'] == null ? undefined : json['bio'],
         'appearance': json['appearance'] == null ? undefined : PersonaAppearanceFromJSON(json['appearance']),
         'description': json['description'] == null ? undefined : json['description'],
-        'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
         'portraitPictureId': json['portrait_picture_id'] == null ? undefined : json['portrait_picture_id'],
         'viewTexts': json['view_texts'] == null ? undefined : ReferenceTextsFromJSON(json['view_texts']),
     };
@@ -168,7 +154,6 @@ export function PutPersonaRequestToJSONTyped(value?: PutPersonaRequest | null, i
         'bio': value['bio'],
         'appearance': PersonaAppearanceToJSON(value['appearance']),
         'description': value['description'],
-        'art_style': ArtStyleToJSON(value['artStyle']),
         'portrait_picture_id': value['portraitPictureId'],
         'view_texts': ReferenceTextsToJSON(value['viewTexts']),
     };

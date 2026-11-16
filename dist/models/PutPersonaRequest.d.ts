@@ -9,7 +9,6 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { ArtStyle } from './ArtStyle';
 import type { Gender } from './Gender';
 import type { SexualOrientation } from './SexualOrientation';
 import type { ReferenceTexts } from './ReferenceTexts';
@@ -62,12 +61,6 @@ export interface PutPersonaRequest {
      * @memberof PutPersonaRequest
      */
     description?: string | null;
-    /**
-     *
-     * @type {ArtStyle}
-     * @memberof PutPersonaRequest
-     */
-    artStyle?: ArtStyle | null;
     /**
      *
      * @type {string}

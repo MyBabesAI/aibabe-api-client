@@ -18,7 +18,6 @@ exports.PutPersonaRequestFromJSON = PutPersonaRequestFromJSON;
 exports.PutPersonaRequestFromJSONTyped = PutPersonaRequestFromJSONTyped;
 exports.PutPersonaRequestToJSON = PutPersonaRequestToJSON;
 exports.PutPersonaRequestToJSONTyped = PutPersonaRequestToJSONTyped;
-const ArtStyle_1 = require("./ArtStyle");
 const Gender_1 = require("./Gender");
 const SexualOrientation_1 = require("./SexualOrientation");
 const ReferenceTexts_1 = require("./ReferenceTexts");
@@ -46,7 +45,6 @@ function PutPersonaRequestFromJSONTyped(json, ignoreDiscriminator) {
         'bio': json['bio'] == null ? undefined : json['bio'],
         'appearance': json['appearance'] == null ? undefined : (0, PersonaAppearance_1.PersonaAppearanceFromJSON)(json['appearance']),
         'description': json['description'] == null ? undefined : json['description'],
-        'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'portraitPictureId': json['portrait_picture_id'] == null ? undefined : json['portrait_picture_id'],
         'viewTexts': json['view_texts'] == null ? undefined : (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['view_texts']),
     };
@@ -66,7 +64,6 @@ function PutPersonaRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'bio': value['bio'],
         'appearance': (0, PersonaAppearance_1.PersonaAppearanceToJSON)(value['appearance']),
         'description': value['description'],
-        'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'portrait_picture_id': value['portraitPictureId'],
         'view_texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['viewTexts']),
     };

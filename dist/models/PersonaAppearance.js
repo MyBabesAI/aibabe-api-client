@@ -21,7 +21,6 @@ exports.PersonaAppearanceToJSONTyped = PersonaAppearanceToJSONTyped;
 const FantasyRace_1 = require("./FantasyRace");
 const SpecialFeatures_1 = require("./SpecialFeatures");
 const Ethnicity_1 = require("./Ethnicity");
-const ArtStyle_1 = require("./ArtStyle");
 const FurryVisualType_1 = require("./FurryVisualType");
 const VisualType_1 = require("./VisualType");
 const PenisSize_1 = require("./PenisSize");
@@ -30,8 +29,6 @@ const AvatarLooksV2_1 = require("./AvatarLooksV2");
  * Check if a given object implements the PersonaAppearance interface.
  */
 function instanceOfPersonaAppearance(value) {
-    if (!('artStyle' in value) || value['artStyle'] === undefined)
-        return false;
     if (!('looks' in value) || value['looks'] === undefined)
         return false;
     return true;
@@ -44,7 +41,6 @@ function PersonaAppearanceFromJSONTyped(json, ignoreDiscriminator) {
         return json;
     }
     return {
-        'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'age': json['age'] == null ? undefined : json['age'],
         'specialFeatures': json['special_features'] == null ? undefined : (json['special_features'].map(SpecialFeatures_1.SpecialFeaturesFromJSON)),
         'ethnicity': json['ethnicity'] == null ? undefined : (0, Ethnicity_1.EthnicityFromJSON)(json['ethnicity']),
@@ -63,7 +59,6 @@ function PersonaAppearanceToJSONTyped(value, ignoreDiscriminator = false) {
         return value;
     }
     return {
-        'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'age': value['age'],
         'special_features': value['specialFeatures'] == null ? undefined : (value['specialFeatures'].map(SpecialFeatures_1.SpecialFeaturesToJSON)),
         'ethnicity': (0, Ethnicity_1.EthnicityToJSON)(value['ethnicity']),

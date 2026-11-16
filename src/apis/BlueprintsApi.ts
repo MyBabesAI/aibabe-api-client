@@ -30,7 +30,6 @@ import type {
   PostReferenceImagesResponse,
   PutPersonaRequest,
   PutWardrobeRequest,
-  RestylePersonaRequest,
   UpdateElementBlueprintRequest,
   Wardrobe,
 } from '../models/index';
@@ -65,8 +64,6 @@ import {
     PutPersonaRequestToJSON,
     PutWardrobeRequestFromJSON,
     PutWardrobeRequestToJSON,
-    RestylePersonaRequestFromJSON,
-    RestylePersonaRequestToJSON,
     UpdateElementBlueprintRequestFromJSON,
     UpdateElementBlueprintRequestToJSON,
     WardrobeFromJSON,
@@ -108,7 +105,6 @@ export interface ListElementsBlueprintsElementsGetRequest {
 
 export interface PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest {
     chatbotId: string;
-    replace?: boolean;
 }
 
 export interface PostPersonaPortraitBlueprintsPersonasPersonaIdPortraitPostRequest {
@@ -123,11 +119,6 @@ export interface PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceI
 export interface PutPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePutRequest {
     personaId: string;
     putWardrobeRequest: PutWardrobeRequest;
-}
-
-export interface RestylePersonaBlueprintsPersonasPersonaIdRestylePostRequest {
-    personaId: string;
-    restylePersonaRequest: RestylePersonaRequest;
 }
 
 export interface SetDefaultPersonaBlueprintsPersonasPersonaIdDefaultPostRequest {
@@ -186,7 +177,7 @@ export class BlueprintsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Adds a persona: one realistic and one anime at most (409 persona_style_taken for a second of a family). It becomes the default only when the member had none.
+     * Adds a persona (409 persona_limit_reached with the most personas already). It becomes the default only when the member had none.
      * Create Persona
      */
     async createPersonaBlueprintsPersonasPostRaw(requestParameters: CreatePersonaBlueprintsPersonasPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>> {
@@ -215,7 +206,7 @@ export class BlueprintsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Adds a persona: one realistic and one anime at most (409 persona_style_taken for a second of a family). It becomes the default only when the member had none.
+     * Adds a persona (409 persona_limit_reached with the most personas already). It becomes the default only when the member had none.
      * Create Persona
      */
     async createPersonaBlueprintsPersonasPost(requestParameters: CreatePersonaBlueprintsPersonasPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona> {
@@ -500,7 +491,7 @@ export class BlueprintsApi extends runtime.BaseAPI {
     }
 
     /**
-     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A persona of either style joins any picture: it is drawn from its words in the picture\'s style.
+     * All the member\'s personas (\"Me\"s), `is_default` on the one \"@Me\" starts from. A persona joins any picture: it is drawn from its words in the picture\'s style.
      * List Personas
      */
     async listPersonasBlueprintsPersonasGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Persona>>> {
@@ -519,7 +510,7 @@ export class BlueprintsApi extends runtime.BaseAPI {
     }
 
     /**
-     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A persona of either style joins any picture: it is drawn from its words in the picture\'s style.
+     * All the member\'s personas (\"Me\"s), `is_default` on the one \"@Me\" starts from. A persona joins any picture: it is drawn from its words in the picture\'s style.
      * List Personas
      */
     async listPersonasBlueprintsPersonasGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Persona>> {
@@ -528,7 +519,7 @@ export class BlueprintsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as the persona of her style family (409 persona_style_taken when the member has one); replace=true makes that persona her instead: it keeps its id, so the chats played as it go on.
+     * Makes one of the member\'s own babes a persona of theirs (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_limit_reached with the most personas already.
      * Persona From Character
      */
     async personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>> {
@@ -540,10 +531,6 @@ export class BlueprintsApi extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
-
-        if (requestParameters['replace'] != null) {
-            queryParameters['replace'] = requestParameters['replace'];
-        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -558,7 +545,7 @@ export class BlueprintsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as the persona of her style family (409 persona_style_taken when the member has one); replace=true makes that persona her instead: it keeps its id, so the chats played as it go on.
+     * Makes one of the member\'s own babes a persona of theirs (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_limit_reached with the most personas already.
      * Persona From Character
      */
     async personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona> {
@@ -679,51 +666,6 @@ export class BlueprintsApi extends runtime.BaseAPI {
      */
     async putPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePut(requestParameters: PutPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Wardrobe> {
         const response = await this.putPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePutRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * A new persona with this one\'s description on another style (\"make an anime version of me\"); 409 persona_style_taken when the member already has one of that family. Render its portrait in the new style and set it with portrait_picture_id.
-     * Restyle Persona
-     */
-    async restylePersonaBlueprintsPersonasPersonaIdRestylePostRaw(requestParameters: RestylePersonaBlueprintsPersonasPersonaIdRestylePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>> {
-        if (requestParameters['personaId'] == null) {
-            throw new runtime.RequiredError(
-                'personaId',
-                'Required parameter "personaId" was null or undefined when calling restylePersonaBlueprintsPersonasPersonaIdRestylePost().'
-            );
-        }
-
-        if (requestParameters['restylePersonaRequest'] == null) {
-            throw new runtime.RequiredError(
-                'restylePersonaRequest',
-                'Required parameter "restylePersonaRequest" was null or undefined when calling restylePersonaBlueprintsPersonasPersonaIdRestylePost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/blueprints/personas/{persona_id}/restyle`.replace(`{${"persona_id"}}`, encodeURIComponent(String(requestParameters['personaId']))),
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: RestylePersonaRequestToJSON(requestParameters['restylePersonaRequest']),
-        }, initOverrides);
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => PersonaFromJSON(jsonValue));
-    }
-
-    /**
-     * A new persona with this one\'s description on another style (\"make an anime version of me\"); 409 persona_style_taken when the member already has one of that family. Render its portrait in the new style and set it with portrait_picture_id.
-     * Restyle Persona
-     */
-    async restylePersonaBlueprintsPersonasPersonaIdRestylePost(requestParameters: RestylePersonaBlueprintsPersonasPersonaIdRestylePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona> {
-        const response = await this.restylePersonaBlueprintsPersonasPersonaIdRestylePostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

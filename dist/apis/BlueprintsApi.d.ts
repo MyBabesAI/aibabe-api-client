@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { BlueprintConfigResponse, CreateElementBlueprintRequest, ElementBlueprint, ElementBlueprintKind, GetElementBlueprintsResponse, GetMentionsResponse, GetReferenceImagesResponse, Persona, PostPersonaViewTextsRequest, PostPersonaViewTextsResponse, PostReferenceImagesRequest, PostReferenceImagesResponse, PutPersonaRequest, PutWardrobeRequest, RestylePersonaRequest, UpdateElementBlueprintRequest, Wardrobe } from '../models/index';
+import type { BlueprintConfigResponse, CreateElementBlueprintRequest, ElementBlueprint, ElementBlueprintKind, GetElementBlueprintsResponse, GetMentionsResponse, GetReferenceImagesResponse, Persona, PostPersonaViewTextsRequest, PostPersonaViewTextsResponse, PostReferenceImagesRequest, PostReferenceImagesResponse, PutPersonaRequest, PutWardrobeRequest, UpdateElementBlueprintRequest, Wardrobe } from '../models/index';
 export interface CreateElementBlueprintsElementsPostRequest {
     createElementBlueprintRequest: CreateElementBlueprintRequest;
 }
@@ -38,7 +38,6 @@ export interface ListElementsBlueprintsElementsGetRequest {
 }
 export interface PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest {
     chatbotId: string;
-    replace?: boolean;
 }
 export interface PostPersonaPortraitBlueprintsPersonasPersonaIdPortraitPostRequest {
     personaId: string;
@@ -50,10 +49,6 @@ export interface PostPersonaReferenceImagesBlueprintsPersonasPersonaIdReferenceI
 export interface PutPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePutRequest {
     personaId: string;
     putWardrobeRequest: PutWardrobeRequest;
-}
-export interface RestylePersonaBlueprintsPersonasPersonaIdRestylePostRequest {
-    personaId: string;
-    restylePersonaRequest: RestylePersonaRequest;
 }
 export interface SetDefaultPersonaBlueprintsPersonasPersonaIdDefaultPostRequest {
     personaId: string;
@@ -79,12 +74,12 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      */
     createElementBlueprintsElementsPost(requestParameters: CreateElementBlueprintsElementsPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ElementBlueprint>;
     /**
-     * Adds a persona: one realistic and one anime at most (409 persona_style_taken for a second of a family). It becomes the default only when the member had none.
+     * Adds a persona (409 persona_limit_reached with the most personas already). It becomes the default only when the member had none.
      * Create Persona
      */
     createPersonaBlueprintsPersonasPostRaw(requestParameters: CreatePersonaBlueprintsPersonasPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
     /**
-     * Adds a persona: one realistic and one anime at most (409 persona_style_taken for a second of a family). It becomes the default only when the member had none.
+     * Adds a persona (409 persona_limit_reached with the most personas already). It becomes the default only when the member had none.
      * Create Persona
      */
     createPersonaBlueprintsPersonasPost(requestParameters: CreatePersonaBlueprintsPersonasPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
@@ -163,22 +158,22 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      */
     listMentionsBlueprintsMentionsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetMentionsResponse>;
     /**
-     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A persona of either style joins any picture: it is drawn from its words in the picture\'s style.
+     * All the member\'s personas (\"Me\"s), `is_default` on the one \"@Me\" starts from. A persona joins any picture: it is drawn from its words in the picture\'s style.
      * List Personas
      */
     listPersonasBlueprintsPersonasGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Persona>>>;
     /**
-     * All the member\'s personas (\"Me\"s: e.g. a realistic and an anime one), `is_default` on the one \"@Me\" starts from. A persona of either style joins any picture: it is drawn from its words in the picture\'s style.
+     * All the member\'s personas (\"Me\"s), `is_default` on the one \"@Me\" starts from. A persona joins any picture: it is drawn from its words in the picture\'s style.
      * List Personas
      */
     listPersonasBlueprintsPersonasGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Persona>>;
     /**
-     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as the persona of her style family (409 persona_style_taken when the member has one); replace=true makes that persona her instead: it keeps its id, so the chats played as it go on.
+     * Makes one of the member\'s own babes a persona of theirs (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_limit_reached with the most personas already.
      * Persona From Character
      */
     personaFromCharacterBlueprintsPersonaFromChatbotIdPostRaw(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
     /**
-     * Makes one of the member\'s own babes their persona (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her. Added as the persona of her style family (409 persona_style_taken when the member has one); replace=true makes that persona her instead: it keeps its id, so the chats played as it go on.
+     * Makes one of the member\'s own babes a persona of theirs (\"Me\"): her look, LoRAs, seed, name, gender and a copy of her portrait, so Me renders like her. She stays as she is. 403 persona_source_not_own unless the member created her; 409 persona_limit_reached with the most personas already.
      * Persona From Character
      */
     personaFromCharacterBlueprintsPersonaFromChatbotIdPost(requestParameters: PersonaFromCharacterBlueprintsPersonaFromChatbotIdPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
@@ -210,16 +205,6 @@ export declare class BlueprintsApi extends runtime.BaseAPI {
      * Put Persona Wardrobe
      */
     putPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePut(requestParameters: PutPersonaWardrobeBlueprintsPersonasPersonaIdWardrobePutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Wardrobe>;
-    /**
-     * A new persona with this one\'s description on another style (\"make an anime version of me\"); 409 persona_style_taken when the member already has one of that family. Render its portrait in the new style and set it with portrait_picture_id.
-     * Restyle Persona
-     */
-    restylePersonaBlueprintsPersonasPersonaIdRestylePostRaw(requestParameters: RestylePersonaBlueprintsPersonasPersonaIdRestylePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Persona>>;
-    /**
-     * A new persona with this one\'s description on another style (\"make an anime version of me\"); 409 persona_style_taken when the member already has one of that family. Render its portrait in the new style and set it with portrait_picture_id.
-     * Restyle Persona
-     */
-    restylePersonaBlueprintsPersonasPersonaIdRestylePost(requestParameters: RestylePersonaBlueprintsPersonasPersonaIdRestylePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Persona>;
     /**
      * Set Default Persona
      */

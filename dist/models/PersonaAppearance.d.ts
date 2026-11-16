@@ -12,7 +12,6 @@
 import type { FantasyRace } from './FantasyRace';
 import type { SpecialFeatures } from './SpecialFeatures';
 import type { Ethnicity } from './Ethnicity';
-import type { ArtStyle } from './ArtStyle';
 import type { FurryVisualType } from './FurryVisualType';
 import type { VisualType } from './VisualType';
 import type { PenisSize } from './PenisSize';
@@ -23,12 +22,6 @@ import type { AvatarLooksV2 } from './AvatarLooksV2';
  * @interface PersonaAppearance
  */
 export interface PersonaAppearance {
-    /**
-     *
-     * @type {ArtStyle}
-     * @memberof PersonaAppearance
-     */
-    artStyle: ArtStyle;
     /**
      *
      * @type {number}
