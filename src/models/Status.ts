@@ -51,11 +51,11 @@ export function StatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): St
     return json;
 }
 
-  export function StatusToJSON(json: any): Status {
-      return StatusToJSONTyped(json, false);
-  }
+export function StatusToJSON(json: any): Status {
+    return StatusToJSONTyped(json, false);
+}
 
-  export function StatusToJSONTyped(value?: Status | null, ignoreDiscriminator: boolean = false): any {
+export function StatusToJSONTyped(value?: Status | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

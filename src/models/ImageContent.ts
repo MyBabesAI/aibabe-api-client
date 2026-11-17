@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CastMember } from './CastMember';
+import {
+    CastMemberFromJSON,
+    CastMemberFromJSONTyped,
+    CastMemberToJSON,
+    CastMemberToJSONTyped,
+} from './CastMember';
 import type { MediaOrigin } from './MediaOrigin';
 import {
     MediaOriginFromJSON,
@@ -27,6 +34,13 @@ import {
     AdminAgeEstimationToJSON,
     AdminAgeEstimationToJSONTyped,
 } from './AdminAgeEstimation';
+import type { ImageLookLora } from './ImageLookLora';
+import {
+    ImageLookLoraFromJSON,
+    ImageLookLoraFromJSONTyped,
+    ImageLookLoraToJSON,
+    ImageLookLoraToJSONTyped,
+} from './ImageLookLora';
 
 /**
  * 
@@ -70,6 +84,18 @@ export interface ImageContent {
      * @memberof ImageContent
      */
     ageEstimation?: AdminAgeEstimation | null;
+    /**
+     * 
+     * @type {Array<ImageLookLora>}
+     * @memberof ImageContent
+     */
+    loras?: Array<ImageLookLora>;
+    /**
+     * 
+     * @type {Array<CastMember>}
+     * @memberof ImageContent
+     */
+    characters?: Array<CastMember>;
 }
 
 
@@ -99,14 +125,16 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
+        'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
+        'characters': json['characters'] == null ? undefined : ((json['characters'] as Array<any>).map(CastMemberFromJSON)),
     };
 }
 
-  export function ImageContentToJSON(json: any): ImageContent {
-      return ImageContentToJSONTyped(json, false);
-  }
+export function ImageContentToJSON(json: any): ImageContent {
+    return ImageContentToJSONTyped(json, false);
+}
 
-  export function ImageContentToJSONTyped(value?: ImageContent | null, ignoreDiscriminator: boolean = false): any {
+export function ImageContentToJSONTyped(value?: ImageContent | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -119,6 +147,8 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'width': value['width'],
         'height': value['height'],
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
+        'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
+        'characters': value['characters'] == null ? undefined : ((value['characters'] as Array<any>).map(CastMemberToJSON)),
     };
 }
 

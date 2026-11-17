@@ -91,11 +91,11 @@ export function MuleRouterWanTaskInfoErrorFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function MuleRouterWanTaskInfoErrorToJSON(json: any): MuleRouterWanTaskInfoError {
-      return MuleRouterWanTaskInfoErrorToJSONTyped(json, false);
-  }
+export function MuleRouterWanTaskInfoErrorToJSON(json: any): MuleRouterWanTaskInfoError {
+    return MuleRouterWanTaskInfoErrorToJSONTyped(json, false);
+}
 
-  export function MuleRouterWanTaskInfoErrorToJSONTyped(value?: MuleRouterWanTaskInfoError | null, ignoreDiscriminator: boolean = false): any {
+export function MuleRouterWanTaskInfoErrorToJSONTyped(value?: MuleRouterWanTaskInfoError | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

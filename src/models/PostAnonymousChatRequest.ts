@@ -80,11 +80,11 @@ export function PostAnonymousChatRequestFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function PostAnonymousChatRequestToJSON(json: any): PostAnonymousChatRequest {
-      return PostAnonymousChatRequestToJSONTyped(json, false);
-  }
+export function PostAnonymousChatRequestToJSON(json: any): PostAnonymousChatRequest {
+    return PostAnonymousChatRequestToJSONTyped(json, false);
+}
 
-  export function PostAnonymousChatRequestToJSONTyped(value?: PostAnonymousChatRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostAnonymousChatRequestToJSONTyped(value?: PostAnonymousChatRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

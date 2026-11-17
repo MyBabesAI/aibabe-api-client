@@ -10,8 +10,11 @@
  * Do not edit the class manually.
  */
 import type { BlacklistCard } from './BlacklistCard';
+import type { ArtStyle } from './ArtStyle';
 import type { ContentType } from './ContentType';
+import type { Gender } from './Gender';
 import type { GalleryItem } from './GalleryItem';
+import type { SexualOrientation } from './SexualOrientation';
 import type { WallPost } from './WallPost';
 /**
  *
@@ -67,6 +70,36 @@ export interface GetChatbotResponse {
      * @memberof GetChatbotResponse
      */
     characterAge: number;
+    /**
+     *
+     * @type {string}
+     * @memberof GetChatbotResponse
+     */
+    characterStyle?: string | null;
+    /**
+     *
+     * @type {ArtStyle}
+     * @memberof GetChatbotResponse
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GetChatbotResponse
+     */
+    nextGen?: boolean;
+    /**
+     *
+     * @type {Gender}
+     * @memberof GetChatbotResponse
+     */
+    gender?: Gender | null;
+    /**
+     *
+     * @type {SexualOrientation}
+     * @memberof GetChatbotResponse
+     */
+    sexualOrientation?: SexualOrientation | null;
     /**
      *
      * @type {Array<WallPost>}

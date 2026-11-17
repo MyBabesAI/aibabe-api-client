@@ -89,11 +89,11 @@ export function AdminAnnouncementResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function AdminAnnouncementResponseToJSON(json: any): AdminAnnouncementResponse {
-      return AdminAnnouncementResponseToJSONTyped(json, false);
-  }
+export function AdminAnnouncementResponseToJSON(json: any): AdminAnnouncementResponse {
+    return AdminAnnouncementResponseToJSONTyped(json, false);
+}
 
-  export function AdminAnnouncementResponseToJSONTyped(value?: AdminAnnouncementResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminAnnouncementResponseToJSONTyped(value?: AdminAnnouncementResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

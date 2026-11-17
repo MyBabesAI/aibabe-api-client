@@ -49,11 +49,11 @@ export function StoryCreatorRateEpisodeRequestFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function StoryCreatorRateEpisodeRequestToJSON(json: any): StoryCreatorRateEpisodeRequest {
-      return StoryCreatorRateEpisodeRequestToJSONTyped(json, false);
-  }
+export function StoryCreatorRateEpisodeRequestToJSON(json: any): StoryCreatorRateEpisodeRequest {
+    return StoryCreatorRateEpisodeRequestToJSONTyped(json, false);
+}
 
-  export function StoryCreatorRateEpisodeRequestToJSONTyped(value?: StoryCreatorRateEpisodeRequest | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorRateEpisodeRequestToJSONTyped(value?: StoryCreatorRateEpisodeRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

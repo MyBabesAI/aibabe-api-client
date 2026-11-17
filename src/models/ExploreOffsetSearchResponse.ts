@@ -81,11 +81,11 @@ export function ExploreOffsetSearchResponseFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function ExploreOffsetSearchResponseToJSON(json: any): ExploreOffsetSearchResponse {
-      return ExploreOffsetSearchResponseToJSONTyped(json, false);
-  }
+export function ExploreOffsetSearchResponseToJSON(json: any): ExploreOffsetSearchResponse {
+    return ExploreOffsetSearchResponseToJSONTyped(json, false);
+}
 
-  export function ExploreOffsetSearchResponseToJSONTyped(value?: ExploreOffsetSearchResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ExploreOffsetSearchResponseToJSONTyped(value?: ExploreOffsetSearchResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

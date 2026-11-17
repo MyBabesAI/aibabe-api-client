@@ -57,11 +57,11 @@ export function SeedConversationResponseFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function SeedConversationResponseToJSON(json: any): SeedConversationResponse {
-      return SeedConversationResponseToJSONTyped(json, false);
-  }
+export function SeedConversationResponseToJSON(json: any): SeedConversationResponse {
+    return SeedConversationResponseToJSONTyped(json, false);
+}
 
-  export function SeedConversationResponseToJSONTyped(value?: SeedConversationResponse | null, ignoreDiscriminator: boolean = false): any {
+export function SeedConversationResponseToJSONTyped(value?: SeedConversationResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

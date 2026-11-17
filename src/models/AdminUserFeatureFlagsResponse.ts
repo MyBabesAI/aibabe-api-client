@@ -81,11 +81,11 @@ export function AdminUserFeatureFlagsResponseFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function AdminUserFeatureFlagsResponseToJSON(json: any): AdminUserFeatureFlagsResponse {
-      return AdminUserFeatureFlagsResponseToJSONTyped(json, false);
-  }
+export function AdminUserFeatureFlagsResponseToJSON(json: any): AdminUserFeatureFlagsResponse {
+    return AdminUserFeatureFlagsResponseToJSONTyped(json, false);
+}
 
-  export function AdminUserFeatureFlagsResponseToJSONTyped(value?: AdminUserFeatureFlagsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminUserFeatureFlagsResponseToJSONTyped(value?: AdminUserFeatureFlagsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

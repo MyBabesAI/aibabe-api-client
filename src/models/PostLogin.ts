@@ -57,11 +57,11 @@ export function PostLoginFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     };
 }
 
-  export function PostLoginToJSON(json: any): PostLogin {
-      return PostLoginToJSONTyped(json, false);
-  }
+export function PostLoginToJSON(json: any): PostLogin {
+    return PostLoginToJSONTyped(json, false);
+}
 
-  export function PostLoginToJSONTyped(value?: PostLogin | null, ignoreDiscriminator: boolean = false): any {
+export function PostLoginToJSONTyped(value?: PostLogin | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

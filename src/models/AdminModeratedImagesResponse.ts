@@ -64,11 +64,11 @@ export function AdminModeratedImagesResponseFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function AdminModeratedImagesResponseToJSON(json: any): AdminModeratedImagesResponse {
-      return AdminModeratedImagesResponseToJSONTyped(json, false);
-  }
+export function AdminModeratedImagesResponseToJSON(json: any): AdminModeratedImagesResponse {
+    return AdminModeratedImagesResponseToJSONTyped(json, false);
+}
 
-  export function AdminModeratedImagesResponseToJSONTyped(value?: AdminModeratedImagesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminModeratedImagesResponseToJSONTyped(value?: AdminModeratedImagesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -71,11 +71,11 @@ export function GetLeaderboardResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function GetLeaderboardResponseToJSON(json: any): GetLeaderboardResponse {
-      return GetLeaderboardResponseToJSONTyped(json, false);
-  }
+export function GetLeaderboardResponseToJSON(json: any): GetLeaderboardResponse {
+    return GetLeaderboardResponseToJSONTyped(json, false);
+}
 
-  export function GetLeaderboardResponseToJSONTyped(value?: GetLeaderboardResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetLeaderboardResponseToJSONTyped(value?: GetLeaderboardResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

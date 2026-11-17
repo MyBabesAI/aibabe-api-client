@@ -56,11 +56,11 @@ export function GetPublicLatestUpdateResponseFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function GetPublicLatestUpdateResponseToJSON(json: any): GetPublicLatestUpdateResponse {
-      return GetPublicLatestUpdateResponseToJSONTyped(json, false);
-  }
+export function GetPublicLatestUpdateResponseToJSON(json: any): GetPublicLatestUpdateResponse {
+    return GetPublicLatestUpdateResponseToJSONTyped(json, false);
+}
 
-  export function GetPublicLatestUpdateResponseToJSONTyped(value?: GetPublicLatestUpdateResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetPublicLatestUpdateResponseToJSONTyped(value?: GetPublicLatestUpdateResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

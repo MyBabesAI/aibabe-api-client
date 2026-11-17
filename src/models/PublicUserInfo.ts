@@ -196,11 +196,11 @@ export function PublicUserInfoFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-  export function PublicUserInfoToJSON(json: any): PublicUserInfo {
-      return PublicUserInfoToJSONTyped(json, false);
-  }
+export function PublicUserInfoToJSON(json: any): PublicUserInfo {
+    return PublicUserInfoToJSONTyped(json, false);
+}
 
-  export function PublicUserInfoToJSONTyped(value?: PublicUserInfo | null, ignoreDiscriminator: boolean = false): any {
+export function PublicUserInfoToJSONTyped(value?: PublicUserInfo | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

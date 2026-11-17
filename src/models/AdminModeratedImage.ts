@@ -203,11 +203,11 @@ export function AdminModeratedImageFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function AdminModeratedImageToJSON(json: any): AdminModeratedImage {
-      return AdminModeratedImageToJSONTyped(json, false);
-  }
+export function AdminModeratedImageToJSON(json: any): AdminModeratedImage {
+    return AdminModeratedImageToJSONTyped(json, false);
+}
 
-  export function AdminModeratedImageToJSONTyped(value?: AdminModeratedImage | null, ignoreDiscriminator: boolean = false): any {
+export function AdminModeratedImageToJSONTyped(value?: AdminModeratedImage | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

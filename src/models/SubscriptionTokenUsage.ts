@@ -88,11 +88,11 @@ export function SubscriptionTokenUsageFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function SubscriptionTokenUsageToJSON(json: any): SubscriptionTokenUsage {
-      return SubscriptionTokenUsageToJSONTyped(json, false);
-  }
+export function SubscriptionTokenUsageToJSON(json: any): SubscriptionTokenUsage {
+    return SubscriptionTokenUsageToJSONTyped(json, false);
+}
 
-  export function SubscriptionTokenUsageToJSONTyped(value?: SubscriptionTokenUsage | null, ignoreDiscriminator: boolean = false): any {
+export function SubscriptionTokenUsageToJSONTyped(value?: SubscriptionTokenUsage | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

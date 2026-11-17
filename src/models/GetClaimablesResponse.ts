@@ -73,11 +73,11 @@ export function GetClaimablesResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function GetClaimablesResponseToJSON(json: any): GetClaimablesResponse {
-      return GetClaimablesResponseToJSONTyped(json, false);
-  }
+export function GetClaimablesResponseToJSON(json: any): GetClaimablesResponse {
+    return GetClaimablesResponseToJSONTyped(json, false);
+}
 
-  export function GetClaimablesResponseToJSONTyped(value?: GetClaimablesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetClaimablesResponseToJSONTyped(value?: GetClaimablesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

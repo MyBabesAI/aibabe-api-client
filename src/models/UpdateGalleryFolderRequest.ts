@@ -55,11 +55,11 @@ export function UpdateGalleryFolderRequestFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function UpdateGalleryFolderRequestToJSON(json: any): UpdateGalleryFolderRequest {
-      return UpdateGalleryFolderRequestToJSONTyped(json, false);
-  }
+export function UpdateGalleryFolderRequestToJSON(json: any): UpdateGalleryFolderRequest {
+    return UpdateGalleryFolderRequestToJSONTyped(json, false);
+}
 
-  export function UpdateGalleryFolderRequestToJSONTyped(value?: UpdateGalleryFolderRequest | null, ignoreDiscriminator: boolean = false): any {
+export function UpdateGalleryFolderRequestToJSONTyped(value?: UpdateGalleryFolderRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

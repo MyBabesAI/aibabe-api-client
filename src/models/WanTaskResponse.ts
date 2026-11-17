@@ -77,11 +77,11 @@ export function WanTaskResponseFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-  export function WanTaskResponseToJSON(json: any): WanTaskResponse {
-      return WanTaskResponseToJSONTyped(json, false);
-  }
+export function WanTaskResponseToJSON(json: any): WanTaskResponse {
+    return WanTaskResponseToJSONTyped(json, false);
+}
 
-  export function WanTaskResponseToJSONTyped(value?: WanTaskResponse | null, ignoreDiscriminator: boolean = false): any {
+export function WanTaskResponseToJSONTyped(value?: WanTaskResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

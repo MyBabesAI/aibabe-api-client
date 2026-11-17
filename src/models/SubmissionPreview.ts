@@ -83,11 +83,11 @@ export function SubmissionPreviewFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function SubmissionPreviewToJSON(json: any): SubmissionPreview {
-      return SubmissionPreviewToJSONTyped(json, false);
-  }
+export function SubmissionPreviewToJSON(json: any): SubmissionPreview {
+    return SubmissionPreviewToJSONTyped(json, false);
+}
 
-  export function SubmissionPreviewToJSONTyped(value?: SubmissionPreview | null, ignoreDiscriminator: boolean = false): any {
+export function SubmissionPreviewToJSONTyped(value?: SubmissionPreview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

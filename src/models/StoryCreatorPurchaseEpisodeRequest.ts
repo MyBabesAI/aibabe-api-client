@@ -59,11 +59,11 @@ export function StoryCreatorPurchaseEpisodeRequestFromJSONTyped(json: any, ignor
     };
 }
 
-  export function StoryCreatorPurchaseEpisodeRequestToJSON(json: any): StoryCreatorPurchaseEpisodeRequest {
-      return StoryCreatorPurchaseEpisodeRequestToJSONTyped(json, false);
-  }
+export function StoryCreatorPurchaseEpisodeRequestToJSON(json: any): StoryCreatorPurchaseEpisodeRequest {
+    return StoryCreatorPurchaseEpisodeRequestToJSONTyped(json, false);
+}
 
-  export function StoryCreatorPurchaseEpisodeRequestToJSONTyped(value?: StoryCreatorPurchaseEpisodeRequest | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorPurchaseEpisodeRequestToJSONTyped(value?: StoryCreatorPurchaseEpisodeRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

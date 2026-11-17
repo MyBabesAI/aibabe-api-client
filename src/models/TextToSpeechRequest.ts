@@ -64,11 +64,11 @@ export function TextToSpeechRequestFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function TextToSpeechRequestToJSON(json: any): TextToSpeechRequest {
-      return TextToSpeechRequestToJSONTyped(json, false);
-  }
+export function TextToSpeechRequestToJSON(json: any): TextToSpeechRequest {
+    return TextToSpeechRequestToJSONTyped(json, false);
+}
 
-  export function TextToSpeechRequestToJSONTyped(value?: TextToSpeechRequest | null, ignoreDiscriminator: boolean = false): any {
+export function TextToSpeechRequestToJSONTyped(value?: TextToSpeechRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

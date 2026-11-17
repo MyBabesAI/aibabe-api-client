@@ -13,6 +13,7 @@ import type { PublicUserPreviewWithFollow } from './PublicUserPreviewWithFollow'
 import type { BlacklistCard } from './BlacklistCard';
 import type { ChatbotPreview } from './ChatbotPreview';
 import type { PostDetails } from './PostDetails';
+import type { ImageToVideoModel } from './ImageToVideoModel';
 import type { VideoGenerationStatus } from './VideoGenerationStatus';
 /**
  *
@@ -122,6 +123,18 @@ export interface GeneratedVideos {
      * @memberof GeneratedVideos
      */
     originalImageUrl: string | null;
+    /**
+     *
+     * @type {ImageToVideoModel}
+     * @memberof GeneratedVideos
+     */
+    model?: ImageToVideoModel | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof GeneratedVideos
+     */
+    hasRecipe?: boolean;
 }
 /**
  * @export

@@ -19,6 +19,7 @@ exports.PostGenerateSceneRequestFromJSONTyped = PostGenerateSceneRequestFromJSON
 exports.PostGenerateSceneRequestToJSON = PostGenerateSceneRequestToJSON;
 exports.PostGenerateSceneRequestToJSONTyped = PostGenerateSceneRequestToJSONTyped;
 const ArtStyle_1 = require("./ArtStyle");
+const BlueprintRef_1 = require("./BlueprintRef");
 const ImagePurpose_1 = require("./ImagePurpose");
 const ImageAspectRatio_1 = require("./ImageAspectRatio");
 const LoraName_1 = require("./LoraName");
@@ -57,6 +58,7 @@ function PostGenerateSceneRequestFromJSONTyped(json, ignoreDiscriminator) {
         'purpose': json['purpose'] == null ? undefined : (0, ImagePurpose_1.ImagePurposeFromJSON)(json['purpose']),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
+        'mentions': json['mentions'] == null ? undefined : (json['mentions'].map(BlueprintRef_1.BlueprintRefFromJSON)),
     };
 }
 function PostGenerateSceneRequestToJSON(json) {
@@ -78,6 +80,7 @@ function PostGenerateSceneRequestToJSONTyped(value, ignoreDiscriminator = false)
         'purpose': (0, ImagePurpose_1.ImagePurposeToJSON)(value['purpose']),
         'chatbot_id': value['chatbotId'],
         'original_image_id': value['originalImageId'],
+        'mentions': value['mentions'] == null ? undefined : (value['mentions'].map(BlueprintRef_1.BlueprintRefToJSON)),
     };
 }
 //# sourceMappingURL=PostGenerateSceneRequest.js.map

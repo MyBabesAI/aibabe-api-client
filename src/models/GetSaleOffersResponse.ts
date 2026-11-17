@@ -57,11 +57,11 @@ export function GetSaleOffersResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function GetSaleOffersResponseToJSON(json: any): GetSaleOffersResponse {
-      return GetSaleOffersResponseToJSONTyped(json, false);
-  }
+export function GetSaleOffersResponseToJSON(json: any): GetSaleOffersResponse {
+    return GetSaleOffersResponseToJSONTyped(json, false);
+}
 
-  export function GetSaleOffersResponseToJSONTyped(value?: GetSaleOffersResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetSaleOffersResponseToJSONTyped(value?: GetSaleOffersResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

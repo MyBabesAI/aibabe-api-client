@@ -232,11 +232,11 @@ export function AdminBadgeResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function AdminBadgeResponseToJSON(json: any): AdminBadgeResponse {
-      return AdminBadgeResponseToJSONTyped(json, false);
-  }
+export function AdminBadgeResponseToJSON(json: any): AdminBadgeResponse {
+    return AdminBadgeResponseToJSONTyped(json, false);
+}
 
-  export function AdminBadgeResponseToJSONTyped(value?: AdminBadgeResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminBadgeResponseToJSONTyped(value?: AdminBadgeResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

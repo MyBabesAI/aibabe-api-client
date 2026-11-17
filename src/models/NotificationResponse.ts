@@ -65,11 +65,11 @@ export function NotificationResponseFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function NotificationResponseToJSON(json: any): NotificationResponse {
-      return NotificationResponseToJSONTyped(json, false);
-  }
+export function NotificationResponseToJSON(json: any): NotificationResponse {
+    return NotificationResponseToJSONTyped(json, false);
+}
 
-  export function NotificationResponseToJSONTyped(value?: NotificationResponse | null, ignoreDiscriminator: boolean = false): any {
+export function NotificationResponseToJSONTyped(value?: NotificationResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -36,11 +36,11 @@ export function DetailFromJSONTyped(json: any, ignoreDiscriminator: boolean): De
     return json;
 }
 
-  export function DetailToJSON(json: any): Detail {
-      return DetailToJSONTyped(json, false);
-  }
+export function DetailToJSON(json: any): Detail {
+    return DetailToJSONTyped(json, false);
+}
 
-  export function DetailToJSONTyped(value?: Detail | null, ignoreDiscriminator: boolean = false): any {
+export function DetailToJSONTyped(value?: Detail | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

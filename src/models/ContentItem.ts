@@ -67,11 +67,11 @@ export function ContentItemFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-  export function ContentItemToJSON(json: any): ContentItem {
-      return ContentItemToJSONTyped(json, false);
-  }
+export function ContentItemToJSON(json: any): ContentItem {
+    return ContentItemToJSONTyped(json, false);
+}
 
-  export function ContentItemToJSONTyped(value?: ContentItem | null, ignoreDiscriminator: boolean = false): any {
+export function ContentItemToJSONTyped(value?: ContentItem | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

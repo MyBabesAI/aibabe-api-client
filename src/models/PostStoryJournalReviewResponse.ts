@@ -65,11 +65,11 @@ export function PostStoryJournalReviewResponseFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function PostStoryJournalReviewResponseToJSON(json: any): PostStoryJournalReviewResponse {
-      return PostStoryJournalReviewResponseToJSONTyped(json, false);
-  }
+export function PostStoryJournalReviewResponseToJSON(json: any): PostStoryJournalReviewResponse {
+    return PostStoryJournalReviewResponseToJSONTyped(json, false);
+}
 
-  export function PostStoryJournalReviewResponseToJSONTyped(value?: PostStoryJournalReviewResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostStoryJournalReviewResponseToJSONTyped(value?: PostStoryJournalReviewResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

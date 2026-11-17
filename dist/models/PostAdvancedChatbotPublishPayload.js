@@ -18,6 +18,7 @@ exports.PostAdvancedChatbotPublishPayloadFromJSON = PostAdvancedChatbotPublishPa
 exports.PostAdvancedChatbotPublishPayloadFromJSONTyped = PostAdvancedChatbotPublishPayloadFromJSONTyped;
 exports.PostAdvancedChatbotPublishPayloadToJSON = PostAdvancedChatbotPublishPayloadToJSON;
 exports.PostAdvancedChatbotPublishPayloadToJSONTyped = PostAdvancedChatbotPublishPayloadToJSONTyped;
+const ReferenceTexts_1 = require("./ReferenceTexts");
 /**
  * Check if a given object implements the PostAdvancedChatbotPublishPayload interface.
  */
@@ -34,6 +35,7 @@ function PostAdvancedChatbotPublishPayloadFromJSONTyped(json, ignoreDiscriminato
     return {
         'referenceAudioId': json['reference_audio_id'] == null ? undefined : json['reference_audio_id'],
         'profilePicture': json['profile_picture'] == null ? undefined : json['profile_picture'],
+        'referenceTexts': json['reference_texts'] == null ? undefined : (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['reference_texts']),
     };
 }
 function PostAdvancedChatbotPublishPayloadToJSON(json) {
@@ -46,6 +48,7 @@ function PostAdvancedChatbotPublishPayloadToJSONTyped(value, ignoreDiscriminator
     return {
         'reference_audio_id': value['referenceAudioId'],
         'profile_picture': value['profilePicture'],
+        'reference_texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['referenceTexts']),
     };
 }
 //# sourceMappingURL=PostAdvancedChatbotPublishPayload.js.map

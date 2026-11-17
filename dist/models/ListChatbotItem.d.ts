@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { BlacklistCard } from './BlacklistCard';
+import type { ArtStyle } from './ArtStyle';
 import type { PostDetails } from './PostDetails';
 /**
  *
@@ -47,6 +48,24 @@ export interface ListChatbotItem {
      * @memberof ListChatbotItem
      */
     updatedAt: Date;
+    /**
+     *
+     * @type {string}
+     * @memberof ListChatbotItem
+     */
+    characterStyle?: string | null;
+    /**
+     *
+     * @type {ArtStyle}
+     * @memberof ListChatbotItem
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof ListChatbotItem
+     */
+    nextGen?: boolean;
     /**
      *
      * @type {string}

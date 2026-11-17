@@ -57,11 +57,11 @@ export function StoryRatingFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-  export function StoryRatingToJSON(json: any): StoryRating {
-      return StoryRatingToJSONTyped(json, false);
-  }
+export function StoryRatingToJSON(json: any): StoryRating {
+    return StoryRatingToJSONTyped(json, false);
+}
 
-  export function StoryRatingToJSONTyped(value?: StoryRating | null, ignoreDiscriminator: boolean = false): any {
+export function StoryRatingToJSONTyped(value?: StoryRating | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

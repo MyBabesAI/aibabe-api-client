@@ -49,11 +49,11 @@ export function PatchImageModerationPromptRequestFromJSONTyped(json: any, ignore
     };
 }
 
-  export function PatchImageModerationPromptRequestToJSON(json: any): PatchImageModerationPromptRequest {
-      return PatchImageModerationPromptRequestToJSONTyped(json, false);
-  }
+export function PatchImageModerationPromptRequestToJSON(json: any): PatchImageModerationPromptRequest {
+    return PatchImageModerationPromptRequestToJSONTyped(json, false);
+}
 
-  export function PatchImageModerationPromptRequestToJSONTyped(value?: PatchImageModerationPromptRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PatchImageModerationPromptRequestToJSONTyped(value?: PatchImageModerationPromptRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

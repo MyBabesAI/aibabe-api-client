@@ -39,6 +39,7 @@ function CharacterIdentityPageReviewFromJSONTyped(json, ignoreDiscriminator) {
         'sexualOrientation': json['sexual_orientation'] == null ? undefined : (0, AvatarOptionalField_1.AvatarOptionalFieldFromJSON)(json['sexual_orientation']),
         'bio': json['bio'] == null ? undefined : (0, AvatarRequiredField_1.AvatarRequiredFieldFromJSON)(json['bio']),
         'greetings': json['greetings'] == null ? undefined : (0, AvatarRequiredField_1.AvatarRequiredFieldFromJSON)(json['greetings']),
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : (0, AvatarOptionalField_1.AvatarOptionalFieldFromJSON)(json['alternative_greetings']),
     };
 }
 function CharacterIdentityPageReviewToJSON(json) {
@@ -54,6 +55,7 @@ function CharacterIdentityPageReviewToJSONTyped(value, ignoreDiscriminator = fal
         'sexual_orientation': (0, AvatarOptionalField_1.AvatarOptionalFieldToJSON)(value['sexualOrientation']),
         'bio': (0, AvatarRequiredField_1.AvatarRequiredFieldToJSON)(value['bio']),
         'greetings': (0, AvatarRequiredField_1.AvatarRequiredFieldToJSON)(value['greetings']),
+        'alternative_greetings': (0, AvatarOptionalField_1.AvatarOptionalFieldToJSON)(value['alternativeGreetings']),
     };
 }
 //# sourceMappingURL=CharacterIdentityPageReview.js.map

@@ -452,11 +452,11 @@ export function NotificationResponseNotificationsInnerFromJSONTyped(json: any, i
     };
 }
 
-  export function NotificationResponseNotificationsInnerToJSON(json: any): NotificationResponseNotificationsInner {
-      return NotificationResponseNotificationsInnerToJSONTyped(json, false);
-  }
+export function NotificationResponseNotificationsInnerToJSON(json: any): NotificationResponseNotificationsInner {
+    return NotificationResponseNotificationsInnerToJSONTyped(json, false);
+}
 
-  export function NotificationResponseNotificationsInnerToJSONTyped(value?: NotificationResponseNotificationsInner | null, ignoreDiscriminator: boolean = false): any {
+export function NotificationResponseNotificationsInnerToJSONTyped(value?: NotificationResponseNotificationsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

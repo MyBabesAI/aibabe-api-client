@@ -200,11 +200,11 @@ export function StorySessionResponseFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function StorySessionResponseToJSON(json: any): StorySessionResponse {
-      return StorySessionResponseToJSONTyped(json, false);
-  }
+export function StorySessionResponseToJSON(json: any): StorySessionResponse {
+    return StorySessionResponseToJSONTyped(json, false);
+}
 
-  export function StorySessionResponseToJSONTyped(value?: StorySessionResponse | null, ignoreDiscriminator: boolean = false): any {
+export function StorySessionResponseToJSONTyped(value?: StorySessionResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

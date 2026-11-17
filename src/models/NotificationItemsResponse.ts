@@ -65,11 +65,11 @@ export function NotificationItemsResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function NotificationItemsResponseToJSON(json: any): NotificationItemsResponse {
-      return NotificationItemsResponseToJSONTyped(json, false);
-  }
+export function NotificationItemsResponseToJSON(json: any): NotificationItemsResponse {
+    return NotificationItemsResponseToJSONTyped(json, false);
+}
 
-  export function NotificationItemsResponseToJSONTyped(value?: NotificationItemsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function NotificationItemsResponseToJSONTyped(value?: NotificationItemsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

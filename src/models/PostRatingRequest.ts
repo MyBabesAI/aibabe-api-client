@@ -81,11 +81,11 @@ export function PostRatingRequestFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function PostRatingRequestToJSON(json: any): PostRatingRequest {
-      return PostRatingRequestToJSONTyped(json, false);
-  }
+export function PostRatingRequestToJSON(json: any): PostRatingRequest {
+    return PostRatingRequestToJSONTyped(json, false);
+}
 
-  export function PostRatingRequestToJSONTyped(value?: PostRatingRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostRatingRequestToJSONTyped(value?: PostRatingRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

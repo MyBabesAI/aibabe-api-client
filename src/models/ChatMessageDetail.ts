@@ -20,6 +20,13 @@ import {
     StatusToJSON,
     StatusToJSONTyped,
 } from './Status';
+import type { CastMember } from './CastMember';
+import {
+    CastMemberFromJSON,
+    CastMemberFromJSONTyped,
+    CastMemberToJSON,
+    CastMemberToJSONTyped,
+} from './CastMember';
 import type { BlacklistCard } from './BlacklistCard';
 import {
     BlacklistCardFromJSON,
@@ -139,6 +146,36 @@ export interface ChatMessageDetail {
      * @memberof ChatMessageDetail
      */
     blacklist?: BlacklistCard | null;
+    /**
+     * 
+     * @type {Array<CastMember>}
+     * @memberof ChatMessageDetail
+     */
+    characters?: Array<CastMember>;
+    /**
+     * 
+     * @type {string}
+     * @memberof ChatMessageDetail
+     */
+    speakerChatbotId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ChatMessageDetail
+     */
+    userPersonaId?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ChatMessageDetail
+     */
+    inherited?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ChatMessageDetail
+     */
+    branchedFrom?: boolean;
 }
 
 
@@ -181,14 +218,19 @@ export function ChatMessageDetailFromJSONTyped(json: any, ignoreDiscriminator: b
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
         'originalImageUrl': json['original_image_url'] == null ? undefined : json['original_image_url'],
         'blacklist': json['blacklist'] == null ? undefined : BlacklistCardFromJSON(json['blacklist']),
+        'characters': json['characters'] == null ? undefined : ((json['characters'] as Array<any>).map(CastMemberFromJSON)),
+        'speakerChatbotId': json['speaker_chatbot_id'] == null ? undefined : json['speaker_chatbot_id'],
+        'userPersonaId': json['user_persona_id'] == null ? undefined : json['user_persona_id'],
+        'inherited': json['inherited'] == null ? undefined : json['inherited'],
+        'branchedFrom': json['branched_from'] == null ? undefined : json['branched_from'],
     };
 }
 
-  export function ChatMessageDetailToJSON(json: any): ChatMessageDetail {
-      return ChatMessageDetailToJSONTyped(json, false);
-  }
+export function ChatMessageDetailToJSON(json: any): ChatMessageDetail {
+    return ChatMessageDetailToJSONTyped(json, false);
+}
 
-  export function ChatMessageDetailToJSONTyped(value?: ChatMessageDetail | null, ignoreDiscriminator: boolean = false): any {
+export function ChatMessageDetailToJSONTyped(value?: ChatMessageDetail | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -209,6 +251,11 @@ export function ChatMessageDetailFromJSONTyped(json: any, ignoreDiscriminator: b
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'blacklist': BlacklistCardToJSON(value['blacklist']),
+        'characters': value['characters'] == null ? undefined : ((value['characters'] as Array<any>).map(CastMemberToJSON)),
+        'speaker_chatbot_id': value['speakerChatbotId'],
+        'user_persona_id': value['userPersonaId'],
+        'inherited': value['inherited'],
+        'branched_from': value['branchedFrom'],
     };
 }
 

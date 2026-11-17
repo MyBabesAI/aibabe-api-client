@@ -89,11 +89,11 @@ export function GalleryItemFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-  export function GalleryItemToJSON(json: any): GalleryItem {
-      return GalleryItemToJSONTyped(json, false);
-  }
+export function GalleryItemToJSON(json: any): GalleryItem {
+    return GalleryItemToJSONTyped(json, false);
+}
 
-  export function GalleryItemToJSONTyped(value?: GalleryItem | null, ignoreDiscriminator: boolean = false): any {
+export function GalleryItemToJSONTyped(value?: GalleryItem | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -84,11 +84,11 @@ export function SoundEffectsRequestFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function SoundEffectsRequestToJSON(json: any): SoundEffectsRequest {
-      return SoundEffectsRequestToJSONTyped(json, false);
-  }
+export function SoundEffectsRequestToJSON(json: any): SoundEffectsRequest {
+    return SoundEffectsRequestToJSONTyped(json, false);
+}
 
-  export function SoundEffectsRequestToJSONTyped(value?: SoundEffectsRequest | null, ignoreDiscriminator: boolean = false): any {
+export function SoundEffectsRequestToJSONTyped(value?: SoundEffectsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

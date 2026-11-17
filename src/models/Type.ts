@@ -44,11 +44,11 @@ export function TypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): Type
     return json;
 }
 
-  export function TypeToJSON(json: any): Type {
-      return TypeToJSONTyped(json, false);
-  }
+export function TypeToJSON(json: any): Type {
+    return TypeToJSONTyped(json, false);
+}
 
-  export function TypeToJSONTyped(value?: Type | null, ignoreDiscriminator: boolean = false): any {
+export function TypeToJSONTyped(value?: Type | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

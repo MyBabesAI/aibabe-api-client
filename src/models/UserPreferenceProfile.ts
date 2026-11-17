@@ -184,11 +184,11 @@ export function UserPreferenceProfileFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function UserPreferenceProfileToJSON(json: any): UserPreferenceProfile {
-      return UserPreferenceProfileToJSONTyped(json, false);
-  }
+export function UserPreferenceProfileToJSON(json: any): UserPreferenceProfile {
+    return UserPreferenceProfileToJSONTyped(json, false);
+}
 
-  export function UserPreferenceProfileToJSONTyped(value?: UserPreferenceProfile | null, ignoreDiscriminator: boolean = false): any {
+export function UserPreferenceProfileToJSONTyped(value?: UserPreferenceProfile | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

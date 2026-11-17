@@ -44,11 +44,11 @@ export function AdminCreateTokenUsageRequestResolutionFromJSONTyped(json: any, i
     return json;
 }
 
-  export function AdminCreateTokenUsageRequestResolutionToJSON(json: any): AdminCreateTokenUsageRequestResolution {
-      return AdminCreateTokenUsageRequestResolutionToJSONTyped(json, false);
-  }
+export function AdminCreateTokenUsageRequestResolutionToJSON(json: any): AdminCreateTokenUsageRequestResolution {
+    return AdminCreateTokenUsageRequestResolutionToJSONTyped(json, false);
+}
 
-  export function AdminCreateTokenUsageRequestResolutionToJSONTyped(value?: AdminCreateTokenUsageRequestResolution | null, ignoreDiscriminator: boolean = false): any {
+export function AdminCreateTokenUsageRequestResolutionToJSONTyped(value?: AdminCreateTokenUsageRequestResolution | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

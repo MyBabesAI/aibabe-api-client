@@ -289,11 +289,11 @@ export function PostCustomChatbotV2PayloadFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function PostCustomChatbotV2PayloadToJSON(json: any): PostCustomChatbotV2Payload {
-      return PostCustomChatbotV2PayloadToJSONTyped(json, false);
-  }
+export function PostCustomChatbotV2PayloadToJSON(json: any): PostCustomChatbotV2Payload {
+    return PostCustomChatbotV2PayloadToJSONTyped(json, false);
+}
 
-  export function PostCustomChatbotV2PayloadToJSONTyped(value?: PostCustomChatbotV2Payload | null, ignoreDiscriminator: boolean = false): any {
+export function PostCustomChatbotV2PayloadToJSONTyped(value?: PostCustomChatbotV2Payload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

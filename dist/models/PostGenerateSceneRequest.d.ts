@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ArtStyle } from './ArtStyle';
+import type { BlueprintRef } from './BlueprintRef';
 import type { ImagePurpose } from './ImagePurpose';
 import type { ImageAspectRatio } from './ImageAspectRatio';
 import type { LoraName } from './LoraName';
@@ -85,6 +86,12 @@ export interface PostGenerateSceneRequest {
      * @memberof PostGenerateSceneRequest
      */
     originalImageId?: string | null;
+    /**
+     * The blueprints mentioned with @ in the query, in order of first mention: other own characters (the selected one is always subject 0), items and outfits.
+     * @type {Array<BlueprintRef>}
+     * @memberof PostGenerateSceneRequest
+     */
+    mentions?: Array<BlueprintRef>;
 }
 /**
  * Check if a given object implements the PostGenerateSceneRequest interface.

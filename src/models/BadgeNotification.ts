@@ -111,11 +111,11 @@ export function BadgeNotificationFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function BadgeNotificationToJSON(json: any): BadgeNotification {
-      return BadgeNotificationToJSONTyped(json, false);
-  }
+export function BadgeNotificationToJSON(json: any): BadgeNotification {
+    return BadgeNotificationToJSONTyped(json, false);
+}
 
-  export function BadgeNotificationToJSONTyped(value?: BadgeNotification | null, ignoreDiscriminator: boolean = false): any {
+export function BadgeNotificationToJSONTyped(value?: BadgeNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

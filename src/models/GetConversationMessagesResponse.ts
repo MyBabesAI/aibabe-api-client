@@ -64,11 +64,11 @@ export function GetConversationMessagesResponseFromJSONTyped(json: any, ignoreDi
     };
 }
 
-  export function GetConversationMessagesResponseToJSON(json: any): GetConversationMessagesResponse {
-      return GetConversationMessagesResponseToJSONTyped(json, false);
-  }
+export function GetConversationMessagesResponseToJSON(json: any): GetConversationMessagesResponse {
+    return GetConversationMessagesResponseToJSONTyped(json, false);
+}
 
-  export function GetConversationMessagesResponseToJSONTyped(value?: GetConversationMessagesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetConversationMessagesResponseToJSONTyped(value?: GetConversationMessagesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

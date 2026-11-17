@@ -89,11 +89,11 @@ export function GalleryFolderFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-  export function GalleryFolderToJSON(json: any): GalleryFolder {
-      return GalleryFolderToJSONTyped(json, false);
-  }
+export function GalleryFolderToJSON(json: any): GalleryFolder {
+    return GalleryFolderToJSONTyped(json, false);
+}
 
-  export function GalleryFolderToJSONTyped(value?: GalleryFolder | null, ignoreDiscriminator: boolean = false): any {
+export function GalleryFolderToJSONTyped(value?: GalleryFolder | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

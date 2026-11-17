@@ -205,11 +205,11 @@ export function ExploreSearchRequestFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function ExploreSearchRequestToJSON(json: any): ExploreSearchRequest {
-      return ExploreSearchRequestToJSONTyped(json, false);
-  }
+export function ExploreSearchRequestToJSON(json: any): ExploreSearchRequest {
+    return ExploreSearchRequestToJSONTyped(json, false);
+}
 
-  export function ExploreSearchRequestToJSONTyped(value?: ExploreSearchRequest | null, ignoreDiscriminator: boolean = false): any {
+export function ExploreSearchRequestToJSONTyped(value?: ExploreSearchRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

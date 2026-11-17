@@ -20,7 +20,8 @@
 export const ImageModCategory = {
     Style: 'style',
     Position: 'position',
-    Other: 'other'
+    Other: 'other',
+    Look: 'look'
 } as const;
 export type ImageModCategory = typeof ImageModCategory[keyof typeof ImageModCategory];
 

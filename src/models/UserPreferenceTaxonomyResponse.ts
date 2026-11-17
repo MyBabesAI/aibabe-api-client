@@ -81,11 +81,11 @@ export function UserPreferenceTaxonomyResponseFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function UserPreferenceTaxonomyResponseToJSON(json: any): UserPreferenceTaxonomyResponse {
-      return UserPreferenceTaxonomyResponseToJSONTyped(json, false);
-  }
+export function UserPreferenceTaxonomyResponseToJSON(json: any): UserPreferenceTaxonomyResponse {
+    return UserPreferenceTaxonomyResponseToJSONTyped(json, false);
+}
 
-  export function UserPreferenceTaxonomyResponseToJSONTyped(value?: UserPreferenceTaxonomyResponse | null, ignoreDiscriminator: boolean = false): any {
+export function UserPreferenceTaxonomyResponseToJSONTyped(value?: UserPreferenceTaxonomyResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

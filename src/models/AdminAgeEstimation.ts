@@ -73,11 +73,11 @@ export function AdminAgeEstimationFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function AdminAgeEstimationToJSON(json: any): AdminAgeEstimation {
-      return AdminAgeEstimationToJSONTyped(json, false);
-  }
+export function AdminAgeEstimationToJSON(json: any): AdminAgeEstimation {
+    return AdminAgeEstimationToJSONTyped(json, false);
+}
 
-  export function AdminAgeEstimationToJSONTyped(value?: AdminAgeEstimation | null, ignoreDiscriminator: boolean = false): any {
+export function AdminAgeEstimationToJSONTyped(value?: AdminAgeEstimation | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

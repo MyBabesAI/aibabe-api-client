@@ -99,11 +99,11 @@ export function TokenTransactionEntryFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function TokenTransactionEntryToJSON(json: any): TokenTransactionEntry {
-      return TokenTransactionEntryToJSONTyped(json, false);
-  }
+export function TokenTransactionEntryToJSON(json: any): TokenTransactionEntry {
+    return TokenTransactionEntryToJSONTyped(json, false);
+}
 
-  export function TokenTransactionEntryToJSONTyped(value?: TokenTransactionEntry | null, ignoreDiscriminator: boolean = false): any {
+export function TokenTransactionEntryToJSONTyped(value?: TokenTransactionEntry | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

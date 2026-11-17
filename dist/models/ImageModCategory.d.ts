@@ -17,6 +17,7 @@ export declare const ImageModCategory: {
     readonly Style: "style";
     readonly Position: "position";
     readonly Other: "other";
+    readonly Look: "look";
 };
 export type ImageModCategory = typeof ImageModCategory[keyof typeof ImageModCategory];
 export declare function instanceOfImageModCategory(value: any): boolean;

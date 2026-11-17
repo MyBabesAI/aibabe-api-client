@@ -95,6 +95,18 @@ export interface VideoModelConfig {
     multishotSupported: boolean;
     /**
      *
+     * @type {boolean}
+     * @memberof VideoModelConfig
+     */
+    trendsSupported?: boolean;
+    /**
+     *
+     * @type {number}
+     * @memberof VideoModelConfig
+     */
+    maxInputImages?: number;
+    /**
+     *
      * @type {Array<VideoAspectRatio>}
      * @memberof VideoModelConfig
      */

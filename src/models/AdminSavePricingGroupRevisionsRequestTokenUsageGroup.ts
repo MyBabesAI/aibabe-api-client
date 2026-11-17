@@ -91,11 +91,11 @@ export function AdminSavePricingGroupRevisionsRequestTokenUsageGroupFromJSONType
     };
 }
 
-  export function AdminSavePricingGroupRevisionsRequestTokenUsageGroupToJSON(json: any): AdminSavePricingGroupRevisionsRequestTokenUsageGroup {
-      return AdminSavePricingGroupRevisionsRequestTokenUsageGroupToJSONTyped(json, false);
-  }
+export function AdminSavePricingGroupRevisionsRequestTokenUsageGroupToJSON(json: any): AdminSavePricingGroupRevisionsRequestTokenUsageGroup {
+    return AdminSavePricingGroupRevisionsRequestTokenUsageGroupToJSONTyped(json, false);
+}
 
-  export function AdminSavePricingGroupRevisionsRequestTokenUsageGroupToJSONTyped(value?: AdminSavePricingGroupRevisionsRequestTokenUsageGroup | null, ignoreDiscriminator: boolean = false): any {
+export function AdminSavePricingGroupRevisionsRequestTokenUsageGroupToJSONTyped(value?: AdminSavePricingGroupRevisionsRequestTokenUsageGroup | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

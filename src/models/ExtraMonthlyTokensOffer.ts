@@ -84,11 +84,11 @@ export function ExtraMonthlyTokensOfferFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function ExtraMonthlyTokensOfferToJSON(json: any): ExtraMonthlyTokensOffer {
-      return ExtraMonthlyTokensOfferToJSONTyped(json, false);
-  }
+export function ExtraMonthlyTokensOfferToJSON(json: any): ExtraMonthlyTokensOffer {
+    return ExtraMonthlyTokensOfferToJSONTyped(json, false);
+}
 
-  export function ExtraMonthlyTokensOfferToJSONTyped(value?: ExtraMonthlyTokensOffer | null, ignoreDiscriminator: boolean = false): any {
+export function ExtraMonthlyTokensOfferToJSONTyped(value?: ExtraMonthlyTokensOffer | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

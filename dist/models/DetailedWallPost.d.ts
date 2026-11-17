@@ -16,6 +16,7 @@ import type { ContentType } from './ContentType';
 import type { EventSubmissionPreview } from './EventSubmissionPreview';
 import type { ImageContent } from './ImageContent';
 import type { ContentOrigin } from './ContentOrigin';
+import type { ScenarioPreview } from './ScenarioPreview';
 import type { StoryPreview } from './StoryPreview';
 import type { TagData } from './TagData';
 /**
@@ -42,6 +43,12 @@ export interface DetailedWallPost {
      * @memberof DetailedWallPost
      */
     story: StoryPreview | null;
+    /**
+     *
+     * @type {ScenarioPreview}
+     * @memberof DetailedWallPost
+     */
+    scenario?: ScenarioPreview | null;
     /**
      *
      * @type {ImageContent}

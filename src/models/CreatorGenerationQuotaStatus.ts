@@ -72,11 +72,11 @@ export function CreatorGenerationQuotaStatusFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function CreatorGenerationQuotaStatusToJSON(json: any): CreatorGenerationQuotaStatus {
-      return CreatorGenerationQuotaStatusToJSONTyped(json, false);
-  }
+export function CreatorGenerationQuotaStatusToJSON(json: any): CreatorGenerationQuotaStatus {
+    return CreatorGenerationQuotaStatusToJSONTyped(json, false);
+}
 
-  export function CreatorGenerationQuotaStatusToJSONTyped(value?: CreatorGenerationQuotaStatus | null, ignoreDiscriminator: boolean = false): any {
+export function CreatorGenerationQuotaStatusToJSONTyped(value?: CreatorGenerationQuotaStatus | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

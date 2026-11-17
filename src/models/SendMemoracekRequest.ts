@@ -59,11 +59,11 @@ export function SendMemoracekRequestFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function SendMemoracekRequestToJSON(json: any): SendMemoracekRequest {
-      return SendMemoracekRequestToJSONTyped(json, false);
-  }
+export function SendMemoracekRequestToJSON(json: any): SendMemoracekRequest {
+    return SendMemoracekRequestToJSONTyped(json, false);
+}
 
-  export function SendMemoracekRequestToJSONTyped(value?: SendMemoracekRequest | null, ignoreDiscriminator: boolean = false): any {
+export function SendMemoracekRequestToJSONTyped(value?: SendMemoracekRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

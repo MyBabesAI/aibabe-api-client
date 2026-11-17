@@ -14,6 +14,7 @@ import type { FurryVisualType } from './FurryVisualType';
 import type { Gender } from './Gender';
 import type { LoraName } from './LoraName';
 import type { SexualOrientation } from './SexualOrientation';
+import type { ReferenceTexts } from './ReferenceTexts';
 /**
  *
  * @export
@@ -88,6 +89,20 @@ export interface GetAboutChatbotResponse {
     loras: Array<LoraName> | null;
     /**
      *
+     * @type {{ [key: string]: number; }}
+     * @memberof GetAboutChatbotResponse
+     */
+    loraWeights?: {
+        [key: string]: number;
+    } | null;
+    /**
+     *
+     * @type {number}
+     * @memberof GetAboutChatbotResponse
+     */
+    age?: number | null;
+    /**
+     *
      * @type {boolean}
      * @memberof GetAboutChatbotResponse
      */
@@ -104,6 +119,18 @@ export interface GetAboutChatbotResponse {
      * @memberof GetAboutChatbotResponse
      */
     greetings: string | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof GetAboutChatbotResponse
+     */
+    alternativeGreetings?: Array<string>;
+    /**
+     *
+     * @type {ReferenceTexts}
+     * @memberof GetAboutChatbotResponse
+     */
+    referenceTexts?: ReferenceTexts | null;
 }
 /**
  * Check if a given object implements the GetAboutChatbotResponse interface.

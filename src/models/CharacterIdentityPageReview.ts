@@ -64,6 +64,12 @@ export interface CharacterIdentityPageReview {
      * @memberof CharacterIdentityPageReview
      */
     greetings?: AvatarRequiredField | null;
+    /**
+     * 
+     * @type {AvatarOptionalField}
+     * @memberof CharacterIdentityPageReview
+     */
+    alternativeGreetings?: AvatarOptionalField | null;
 }
 
 /**
@@ -88,14 +94,15 @@ export function CharacterIdentityPageReviewFromJSONTyped(json: any, ignoreDiscri
         'sexualOrientation': json['sexual_orientation'] == null ? undefined : AvatarOptionalFieldFromJSON(json['sexual_orientation']),
         'bio': json['bio'] == null ? undefined : AvatarRequiredFieldFromJSON(json['bio']),
         'greetings': json['greetings'] == null ? undefined : AvatarRequiredFieldFromJSON(json['greetings']),
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : AvatarOptionalFieldFromJSON(json['alternative_greetings']),
     };
 }
 
-  export function CharacterIdentityPageReviewToJSON(json: any): CharacterIdentityPageReview {
-      return CharacterIdentityPageReviewToJSONTyped(json, false);
-  }
+export function CharacterIdentityPageReviewToJSON(json: any): CharacterIdentityPageReview {
+    return CharacterIdentityPageReviewToJSONTyped(json, false);
+}
 
-  export function CharacterIdentityPageReviewToJSONTyped(value?: CharacterIdentityPageReview | null, ignoreDiscriminator: boolean = false): any {
+export function CharacterIdentityPageReviewToJSONTyped(value?: CharacterIdentityPageReview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -107,6 +114,7 @@ export function CharacterIdentityPageReviewFromJSONTyped(json: any, ignoreDiscri
         'sexual_orientation': AvatarOptionalFieldToJSON(value['sexualOrientation']),
         'bio': AvatarRequiredFieldToJSON(value['bio']),
         'greetings': AvatarRequiredFieldToJSON(value['greetings']),
+        'alternative_greetings': AvatarOptionalFieldToJSON(value['alternativeGreetings']),
     };
 }
 

@@ -81,11 +81,11 @@ export function PromotionSummaryFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function PromotionSummaryToJSON(json: any): PromotionSummary {
-      return PromotionSummaryToJSONTyped(json, false);
-  }
+export function PromotionSummaryToJSON(json: any): PromotionSummary {
+    return PromotionSummaryToJSONTyped(json, false);
+}
 
-  export function PromotionSummaryToJSONTyped(value?: PromotionSummary | null, ignoreDiscriminator: boolean = false): any {
+export function PromotionSummaryToJSONTyped(value?: PromotionSummary | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -66,10 +66,16 @@ export interface ConversationSettings {
     audioReferenceId?: string | null;
     /**
      * 
-     * @type {boolean}
+     * @type {string}
      * @memberof ConversationSettings
      */
-    memoryTurnedOn?: boolean | null;
+    userPersonaId?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ConversationSettings
+     */
+    maxSpeakersPerTurn?: number | null;
 }
 
 
@@ -96,15 +102,16 @@ export function ConversationSettingsFromJSONTyped(json: any, ignoreDiscriminator
         'onlySoloImages': json['only_solo_images'] == null ? undefined : json['only_solo_images'],
         'sfwFilterOn': json['sfw_filter_on'] == null ? undefined : json['sfw_filter_on'],
         'audioReferenceId': json['audio_reference_id'] == null ? undefined : json['audio_reference_id'],
-        'memoryTurnedOn': json['memory_turned_on'] == null ? undefined : json['memory_turned_on'],
+        'userPersonaId': json['user_persona_id'] == null ? undefined : json['user_persona_id'],
+        'maxSpeakersPerTurn': json['max_speakers_per_turn'] == null ? undefined : json['max_speakers_per_turn'],
     };
 }
 
-  export function ConversationSettingsToJSON(json: any): ConversationSettings {
-      return ConversationSettingsToJSONTyped(json, false);
-  }
+export function ConversationSettingsToJSON(json: any): ConversationSettings {
+    return ConversationSettingsToJSONTyped(json, false);
+}
 
-  export function ConversationSettingsToJSONTyped(value?: ConversationSettings | null, ignoreDiscriminator: boolean = false): any {
+export function ConversationSettingsToJSONTyped(value?: ConversationSettings | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -116,7 +123,8 @@ export function ConversationSettingsFromJSONTyped(json: any, ignoreDiscriminator
         'only_solo_images': value['onlySoloImages'],
         'sfw_filter_on': value['sfwFilterOn'],
         'audio_reference_id': value['audioReferenceId'],
-        'memory_turned_on': value['memoryTurnedOn'],
+        'user_persona_id': value['userPersonaId'],
+        'max_speakers_per_turn': value['maxSpeakersPerTurn'],
     };
 }
 

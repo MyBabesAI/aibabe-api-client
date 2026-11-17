@@ -76,11 +76,11 @@ export function AdminAwardBadgeRequestFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function AdminAwardBadgeRequestToJSON(json: any): AdminAwardBadgeRequest {
-      return AdminAwardBadgeRequestToJSONTyped(json, false);
-  }
+export function AdminAwardBadgeRequestToJSON(json: any): AdminAwardBadgeRequest {
+    return AdminAwardBadgeRequestToJSONTyped(json, false);
+}
 
-  export function AdminAwardBadgeRequestToJSONTyped(value?: AdminAwardBadgeRequest | null, ignoreDiscriminator: boolean = false): any {
+export function AdminAwardBadgeRequestToJSONTyped(value?: AdminAwardBadgeRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

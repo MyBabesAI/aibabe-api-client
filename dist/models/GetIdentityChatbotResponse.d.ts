@@ -60,6 +60,12 @@ export interface GetIdentityChatbotResponse {
      * @memberof GetIdentityChatbotResponse
      */
     greetings: string | null;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof GetIdentityChatbotResponse
+     */
+    alternativeGreetings?: Array<string>;
 }
 /**
  * Check if a given object implements the GetIdentityChatbotResponse interface.

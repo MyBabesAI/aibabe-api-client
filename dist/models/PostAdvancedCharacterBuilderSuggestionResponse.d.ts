@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CharacterBuilderSuggestionField } from './CharacterBuilderSuggestionField';
+import type { ReferenceTexts } from './ReferenceTexts';
 /**
  *
  * @export
@@ -28,6 +29,12 @@ export interface PostAdvancedCharacterBuilderSuggestionResponse {
      * @memberof PostAdvancedCharacterBuilderSuggestionResponse
      */
     suggestion: string;
+    /**
+     *
+     * @type {ReferenceTexts}
+     * @memberof PostAdvancedCharacterBuilderSuggestionResponse
+     */
+    viewTexts?: ReferenceTexts | null;
 }
 /**
  * Check if a given object implements the PostAdvancedCharacterBuilderSuggestionResponse interface.

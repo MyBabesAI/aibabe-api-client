@@ -113,11 +113,11 @@ export function StoryCreatorSaveEpisodeRequestFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function StoryCreatorSaveEpisodeRequestToJSON(json: any): StoryCreatorSaveEpisodeRequest {
-      return StoryCreatorSaveEpisodeRequestToJSONTyped(json, false);
-  }
+export function StoryCreatorSaveEpisodeRequestToJSON(json: any): StoryCreatorSaveEpisodeRequest {
+    return StoryCreatorSaveEpisodeRequestToJSONTyped(json, false);
+}
 
-  export function StoryCreatorSaveEpisodeRequestToJSONTyped(value?: StoryCreatorSaveEpisodeRequest | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorSaveEpisodeRequestToJSONTyped(value?: StoryCreatorSaveEpisodeRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

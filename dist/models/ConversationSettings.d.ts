@@ -49,10 +49,16 @@ export interface ConversationSettings {
     audioReferenceId?: string | null;
     /**
      *
-     * @type {boolean}
+     * @type {string}
      * @memberof ConversationSettings
      */
-    memoryTurnedOn?: boolean | null;
+    userPersonaId?: string | null;
+    /**
+     *
+     * @type {number}
+     * @memberof ConversationSettings
+     */
+    maxSpeakersPerTurn?: number | null;
 }
 /**
  * Check if a given object implements the ConversationSettings interface.

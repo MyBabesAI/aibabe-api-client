@@ -57,11 +57,11 @@ export function PostReportUserRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function PostReportUserRequestToJSON(json: any): PostReportUserRequest {
-      return PostReportUserRequestToJSONTyped(json, false);
-  }
+export function PostReportUserRequestToJSON(json: any): PostReportUserRequest {
+    return PostReportUserRequestToJSONTyped(json, false);
+}
 
-  export function PostReportUserRequestToJSONTyped(value?: PostReportUserRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostReportUserRequestToJSONTyped(value?: PostReportUserRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

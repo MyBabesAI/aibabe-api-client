@@ -16,6 +16,7 @@
 export declare const ChatRole: {
     readonly User: "user";
     readonly Assistant: "assistant";
+    readonly Narrator: "narrator";
 };
 export type ChatRole = typeof ChatRole[keyof typeof ChatRole];
 export declare function instanceOfChatRole(value: any): boolean;

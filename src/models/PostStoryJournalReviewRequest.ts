@@ -49,11 +49,11 @@ export function PostStoryJournalReviewRequestFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function PostStoryJournalReviewRequestToJSON(json: any): PostStoryJournalReviewRequest {
-      return PostStoryJournalReviewRequestToJSONTyped(json, false);
-  }
+export function PostStoryJournalReviewRequestToJSON(json: any): PostStoryJournalReviewRequest {
+    return PostStoryJournalReviewRequestToJSONTyped(json, false);
+}
 
-  export function PostStoryJournalReviewRequestToJSONTyped(value?: PostStoryJournalReviewRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostStoryJournalReviewRequestToJSONTyped(value?: PostStoryJournalReviewRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

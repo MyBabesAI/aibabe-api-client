@@ -199,11 +199,11 @@ export function ExtendVideoPayloadFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function ExtendVideoPayloadToJSON(json: any): ExtendVideoPayload {
-      return ExtendVideoPayloadToJSONTyped(json, false);
-  }
+export function ExtendVideoPayloadToJSON(json: any): ExtendVideoPayload {
+    return ExtendVideoPayloadToJSONTyped(json, false);
+}
 
-  export function ExtendVideoPayloadToJSONTyped(value?: ExtendVideoPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ExtendVideoPayloadToJSONTyped(value?: ExtendVideoPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

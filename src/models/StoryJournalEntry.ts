@@ -88,11 +88,11 @@ export function StoryJournalEntryFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function StoryJournalEntryToJSON(json: any): StoryJournalEntry {
-      return StoryJournalEntryToJSONTyped(json, false);
-  }
+export function StoryJournalEntryToJSON(json: any): StoryJournalEntry {
+    return StoryJournalEntryToJSONTyped(json, false);
+}
 
-  export function StoryJournalEntryToJSONTyped(value?: StoryJournalEntry | null, ignoreDiscriminator: boolean = false): any {
+export function StoryJournalEntryToJSONTyped(value?: StoryJournalEntry | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -108,11 +108,11 @@ export function MuleRouterWanTaskResponseTaskInfoFromJSONTyped(json: any, ignore
     };
 }
 
-  export function MuleRouterWanTaskResponseTaskInfoToJSON(json: any): MuleRouterWanTaskResponseTaskInfo {
-      return MuleRouterWanTaskResponseTaskInfoToJSONTyped(json, false);
-  }
+export function MuleRouterWanTaskResponseTaskInfoToJSON(json: any): MuleRouterWanTaskResponseTaskInfo {
+    return MuleRouterWanTaskResponseTaskInfoToJSONTyped(json, false);
+}
 
-  export function MuleRouterWanTaskResponseTaskInfoToJSONTyped(value?: MuleRouterWanTaskResponseTaskInfo | null, ignoreDiscriminator: boolean = false): any {
+export function MuleRouterWanTaskResponseTaskInfoToJSONTyped(value?: MuleRouterWanTaskResponseTaskInfo | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

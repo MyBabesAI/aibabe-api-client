@@ -65,11 +65,11 @@ export function PutFollowNotificationsRequestFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function PutFollowNotificationsRequestToJSON(json: any): PutFollowNotificationsRequest {
-      return PutFollowNotificationsRequestToJSONTyped(json, false);
-  }
+export function PutFollowNotificationsRequestToJSON(json: any): PutFollowNotificationsRequest {
+    return PutFollowNotificationsRequestToJSONTyped(json, false);
+}
 
-  export function PutFollowNotificationsRequestToJSONTyped(value?: PutFollowNotificationsRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PutFollowNotificationsRequestToJSONTyped(value?: PutFollowNotificationsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -65,11 +65,11 @@ export function BillingReconciliationResponseFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function BillingReconciliationResponseToJSON(json: any): BillingReconciliationResponse {
-      return BillingReconciliationResponseToJSONTyped(json, false);
-  }
+export function BillingReconciliationResponseToJSON(json: any): BillingReconciliationResponse {
+    return BillingReconciliationResponseToJSONTyped(json, false);
+}
 
-  export function BillingReconciliationResponseToJSONTyped(value?: BillingReconciliationResponse | null, ignoreDiscriminator: boolean = false): any {
+export function BillingReconciliationResponseToJSONTyped(value?: BillingReconciliationResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

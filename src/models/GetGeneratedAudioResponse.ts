@@ -64,11 +64,11 @@ export function GetGeneratedAudioResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function GetGeneratedAudioResponseToJSON(json: any): GetGeneratedAudioResponse {
-      return GetGeneratedAudioResponseToJSONTyped(json, false);
-  }
+export function GetGeneratedAudioResponseToJSON(json: any): GetGeneratedAudioResponse {
+    return GetGeneratedAudioResponseToJSONTyped(json, false);
+}
 
-  export function GetGeneratedAudioResponseToJSONTyped(value?: GetGeneratedAudioResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetGeneratedAudioResponseToJSONTyped(value?: GetGeneratedAudioResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

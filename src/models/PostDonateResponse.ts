@@ -57,11 +57,11 @@ export function PostDonateResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function PostDonateResponseToJSON(json: any): PostDonateResponse {
-      return PostDonateResponseToJSONTyped(json, false);
-  }
+export function PostDonateResponseToJSON(json: any): PostDonateResponse {
+    return PostDonateResponseToJSONTyped(json, false);
+}
 
-  export function PostDonateResponseToJSONTyped(value?: PostDonateResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostDonateResponseToJSONTyped(value?: PostDonateResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

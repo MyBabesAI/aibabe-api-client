@@ -23,6 +23,7 @@ export declare const ImageToVideoModel: {
     readonly Seedance20FastI2V: "SEEDANCE_20_FAST_I2V";
     readonly Seedance25I2V: "SEEDANCE_25_I2V";
     readonly MybabesV2I2V: "MYBABES_V2_I2V";
+    readonly VideoEditor: "VIDEO_EDITOR";
 };
 export type ImageToVideoModel = typeof ImageToVideoModel[keyof typeof ImageToVideoModel];
 export declare function instanceOfImageToVideoModel(value: any): boolean;

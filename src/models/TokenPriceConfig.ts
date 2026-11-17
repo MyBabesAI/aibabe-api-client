@@ -83,11 +83,11 @@ export function TokenPriceConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function TokenPriceConfigToJSON(json: any): TokenPriceConfig {
-      return TokenPriceConfigToJSONTyped(json, false);
-  }
+export function TokenPriceConfigToJSON(json: any): TokenPriceConfig {
+    return TokenPriceConfigToJSONTyped(json, false);
+}
 
-  export function TokenPriceConfigToJSONTyped(value?: TokenPriceConfig | null, ignoreDiscriminator: boolean = false): any {
+export function TokenPriceConfigToJSONTyped(value?: TokenPriceConfig | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

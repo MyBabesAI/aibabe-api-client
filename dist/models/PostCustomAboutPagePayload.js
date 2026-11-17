@@ -51,6 +51,7 @@ function PostCustomAboutPagePayloadFromJSONTyped(json, ignoreDiscriminator) {
         'furryVisualType': json['furry_visual_type'] == null ? undefined : (0, FurryVisualType_1.FurryVisualTypeFromJSON)(json['furry_visual_type']),
         'bio': json['bio'],
         'greetings': json['greetings'],
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : json['alternative_greetings'],
         'story': json['story'],
         'exampleConversation': json['example_conversation'],
     };
@@ -69,6 +70,7 @@ function PostCustomAboutPagePayloadToJSONTyped(value, ignoreDiscriminator = fals
         'furry_visual_type': (0, FurryVisualType_1.FurryVisualTypeToJSON)(value['furryVisualType']),
         'bio': value['bio'],
         'greetings': value['greetings'],
+        'alternative_greetings': value['alternativeGreetings'],
         'story': value['story'],
         'example_conversation': value['exampleConversation'],
     };

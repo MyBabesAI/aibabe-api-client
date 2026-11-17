@@ -65,11 +65,11 @@ export function StoryCreatorStoryMediaFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function StoryCreatorStoryMediaToJSON(json: any): StoryCreatorStoryMedia {
-      return StoryCreatorStoryMediaToJSONTyped(json, false);
-  }
+export function StoryCreatorStoryMediaToJSON(json: any): StoryCreatorStoryMedia {
+    return StoryCreatorStoryMediaToJSONTyped(json, false);
+}
 
-  export function StoryCreatorStoryMediaToJSONTyped(value?: StoryCreatorStoryMedia | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorStoryMediaToJSONTyped(value?: StoryCreatorStoryMedia | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
