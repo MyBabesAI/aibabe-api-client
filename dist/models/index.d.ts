@@ -467,6 +467,7 @@ export * from './ReferenceImage';
 export * from './ReferenceImageView';
 export * from './ReferenceTexts';
 export * from './RemainingFreeUsesResponse';
+export * from './RemixSlot';
 export * from './ResponseGetWanTaskStatusVideoWanTaskTaskIdGet';
 export * from './RestylePersonaRequest';
 export * from './ReviewCharacterFieldStatus';
