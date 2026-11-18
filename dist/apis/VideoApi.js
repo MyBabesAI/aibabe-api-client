@@ -463,6 +463,9 @@ class VideoApi extends runtime.BaseAPI {
      * Generate Seedance Video
      */
     async generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides) {
+        if (requestParameters['model'] == null) {
+            throw new runtime.RequiredError('model', 'Required parameter "model" was null or undefined when calling generateSeedanceVideoVideoSeedanceGeneratePost().');
+        }
         const queryParameters = {};
         const headerParameters = {};
         const consumes = [
@@ -567,7 +570,7 @@ class VideoApi extends runtime.BaseAPI {
     /**
      * Generate Seedance Video
      */
-    async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters = {}, initOverrides) {
+    async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters, initOverrides) {
         const response = await this.generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides);
         return await response.value();
     }

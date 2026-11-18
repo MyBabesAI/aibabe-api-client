@@ -198,9 +198,6 @@ class TrendsApi extends runtime.BaseAPI {
         if (requestParameters['characterCount'] != null) {
             formParams.append('character_count', requestParameters['characterCount']);
         }
-        if (requestParameters['targetPhrase'] != null) {
-            formParams.append('target_phrase', requestParameters['targetPhrase']);
-        }
         if (requestParameters['videoPrompt'] != null) {
             formParams.append('video_prompt', requestParameters['videoPrompt']);
         }
@@ -679,9 +676,6 @@ class TrendsApi extends runtime.BaseAPI {
         }
         if (requestParameters['coverUrl'] != null) {
             formParams.append('cover_url', requestParameters['coverUrl']);
-        }
-        if (requestParameters['targetPhrase'] != null) {
-            formParams.append('target_phrase', requestParameters['targetPhrase']);
         }
         if (requestParameters['tags'] != null) {
             formParams.append('tags', new Blob([JSON.stringify((0, index_1.TagsToJSON)(requestParameters['tags']))], { type: "application/json", }));

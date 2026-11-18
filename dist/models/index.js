@@ -485,6 +485,7 @@ __exportStar(require("./ReferenceImage"), exports);
 __exportStar(require("./ReferenceImageView"), exports);
 __exportStar(require("./ReferenceTexts"), exports);
 __exportStar(require("./RemainingFreeUsesResponse"), exports);
+__exportStar(require("./RemixSlot"), exports);
 __exportStar(require("./ResponseGetWanTaskStatusVideoWanTaskTaskIdGet"), exports);
 __exportStar(require("./ReviewCharacterFieldStatus"), exports);
 __exportStar(require("./RoleplayType"), exports);

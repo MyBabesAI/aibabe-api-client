@@ -131,7 +131,6 @@ export interface CreateTrendTrendsPostRequest {
     previewChatbotId?: string | null;
     previewChatbotIds?: PreviewChatbotIds | null;
     characterCount?: number | null;
-    targetPhrase?: string | null;
     videoPrompt?: string | null;
     videoLoras?: VideoLoras | null;
     stillPrompts?: string | null;
@@ -225,7 +224,6 @@ export interface UpdateTrendTrendsTrendIdPatchRequest {
     sourceVideoUrl?: string | null;
     sourceImageUrl?: string | null;
     coverUrl?: string | null;
-    targetPhrase?: string | null;
     tags?: Tags | null;
     videoPrompt?: string | null;
     videoLoras?: VideoLoras | null;
@@ -427,10 +425,6 @@ export class TrendsApi extends runtime.BaseAPI {
 
         if (requestParameters['characterCount'] != null) {
             formParams.append('character_count', requestParameters['characterCount'] as any);
-        }
-
-        if (requestParameters['targetPhrase'] != null) {
-            formParams.append('target_phrase', requestParameters['targetPhrase'] as any);
         }
 
         if (requestParameters['videoPrompt'] != null) {
@@ -1066,10 +1060,6 @@ export class TrendsApi extends runtime.BaseAPI {
 
         if (requestParameters['coverUrl'] != null) {
             formParams.append('cover_url', requestParameters['coverUrl'] as any);
-        }
-
-        if (requestParameters['targetPhrase'] != null) {
-            formParams.append('target_phrase', requestParameters['targetPhrase'] as any);
         }
 
         if (requestParameters['tags'] != null) {

@@ -161,6 +161,7 @@ export interface ExtendVideoVideoExtendPostRequest {
 }
 
 export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
+    model: AdminSeedanceModel;
     image?: Array<Blob>;
     imageUrl?: Array<string>;
     imageRole?: GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum;
@@ -171,7 +172,6 @@ export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
     audio?: Array<Blob>;
     audioUrl?: Array<string>;
     prompt?: string | null;
-    model?: AdminSeedanceModel | null;
     resolution?: VideoResolution;
     ratio?: GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum;
     duration?: number;
@@ -795,6 +795,13 @@ export class VideoApi extends runtime.BaseAPI {
      * Generate Seedance Video
      */
     async generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SeedanceImageToVideoResponse>> {
+        if (requestParameters['model'] == null) {
+            throw new runtime.RequiredError(
+                'model',
+                'Required parameter "model" was null or undefined when calling generateSeedanceVideoVideoSeedanceGeneratePost().'
+            );
+        }
+
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -925,7 +932,7 @@ export class VideoApi extends runtime.BaseAPI {
     /**
      * Generate Seedance Video
      */
-    async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedanceImageToVideoResponse> {
+    async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedanceImageToVideoResponse> {
         const response = await this.generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides);
         return await response.value();
     }

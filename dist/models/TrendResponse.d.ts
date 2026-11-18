@@ -184,18 +184,6 @@ export interface TrendResponse {
      * @type {string}
      * @memberof TrendResponse
      */
-    targetPhrase?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof TrendResponse
-     */
-    sourceMaskUrl?: string | null;
-    /**
-     *
-     * @type {string}
-     * @memberof TrendResponse
-     */
     videoPrompt?: string | null;
     /**
      *

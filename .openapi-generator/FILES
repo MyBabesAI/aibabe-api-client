@@ -504,6 +504,7 @@ src/models/ReferenceImage.ts
 src/models/ReferenceImageView.ts
 src/models/ReferenceTexts.ts
 src/models/RemainingFreeUsesResponse.ts
+src/models/RemixSlot.ts
 src/models/ResponseGetWanTaskStatusVideoWanTaskTaskIdGet.ts
 src/models/ReviewCharacterFieldStatus.ts
 src/models/RoleplayType.ts

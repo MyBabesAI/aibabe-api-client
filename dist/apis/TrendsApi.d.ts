@@ -40,7 +40,6 @@ export interface CreateTrendTrendsPostRequest {
     previewChatbotId?: string | null;
     previewChatbotIds?: PreviewChatbotIds | null;
     characterCount?: number | null;
-    targetPhrase?: string | null;
     videoPrompt?: string | null;
     videoLoras?: VideoLoras | null;
     stillPrompts?: string | null;
@@ -123,7 +122,6 @@ export interface UpdateTrendTrendsTrendIdPatchRequest {
     sourceVideoUrl?: string | null;
     sourceImageUrl?: string | null;
     coverUrl?: string | null;
-    targetPhrase?: string | null;
     tags?: Tags | null;
     videoPrompt?: string | null;
     videoLoras?: VideoLoras | null;

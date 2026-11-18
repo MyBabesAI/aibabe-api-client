@@ -200,6 +200,9 @@ export declare const ExceptionCode: {
     readonly VideoCropWithoutRatio: "video_crop_without_ratio";
     readonly VideoModelSingleImage: "video_model_single_image";
     readonly VideoTooManyImages: "video_too_many_images";
+    readonly SeedanceDurationNotSupported: "seedance_duration_not_supported";
+    readonly SeedanceResolutionNotSupported: "seedance_resolution_not_supported";
+    readonly SeedanceInputNotSupported: "seedance_input_not_supported";
     readonly VideoReferenceRolesMismatch: "video_reference_roles_mismatch";
     readonly VideoReferenceBabeNotOwnPicture: "video_reference_babe_not_own_picture";
     readonly VideoReferenceRoleRepeated: "video_reference_role_repeated";
@@ -242,6 +245,7 @@ export declare const ExceptionCode: {
     readonly TrendPromptTooLong: "trend_prompt_too_long";
     readonly TrendTagUnknown: "trend_tag_unknown";
     readonly TrendDraftingBusy: "trend_drafting_busy";
+    readonly TrendTranslationFailed: "trend_translation_failed";
     readonly TrendMaskMissing: "trend_mask_missing";
     readonly BabeLookPictureRefused: "babe_look_picture_refused";
     readonly BabeLookReadingFailed: "babe_look_reading_failed";

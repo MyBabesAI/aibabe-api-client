@@ -52,6 +52,7 @@ export interface ExtendVideoVideoExtendPostRequest {
     extendVideoPayload: ExtendVideoPayload;
 }
 export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
+    model: AdminSeedanceModel;
     image?: Array<Blob>;
     imageUrl?: Array<string>;
     imageRole?: GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum;
@@ -62,7 +63,6 @@ export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
     audio?: Array<Blob>;
     audioUrl?: Array<string>;
     prompt?: string | null;
-    model?: AdminSeedanceModel | null;
     resolution?: VideoResolution;
     ratio?: GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum;
     duration?: number;
@@ -233,7 +233,7 @@ export declare class VideoApi extends runtime.BaseAPI {
     /**
      * Generate Seedance Video
      */
-    generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters?: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedanceImageToVideoResponse>;
+    generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedanceImageToVideoResponse>;
     /**
      * Generate Video Description
      */

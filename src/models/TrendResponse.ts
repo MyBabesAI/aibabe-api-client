@@ -237,18 +237,6 @@ export interface TrendResponse {
      * @type {string}
      * @memberof TrendResponse
      */
-    targetPhrase?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TrendResponse
-     */
-    sourceMaskUrl?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TrendResponse
-     */
     videoPrompt?: string | null;
     /**
      * 
@@ -348,8 +336,6 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'castsYou': json['casts_you'] == null ? undefined : json['casts_you'],
         'characterCount': json['character_count'] == null ? undefined : json['character_count'],
         'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
-        'targetPhrase': json['target_phrase'] == null ? undefined : json['target_phrase'],
-        'sourceMaskUrl': json['source_mask_url'] == null ? undefined : json['source_mask_url'],
         'videoPrompt': json['video_prompt'] == null ? undefined : json['video_prompt'],
         'videoLoras': json['video_loras'] == null ? undefined : json['video_loras'],
         'stillPrompts': json['still_prompts'] == null ? undefined : json['still_prompts'],
@@ -397,8 +383,6 @@ export function TrendResponseToJSONTyped(value?: TrendResponse | null, ignoreDis
         'casts_you': value['castsYou'],
         'character_count': value['characterCount'],
         'character_style': value['characterStyle'],
-        'target_phrase': value['targetPhrase'],
-        'source_mask_url': value['sourceMaskUrl'],
         'video_prompt': value['videoPrompt'],
         'video_loras': value['videoLoras'],
         'still_prompts': value['stillPrompts'],

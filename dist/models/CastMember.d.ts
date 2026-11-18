@@ -45,6 +45,12 @@ export interface CastMember {
      * @memberof CastMember
      */
     isPersona?: boolean;
+    /**
+     *
+     * @type {number}
+     * @memberof CastMember
+     */
+    slot?: number | null;
 }
 /**
  * Check if a given object implements the CastMember interface.

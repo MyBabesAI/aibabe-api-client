@@ -45,6 +45,7 @@ function CastMemberFromJSONTyped(json, ignoreDiscriminator) {
         'avatarUrl': json['avatar_url'],
         'isPublic': json['is_public'],
         'isPersona': json['is_persona'] == null ? undefined : json['is_persona'],
+        'slot': json['slot'] == null ? undefined : json['slot'],
     };
 }
 function CastMemberToJSON(json) {
@@ -60,6 +61,7 @@ function CastMemberToJSONTyped(value, ignoreDiscriminator = false) {
         'avatar_url': value['avatarUrl'],
         'is_public': value['isPublic'],
         'is_persona': value['isPersona'],
+        'slot': value['slot'],
     };
 }
 //# sourceMappingURL=CastMember.js.map
