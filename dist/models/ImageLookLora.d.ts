@@ -39,6 +39,12 @@ export interface ImageLookLora {
      * @memberof ImageLookLora
      */
     max?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof ImageLookLora
+     */
+    url?: string | null;
 }
 /**
  * Check if a given object implements the ImageLookLora interface.

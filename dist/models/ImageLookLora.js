@@ -42,6 +42,7 @@ function ImageLookLoraFromJSONTyped(json, ignoreDiscriminator) {
         'strength': json['strength'],
         'label': json['label'],
         'max': json['max'] == null ? undefined : json['max'],
+        'url': json['url'] == null ? undefined : json['url'],
     };
 }
 function ImageLookLoraToJSON(json) {
@@ -56,6 +57,7 @@ function ImageLookLoraToJSONTyped(value, ignoreDiscriminator = false) {
         'strength': value['strength'],
         'label': value['label'],
         'max': value['max'],
+        'url': value['url'],
     };
 }
 //# sourceMappingURL=ImageLookLora.js.map

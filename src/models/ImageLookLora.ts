@@ -43,6 +43,12 @@ export interface ImageLookLora {
      * @memberof ImageLookLora
      */
     max?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof ImageLookLora
+     */
+    url?: string | null;
 }
 
 /**
@@ -69,6 +75,7 @@ export function ImageLookLoraFromJSONTyped(json: any, ignoreDiscriminator: boole
         'strength': json['strength'],
         'label': json['label'],
         'max': json['max'] == null ? undefined : json['max'],
+        'url': json['url'] == null ? undefined : json['url'],
     };
 }
 
@@ -87,6 +94,7 @@ export function ImageLookLoraToJSONTyped(value?: ImageLookLora | null, ignoreDis
         'strength': value['strength'],
         'label': value['label'],
         'max': value['max'],
+        'url': value['url'],
     };
 }
 
