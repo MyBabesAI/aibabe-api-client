@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ArtStyle } from './ArtStyle';
+import {
+    ArtStyleFromJSON,
+    ArtStyleFromJSONTyped,
+    ArtStyleToJSON,
+    ArtStyleToJSONTyped,
+} from './ArtStyle';
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import {
     VideoAspectRatioFromJSON,
@@ -79,6 +86,12 @@ export interface TrendRecreateRequest {
     model: string;
     /**
      * 
+     * @type {ArtStyle}
+     * @memberof TrendRecreateRequest
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     * 
      * @type {VideoAspectRatio}
      * @memberof TrendRecreateRequest
      */
@@ -137,6 +150,7 @@ export function TrendRecreateRequestFromJSONTyped(json: any, ignoreDiscriminator
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
         'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
         'model': json['model'],
+        'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : VideoAspectRatioFromJSON(json['aspect_ratio']),
         'resolution': json['resolution'] == null ? undefined : VideoResolutionFromJSON(json['resolution']),
         'imageCount': json['image_count'] == null ? undefined : json['image_count'],
@@ -162,6 +176,7 @@ export function TrendRecreateRequestToJSONTyped(value?: TrendRecreateRequest | n
         'prompt': value['prompt'],
         'lora_weights': value['loraWeights'],
         'model': value['model'],
+        'art_style': ArtStyleToJSON(value['artStyle']),
         'aspect_ratio': VideoAspectRatioToJSON(value['aspectRatio']),
         'resolution': VideoResolutionToJSON(value['resolution']),
         'image_count': value['imageCount'],

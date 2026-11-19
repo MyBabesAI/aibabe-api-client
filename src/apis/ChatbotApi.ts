@@ -1521,7 +1521,7 @@ export class ChatbotApi extends runtime.BaseAPI {
     }
 
     /**
-     * Starts a fresh advanced-builder draft of the woman in a published babe trend\'s picture (which never leaves the server): her look text, art style, photo look and a fixed seed. Replaces an unpublished draft.
+     * Starts a fresh advanced-builder draft of a published babe trend\'s babe, as the trend stores her: her identity, art style, LoRAs, age and seed. Replaces an unpublished draft.
      * Recreate Babe
      */
     async recreateBabeChatbotAdvancedRecreatePostRaw(requestParameters: RecreateBabeChatbotAdvancedRecreatePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostAdvancedRecreateResponse>> {
@@ -1566,7 +1566,7 @@ export class ChatbotApi extends runtime.BaseAPI {
     }
 
     /**
-     * Starts a fresh advanced-builder draft of the woman in a published babe trend\'s picture (which never leaves the server): her look text, art style, photo look and a fixed seed. Replaces an unpublished draft.
+     * Starts a fresh advanced-builder draft of a published babe trend\'s babe, as the trend stores her: her identity, art style, LoRAs, age and seed. Replaces an unpublished draft.
      * Recreate Babe
      */
     async recreateBabeChatbotAdvancedRecreatePost(requestParameters: RecreateBabeChatbotAdvancedRecreatePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostAdvancedRecreateResponse> {

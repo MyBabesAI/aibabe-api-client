@@ -29,6 +29,7 @@ import type {
   TrendCategoryUpdateRequest,
   TrendFacetsResponse,
   TrendFromPostRequest,
+  TrendKind,
   TrendListFilter,
   TrendListResponse,
   TrendMediaType,
@@ -72,6 +73,8 @@ import {
     TrendFacetsResponseToJSON,
     TrendFromPostRequestFromJSON,
     TrendFromPostRequestToJSON,
+    TrendKindFromJSON,
+    TrendKindToJSON,
     TrendListFilterFromJSON,
     TrendListFilterToJSON,
     TrendListResponseFromJSON,
@@ -134,6 +137,8 @@ export interface CreateTrendTrendsPostRequest {
     videoPrompt?: string | null;
     videoLoras?: VideoLoras | null;
     stillPrompts?: string | null;
+    kind?: TrendKind | null;
+    babe?: string | null;
 }
 
 export interface DeleteCategoryTrendsCategoriesCategoryIdDeleteRequest {
@@ -230,6 +235,7 @@ export interface UpdateTrendTrendsTrendIdPatchRequest {
     stillPrompts?: string | null;
     previewMediaId?: string | null;
     subjectGenders?: SubjectGenders | null;
+    babe?: string | null;
 }
 
 /**
@@ -437,6 +443,14 @@ export class TrendsApi extends runtime.BaseAPI {
 
         if (requestParameters['stillPrompts'] != null) {
             formParams.append('still_prompts', requestParameters['stillPrompts'] as any);
+        }
+
+        if (requestParameters['kind'] != null) {
+            formParams.append('kind', requestParameters['kind'] as any);
+        }
+
+        if (requestParameters['babe'] != null) {
+            formParams.append('babe', requestParameters['babe'] as any);
         }
 
         const response = await this.request({
@@ -1085,6 +1099,10 @@ export class TrendsApi extends runtime.BaseAPI {
         if (requestParameters['subjectGenders'] != null) {
             formParams.append('subject_genders', new Blob([JSON.stringify(SubjectGendersToJSON(requestParameters['subjectGenders']))], { type: "application/json", }));
                     }
+
+        if (requestParameters['babe'] != null) {
+            formParams.append('babe', requestParameters['babe'] as any);
+        }
 
         const response = await this.request({
             path: `/trends/{trend_id}`.replace(`{${"trend_id"}}`, encodeURIComponent(String(requestParameters['trendId']))),

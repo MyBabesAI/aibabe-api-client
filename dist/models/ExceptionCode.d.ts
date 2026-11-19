@@ -222,6 +222,8 @@ export declare const ExceptionCode: {
     readonly OriginalImageNotFound: "original_image_not_found";
     readonly TrendNeedsPersona: "trend_needs_persona";
     readonly TrendNotFound: "trend_not_found";
+    readonly TrendArtStyleNotSupported: "trend_art_style_not_supported";
+    readonly TrendKindNotSupported: "trend_kind_not_supported";
     readonly TrendCategoryNotFound: "trend_category_not_found";
     readonly TrendCategorySlugConflict: "trend_category_slug_conflict";
     readonly TrendNotPublished: "trend_not_published";
@@ -250,6 +252,8 @@ export declare const ExceptionCode: {
     readonly BabeLookPictureRefused: "babe_look_picture_refused";
     readonly BabeLookReadingFailed: "babe_look_reading_failed";
     readonly BabeLookBusy: "babe_look_busy";
+    readonly BabeTrendNotRecreatable: "babe_trend_not_recreatable";
+    readonly BabeTrendLookInvalid: "babe_trend_look_invalid";
     readonly TrendPreviewPending: "trend_preview_pending";
     readonly TrendImagesCountInvalid: "trend_images_count_invalid";
     readonly TrendPromptInvalid: "trend_prompt_invalid";

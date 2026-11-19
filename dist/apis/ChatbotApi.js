@@ -953,7 +953,7 @@ class ChatbotApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Starts a fresh advanced-builder draft of the woman in a published babe trend\'s picture (which never leaves the server): her look text, art style, photo look and a fixed seed. Replaces an unpublished draft.
+     * Starts a fresh advanced-builder draft of a published babe trend\'s babe, as the trend stores her: her identity, art style, LoRAs, age and seed. Replaces an unpublished draft.
      * Recreate Babe
      */
     async recreateBabeChatbotAdvancedRecreatePostRaw(requestParameters, initOverrides) {
@@ -988,7 +988,7 @@ class ChatbotApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostAdvancedRecreateResponseFromJSON)(jsonValue));
     }
     /**
-     * Starts a fresh advanced-builder draft of the woman in a published babe trend\'s picture (which never leaves the server): her look text, art style, photo look and a fixed seed. Replaces an unpublished draft.
+     * Starts a fresh advanced-builder draft of a published babe trend\'s babe, as the trend stores her: her identity, art style, LoRAs, age and seed. Replaces an unpublished draft.
      * Recreate Babe
      */
     async recreateBabeChatbotAdvancedRecreatePost(requestParameters, initOverrides) {

@@ -10,8 +10,9 @@
  * Do not edit the class manually.
  */
 import type { ArtStyle } from './ArtStyle';
+import type { ImageLookLora } from './ImageLookLora';
 /**
- * The draft a picture was recreated into. The frontend sends look_description and art_style as they are to
+ * The draft a babe trend was recreated into. The frontend sends look_description, art_style and age as they are to
  * POST /advanced/profile-picture (no mods) and the member fills in the rest.
  * @export
  * @interface PostAdvancedRecreateResponse
@@ -31,10 +32,16 @@ export interface PostAdvancedRecreateResponse {
     artStyle: ArtStyle;
     /**
      *
-     * @type {string}
+     * @type {Array<ImageLookLora>}
      * @memberof PostAdvancedRecreateResponse
      */
-    look: string | null;
+    loras?: Array<ImageLookLora>;
+    /**
+     *
+     * @type {number}
+     * @memberof PostAdvancedRecreateResponse
+     */
+    age?: number | null;
 }
 /**
  * Check if a given object implements the PostAdvancedRecreateResponse interface.

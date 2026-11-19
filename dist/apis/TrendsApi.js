@@ -207,6 +207,12 @@ class TrendsApi extends runtime.BaseAPI {
         if (requestParameters['stillPrompts'] != null) {
             formParams.append('still_prompts', requestParameters['stillPrompts']);
         }
+        if (requestParameters['kind'] != null) {
+            formParams.append('kind', requestParameters['kind']);
+        }
+        if (requestParameters['babe'] != null) {
+            formParams.append('babe', requestParameters['babe']);
+        }
         const response = await this.request({
             path: `/trends`,
             method: 'POST',
@@ -694,6 +700,9 @@ class TrendsApi extends runtime.BaseAPI {
         }
         if (requestParameters['subjectGenders'] != null) {
             formParams.append('subject_genders', new Blob([JSON.stringify((0, index_1.SubjectGendersToJSON)(requestParameters['subjectGenders']))], { type: "application/json", }));
+        }
+        if (requestParameters['babe'] != null) {
+            formParams.append('babe', requestParameters['babe']);
         }
         const response = await this.request({
             path: `/trends/{trend_id}`.replace(`{${"trend_id"}}`, encodeURIComponent(String(requestParameters['trendId']))),

@@ -20,9 +20,16 @@ import {
     ArtStyleToJSON,
     ArtStyleToJSONTyped,
 } from './ArtStyle';
+import type { ImageLookLora } from './ImageLookLora';
+import {
+    ImageLookLoraFromJSON,
+    ImageLookLoraFromJSONTyped,
+    ImageLookLoraToJSON,
+    ImageLookLoraToJSONTyped,
+} from './ImageLookLora';
 
 /**
- * The draft a picture was recreated into. The frontend sends look_description and art_style as they are to
+ * The draft a babe trend was recreated into. The frontend sends look_description, art_style and age as they are to
  * POST /advanced/profile-picture (no mods) and the member fills in the rest.
  * @export
  * @interface PostAdvancedRecreateResponse
@@ -42,10 +49,16 @@ export interface PostAdvancedRecreateResponse {
     artStyle: ArtStyle;
     /**
      * 
-     * @type {string}
+     * @type {Array<ImageLookLora>}
      * @memberof PostAdvancedRecreateResponse
      */
-    look: string | null;
+    loras?: Array<ImageLookLora>;
+    /**
+     * 
+     * @type {number}
+     * @memberof PostAdvancedRecreateResponse
+     */
+    age?: number | null;
 }
 
 
@@ -56,7 +69,6 @@ export interface PostAdvancedRecreateResponse {
 export function instanceOfPostAdvancedRecreateResponse(value: object): value is PostAdvancedRecreateResponse {
     if (!('lookDescription' in value) || value['lookDescription'] === undefined) return false;
     if (!('artStyle' in value) || value['artStyle'] === undefined) return false;
-    if (!('look' in value) || value['look'] === undefined) return false;
     return true;
 }
 
@@ -72,7 +84,8 @@ export function PostAdvancedRecreateResponseFromJSONTyped(json: any, ignoreDiscr
         
         'lookDescription': json['look_description'],
         'artStyle': ArtStyleFromJSON(json['art_style']),
-        'look': json['look'],
+        'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
+        'age': json['age'] == null ? undefined : json['age'],
     };
 }
 
@@ -89,7 +102,8 @@ export function PostAdvancedRecreateResponseToJSONTyped(value?: PostAdvancedRecr
         
         'look_description': value['lookDescription'],
         'art_style': ArtStyleToJSON(value['artStyle']),
-        'look': value['look'],
+        'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
+        'age': value['age'],
     };
 }
 

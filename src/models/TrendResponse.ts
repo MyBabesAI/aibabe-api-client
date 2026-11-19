@@ -41,6 +41,20 @@ import {
     VideoAspectRatioToJSON,
     VideoAspectRatioToJSONTyped,
 } from './VideoAspectRatio';
+import type { TrendArtStyleOption } from './TrendArtStyleOption';
+import {
+    TrendArtStyleOptionFromJSON,
+    TrendArtStyleOptionFromJSONTyped,
+    TrendArtStyleOptionToJSON,
+    TrendArtStyleOptionToJSONTyped,
+} from './TrendArtStyleOption';
+import type { TrendKind } from './TrendKind';
+import {
+    TrendKindFromJSON,
+    TrendKindFromJSONTyped,
+    TrendKindToJSON,
+    TrendKindToJSONTyped,
+} from './TrendKind';
 import type { VideoResolution } from './VideoResolution';
 import {
     VideoResolutionFromJSON,
@@ -55,6 +69,13 @@ import {
     TrendModelOptionToJSON,
     TrendModelOptionToJSONTyped,
 } from './TrendModelOption';
+import type { BabeTrendLookResponse } from './BabeTrendLookResponse';
+import {
+    BabeTrendLookResponseFromJSON,
+    BabeTrendLookResponseFromJSONTyped,
+    BabeTrendLookResponseToJSON,
+    BabeTrendLookResponseToJSONTyped,
+} from './BabeTrendLookResponse';
 import type { TrendMode } from './TrendMode';
 import {
     TrendModeFromJSON,
@@ -94,6 +115,12 @@ export interface TrendResponse {
      * @memberof TrendResponse
      */
     categoryId: string | null;
+    /**
+     * 
+     * @type {TrendKind}
+     * @memberof TrendResponse
+     */
+    kind: TrendKind;
     /**
      * 
      * @type {TrendMediaType}
@@ -274,6 +301,18 @@ export interface TrendResponse {
      * @memberof TrendResponse
      */
     sourcePostId?: string | null;
+    /**
+     * 
+     * @type {BabeTrendLookResponse}
+     * @memberof TrendResponse
+     */
+    babe?: BabeTrendLookResponse | null;
+    /**
+     * 
+     * @type {Array<TrendArtStyleOption>}
+     * @memberof TrendResponse
+     */
+    artStyleOptions?: Array<TrendArtStyleOption>;
 }
 
 
@@ -285,6 +324,7 @@ export function instanceOfTrendResponse(value: object): value is TrendResponse {
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('title' in value) || value['title'] === undefined) return false;
     if (!('categoryId' in value) || value['categoryId'] === undefined) return false;
+    if (!('kind' in value) || value['kind'] === undefined) return false;
     if (!('mediaType' in value) || value['mediaType'] === undefined) return false;
     if (!('mode' in value) || value['mode'] === undefined) return false;
     if (!('previewUrl' in value) || value['previewUrl'] === undefined) return false;
@@ -313,6 +353,7 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'id': json['id'],
         'title': json['title'],
         'categoryId': json['category_id'],
+        'kind': TrendKindFromJSON(json['kind']),
         'mediaType': TrendMediaTypeFromJSON(json['media_type']),
         'mode': TrendModeFromJSON(json['mode']),
         'previewUrl': json['preview_url'],
@@ -343,6 +384,8 @@ export function TrendResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
         'creator': json['creator'] == null ? undefined : PublicUserPreviewFromJSON(json['creator']),
         'sourcePostId': json['source_post_id'] == null ? undefined : json['source_post_id'],
+        'babe': json['babe'] == null ? undefined : BabeTrendLookResponseFromJSON(json['babe']),
+        'artStyleOptions': json['art_style_options'] == null ? undefined : ((json['art_style_options'] as Array<any>).map(TrendArtStyleOptionFromJSON)),
     };
 }
 
@@ -360,6 +403,7 @@ export function TrendResponseToJSONTyped(value?: TrendResponse | null, ignoreDis
         'id': value['id'],
         'title': value['title'],
         'category_id': value['categoryId'],
+        'kind': TrendKindToJSON(value['kind']),
         'media_type': TrendMediaTypeToJSON(value['mediaType']),
         'mode': TrendModeToJSON(value['mode']),
         'preview_url': value['previewUrl'],
@@ -390,6 +434,8 @@ export function TrendResponseToJSONTyped(value?: TrendResponse | null, ignoreDis
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
         'creator': PublicUserPreviewToJSON(value['creator']),
         'source_post_id': value['sourcePostId'],
+        'babe': BabeTrendLookResponseToJSON(value['babe']),
+        'art_style_options': value['artStyleOptions'] == null ? undefined : ((value['artStyleOptions'] as Array<any>).map(TrendArtStyleOptionToJSON)),
     };
 }
 

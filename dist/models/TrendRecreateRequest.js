@@ -18,6 +18,7 @@ exports.TrendRecreateRequestFromJSON = TrendRecreateRequestFromJSON;
 exports.TrendRecreateRequestFromJSONTyped = TrendRecreateRequestFromJSONTyped;
 exports.TrendRecreateRequestToJSON = TrendRecreateRequestToJSON;
 exports.TrendRecreateRequestToJSONTyped = TrendRecreateRequestToJSONTyped;
+const ArtStyle_1 = require("./ArtStyle");
 const VideoAspectRatio_1 = require("./VideoAspectRatio");
 const VideoResolution_1 = require("./VideoResolution");
 const TrendRecreateCharacter_1 = require("./TrendRecreateCharacter");
@@ -47,6 +48,7 @@ function TrendRecreateRequestFromJSONTyped(json, ignoreDiscriminator) {
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
         'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
         'model': json['model'],
+        'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, VideoAspectRatio_1.VideoAspectRatioFromJSON)(json['aspect_ratio']),
         'resolution': json['resolution'] == null ? undefined : (0, VideoResolution_1.VideoResolutionFromJSON)(json['resolution']),
         'imageCount': json['image_count'] == null ? undefined : json['image_count'],
@@ -68,6 +70,7 @@ function TrendRecreateRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'prompt': value['prompt'],
         'lora_weights': value['loraWeights'],
         'model': value['model'],
+        'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'aspect_ratio': (0, VideoAspectRatio_1.VideoAspectRatioToJSON)(value['aspectRatio']),
         'resolution': (0, VideoResolution_1.VideoResolutionToJSON)(value['resolution']),
         'image_count': value['imageCount'],

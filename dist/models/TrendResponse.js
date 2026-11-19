@@ -22,8 +22,11 @@ const PublicUserPreview_1 = require("./PublicUserPreview");
 const TrendMediaType_1 = require("./TrendMediaType");
 const ArtStyle_1 = require("./ArtStyle");
 const VideoAspectRatio_1 = require("./VideoAspectRatio");
+const TrendArtStyleOption_1 = require("./TrendArtStyleOption");
+const TrendKind_1 = require("./TrendKind");
 const VideoResolution_1 = require("./VideoResolution");
 const TrendModelOption_1 = require("./TrendModelOption");
+const BabeTrendLookResponse_1 = require("./BabeTrendLookResponse");
 const TrendMode_1 = require("./TrendMode");
 const ImageLookLora_1 = require("./ImageLookLora");
 /**
@@ -35,6 +38,8 @@ function instanceOfTrendResponse(value) {
     if (!('title' in value) || value['title'] === undefined)
         return false;
     if (!('categoryId' in value) || value['categoryId'] === undefined)
+        return false;
+    if (!('kind' in value) || value['kind'] === undefined)
         return false;
     if (!('mediaType' in value) || value['mediaType'] === undefined)
         return false;
@@ -73,6 +78,7 @@ function TrendResponseFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'title': json['title'],
         'categoryId': json['category_id'],
+        'kind': (0, TrendKind_1.TrendKindFromJSON)(json['kind']),
         'mediaType': (0, TrendMediaType_1.TrendMediaTypeFromJSON)(json['media_type']),
         'mode': (0, TrendMode_1.TrendModeFromJSON)(json['mode']),
         'previewUrl': json['preview_url'],
@@ -103,6 +109,8 @@ function TrendResponseFromJSONTyped(json, ignoreDiscriminator) {
         'loras': json['loras'] == null ? undefined : (json['loras'].map(ImageLookLora_1.ImageLookLoraFromJSON)),
         'creator': json['creator'] == null ? undefined : (0, PublicUserPreview_1.PublicUserPreviewFromJSON)(json['creator']),
         'sourcePostId': json['source_post_id'] == null ? undefined : json['source_post_id'],
+        'babe': json['babe'] == null ? undefined : (0, BabeTrendLookResponse_1.BabeTrendLookResponseFromJSON)(json['babe']),
+        'artStyleOptions': json['art_style_options'] == null ? undefined : (json['art_style_options'].map(TrendArtStyleOption_1.TrendArtStyleOptionFromJSON)),
     };
 }
 function TrendResponseToJSON(json) {
@@ -116,6 +124,7 @@ function TrendResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'id': value['id'],
         'title': value['title'],
         'category_id': value['categoryId'],
+        'kind': (0, TrendKind_1.TrendKindToJSON)(value['kind']),
         'media_type': (0, TrendMediaType_1.TrendMediaTypeToJSON)(value['mediaType']),
         'mode': (0, TrendMode_1.TrendModeToJSON)(value['mode']),
         'preview_url': value['previewUrl'],
@@ -146,6 +155,8 @@ function TrendResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'loras': value['loras'] == null ? undefined : (value['loras'].map(ImageLookLora_1.ImageLookLoraToJSON)),
         'creator': (0, PublicUserPreview_1.PublicUserPreviewToJSON)(value['creator']),
         'source_post_id': value['sourcePostId'],
+        'babe': (0, BabeTrendLookResponse_1.BabeTrendLookResponseToJSON)(value['babe']),
+        'art_style_options': value['artStyleOptions'] == null ? undefined : (value['artStyleOptions'].map(TrendArtStyleOption_1.TrendArtStyleOptionToJSON)),
     };
 }
 //# sourceMappingURL=TrendResponse.js.map

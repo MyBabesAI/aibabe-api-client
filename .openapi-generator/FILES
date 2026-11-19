@@ -91,6 +91,7 @@ src/models/AvatarLooksV2.ts
 src/models/AvatarOptionalField.ts
 src/models/AvatarRequiredField.ts
 src/models/BabeTag.ts
+src/models/BabeTrendLookResponse.ts
 src/models/BadgeAwardedNotification.ts
 src/models/BadgeAwardsPaidNotification.ts
 src/models/BadgeCategory.ts
@@ -635,12 +636,14 @@ src/models/TokenUsageCalculationMode.ts
 src/models/TokenUsageType.ts
 src/models/TrackConversionEventRequest.ts
 src/models/TrackConversionEventResponse.ts
+src/models/TrendArtStyleOption.ts
 src/models/TrendCategoryCreateRequest.ts
 src/models/TrendCategoryListResponse.ts
 src/models/TrendCategoryResponse.ts
 src/models/TrendCategoryUpdateRequest.ts
 src/models/TrendFacetsResponse.ts
 src/models/TrendFromPostRequest.ts
+src/models/TrendKind.ts
 src/models/TrendListFilter.ts
 src/models/TrendListResponse.ts
 src/models/TrendMediaType.ts

@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ArtStyle } from './ArtStyle';
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import type { VideoResolution } from './VideoResolution';
 import type { TrendRecreateCharacter } from './TrendRecreateCharacter';
@@ -56,6 +57,12 @@ export interface TrendRecreateRequest {
      * @memberof TrendRecreateRequest
      */
     model: string;
+    /**
+     *
+     * @type {ArtStyle}
+     * @memberof TrendRecreateRequest
+     */
+    artStyle?: ArtStyle | null;
     /**
      *
      * @type {VideoAspectRatio}

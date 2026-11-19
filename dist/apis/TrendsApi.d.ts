@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, BabeTag, Language, Models, PreviewChatbotIds, SubjectGenders, Tags, TrendCategoryCreateRequest, TrendCategoryListResponse, TrendCategoryResponse, TrendCategoryUpdateRequest, TrendFacetsResponse, TrendFromPostRequest, TrendListFilter, TrendListResponse, TrendMediaType, TrendMode, TrendPreviewRequest, TrendPreviewResponse, TrendRecreateRequest, TrendRecreateResponse, TrendResponse, TrendSourceResponse, VideoAspectRatio, VideoLoras, VideoResolution } from '../models/index';
+import type { ArtStyle, BabeTag, Language, Models, PreviewChatbotIds, SubjectGenders, Tags, TrendCategoryCreateRequest, TrendCategoryListResponse, TrendCategoryResponse, TrendCategoryUpdateRequest, TrendFacetsResponse, TrendFromPostRequest, TrendKind, TrendListFilter, TrendListResponse, TrendMediaType, TrendMode, TrendPreviewRequest, TrendPreviewResponse, TrendRecreateRequest, TrendRecreateResponse, TrendResponse, TrendSourceResponse, VideoAspectRatio, VideoLoras, VideoResolution } from '../models/index';
 export interface CreateCategoryTrendsCategoriesPostRequest {
     trendCategoryCreateRequest: TrendCategoryCreateRequest;
 }
@@ -43,6 +43,8 @@ export interface CreateTrendTrendsPostRequest {
     videoPrompt?: string | null;
     videoLoras?: VideoLoras | null;
     stillPrompts?: string | null;
+    kind?: TrendKind | null;
+    babe?: string | null;
 }
 export interface DeleteCategoryTrendsCategoriesCategoryIdDeleteRequest {
     categoryId: string;
@@ -128,6 +130,7 @@ export interface UpdateTrendTrendsTrendIdPatchRequest {
     stillPrompts?: string | null;
     previewMediaId?: string | null;
     subjectGenders?: SubjectGenders | null;
+    babe?: string | null;
 }
 /**
  *

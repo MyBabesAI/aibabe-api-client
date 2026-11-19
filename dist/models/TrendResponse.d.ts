@@ -13,8 +13,11 @@ import type { PublicUserPreview } from './PublicUserPreview';
 import type { TrendMediaType } from './TrendMediaType';
 import type { ArtStyle } from './ArtStyle';
 import type { VideoAspectRatio } from './VideoAspectRatio';
+import type { TrendArtStyleOption } from './TrendArtStyleOption';
+import type { TrendKind } from './TrendKind';
 import type { VideoResolution } from './VideoResolution';
 import type { TrendModelOption } from './TrendModelOption';
+import type { BabeTrendLookResponse } from './BabeTrendLookResponse';
 import type { TrendMode } from './TrendMode';
 import type { ImageLookLora } from './ImageLookLora';
 /**
@@ -41,6 +44,12 @@ export interface TrendResponse {
      * @memberof TrendResponse
      */
     categoryId: string | null;
+    /**
+     *
+     * @type {TrendKind}
+     * @memberof TrendResponse
+     */
+    kind: TrendKind;
     /**
      *
      * @type {TrendMediaType}
@@ -221,6 +230,18 @@ export interface TrendResponse {
      * @memberof TrendResponse
      */
     sourcePostId?: string | null;
+    /**
+     *
+     * @type {BabeTrendLookResponse}
+     * @memberof TrendResponse
+     */
+    babe?: BabeTrendLookResponse | null;
+    /**
+     *
+     * @type {Array<TrendArtStyleOption>}
+     * @memberof TrendResponse
+     */
+    artStyleOptions?: Array<TrendArtStyleOption>;
 }
 /**
  * Check if a given object implements the TrendResponse interface.
