@@ -35,6 +35,9 @@ export interface GetLorasImagenLorasGetRequest {
     imageId?: string | null;
     artStyle?: string | null;
 }
+export interface GetSceneLooksImagenLooksGetRequest {
+    artStyle: string;
+}
 export interface RestartServersImagenRestartAllPostRequest {
     postRestartServersRequest?: PostRestartServersRequest;
 }
@@ -124,6 +127,16 @@ export declare class ImageApi extends runtime.BaseAPI {
      * Get Loras
      */
     getLorasImagenLorasGet(requestParameters?: GetLorasImagenLorasGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLorasResponse>;
+    /**
+     * The mods a scene in `art_style` may add, with their default strengths: what the scene creator\'s sliders show and send back as lora_weights on POST /imagen/generate-scene. No character is involved.
+     * Get Scene Looks
+     */
+    getSceneLooksImagenLooksGetRaw(requestParameters: GetSceneLooksImagenLooksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetImageLooksResponse>>;
+    /**
+     * The mods a scene in `art_style` may add, with their default strengths: what the scene creator\'s sliders show and send back as lora_weights on POST /imagen/generate-scene. No character is involved.
+     * Get Scene Looks
+     */
+    getSceneLooksImagenLooksGet(requestParameters: GetSceneLooksImagenLooksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageLooksResponse>;
     /**
      * Restart Servers
      */

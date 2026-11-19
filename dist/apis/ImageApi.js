@@ -269,6 +269,35 @@ class ImageApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
+     * The mods a scene in `art_style` may add, with their default strengths: what the scene creator\'s sliders show and send back as lora_weights on POST /imagen/generate-scene. No character is involved.
+     * Get Scene Looks
+     */
+    async getSceneLooksImagenLooksGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['artStyle'] == null) {
+            throw new runtime.RequiredError('artStyle', 'Required parameter "artStyle" was null or undefined when calling getSceneLooksImagenLooksGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['artStyle'] != null) {
+            queryParameters['art_style'] = requestParameters['artStyle'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/imagen/looks`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetImageLooksResponseFromJSON)(jsonValue));
+    }
+    /**
+     * The mods a scene in `art_style` may add, with their default strengths: what the scene creator\'s sliders show and send back as lora_weights on POST /imagen/generate-scene. No character is involved.
+     * Get Scene Looks
+     */
+    async getSceneLooksImagenLooksGet(requestParameters, initOverrides) {
+        const response = await this.getSceneLooksImagenLooksGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
      * Restart Servers
      */
     async restartServersImagenRestartAllPostRaw(requestParameters, initOverrides) {

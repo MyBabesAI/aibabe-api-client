@@ -86,6 +86,10 @@ export interface GetLorasImagenLorasGetRequest {
     artStyle?: string | null;
 }
 
+export interface GetSceneLooksImagenLooksGetRequest {
+    artStyle: string;
+}
+
 export interface RestartServersImagenRestartAllPostRequest {
     postRestartServersRequest?: PostRestartServersRequest;
 }
@@ -396,6 +400,45 @@ export class ImageApi extends runtime.BaseAPI {
      */
     async getLorasImagenLorasGet(requestParameters: GetLorasImagenLorasGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLorasResponse> {
         const response = await this.getLorasImagenLorasGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * The mods a scene in `art_style` may add, with their default strengths: what the scene creator\'s sliders show and send back as lora_weights on POST /imagen/generate-scene. No character is involved.
+     * Get Scene Looks
+     */
+    async getSceneLooksImagenLooksGetRaw(requestParameters: GetSceneLooksImagenLooksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetImageLooksResponse>> {
+        if (requestParameters['artStyle'] == null) {
+            throw new runtime.RequiredError(
+                'artStyle',
+                'Required parameter "artStyle" was null or undefined when calling getSceneLooksImagenLooksGet().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters['artStyle'] != null) {
+            queryParameters['art_style'] = requestParameters['artStyle'];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/imagen/looks`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => GetImageLooksResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * The mods a scene in `art_style` may add, with their default strengths: what the scene creator\'s sliders show and send back as lora_weights on POST /imagen/generate-scene. No character is involved.
+     * Get Scene Looks
+     */
+    async getSceneLooksImagenLooksGet(requestParameters: GetSceneLooksImagenLooksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageLooksResponse> {
+        const response = await this.getSceneLooksImagenLooksGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

@@ -87,6 +87,14 @@ export interface PostGenerateSceneRequest {
      */
     originalImageId?: string | null;
     /**
+     *
+     * @type {{ [key: string]: number; }}
+     * @memberof PostGenerateSceneRequest
+     */
+    loraWeights?: {
+        [key: string]: number;
+    } | null;
+    /**
      * The blueprints mentioned with @ in the query, in order of first mention: other own characters (the selected one is always subject 0), items and outfits.
      * @type {Array<BlueprintRef>}
      * @memberof PostGenerateSceneRequest
