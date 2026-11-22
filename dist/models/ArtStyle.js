@@ -54,7 +54,6 @@ exports.ArtStyle = {
     Enchantedfantasy: 'enchantedfantasy',
     Realtemptation: 'realtemptation',
     Midnightstudio: 'midnightstudio',
-    Forbiddenfairytale: 'forbiddenfairytale',
     Truelookv2: 'truelookv2',
     Afterglowfuta: 'afterglowfuta',
     Anthrokrea: 'anthrokrea',
