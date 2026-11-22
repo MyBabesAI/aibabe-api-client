@@ -20,13 +20,6 @@ import {
     ArtStyleToJSON,
     ArtStyleToJSONTyped,
 } from './ArtStyle';
-import type { BlueprintRef } from './BlueprintRef';
-import {
-    BlueprintRefFromJSON,
-    BlueprintRefFromJSONTyped,
-    BlueprintRefToJSON,
-    BlueprintRefToJSONTyped,
-} from './BlueprintRef';
 import type { ImagePurpose } from './ImagePurpose';
 import {
     ImagePurposeFromJSON,
@@ -127,12 +120,6 @@ export interface PostGenerateSceneRequest {
      * @memberof PostGenerateSceneRequest
      */
     loraWeights?: { [key: string]: number; } | null;
-    /**
-     * The blueprints mentioned with @ in the query, in order of first mention: other own characters (the selected one is always subject 0), items and outfits.
-     * @type {Array<BlueprintRef>}
-     * @memberof PostGenerateSceneRequest
-     */
-    mentions?: Array<BlueprintRef>;
 }
 
 
@@ -171,7 +158,6 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
         'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
-        'mentions': json['mentions'] == null ? undefined : ((json['mentions'] as Array<any>).map(BlueprintRefFromJSON)),
     };
 }
 
@@ -198,7 +184,6 @@ export function PostGenerateSceneRequestToJSONTyped(value?: PostGenerateSceneReq
         'chatbot_id': value['chatbotId'],
         'original_image_id': value['originalImageId'],
         'lora_weights': value['loraWeights'],
-        'mentions': value['mentions'] == null ? undefined : ((value['mentions'] as Array<any>).map(BlueprintRefToJSON)),
     };
 }
 
