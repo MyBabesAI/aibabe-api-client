@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { ArtStyle, GetGeneratedImage, GetImageGenerationTagsResponse, GetLorasResponse, LoraName, PostGenerateImageRequest, PostGenerateSceneRequest, PostImagenResponse, PostRestartServersRequest, TokenPricingConfigResponse } from '../models/index';
+import type { ArtStyle, GetGeneratedImage, GetImageGenerationTagsResponse, GetImageLooksResponse, GetLorasResponse, ImageConfigResponse, LoraName, PostGenerateImageRequest, PostGenerateSceneRequest, PostImagenResponse, PostRestartServersRequest } from '../models/index';
 export interface AttachmentImagenImageIdAttachmentGetRequest {
     imageId: string;
     imageName: string;
@@ -27,10 +27,16 @@ export interface GenerationTagsImagenImageIdTagsGetRequest {
 export interface GetImageByFilenameImagenFilenameGetRequest {
     filename: string;
 }
+export interface GetLooksImagenLooksChatbotIdGetRequest {
+    chatbotId: string;
+}
 export interface GetLorasImagenLorasGetRequest {
     chatbotId?: string | null;
     imageId?: string | null;
     artStyle?: string | null;
+}
+export interface GetSceneLooksImagenLooksGetRequest {
+    artStyle: string;
 }
 export interface RestartServersImagenRestartAllPostRequest {
     postRestartServersRequest?: PostRestartServersRequest;
@@ -98,11 +104,21 @@ export declare class ImageApi extends runtime.BaseAPI {
     /**
      * Get Image Config
      */
-    getImageConfigImagenConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenPricingConfigResponse>>;
+    getImageConfigImagenConfigGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ImageConfigResponse>>;
     /**
      * Get Image Config
      */
-    getImageConfigImagenConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenPricingConfigResponse>;
+    getImageConfigImagenConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ImageConfigResponse>;
+    /**
+     * The LoRAs a picture of the character renders with and the mods she may add, with their default strengths: what the generator\'s look sliders show and send back as lora_weights.
+     * Get Looks
+     */
+    getLooksImagenLooksChatbotIdGetRaw(requestParameters: GetLooksImagenLooksChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetImageLooksResponse>>;
+    /**
+     * The LoRAs a picture of the character renders with and the mods she may add, with their default strengths: what the generator\'s look sliders show and send back as lora_weights.
+     * Get Looks
+     */
+    getLooksImagenLooksChatbotIdGet(requestParameters: GetLooksImagenLooksChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageLooksResponse>;
     /**
      * Get Loras
      */
@@ -111,6 +127,16 @@ export declare class ImageApi extends runtime.BaseAPI {
      * Get Loras
      */
     getLorasImagenLorasGet(requestParameters?: GetLorasImagenLorasGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLorasResponse>;
+    /**
+     * The mods a scene in `art_style` may add, with their default strengths: what the scene creator\'s sliders show and send back as lora_weights on POST /imagen/generate-scene. No character is involved.
+     * Get Scene Looks
+     */
+    getSceneLooksImagenLooksGetRaw(requestParameters: GetSceneLooksImagenLooksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetImageLooksResponse>>;
+    /**
+     * The mods a scene in `art_style` may add, with their default strengths: what the scene creator\'s sliders show and send back as lora_weights on POST /imagen/generate-scene. No character is involved.
+     * Get Scene Looks
+     */
+    getSceneLooksImagenLooksGet(requestParameters: GetSceneLooksImagenLooksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageLooksResponse>;
     /**
      * Restart Servers
      */

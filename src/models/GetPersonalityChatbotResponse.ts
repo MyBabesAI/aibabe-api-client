@@ -65,11 +65,11 @@ export function GetPersonalityChatbotResponseFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function GetPersonalityChatbotResponseToJSON(json: any): GetPersonalityChatbotResponse {
-      return GetPersonalityChatbotResponseToJSONTyped(json, false);
-  }
+export function GetPersonalityChatbotResponseToJSON(json: any): GetPersonalityChatbotResponse {
+    return GetPersonalityChatbotResponseToJSONTyped(json, false);
+}
 
-  export function GetPersonalityChatbotResponseToJSONTyped(value?: GetPersonalityChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetPersonalityChatbotResponseToJSONTyped(value?: GetPersonalityChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

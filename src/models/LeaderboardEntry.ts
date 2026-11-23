@@ -80,11 +80,11 @@ export function LeaderboardEntryFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function LeaderboardEntryToJSON(json: any): LeaderboardEntry {
-      return LeaderboardEntryToJSONTyped(json, false);
-  }
+export function LeaderboardEntryToJSON(json: any): LeaderboardEntry {
+    return LeaderboardEntryToJSONTyped(json, false);
+}
 
-  export function LeaderboardEntryToJSONTyped(value?: LeaderboardEntry | null, ignoreDiscriminator: boolean = false): any {
+export function LeaderboardEntryToJSONTyped(value?: LeaderboardEntry | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -57,11 +57,11 @@ export function RedeemGiftCodeResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function RedeemGiftCodeResponseToJSON(json: any): RedeemGiftCodeResponse {
-      return RedeemGiftCodeResponseToJSONTyped(json, false);
-  }
+export function RedeemGiftCodeResponseToJSON(json: any): RedeemGiftCodeResponse {
+    return RedeemGiftCodeResponseToJSONTyped(json, false);
+}
 
-  export function RedeemGiftCodeResponseToJSONTyped(value?: RedeemGiftCodeResponse | null, ignoreDiscriminator: boolean = false): any {
+export function RedeemGiftCodeResponseToJSONTyped(value?: RedeemGiftCodeResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

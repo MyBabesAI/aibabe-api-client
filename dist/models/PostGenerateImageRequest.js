@@ -50,6 +50,7 @@ function PostGenerateImageRequestFromJSONTyped(json, ignoreDiscriminator) {
         'loras': json['loras'] == null ? undefined : (json['loras'].map(LoraName_1.LoraNameFromJSON)),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, ImageAspectRatio_1.ImageAspectRatioFromJSON)(json['aspect_ratio']),
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
+        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
     };
 }
 function PostGenerateImageRequestToJSON(json) {
@@ -68,6 +69,7 @@ function PostGenerateImageRequestToJSONTyped(value, ignoreDiscriminator = false)
         'loras': value['loras'] == null ? undefined : (value['loras'].map(LoraName_1.LoraNameToJSON)),
         'aspect_ratio': (0, ImageAspectRatio_1.ImageAspectRatioToJSON)(value['aspectRatio']),
         'original_image_id': value['originalImageId'],
+        'lora_weights': value['loraWeights'],
     };
 }
 //# sourceMappingURL=PostGenerateImageRequest.js.map

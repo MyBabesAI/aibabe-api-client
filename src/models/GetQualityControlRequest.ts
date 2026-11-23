@@ -114,11 +114,11 @@ export function GetQualityControlRequestFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function GetQualityControlRequestToJSON(json: any): GetQualityControlRequest {
-      return GetQualityControlRequestToJSONTyped(json, false);
-  }
+export function GetQualityControlRequestToJSON(json: any): GetQualityControlRequest {
+    return GetQualityControlRequestToJSONTyped(json, false);
+}
 
-  export function GetQualityControlRequestToJSONTyped(value?: GetQualityControlRequest | null, ignoreDiscriminator: boolean = false): any {
+export function GetQualityControlRequestToJSONTyped(value?: GetQualityControlRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

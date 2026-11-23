@@ -41,6 +41,12 @@ export interface ChatReponse {
     imageId: string;
     /**
      *
+     * @type {string}
+     * @memberof ChatReponse
+     */
+    conversationId?: string | null;
+    /**
+     *
      * @type {number}
      * @memberof ChatReponse
      */

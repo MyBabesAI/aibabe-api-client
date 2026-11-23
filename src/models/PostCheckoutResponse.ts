@@ -81,11 +81,11 @@ export function PostCheckoutResponseFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function PostCheckoutResponseToJSON(json: any): PostCheckoutResponse {
-      return PostCheckoutResponseToJSONTyped(json, false);
-  }
+export function PostCheckoutResponseToJSON(json: any): PostCheckoutResponse {
+    return PostCheckoutResponseToJSONTyped(json, false);
+}
 
-  export function PostCheckoutResponseToJSONTyped(value?: PostCheckoutResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostCheckoutResponseToJSONTyped(value?: PostCheckoutResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

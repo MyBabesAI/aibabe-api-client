@@ -154,11 +154,11 @@ export function UserBadgeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     };
 }
 
-  export function UserBadgeToJSON(json: any): UserBadge {
-      return UserBadgeToJSONTyped(json, false);
-  }
+export function UserBadgeToJSON(json: any): UserBadge {
+    return UserBadgeToJSONTyped(json, false);
+}
 
-  export function UserBadgeToJSONTyped(value?: UserBadge | null, ignoreDiscriminator: boolean = false): any {
+export function UserBadgeToJSONTyped(value?: UserBadge | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

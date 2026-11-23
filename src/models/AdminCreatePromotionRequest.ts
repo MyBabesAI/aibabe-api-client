@@ -106,11 +106,11 @@ export function AdminCreatePromotionRequestFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function AdminCreatePromotionRequestToJSON(json: any): AdminCreatePromotionRequest {
-      return AdminCreatePromotionRequestToJSONTyped(json, false);
-  }
+export function AdminCreatePromotionRequestToJSON(json: any): AdminCreatePromotionRequest {
+    return AdminCreatePromotionRequestToJSONTyped(json, false);
+}
 
-  export function AdminCreatePromotionRequestToJSONTyped(value?: AdminCreatePromotionRequest | null, ignoreDiscriminator: boolean = false): any {
+export function AdminCreatePromotionRequestToJSONTyped(value?: AdminCreatePromotionRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

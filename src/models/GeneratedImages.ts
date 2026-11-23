@@ -20,6 +20,13 @@ import {
     PublicUserPreviewWithFollowToJSON,
     PublicUserPreviewWithFollowToJSONTyped,
 } from './PublicUserPreviewWithFollow';
+import type { CastMember } from './CastMember';
+import {
+    CastMemberFromJSON,
+    CastMemberFromJSONTyped,
+    CastMemberToJSON,
+    CastMemberToJSONTyped,
+} from './CastMember';
 import type { BlacklistCard } from './BlacklistCard';
 import {
     BlacklistCardFromJSON,
@@ -171,6 +178,18 @@ export interface GeneratedImages {
      * @memberof GeneratedImages
      */
     ageEstimation?: AdminAgeEstimation | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GeneratedImages
+     */
+    moderationCharged?: boolean | null;
+    /**
+     * 
+     * @type {Array<CastMember>}
+     * @memberof GeneratedImages
+     */
+    characters?: Array<CastMember>;
 }
 
 
@@ -228,14 +247,16 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
+        'moderationCharged': json['moderation_charged'] == null ? undefined : json['moderation_charged'],
+        'characters': json['characters'] == null ? undefined : ((json['characters'] as Array<any>).map(CastMemberFromJSON)),
     };
 }
 
-  export function GeneratedImagesToJSON(json: any): GeneratedImages {
-      return GeneratedImagesToJSONTyped(json, false);
-  }
+export function GeneratedImagesToJSON(json: any): GeneratedImages {
+    return GeneratedImagesToJSONTyped(json, false);
+}
 
-  export function GeneratedImagesToJSONTyped(value?: GeneratedImages | null, ignoreDiscriminator: boolean = false): any {
+export function GeneratedImagesToJSONTyped(value?: GeneratedImages | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -259,6 +280,8 @@ export function GeneratedImagesFromJSONTyped(json: any, ignoreDiscriminator: boo
         'width': value['width'],
         'height': value['height'],
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
+        'moderation_charged': value['moderationCharged'],
+        'characters': value['characters'] == null ? undefined : ((value['characters'] as Array<any>).map(CastMemberToJSON)),
     };
 }
 

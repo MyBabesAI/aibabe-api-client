@@ -72,11 +72,11 @@ export function PostCustomChatbotResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function PostCustomChatbotResponseToJSON(json: any): PostCustomChatbotResponse {
-      return PostCustomChatbotResponseToJSONTyped(json, false);
-  }
+export function PostCustomChatbotResponseToJSON(json: any): PostCustomChatbotResponse {
+    return PostCustomChatbotResponseToJSONTyped(json, false);
+}
 
-  export function PostCustomChatbotResponseToJSONTyped(value?: PostCustomChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostCustomChatbotResponseToJSONTyped(value?: PostCustomChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -170,11 +170,11 @@ export function PostVastAIStatusFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function PostVastAIStatusToJSON(json: any): PostVastAIStatus {
-      return PostVastAIStatusToJSONTyped(json, false);
-  }
+export function PostVastAIStatusToJSON(json: any): PostVastAIStatus {
+    return PostVastAIStatusToJSONTyped(json, false);
+}
 
-  export function PostVastAIStatusToJSONTyped(value?: PostVastAIStatus | null, ignoreDiscriminator: boolean = false): any {
+export function PostVastAIStatusToJSONTyped(value?: PostVastAIStatus | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

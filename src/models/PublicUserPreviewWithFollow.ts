@@ -89,11 +89,11 @@ export function PublicUserPreviewWithFollowFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function PublicUserPreviewWithFollowToJSON(json: any): PublicUserPreviewWithFollow {
-      return PublicUserPreviewWithFollowToJSONTyped(json, false);
-  }
+export function PublicUserPreviewWithFollowToJSON(json: any): PublicUserPreviewWithFollow {
+    return PublicUserPreviewWithFollowToJSONTyped(json, false);
+}
 
-  export function PublicUserPreviewWithFollowToJSONTyped(value?: PublicUserPreviewWithFollow | null, ignoreDiscriminator: boolean = false): any {
+export function PublicUserPreviewWithFollowToJSONTyped(value?: PublicUserPreviewWithFollow | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

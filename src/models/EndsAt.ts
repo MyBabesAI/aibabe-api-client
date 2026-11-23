@@ -36,11 +36,11 @@ export function EndsAtFromJSONTyped(json: any, ignoreDiscriminator: boolean): En
     return json;
 }
 
-  export function EndsAtToJSON(json: any): EndsAt {
-      return EndsAtToJSONTyped(json, false);
-  }
+export function EndsAtToJSON(json: any): EndsAt {
+    return EndsAtToJSONTyped(json, false);
+}
 
-  export function EndsAtToJSONTyped(value?: EndsAt | null, ignoreDiscriminator: boolean = false): any {
+export function EndsAtToJSONTyped(value?: EndsAt | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

@@ -119,11 +119,11 @@ export function EventEndedNotificationFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function EventEndedNotificationToJSON(json: any): EventEndedNotification {
-      return EventEndedNotificationToJSONTyped(json, false);
-  }
+export function EventEndedNotificationToJSON(json: any): EventEndedNotification {
+    return EventEndedNotificationToJSONTyped(json, false);
+}
 
-  export function EventEndedNotificationToJSONTyped(value?: EventEndedNotification | null, ignoreDiscriminator: boolean = false): any {
+export function EventEndedNotificationToJSONTyped(value?: EventEndedNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

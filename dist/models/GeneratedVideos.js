@@ -23,6 +23,7 @@ const PublicUserPreviewWithFollow_1 = require("./PublicUserPreviewWithFollow");
 const BlacklistCard_1 = require("./BlacklistCard");
 const ChatbotPreview_1 = require("./ChatbotPreview");
 const PostDetails_1 = require("./PostDetails");
+const ImageToVideoModel_1 = require("./ImageToVideoModel");
 const VideoGenerationStatus_1 = require("./VideoGenerationStatus");
 /**
  * @export
@@ -84,6 +85,8 @@ function GeneratedVideosFromJSONTyped(json, ignoreDiscriminator) {
         'height': json['height'] == null ? undefined : json['height'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
+        'model': json['model'] == null ? undefined : (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
+        'hasRecipe': json['has_recipe'] == null ? undefined : json['has_recipe'],
     };
 }
 function GeneratedVideosToJSON(json) {
@@ -111,6 +114,8 @@ function GeneratedVideosToJSONTyped(value, ignoreDiscriminator = false) {
         'height': value['height'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
+        'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
+        'has_recipe': value['hasRecipe'],
     };
 }
 //# sourceMappingURL=GeneratedVideos.js.map

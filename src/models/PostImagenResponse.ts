@@ -64,11 +64,11 @@ export function PostImagenResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function PostImagenResponseToJSON(json: any): PostImagenResponse {
-      return PostImagenResponseToJSONTyped(json, false);
-  }
+export function PostImagenResponseToJSON(json: any): PostImagenResponse {
+    return PostImagenResponseToJSONTyped(json, false);
+}
 
-  export function PostImagenResponseToJSONTyped(value?: PostImagenResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostImagenResponseToJSONTyped(value?: PostImagenResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

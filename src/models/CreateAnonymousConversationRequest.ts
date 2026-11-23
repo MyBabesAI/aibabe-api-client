@@ -56,11 +56,11 @@ export function CreateAnonymousConversationRequestFromJSONTyped(json: any, ignor
     };
 }
 
-  export function CreateAnonymousConversationRequestToJSON(json: any): CreateAnonymousConversationRequest {
-      return CreateAnonymousConversationRequestToJSONTyped(json, false);
-  }
+export function CreateAnonymousConversationRequestToJSON(json: any): CreateAnonymousConversationRequest {
+    return CreateAnonymousConversationRequestToJSONTyped(json, false);
+}
 
-  export function CreateAnonymousConversationRequestToJSONTyped(value?: CreateAnonymousConversationRequest | null, ignoreDiscriminator: boolean = false): any {
+export function CreateAnonymousConversationRequestToJSONTyped(value?: CreateAnonymousConversationRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

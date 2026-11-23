@@ -12,6 +12,7 @@
 import type { PromotionSummary } from './PromotionSummary';
 import type { VideoDurationOptions } from './VideoDurationOptions';
 import type { VideoAspectRatio } from './VideoAspectRatio';
+import type { VideoSourceLimitsView } from './VideoSourceLimitsView';
 import type { VideoQualityConfig } from './VideoQualityConfig';
 /**
  *
@@ -74,12 +75,6 @@ export interface VideoModelConfig {
      * @type {boolean}
      * @memberof VideoModelConfig
      */
-    lastFrameSupported: boolean;
-    /**
-     *
-     * @type {boolean}
-     * @memberof VideoModelConfig
-     */
     modsAvailable: boolean;
     /**
      *
@@ -93,6 +88,24 @@ export interface VideoModelConfig {
      * @memberof VideoModelConfig
      */
     multishotSupported: boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof VideoModelConfig
+     */
+    trendsSupported?: boolean;
+    /**
+     *
+     * @type {VideoSourceLimitsView}
+     * @memberof VideoModelConfig
+     */
+    sources?: VideoSourceLimitsView;
+    /**
+     *
+     * @type {number}
+     * @memberof VideoModelConfig
+     */
+    maxInputImages?: number;
     /**
      *
      * @type {Array<VideoAspectRatio>}

@@ -119,11 +119,11 @@ export function NewEventNotificationFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function NewEventNotificationToJSON(json: any): NewEventNotification {
-      return NewEventNotificationToJSONTyped(json, false);
-  }
+export function NewEventNotificationToJSON(json: any): NewEventNotification {
+    return NewEventNotificationToJSONTyped(json, false);
+}
 
-  export function NewEventNotificationToJSONTyped(value?: NewEventNotification | null, ignoreDiscriminator: boolean = false): any {
+export function NewEventNotificationToJSONTyped(value?: NewEventNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

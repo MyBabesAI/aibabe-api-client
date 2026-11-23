@@ -56,11 +56,11 @@ export function CharacterAvatarReviewFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function CharacterAvatarReviewToJSON(json: any): CharacterAvatarReview {
-      return CharacterAvatarReviewToJSONTyped(json, false);
-  }
+export function CharacterAvatarReviewToJSON(json: any): CharacterAvatarReview {
+    return CharacterAvatarReviewToJSONTyped(json, false);
+}
 
-  export function CharacterAvatarReviewToJSONTyped(value?: CharacterAvatarReview | null, ignoreDiscriminator: boolean = false): any {
+export function CharacterAvatarReviewToJSONTyped(value?: CharacterAvatarReview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

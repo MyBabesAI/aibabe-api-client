@@ -49,11 +49,11 @@ export function UserBadgeClaimResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function UserBadgeClaimResponseToJSON(json: any): UserBadgeClaimResponse {
-      return UserBadgeClaimResponseToJSONTyped(json, false);
-  }
+export function UserBadgeClaimResponseToJSON(json: any): UserBadgeClaimResponse {
+    return UserBadgeClaimResponseToJSONTyped(json, false);
+}
 
-  export function UserBadgeClaimResponseToJSONTyped(value?: UserBadgeClaimResponse | null, ignoreDiscriminator: boolean = false): any {
+export function UserBadgeClaimResponseToJSONTyped(value?: UserBadgeClaimResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

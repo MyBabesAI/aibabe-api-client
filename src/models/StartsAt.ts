@@ -36,11 +36,11 @@ export function StartsAtFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     return json;
 }
 
-  export function StartsAtToJSON(json: any): StartsAt {
-      return StartsAtToJSONTyped(json, false);
-  }
+export function StartsAtToJSON(json: any): StartsAt {
+    return StartsAtToJSONTyped(json, false);
+}
 
-  export function StartsAtToJSONTyped(value?: StartsAt | null, ignoreDiscriminator: boolean = false): any {
+export function StartsAtToJSONTyped(value?: StartsAt | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

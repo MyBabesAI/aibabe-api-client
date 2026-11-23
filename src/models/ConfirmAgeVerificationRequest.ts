@@ -49,11 +49,11 @@ export function ConfirmAgeVerificationRequestFromJSONTyped(json: any, ignoreDisc
     };
 }
 
-  export function ConfirmAgeVerificationRequestToJSON(json: any): ConfirmAgeVerificationRequest {
-      return ConfirmAgeVerificationRequestToJSONTyped(json, false);
-  }
+export function ConfirmAgeVerificationRequestToJSON(json: any): ConfirmAgeVerificationRequest {
+    return ConfirmAgeVerificationRequestToJSONTyped(json, false);
+}
 
-  export function ConfirmAgeVerificationRequestToJSONTyped(value?: ConfirmAgeVerificationRequest | null, ignoreDiscriminator: boolean = false): any {
+export function ConfirmAgeVerificationRequestToJSONTyped(value?: ConfirmAgeVerificationRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -104,11 +104,11 @@ export function BadgeAwardsPaidNotificationFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function BadgeAwardsPaidNotificationToJSON(json: any): BadgeAwardsPaidNotification {
-      return BadgeAwardsPaidNotificationToJSONTyped(json, false);
-  }
+export function BadgeAwardsPaidNotificationToJSON(json: any): BadgeAwardsPaidNotification {
+    return BadgeAwardsPaidNotificationToJSONTyped(json, false);
+}
 
-  export function BadgeAwardsPaidNotificationToJSONTyped(value?: BadgeAwardsPaidNotification | null, ignoreDiscriminator: boolean = false): any {
+export function BadgeAwardsPaidNotificationToJSONTyped(value?: BadgeAwardsPaidNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -145,11 +145,11 @@ export function AdminTokenUsageResponseFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function AdminTokenUsageResponseToJSON(json: any): AdminTokenUsageResponse {
-      return AdminTokenUsageResponseToJSONTyped(json, false);
-  }
+export function AdminTokenUsageResponseToJSON(json: any): AdminTokenUsageResponse {
+    return AdminTokenUsageResponseToJSONTyped(json, false);
+}
 
-  export function AdminTokenUsageResponseToJSONTyped(value?: AdminTokenUsageResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminTokenUsageResponseToJSONTyped(value?: AdminTokenUsageResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

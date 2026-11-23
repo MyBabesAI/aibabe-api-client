@@ -114,6 +114,12 @@ export interface PostGenerateSceneRequest {
      * @memberof PostGenerateSceneRequest
      */
     originalImageId?: string | null;
+    /**
+     * 
+     * @type {{ [key: string]: number; }}
+     * @memberof PostGenerateSceneRequest
+     */
+    loraWeights?: { [key: string]: number; } | null;
 }
 
 
@@ -151,14 +157,15 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'purpose': json['purpose'] == null ? undefined : ImagePurposeFromJSON(json['purpose']),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
+        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
     };
 }
 
-  export function PostGenerateSceneRequestToJSON(json: any): PostGenerateSceneRequest {
-      return PostGenerateSceneRequestToJSONTyped(json, false);
-  }
+export function PostGenerateSceneRequestToJSON(json: any): PostGenerateSceneRequest {
+    return PostGenerateSceneRequestToJSONTyped(json, false);
+}
 
-  export function PostGenerateSceneRequestToJSONTyped(value?: PostGenerateSceneRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostGenerateSceneRequestToJSONTyped(value?: PostGenerateSceneRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -176,6 +183,7 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'purpose': ImagePurposeToJSON(value['purpose']),
         'chatbot_id': value['chatbotId'],
         'original_image_id': value['originalImageId'],
+        'lora_weights': value['loraWeights'],
     };
 }
 

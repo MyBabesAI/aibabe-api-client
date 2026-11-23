@@ -67,11 +67,11 @@ export function PostInstanceDestroyRequestFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function PostInstanceDestroyRequestToJSON(json: any): PostInstanceDestroyRequest {
-      return PostInstanceDestroyRequestToJSONTyped(json, false);
-  }
+export function PostInstanceDestroyRequestToJSON(json: any): PostInstanceDestroyRequest {
+    return PostInstanceDestroyRequestToJSONTyped(json, false);
+}
 
-  export function PostInstanceDestroyRequestToJSONTyped(value?: PostInstanceDestroyRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostInstanceDestroyRequestToJSONTyped(value?: PostInstanceDestroyRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

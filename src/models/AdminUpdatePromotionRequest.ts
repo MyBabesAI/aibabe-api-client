@@ -142,11 +142,11 @@ export function AdminUpdatePromotionRequestFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function AdminUpdatePromotionRequestToJSON(json: any): AdminUpdatePromotionRequest {
-      return AdminUpdatePromotionRequestToJSONTyped(json, false);
-  }
+export function AdminUpdatePromotionRequestToJSON(json: any): AdminUpdatePromotionRequest {
+    return AdminUpdatePromotionRequestToJSONTyped(json, false);
+}
 
-  export function AdminUpdatePromotionRequestToJSONTyped(value?: AdminUpdatePromotionRequest | null, ignoreDiscriminator: boolean = false): any {
+export function AdminUpdatePromotionRequestToJSONTyped(value?: AdminUpdatePromotionRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

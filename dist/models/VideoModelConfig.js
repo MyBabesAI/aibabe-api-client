@@ -23,6 +23,7 @@ const runtime_1 = require("../runtime");
 const PromotionSummary_1 = require("./PromotionSummary");
 const VideoDurationOptions_1 = require("./VideoDurationOptions");
 const VideoAspectRatio_1 = require("./VideoAspectRatio");
+const VideoSourceLimitsView_1 = require("./VideoSourceLimitsView");
 const VideoQualityConfig_1 = require("./VideoQualityConfig");
 /**
  * @export
@@ -54,8 +55,6 @@ function instanceOfVideoModelConfig(value) {
         return false;
     if (!('promptExtendAvailable' in value) || value['promptExtendAvailable'] === undefined)
         return false;
-    if (!('lastFrameSupported' in value) || value['lastFrameSupported'] === undefined)
-        return false;
     if (!('modsAvailable' in value) || value['modsAvailable'] === undefined)
         return false;
     if (!('templatesAvailable' in value) || value['templatesAvailable'] === undefined)
@@ -82,10 +81,12 @@ function VideoModelConfigFromJSONTyped(json, ignoreDiscriminator) {
         'promotion': json['promotion'] == null ? undefined : (0, PromotionSummary_1.PromotionSummaryFromJSON)(json['promotion']),
         'audioGenerationAvailable': json['audio_generation_available'],
         'promptExtendAvailable': json['prompt_extend_available'],
-        'lastFrameSupported': json['last_frame_supported'],
         'modsAvailable': json['mods_available'],
         'templatesAvailable': json['templates_available'],
         'multishotSupported': json['multishot_supported'],
+        'trendsSupported': json['trends_supported'] == null ? undefined : json['trends_supported'],
+        'sources': json['sources'] == null ? undefined : (0, VideoSourceLimitsView_1.VideoSourceLimitsViewFromJSON)(json['sources']),
+        'maxInputImages': json['max_input_images'] == null ? undefined : json['max_input_images'],
         'aspectRatios': (json['aspect_ratios'].map(VideoAspectRatio_1.VideoAspectRatioFromJSON)),
     };
 }
@@ -105,10 +106,12 @@ function VideoModelConfigToJSONTyped(value, ignoreDiscriminator = false) {
         'promotion': (0, PromotionSummary_1.PromotionSummaryToJSON)(value['promotion']),
         'audio_generation_available': value['audioGenerationAvailable'],
         'prompt_extend_available': value['promptExtendAvailable'],
-        'last_frame_supported': value['lastFrameSupported'],
         'mods_available': value['modsAvailable'],
         'templates_available': value['templatesAvailable'],
         'multishot_supported': value['multishotSupported'],
+        'trends_supported': value['trendsSupported'],
+        'sources': (0, VideoSourceLimitsView_1.VideoSourceLimitsViewToJSON)(value['sources']),
+        'max_input_images': value['maxInputImages'],
         'aspect_ratios': (value['aspectRatios'].map(VideoAspectRatio_1.VideoAspectRatioToJSON)),
     };
 }

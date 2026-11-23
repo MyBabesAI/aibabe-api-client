@@ -49,11 +49,11 @@ export function BlacklistResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function BlacklistResponseToJSON(json: any): BlacklistResponse {
-      return BlacklistResponseToJSONTyped(json, false);
-  }
+export function BlacklistResponseToJSON(json: any): BlacklistResponse {
+    return BlacklistResponseToJSONTyped(json, false);
+}
 
-  export function BlacklistResponseToJSONTyped(value?: BlacklistResponse | null, ignoreDiscriminator: boolean = false): any {
+export function BlacklistResponseToJSONTyped(value?: BlacklistResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

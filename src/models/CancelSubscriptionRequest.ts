@@ -65,11 +65,11 @@ export function CancelSubscriptionRequestFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function CancelSubscriptionRequestToJSON(json: any): CancelSubscriptionRequest {
-      return CancelSubscriptionRequestToJSONTyped(json, false);
-  }
+export function CancelSubscriptionRequestToJSON(json: any): CancelSubscriptionRequest {
+    return CancelSubscriptionRequestToJSONTyped(json, false);
+}
 
-  export function CancelSubscriptionRequestToJSONTyped(value?: CancelSubscriptionRequest | null, ignoreDiscriminator: boolean = false): any {
+export function CancelSubscriptionRequestToJSONTyped(value?: CancelSubscriptionRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

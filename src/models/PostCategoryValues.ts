@@ -145,11 +145,11 @@ export function PostCategoryValuesFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function PostCategoryValuesToJSON(json: any): PostCategoryValues {
-      return PostCategoryValuesToJSONTyped(json, false);
-  }
+export function PostCategoryValuesToJSON(json: any): PostCategoryValues {
+    return PostCategoryValuesToJSONTyped(json, false);
+}
 
-  export function PostCategoryValuesToJSONTyped(value?: PostCategoryValues | null, ignoreDiscriminator: boolean = false): any {
+export function PostCategoryValuesToJSONTyped(value?: PostCategoryValues | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

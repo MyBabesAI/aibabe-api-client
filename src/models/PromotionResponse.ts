@@ -97,11 +97,11 @@ export function PromotionResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function PromotionResponseToJSON(json: any): PromotionResponse {
-      return PromotionResponseToJSONTyped(json, false);
-  }
+export function PromotionResponseToJSON(json: any): PromotionResponse {
+    return PromotionResponseToJSONTyped(json, false);
+}
 
-  export function PromotionResponseToJSONTyped(value?: PromotionResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PromotionResponseToJSONTyped(value?: PromotionResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

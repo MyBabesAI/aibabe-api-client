@@ -20,6 +20,13 @@ import {
     CharacterBuilderSuggestionFieldToJSON,
     CharacterBuilderSuggestionFieldToJSONTyped,
 } from './CharacterBuilderSuggestionField';
+import type { ReferenceTexts } from './ReferenceTexts';
+import {
+    ReferenceTextsFromJSON,
+    ReferenceTextsFromJSONTyped,
+    ReferenceTextsToJSON,
+    ReferenceTextsToJSONTyped,
+} from './ReferenceTexts';
 
 /**
  * 
@@ -39,6 +46,12 @@ export interface PostAdvancedCharacterBuilderSuggestionResponse {
      * @memberof PostAdvancedCharacterBuilderSuggestionResponse
      */
     suggestion: string;
+    /**
+     * 
+     * @type {ReferenceTexts}
+     * @memberof PostAdvancedCharacterBuilderSuggestionResponse
+     */
+    viewTexts?: ReferenceTexts | null;
 }
 
 
@@ -64,14 +77,15 @@ export function PostAdvancedCharacterBuilderSuggestionResponseFromJSONTyped(json
         
         'fieldName': CharacterBuilderSuggestionFieldFromJSON(json['field_name']),
         'suggestion': json['suggestion'],
+        'viewTexts': json['view_texts'] == null ? undefined : ReferenceTextsFromJSON(json['view_texts']),
     };
 }
 
-  export function PostAdvancedCharacterBuilderSuggestionResponseToJSON(json: any): PostAdvancedCharacterBuilderSuggestionResponse {
-      return PostAdvancedCharacterBuilderSuggestionResponseToJSONTyped(json, false);
-  }
+export function PostAdvancedCharacterBuilderSuggestionResponseToJSON(json: any): PostAdvancedCharacterBuilderSuggestionResponse {
+    return PostAdvancedCharacterBuilderSuggestionResponseToJSONTyped(json, false);
+}
 
-  export function PostAdvancedCharacterBuilderSuggestionResponseToJSONTyped(value?: PostAdvancedCharacterBuilderSuggestionResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostAdvancedCharacterBuilderSuggestionResponseToJSONTyped(value?: PostAdvancedCharacterBuilderSuggestionResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -80,6 +94,7 @@ export function PostAdvancedCharacterBuilderSuggestionResponseFromJSONTyped(json
         
         'field_name': CharacterBuilderSuggestionFieldToJSON(value['fieldName']),
         'suggestion': value['suggestion'],
+        'view_texts': ReferenceTextsToJSON(value['viewTexts']),
     };
 }
 

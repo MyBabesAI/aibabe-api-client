@@ -90,11 +90,11 @@ export function DonationsGroupNotificationFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function DonationsGroupNotificationToJSON(json: any): DonationsGroupNotification {
-      return DonationsGroupNotificationToJSONTyped(json, false);
-  }
+export function DonationsGroupNotificationToJSON(json: any): DonationsGroupNotification {
+    return DonationsGroupNotificationToJSONTyped(json, false);
+}
 
-  export function DonationsGroupNotificationToJSONTyped(value?: DonationsGroupNotification | null, ignoreDiscriminator: boolean = false): any {
+export function DonationsGroupNotificationToJSONTyped(value?: DonationsGroupNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

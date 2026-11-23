@@ -58,6 +58,8 @@ function ChatbotInfoFromJSONTyped(json, ignoreDiscriminator) {
         'createdBy': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowFromJSON)(json['created_by']),
         'messageCount': json['message_count'],
         'tags': (json['tags'].map(TagData_1.TagDataFromJSON)),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
     };
 }
 function ChatbotInfoToJSON(json) {
@@ -76,6 +78,8 @@ function ChatbotInfoToJSONTyped(value, ignoreDiscriminator = false) {
         'created_by': (0, PublicUserPreviewWithFollow_1.PublicUserPreviewWithFollowToJSON)(value['createdBy']),
         'message_count': value['messageCount'],
         'tags': (value['tags'].map(TagData_1.TagDataToJSON)),
+        'next_gen': value['nextGen'],
+        'character_style': value['characterStyle'],
     };
 }
 //# sourceMappingURL=ChatbotInfo.js.map

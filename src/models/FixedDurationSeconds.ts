@@ -36,11 +36,11 @@ export function FixedDurationSecondsFromJSONTyped(json: any, ignoreDiscriminator
     return json;
 }
 
-  export function FixedDurationSecondsToJSON(json: any): FixedDurationSeconds {
-      return FixedDurationSecondsToJSONTyped(json, false);
-  }
+export function FixedDurationSecondsToJSON(json: any): FixedDurationSeconds {
+    return FixedDurationSecondsToJSONTyped(json, false);
+}
 
-  export function FixedDurationSecondsToJSONTyped(value?: FixedDurationSeconds | null, ignoreDiscriminator: boolean = false): any {
+export function FixedDurationSecondsToJSONTyped(value?: FixedDurationSeconds | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

@@ -111,11 +111,11 @@ export function FeedGroupNotificationFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function FeedGroupNotificationToJSON(json: any): FeedGroupNotification {
-      return FeedGroupNotificationToJSONTyped(json, false);
-  }
+export function FeedGroupNotificationToJSON(json: any): FeedGroupNotification {
+    return FeedGroupNotificationToJSONTyped(json, false);
+}
 
-  export function FeedGroupNotificationToJSONTyped(value?: FeedGroupNotification | null, ignoreDiscriminator: boolean = false): any {
+export function FeedGroupNotificationToJSONTyped(value?: FeedGroupNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

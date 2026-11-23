@@ -54,11 +54,11 @@ exports.ArtStyle = {
     Enchantedfantasy: 'enchantedfantasy',
     Realtemptation: 'realtemptation',
     Midnightstudio: 'midnightstudio',
-    Forbiddenfairytale: 'forbiddenfairytale',
     Truelookv2: 'truelookv2',
     Afterglowfuta: 'afterglowfuta',
     Anthrokrea: 'anthrokrea',
-    Furrykrea: 'furrykrea'
+    Furrykrea: 'furrykrea',
+    Mybaddies: 'mybaddies'
 };
 function instanceOfArtStyle(value) {
     for (const key in exports.ArtStyle) {

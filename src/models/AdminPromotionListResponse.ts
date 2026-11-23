@@ -57,11 +57,11 @@ export function AdminPromotionListResponseFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function AdminPromotionListResponseToJSON(json: any): AdminPromotionListResponse {
-      return AdminPromotionListResponseToJSONTyped(json, false);
-  }
+export function AdminPromotionListResponseToJSON(json: any): AdminPromotionListResponse {
+    return AdminPromotionListResponseToJSONTyped(json, false);
+}
 
-  export function AdminPromotionListResponseToJSONTyped(value?: AdminPromotionListResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminPromotionListResponseToJSONTyped(value?: AdminPromotionListResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

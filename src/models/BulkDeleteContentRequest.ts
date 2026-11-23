@@ -57,11 +57,11 @@ export function BulkDeleteContentRequestFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function BulkDeleteContentRequestToJSON(json: any): BulkDeleteContentRequest {
-      return BulkDeleteContentRequestToJSONTyped(json, false);
-  }
+export function BulkDeleteContentRequestToJSON(json: any): BulkDeleteContentRequest {
+    return BulkDeleteContentRequestToJSONTyped(json, false);
+}
 
-  export function BulkDeleteContentRequestToJSONTyped(value?: BulkDeleteContentRequest | null, ignoreDiscriminator: boolean = false): any {
+export function BulkDeleteContentRequestToJSONTyped(value?: BulkDeleteContentRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

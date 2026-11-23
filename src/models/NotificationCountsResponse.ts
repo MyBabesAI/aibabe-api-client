@@ -57,11 +57,11 @@ export function NotificationCountsResponseFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function NotificationCountsResponseToJSON(json: any): NotificationCountsResponse {
-      return NotificationCountsResponseToJSONTyped(json, false);
-  }
+export function NotificationCountsResponseToJSON(json: any): NotificationCountsResponse {
+    return NotificationCountsResponseToJSONTyped(json, false);
+}
 
-  export function NotificationCountsResponseToJSONTyped(value?: NotificationCountsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function NotificationCountsResponseToJSONTyped(value?: NotificationCountsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

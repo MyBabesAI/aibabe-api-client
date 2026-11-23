@@ -85,6 +85,14 @@ export interface PostGenerateSceneRequest {
      * @memberof PostGenerateSceneRequest
      */
     originalImageId?: string | null;
+    /**
+     *
+     * @type {{ [key: string]: number; }}
+     * @memberof PostGenerateSceneRequest
+     */
+    loraWeights?: {
+        [key: string]: number;
+    } | null;
 }
 /**
  * Check if a given object implements the PostGenerateSceneRequest interface.

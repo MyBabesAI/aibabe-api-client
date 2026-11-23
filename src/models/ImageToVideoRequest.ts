@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { VideoReferenceImage } from './VideoReferenceImage';
+import {
+    VideoReferenceImageFromJSON,
+    VideoReferenceImageFromJSONTyped,
+    VideoReferenceImageToJSON,
+    VideoReferenceImageToJSONTyped,
+} from './VideoReferenceImage';
 import type { VideoShot } from './VideoShot';
 import {
     VideoShotFromJSON,
@@ -20,6 +27,13 @@ import {
     VideoShotToJSON,
     VideoShotToJSONTyped,
 } from './VideoShot';
+import type { BlueprintRef } from './BlueprintRef';
+import {
+    BlueprintRefFromJSON,
+    BlueprintRefFromJSONTyped,
+    BlueprintRefToJSON,
+    BlueprintRefToJSONTyped,
+} from './BlueprintRef';
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import {
     VideoAspectRatioFromJSON,
@@ -83,6 +97,30 @@ export interface ImageToVideoRequest {
      * @memberof ImageToVideoRequest
      */
     inputImageId: string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ImageToVideoRequest
+     */
+    inputImageIds?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<VideoReferenceImage>}
+     * @memberof ImageToVideoRequest
+     */
+    inputImageRoles?: Array<VideoReferenceImage> | null;
+    /**
+     * 
+     * @type {Array<BlueprintRef>}
+     * @memberof ImageToVideoRequest
+     */
+    mentions?: Array<BlueprintRef>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ImageToVideoRequest
+     */
+    withPersona?: boolean;
     /**
      * 
      * @type {string}
@@ -213,6 +251,10 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'requestId': json['request_id'],
         'chatbotId': json['chatbot_id'],
         'inputImageId': json['input_image_id'],
+        'inputImageIds': json['input_image_ids'] == null ? undefined : json['input_image_ids'],
+        'inputImageRoles': json['input_image_roles'] == null ? undefined : ((json['input_image_roles'] as Array<any>).map(VideoReferenceImageFromJSON)),
+        'mentions': json['mentions'] == null ? undefined : ((json['mentions'] as Array<any>).map(BlueprintRefFromJSON)),
+        'withPersona': json['with_persona'] == null ? undefined : json['with_persona'],
         'resolution': json['resolution'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(VideoLoraNameFromJSON)),
         'negativePrompt': json['negative_prompt'] == null ? undefined : json['negative_prompt'],
@@ -227,11 +269,11 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function ImageToVideoRequestToJSON(json: any): ImageToVideoRequest {
-      return ImageToVideoRequestToJSONTyped(json, false);
-  }
+export function ImageToVideoRequestToJSON(json: any): ImageToVideoRequest {
+    return ImageToVideoRequestToJSONTyped(json, false);
+}
 
-  export function ImageToVideoRequestToJSONTyped(value?: ImageToVideoRequest | null, ignoreDiscriminator: boolean = false): any {
+export function ImageToVideoRequestToJSONTyped(value?: ImageToVideoRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -245,6 +287,10 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'request_id': value['requestId'],
         'chatbot_id': value['chatbotId'],
         'input_image_id': value['inputImageId'],
+        'input_image_ids': value['inputImageIds'],
+        'input_image_roles': value['inputImageRoles'] == null ? undefined : ((value['inputImageRoles'] as Array<any>).map(VideoReferenceImageToJSON)),
+        'mentions': value['mentions'] == null ? undefined : ((value['mentions'] as Array<any>).map(BlueprintRefToJSON)),
+        'with_persona': value['withPersona'],
         'resolution': value['resolution'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(VideoLoraNameToJSON)),
         'negative_prompt': value['negativePrompt'],

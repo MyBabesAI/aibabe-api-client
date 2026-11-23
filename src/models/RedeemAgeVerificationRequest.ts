@@ -49,11 +49,11 @@ export function RedeemAgeVerificationRequestFromJSONTyped(json: any, ignoreDiscr
     };
 }
 
-  export function RedeemAgeVerificationRequestToJSON(json: any): RedeemAgeVerificationRequest {
-      return RedeemAgeVerificationRequestToJSONTyped(json, false);
-  }
+export function RedeemAgeVerificationRequestToJSON(json: any): RedeemAgeVerificationRequest {
+    return RedeemAgeVerificationRequestToJSONTyped(json, false);
+}
 
-  export function RedeemAgeVerificationRequestToJSONTyped(value?: RedeemAgeVerificationRequest | null, ignoreDiscriminator: boolean = false): any {
+export function RedeemAgeVerificationRequestToJSONTyped(value?: RedeemAgeVerificationRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

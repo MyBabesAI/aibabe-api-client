@@ -57,11 +57,11 @@ export function PostAdvancedPersonalityPayloadFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function PostAdvancedPersonalityPayloadToJSON(json: any): PostAdvancedPersonalityPayload {
-      return PostAdvancedPersonalityPayloadToJSONTyped(json, false);
-  }
+export function PostAdvancedPersonalityPayloadToJSON(json: any): PostAdvancedPersonalityPayload {
+    return PostAdvancedPersonalityPayloadToJSONTyped(json, false);
+}
 
-  export function PostAdvancedPersonalityPayloadToJSONTyped(value?: PostAdvancedPersonalityPayload | null, ignoreDiscriminator: boolean = false): any {
+export function PostAdvancedPersonalityPayloadToJSONTyped(value?: PostAdvancedPersonalityPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

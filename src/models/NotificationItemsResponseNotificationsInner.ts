@@ -472,11 +472,11 @@ export function NotificationItemsResponseNotificationsInnerFromJSONTyped(json: a
     };
 }
 
-  export function NotificationItemsResponseNotificationsInnerToJSON(json: any): NotificationItemsResponseNotificationsInner {
-      return NotificationItemsResponseNotificationsInnerToJSONTyped(json, false);
-  }
+export function NotificationItemsResponseNotificationsInnerToJSON(json: any): NotificationItemsResponseNotificationsInner {
+    return NotificationItemsResponseNotificationsInnerToJSONTyped(json, false);
+}
 
-  export function NotificationItemsResponseNotificationsInnerToJSONTyped(value?: NotificationItemsResponseNotificationsInner | null, ignoreDiscriminator: boolean = false): any {
+export function NotificationItemsResponseNotificationsInnerToJSONTyped(value?: NotificationItemsResponseNotificationsInner | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

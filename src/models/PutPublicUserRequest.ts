@@ -77,11 +77,11 @@ export function PutPublicUserRequestFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function PutPublicUserRequestToJSON(json: any): PutPublicUserRequest {
-      return PutPublicUserRequestToJSONTyped(json, false);
-  }
+export function PutPublicUserRequestToJSON(json: any): PutPublicUserRequest {
+    return PutPublicUserRequestToJSONTyped(json, false);
+}
 
-  export function PutPublicUserRequestToJSONTyped(value?: PutPublicUserRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PutPublicUserRequestToJSONTyped(value?: PutPublicUserRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

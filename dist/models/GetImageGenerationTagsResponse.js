@@ -19,7 +19,9 @@ exports.GetImageGenerationTagsResponseFromJSONTyped = GetImageGenerationTagsResp
 exports.GetImageGenerationTagsResponseToJSON = GetImageGenerationTagsResponseToJSON;
 exports.GetImageGenerationTagsResponseToJSONTyped = GetImageGenerationTagsResponseToJSONTyped;
 const ArtStyle_1 = require("./ArtStyle");
-const LoraName_1 = require("./LoraName");
+const MentionCandidate_1 = require("./MentionCandidate");
+const ImageLookLora_1 = require("./ImageLookLora");
+const RemixSlot_1 = require("./RemixSlot");
 /**
  * Check if a given object implements the GetImageGenerationTagsResponse interface.
  */
@@ -29,8 +31,6 @@ function instanceOfGetImageGenerationTagsResponse(value) {
     if (!('downloadUrl' in value) || value['downloadUrl'] === undefined)
         return false;
     if (!('chatbotName' in value) || value['chatbotName'] === undefined)
-        return false;
-    if (!('loras' in value) || value['loras'] === undefined)
         return false;
     if (!('artStyle' in value) || value['artStyle'] === undefined)
         return false;
@@ -47,8 +47,10 @@ function GetImageGenerationTagsResponseFromJSONTyped(json, ignoreDiscriminator) 
         'tags': json['tags'],
         'downloadUrl': json['download_url'],
         'chatbotName': json['chatbot_name'],
-        'loras': (json['loras'].map(LoraName_1.LoraNameFromJSON)),
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
+        'loras': json['loras'] == null ? undefined : (json['loras'].map(ImageLookLora_1.ImageLookLoraFromJSON)),
+        'slots': json['slots'] == null ? undefined : (json['slots'].map(RemixSlot_1.RemixSlotFromJSON)),
+        'mentions': json['mentions'] == null ? undefined : (json['mentions'].map(MentionCandidate_1.MentionCandidateFromJSON)),
     };
 }
 function GetImageGenerationTagsResponseToJSON(json) {
@@ -62,8 +64,10 @@ function GetImageGenerationTagsResponseToJSONTyped(value, ignoreDiscriminator = 
         'tags': value['tags'],
         'download_url': value['downloadUrl'],
         'chatbot_name': value['chatbotName'],
-        'loras': (value['loras'].map(LoraName_1.LoraNameToJSON)),
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
+        'loras': value['loras'] == null ? undefined : (value['loras'].map(ImageLookLora_1.ImageLookLoraToJSON)),
+        'slots': value['slots'] == null ? undefined : (value['slots'].map(RemixSlot_1.RemixSlotToJSON)),
+        'mentions': value['mentions'] == null ? undefined : (value['mentions'].map(MentionCandidate_1.MentionCandidateToJSON)),
     };
 }
 //# sourceMappingURL=GetImageGenerationTagsResponse.js.map

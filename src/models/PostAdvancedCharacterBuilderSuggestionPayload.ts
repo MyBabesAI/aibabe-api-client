@@ -79,6 +79,12 @@ export interface PostAdvancedCharacterBuilderSuggestionPayload {
     currentGreetings?: string | null;
     /**
      * 
+     * @type {Array<string>}
+     * @memberof PostAdvancedCharacterBuilderSuggestionPayload
+     */
+    currentAlternativeGreetings?: Array<string> | null;
+    /**
+     * 
      * @type {string}
      * @memberof PostAdvancedCharacterBuilderSuggestionPayload
      */
@@ -89,6 +95,12 @@ export interface PostAdvancedCharacterBuilderSuggestionPayload {
      * @memberof PostAdvancedCharacterBuilderSuggestionPayload
      */
     currentExampleConversation?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostAdvancedCharacterBuilderSuggestionPayload
+     */
+    currentLookDescription?: string | null;
 }
 
 
@@ -117,16 +129,18 @@ export function PostAdvancedCharacterBuilderSuggestionPayloadFromJSONTyped(json:
         'furryVisualType': json['furry_visual_type'] == null ? undefined : FurryVisualTypeFromJSON(json['furry_visual_type']),
         'currentBio': json['current_bio'] == null ? undefined : json['current_bio'],
         'currentGreetings': json['current_greetings'] == null ? undefined : json['current_greetings'],
+        'currentAlternativeGreetings': json['current_alternative_greetings'] == null ? undefined : json['current_alternative_greetings'],
         'currentStory': json['current_story'] == null ? undefined : json['current_story'],
         'currentExampleConversation': json['current_example_conversation'] == null ? undefined : json['current_example_conversation'],
+        'currentLookDescription': json['current_look_description'] == null ? undefined : json['current_look_description'],
     };
 }
 
-  export function PostAdvancedCharacterBuilderSuggestionPayloadToJSON(json: any): PostAdvancedCharacterBuilderSuggestionPayload {
-      return PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped(json, false);
-  }
+export function PostAdvancedCharacterBuilderSuggestionPayloadToJSON(json: any): PostAdvancedCharacterBuilderSuggestionPayload {
+    return PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped(json, false);
+}
 
-  export function PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped(value?: PostAdvancedCharacterBuilderSuggestionPayload | null, ignoreDiscriminator: boolean = false): any {
+export function PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped(value?: PostAdvancedCharacterBuilderSuggestionPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -139,8 +153,10 @@ export function PostAdvancedCharacterBuilderSuggestionPayloadFromJSONTyped(json:
         'furry_visual_type': FurryVisualTypeToJSON(value['furryVisualType']),
         'current_bio': value['currentBio'],
         'current_greetings': value['currentGreetings'],
+        'current_alternative_greetings': value['currentAlternativeGreetings'],
         'current_story': value['currentStory'],
         'current_example_conversation': value['currentExampleConversation'],
+        'current_look_description': value['currentLookDescription'],
     };
 }
 

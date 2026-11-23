@@ -120,11 +120,11 @@ export function EpisodeUnlockNotificationFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function EpisodeUnlockNotificationToJSON(json: any): EpisodeUnlockNotification {
-      return EpisodeUnlockNotificationToJSONTyped(json, false);
-  }
+export function EpisodeUnlockNotificationToJSON(json: any): EpisodeUnlockNotification {
+    return EpisodeUnlockNotificationToJSONTyped(json, false);
+}
 
-  export function EpisodeUnlockNotificationToJSONTyped(value?: EpisodeUnlockNotification | null, ignoreDiscriminator: boolean = false): any {
+export function EpisodeUnlockNotificationToJSONTyped(value?: EpisodeUnlockNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

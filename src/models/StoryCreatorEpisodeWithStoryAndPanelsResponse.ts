@@ -115,11 +115,11 @@ export function StoryCreatorEpisodeWithStoryAndPanelsResponseFromJSONTyped(json:
     };
 }
 
-  export function StoryCreatorEpisodeWithStoryAndPanelsResponseToJSON(json: any): StoryCreatorEpisodeWithStoryAndPanelsResponse {
-      return StoryCreatorEpisodeWithStoryAndPanelsResponseToJSONTyped(json, false);
-  }
+export function StoryCreatorEpisodeWithStoryAndPanelsResponseToJSON(json: any): StoryCreatorEpisodeWithStoryAndPanelsResponse {
+    return StoryCreatorEpisodeWithStoryAndPanelsResponseToJSONTyped(json, false);
+}
 
-  export function StoryCreatorEpisodeWithStoryAndPanelsResponseToJSONTyped(value?: StoryCreatorEpisodeWithStoryAndPanelsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorEpisodeWithStoryAndPanelsResponseToJSONTyped(value?: StoryCreatorEpisodeWithStoryAndPanelsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

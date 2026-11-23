@@ -62,6 +62,13 @@ import {
     ContentOriginToJSON,
     ContentOriginToJSONTyped,
 } from './ContentOrigin';
+import type { ScenarioPreview } from './ScenarioPreview';
+import {
+    ScenarioPreviewFromJSON,
+    ScenarioPreviewFromJSONTyped,
+    ScenarioPreviewToJSON,
+    ScenarioPreviewToJSONTyped,
+} from './ScenarioPreview';
 import type { StoryPreview } from './StoryPreview';
 import {
     StoryPreviewFromJSON,
@@ -101,6 +108,12 @@ export interface DetailedWallPost {
      * @memberof DetailedWallPost
      */
     story: StoryPreview | null;
+    /**
+     * 
+     * @type {ScenarioPreview}
+     * @memberof DetailedWallPost
+     */
+    scenario?: ScenarioPreview | null;
     /**
      * 
      * @type {ImageContent}
@@ -243,6 +256,7 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'id': json['id'],
         'chatbot': ChatbotPreviewFromJSON(json['chatbot']),
         'story': StoryPreviewFromJSON(json['story']),
+        'scenario': json['scenario'] == null ? undefined : ScenarioPreviewFromJSON(json['scenario']),
         'picture': ImageContentFromJSON(json['picture']),
         'video': VideoContentFromJSON(json['video']),
         'likes': json['likes'],
@@ -263,11 +277,11 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function DetailedWallPostToJSON(json: any): DetailedWallPost {
-      return DetailedWallPostToJSONTyped(json, false);
-  }
+export function DetailedWallPostToJSON(json: any): DetailedWallPost {
+    return DetailedWallPostToJSONTyped(json, false);
+}
 
-  export function DetailedWallPostToJSONTyped(value?: DetailedWallPost | null, ignoreDiscriminator: boolean = false): any {
+export function DetailedWallPostToJSONTyped(value?: DetailedWallPost | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -277,6 +291,7 @@ export function DetailedWallPostFromJSONTyped(json: any, ignoreDiscriminator: bo
         'id': value['id'],
         'chatbot': ChatbotPreviewToJSON(value['chatbot']),
         'story': StoryPreviewToJSON(value['story']),
+        'scenario': ScenarioPreviewToJSON(value['scenario']),
         'picture': ImageContentToJSON(value['picture']),
         'video': VideoContentToJSON(value['video']),
         'likes': value['likes'],

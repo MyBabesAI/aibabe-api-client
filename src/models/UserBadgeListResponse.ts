@@ -88,11 +88,11 @@ export function UserBadgeListResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function UserBadgeListResponseToJSON(json: any): UserBadgeListResponse {
-      return UserBadgeListResponseToJSONTyped(json, false);
-  }
+export function UserBadgeListResponseToJSON(json: any): UserBadgeListResponse {
+    return UserBadgeListResponseToJSONTyped(json, false);
+}
 
-  export function UserBadgeListResponseToJSONTyped(value?: UserBadgeListResponse | null, ignoreDiscriminator: boolean = false): any {
+export function UserBadgeListResponseToJSONTyped(value?: UserBadgeListResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

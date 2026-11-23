@@ -34,6 +34,13 @@ import {
     VideoAspectRatioToJSON,
     VideoAspectRatioToJSONTyped,
 } from './VideoAspectRatio';
+import type { VideoSourceLimitsView } from './VideoSourceLimitsView';
+import {
+    VideoSourceLimitsViewFromJSON,
+    VideoSourceLimitsViewFromJSONTyped,
+    VideoSourceLimitsViewToJSON,
+    VideoSourceLimitsViewToJSONTyped,
+} from './VideoSourceLimitsView';
 import type { VideoQualityConfig } from './VideoQualityConfig';
 import {
     VideoQualityConfigFromJSON,
@@ -101,12 +108,6 @@ export interface VideoModelConfig {
      * @type {boolean}
      * @memberof VideoModelConfig
      */
-    lastFrameSupported: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof VideoModelConfig
-     */
     modsAvailable: boolean;
     /**
      * 
@@ -120,6 +121,24 @@ export interface VideoModelConfig {
      * @memberof VideoModelConfig
      */
     multishotSupported: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof VideoModelConfig
+     */
+    trendsSupported?: boolean;
+    /**
+     * 
+     * @type {VideoSourceLimitsView}
+     * @memberof VideoModelConfig
+     */
+    sources?: VideoSourceLimitsView;
+    /**
+     * 
+     * @type {number}
+     * @memberof VideoModelConfig
+     */
+    maxInputImages?: number;
     /**
      * 
      * @type {Array<VideoAspectRatio>}
@@ -156,7 +175,6 @@ export function instanceOfVideoModelConfig(value: object): value is VideoModelCo
     if (!('qualities' in value) || value['qualities'] === undefined) return false;
     if (!('audioGenerationAvailable' in value) || value['audioGenerationAvailable'] === undefined) return false;
     if (!('promptExtendAvailable' in value) || value['promptExtendAvailable'] === undefined) return false;
-    if (!('lastFrameSupported' in value) || value['lastFrameSupported'] === undefined) return false;
     if (!('modsAvailable' in value) || value['modsAvailable'] === undefined) return false;
     if (!('templatesAvailable' in value) || value['templatesAvailable'] === undefined) return false;
     if (!('multishotSupported' in value) || value['multishotSupported'] === undefined) return false;
@@ -182,19 +200,21 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         'promotion': json['promotion'] == null ? undefined : PromotionSummaryFromJSON(json['promotion']),
         'audioGenerationAvailable': json['audio_generation_available'],
         'promptExtendAvailable': json['prompt_extend_available'],
-        'lastFrameSupported': json['last_frame_supported'],
         'modsAvailable': json['mods_available'],
         'templatesAvailable': json['templates_available'],
         'multishotSupported': json['multishot_supported'],
+        'trendsSupported': json['trends_supported'] == null ? undefined : json['trends_supported'],
+        'sources': json['sources'] == null ? undefined : VideoSourceLimitsViewFromJSON(json['sources']),
+        'maxInputImages': json['max_input_images'] == null ? undefined : json['max_input_images'],
         'aspectRatios': ((json['aspect_ratios'] as Array<any>).map(VideoAspectRatioFromJSON)),
     };
 }
 
-  export function VideoModelConfigToJSON(json: any): VideoModelConfig {
-      return VideoModelConfigToJSONTyped(json, false);
-  }
+export function VideoModelConfigToJSON(json: any): VideoModelConfig {
+    return VideoModelConfigToJSONTyped(json, false);
+}
 
-  export function VideoModelConfigToJSONTyped(value?: VideoModelConfig | null, ignoreDiscriminator: boolean = false): any {
+export function VideoModelConfigToJSONTyped(value?: VideoModelConfig | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -209,10 +229,12 @@ export function VideoModelConfigFromJSONTyped(json: any, ignoreDiscriminator: bo
         'promotion': PromotionSummaryToJSON(value['promotion']),
         'audio_generation_available': value['audioGenerationAvailable'],
         'prompt_extend_available': value['promptExtendAvailable'],
-        'last_frame_supported': value['lastFrameSupported'],
         'mods_available': value['modsAvailable'],
         'templates_available': value['templatesAvailable'],
         'multishot_supported': value['multishotSupported'],
+        'trends_supported': value['trendsSupported'],
+        'sources': VideoSourceLimitsViewToJSON(value['sources']),
+        'max_input_images': value['maxInputImages'],
         'aspect_ratios': ((value['aspectRatios'] as Array<any>).map(VideoAspectRatioToJSON)),
     };
 }

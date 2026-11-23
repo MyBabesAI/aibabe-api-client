@@ -44,11 +44,11 @@ export declare const ArtStyle: {
     readonly Enchantedfantasy: "enchantedfantasy";
     readonly Realtemptation: "realtemptation";
     readonly Midnightstudio: "midnightstudio";
-    readonly Forbiddenfairytale: "forbiddenfairytale";
     readonly Truelookv2: "truelookv2";
     readonly Afterglowfuta: "afterglowfuta";
     readonly Anthrokrea: "anthrokrea";
     readonly Furrykrea: "furrykrea";
+    readonly Mybaddies: "mybaddies";
 };
 export type ArtStyle = typeof ArtStyle[keyof typeof ArtStyle];
 export declare function instanceOfArtStyle(value: any): boolean;

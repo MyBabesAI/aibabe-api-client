@@ -51,11 +51,11 @@ export function TagsExploreTypesGet200ResponseInnerFromJSONTyped(json: any, igno
     return json;
 }
 
-  export function TagsExploreTypesGet200ResponseInnerToJSON(json: any): TagsExploreTypesGet200ResponseInner {
-      return TagsExploreTypesGet200ResponseInnerToJSONTyped(json, false);
-  }
+export function TagsExploreTypesGet200ResponseInnerToJSON(json: any): TagsExploreTypesGet200ResponseInner {
+    return TagsExploreTypesGet200ResponseInnerToJSONTyped(json, false);
+}
 
-  export function TagsExploreTypesGet200ResponseInnerToJSONTyped(value?: TagsExploreTypesGet200ResponseInner | null, ignoreDiscriminator: boolean = false): any {
+export function TagsExploreTypesGet200ResponseInnerToJSONTyped(value?: TagsExploreTypesGet200ResponseInner | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

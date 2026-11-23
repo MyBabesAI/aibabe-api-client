@@ -80,11 +80,11 @@ export function BlacklistRequestFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function BlacklistRequestToJSON(json: any): BlacklistRequest {
-      return BlacklistRequestToJSONTyped(json, false);
-  }
+export function BlacklistRequestToJSON(json: any): BlacklistRequest {
+    return BlacklistRequestToJSONTyped(json, false);
+}
 
-  export function BlacklistRequestToJSONTyped(value?: BlacklistRequest | null, ignoreDiscriminator: boolean = false): any {
+export function BlacklistRequestToJSONTyped(value?: BlacklistRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

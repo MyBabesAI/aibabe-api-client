@@ -57,11 +57,11 @@ export function GetExceptionsResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function GetExceptionsResponseToJSON(json: any): GetExceptionsResponse {
-      return GetExceptionsResponseToJSONTyped(json, false);
-  }
+export function GetExceptionsResponseToJSON(json: any): GetExceptionsResponse {
+    return GetExceptionsResponseToJSONTyped(json, false);
+}
 
-  export function GetExceptionsResponseToJSONTyped(value?: GetExceptionsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetExceptionsResponseToJSONTyped(value?: GetExceptionsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

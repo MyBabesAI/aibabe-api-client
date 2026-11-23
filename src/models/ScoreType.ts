@@ -87,11 +87,11 @@ export function ScoreTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     };
 }
 
-  export function ScoreTypeToJSON(json: any): ScoreType {
-      return ScoreTypeToJSONTyped(json, false);
-  }
+export function ScoreTypeToJSON(json: any): ScoreType {
+    return ScoreTypeToJSONTyped(json, false);
+}
 
-  export function ScoreTypeToJSONTyped(value?: ScoreType | null, ignoreDiscriminator: boolean = false): any {
+export function ScoreTypeToJSONTyped(value?: ScoreType | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

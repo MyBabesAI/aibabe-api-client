@@ -106,11 +106,11 @@ export function CreateAnonymousConversationMessageRequestFromJSONTyped(json: any
     };
 }
 
-  export function CreateAnonymousConversationMessageRequestToJSON(json: any): CreateAnonymousConversationMessageRequest {
-      return CreateAnonymousConversationMessageRequestToJSONTyped(json, false);
-  }
+export function CreateAnonymousConversationMessageRequestToJSON(json: any): CreateAnonymousConversationMessageRequest {
+    return CreateAnonymousConversationMessageRequestToJSONTyped(json, false);
+}
 
-  export function CreateAnonymousConversationMessageRequestToJSONTyped(value?: CreateAnonymousConversationMessageRequest | null, ignoreDiscriminator: boolean = false): any {
+export function CreateAnonymousConversationMessageRequestToJSONTyped(value?: CreateAnonymousConversationMessageRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

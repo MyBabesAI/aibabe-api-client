@@ -23,6 +23,7 @@ const FurryVisualType_1 = require("./FurryVisualType");
 const Gender_1 = require("./Gender");
 const LoraName_1 = require("./LoraName");
 const SexualOrientation_1 = require("./SexualOrientation");
+const ReferenceTexts_1 = require("./ReferenceTexts");
 /**
  * Check if a given object implements the GetAboutChatbotResponse interface.
  */
@@ -74,9 +75,13 @@ function GetAboutChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'looksDescription': json['looks_description'],
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'loras': (json['loras'] == null ? null : json['loras'].map(LoraName_1.LoraNameFromJSON)),
+        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'age': json['age'] == null ? undefined : json['age'],
         'generationStated': json['generation_stated'],
         'profilePicture': json['profile_picture'],
         'greetings': json['greetings'],
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : json['alternative_greetings'],
+        'referenceTexts': json['reference_texts'] == null ? undefined : (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['reference_texts']),
     };
 }
 function GetAboutChatbotResponseToJSON(json) {
@@ -98,9 +103,13 @@ function GetAboutChatbotResponseToJSONTyped(value, ignoreDiscriminator = false) 
         'looks_description': value['looksDescription'],
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'loras': (value['loras'] == null ? null : value['loras'].map(LoraName_1.LoraNameToJSON)),
+        'lora_weights': value['loraWeights'],
+        'age': value['age'],
         'generation_stated': value['generationStated'],
         'profile_picture': value['profilePicture'],
         'greetings': value['greetings'],
+        'alternative_greetings': value['alternativeGreetings'],
+        'reference_texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['referenceTexts']),
     };
 }
 //# sourceMappingURL=GetAboutChatbotResponse.js.map

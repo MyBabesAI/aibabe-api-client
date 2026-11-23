@@ -47,6 +47,12 @@ export interface CharacterIdentityPageReview {
      * @memberof CharacterIdentityPageReview
      */
     greetings?: AvatarRequiredField | null;
+    /**
+     *
+     * @type {AvatarOptionalField}
+     * @memberof CharacterIdentityPageReview
+     */
+    alternativeGreetings?: AvatarOptionalField | null;
 }
 /**
  * Check if a given object implements the CharacterIdentityPageReview interface.

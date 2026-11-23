@@ -59,11 +59,11 @@ export function PostClaimRequestFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function PostClaimRequestToJSON(json: any): PostClaimRequest {
-      return PostClaimRequestToJSONTyped(json, false);
-  }
+export function PostClaimRequestToJSON(json: any): PostClaimRequest {
+    return PostClaimRequestToJSONTyped(json, false);
+}
 
-  export function PostClaimRequestToJSONTyped(value?: PostClaimRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostClaimRequestToJSONTyped(value?: PostClaimRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

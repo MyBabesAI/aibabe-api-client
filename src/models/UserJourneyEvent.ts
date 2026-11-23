@@ -83,11 +83,11 @@ export function UserJourneyEventFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function UserJourneyEventToJSON(json: any): UserJourneyEvent {
-      return UserJourneyEventToJSONTyped(json, false);
-  }
+export function UserJourneyEventToJSON(json: any): UserJourneyEvent {
+    return UserJourneyEventToJSONTyped(json, false);
+}
 
-  export function UserJourneyEventToJSONTyped(value?: UserJourneyEvent | null, ignoreDiscriminator: boolean = false): any {
+export function UserJourneyEventToJSONTyped(value?: UserJourneyEvent | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -118,11 +118,11 @@ export function AnnouncementNotificationFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function AnnouncementNotificationToJSON(json: any): AnnouncementNotification {
-      return AnnouncementNotificationToJSONTyped(json, false);
-  }
+export function AnnouncementNotificationToJSON(json: any): AnnouncementNotification {
+    return AnnouncementNotificationToJSONTyped(json, false);
+}
 
-  export function AnnouncementNotificationToJSONTyped(value?: AnnouncementNotification | null, ignoreDiscriminator: boolean = false): any {
+export function AnnouncementNotificationToJSONTyped(value?: AnnouncementNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

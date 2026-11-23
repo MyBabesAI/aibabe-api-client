@@ -65,11 +65,11 @@ export function TokenPricingConfigResponseFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function TokenPricingConfigResponseToJSON(json: any): TokenPricingConfigResponse {
-      return TokenPricingConfigResponseToJSONTyped(json, false);
-  }
+export function TokenPricingConfigResponseToJSON(json: any): TokenPricingConfigResponse {
+    return TokenPricingConfigResponseToJSONTyped(json, false);
+}
 
-  export function TokenPricingConfigResponseToJSONTyped(value?: TokenPricingConfigResponse | null, ignoreDiscriminator: boolean = false): any {
+export function TokenPricingConfigResponseToJSONTyped(value?: TokenPricingConfigResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -120,11 +120,11 @@ export function ImageToVideoFromChatPayloadFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function ImageToVideoFromChatPayloadToJSON(json: any): ImageToVideoFromChatPayload {
-      return ImageToVideoFromChatPayloadToJSONTyped(json, false);
-  }
+export function ImageToVideoFromChatPayloadToJSON(json: any): ImageToVideoFromChatPayload {
+    return ImageToVideoFromChatPayloadToJSONTyped(json, false);
+}
 
-  export function ImageToVideoFromChatPayloadToJSONTyped(value?: ImageToVideoFromChatPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ImageToVideoFromChatPayloadToJSONTyped(value?: ImageToVideoFromChatPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

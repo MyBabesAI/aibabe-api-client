@@ -78,11 +78,11 @@ export function PostProfilePictureResponseFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function PostProfilePictureResponseToJSON(json: any): PostProfilePictureResponse {
-      return PostProfilePictureResponseToJSONTyped(json, false);
-  }
+export function PostProfilePictureResponseToJSON(json: any): PostProfilePictureResponse {
+    return PostProfilePictureResponseToJSONTyped(json, false);
+}
 
-  export function PostProfilePictureResponseToJSONTyped(value?: PostProfilePictureResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostProfilePictureResponseToJSONTyped(value?: PostProfilePictureResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

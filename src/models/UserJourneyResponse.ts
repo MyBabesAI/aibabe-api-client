@@ -80,11 +80,11 @@ export function UserJourneyResponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function UserJourneyResponseToJSON(json: any): UserJourneyResponse {
-      return UserJourneyResponseToJSONTyped(json, false);
-  }
+export function UserJourneyResponseToJSON(json: any): UserJourneyResponse {
+    return UserJourneyResponseToJSONTyped(json, false);
+}
 
-  export function UserJourneyResponseToJSONTyped(value?: UserJourneyResponse | null, ignoreDiscriminator: boolean = false): any {
+export function UserJourneyResponseToJSONTyped(value?: UserJourneyResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

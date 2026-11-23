@@ -70,11 +70,11 @@ export function CharacterPersonalityPageReviewFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function CharacterPersonalityPageReviewToJSON(json: any): CharacterPersonalityPageReview {
-      return CharacterPersonalityPageReviewToJSONTyped(json, false);
-  }
+export function CharacterPersonalityPageReviewToJSON(json: any): CharacterPersonalityPageReview {
+    return CharacterPersonalityPageReviewToJSONTyped(json, false);
+}
 
-  export function CharacterPersonalityPageReviewToJSONTyped(value?: CharacterPersonalityPageReview | null, ignoreDiscriminator: boolean = false): any {
+export function CharacterPersonalityPageReviewToJSONTyped(value?: CharacterPersonalityPageReview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -49,11 +49,11 @@ export function PostResendEmailRequestFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function PostResendEmailRequestToJSON(json: any): PostResendEmailRequest {
-      return PostResendEmailRequestToJSONTyped(json, false);
-  }
+export function PostResendEmailRequestToJSON(json: any): PostResendEmailRequest {
+    return PostResendEmailRequestToJSONTyped(json, false);
+}
 
-  export function PostResendEmailRequestToJSONTyped(value?: PostResendEmailRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostResendEmailRequestToJSONTyped(value?: PostResendEmailRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

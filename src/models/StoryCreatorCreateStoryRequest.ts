@@ -138,11 +138,11 @@ export function StoryCreatorCreateStoryRequestFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function StoryCreatorCreateStoryRequestToJSON(json: any): StoryCreatorCreateStoryRequest {
-      return StoryCreatorCreateStoryRequestToJSONTyped(json, false);
-  }
+export function StoryCreatorCreateStoryRequestToJSON(json: any): StoryCreatorCreateStoryRequest {
+    return StoryCreatorCreateStoryRequestToJSONTyped(json, false);
+}
 
-  export function StoryCreatorCreateStoryRequestToJSONTyped(value?: StoryCreatorCreateStoryRequest | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorCreateStoryRequestToJSONTyped(value?: StoryCreatorCreateStoryRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

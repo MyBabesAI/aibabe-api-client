@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ConversationListParticipant } from './ConversationListParticipant';
+import {
+    ConversationListParticipantFromJSON,
+    ConversationListParticipantFromJSONTyped,
+    ConversationListParticipantToJSON,
+    ConversationListParticipantToJSONTyped,
+} from './ConversationListParticipant';
+
 /**
  * 
  * @export
@@ -25,6 +33,36 @@ export interface ConversationListItem {
      * @memberof ConversationListItem
      */
     chatbotId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    conversationId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    hostChatbotId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    latestBranchId?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ConversationListItem
+     */
+    branchCount?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof ConversationListItem
+     */
+    title?: string | null;
     /**
      * 
      * @type {string}
@@ -73,6 +111,12 @@ export interface ConversationListItem {
      * @memberof ConversationListItem
      */
     coverImage?: string | null;
+    /**
+     * 
+     * @type {Array<ConversationListParticipant>}
+     * @memberof ConversationListItem
+     */
+    participants?: Array<ConversationListParticipant>;
 }
 
 
@@ -109,6 +153,11 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'chatbotId': json['chatbot_id'],
+        'conversationId': json['conversation_id'] == null ? undefined : json['conversation_id'],
+        'hostChatbotId': json['host_chatbot_id'] == null ? undefined : json['host_chatbot_id'],
+        'latestBranchId': json['latest_branch_id'] == null ? undefined : json['latest_branch_id'],
+        'branchCount': json['branch_count'] == null ? undefined : json['branch_count'],
+        'title': json['title'] == null ? undefined : json['title'],
         'profilePicture': json['profile_picture'],
         'displayName': json['display_name'],
         'lastMessage': json['last_message'],
@@ -117,14 +166,15 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
         'storyId': json['story_id'] == null ? undefined : json['story_id'],
         'storyEpisodeId': json['story_episode_id'] == null ? undefined : json['story_episode_id'],
         'coverImage': json['cover_image'] == null ? undefined : json['cover_image'],
+        'participants': json['participants'] == null ? undefined : ((json['participants'] as Array<any>).map(ConversationListParticipantFromJSON)),
     };
 }
 
-  export function ConversationListItemToJSON(json: any): ConversationListItem {
-      return ConversationListItemToJSONTyped(json, false);
-  }
+export function ConversationListItemToJSON(json: any): ConversationListItem {
+    return ConversationListItemToJSONTyped(json, false);
+}
 
-  export function ConversationListItemToJSONTyped(value?: ConversationListItem | null, ignoreDiscriminator: boolean = false): any {
+export function ConversationListItemToJSONTyped(value?: ConversationListItem | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -132,6 +182,11 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
         'chatbot_id': value['chatbotId'],
+        'conversation_id': value['conversationId'],
+        'host_chatbot_id': value['hostChatbotId'],
+        'latest_branch_id': value['latestBranchId'],
+        'branch_count': value['branchCount'],
+        'title': value['title'],
         'profile_picture': value['profilePicture'],
         'display_name': value['displayName'],
         'last_message': value['lastMessage'],
@@ -140,6 +195,7 @@ export function ConversationListItemFromJSONTyped(json: any, ignoreDiscriminator
         'story_id': value['storyId'],
         'story_episode_id': value['storyEpisodeId'],
         'cover_image': value['coverImage'],
+        'participants': value['participants'] == null ? undefined : ((value['participants'] as Array<any>).map(ConversationListParticipantToJSON)),
     };
 }
 
