@@ -11,7 +11,9 @@
  */
 import type { ArtStyle } from './ArtStyle';
 import type { FurryVisualType } from './FurryVisualType';
+import type { ReferenceImageView } from './ReferenceImageView';
 import type { LoraName } from './LoraName';
+import type { ReferenceTexts } from './ReferenceTexts';
 /**
  *
  * @export
@@ -56,6 +58,18 @@ export interface PostAdvancedChatbotProfilePicture {
      * @memberof PostAdvancedChatbotProfilePicture
      */
     lookEdited?: boolean;
+    /**
+     *
+     * @type {ReferenceTexts}
+     * @memberof PostAdvancedChatbotProfilePicture
+     */
+    referenceTexts?: ReferenceTexts | null;
+    /**
+     * The detail fields the member changed since they were last saved into the description.
+     * @type {Array<ReferenceImageView>}
+     * @memberof PostAdvancedChatbotProfilePicture
+     */
+    editedViews?: Array<ReferenceImageView>;
     /**
      *
      * @type {FurryVisualType}

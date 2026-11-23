@@ -28,7 +28,10 @@ exports.CharacterBuilderSuggestionField = {
     Greetings: 'greetings',
     Personality: 'personality',
     ProfilePic: 'profile_pic',
-    ExampleConversation: 'example_conversation'
+    ExampleConversation: 'example_conversation',
+    ReferenceViews: 'reference_views',
+    ReferenceView: 'reference_view',
+    FoldReferenceView: 'fold_reference_view'
 };
 function instanceOfCharacterBuilderSuggestionField(value) {
     for (const key in exports.CharacterBuilderSuggestionField) {

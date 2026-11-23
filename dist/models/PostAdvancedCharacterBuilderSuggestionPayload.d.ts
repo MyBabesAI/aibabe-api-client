@@ -12,6 +12,8 @@
 import type { FurryVisualType } from './FurryVisualType';
 import type { CharacterBuilderSuggestionField } from './CharacterBuilderSuggestionField';
 import type { Gender } from './Gender';
+import type { ReferenceImageView } from './ReferenceImageView';
+import type { ReferenceTexts } from './ReferenceTexts';
 /**
  *
  * @export
@@ -78,6 +80,18 @@ export interface PostAdvancedCharacterBuilderSuggestionPayload {
      * @memberof PostAdvancedCharacterBuilderSuggestionPayload
      */
     currentLookDescription?: string | null;
+    /**
+     *
+     * @type {ReferenceImageView}
+     * @memberof PostAdvancedCharacterBuilderSuggestionPayload
+     */
+    view?: ReferenceImageView | null;
+    /**
+     *
+     * @type {ReferenceTexts}
+     * @memberof PostAdvancedCharacterBuilderSuggestionPayload
+     */
+    currentReferenceTexts?: ReferenceTexts | null;
 }
 /**
  * Check if a given object implements the PostAdvancedCharacterBuilderSuggestionPayload interface.

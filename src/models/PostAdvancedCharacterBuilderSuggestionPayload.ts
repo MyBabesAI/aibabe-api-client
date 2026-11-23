@@ -34,6 +34,20 @@ import {
     GenderToJSON,
     GenderToJSONTyped,
 } from './Gender';
+import type { ReferenceImageView } from './ReferenceImageView';
+import {
+    ReferenceImageViewFromJSON,
+    ReferenceImageViewFromJSONTyped,
+    ReferenceImageViewToJSON,
+    ReferenceImageViewToJSONTyped,
+} from './ReferenceImageView';
+import type { ReferenceTexts } from './ReferenceTexts';
+import {
+    ReferenceTextsFromJSON,
+    ReferenceTextsFromJSONTyped,
+    ReferenceTextsToJSON,
+    ReferenceTextsToJSONTyped,
+} from './ReferenceTexts';
 
 /**
  * 
@@ -101,6 +115,18 @@ export interface PostAdvancedCharacterBuilderSuggestionPayload {
      * @memberof PostAdvancedCharacterBuilderSuggestionPayload
      */
     currentLookDescription?: string | null;
+    /**
+     * 
+     * @type {ReferenceImageView}
+     * @memberof PostAdvancedCharacterBuilderSuggestionPayload
+     */
+    view?: ReferenceImageView | null;
+    /**
+     * 
+     * @type {ReferenceTexts}
+     * @memberof PostAdvancedCharacterBuilderSuggestionPayload
+     */
+    currentReferenceTexts?: ReferenceTexts | null;
 }
 
 
@@ -133,6 +159,8 @@ export function PostAdvancedCharacterBuilderSuggestionPayloadFromJSONTyped(json:
         'currentStory': json['current_story'] == null ? undefined : json['current_story'],
         'currentExampleConversation': json['current_example_conversation'] == null ? undefined : json['current_example_conversation'],
         'currentLookDescription': json['current_look_description'] == null ? undefined : json['current_look_description'],
+        'view': json['view'] == null ? undefined : ReferenceImageViewFromJSON(json['view']),
+        'currentReferenceTexts': json['current_reference_texts'] == null ? undefined : ReferenceTextsFromJSON(json['current_reference_texts']),
     };
 }
 
@@ -157,6 +185,8 @@ export function PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped(value?:
         'current_story': value['currentStory'],
         'current_example_conversation': value['currentExampleConversation'],
         'current_look_description': value['currentLookDescription'],
+        'view': ReferenceImageViewToJSON(value['view']),
+        'current_reference_texts': ReferenceTextsToJSON(value['currentReferenceTexts']),
     };
 }
 
