@@ -51,6 +51,12 @@ export interface PostAdvancedChatbotProfilePicture {
      */
     age?: number | null;
     /**
+     * A babe recreated from a trend: the member changed her look in the custom builder (the description or a detail field). Her identity then leads the trend's scene in the portrait prompt; she keeps her seed. A description that differs from the trend's counts on its own; the flag is for the detail fields.
+     * @type {boolean}
+     * @memberof PostAdvancedChatbotProfilePicture
+     */
+    lookEdited?: boolean;
+    /**
      *
      * @type {FurryVisualType}
      * @memberof PostAdvancedChatbotProfilePicture

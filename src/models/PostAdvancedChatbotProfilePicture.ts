@@ -72,6 +72,12 @@ export interface PostAdvancedChatbotProfilePicture {
      */
     age?: number | null;
     /**
+     * A babe recreated from a trend: the member changed her look in the custom builder (the description or a detail field). Her identity then leads the trend's scene in the portrait prompt; she keeps her seed. A description that differs from the trend's counts on its own; the flag is for the detail fields.
+     * @type {boolean}
+     * @memberof PostAdvancedChatbotProfilePicture
+     */
+    lookEdited?: boolean;
+    /**
      * 
      * @type {FurryVisualType}
      * @memberof PostAdvancedChatbotProfilePicture
@@ -105,6 +111,7 @@ export function PostAdvancedChatbotProfilePictureFromJSONTyped(json: any, ignore
         'mods': json['mods'] == null ? undefined : ((json['mods'] as Array<any>).map(LoraNameFromJSON)),
         'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
         'age': json['age'] == null ? undefined : json['age'],
+        'lookEdited': json['look_edited'] == null ? undefined : json['look_edited'],
         'furryVisualType': json['furry_visual_type'] == null ? undefined : FurryVisualTypeFromJSON(json['furry_visual_type']),
     };
 }
@@ -125,6 +132,7 @@ export function PostAdvancedChatbotProfilePictureToJSONTyped(value?: PostAdvance
         'mods': value['mods'] == null ? undefined : ((value['mods'] as Array<any>).map(LoraNameToJSON)),
         'lora_weights': value['loraWeights'],
         'age': value['age'],
+        'look_edited': value['lookEdited'],
         'furry_visual_type': FurryVisualTypeToJSON(value['furryVisualType']),
     };
 }

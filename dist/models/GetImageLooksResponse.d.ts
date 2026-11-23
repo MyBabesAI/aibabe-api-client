@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ArtStyle } from './ArtStyle';
+import type { Gender } from './Gender';
 import type { ImageLookLora } from './ImageLookLora';
 /**
  *
@@ -47,6 +48,12 @@ export interface GetImageLooksResponse {
      * @memberof GetImageLooksResponse
      */
     maxCharacters?: number;
+    /**
+     *
+     * @type {Gender}
+     * @memberof GetImageLooksResponse
+     */
+    gender?: Gender | null;
 }
 /**
  * Check if a given object implements the GetImageLooksResponse interface.

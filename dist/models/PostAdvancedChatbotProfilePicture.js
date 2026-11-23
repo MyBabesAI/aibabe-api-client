@@ -44,6 +44,7 @@ function PostAdvancedChatbotProfilePictureFromJSONTyped(json, ignoreDiscriminato
         'mods': json['mods'] == null ? undefined : (json['mods'].map(LoraName_1.LoraNameFromJSON)),
         'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
         'age': json['age'] == null ? undefined : json['age'],
+        'lookEdited': json['look_edited'] == null ? undefined : json['look_edited'],
         'furryVisualType': json['furry_visual_type'] == null ? undefined : (0, FurryVisualType_1.FurryVisualTypeFromJSON)(json['furry_visual_type']),
     };
 }
@@ -60,6 +61,7 @@ function PostAdvancedChatbotProfilePictureToJSONTyped(value, ignoreDiscriminator
         'mods': value['mods'] == null ? undefined : (value['mods'].map(LoraName_1.LoraNameToJSON)),
         'lora_weights': value['loraWeights'],
         'age': value['age'],
+        'look_edited': value['lookEdited'],
         'furry_visual_type': (0, FurryVisualType_1.FurryVisualTypeToJSON)(value['furryVisualType']),
     };
 }
