@@ -279,7 +279,7 @@ export class BlueprintsApi extends runtime.BaseAPI {
     }
 
     /**
-     * The three detail texts (face, front, back) written from the persona\'s appearance, or from the description in the body. Free; stores nothing: save them with the persona\'s `view_texts`.
+     * The three detail texts (face, front, back) written from the persona\'s appearance, or from the description in the body; with `view`, that one detail (the member\'s text of it as a hint) and the appearance rewritten to state it, or with `fold` the member\'s text folded into the appearance. Free; stores nothing: save the answer with the persona\'s `description` and `view_texts`.
      * Describe Persona View Texts
      */
     async describePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePostRaw(requestParameters: DescribePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PostPersonaViewTextsResponse>> {
@@ -308,7 +308,7 @@ export class BlueprintsApi extends runtime.BaseAPI {
     }
 
     /**
-     * The three detail texts (face, front, back) written from the persona\'s appearance, or from the description in the body. Free; stores nothing: save them with the persona\'s `view_texts`.
+     * The three detail texts (face, front, back) written from the persona\'s appearance, or from the description in the body; with `view`, that one detail (the member\'s text of it as a hint) and the appearance rewritten to state it, or with `fold` the member\'s text folded into the appearance. Free; stores nothing: save the answer with the persona\'s `description` and `view_texts`.
      * Describe Persona View Texts
      */
     async describePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePost(requestParameters: DescribePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PostPersonaViewTextsResponse> {

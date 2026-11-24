@@ -9,6 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ReferenceImageView } from './ReferenceImageView';
+import type { ReferenceTexts } from './ReferenceTexts';
 /**
  *
  * @export
@@ -21,6 +23,24 @@ export interface PostPersonaViewTextsRequest {
      * @memberof PostPersonaViewTextsRequest
      */
     description?: string | null;
+    /**
+     *
+     * @type {ReferenceImageView}
+     * @memberof PostPersonaViewTextsRequest
+     */
+    view?: ReferenceImageView | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PostPersonaViewTextsRequest
+     */
+    fold?: boolean;
+    /**
+     *
+     * @type {ReferenceTexts}
+     * @memberof PostPersonaViewTextsRequest
+     */
+    viewTexts?: ReferenceTexts | null;
 }
 /**
  * Check if a given object implements the PostPersonaViewTextsRequest interface.

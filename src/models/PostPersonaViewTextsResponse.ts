@@ -33,6 +33,12 @@ export interface PostPersonaViewTextsResponse {
      * @memberof PostPersonaViewTextsResponse
      */
     viewTexts: ReferenceTexts;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostPersonaViewTextsResponse
+     */
+    description?: string | null;
 }
 
 /**
@@ -54,6 +60,7 @@ export function PostPersonaViewTextsResponseFromJSONTyped(json: any, ignoreDiscr
     return {
         
         'viewTexts': ReferenceTextsFromJSON(json['view_texts']),
+        'description': json['description'] == null ? undefined : json['description'],
     };
 }
 
@@ -69,6 +76,7 @@ export function PostPersonaViewTextsResponseToJSONTyped(value?: PostPersonaViewT
     return {
         
         'view_texts': ReferenceTextsToJSON(value['viewTexts']),
+        'description': value['description'],
     };
 }
 

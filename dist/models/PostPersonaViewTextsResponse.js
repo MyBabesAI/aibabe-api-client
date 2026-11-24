@@ -36,6 +36,7 @@ function PostPersonaViewTextsResponseFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'viewTexts': (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['view_texts']),
+        'description': json['description'] == null ? undefined : json['description'],
     };
 }
 function PostPersonaViewTextsResponseToJSON(json) {
@@ -47,6 +48,7 @@ function PostPersonaViewTextsResponseToJSONTyped(value, ignoreDiscriminator = fa
     }
     return {
         'view_texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['viewTexts']),
+        'description': value['description'],
     };
 }
 //# sourceMappingURL=PostPersonaViewTextsResponse.js.map

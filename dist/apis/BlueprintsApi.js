@@ -154,7 +154,7 @@ class BlueprintsApi extends runtime.BaseAPI {
         await this.deleteOnePersonaBlueprintsPersonasPersonaIdDeleteRaw(requestParameters, initOverrides);
     }
     /**
-     * The three detail texts (face, front, back) written from the persona\'s appearance, or from the description in the body. Free; stores nothing: save them with the persona\'s `view_texts`.
+     * The three detail texts (face, front, back) written from the persona\'s appearance, or from the description in the body; with `view`, that one detail (the member\'s text of it as a hint) and the appearance rewritten to state it, or with `fold` the member\'s text folded into the appearance. Free; stores nothing: save the answer with the persona\'s `description` and `view_texts`.
      * Describe Persona View Texts
      */
     async describePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePostRaw(requestParameters, initOverrides) {
@@ -174,7 +174,7 @@ class BlueprintsApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.PostPersonaViewTextsResponseFromJSON)(jsonValue));
     }
     /**
-     * The three detail texts (face, front, back) written from the persona\'s appearance, or from the description in the body. Free; stores nothing: save them with the persona\'s `view_texts`.
+     * The three detail texts (face, front, back) written from the persona\'s appearance, or from the description in the body; with `view`, that one detail (the member\'s text of it as a hint) and the appearance rewritten to state it, or with `fold` the member\'s text folded into the appearance. Free; stores nothing: save the answer with the persona\'s `description` and `view_texts`.
      * Describe Persona View Texts
      */
     async describePersonaViewTextsBlueprintsPersonasPersonaIdViewTextsDescribePost(requestParameters, initOverrides) {

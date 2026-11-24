@@ -13,6 +13,21 @@
  */
 
 import { mapValues } from '../runtime';
+import type { ReferenceImageView } from './ReferenceImageView';
+import {
+    ReferenceImageViewFromJSON,
+    ReferenceImageViewFromJSONTyped,
+    ReferenceImageViewToJSON,
+    ReferenceImageViewToJSONTyped,
+} from './ReferenceImageView';
+import type { ReferenceTexts } from './ReferenceTexts';
+import {
+    ReferenceTextsFromJSON,
+    ReferenceTextsFromJSONTyped,
+    ReferenceTextsToJSON,
+    ReferenceTextsToJSONTyped,
+} from './ReferenceTexts';
+
 /**
  * 
  * @export
@@ -25,7 +40,27 @@ export interface PostPersonaViewTextsRequest {
      * @memberof PostPersonaViewTextsRequest
      */
     description?: string | null;
+    /**
+     * 
+     * @type {ReferenceImageView}
+     * @memberof PostPersonaViewTextsRequest
+     */
+    view?: ReferenceImageView | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PostPersonaViewTextsRequest
+     */
+    fold?: boolean;
+    /**
+     * 
+     * @type {ReferenceTexts}
+     * @memberof PostPersonaViewTextsRequest
+     */
+    viewTexts?: ReferenceTexts | null;
 }
+
+
 
 /**
  * Check if a given object implements the PostPersonaViewTextsRequest interface.
@@ -45,6 +80,9 @@ export function PostPersonaViewTextsRequestFromJSONTyped(json: any, ignoreDiscri
     return {
         
         'description': json['description'] == null ? undefined : json['description'],
+        'view': json['view'] == null ? undefined : ReferenceImageViewFromJSON(json['view']),
+        'fold': json['fold'] == null ? undefined : json['fold'],
+        'viewTexts': json['view_texts'] == null ? undefined : ReferenceTextsFromJSON(json['view_texts']),
     };
 }
 
@@ -60,6 +98,9 @@ export function PostPersonaViewTextsRequestToJSONTyped(value?: PostPersonaViewTe
     return {
         
         'description': value['description'],
+        'view': ReferenceImageViewToJSON(value['view']),
+        'fold': value['fold'],
+        'view_texts': ReferenceTextsToJSON(value['viewTexts']),
     };
 }
 

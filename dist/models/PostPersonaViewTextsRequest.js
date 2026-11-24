@@ -18,6 +18,8 @@ exports.PostPersonaViewTextsRequestFromJSON = PostPersonaViewTextsRequestFromJSO
 exports.PostPersonaViewTextsRequestFromJSONTyped = PostPersonaViewTextsRequestFromJSONTyped;
 exports.PostPersonaViewTextsRequestToJSON = PostPersonaViewTextsRequestToJSON;
 exports.PostPersonaViewTextsRequestToJSONTyped = PostPersonaViewTextsRequestToJSONTyped;
+const ReferenceImageView_1 = require("./ReferenceImageView");
+const ReferenceTexts_1 = require("./ReferenceTexts");
 /**
  * Check if a given object implements the PostPersonaViewTextsRequest interface.
  */
@@ -33,6 +35,9 @@ function PostPersonaViewTextsRequestFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'description': json['description'] == null ? undefined : json['description'],
+        'view': json['view'] == null ? undefined : (0, ReferenceImageView_1.ReferenceImageViewFromJSON)(json['view']),
+        'fold': json['fold'] == null ? undefined : json['fold'],
+        'viewTexts': json['view_texts'] == null ? undefined : (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['view_texts']),
     };
 }
 function PostPersonaViewTextsRequestToJSON(json) {
@@ -44,6 +49,9 @@ function PostPersonaViewTextsRequestToJSONTyped(value, ignoreDiscriminator = fal
     }
     return {
         'description': value['description'],
+        'view': (0, ReferenceImageView_1.ReferenceImageViewToJSON)(value['view']),
+        'fold': value['fold'],
+        'view_texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['viewTexts']),
     };
 }
 //# sourceMappingURL=PostPersonaViewTextsRequest.js.map

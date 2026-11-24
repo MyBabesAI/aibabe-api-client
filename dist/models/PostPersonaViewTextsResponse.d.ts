@@ -22,6 +22,12 @@ export interface PostPersonaViewTextsResponse {
      * @memberof PostPersonaViewTextsResponse
      */
     viewTexts: ReferenceTexts;
+    /**
+     *
+     * @type {string}
+     * @memberof PostPersonaViewTextsResponse
+     */
+    description?: string | null;
 }
 /**
  * Check if a given object implements the PostPersonaViewTextsResponse interface.
