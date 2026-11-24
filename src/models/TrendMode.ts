@@ -16,8 +16,9 @@
 /**
  * What the recreation keeps of the trend's source.
  * 
- * motion_transfer builds a new scene around the clip's motion and camera (Seedance's omni "reference" task);
- * object_swap keeps the clip as filmed and replaces the person in it with the user's character (the "edit" task).
+ * motion_transfer and object_swap are the two clip trends: the recreation starts on the clip's first frame with the
+ * user's character edited in, an object swap over the clip's whole length. On an image trend either means the
+ * template layout edit.
  * @export
  */
 export const TrendMode = {

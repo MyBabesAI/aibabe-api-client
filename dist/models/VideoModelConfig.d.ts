@@ -12,6 +12,7 @@
 import type { PromotionSummary } from './PromotionSummary';
 import type { VideoDurationOptions } from './VideoDurationOptions';
 import type { VideoAspectRatio } from './VideoAspectRatio';
+import type { VideoSourceLimitsView } from './VideoSourceLimitsView';
 import type { VideoQualityConfig } from './VideoQualityConfig';
 /**
  *
@@ -74,12 +75,6 @@ export interface VideoModelConfig {
      * @type {boolean}
      * @memberof VideoModelConfig
      */
-    lastFrameSupported: boolean;
-    /**
-     *
-     * @type {boolean}
-     * @memberof VideoModelConfig
-     */
     modsAvailable: boolean;
     /**
      *
@@ -101,6 +96,12 @@ export interface VideoModelConfig {
     trendsSupported?: boolean;
     /**
      *
+     * @type {VideoSourceLimitsView}
+     * @memberof VideoModelConfig
+     */
+    sources?: VideoSourceLimitsView;
+    /**
+     *
      * @type {number}
      * @memberof VideoModelConfig
      */
@@ -116,7 +117,6 @@ export interface VideoModelConfig {
  * @export
  */
 export declare const VideoModelConfigModelEnum: {
-    readonly Wan22I2V: "WAN_22_I2V";
     readonly Wan27I2V: "WAN_27_I2V";
     readonly Wan30I2V: "WAN_30_I2V";
     readonly Wan30ProI2V: "WAN_30_PRO_I2V";

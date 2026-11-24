@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 import * as runtime from '../runtime';
-import type { AdminSeedanceModel, ExtendVideoPayload, GetVideoGenerationTagsResponse, ImageToVideoFromChatPayload, ImageToVideoRecommendationPayload, ImageToVideoRequest, LastVideoFrameResponse, ResponseGetWanTaskStatusVideoWanTaskTaskIdGet, SeedanceImageToVideoCompletionPayload, SeedanceImageToVideoResponse, VideoConfigResponse, VideoEditorSaveRequest, VideoEditorSaveResponse, VideoEditorUploadRequest, VideoEditorUploadResponse, VideoExportDetail, VideoExportRecipe, VideoFromChatResponse, VideoMergeResult, VideoProjectCreateRequest, VideoProjectDetail, VideoProjectListResponse, VideoProjectRenameRequest, VideoProjectSummary, VideoProjectUpdateRequest, VideoResolution, WanExtendVideoCompletionPayload, WanImageToVideoCompletionPayload, WanImageToVideoResponse } from '../models/index';
+import type { AdminSeedanceModel, ExtendVideoPayload, GetVideoGenerationTagsResponse, ImageToVideoFromChatPayload, ImageToVideoRequest, LastVideoFrameResponse, ResponseGetWanTaskStatusVideoWanTaskTaskIdGet, SeedanceImageToVideoCompletionPayload, SeedanceImageToVideoResponse, VideoConfigResponse, VideoEditorSaveRequest, VideoEditorSaveResponse, VideoEditorUploadRequest, VideoEditorUploadResponse, VideoExportDetail, VideoExportRecipe, VideoFromChatResponse, VideoMergeResult, VideoProjectCreateRequest, VideoProjectDetail, VideoProjectListResponse, VideoProjectRenameRequest, VideoProjectSummary, VideoProjectUpdateRequest, VideoResolution, WanExtendVideoCompletionPayload, WanImageToVideoCompletionPayload, WanImageToVideoResponse } from '../models/index';
 export interface AttachmentVideoVideoIdAttachmentGetRequest {
     videoId: string;
     videoName: string;
@@ -56,12 +56,6 @@ export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
     image?: Array<Blob>;
     imageUrl?: Array<string>;
     imageRole?: GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum;
-    lastFrame?: Blob | null;
-    lastFrameUrl?: string | null;
-    video?: Array<Blob>;
-    videoUrl?: Array<string>;
-    audio?: Array<Blob>;
-    audioUrl?: Array<string>;
     prompt?: string | null;
     resolution?: VideoResolution;
     ratio?: GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum;
@@ -73,9 +67,6 @@ export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
     callbackUrl?: string | null;
     executionExpiresAfter?: number | null;
     safetyIdentifier?: string | null;
-}
-export interface GenerateVideoDescriptionVideoRecommendationPostRequest {
-    imageToVideoRecommendationPayload: ImageToVideoRecommendationPayload;
 }
 export interface GenerateVideoFromChatVideoChatPostRequest {
     imageToVideoFromChatPayload: ImageToVideoFromChatPayload;
@@ -234,14 +225,6 @@ export declare class VideoApi extends runtime.BaseAPI {
      * Generate Seedance Video
      */
     generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedanceImageToVideoResponse>;
-    /**
-     * Generate Video Description
-     */
-    generateVideoDescriptionVideoRecommendationPostRaw(requestParameters: GenerateVideoDescriptionVideoRecommendationPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
-    /**
-     * Generate Video Description
-     */
-    generateVideoDescriptionVideoRecommendationPost(requestParameters: GenerateVideoDescriptionVideoRecommendationPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
     /**
      * Generate Video From Chat
      */
@@ -428,7 +411,6 @@ export type ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum = typeof
  */
 export declare const GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum: {
     readonly FirstFrame: "first_frame";
-    readonly LastFrame: "last_frame";
     readonly ReferenceImage: "reference_image";
 };
 export type GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum = typeof GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum[keyof typeof GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum];

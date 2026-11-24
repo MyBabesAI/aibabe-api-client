@@ -157,7 +157,6 @@ export interface ImageToVideoRequest {
  * @export
  */
 export declare const ImageToVideoRequestModelEnum: {
-    readonly Wan22I2V: "WAN_22_I2V";
     readonly Wan27I2V: "WAN_27_I2V";
     readonly Wan30I2V: "WAN_30_I2V";
     readonly Wan30ProI2V: "WAN_30_PRO_I2V";

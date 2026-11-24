@@ -477,12 +477,6 @@ class VideoApi extends runtime.BaseAPI {
         let useForm = false;
         // use FormData to transmit files using content-type "multipart/form-data"
         useForm = canConsumeForm;
-        // use FormData to transmit files using content-type "multipart/form-data"
-        useForm = canConsumeForm;
-        // use FormData to transmit files using content-type "multipart/form-data"
-        useForm = canConsumeForm;
-        // use FormData to transmit files using content-type "multipart/form-data"
-        useForm = canConsumeForm;
         if (useForm) {
             formParams = new FormData();
         }
@@ -499,28 +493,6 @@ class VideoApi extends runtime.BaseAPI {
         }
         if (requestParameters['imageRole'] != null) {
             formParams.append('image_role', requestParameters['imageRole']);
-        }
-        if (requestParameters['lastFrame'] != null) {
-            formParams.append('last_frame', requestParameters['lastFrame']);
-        }
-        if (requestParameters['lastFrameUrl'] != null) {
-            formParams.append('last_frame_url', requestParameters['lastFrameUrl']);
-        }
-        if (requestParameters['video'] != null) {
-            requestParameters['video'].forEach((element) => {
-                formParams.append('video', element);
-            });
-        }
-        if (requestParameters['videoUrl'] != null) {
-            formParams.append('video_url', requestParameters['videoUrl'].join(runtime.COLLECTION_FORMATS["csv"]));
-        }
-        if (requestParameters['audio'] != null) {
-            requestParameters['audio'].forEach((element) => {
-                formParams.append('audio', element);
-            });
-        }
-        if (requestParameters['audioUrl'] != null) {
-            formParams.append('audio_url', requestParameters['audioUrl'].join(runtime.COLLECTION_FORMATS["csv"]));
         }
         if (requestParameters['prompt'] != null) {
             formParams.append('prompt', requestParameters['prompt']);
@@ -572,37 +544,6 @@ class VideoApi extends runtime.BaseAPI {
      */
     async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters, initOverrides) {
         const response = await this.generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
-     * Generate Video Description
-     */
-    async generateVideoDescriptionVideoRecommendationPostRaw(requestParameters, initOverrides) {
-        if (requestParameters['imageToVideoRecommendationPayload'] == null) {
-            throw new runtime.RequiredError('imageToVideoRecommendationPayload', 'Required parameter "imageToVideoRecommendationPayload" was null or undefined when calling generateVideoDescriptionVideoRecommendationPost().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        headerParameters['Content-Type'] = 'application/json';
-        const response = await this.request({
-            path: `/video/recommendation`,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: (0, index_1.ImageToVideoRecommendationPayloadToJSON)(requestParameters['imageToVideoRecommendationPayload']),
-        }, initOverrides);
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse(response);
-        }
-        else {
-            return new runtime.TextApiResponse(response);
-        }
-    }
-    /**
-     * Generate Video Description
-     */
-    async generateVideoDescriptionVideoRecommendationPost(requestParameters, initOverrides) {
-        const response = await this.generateVideoDescriptionVideoRecommendationPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
@@ -1133,7 +1074,6 @@ exports.ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum = {
  */
 exports.GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum = {
     FirstFrame: 'first_frame',
-    LastFrame: 'last_frame',
     ReferenceImage: 'reference_image'
 };
 /**

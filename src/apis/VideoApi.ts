@@ -20,7 +20,6 @@ import type {
   GetVideoGenerationTagsResponse,
   HTTPValidationError,
   ImageToVideoFromChatPayload,
-  ImageToVideoRecommendationPayload,
   ImageToVideoRequest,
   LastVideoFrameResponse,
   ResponseGetWanTaskStatusVideoWanTaskTaskIdGet,
@@ -57,8 +56,6 @@ import {
     HTTPValidationErrorToJSON,
     ImageToVideoFromChatPayloadFromJSON,
     ImageToVideoFromChatPayloadToJSON,
-    ImageToVideoRecommendationPayloadFromJSON,
-    ImageToVideoRecommendationPayloadToJSON,
     ImageToVideoRequestFromJSON,
     ImageToVideoRequestToJSON,
     LastVideoFrameResponseFromJSON,
@@ -165,12 +162,6 @@ export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
     image?: Array<Blob>;
     imageUrl?: Array<string>;
     imageRole?: GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum;
-    lastFrame?: Blob | null;
-    lastFrameUrl?: string | null;
-    video?: Array<Blob>;
-    videoUrl?: Array<string>;
-    audio?: Array<Blob>;
-    audioUrl?: Array<string>;
     prompt?: string | null;
     resolution?: VideoResolution;
     ratio?: GenerateSeedanceVideoVideoSeedanceGeneratePostRatioEnum;
@@ -182,10 +173,6 @@ export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
     callbackUrl?: string | null;
     executionExpiresAfter?: number | null;
     safetyIdentifier?: string | null;
-}
-
-export interface GenerateVideoDescriptionVideoRecommendationPostRequest {
-    imageToVideoRecommendationPayload: ImageToVideoRecommendationPayload;
 }
 
 export interface GenerateVideoFromChatVideoChatPostRequest {
@@ -816,12 +803,6 @@ export class VideoApi extends runtime.BaseAPI {
         let useForm = false;
         // use FormData to transmit files using content-type "multipart/form-data"
         useForm = canConsumeForm;
-        // use FormData to transmit files using content-type "multipart/form-data"
-        useForm = canConsumeForm;
-        // use FormData to transmit files using content-type "multipart/form-data"
-        useForm = canConsumeForm;
-        // use FormData to transmit files using content-type "multipart/form-data"
-        useForm = canConsumeForm;
         if (useForm) {
             formParams = new FormData();
         } else {
@@ -840,34 +821,6 @@ export class VideoApi extends runtime.BaseAPI {
 
         if (requestParameters['imageRole'] != null) {
             formParams.append('image_role', requestParameters['imageRole'] as any);
-        }
-
-        if (requestParameters['lastFrame'] != null) {
-            formParams.append('last_frame', requestParameters['lastFrame'] as any);
-        }
-
-        if (requestParameters['lastFrameUrl'] != null) {
-            formParams.append('last_frame_url', requestParameters['lastFrameUrl'] as any);
-        }
-
-        if (requestParameters['video'] != null) {
-            requestParameters['video'].forEach((element) => {
-                formParams.append('video', element as any);
-            })
-        }
-
-        if (requestParameters['videoUrl'] != null) {
-            formParams.append('video_url', requestParameters['videoUrl']!.join(runtime.COLLECTION_FORMATS["csv"]));
-        }
-
-        if (requestParameters['audio'] != null) {
-            requestParameters['audio'].forEach((element) => {
-                formParams.append('audio', element as any);
-            })
-        }
-
-        if (requestParameters['audioUrl'] != null) {
-            formParams.append('audio_url', requestParameters['audioUrl']!.join(runtime.COLLECTION_FORMATS["csv"]));
         }
 
         if (requestParameters['prompt'] != null) {
@@ -934,46 +887,6 @@ export class VideoApi extends runtime.BaseAPI {
      */
     async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedanceImageToVideoResponse> {
         const response = await this.generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Generate Video Description
-     */
-    async generateVideoDescriptionVideoRecommendationPostRaw(requestParameters: GenerateVideoDescriptionVideoRecommendationPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['imageToVideoRecommendationPayload'] == null) {
-            throw new runtime.RequiredError(
-                'imageToVideoRecommendationPayload',
-                'Required parameter "imageToVideoRecommendationPayload" was null or undefined when calling generateVideoDescriptionVideoRecommendationPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/video/recommendation`,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ImageToVideoRecommendationPayloadToJSON(requestParameters['imageToVideoRecommendationPayload']),
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * Generate Video Description
-     */
-    async generateVideoDescriptionVideoRecommendationPost(requestParameters: GenerateVideoDescriptionVideoRecommendationPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
-        const response = await this.generateVideoDescriptionVideoRecommendationPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -1683,7 +1596,6 @@ export type ExtendCallbackVideoExtendCallbackGenerationIdPostStatusEnum = typeof
  */
 export const GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum = {
     FirstFrame: 'first_frame',
-    LastFrame: 'last_frame',
     ReferenceImage: 'reference_image'
 } as const;
 export type GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum = typeof GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum[keyof typeof GenerateSeedanceVideoVideoSeedanceGeneratePostImageRoleEnum];

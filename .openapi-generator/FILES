@@ -322,7 +322,6 @@ src/models/ImagePurpose.ts
 src/models/ImageSendingMode.ts
 src/models/ImageToVideoFromChatPayload.ts
 src/models/ImageToVideoModel.ts
-src/models/ImageToVideoRecommendationPayload.ts
 src/models/ImageToVideoRequest.ts
 src/models/ImageView.ts
 src/models/InstanceDetails.ts
@@ -716,6 +715,7 @@ src/models/VideoReferenceRole.ts
 src/models/VideoReferenceTemplate.ts
 src/models/VideoResolution.ts
 src/models/VideoShot.ts
+src/models/VideoSourceLimitsView.ts
 src/models/VideoTemplateCategory.ts
 src/models/VideoTemplateCategoryTag.ts
 src/models/Videos.ts

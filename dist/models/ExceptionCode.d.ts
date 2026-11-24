@@ -236,7 +236,6 @@ export declare const ExceptionCode: {
     readonly TrendCharacterImageMissing: "trend_character_image_missing";
     readonly TrendPromptRequired: "trend_prompt_required";
     readonly TrendPictureRefused: "trend_picture_refused";
-    readonly TrendClipRefused: "trend_clip_refused";
     readonly TrendRecipeFailed: "trend_recipe_failed";
     readonly TrendTitleRequired: "trend_title_required";
     readonly TrendCharactersCountInvalid: "trend_characters_count_invalid";

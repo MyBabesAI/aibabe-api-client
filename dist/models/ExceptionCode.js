@@ -246,7 +246,6 @@ exports.ExceptionCode = {
     TrendCharacterImageMissing: 'trend_character_image_missing',
     TrendPromptRequired: 'trend_prompt_required',
     TrendPictureRefused: 'trend_picture_refused',
-    TrendClipRefused: 'trend_clip_refused',
     TrendRecipeFailed: 'trend_recipe_failed',
     TrendTitleRequired: 'trend_title_required',
     TrendCharactersCountInvalid: 'trend_characters_count_invalid',

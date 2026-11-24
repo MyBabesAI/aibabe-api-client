@@ -28,7 +28,6 @@ const VideoLoraName_1 = require("./VideoLoraName");
  * @export
  */
 exports.ImageToVideoRequestModelEnum = {
-    Wan22I2V: 'WAN_22_I2V',
     Wan27I2V: 'WAN_27_I2V',
     Wan30I2V: 'WAN_30_I2V',
     Wan30ProI2V: 'WAN_30_PRO_I2V',
