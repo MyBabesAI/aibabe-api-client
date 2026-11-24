@@ -20,6 +20,13 @@ import {
     CastMemberToJSON,
     CastMemberToJSONTyped,
 } from './CastMember';
+import type { TrendPreview } from './TrendPreview';
+import {
+    TrendPreviewFromJSON,
+    TrendPreviewFromJSONTyped,
+    TrendPreviewToJSON,
+    TrendPreviewToJSONTyped,
+} from './TrendPreview';
 import type { MediaOrigin } from './MediaOrigin';
 import {
     MediaOriginFromJSON,
@@ -60,6 +67,12 @@ export interface ImageContent {
      * @memberof ImageContent
      */
     url: string;
+    /**
+     * 
+     * @type {TrendPreview}
+     * @memberof ImageContent
+     */
+    trend?: TrendPreview | null;
     /**
      * 
      * @type {MediaOrigin}
@@ -121,6 +134,7 @@ export function ImageContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'id': json['id'],
         'url': json['url'],
+        'trend': json['trend'] == null ? undefined : TrendPreviewFromJSON(json['trend']),
         'origin': json['origin'] == null ? undefined : MediaOriginFromJSON(json['origin']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
@@ -143,6 +157,7 @@ export function ImageContentToJSONTyped(value?: ImageContent | null, ignoreDiscr
         
         'id': value['id'],
         'url': value['url'],
+        'trend': TrendPreviewToJSON(value['trend']),
         'origin': MediaOriginToJSON(value['origin']),
         'width': value['width'],
         'height': value['height'],

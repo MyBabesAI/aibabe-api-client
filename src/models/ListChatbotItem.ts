@@ -34,6 +34,13 @@ import {
     PostDetailsToJSON,
     PostDetailsToJSONTyped,
 } from './PostDetails';
+import type { Gender } from './Gender';
+import {
+    GenderFromJSON,
+    GenderFromJSONTyped,
+    GenderToJSON,
+    GenderToJSONTyped,
+} from './Gender';
 
 /**
  * 
@@ -89,6 +96,12 @@ export interface ListChatbotItem {
      * @memberof ListChatbotItem
      */
     nextGen?: boolean;
+    /**
+     * 
+     * @type {Gender}
+     * @memberof ListChatbotItem
+     */
+    gender?: Gender | null;
     /**
      * 
      * @type {string}
@@ -168,6 +181,7 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
         'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
         'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
+        'gender': json['gender'] == null ? undefined : GenderFromJSON(json['gender']),
         'profileVideo': json['profile_video'],
         'blacklist': json['blacklist'] == null ? undefined : BlacklistCardFromJSON(json['blacklist']),
         'bio': json['bio'],
@@ -197,6 +211,7 @@ export function ListChatbotItemToJSONTyped(value?: ListChatbotItem | null, ignor
         'character_style': value['characterStyle'],
         'art_style': ArtStyleToJSON(value['artStyle']),
         'next_gen': value['nextGen'],
+        'gender': GenderToJSON(value['gender']),
         'profile_video': value['profileVideo'],
         'blacklist': BlacklistCardToJSON(value['blacklist']),
         'bio': value['bio'],

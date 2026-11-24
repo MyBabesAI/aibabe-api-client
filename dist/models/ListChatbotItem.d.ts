@@ -12,6 +12,7 @@
 import type { BlacklistCard } from './BlacklistCard';
 import type { ArtStyle } from './ArtStyle';
 import type { PostDetails } from './PostDetails';
+import type { Gender } from './Gender';
 /**
  *
  * @export
@@ -66,6 +67,12 @@ export interface ListChatbotItem {
      * @memberof ListChatbotItem
      */
     nextGen?: boolean;
+    /**
+     *
+     * @type {Gender}
+     * @memberof ListChatbotItem
+     */
+    gender?: Gender | null;
     /**
      *
      * @type {string}

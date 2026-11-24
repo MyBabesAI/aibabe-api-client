@@ -631,6 +631,7 @@ __exportStar(require("./TrendListResponse"), exports);
 __exportStar(require("./TrendMediaType"), exports);
 __exportStar(require("./TrendMode"), exports);
 __exportStar(require("./TrendModelOption"), exports);
+__exportStar(require("./TrendPreview"), exports);
 __exportStar(require("./TrendPreviewRequest"), exports);
 __exportStar(require("./TrendPreviewResponse"), exports);
 __exportStar(require("./TrendRecreateCharacter"), exports);

@@ -615,6 +615,7 @@ export * from './TrendListResponse';
 export * from './TrendMediaType';
 export * from './TrendMode';
 export * from './TrendModelOption';
+export * from './TrendPreview';
 export * from './TrendPreviewRequest';
 export * from './TrendPreviewResponse';
 export * from './TrendRecreateCharacter';
