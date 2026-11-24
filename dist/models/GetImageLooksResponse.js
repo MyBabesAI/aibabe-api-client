@@ -19,6 +19,7 @@ exports.GetImageLooksResponseFromJSONTyped = GetImageLooksResponseFromJSONTyped;
 exports.GetImageLooksResponseToJSON = GetImageLooksResponseToJSON;
 exports.GetImageLooksResponseToJSONTyped = GetImageLooksResponseToJSONTyped;
 const ArtStyle_1 = require("./ArtStyle");
+const Gender_1 = require("./Gender");
 const ImageLookLora_1 = require("./ImageLookLora");
 /**
  * Check if a given object implements the GetImageLooksResponse interface.
@@ -43,6 +44,7 @@ function GetImageLooksResponseFromJSONTyped(json, ignoreDiscriminator) {
         'loras': (json['loras'].map(ImageLookLora_1.ImageLookLoraFromJSON)),
         'mods': (json['mods'].map(ImageLookLora_1.ImageLookLoraFromJSON)),
         'maxCharacters': json['max_characters'] == null ? undefined : json['max_characters'],
+        'gender': json['gender'] == null ? undefined : (0, Gender_1.GenderFromJSON)(json['gender']),
     };
 }
 function GetImageLooksResponseToJSON(json) {
@@ -58,6 +60,7 @@ function GetImageLooksResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'loras': (value['loras'].map(ImageLookLora_1.ImageLookLoraToJSON)),
         'mods': (value['mods'].map(ImageLookLora_1.ImageLookLoraToJSON)),
         'max_characters': value['maxCharacters'],
+        'gender': (0, Gender_1.GenderToJSON)(value['gender']),
     };
 }
 //# sourceMappingURL=GetImageLooksResponse.js.map

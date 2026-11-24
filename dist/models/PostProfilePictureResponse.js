@@ -20,6 +20,7 @@ exports.PostProfilePictureResponseToJSON = PostProfilePictureResponseToJSON;
 exports.PostProfilePictureResponseToJSONTyped = PostProfilePictureResponseToJSONTyped;
 const CreatorGenerationCharge_1 = require("./CreatorGenerationCharge");
 const CharacterAvatarReview_1 = require("./CharacterAvatarReview");
+const ReferenceTexts_1 = require("./ReferenceTexts");
 /**
  * Check if a given object implements the PostProfilePictureResponse interface.
  */
@@ -39,6 +40,8 @@ function PostProfilePictureResponseFromJSONTyped(json, ignoreDiscriminator) {
         'review': (0, CharacterAvatarReview_1.CharacterAvatarReviewFromJSON)(json['review']),
         'generationStated': json['generation_stated'] == null ? undefined : json['generation_stated'],
         'generationCharge': json['generation_charge'] == null ? undefined : (0, CreatorGenerationCharge_1.CreatorGenerationChargeFromJSON)(json['generation_charge']),
+        'description': json['description'] == null ? undefined : json['description'],
+        'viewTexts': json['view_texts'] == null ? undefined : (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['view_texts']),
     };
 }
 function PostProfilePictureResponseToJSON(json) {
@@ -52,6 +55,8 @@ function PostProfilePictureResponseToJSONTyped(value, ignoreDiscriminator = fals
         'review': (0, CharacterAvatarReview_1.CharacterAvatarReviewToJSON)(value['review']),
         'generation_stated': value['generationStated'],
         'generation_charge': (0, CreatorGenerationCharge_1.CreatorGenerationChargeToJSON)(value['generationCharge']),
+        'description': value['description'],
+        'view_texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['viewTexts']),
     };
 }
 //# sourceMappingURL=PostProfilePictureResponse.js.map

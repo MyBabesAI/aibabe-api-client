@@ -287,7 +287,6 @@ export * from './ImagePurpose';
 export * from './ImageSendingMode';
 export * from './ImageToVideoFromChatPayload';
 export * from './ImageToVideoModel';
-export * from './ImageToVideoRecommendationPayload';
 export * from './ImageToVideoRequest';
 export * from './ImageView';
 export * from './InstanceDetails';

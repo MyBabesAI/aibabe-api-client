@@ -30,14 +30,6 @@ export interface GetLorasResponse {
     };
     /**
      *
-     * @type {{ [key: string]: Array<VideoMod>; }}
-     * @memberof GetLorasResponse
-     */
-    videoMods: {
-        [key: string]: Array<VideoMod>;
-    };
-    /**
-     *
      * @type {{ [key: string]: { [key: string]: Array<VideoMod>; }; }}
      * @memberof GetLorasResponse
      */

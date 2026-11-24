@@ -63,12 +63,6 @@ export interface GetLorasResponse {
     imageMods: { [key: string]: Array<ImageMod>; };
     /**
      * 
-     * @type {{ [key: string]: Array<VideoMod>; }}
-     * @memberof GetLorasResponse
-     */
-    videoMods: { [key: string]: Array<VideoMod>; };
-    /**
-     * 
      * @type {{ [key: string]: { [key: string]: Array<VideoMod>; }; }}
      * @memberof GetLorasResponse
      */
@@ -98,7 +92,6 @@ export interface GetLorasResponse {
  */
 export function instanceOfGetLorasResponse(value: object): value is GetLorasResponse {
     if (!('imageMods' in value) || value['imageMods'] === undefined) return false;
-    if (!('videoMods' in value) || value['videoMods'] === undefined) return false;
     if (!('imagePresets' in value) || value['imagePresets'] === undefined) return false;
     if (!('videoPresets' in value) || value['videoPresets'] === undefined) return false;
     return true;
@@ -115,7 +108,6 @@ export function GetLorasResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'imageMods': json['image_mods'],
-        'videoMods': json['video_mods'],
         'videoModsByModel': json['video_mods_by_model'] == null ? undefined : json['video_mods_by_model'],
         'imagePresets': json['image_presets'],
         'videoPresets': json['video_presets'],
@@ -135,7 +127,6 @@ export function GetLorasResponseToJSONTyped(value?: GetLorasResponse | null, ign
     return {
         
         'image_mods': value['imageMods'],
-        'video_mods': value['videoMods'],
         'video_mods_by_model': value['videoModsByModel'],
         'image_presets': value['imagePresets'],
         'video_presets': value['videoPresets'],

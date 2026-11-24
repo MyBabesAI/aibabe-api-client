@@ -27,6 +27,13 @@ import {
     FurryVisualTypeToJSON,
     FurryVisualTypeToJSONTyped,
 } from './FurryVisualType';
+import type { ReferenceImageView } from './ReferenceImageView';
+import {
+    ReferenceImageViewFromJSON,
+    ReferenceImageViewFromJSONTyped,
+    ReferenceImageViewToJSON,
+    ReferenceImageViewToJSONTyped,
+} from './ReferenceImageView';
 import type { LoraName } from './LoraName';
 import {
     LoraNameFromJSON,
@@ -34,6 +41,13 @@ import {
     LoraNameToJSON,
     LoraNameToJSONTyped,
 } from './LoraName';
+import type { ReferenceTexts } from './ReferenceTexts';
+import {
+    ReferenceTextsFromJSON,
+    ReferenceTextsFromJSONTyped,
+    ReferenceTextsToJSON,
+    ReferenceTextsToJSONTyped,
+} from './ReferenceTexts';
 
 /**
  * 
@@ -72,6 +86,24 @@ export interface PostAdvancedChatbotProfilePicture {
      */
     age?: number | null;
     /**
+     * A babe recreated from a trend: the member changed her look in the custom builder (the description or a detail field). Her identity then leads the trend's scene in the portrait prompt; she keeps her seed. A description that differs from the trend's counts on its own; the flag is for the detail fields.
+     * @type {boolean}
+     * @memberof PostAdvancedChatbotProfilePicture
+     */
+    lookEdited?: boolean;
+    /**
+     * 
+     * @type {ReferenceTexts}
+     * @memberof PostAdvancedChatbotProfilePicture
+     */
+    referenceTexts?: ReferenceTexts | null;
+    /**
+     * The detail fields the member changed since they were last saved into the description.
+     * @type {Array<ReferenceImageView>}
+     * @memberof PostAdvancedChatbotProfilePicture
+     */
+    editedViews?: Array<ReferenceImageView>;
+    /**
      * 
      * @type {FurryVisualType}
      * @memberof PostAdvancedChatbotProfilePicture
@@ -105,6 +137,9 @@ export function PostAdvancedChatbotProfilePictureFromJSONTyped(json: any, ignore
         'mods': json['mods'] == null ? undefined : ((json['mods'] as Array<any>).map(LoraNameFromJSON)),
         'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
         'age': json['age'] == null ? undefined : json['age'],
+        'lookEdited': json['look_edited'] == null ? undefined : json['look_edited'],
+        'referenceTexts': json['reference_texts'] == null ? undefined : ReferenceTextsFromJSON(json['reference_texts']),
+        'editedViews': json['edited_views'] == null ? undefined : ((json['edited_views'] as Array<any>).map(ReferenceImageViewFromJSON)),
         'furryVisualType': json['furry_visual_type'] == null ? undefined : FurryVisualTypeFromJSON(json['furry_visual_type']),
     };
 }
@@ -125,6 +160,9 @@ export function PostAdvancedChatbotProfilePictureToJSONTyped(value?: PostAdvance
         'mods': value['mods'] == null ? undefined : ((value['mods'] as Array<any>).map(LoraNameToJSON)),
         'lora_weights': value['loraWeights'],
         'age': value['age'],
+        'look_edited': value['lookEdited'],
+        'reference_texts': ReferenceTextsToJSON(value['referenceTexts']),
+        'edited_views': value['editedViews'] == null ? undefined : ((value['editedViews'] as Array<any>).map(ReferenceImageViewToJSON)),
         'furry_visual_type': FurryVisualTypeToJSON(value['furryVisualType']),
     };
 }

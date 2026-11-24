@@ -322,7 +322,6 @@ src/models/ImagePurpose.ts
 src/models/ImageSendingMode.ts
 src/models/ImageToVideoFromChatPayload.ts
 src/models/ImageToVideoModel.ts
-src/models/ImageToVideoRecommendationPayload.ts
 src/models/ImageToVideoRequest.ts
 src/models/ImageView.ts
 src/models/InstanceDetails.ts

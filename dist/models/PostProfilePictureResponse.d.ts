@@ -11,6 +11,7 @@
  */
 import type { CreatorGenerationCharge } from './CreatorGenerationCharge';
 import type { CharacterAvatarReview } from './CharacterAvatarReview';
+import type { ReferenceTexts } from './ReferenceTexts';
 /**
  *
  * @export
@@ -35,6 +36,18 @@ export interface PostProfilePictureResponse {
      * @memberof PostProfilePictureResponse
      */
     generationCharge?: CreatorGenerationCharge | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PostProfilePictureResponse
+     */
+    description?: string | null;
+    /**
+     *
+     * @type {ReferenceTexts}
+     * @memberof PostProfilePictureResponse
+     */
+    viewTexts?: ReferenceTexts | null;
 }
 /**
  * Check if a given object implements the PostProfilePictureResponse interface.

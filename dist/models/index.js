@@ -303,7 +303,6 @@ __exportStar(require("./ImagePurpose"), exports);
 __exportStar(require("./ImageSendingMode"), exports);
 __exportStar(require("./ImageToVideoFromChatPayload"), exports);
 __exportStar(require("./ImageToVideoModel"), exports);
-__exportStar(require("./ImageToVideoRecommendationPayload"), exports);
 __exportStar(require("./ImageToVideoRequest"), exports);
 __exportStar(require("./ImageView"), exports);
 __exportStar(require("./InstanceDetails"), exports);

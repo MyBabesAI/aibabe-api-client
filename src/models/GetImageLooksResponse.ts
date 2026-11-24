@@ -20,6 +20,13 @@ import {
     ArtStyleToJSON,
     ArtStyleToJSONTyped,
 } from './ArtStyle';
+import type { Gender } from './Gender';
+import {
+    GenderFromJSON,
+    GenderFromJSONTyped,
+    GenderToJSON,
+    GenderToJSONTyped,
+} from './Gender';
 import type { ImageLookLora } from './ImageLookLora';
 import {
     ImageLookLoraFromJSON,
@@ -64,6 +71,12 @@ export interface GetImageLooksResponse {
      * @memberof GetImageLooksResponse
      */
     maxCharacters?: number;
+    /**
+     * 
+     * @type {Gender}
+     * @memberof GetImageLooksResponse
+     */
+    gender?: Gender | null;
 }
 
 
@@ -92,6 +105,7 @@ export function GetImageLooksResponseFromJSONTyped(json: any, ignoreDiscriminato
         'loras': ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
         'mods': ((json['mods'] as Array<any>).map(ImageLookLoraFromJSON)),
         'maxCharacters': json['max_characters'] == null ? undefined : json['max_characters'],
+        'gender': json['gender'] == null ? undefined : GenderFromJSON(json['gender']),
     };
 }
 
@@ -111,6 +125,7 @@ export function GetImageLooksResponseToJSONTyped(value?: GetImageLooksResponse |
         'loras': ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
         'mods': ((value['mods'] as Array<any>).map(ImageLookLoraToJSON)),
         'max_characters': value['maxCharacters'],
+        'gender': GenderToJSON(value['gender']),
     };
 }
 

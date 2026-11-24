@@ -547,37 +547,6 @@ class VideoApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * Generate Video Description
-     */
-    async generateVideoDescriptionVideoRecommendationPostRaw(requestParameters, initOverrides) {
-        if (requestParameters['imageToVideoRecommendationPayload'] == null) {
-            throw new runtime.RequiredError('imageToVideoRecommendationPayload', 'Required parameter "imageToVideoRecommendationPayload" was null or undefined when calling generateVideoDescriptionVideoRecommendationPost().');
-        }
-        const queryParameters = {};
-        const headerParameters = {};
-        headerParameters['Content-Type'] = 'application/json';
-        const response = await this.request({
-            path: `/video/recommendation`,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: (0, index_1.ImageToVideoRecommendationPayloadToJSON)(requestParameters['imageToVideoRecommendationPayload']),
-        }, initOverrides);
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse(response);
-        }
-        else {
-            return new runtime.TextApiResponse(response);
-        }
-    }
-    /**
-     * Generate Video Description
-     */
-    async generateVideoDescriptionVideoRecommendationPost(requestParameters, initOverrides) {
-        const response = await this.generateVideoDescriptionVideoRecommendationPostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-    /**
      * Generate Video From Chat
      */
     async generateVideoFromChatVideoChatPostRaw(requestParameters, initOverrides) {

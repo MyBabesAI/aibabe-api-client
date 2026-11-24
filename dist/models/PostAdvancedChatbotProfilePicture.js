@@ -20,7 +20,9 @@ exports.PostAdvancedChatbotProfilePictureToJSON = PostAdvancedChatbotProfilePict
 exports.PostAdvancedChatbotProfilePictureToJSONTyped = PostAdvancedChatbotProfilePictureToJSONTyped;
 const ArtStyle_1 = require("./ArtStyle");
 const FurryVisualType_1 = require("./FurryVisualType");
+const ReferenceImageView_1 = require("./ReferenceImageView");
 const LoraName_1 = require("./LoraName");
+const ReferenceTexts_1 = require("./ReferenceTexts");
 /**
  * Check if a given object implements the PostAdvancedChatbotProfilePicture interface.
  */
@@ -44,6 +46,9 @@ function PostAdvancedChatbotProfilePictureFromJSONTyped(json, ignoreDiscriminato
         'mods': json['mods'] == null ? undefined : (json['mods'].map(LoraName_1.LoraNameFromJSON)),
         'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
         'age': json['age'] == null ? undefined : json['age'],
+        'lookEdited': json['look_edited'] == null ? undefined : json['look_edited'],
+        'referenceTexts': json['reference_texts'] == null ? undefined : (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['reference_texts']),
+        'editedViews': json['edited_views'] == null ? undefined : (json['edited_views'].map(ReferenceImageView_1.ReferenceImageViewFromJSON)),
         'furryVisualType': json['furry_visual_type'] == null ? undefined : (0, FurryVisualType_1.FurryVisualTypeFromJSON)(json['furry_visual_type']),
     };
 }
@@ -60,6 +65,9 @@ function PostAdvancedChatbotProfilePictureToJSONTyped(value, ignoreDiscriminator
         'mods': value['mods'] == null ? undefined : (value['mods'].map(LoraName_1.LoraNameToJSON)),
         'lora_weights': value['loraWeights'],
         'age': value['age'],
+        'look_edited': value['lookEdited'],
+        'reference_texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['referenceTexts']),
+        'edited_views': value['editedViews'] == null ? undefined : (value['editedViews'].map(ReferenceImageView_1.ReferenceImageViewToJSON)),
         'furry_visual_type': (0, FurryVisualType_1.FurryVisualTypeToJSON)(value['furryVisualType']),
     };
 }

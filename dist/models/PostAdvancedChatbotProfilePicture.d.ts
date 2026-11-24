@@ -11,7 +11,9 @@
  */
 import type { ArtStyle } from './ArtStyle';
 import type { FurryVisualType } from './FurryVisualType';
+import type { ReferenceImageView } from './ReferenceImageView';
 import type { LoraName } from './LoraName';
+import type { ReferenceTexts } from './ReferenceTexts';
 /**
  *
  * @export
@@ -50,6 +52,24 @@ export interface PostAdvancedChatbotProfilePicture {
      * @memberof PostAdvancedChatbotProfilePicture
      */
     age?: number | null;
+    /**
+     * A babe recreated from a trend: the member changed her look in the custom builder (the description or a detail field). Her identity then leads the trend's scene in the portrait prompt; she keeps her seed. A description that differs from the trend's counts on its own; the flag is for the detail fields.
+     * @type {boolean}
+     * @memberof PostAdvancedChatbotProfilePicture
+     */
+    lookEdited?: boolean;
+    /**
+     *
+     * @type {ReferenceTexts}
+     * @memberof PostAdvancedChatbotProfilePicture
+     */
+    referenceTexts?: ReferenceTexts | null;
+    /**
+     * The detail fields the member changed since they were last saved into the description.
+     * @type {Array<ReferenceImageView>}
+     * @memberof PostAdvancedChatbotProfilePicture
+     */
+    editedViews?: Array<ReferenceImageView>;
     /**
      *
      * @type {FurryVisualType}

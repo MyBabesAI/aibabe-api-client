@@ -20,7 +20,6 @@ import type {
   GetVideoGenerationTagsResponse,
   HTTPValidationError,
   ImageToVideoFromChatPayload,
-  ImageToVideoRecommendationPayload,
   ImageToVideoRequest,
   LastVideoFrameResponse,
   ResponseGetWanTaskStatusVideoWanTaskTaskIdGet,
@@ -57,8 +56,6 @@ import {
     HTTPValidationErrorToJSON,
     ImageToVideoFromChatPayloadFromJSON,
     ImageToVideoFromChatPayloadToJSON,
-    ImageToVideoRecommendationPayloadFromJSON,
-    ImageToVideoRecommendationPayloadToJSON,
     ImageToVideoRequestFromJSON,
     ImageToVideoRequestToJSON,
     LastVideoFrameResponseFromJSON,
@@ -176,10 +173,6 @@ export interface GenerateSeedanceVideoVideoSeedanceGeneratePostRequest {
     callbackUrl?: string | null;
     executionExpiresAfter?: number | null;
     safetyIdentifier?: string | null;
-}
-
-export interface GenerateVideoDescriptionVideoRecommendationPostRequest {
-    imageToVideoRecommendationPayload: ImageToVideoRecommendationPayload;
 }
 
 export interface GenerateVideoFromChatVideoChatPostRequest {
@@ -894,46 +887,6 @@ export class VideoApi extends runtime.BaseAPI {
      */
     async generateSeedanceVideoVideoSeedanceGeneratePost(requestParameters: GenerateSeedanceVideoVideoSeedanceGeneratePostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SeedanceImageToVideoResponse> {
         const response = await this.generateSeedanceVideoVideoSeedanceGeneratePostRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Generate Video Description
-     */
-    async generateVideoDescriptionVideoRecommendationPostRaw(requestParameters: GenerateVideoDescriptionVideoRecommendationPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['imageToVideoRecommendationPayload'] == null) {
-            throw new runtime.RequiredError(
-                'imageToVideoRecommendationPayload',
-                'Required parameter "imageToVideoRecommendationPayload" was null or undefined when calling generateVideoDescriptionVideoRecommendationPost().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/video/recommendation`,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ImageToVideoRecommendationPayloadToJSON(requestParameters['imageToVideoRecommendationPayload']),
-        }, initOverrides);
-
-        if (this.isJsonMime(response.headers.get('content-type'))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * Generate Video Description
-     */
-    async generateVideoDescriptionVideoRecommendationPost(requestParameters: GenerateVideoDescriptionVideoRecommendationPostRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
-        const response = await this.generateVideoDescriptionVideoRecommendationPostRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
