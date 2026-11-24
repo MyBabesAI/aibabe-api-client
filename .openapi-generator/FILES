@@ -345,6 +345,7 @@ src/models/MarketingCampaignName.ts
 src/models/MediaOrigin.ts
 src/models/MemoracekType.ts
 src/models/MentionCandidate.ts
+src/models/MentionStyle.ts
 src/models/MessageCheckResponse.ts
 src/models/MessageType.ts
 src/models/Model.ts

@@ -326,6 +326,7 @@ __exportStar(require("./MarketingCampaignName"), exports);
 __exportStar(require("./MediaOrigin"), exports);
 __exportStar(require("./MemoracekType"), exports);
 __exportStar(require("./MentionCandidate"), exports);
+__exportStar(require("./MentionStyle"), exports);
 __exportStar(require("./MessageCheckResponse"), exports);
 __exportStar(require("./MessageType"), exports);
 __exportStar(require("./Model"), exports);

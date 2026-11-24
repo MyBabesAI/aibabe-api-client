@@ -310,6 +310,7 @@ export * from './MarketingCampaignName';
 export * from './MediaOrigin';
 export * from './MemoracekType';
 export * from './MentionCandidate';
+export * from './MentionStyle';
 export * from './MessageCheckResponse';
 export * from './MessageType';
 export * from './Model';
