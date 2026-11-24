@@ -21,6 +21,7 @@ exports.ListChatbotItemToJSONTyped = ListChatbotItemToJSONTyped;
 const BlacklistCard_1 = require("./BlacklistCard");
 const ArtStyle_1 = require("./ArtStyle");
 const PostDetails_1 = require("./PostDetails");
+const Gender_1 = require("./Gender");
 /**
  * Check if a given object implements the ListChatbotItem interface.
  */
@@ -59,6 +60,7 @@ function ListChatbotItemFromJSONTyped(json, ignoreDiscriminator) {
         'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
         'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
+        'gender': json['gender'] == null ? undefined : (0, Gender_1.GenderFromJSON)(json['gender']),
         'profileVideo': json['profile_video'],
         'blacklist': json['blacklist'] == null ? undefined : (0, BlacklistCard_1.BlacklistCardFromJSON)(json['blacklist']),
         'bio': json['bio'],
@@ -84,6 +86,7 @@ function ListChatbotItemToJSONTyped(value, ignoreDiscriminator = false) {
         'character_style': value['characterStyle'],
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'next_gen': value['nextGen'],
+        'gender': (0, Gender_1.GenderToJSON)(value['gender']),
         'profile_video': value['profileVideo'],
         'blacklist': (0, BlacklistCard_1.BlacklistCardToJSON)(value['blacklist']),
         'bio': value['bio'],

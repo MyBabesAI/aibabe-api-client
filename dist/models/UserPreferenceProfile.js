@@ -18,6 +18,7 @@ exports.UserPreferenceProfileFromJSON = UserPreferenceProfileFromJSON;
 exports.UserPreferenceProfileFromJSONTyped = UserPreferenceProfileFromJSONTyped;
 exports.UserPreferenceProfileToJSON = UserPreferenceProfileToJSON;
 exports.UserPreferenceProfileToJSONTyped = UserPreferenceProfileToJSONTyped;
+const MentionStyle_1 = require("./MentionStyle");
 const Language_1 = require("./Language");
 const LLM_1 = require("./LLM");
 const ImageSendingMode_1 = require("./ImageSendingMode");
@@ -47,6 +48,7 @@ function UserPreferenceProfileFromJSONTyped(json, ignoreDiscriminator) {
         'videoPromptExpansion': json['video_prompt_expansion'] == null ? undefined : json['video_prompt_expansion'],
         'chatGlassStyle': json['chat_glass_style'] == null ? undefined : json['chat_glass_style'],
         'chatSuggestionPanel': json['chat_suggestion_panel'] == null ? undefined : json['chat_suggestion_panel'],
+        'mentionStyle': json['mention_style'] == null ? undefined : (0, MentionStyle_1.MentionStyleFromJSON)(json['mention_style']),
         'badgeAnimationsEnabled': json['badge_animations_enabled'] == null ? undefined : json['badge_animations_enabled'],
         'adventureOnlySoloImages': json['adventure_only_solo_images'] == null ? undefined : json['adventure_only_solo_images'],
         'adventureSfwFilterOn': json['adventure_sfw_filter_on'] == null ? undefined : json['adventure_sfw_filter_on'],
@@ -74,6 +76,7 @@ function UserPreferenceProfileToJSONTyped(value, ignoreDiscriminator = false) {
         'video_prompt_expansion': value['videoPromptExpansion'],
         'chat_glass_style': value['chatGlassStyle'],
         'chat_suggestion_panel': value['chatSuggestionPanel'],
+        'mention_style': (0, MentionStyle_1.MentionStyleToJSON)(value['mentionStyle']),
         'badge_animations_enabled': value['badgeAnimationsEnabled'],
         'adventure_only_solo_images': value['adventureOnlySoloImages'],
         'adventure_sfw_filter_on': value['adventureSfwFilterOn'],

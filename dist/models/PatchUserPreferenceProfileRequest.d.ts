@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { MentionStyle } from './MentionStyle';
 import type { Language } from './Language';
 import type { LLM } from './LLM';
 import type { ImageSendingMode } from './ImageSendingMode';
@@ -90,6 +91,12 @@ export interface PatchUserPreferenceProfileRequest {
      * @memberof PatchUserPreferenceProfileRequest
      */
     chatSuggestionPanel?: boolean | null;
+    /**
+     *
+     * @type {MentionStyle}
+     * @memberof PatchUserPreferenceProfileRequest
+     */
+    mentionStyle?: MentionStyle | null;
     /**
      *
      * @type {boolean}

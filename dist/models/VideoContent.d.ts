@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { CastMember } from './CastMember';
+import type { TrendPreview } from './TrendPreview';
 import type { ImageToVideoModel } from './ImageToVideoModel';
 import type { MediaOrigin } from './MediaOrigin';
 import type { AdminAgeEstimation } from './AdminAgeEstimation';
@@ -32,6 +33,12 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     url: string;
+    /**
+     *
+     * @type {TrendPreview}
+     * @memberof VideoContent
+     */
+    trend?: TrendPreview | null;
     /**
      *
      * @type {MediaOrigin}

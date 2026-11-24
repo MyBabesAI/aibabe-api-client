@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { MentionStyle } from './MentionStyle';
+import {
+    MentionStyleFromJSON,
+    MentionStyleFromJSONTyped,
+    MentionStyleToJSON,
+    MentionStyleToJSONTyped,
+} from './MentionStyle';
 import type { Language } from './Language';
 import {
     LanguageFromJSON,
@@ -115,6 +122,12 @@ export interface PatchUserPreferenceProfileRequest {
     chatSuggestionPanel?: boolean | null;
     /**
      * 
+     * @type {MentionStyle}
+     * @memberof PatchUserPreferenceProfileRequest
+     */
+    mentionStyle?: MentionStyle | null;
+    /**
+     * 
      * @type {boolean}
      * @memberof PatchUserPreferenceProfileRequest
      */
@@ -170,6 +183,7 @@ export function PatchUserPreferenceProfileRequestFromJSONTyped(json: any, ignore
         'videoPromptExpansion': json['video_prompt_expansion'] == null ? undefined : json['video_prompt_expansion'],
         'chatGlassStyle': json['chat_glass_style'] == null ? undefined : json['chat_glass_style'],
         'chatSuggestionPanel': json['chat_suggestion_panel'] == null ? undefined : json['chat_suggestion_panel'],
+        'mentionStyle': json['mention_style'] == null ? undefined : MentionStyleFromJSON(json['mention_style']),
         'badgeAnimationsEnabled': json['badge_animations_enabled'] == null ? undefined : json['badge_animations_enabled'],
         'adventureOnlySoloImages': json['adventure_only_solo_images'] == null ? undefined : json['adventure_only_solo_images'],
         'adventureSfwFilterOn': json['adventure_sfw_filter_on'] == null ? undefined : json['adventure_sfw_filter_on'],
@@ -200,6 +214,7 @@ export function PatchUserPreferenceProfileRequestToJSONTyped(value?: PatchUserPr
         'video_prompt_expansion': value['videoPromptExpansion'],
         'chat_glass_style': value['chatGlassStyle'],
         'chat_suggestion_panel': value['chatSuggestionPanel'],
+        'mention_style': MentionStyleToJSON(value['mentionStyle']),
         'badge_animations_enabled': value['badgeAnimationsEnabled'],
         'adventure_only_solo_images': value['adventureOnlySoloImages'],
         'adventure_sfw_filter_on': value['adventureSfwFilterOn'],

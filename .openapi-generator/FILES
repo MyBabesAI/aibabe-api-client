@@ -344,6 +344,7 @@ src/models/MarketingCampaignName.ts
 src/models/MediaOrigin.ts
 src/models/MemoracekType.ts
 src/models/MentionCandidate.ts
+src/models/MentionStyle.ts
 src/models/MessageCheckResponse.ts
 src/models/MessageType.ts
 src/models/Model.ts
@@ -648,6 +649,7 @@ src/models/TrendListResponse.ts
 src/models/TrendMediaType.ts
 src/models/TrendMode.ts
 src/models/TrendModelOption.ts
+src/models/TrendPreview.ts
 src/models/TrendPreviewRequest.ts
 src/models/TrendPreviewResponse.ts
 src/models/TrendRecreateCharacter.ts
