@@ -68,6 +68,12 @@ export interface BabeTrendLookResponse {
     loras?: Array<ImageLookLora>;
     /**
      * 
+     * @type {{ [key: string]: number; }}
+     * @memberof BabeTrendLookResponse
+     */
+    loraWeights?: { [key: string]: number; } | null;
+    /**
+     * 
      * @type {Gender}
      * @memberof BabeTrendLookResponse
      */
@@ -111,6 +117,7 @@ export function BabeTrendLookResponseFromJSONTyped(json: any, ignoreDiscriminato
         'identity': json['identity'],
         'artStyle': ArtStyleFromJSON(json['art_style']),
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
+        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
         'gender': GenderFromJSON(json['gender']),
         'sexualOrientation': json['sexual_orientation'] == null ? undefined : SexualOrientationFromJSON(json['sexual_orientation']),
         'age': json['age'] == null ? undefined : json['age'],
@@ -131,6 +138,7 @@ export function BabeTrendLookResponseToJSONTyped(value?: BabeTrendLookResponse |
         'identity': value['identity'],
         'art_style': ArtStyleToJSON(value['artStyle']),
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
+        'lora_weights': value['loraWeights'],
         'gender': GenderToJSON(value['gender']),
         'sexual_orientation': SexualOrientationToJSON(value['sexualOrientation']),
         'age': value['age'],

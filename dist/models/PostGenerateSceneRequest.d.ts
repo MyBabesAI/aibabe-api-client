@@ -12,6 +12,7 @@
 import type { ArtStyle } from './ArtStyle';
 import type { ImagePurpose } from './ImagePurpose';
 import type { ImageAspectRatio } from './ImageAspectRatio';
+import type { LoraLevel } from './LoraLevel';
 import type { LoraName } from './LoraName';
 /**
  *
@@ -87,11 +88,11 @@ export interface PostGenerateSceneRequest {
     originalImageId?: string | null;
     /**
      *
-     * @type {{ [key: string]: number; }}
+     * @type {{ [key: string]: LoraLevel; }}
      * @memberof PostGenerateSceneRequest
      */
-    loraWeights?: {
-        [key: string]: number;
+    loraLevels?: {
+        [key: string]: LoraLevel;
     } | null;
 }
 /**

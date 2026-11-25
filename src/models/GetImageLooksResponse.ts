@@ -61,6 +61,12 @@ export interface GetImageLooksResponse {
     loras: Array<ImageLookLora>;
     /**
      * 
+     * @type {boolean}
+     * @memberof GetImageLooksResponse
+     */
+    heavyLook?: boolean;
+    /**
+     * 
      * @type {Array<ImageLookLora>}
      * @memberof GetImageLooksResponse
      */
@@ -103,6 +109,7 @@ export function GetImageLooksResponseFromJSONTyped(json: any, ignoreDiscriminato
         'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
         'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
         'loras': ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
+        'heavyLook': json['heavy_look'] == null ? undefined : json['heavy_look'],
         'mods': ((json['mods'] as Array<any>).map(ImageLookLoraFromJSON)),
         'maxCharacters': json['max_characters'] == null ? undefined : json['max_characters'],
         'gender': json['gender'] == null ? undefined : GenderFromJSON(json['gender']),
@@ -123,6 +130,7 @@ export function GetImageLooksResponseToJSONTyped(value?: GetImageLooksResponse |
         'art_style': ArtStyleToJSON(value['artStyle']),
         'next_gen': value['nextGen'],
         'loras': ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
+        'heavy_look': value['heavyLook'],
         'mods': ((value['mods'] as Array<any>).map(ImageLookLoraToJSON)),
         'max_characters': value['maxCharacters'],
         'gender': GenderToJSON(value['gender']),

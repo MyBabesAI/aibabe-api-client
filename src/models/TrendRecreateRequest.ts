@@ -41,6 +41,13 @@ import {
     TrendRecreateCharacterToJSON,
     TrendRecreateCharacterToJSONTyped,
 } from './TrendRecreateCharacter';
+import type { LoraLevel } from './LoraLevel';
+import {
+    LoraLevelFromJSON,
+    LoraLevelFromJSONTyped,
+    LoraLevelToJSON,
+    LoraLevelToJSONTyped,
+} from './LoraLevel';
 
 /**
  * 
@@ -74,10 +81,10 @@ export interface TrendRecreateRequest {
     prompt?: string | null;
     /**
      * 
-     * @type {{ [key: string]: number; }}
+     * @type {{ [key: string]: LoraLevel; }}
      * @memberof TrendRecreateRequest
      */
-    loraWeights?: { [key: string]: number; } | null;
+    loraLevels?: { [key: string]: LoraLevel; } | null;
     /**
      * 
      * @type {string}
@@ -148,7 +155,7 @@ export function TrendRecreateRequestFromJSONTyped(json: any, ignoreDiscriminator
         'characters': json['characters'] == null ? undefined : ((json['characters'] as Array<any>).map(TrendRecreateCharacterFromJSON)),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
-        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'loraLevels': json['lora_levels'] == null ? undefined : (mapValues(json['lora_levels'], LoraLevelFromJSON)),
         'model': json['model'],
         'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : VideoAspectRatioFromJSON(json['aspect_ratio']),
@@ -174,7 +181,7 @@ export function TrendRecreateRequestToJSONTyped(value?: TrendRecreateRequest | n
         'characters': value['characters'] == null ? undefined : ((value['characters'] as Array<any>).map(TrendRecreateCharacterToJSON)),
         'chatbot_id': value['chatbotId'],
         'prompt': value['prompt'],
-        'lora_weights': value['loraWeights'],
+        'lora_levels': value['loraLevels'] == null ? undefined : (mapValues(value['loraLevels'], LoraLevelToJSON)),
         'model': value['model'],
         'art_style': ArtStyleToJSON(value['artStyle']),
         'aspect_ratio': VideoAspectRatioToJSON(value['aspectRatio']),

@@ -18,9 +18,11 @@ exports.PostAdvancedChatbotProfilePictureFromJSON = PostAdvancedChatbotProfilePi
 exports.PostAdvancedChatbotProfilePictureFromJSONTyped = PostAdvancedChatbotProfilePictureFromJSONTyped;
 exports.PostAdvancedChatbotProfilePictureToJSON = PostAdvancedChatbotProfilePictureToJSON;
 exports.PostAdvancedChatbotProfilePictureToJSONTyped = PostAdvancedChatbotProfilePictureToJSONTyped;
+const runtime_1 = require("../runtime");
 const ArtStyle_1 = require("./ArtStyle");
 const FurryVisualType_1 = require("./FurryVisualType");
 const ReferenceImageView_1 = require("./ReferenceImageView");
+const LoraLevel_1 = require("./LoraLevel");
 const LoraName_1 = require("./LoraName");
 const ReferenceTexts_1 = require("./ReferenceTexts");
 /**
@@ -44,7 +46,7 @@ function PostAdvancedChatbotProfilePictureFromJSONTyped(json, ignoreDiscriminato
         'description': json['description'],
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'mods': json['mods'] == null ? undefined : (json['mods'].map(LoraName_1.LoraNameFromJSON)),
-        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'loraLevels': json['lora_levels'] == null ? undefined : ((0, runtime_1.mapValues)(json['lora_levels'], LoraLevel_1.LoraLevelFromJSON)),
         'age': json['age'] == null ? undefined : json['age'],
         'lookEdited': json['look_edited'] == null ? undefined : json['look_edited'],
         'referenceTexts': json['reference_texts'] == null ? undefined : (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['reference_texts']),
@@ -63,7 +65,7 @@ function PostAdvancedChatbotProfilePictureToJSONTyped(value, ignoreDiscriminator
         'description': value['description'],
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'mods': value['mods'] == null ? undefined : (value['mods'].map(LoraName_1.LoraNameToJSON)),
-        'lora_weights': value['loraWeights'],
+        'lora_levels': value['loraLevels'] == null ? undefined : ((0, runtime_1.mapValues)(value['loraLevels'], LoraLevel_1.LoraLevelToJSON)),
         'age': value['age'],
         'look_edited': value['lookEdited'],
         'reference_texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['referenceTexts']),

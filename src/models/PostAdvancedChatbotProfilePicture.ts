@@ -34,6 +34,13 @@ import {
     ReferenceImageViewToJSON,
     ReferenceImageViewToJSONTyped,
 } from './ReferenceImageView';
+import type { LoraLevel } from './LoraLevel';
+import {
+    LoraLevelFromJSON,
+    LoraLevelFromJSONTyped,
+    LoraLevelToJSON,
+    LoraLevelToJSONTyped,
+} from './LoraLevel';
 import type { LoraName } from './LoraName';
 import {
     LoraNameFromJSON,
@@ -75,10 +82,10 @@ export interface PostAdvancedChatbotProfilePicture {
     mods?: Array<LoraName>;
     /**
      * 
-     * @type {{ [key: string]: number; }}
+     * @type {{ [key: string]: LoraLevel; }}
      * @memberof PostAdvancedChatbotProfilePicture
      */
-    loraWeights?: { [key: string]: number; } | null;
+    loraLevels?: { [key: string]: LoraLevel; } | null;
     /**
      * 
      * @type {number}
@@ -135,7 +142,7 @@ export function PostAdvancedChatbotProfilePictureFromJSONTyped(json: any, ignore
         'description': json['description'],
         'artStyle': ArtStyleFromJSON(json['art_style']),
         'mods': json['mods'] == null ? undefined : ((json['mods'] as Array<any>).map(LoraNameFromJSON)),
-        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'loraLevels': json['lora_levels'] == null ? undefined : (mapValues(json['lora_levels'], LoraLevelFromJSON)),
         'age': json['age'] == null ? undefined : json['age'],
         'lookEdited': json['look_edited'] == null ? undefined : json['look_edited'],
         'referenceTexts': json['reference_texts'] == null ? undefined : ReferenceTextsFromJSON(json['reference_texts']),
@@ -158,7 +165,7 @@ export function PostAdvancedChatbotProfilePictureToJSONTyped(value?: PostAdvance
         'description': value['description'],
         'art_style': ArtStyleToJSON(value['artStyle']),
         'mods': value['mods'] == null ? undefined : ((value['mods'] as Array<any>).map(LoraNameToJSON)),
-        'lora_weights': value['loraWeights'],
+        'lora_levels': value['loraLevels'] == null ? undefined : (mapValues(value['loraLevels'], LoraLevelToJSON)),
         'age': value['age'],
         'look_edited': value['lookEdited'],
         'reference_texts': ReferenceTextsToJSON(value['referenceTexts']),

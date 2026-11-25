@@ -308,7 +308,7 @@ class ChatbotApi extends runtime.BaseAPI {
         return await response.value();
     }
     /**
-     * The draft\'s look sliders: the LoRAs her pictures render with (a recreated babe\'s own look, the style\'s and her picked mods) and the mods she may add, at the strengths she has (her saved lora_weights over the defaults). Sent back as lora_weights on POST /advanced/profile-picture.
+     * The draft\'s look sliders: the LoRAs her pictures render with (a recreated babe\'s own look, the style\'s and her picked mods) and the mods she may add, at the levels she has (her saved strengths over the defaults). Sent back as lora_levels on POST /advanced/profile-picture.
      * Get Builder Looks
      */
     async getBuilderLooksChatbotAdvancedLooksGetRaw(requestParameters, initOverrides) {
@@ -326,7 +326,7 @@ class ChatbotApi extends runtime.BaseAPI {
         return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetImageLooksResponseFromJSON)(jsonValue));
     }
     /**
-     * The draft\'s look sliders: the LoRAs her pictures render with (a recreated babe\'s own look, the style\'s and her picked mods) and the mods she may add, at the strengths she has (her saved lora_weights over the defaults). Sent back as lora_weights on POST /advanced/profile-picture.
+     * The draft\'s look sliders: the LoRAs her pictures render with (a recreated babe\'s own look, the style\'s and her picked mods) and the mods she may add, at the levels she has (her saved strengths over the defaults). Sent back as lora_levels on POST /advanced/profile-picture.
      * Get Builder Looks
      */
     async getBuilderLooksChatbotAdvancedLooksGet(requestParameters = {}, initOverrides) {

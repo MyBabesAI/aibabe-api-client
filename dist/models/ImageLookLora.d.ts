@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { LoraLevel } from './LoraLevel';
 /**
  *
  * @export
@@ -23,22 +24,16 @@ export interface ImageLookLora {
     name: string;
     /**
      *
-     * @type {number}
-     * @memberof ImageLookLora
-     */
-    strength: number;
-    /**
-     *
      * @type {string}
      * @memberof ImageLookLora
      */
     label: string;
     /**
      *
-     * @type {number}
+     * @type {LoraLevel}
      * @memberof ImageLookLora
      */
-    max?: number;
+    level?: LoraLevel;
     /**
      *
      * @type {string}

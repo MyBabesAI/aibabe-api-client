@@ -302,6 +302,7 @@ export * from './ListConversationsResponse';
 export * from './LiveRoleplayHistoryMessage';
 export * from './LiveRoleplaySeedMessage';
 export * from './LiveRoleplaySessionResponse';
+export * from './LoraLevel';
 export * from './LoraName';
 export * from './MarketingCampaignName';
 export * from './MediaOrigin';

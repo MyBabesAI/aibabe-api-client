@@ -39,6 +39,14 @@ export interface BabeTrendLookResponse {
     loras?: Array<ImageLookLora>;
     /**
      *
+     * @type {{ [key: string]: number; }}
+     * @memberof BabeTrendLookResponse
+     */
+    loraWeights?: {
+        [key: string]: number;
+    } | null;
+    /**
+     *
      * @type {Gender}
      * @memberof BabeTrendLookResponse
      */

@@ -38,6 +38,12 @@ export interface GetImageLooksResponse {
     loras: Array<ImageLookLora>;
     /**
      *
+     * @type {boolean}
+     * @memberof GetImageLooksResponse
+     */
+    heavyLook?: boolean;
+    /**
+     *
      * @type {Array<ImageLookLora>}
      * @memberof GetImageLooksResponse
      */

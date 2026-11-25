@@ -18,7 +18,9 @@ exports.TrendSourceResponseFromJSON = TrendSourceResponseFromJSON;
 exports.TrendSourceResponseFromJSONTyped = TrendSourceResponseFromJSONTyped;
 exports.TrendSourceResponseToJSON = TrendSourceResponseToJSON;
 exports.TrendSourceResponseToJSONTyped = TrendSourceResponseToJSONTyped;
+const runtime_1 = require("../runtime");
 const TrendMediaType_1 = require("./TrendMediaType");
+const LoraLevel_1 = require("./LoraLevel");
 /**
  * Check if a given object implements the TrendSourceResponse interface.
  */
@@ -42,7 +44,7 @@ function TrendSourceResponseFromJSONTyped(json, ignoreDiscriminator) {
         'trendId': json['trend_id'],
         'title': json['title'],
         'mediaType': (0, TrendMediaType_1.TrendMediaTypeFromJSON)(json['media_type']),
-        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'loraLevels': json['lora_levels'] == null ? undefined : ((0, runtime_1.mapValues)(json['lora_levels'], LoraLevel_1.LoraLevelFromJSON)),
     };
 }
 function TrendSourceResponseToJSON(json) {
@@ -56,7 +58,7 @@ function TrendSourceResponseToJSONTyped(value, ignoreDiscriminator = false) {
         'trend_id': value['trendId'],
         'title': value['title'],
         'media_type': (0, TrendMediaType_1.TrendMediaTypeToJSON)(value['mediaType']),
-        'lora_weights': value['loraWeights'],
+        'lora_levels': value['loraLevels'] == null ? undefined : ((0, runtime_1.mapValues)(value['loraLevels'], LoraLevel_1.LoraLevelToJSON)),
     };
 }
 //# sourceMappingURL=TrendSourceResponse.js.map

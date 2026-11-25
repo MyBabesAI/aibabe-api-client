@@ -13,6 +13,7 @@ import type { ArtStyle } from './ArtStyle';
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import type { VideoResolution } from './VideoResolution';
 import type { TrendRecreateCharacter } from './TrendRecreateCharacter';
+import type { LoraLevel } from './LoraLevel';
 /**
  *
  * @export
@@ -45,11 +46,11 @@ export interface TrendRecreateRequest {
     prompt?: string | null;
     /**
      *
-     * @type {{ [key: string]: number; }}
+     * @type {{ [key: string]: LoraLevel; }}
      * @memberof TrendRecreateRequest
      */
-    loraWeights?: {
-        [key: string]: number;
+    loraLevels?: {
+        [key: string]: LoraLevel;
     } | null;
     /**
      *

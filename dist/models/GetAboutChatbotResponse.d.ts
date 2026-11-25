@@ -12,6 +12,7 @@
 import type { ArtStyle } from './ArtStyle';
 import type { FurryVisualType } from './FurryVisualType';
 import type { Gender } from './Gender';
+import type { LoraLevel } from './LoraLevel';
 import type { LoraName } from './LoraName';
 import type { SexualOrientation } from './SexualOrientation';
 import type { ReferenceTexts } from './ReferenceTexts';
@@ -89,11 +90,11 @@ export interface GetAboutChatbotResponse {
     loras: Array<LoraName> | null;
     /**
      *
-     * @type {{ [key: string]: number; }}
+     * @type {{ [key: string]: LoraLevel; }}
      * @memberof GetAboutChatbotResponse
      */
-    loraWeights?: {
-        [key: string]: number;
+    loraLevels?: {
+        [key: string]: LoraLevel;
     } | null;
     /**
      *

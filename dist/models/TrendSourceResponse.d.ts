@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { TrendMediaType } from './TrendMediaType';
+import type { LoraLevel } from './LoraLevel';
 /**
  * The trend a picture or video was recreated from.
  * @export
@@ -36,11 +37,11 @@ export interface TrendSourceResponse {
     mediaType: TrendMediaType;
     /**
      *
-     * @type {{ [key: string]: number; }}
+     * @type {{ [key: string]: LoraLevel; }}
      * @memberof TrendSourceResponse
      */
-    loraWeights?: {
-        [key: string]: number;
+    loraLevels?: {
+        [key: string]: LoraLevel;
     } | null;
 }
 /**

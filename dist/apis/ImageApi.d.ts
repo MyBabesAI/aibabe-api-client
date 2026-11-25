@@ -110,12 +110,12 @@ export declare class ImageApi extends runtime.BaseAPI {
      */
     getImageConfigImagenConfigGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ImageConfigResponse>;
     /**
-     * The LoRAs a picture of the character renders with and the mods she may add, with their default strengths: what the generator\'s look sliders show and send back as lora_weights.
+     * The mods a picture of the character may add, each at its default level, and whether her own mix is heavy: what the generator\'s look pickers show and send back as lora_levels.
      * Get Looks
      */
     getLooksImagenLooksChatbotIdGetRaw(requestParameters: GetLooksImagenLooksChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetImageLooksResponse>>;
     /**
-     * The LoRAs a picture of the character renders with and the mods she may add, with their default strengths: what the generator\'s look sliders show and send back as lora_weights.
+     * The mods a picture of the character may add, each at its default level, and whether her own mix is heavy: what the generator\'s look pickers show and send back as lora_levels.
      * Get Looks
      */
     getLooksImagenLooksChatbotIdGet(requestParameters: GetLooksImagenLooksChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageLooksResponse>;
@@ -128,12 +128,12 @@ export declare class ImageApi extends runtime.BaseAPI {
      */
     getLorasImagenLorasGet(requestParameters?: GetLorasImagenLorasGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetLorasResponse>;
     /**
-     * The mods a scene in `art_style` may add, with their default strengths: what the scene creator\'s sliders show and send back as lora_weights on POST /imagen/generate-scene. No character is involved.
+     * The mods a scene in `art_style` may add, each at its default level: what the scene creator\'s pickers show and send back as lora_levels on POST /imagen/generate-scene. No character is involved.
      * Get Scene Looks
      */
     getSceneLooksImagenLooksGetRaw(requestParameters: GetSceneLooksImagenLooksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetImageLooksResponse>>;
     /**
-     * The mods a scene in `art_style` may add, with their default strengths: what the scene creator\'s sliders show and send back as lora_weights on POST /imagen/generate-scene. No character is involved.
+     * The mods a scene in `art_style` may add, each at its default level: what the scene creator\'s pickers show and send back as lora_levels on POST /imagen/generate-scene. No character is involved.
      * Get Scene Looks
      */
     getSceneLooksImagenLooksGet(requestParameters: GetSceneLooksImagenLooksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageLooksResponse>;

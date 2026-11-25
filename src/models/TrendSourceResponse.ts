@@ -20,6 +20,13 @@ import {
     TrendMediaTypeToJSON,
     TrendMediaTypeToJSONTyped,
 } from './TrendMediaType';
+import type { LoraLevel } from './LoraLevel';
+import {
+    LoraLevelFromJSON,
+    LoraLevelFromJSONTyped,
+    LoraLevelToJSON,
+    LoraLevelToJSONTyped,
+} from './LoraLevel';
 
 /**
  * The trend a picture or video was recreated from.
@@ -47,10 +54,10 @@ export interface TrendSourceResponse {
     mediaType: TrendMediaType;
     /**
      * 
-     * @type {{ [key: string]: number; }}
+     * @type {{ [key: string]: LoraLevel; }}
      * @memberof TrendSourceResponse
      */
-    loraWeights?: { [key: string]: number; } | null;
+    loraLevels?: { [key: string]: LoraLevel; } | null;
 }
 
 
@@ -78,7 +85,7 @@ export function TrendSourceResponseFromJSONTyped(json: any, ignoreDiscriminator:
         'trendId': json['trend_id'],
         'title': json['title'],
         'mediaType': TrendMediaTypeFromJSON(json['media_type']),
-        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'loraLevels': json['lora_levels'] == null ? undefined : (mapValues(json['lora_levels'], LoraLevelFromJSON)),
     };
 }
 
@@ -96,7 +103,7 @@ export function TrendSourceResponseToJSONTyped(value?: TrendSourceResponse | nul
         'trend_id': value['trendId'],
         'title': value['title'],
         'media_type': TrendMediaTypeToJSON(value['mediaType']),
-        'lora_weights': value['loraWeights'],
+        'lora_levels': value['loraLevels'] == null ? undefined : (mapValues(value['loraLevels'], LoraLevelToJSON)),
     };
 }
 

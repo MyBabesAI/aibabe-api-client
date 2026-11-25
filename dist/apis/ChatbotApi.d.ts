@@ -204,12 +204,12 @@ export declare class ChatbotApi extends runtime.BaseAPI {
      */
     getAboutChatbotAdvancedAboutGet(requestParameters?: GetAboutChatbotAdvancedAboutGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAboutChatbotResponse>;
     /**
-     * The draft\'s look sliders: the LoRAs her pictures render with (a recreated babe\'s own look, the style\'s and her picked mods) and the mods she may add, at the strengths she has (her saved lora_weights over the defaults). Sent back as lora_weights on POST /advanced/profile-picture.
+     * The draft\'s look sliders: the LoRAs her pictures render with (a recreated babe\'s own look, the style\'s and her picked mods) and the mods she may add, at the levels she has (her saved strengths over the defaults). Sent back as lora_levels on POST /advanced/profile-picture.
      * Get Builder Looks
      */
     getBuilderLooksChatbotAdvancedLooksGetRaw(requestParameters: GetBuilderLooksChatbotAdvancedLooksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetImageLooksResponse>>;
     /**
-     * The draft\'s look sliders: the LoRAs her pictures render with (a recreated babe\'s own look, the style\'s and her picked mods) and the mods she may add, at the strengths she has (her saved lora_weights over the defaults). Sent back as lora_weights on POST /advanced/profile-picture.
+     * The draft\'s look sliders: the LoRAs her pictures render with (a recreated babe\'s own look, the style\'s and her picked mods) and the mods she may add, at the levels she has (her saved strengths over the defaults). Sent back as lora_levels on POST /advanced/profile-picture.
      * Get Builder Looks
      */
     getBuilderLooksChatbotAdvancedLooksGet(requestParameters?: GetBuilderLooksChatbotAdvancedLooksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageLooksResponse>;

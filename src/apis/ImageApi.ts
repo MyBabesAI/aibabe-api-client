@@ -331,7 +331,7 @@ export class ImageApi extends runtime.BaseAPI {
     }
 
     /**
-     * The LoRAs a picture of the character renders with and the mods she may add, with their default strengths: what the generator\'s look sliders show and send back as lora_weights.
+     * The mods a picture of the character may add, each at its default level, and whether her own mix is heavy: what the generator\'s look pickers show and send back as lora_levels.
      * Get Looks
      */
     async getLooksImagenLooksChatbotIdGetRaw(requestParameters: GetLooksImagenLooksChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetImageLooksResponse>> {
@@ -357,7 +357,7 @@ export class ImageApi extends runtime.BaseAPI {
     }
 
     /**
-     * The LoRAs a picture of the character renders with and the mods she may add, with their default strengths: what the generator\'s look sliders show and send back as lora_weights.
+     * The mods a picture of the character may add, each at its default level, and whether her own mix is heavy: what the generator\'s look pickers show and send back as lora_levels.
      * Get Looks
      */
     async getLooksImagenLooksChatbotIdGet(requestParameters: GetLooksImagenLooksChatbotIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageLooksResponse> {
@@ -404,7 +404,7 @@ export class ImageApi extends runtime.BaseAPI {
     }
 
     /**
-     * The mods a scene in `art_style` may add, with their default strengths: what the scene creator\'s sliders show and send back as lora_weights on POST /imagen/generate-scene. No character is involved.
+     * The mods a scene in `art_style` may add, each at its default level: what the scene creator\'s pickers show and send back as lora_levels on POST /imagen/generate-scene. No character is involved.
      * Get Scene Looks
      */
     async getSceneLooksImagenLooksGetRaw(requestParameters: GetSceneLooksImagenLooksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetImageLooksResponse>> {
@@ -434,7 +434,7 @@ export class ImageApi extends runtime.BaseAPI {
     }
 
     /**
-     * The mods a scene in `art_style` may add, with their default strengths: what the scene creator\'s sliders show and send back as lora_weights on POST /imagen/generate-scene. No character is involved.
+     * The mods a scene in `art_style` may add, each at its default level: what the scene creator\'s pickers show and send back as lora_levels on POST /imagen/generate-scene. No character is involved.
      * Get Scene Looks
      */
     async getSceneLooksImagenLooksGet(requestParameters: GetSceneLooksImagenLooksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetImageLooksResponse> {

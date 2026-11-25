@@ -18,13 +18,12 @@ exports.ImageLookLoraFromJSON = ImageLookLoraFromJSON;
 exports.ImageLookLoraFromJSONTyped = ImageLookLoraFromJSONTyped;
 exports.ImageLookLoraToJSON = ImageLookLoraToJSON;
 exports.ImageLookLoraToJSONTyped = ImageLookLoraToJSONTyped;
+const LoraLevel_1 = require("./LoraLevel");
 /**
  * Check if a given object implements the ImageLookLora interface.
  */
 function instanceOfImageLookLora(value) {
     if (!('name' in value) || value['name'] === undefined)
-        return false;
-    if (!('strength' in value) || value['strength'] === undefined)
         return false;
     if (!('label' in value) || value['label'] === undefined)
         return false;
@@ -39,9 +38,8 @@ function ImageLookLoraFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'name': json['name'],
-        'strength': json['strength'],
         'label': json['label'],
-        'max': json['max'] == null ? undefined : json['max'],
+        'level': json['level'] == null ? undefined : (0, LoraLevel_1.LoraLevelFromJSON)(json['level']),
         'url': json['url'] == null ? undefined : json['url'],
     };
 }
@@ -54,9 +52,8 @@ function ImageLookLoraToJSONTyped(value, ignoreDiscriminator = false) {
     }
     return {
         'name': value['name'],
-        'strength': value['strength'],
         'label': value['label'],
-        'max': value['max'],
+        'level': (0, LoraLevel_1.LoraLevelToJSON)(value['level']),
         'url': value['url'],
     };
 }

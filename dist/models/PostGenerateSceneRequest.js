@@ -18,9 +18,11 @@ exports.PostGenerateSceneRequestFromJSON = PostGenerateSceneRequestFromJSON;
 exports.PostGenerateSceneRequestFromJSONTyped = PostGenerateSceneRequestFromJSONTyped;
 exports.PostGenerateSceneRequestToJSON = PostGenerateSceneRequestToJSON;
 exports.PostGenerateSceneRequestToJSONTyped = PostGenerateSceneRequestToJSONTyped;
+const runtime_1 = require("../runtime");
 const ArtStyle_1 = require("./ArtStyle");
 const ImagePurpose_1 = require("./ImagePurpose");
 const ImageAspectRatio_1 = require("./ImageAspectRatio");
+const LoraLevel_1 = require("./LoraLevel");
 const LoraName_1 = require("./LoraName");
 /**
  * Check if a given object implements the PostGenerateSceneRequest interface.
@@ -57,7 +59,7 @@ function PostGenerateSceneRequestFromJSONTyped(json, ignoreDiscriminator) {
         'purpose': json['purpose'] == null ? undefined : (0, ImagePurpose_1.ImagePurposeFromJSON)(json['purpose']),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
-        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'loraLevels': json['lora_levels'] == null ? undefined : ((0, runtime_1.mapValues)(json['lora_levels'], LoraLevel_1.LoraLevelFromJSON)),
     };
 }
 function PostGenerateSceneRequestToJSON(json) {
@@ -79,7 +81,7 @@ function PostGenerateSceneRequestToJSONTyped(value, ignoreDiscriminator = false)
         'purpose': (0, ImagePurpose_1.ImagePurposeToJSON)(value['purpose']),
         'chatbot_id': value['chatbotId'],
         'original_image_id': value['originalImageId'],
-        'lora_weights': value['loraWeights'],
+        'lora_levels': value['loraLevels'] == null ? undefined : ((0, runtime_1.mapValues)(value['loraLevels'], LoraLevel_1.LoraLevelToJSON)),
     };
 }
 //# sourceMappingURL=PostGenerateSceneRequest.js.map

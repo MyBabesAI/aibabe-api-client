@@ -12,6 +12,7 @@
 import type { ArtStyle } from './ArtStyle';
 import type { FurryVisualType } from './FurryVisualType';
 import type { ReferenceImageView } from './ReferenceImageView';
+import type { LoraLevel } from './LoraLevel';
 import type { LoraName } from './LoraName';
 import type { ReferenceTexts } from './ReferenceTexts';
 /**
@@ -40,11 +41,11 @@ export interface PostAdvancedChatbotProfilePicture {
     mods?: Array<LoraName>;
     /**
      *
-     * @type {{ [key: string]: number; }}
+     * @type {{ [key: string]: LoraLevel; }}
      * @memberof PostAdvancedChatbotProfilePicture
      */
-    loraWeights?: {
-        [key: string]: number;
+    loraLevels?: {
+        [key: string]: LoraLevel;
     } | null;
     /**
      *

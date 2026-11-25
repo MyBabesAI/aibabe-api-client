@@ -18,10 +18,12 @@ exports.TrendRecreateRequestFromJSON = TrendRecreateRequestFromJSON;
 exports.TrendRecreateRequestFromJSONTyped = TrendRecreateRequestFromJSONTyped;
 exports.TrendRecreateRequestToJSON = TrendRecreateRequestToJSON;
 exports.TrendRecreateRequestToJSONTyped = TrendRecreateRequestToJSONTyped;
+const runtime_1 = require("../runtime");
 const ArtStyle_1 = require("./ArtStyle");
 const VideoAspectRatio_1 = require("./VideoAspectRatio");
 const VideoResolution_1 = require("./VideoResolution");
 const TrendRecreateCharacter_1 = require("./TrendRecreateCharacter");
+const LoraLevel_1 = require("./LoraLevel");
 /**
  * Check if a given object implements the TrendRecreateRequest interface.
  */
@@ -46,7 +48,7 @@ function TrendRecreateRequestFromJSONTyped(json, ignoreDiscriminator) {
         'characters': json['characters'] == null ? undefined : (json['characters'].map(TrendRecreateCharacter_1.TrendRecreateCharacterFromJSON)),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
         'prompt': json['prompt'] == null ? undefined : json['prompt'],
-        'loraWeights': json['lora_weights'] == null ? undefined : json['lora_weights'],
+        'loraLevels': json['lora_levels'] == null ? undefined : ((0, runtime_1.mapValues)(json['lora_levels'], LoraLevel_1.LoraLevelFromJSON)),
         'model': json['model'],
         'artStyle': json['art_style'] == null ? undefined : (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, VideoAspectRatio_1.VideoAspectRatioFromJSON)(json['aspect_ratio']),
@@ -68,7 +70,7 @@ function TrendRecreateRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'characters': value['characters'] == null ? undefined : (value['characters'].map(TrendRecreateCharacter_1.TrendRecreateCharacterToJSON)),
         'chatbot_id': value['chatbotId'],
         'prompt': value['prompt'],
-        'lora_weights': value['loraWeights'],
+        'lora_levels': value['loraLevels'] == null ? undefined : ((0, runtime_1.mapValues)(value['loraLevels'], LoraLevel_1.LoraLevelToJSON)),
         'model': value['model'],
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
         'aspect_ratio': (0, VideoAspectRatio_1.VideoAspectRatioToJSON)(value['aspectRatio']),

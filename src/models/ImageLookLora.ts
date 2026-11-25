@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from '../runtime';
+import type { LoraLevel } from './LoraLevel';
+import {
+    LoraLevelFromJSON,
+    LoraLevelFromJSONTyped,
+    LoraLevelToJSON,
+    LoraLevelToJSONTyped,
+} from './LoraLevel';
+
 /**
  * 
  * @export
@@ -27,22 +35,16 @@ export interface ImageLookLora {
     name: string;
     /**
      * 
-     * @type {number}
-     * @memberof ImageLookLora
-     */
-    strength: number;
-    /**
-     * 
      * @type {string}
      * @memberof ImageLookLora
      */
     label: string;
     /**
      * 
-     * @type {number}
+     * @type {LoraLevel}
      * @memberof ImageLookLora
      */
-    max?: number;
+    level?: LoraLevel;
     /**
      * 
      * @type {string}
@@ -51,12 +53,13 @@ export interface ImageLookLora {
     url?: string | null;
 }
 
+
+
 /**
  * Check if a given object implements the ImageLookLora interface.
  */
 export function instanceOfImageLookLora(value: object): value is ImageLookLora {
     if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('strength' in value) || value['strength'] === undefined) return false;
     if (!('label' in value) || value['label'] === undefined) return false;
     return true;
 }
@@ -72,9 +75,8 @@ export function ImageLookLoraFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'name': json['name'],
-        'strength': json['strength'],
         'label': json['label'],
-        'max': json['max'] == null ? undefined : json['max'],
+        'level': json['level'] == null ? undefined : LoraLevelFromJSON(json['level']),
         'url': json['url'] == null ? undefined : json['url'],
     };
 }
@@ -91,9 +93,8 @@ export function ImageLookLoraToJSONTyped(value?: ImageLookLora | null, ignoreDis
     return {
         
         'name': value['name'],
-        'strength': value['strength'],
         'label': value['label'],
-        'max': value['max'],
+        'level': LoraLevelToJSON(value['level']),
         'url': value['url'],
     };
 }

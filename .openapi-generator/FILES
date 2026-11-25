@@ -339,6 +339,7 @@ src/models/ListConversationsResponse.ts
 src/models/LiveRoleplayHistoryMessage.ts
 src/models/LiveRoleplaySeedMessage.ts
 src/models/LiveRoleplaySessionResponse.ts
+src/models/LoraLevel.ts
 src/models/LoraName.ts
 src/models/MarketingCampaignName.ts
 src/models/MediaOrigin.ts
