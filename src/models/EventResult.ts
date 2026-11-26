@@ -75,11 +75,11 @@ export function EventResultFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-  export function EventResultToJSON(json: any): EventResult {
-      return EventResultToJSONTyped(json, false);
-  }
+export function EventResultToJSON(json: any): EventResult {
+    return EventResultToJSONTyped(json, false);
+}
 
-  export function EventResultToJSONTyped(value?: EventResult | null, ignoreDiscriminator: boolean = false): any {
+export function EventResultToJSONTyped(value?: EventResult | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -143,11 +143,11 @@ export function EventPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-  export function EventPreviewToJSON(json: any): EventPreview {
-      return EventPreviewToJSONTyped(json, false);
-  }
+export function EventPreviewToJSON(json: any): EventPreview {
+    return EventPreviewToJSONTyped(json, false);
+}
 
-  export function EventPreviewToJSONTyped(value?: EventPreview | null, ignoreDiscriminator: boolean = false): any {
+export function EventPreviewToJSONTyped(value?: EventPreview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

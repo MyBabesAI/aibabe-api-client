@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { VideoReference } from './VideoReference';
+import {
+    VideoReferenceFromJSON,
+    VideoReferenceFromJSONTyped,
+    VideoReferenceToJSON,
+    VideoReferenceToJSONTyped,
+} from './VideoReference';
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import {
     VideoAspectRatioFromJSON,
@@ -65,6 +72,12 @@ export interface GetVideoGenerationTagsResponse {
      * @memberof GetVideoGenerationTagsResponse
      */
     originalImageId: string;
+    /**
+     * 
+     * @type {Array<VideoReference>}
+     * @memberof GetVideoGenerationTagsResponse
+     */
+    references?: Array<VideoReference>;
     /**
      * 
      * @type {Array<VideoLoraName>}
@@ -120,6 +133,7 @@ export function GetVideoGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'downloadUrl': json['download_url'],
         'chatbotName': json['chatbot_name'],
         'originalImageId': json['original_image_id'],
+        'references': json['references'] == null ? undefined : ((json['references'] as Array<any>).map(VideoReferenceFromJSON)),
         'loras': ((json['loras'] as Array<any>).map(VideoLoraNameFromJSON)),
         'model': ImageToVideoModelFromJSON(json['model']),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : VideoAspectRatioFromJSON(json['aspect_ratio']),
@@ -127,11 +141,11 @@ export function GetVideoGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function GetVideoGenerationTagsResponseToJSON(json: any): GetVideoGenerationTagsResponse {
-      return GetVideoGenerationTagsResponseToJSONTyped(json, false);
-  }
+export function GetVideoGenerationTagsResponseToJSON(json: any): GetVideoGenerationTagsResponse {
+    return GetVideoGenerationTagsResponseToJSONTyped(json, false);
+}
 
-  export function GetVideoGenerationTagsResponseToJSONTyped(value?: GetVideoGenerationTagsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetVideoGenerationTagsResponseToJSONTyped(value?: GetVideoGenerationTagsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -142,6 +156,7 @@ export function GetVideoGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'download_url': value['downloadUrl'],
         'chatbot_name': value['chatbotName'],
         'original_image_id': value['originalImageId'],
+        'references': value['references'] == null ? undefined : ((value['references'] as Array<any>).map(VideoReferenceToJSON)),
         'loras': ((value['loras'] as Array<any>).map(VideoLoraNameToJSON)),
         'model': ImageToVideoModelToJSON(value['model']),
         'aspect_ratio': VideoAspectRatioToJSON(value['aspectRatio']),

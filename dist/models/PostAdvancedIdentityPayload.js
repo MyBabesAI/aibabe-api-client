@@ -45,6 +45,7 @@ function PostAdvancedIdentityPayloadFromJSONTyped(json, ignoreDiscriminator) {
         'name': json['name'],
         'bio': json['bio'],
         'greetings': json['greetings'],
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : json['alternative_greetings'],
         'gender': (0, Gender_1.GenderFromJSON)(json['gender']),
         'sexualOrientation': json['sexual_orientation'] == null ? undefined : (0, SexualOrientation_1.SexualOrientationFromJSON)(json['sexual_orientation']),
     };
@@ -60,6 +61,7 @@ function PostAdvancedIdentityPayloadToJSONTyped(value, ignoreDiscriminator = fal
         'name': value['name'],
         'bio': value['bio'],
         'greetings': value['greetings'],
+        'alternative_greetings': value['alternativeGreetings'],
         'gender': (0, Gender_1.GenderToJSON)(value['gender']),
         'sexual_orientation': (0, SexualOrientation_1.SexualOrientationToJSON)(value['sexualOrientation']),
     };

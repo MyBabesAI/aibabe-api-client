@@ -97,11 +97,11 @@ export function AdminTokenHistoryResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function AdminTokenHistoryResponseToJSON(json: any): AdminTokenHistoryResponse {
-      return AdminTokenHistoryResponseToJSONTyped(json, false);
-  }
+export function AdminTokenHistoryResponseToJSON(json: any): AdminTokenHistoryResponse {
+    return AdminTokenHistoryResponseToJSONTyped(json, false);
+}
 
-  export function AdminTokenHistoryResponseToJSONTyped(value?: AdminTokenHistoryResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminTokenHistoryResponseToJSONTyped(value?: AdminTokenHistoryResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

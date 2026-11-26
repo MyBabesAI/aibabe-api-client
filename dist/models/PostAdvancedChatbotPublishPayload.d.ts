@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ReferenceTexts } from './ReferenceTexts';
 /**
  *
  * @export
@@ -27,6 +28,12 @@ export interface PostAdvancedChatbotPublishPayload {
      * @memberof PostAdvancedChatbotPublishPayload
      */
     profilePicture?: string | null;
+    /**
+     *
+     * @type {ReferenceTexts}
+     * @memberof PostAdvancedChatbotPublishPayload
+     */
+    referenceTexts?: ReferenceTexts | null;
 }
 /**
  * Check if a given object implements the PostAdvancedChatbotPublishPayload interface.

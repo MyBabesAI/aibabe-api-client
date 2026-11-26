@@ -222,11 +222,11 @@ export function StoryPreviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-  export function StoryPreviewToJSON(json: any): StoryPreview {
-      return StoryPreviewToJSONTyped(json, false);
-  }
+export function StoryPreviewToJSON(json: any): StoryPreview {
+    return StoryPreviewToJSONTyped(json, false);
+}
 
-  export function StoryPreviewToJSONTyped(value?: StoryPreview | null, ignoreDiscriminator: boolean = false): any {
+export function StoryPreviewToJSONTyped(value?: StoryPreview | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

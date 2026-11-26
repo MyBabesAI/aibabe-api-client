@@ -65,11 +65,11 @@ export function ConfigRefreshResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function ConfigRefreshResponseToJSON(json: any): ConfigRefreshResponse {
-      return ConfigRefreshResponseToJSONTyped(json, false);
-  }
+export function ConfigRefreshResponseToJSON(json: any): ConfigRefreshResponse {
+    return ConfigRefreshResponseToJSONTyped(json, false);
+}
 
-  export function ConfigRefreshResponseToJSONTyped(value?: ConfigRefreshResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ConfigRefreshResponseToJSONTyped(value?: ConfigRefreshResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -13,6 +13,27 @@
  */
 
 import { mapValues } from '../runtime';
+import type { CastMember } from './CastMember';
+import {
+    CastMemberFromJSON,
+    CastMemberFromJSONTyped,
+    CastMemberToJSON,
+    CastMemberToJSONTyped,
+} from './CastMember';
+import type { TrendPreview } from './TrendPreview';
+import {
+    TrendPreviewFromJSON,
+    TrendPreviewFromJSONTyped,
+    TrendPreviewToJSON,
+    TrendPreviewToJSONTyped,
+} from './TrendPreview';
+import type { ImageToVideoModel } from './ImageToVideoModel';
+import {
+    ImageToVideoModelFromJSON,
+    ImageToVideoModelFromJSONTyped,
+    ImageToVideoModelToJSON,
+    ImageToVideoModelToJSONTyped,
+} from './ImageToVideoModel';
 import type { MediaOrigin } from './MediaOrigin';
 import {
     MediaOriginFromJSON,
@@ -27,6 +48,13 @@ import {
     AdminAgeEstimationToJSON,
     AdminAgeEstimationToJSONTyped,
 } from './AdminAgeEstimation';
+import type { ImageLookLora } from './ImageLookLora';
+import {
+    ImageLookLoraFromJSON,
+    ImageLookLoraFromJSONTyped,
+    ImageLookLoraToJSON,
+    ImageLookLoraToJSONTyped,
+} from './ImageLookLora';
 
 /**
  * 
@@ -46,6 +74,12 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     url: string;
+    /**
+     * 
+     * @type {TrendPreview}
+     * @memberof VideoContent
+     */
+    trend?: TrendPreview | null;
     /**
      * 
      * @type {MediaOrigin}
@@ -72,6 +106,18 @@ export interface VideoContent {
     ageEstimation?: AdminAgeEstimation | null;
     /**
      * 
+     * @type {Array<ImageLookLora>}
+     * @memberof VideoContent
+     */
+    loras?: Array<ImageLookLora>;
+    /**
+     * 
+     * @type {Array<CastMember>}
+     * @memberof VideoContent
+     */
+    characters?: Array<CastMember>;
+    /**
+     * 
      * @type {string}
      * @memberof VideoContent
      */
@@ -94,6 +140,18 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     durationSeconds?: number | null;
+    /**
+     * 
+     * @type {ImageToVideoModel}
+     * @memberof VideoContent
+     */
+    model?: ImageToVideoModel | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof VideoContent
+     */
+    hasRecipe?: boolean;
 }
 
 
@@ -122,22 +180,27 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'id': json['id'],
         'url': json['url'],
+        'trend': json['trend'] == null ? undefined : TrendPreviewFromJSON(json['trend']),
         'origin': json['origin'] == null ? undefined : MediaOriginFromJSON(json['origin']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : AdminAgeEstimationFromJSON(json['age_estimation']),
+        'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
+        'characters': json['characters'] == null ? undefined : ((json['characters'] as Array<any>).map(CastMemberFromJSON)),
         'generationId': json['generation_id'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'durationSeconds': json['duration_seconds'] == null ? undefined : json['duration_seconds'],
+        'model': json['model'] == null ? undefined : ImageToVideoModelFromJSON(json['model']),
+        'hasRecipe': json['has_recipe'] == null ? undefined : json['has_recipe'],
     };
 }
 
-  export function VideoContentToJSON(json: any): VideoContent {
-      return VideoContentToJSONTyped(json, false);
-  }
+export function VideoContentToJSON(json: any): VideoContent {
+    return VideoContentToJSONTyped(json, false);
+}
 
-  export function VideoContentToJSONTyped(value?: VideoContent | null, ignoreDiscriminator: boolean = false): any {
+export function VideoContentToJSONTyped(value?: VideoContent | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -146,14 +209,19 @@ export function VideoContentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'id': value['id'],
         'url': value['url'],
+        'trend': TrendPreviewToJSON(value['trend']),
         'origin': MediaOriginToJSON(value['origin']),
         'width': value['width'],
         'height': value['height'],
         'age_estimation': AdminAgeEstimationToJSON(value['ageEstimation']),
+        'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
+        'characters': value['characters'] == null ? undefined : ((value['characters'] as Array<any>).map(CastMemberToJSON)),
         'generation_id': value['generationId'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'duration_seconds': value['durationSeconds'],
+        'model': ImageToVideoModelToJSON(value['model']),
+        'has_recipe': value['hasRecipe'],
     };
 }
 

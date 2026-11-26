@@ -65,11 +65,11 @@ export function AdminAdjustTokensResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function AdminAdjustTokensResponseToJSON(json: any): AdminAdjustTokensResponse {
-      return AdminAdjustTokensResponseToJSONTyped(json, false);
-  }
+export function AdminAdjustTokensResponseToJSON(json: any): AdminAdjustTokensResponse {
+    return AdminAdjustTokensResponseToJSONTyped(json, false);
+}
 
-  export function AdminAdjustTokensResponseToJSONTyped(value?: AdminAdjustTokensResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminAdjustTokensResponseToJSONTyped(value?: AdminAdjustTokensResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

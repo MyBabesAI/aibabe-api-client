@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime';
+import type { VideoPictureDetails } from './VideoPictureDetails';
+import {
+    VideoPictureDetailsFromJSON,
+    VideoPictureDetailsFromJSONTyped,
+    VideoPictureDetailsToJSON,
+    VideoPictureDetailsToJSONTyped,
+} from './VideoPictureDetails';
 import type { VideoShot } from './VideoShot';
 import {
     VideoShotFromJSON,
@@ -20,6 +27,13 @@ import {
     VideoShotToJSON,
     VideoShotToJSONTyped,
 } from './VideoShot';
+import type { VideoReference } from './VideoReference';
+import {
+    VideoReferenceFromJSON,
+    VideoReferenceFromJSONTyped,
+    VideoReferenceToJSON,
+    VideoReferenceToJSONTyped,
+} from './VideoReference';
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import {
     VideoAspectRatioFromJSON,
@@ -83,6 +97,18 @@ export interface ImageToVideoRequest {
      * @memberof ImageToVideoRequest
      */
     inputImageId: string;
+    /**
+     * 
+     * @type {VideoPictureDetails}
+     * @memberof ImageToVideoRequest
+     */
+    inputImage?: VideoPictureDetails | null;
+    /**
+     * 
+     * @type {Array<VideoReference>}
+     * @memberof ImageToVideoRequest
+     */
+    references?: Array<VideoReference>;
     /**
      * 
      * @type {string}
@@ -156,7 +182,6 @@ export interface ImageToVideoRequest {
  * @export
  */
 export const ImageToVideoRequestModelEnum = {
-    Wan22I2V: 'WAN_22_I2V',
     Wan27I2V: 'WAN_27_I2V',
     Wan30I2V: 'WAN_30_I2V',
     Wan30ProI2V: 'WAN_30_PRO_I2V',
@@ -213,6 +238,8 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'requestId': json['request_id'],
         'chatbotId': json['chatbot_id'],
         'inputImageId': json['input_image_id'],
+        'inputImage': json['input_image'] == null ? undefined : VideoPictureDetailsFromJSON(json['input_image']),
+        'references': json['references'] == null ? undefined : ((json['references'] as Array<any>).map(VideoReferenceFromJSON)),
         'resolution': json['resolution'],
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(VideoLoraNameFromJSON)),
         'negativePrompt': json['negative_prompt'] == null ? undefined : json['negative_prompt'],
@@ -227,11 +254,11 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function ImageToVideoRequestToJSON(json: any): ImageToVideoRequest {
-      return ImageToVideoRequestToJSONTyped(json, false);
-  }
+export function ImageToVideoRequestToJSON(json: any): ImageToVideoRequest {
+    return ImageToVideoRequestToJSONTyped(json, false);
+}
 
-  export function ImageToVideoRequestToJSONTyped(value?: ImageToVideoRequest | null, ignoreDiscriminator: boolean = false): any {
+export function ImageToVideoRequestToJSONTyped(value?: ImageToVideoRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -245,6 +272,8 @@ export function ImageToVideoRequestFromJSONTyped(json: any, ignoreDiscriminator:
         'request_id': value['requestId'],
         'chatbot_id': value['chatbotId'],
         'input_image_id': value['inputImageId'],
+        'input_image': VideoPictureDetailsToJSON(value['inputImage']),
+        'references': value['references'] == null ? undefined : ((value['references'] as Array<any>).map(VideoReferenceToJSON)),
         'resolution': value['resolution'],
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(VideoLoraNameToJSON)),
         'negative_prompt': value['negativePrompt'],

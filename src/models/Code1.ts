@@ -36,11 +36,11 @@ export function Code1FromJSONTyped(json: any, ignoreDiscriminator: boolean): Cod
     return json;
 }
 
-  export function Code1ToJSON(json: any): Code1 {
-      return Code1ToJSONTyped(json, false);
-  }
+export function Code1ToJSON(json: any): Code1 {
+    return Code1ToJSONTyped(json, false);
+}
 
-  export function Code1ToJSONTyped(value?: Code1 | null, ignoreDiscriminator: boolean = false): any {
+export function Code1ToJSONTyped(value?: Code1 | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

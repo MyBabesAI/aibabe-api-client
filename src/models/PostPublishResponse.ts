@@ -49,11 +49,11 @@ export function PostPublishResponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-  export function PostPublishResponseToJSON(json: any): PostPublishResponse {
-      return PostPublishResponseToJSONTyped(json, false);
-  }
+export function PostPublishResponseToJSON(json: any): PostPublishResponse {
+    return PostPublishResponseToJSONTyped(json, false);
+}
 
-  export function PostPublishResponseToJSONTyped(value?: PostPublishResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostPublishResponseToJSONTyped(value?: PostPublishResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

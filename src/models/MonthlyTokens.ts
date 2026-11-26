@@ -36,11 +36,11 @@ export function MonthlyTokensFromJSONTyped(json: any, ignoreDiscriminator: boole
     return json;
 }
 
-  export function MonthlyTokensToJSON(json: any): MonthlyTokens {
-      return MonthlyTokensToJSONTyped(json, false);
-  }
+export function MonthlyTokensToJSON(json: any): MonthlyTokens {
+    return MonthlyTokensToJSONTyped(json, false);
+}
 
-  export function MonthlyTokensToJSONTyped(value?: MonthlyTokens | null, ignoreDiscriminator: boolean = false): any {
+export function MonthlyTokensToJSONTyped(value?: MonthlyTokens | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

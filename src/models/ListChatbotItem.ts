@@ -20,6 +20,13 @@ import {
     BlacklistCardToJSON,
     BlacklistCardToJSONTyped,
 } from './BlacklistCard';
+import type { ArtStyle } from './ArtStyle';
+import {
+    ArtStyleFromJSON,
+    ArtStyleFromJSONTyped,
+    ArtStyleToJSON,
+    ArtStyleToJSONTyped,
+} from './ArtStyle';
 import type { PostDetails } from './PostDetails';
 import {
     PostDetailsFromJSON,
@@ -27,6 +34,13 @@ import {
     PostDetailsToJSON,
     PostDetailsToJSONTyped,
 } from './PostDetails';
+import type { Gender } from './Gender';
+import {
+    GenderFromJSON,
+    GenderFromJSONTyped,
+    GenderToJSON,
+    GenderToJSONTyped,
+} from './Gender';
 
 /**
  * 
@@ -64,6 +78,30 @@ export interface ListChatbotItem {
      * @memberof ListChatbotItem
      */
     updatedAt: Date;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListChatbotItem
+     */
+    characterStyle?: string | null;
+    /**
+     * 
+     * @type {ArtStyle}
+     * @memberof ListChatbotItem
+     */
+    artStyle?: ArtStyle | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListChatbotItem
+     */
+    nextGen?: boolean;
+    /**
+     * 
+     * @type {Gender}
+     * @memberof ListChatbotItem
+     */
+    gender?: Gender | null;
     /**
      * 
      * @type {string}
@@ -108,6 +146,8 @@ export interface ListChatbotItem {
     postDetails?: PostDetails | null;
 }
 
+
+
 /**
  * Check if a given object implements the ListChatbotItem interface.
  */
@@ -138,6 +178,10 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'profilePicture': json['profile_picture'],
         'createdAt': (new Date(json['created_at'])),
         'updatedAt': (new Date(json['updated_at'])),
+        'characterStyle': json['character_style'] == null ? undefined : json['character_style'],
+        'artStyle': json['art_style'] == null ? undefined : ArtStyleFromJSON(json['art_style']),
+        'nextGen': json['next_gen'] == null ? undefined : json['next_gen'],
+        'gender': json['gender'] == null ? undefined : GenderFromJSON(json['gender']),
         'profileVideo': json['profile_video'],
         'blacklist': json['blacklist'] == null ? undefined : BlacklistCardFromJSON(json['blacklist']),
         'bio': json['bio'],
@@ -148,11 +192,11 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-  export function ListChatbotItemToJSON(json: any): ListChatbotItem {
-      return ListChatbotItemToJSONTyped(json, false);
-  }
+export function ListChatbotItemToJSON(json: any): ListChatbotItem {
+    return ListChatbotItemToJSONTyped(json, false);
+}
 
-  export function ListChatbotItemToJSONTyped(value?: ListChatbotItem | null, ignoreDiscriminator: boolean = false): any {
+export function ListChatbotItemToJSONTyped(value?: ListChatbotItem | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -164,6 +208,10 @@ export function ListChatbotItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'profile_picture': value['profilePicture'],
         'created_at': ((value['createdAt']).toISOString()),
         'updated_at': ((value['updatedAt']).toISOString()),
+        'character_style': value['characterStyle'],
+        'art_style': ArtStyleToJSON(value['artStyle']),
+        'next_gen': value['nextGen'],
+        'gender': GenderToJSON(value['gender']),
         'profile_video': value['profileVideo'],
         'blacklist': BlacklistCardToJSON(value['blacklist']),
         'bio': value['bio'],

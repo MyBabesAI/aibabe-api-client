@@ -64,11 +64,11 @@ export function GetPublicUsersResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function GetPublicUsersResponseToJSON(json: any): GetPublicUsersResponse {
-      return GetPublicUsersResponseToJSONTyped(json, false);
-  }
+export function GetPublicUsersResponseToJSON(json: any): GetPublicUsersResponse {
+    return GetPublicUsersResponseToJSONTyped(json, false);
+}
 
-  export function GetPublicUsersResponseToJSONTyped(value?: GetPublicUsersResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetPublicUsersResponseToJSONTyped(value?: GetPublicUsersResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

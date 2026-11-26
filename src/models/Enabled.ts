@@ -36,11 +36,11 @@ export function EnabledFromJSONTyped(json: any, ignoreDiscriminator: boolean): E
     return json;
 }
 
-  export function EnabledToJSON(json: any): Enabled {
-      return EnabledToJSONTyped(json, false);
-  }
+export function EnabledToJSON(json: any): Enabled {
+    return EnabledToJSONTyped(json, false);
+}
 
-  export function EnabledToJSONTyped(value?: Enabled | null, ignoreDiscriminator: boolean = false): any {
+export function EnabledToJSONTyped(value?: Enabled | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

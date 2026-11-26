@@ -12,6 +12,7 @@
 import type { ImagePreset } from './ImagePreset';
 import type { VideoPreset } from './VideoPreset';
 import type { ImageMod } from './ImageMod';
+import type { ImageCastTemplate } from './ImageCastTemplate';
 import type { VideoMod } from './VideoMod';
 /**
  *
@@ -26,14 +27,6 @@ export interface GetLorasResponse {
      */
     imageMods: {
         [key: string]: Array<ImageMod>;
-    };
-    /**
-     *
-     * @type {{ [key: string]: Array<VideoMod>; }}
-     * @memberof GetLorasResponse
-     */
-    videoMods: {
-        [key: string]: Array<VideoMod>;
     };
     /**
      *
@@ -61,6 +54,12 @@ export interface GetLorasResponse {
     videoPresets: {
         [key: string]: Array<VideoPreset>;
     };
+    /**
+     *
+     * @type {Array<ImageCastTemplate>}
+     * @memberof GetLorasResponse
+     */
+    castTemplates?: Array<ImageCastTemplate>;
 }
 /**
  * Check if a given object implements the GetLorasResponse interface.

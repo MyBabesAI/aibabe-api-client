@@ -57,11 +57,11 @@ export function PostStoryImageRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function PostStoryImageRequestToJSON(json: any): PostStoryImageRequest {
-      return PostStoryImageRequestToJSONTyped(json, false);
-  }
+export function PostStoryImageRequestToJSON(json: any): PostStoryImageRequest {
+    return PostStoryImageRequestToJSONTyped(json, false);
+}
 
-  export function PostStoryImageRequestToJSONTyped(value?: PostStoryImageRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostStoryImageRequestToJSONTyped(value?: PostStoryImageRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

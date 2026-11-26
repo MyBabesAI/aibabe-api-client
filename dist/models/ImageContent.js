@@ -18,8 +18,11 @@ exports.ImageContentFromJSON = ImageContentFromJSON;
 exports.ImageContentFromJSONTyped = ImageContentFromJSONTyped;
 exports.ImageContentToJSON = ImageContentToJSON;
 exports.ImageContentToJSONTyped = ImageContentToJSONTyped;
+const CastMember_1 = require("./CastMember");
+const TrendPreview_1 = require("./TrendPreview");
 const MediaOrigin_1 = require("./MediaOrigin");
 const AdminAgeEstimation_1 = require("./AdminAgeEstimation");
+const ImageLookLora_1 = require("./ImageLookLora");
 /**
  * Check if a given object implements the ImageContent interface.
  */
@@ -40,10 +43,13 @@ function ImageContentFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'id': json['id'],
         'url': json['url'],
+        'trend': json['trend'] == null ? undefined : (0, TrendPreview_1.TrendPreviewFromJSON)(json['trend']),
         'origin': json['origin'] == null ? undefined : (0, MediaOrigin_1.MediaOriginFromJSON)(json['origin']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : (0, AdminAgeEstimation_1.AdminAgeEstimationFromJSON)(json['age_estimation']),
+        'loras': json['loras'] == null ? undefined : (json['loras'].map(ImageLookLora_1.ImageLookLoraFromJSON)),
+        'characters': json['characters'] == null ? undefined : (json['characters'].map(CastMember_1.CastMemberFromJSON)),
     };
 }
 function ImageContentToJSON(json) {
@@ -56,10 +62,13 @@ function ImageContentToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'id': value['id'],
         'url': value['url'],
+        'trend': (0, TrendPreview_1.TrendPreviewToJSON)(value['trend']),
         'origin': (0, MediaOrigin_1.MediaOriginToJSON)(value['origin']),
         'width': value['width'],
         'height': value['height'],
         'age_estimation': (0, AdminAgeEstimation_1.AdminAgeEstimationToJSON)(value['ageEstimation']),
+        'loras': value['loras'] == null ? undefined : (value['loras'].map(ImageLookLora_1.ImageLookLoraToJSON)),
+        'characters': value['characters'] == null ? undefined : (value['characters'].map(CastMember_1.CastMemberToJSON)),
     };
 }
 //# sourceMappingURL=ImageContent.js.map

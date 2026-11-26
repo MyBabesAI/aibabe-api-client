@@ -83,11 +83,11 @@ export function StoryCreatorGenerateAvatarRequestFromJSONTyped(json: any, ignore
     };
 }
 
-  export function StoryCreatorGenerateAvatarRequestToJSON(json: any): StoryCreatorGenerateAvatarRequest {
-      return StoryCreatorGenerateAvatarRequestToJSONTyped(json, false);
-  }
+export function StoryCreatorGenerateAvatarRequestToJSON(json: any): StoryCreatorGenerateAvatarRequest {
+    return StoryCreatorGenerateAvatarRequestToJSONTyped(json, false);
+}
 
-  export function StoryCreatorGenerateAvatarRequestToJSONTyped(value?: StoryCreatorGenerateAvatarRequest | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorGenerateAvatarRequestToJSONTyped(value?: StoryCreatorGenerateAvatarRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -25,7 +25,8 @@ exports.ChatRoleToJSONTyped = ChatRoleToJSONTyped;
  */
 exports.ChatRole = {
     User: 'user',
-    Assistant: 'assistant'
+    Assistant: 'assistant',
+    Narrator: 'narrator'
 };
 function instanceOfChatRole(value) {
     for (const key in exports.ChatRole) {

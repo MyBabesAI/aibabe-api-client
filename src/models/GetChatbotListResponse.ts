@@ -63,11 +63,11 @@ export function GetChatbotListResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function GetChatbotListResponseToJSON(json: any): GetChatbotListResponse {
-      return GetChatbotListResponseToJSONTyped(json, false);
-  }
+export function GetChatbotListResponseToJSON(json: any): GetChatbotListResponse {
+    return GetChatbotListResponseToJSONTyped(json, false);
+}
 
-  export function GetChatbotListResponseToJSONTyped(value?: GetChatbotListResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetChatbotListResponseToJSONTyped(value?: GetChatbotListResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

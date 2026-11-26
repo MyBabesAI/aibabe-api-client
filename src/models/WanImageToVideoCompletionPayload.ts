@@ -71,11 +71,11 @@ export function WanImageToVideoCompletionPayloadFromJSONTyped(json: any, ignoreD
     };
 }
 
-  export function WanImageToVideoCompletionPayloadToJSON(json: any): WanImageToVideoCompletionPayload {
-      return WanImageToVideoCompletionPayloadToJSONTyped(json, false);
-  }
+export function WanImageToVideoCompletionPayloadToJSON(json: any): WanImageToVideoCompletionPayload {
+    return WanImageToVideoCompletionPayloadToJSONTyped(json, false);
+}
 
-  export function WanImageToVideoCompletionPayloadToJSONTyped(value?: WanImageToVideoCompletionPayload | null, ignoreDiscriminator: boolean = false): any {
+export function WanImageToVideoCompletionPayloadToJSONTyped(value?: WanImageToVideoCompletionPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -65,11 +65,11 @@ export function SubscriptionGenerationEstimateFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function SubscriptionGenerationEstimateToJSON(json: any): SubscriptionGenerationEstimate {
-      return SubscriptionGenerationEstimateToJSONTyped(json, false);
-  }
+export function SubscriptionGenerationEstimateToJSON(json: any): SubscriptionGenerationEstimate {
+    return SubscriptionGenerationEstimateToJSONTyped(json, false);
+}
 
-  export function SubscriptionGenerationEstimateToJSONTyped(value?: SubscriptionGenerationEstimate | null, ignoreDiscriminator: boolean = false): any {
+export function SubscriptionGenerationEstimateToJSONTyped(value?: SubscriptionGenerationEstimate | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

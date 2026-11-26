@@ -58,11 +58,11 @@ export function PutAdminSaleOfferRequestFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function PutAdminSaleOfferRequestToJSON(json: any): PutAdminSaleOfferRequest {
-      return PutAdminSaleOfferRequestToJSONTyped(json, false);
-  }
+export function PutAdminSaleOfferRequestToJSON(json: any): PutAdminSaleOfferRequest {
+    return PutAdminSaleOfferRequestToJSONTyped(json, false);
+}
 
-  export function PutAdminSaleOfferRequestToJSONTyped(value?: PutAdminSaleOfferRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PutAdminSaleOfferRequestToJSONTyped(value?: PutAdminSaleOfferRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

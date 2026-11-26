@@ -79,11 +79,11 @@ export function PostLiveRoleplayRequestFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function PostLiveRoleplayRequestToJSON(json: any): PostLiveRoleplayRequest {
-      return PostLiveRoleplayRequestToJSONTyped(json, false);
-  }
+export function PostLiveRoleplayRequestToJSON(json: any): PostLiveRoleplayRequest {
+    return PostLiveRoleplayRequestToJSONTyped(json, false);
+}
 
-  export function PostLiveRoleplayRequestToJSONTyped(value?: PostLiveRoleplayRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostLiveRoleplayRequestToJSONTyped(value?: PostLiveRoleplayRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

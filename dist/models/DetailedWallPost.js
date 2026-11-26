@@ -25,6 +25,7 @@ const ContentType_1 = require("./ContentType");
 const EventSubmissionPreview_1 = require("./EventSubmissionPreview");
 const ImageContent_1 = require("./ImageContent");
 const ContentOrigin_1 = require("./ContentOrigin");
+const ScenarioPreview_1 = require("./ScenarioPreview");
 const StoryPreview_1 = require("./StoryPreview");
 const TagData_1 = require("./TagData");
 /**
@@ -76,6 +77,7 @@ function DetailedWallPostFromJSONTyped(json, ignoreDiscriminator) {
         'id': json['id'],
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewFromJSON)(json['chatbot']),
         'story': (0, StoryPreview_1.StoryPreviewFromJSON)(json['story']),
+        'scenario': json['scenario'] == null ? undefined : (0, ScenarioPreview_1.ScenarioPreviewFromJSON)(json['scenario']),
         'picture': (0, ImageContent_1.ImageContentFromJSON)(json['picture']),
         'video': (0, VideoContent_1.VideoContentFromJSON)(json['video']),
         'likes': json['likes'],
@@ -106,6 +108,7 @@ function DetailedWallPostToJSONTyped(value, ignoreDiscriminator = false) {
         'id': value['id'],
         'chatbot': (0, ChatbotPreview_1.ChatbotPreviewToJSON)(value['chatbot']),
         'story': (0, StoryPreview_1.StoryPreviewToJSON)(value['story']),
+        'scenario': (0, ScenarioPreview_1.ScenarioPreviewToJSON)(value['scenario']),
         'picture': (0, ImageContent_1.ImageContentToJSON)(value['picture']),
         'video': (0, VideoContent_1.VideoContentToJSON)(value['video']),
         'likes': value['likes'],

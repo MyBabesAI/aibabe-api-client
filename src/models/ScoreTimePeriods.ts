@@ -73,11 +73,11 @@ export function ScoreTimePeriodsFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function ScoreTimePeriodsToJSON(json: any): ScoreTimePeriods {
-      return ScoreTimePeriodsToJSONTyped(json, false);
-  }
+export function ScoreTimePeriodsToJSON(json: any): ScoreTimePeriods {
+    return ScoreTimePeriodsToJSONTyped(json, false);
+}
 
-  export function ScoreTimePeriodsToJSONTyped(value?: ScoreTimePeriods | null, ignoreDiscriminator: boolean = false): any {
+export function ScoreTimePeriodsToJSONTyped(value?: ScoreTimePeriods | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

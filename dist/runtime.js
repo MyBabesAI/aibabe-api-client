@@ -15,6 +15,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TextApiResponse = exports.BlobApiResponse = exports.VoidApiResponse = exports.JSONApiResponse = exports.COLLECTION_FORMATS = exports.RequiredError = exports.FetchError = exports.ResponseError = exports.BaseAPI = exports.DefaultConfig = exports.Configuration = exports.BASE_PATH = void 0;
 exports.querystring = querystring;
+exports.exists = exists;
 exports.mapValues = mapValues;
 exports.canConsumeForm = canConsumeForm;
 exports.BASE_PATH = "http://localhost:8080".replace(/\/+$/, "");
@@ -267,6 +268,10 @@ function querystringSingleKey(key, value, keyPrefix = '') {
         return querystring(value, fullKey);
     }
     return `${encodeURIComponent(fullKey)}=${encodeURIComponent(String(value))}`;
+}
+function exists(json, key) {
+    const value = json[key];
+    return value !== null && value !== undefined;
 }
 function mapValues(data, fn) {
     return Object.keys(data).reduce((acc, key) => (Object.assign(Object.assign({}, acc), { [key]: fn(data[key]) })), {});

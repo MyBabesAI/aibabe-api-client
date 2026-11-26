@@ -49,11 +49,11 @@ export function PutUsernameRequestFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function PutUsernameRequestToJSON(json: any): PutUsernameRequest {
-      return PutUsernameRequestToJSONTyped(json, false);
-  }
+export function PutUsernameRequestToJSON(json: any): PutUsernameRequest {
+    return PutUsernameRequestToJSONTyped(json, false);
+}
 
-  export function PutUsernameRequestToJSONTyped(value?: PutUsernameRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PutUsernameRequestToJSONTyped(value?: PutUsernameRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

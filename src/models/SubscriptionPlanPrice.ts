@@ -199,11 +199,11 @@ export function SubscriptionPlanPriceFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function SubscriptionPlanPriceToJSON(json: any): SubscriptionPlanPrice {
-      return SubscriptionPlanPriceToJSONTyped(json, false);
-  }
+export function SubscriptionPlanPriceToJSON(json: any): SubscriptionPlanPrice {
+    return SubscriptionPlanPriceToJSONTyped(json, false);
+}
 
-  export function SubscriptionPlanPriceToJSONTyped(value?: SubscriptionPlanPrice | null, ignoreDiscriminator: boolean = false): any {
+export function SubscriptionPlanPriceToJSONTyped(value?: SubscriptionPlanPrice | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

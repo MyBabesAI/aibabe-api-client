@@ -98,11 +98,11 @@ export function StoryCreatorPrizeFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function StoryCreatorPrizeToJSON(json: any): StoryCreatorPrize {
-      return StoryCreatorPrizeToJSONTyped(json, false);
-  }
+export function StoryCreatorPrizeToJSON(json: any): StoryCreatorPrize {
+    return StoryCreatorPrizeToJSONTyped(json, false);
+}
 
-  export function StoryCreatorPrizeToJSONTyped(value?: StoryCreatorPrize | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorPrizeToJSONTyped(value?: StoryCreatorPrize | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

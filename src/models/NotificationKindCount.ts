@@ -75,11 +75,11 @@ export function NotificationKindCountFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function NotificationKindCountToJSON(json: any): NotificationKindCount {
-      return NotificationKindCountToJSONTyped(json, false);
-  }
+export function NotificationKindCountToJSON(json: any): NotificationKindCount {
+    return NotificationKindCountToJSONTyped(json, false);
+}
 
-  export function NotificationKindCountToJSONTyped(value?: NotificationKindCount | null, ignoreDiscriminator: boolean = false): any {
+export function NotificationKindCountToJSONTyped(value?: NotificationKindCount | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

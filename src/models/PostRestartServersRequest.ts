@@ -48,11 +48,11 @@ export function PostRestartServersRequestFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function PostRestartServersRequestToJSON(json: any): PostRestartServersRequest {
-      return PostRestartServersRequestToJSONTyped(json, false);
-  }
+export function PostRestartServersRequestToJSON(json: any): PostRestartServersRequest {
+    return PostRestartServersRequestToJSONTyped(json, false);
+}
 
-  export function PostRestartServersRequestToJSONTyped(value?: PostRestartServersRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostRestartServersRequestToJSONTyped(value?: PostRestartServersRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -97,11 +97,11 @@ export function PostChatSuggestionRequestFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function PostChatSuggestionRequestToJSON(json: any): PostChatSuggestionRequest {
-      return PostChatSuggestionRequestToJSONTyped(json, false);
-  }
+export function PostChatSuggestionRequestToJSON(json: any): PostChatSuggestionRequest {
+    return PostChatSuggestionRequestToJSONTyped(json, false);
+}
 
-  export function PostChatSuggestionRequestToJSONTyped(value?: PostChatSuggestionRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostChatSuggestionRequestToJSONTyped(value?: PostChatSuggestionRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

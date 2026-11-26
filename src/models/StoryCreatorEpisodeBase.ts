@@ -83,11 +83,11 @@ export function StoryCreatorEpisodeBaseFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function StoryCreatorEpisodeBaseToJSON(json: any): StoryCreatorEpisodeBase {
-      return StoryCreatorEpisodeBaseToJSONTyped(json, false);
-  }
+export function StoryCreatorEpisodeBaseToJSON(json: any): StoryCreatorEpisodeBase {
+    return StoryCreatorEpisodeBaseToJSONTyped(json, false);
+}
 
-  export function StoryCreatorEpisodeBaseToJSONTyped(value?: StoryCreatorEpisodeBase | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorEpisodeBaseToJSONTyped(value?: StoryCreatorEpisodeBase | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

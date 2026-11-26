@@ -89,11 +89,11 @@ export function StoryCreatorCreateActorRequestFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function StoryCreatorCreateActorRequestToJSON(json: any): StoryCreatorCreateActorRequest {
-      return StoryCreatorCreateActorRequestToJSONTyped(json, false);
-  }
+export function StoryCreatorCreateActorRequestToJSON(json: any): StoryCreatorCreateActorRequest {
+    return StoryCreatorCreateActorRequestToJSONTyped(json, false);
+}
 
-  export function StoryCreatorCreateActorRequestToJSONTyped(value?: StoryCreatorCreateActorRequest | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorCreateActorRequestToJSONTyped(value?: StoryCreatorCreateActorRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

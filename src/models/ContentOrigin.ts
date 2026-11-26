@@ -75,11 +75,11 @@ export function ContentOriginFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-  export function ContentOriginToJSON(json: any): ContentOrigin {
-      return ContentOriginToJSONTyped(json, false);
-  }
+export function ContentOriginToJSON(json: any): ContentOrigin {
+    return ContentOriginToJSONTyped(json, false);
+}
 
-  export function ContentOriginToJSONTyped(value?: ContentOrigin | null, ignoreDiscriminator: boolean = false): any {
+export function ContentOriginToJSONTyped(value?: ContentOrigin | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

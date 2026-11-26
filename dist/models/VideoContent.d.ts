@@ -9,8 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { CastMember } from './CastMember';
+import type { TrendPreview } from './TrendPreview';
+import type { ImageToVideoModel } from './ImageToVideoModel';
 import type { MediaOrigin } from './MediaOrigin';
 import type { AdminAgeEstimation } from './AdminAgeEstimation';
+import type { ImageLookLora } from './ImageLookLora';
 /**
  *
  * @export
@@ -29,6 +33,12 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     url: string;
+    /**
+     *
+     * @type {TrendPreview}
+     * @memberof VideoContent
+     */
+    trend?: TrendPreview | null;
     /**
      *
      * @type {MediaOrigin}
@@ -55,6 +65,18 @@ export interface VideoContent {
     ageEstimation?: AdminAgeEstimation | null;
     /**
      *
+     * @type {Array<ImageLookLora>}
+     * @memberof VideoContent
+     */
+    loras?: Array<ImageLookLora>;
+    /**
+     *
+     * @type {Array<CastMember>}
+     * @memberof VideoContent
+     */
+    characters?: Array<CastMember>;
+    /**
+     *
      * @type {string}
      * @memberof VideoContent
      */
@@ -77,6 +99,18 @@ export interface VideoContent {
      * @memberof VideoContent
      */
     durationSeconds?: number | null;
+    /**
+     *
+     * @type {ImageToVideoModel}
+     * @memberof VideoContent
+     */
+    model?: ImageToVideoModel | null;
+    /**
+     *
+     * @type {boolean}
+     * @memberof VideoContent
+     */
+    hasRecipe?: boolean;
 }
 /**
  * Check if a given object implements the VideoContent interface.

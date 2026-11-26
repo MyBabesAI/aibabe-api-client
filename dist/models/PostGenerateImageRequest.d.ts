@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ImageAspectRatio } from './ImageAspectRatio';
+import type { LoraLevel } from './LoraLevel';
 import type { LoraName } from './LoraName';
 /**
  *
@@ -65,6 +66,14 @@ export interface PostGenerateImageRequest {
      * @memberof PostGenerateImageRequest
      */
     originalImageId?: string | null;
+    /**
+     *
+     * @type {{ [key: string]: LoraLevel; }}
+     * @memberof PostGenerateImageRequest
+     */
+    loraLevels?: {
+        [key: string]: LoraLevel;
+    } | null;
 }
 /**
  * Check if a given object implements the PostGenerateImageRequest interface.

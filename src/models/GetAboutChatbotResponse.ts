@@ -34,6 +34,13 @@ import {
     GenderToJSON,
     GenderToJSONTyped,
 } from './Gender';
+import type { LoraLevel } from './LoraLevel';
+import {
+    LoraLevelFromJSON,
+    LoraLevelFromJSONTyped,
+    LoraLevelToJSON,
+    LoraLevelToJSONTyped,
+} from './LoraLevel';
 import type { LoraName } from './LoraName';
 import {
     LoraNameFromJSON,
@@ -48,6 +55,13 @@ import {
     SexualOrientationToJSON,
     SexualOrientationToJSONTyped,
 } from './SexualOrientation';
+import type { ReferenceTexts } from './ReferenceTexts';
+import {
+    ReferenceTextsFromJSON,
+    ReferenceTextsFromJSONTyped,
+    ReferenceTextsToJSON,
+    ReferenceTextsToJSONTyped,
+} from './ReferenceTexts';
 
 /**
  * 
@@ -123,6 +137,18 @@ export interface GetAboutChatbotResponse {
     loras: Array<LoraName> | null;
     /**
      * 
+     * @type {{ [key: string]: LoraLevel; }}
+     * @memberof GetAboutChatbotResponse
+     */
+    loraLevels?: { [key: string]: LoraLevel; } | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetAboutChatbotResponse
+     */
+    age?: number | null;
+    /**
+     * 
      * @type {boolean}
      * @memberof GetAboutChatbotResponse
      */
@@ -139,6 +165,18 @@ export interface GetAboutChatbotResponse {
      * @memberof GetAboutChatbotResponse
      */
     greetings: string | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof GetAboutChatbotResponse
+     */
+    alternativeGreetings?: Array<string>;
+    /**
+     * 
+     * @type {ReferenceTexts}
+     * @memberof GetAboutChatbotResponse
+     */
+    referenceTexts?: ReferenceTexts | null;
 }
 
 
@@ -184,17 +222,21 @@ export function GetAboutChatbotResponseFromJSONTyped(json: any, ignoreDiscrimina
         'looksDescription': json['looks_description'],
         'artStyle': ArtStyleFromJSON(json['art_style']),
         'loras': (json['loras'] == null ? null : (json['loras'] as Array<any>).map(LoraNameFromJSON)),
+        'loraLevels': json['lora_levels'] == null ? undefined : (mapValues(json['lora_levels'], LoraLevelFromJSON)),
+        'age': json['age'] == null ? undefined : json['age'],
         'generationStated': json['generation_stated'],
         'profilePicture': json['profile_picture'],
         'greetings': json['greetings'],
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : json['alternative_greetings'],
+        'referenceTexts': json['reference_texts'] == null ? undefined : ReferenceTextsFromJSON(json['reference_texts']),
     };
 }
 
-  export function GetAboutChatbotResponseToJSON(json: any): GetAboutChatbotResponse {
-      return GetAboutChatbotResponseToJSONTyped(json, false);
-  }
+export function GetAboutChatbotResponseToJSON(json: any): GetAboutChatbotResponse {
+    return GetAboutChatbotResponseToJSONTyped(json, false);
+}
 
-  export function GetAboutChatbotResponseToJSONTyped(value?: GetAboutChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetAboutChatbotResponseToJSONTyped(value?: GetAboutChatbotResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -212,9 +254,13 @@ export function GetAboutChatbotResponseFromJSONTyped(json: any, ignoreDiscrimina
         'looks_description': value['looksDescription'],
         'art_style': ArtStyleToJSON(value['artStyle']),
         'loras': (value['loras'] == null ? null : (value['loras'] as Array<any>).map(LoraNameToJSON)),
+        'lora_levels': value['loraLevels'] == null ? undefined : (mapValues(value['loraLevels'], LoraLevelToJSON)),
+        'age': value['age'],
         'generation_stated': value['generationStated'],
         'profile_picture': value['profilePicture'],
         'greetings': value['greetings'],
+        'alternative_greetings': value['alternativeGreetings'],
+        'reference_texts': ReferenceTextsToJSON(value['referenceTexts']),
     };
 }
 

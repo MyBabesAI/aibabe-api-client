@@ -49,11 +49,11 @@ export function PostFollowUserRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function PostFollowUserRequestToJSON(json: any): PostFollowUserRequest {
-      return PostFollowUserRequestToJSONTyped(json, false);
-  }
+export function PostFollowUserRequestToJSON(json: any): PostFollowUserRequest {
+    return PostFollowUserRequestToJSONTyped(json, false);
+}
 
-  export function PostFollowUserRequestToJSONTyped(value?: PostFollowUserRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostFollowUserRequestToJSONTyped(value?: PostFollowUserRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

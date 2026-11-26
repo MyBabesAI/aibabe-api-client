@@ -20,6 +20,13 @@ import {
     ImageAspectRatioToJSON,
     ImageAspectRatioToJSONTyped,
 } from './ImageAspectRatio';
+import type { LoraLevel } from './LoraLevel';
+import {
+    LoraLevelFromJSON,
+    LoraLevelFromJSONTyped,
+    LoraLevelToJSON,
+    LoraLevelToJSONTyped,
+} from './LoraLevel';
 import type { LoraName } from './LoraName';
 import {
     LoraNameFromJSON,
@@ -82,6 +89,12 @@ export interface PostGenerateImageRequest {
      * @memberof PostGenerateImageRequest
      */
     originalImageId?: string | null;
+    /**
+     * 
+     * @type {{ [key: string]: LoraLevel; }}
+     * @memberof PostGenerateImageRequest
+     */
+    loraLevels?: { [key: string]: LoraLevel; } | null;
 }
 
 
@@ -115,14 +128,15 @@ export function PostGenerateImageRequestFromJSONTyped(json: any, ignoreDiscrimin
         'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(LoraNameFromJSON)),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : ImageAspectRatioFromJSON(json['aspect_ratio']),
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
+        'loraLevels': json['lora_levels'] == null ? undefined : (mapValues(json['lora_levels'], LoraLevelFromJSON)),
     };
 }
 
-  export function PostGenerateImageRequestToJSON(json: any): PostGenerateImageRequest {
-      return PostGenerateImageRequestToJSONTyped(json, false);
-  }
+export function PostGenerateImageRequestToJSON(json: any): PostGenerateImageRequest {
+    return PostGenerateImageRequestToJSONTyped(json, false);
+}
 
-  export function PostGenerateImageRequestToJSONTyped(value?: PostGenerateImageRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostGenerateImageRequestToJSONTyped(value?: PostGenerateImageRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -137,6 +151,7 @@ export function PostGenerateImageRequestFromJSONTyped(json: any, ignoreDiscrimin
         'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(LoraNameToJSON)),
         'aspect_ratio': ImageAspectRatioToJSON(value['aspectRatio']),
         'original_image_id': value['originalImageId'],
+        'lora_levels': value['loraLevels'] == null ? undefined : (mapValues(value['loraLevels'], LoraLevelToJSON)),
     };
 }
 

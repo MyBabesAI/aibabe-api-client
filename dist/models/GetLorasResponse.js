@@ -18,13 +18,12 @@ exports.GetLorasResponseFromJSON = GetLorasResponseFromJSON;
 exports.GetLorasResponseFromJSONTyped = GetLorasResponseFromJSONTyped;
 exports.GetLorasResponseToJSON = GetLorasResponseToJSON;
 exports.GetLorasResponseToJSONTyped = GetLorasResponseToJSONTyped;
+const ImageCastTemplate_1 = require("./ImageCastTemplate");
 /**
  * Check if a given object implements the GetLorasResponse interface.
  */
 function instanceOfGetLorasResponse(value) {
     if (!('imageMods' in value) || value['imageMods'] === undefined)
-        return false;
-    if (!('videoMods' in value) || value['videoMods'] === undefined)
         return false;
     if (!('imagePresets' in value) || value['imagePresets'] === undefined)
         return false;
@@ -41,10 +40,10 @@ function GetLorasResponseFromJSONTyped(json, ignoreDiscriminator) {
     }
     return {
         'imageMods': json['image_mods'],
-        'videoMods': json['video_mods'],
         'videoModsByModel': json['video_mods_by_model'] == null ? undefined : json['video_mods_by_model'],
         'imagePresets': json['image_presets'],
         'videoPresets': json['video_presets'],
+        'castTemplates': json['cast_templates'] == null ? undefined : (json['cast_templates'].map(ImageCastTemplate_1.ImageCastTemplateFromJSON)),
     };
 }
 function GetLorasResponseToJSON(json) {
@@ -56,10 +55,10 @@ function GetLorasResponseToJSONTyped(value, ignoreDiscriminator = false) {
     }
     return {
         'image_mods': value['imageMods'],
-        'video_mods': value['videoMods'],
         'video_mods_by_model': value['videoModsByModel'],
         'image_presets': value['imagePresets'],
         'video_presets': value['videoPresets'],
+        'cast_templates': value['castTemplates'] == null ? undefined : (value['castTemplates'].map(ImageCastTemplate_1.ImageCastTemplateToJSON)),
     };
 }
 //# sourceMappingURL=GetLorasResponse.js.map

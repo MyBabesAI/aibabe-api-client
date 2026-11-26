@@ -10,6 +10,11 @@
  * Do not edit the class manually.
  */
 import type { VideoModelConfig } from './VideoModelConfig';
+import type { VideoReferenceTemplate } from './VideoReferenceTemplate';
+import type { PlanReferenceCapsValue } from './PlanReferenceCapsValue';
+import type { VideoMultishotTemplateView } from './VideoMultishotTemplateView';
+import type { VideoReferenceMoodTag } from './VideoReferenceMoodTag';
+import type { VideoTemplateCategoryTag } from './VideoTemplateCategoryTag';
 /**
  *
  * @export
@@ -32,6 +37,38 @@ export interface VideoConfigResponse {
     extensionModels: {
         [key: string]: VideoModelConfig;
     };
+    /**
+     *
+     * @type {{ [key: string]: PlanReferenceCapsValue; }}
+     * @memberof VideoConfigResponse
+     */
+    planReferenceCaps: {
+        [key: string]: PlanReferenceCapsValue;
+    };
+    /**
+     *
+     * @type {Array<VideoReferenceTemplate>}
+     * @memberof VideoConfigResponse
+     */
+    referenceTemplates?: Array<VideoReferenceTemplate>;
+    /**
+     *
+     * @type {Array<VideoTemplateCategoryTag>}
+     * @memberof VideoConfigResponse
+     */
+    templateCategories?: Array<VideoTemplateCategoryTag>;
+    /**
+     *
+     * @type {Array<VideoReferenceMoodTag>}
+     * @memberof VideoConfigResponse
+     */
+    referenceTemplateMoods?: Array<VideoReferenceMoodTag>;
+    /**
+     *
+     * @type {Array<VideoMultishotTemplateView>}
+     * @memberof VideoConfigResponse
+     */
+    multishotTemplates?: Array<VideoMultishotTemplateView>;
 }
 /**
  * Check if a given object implements the VideoConfigResponse interface.

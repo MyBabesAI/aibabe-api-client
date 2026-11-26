@@ -10,7 +10,9 @@
  * Do not edit the class manually.
  */
 import type { ArtStyle } from './ArtStyle';
-import type { LoraName } from './LoraName';
+import type { MentionCandidate } from './MentionCandidate';
+import type { ImageLookLora } from './ImageLookLora';
+import type { RemixSlot } from './RemixSlot';
 /**
  *
  * @export
@@ -37,16 +39,28 @@ export interface GetImageGenerationTagsResponse {
     chatbotName: string | null;
     /**
      *
-     * @type {Array<LoraName>}
-     * @memberof GetImageGenerationTagsResponse
-     */
-    loras: Array<LoraName>;
-    /**
-     *
      * @type {ArtStyle}
      * @memberof GetImageGenerationTagsResponse
      */
     artStyle: ArtStyle;
+    /**
+     *
+     * @type {Array<ImageLookLora>}
+     * @memberof GetImageGenerationTagsResponse
+     */
+    loras?: Array<ImageLookLora>;
+    /**
+     *
+     * @type {Array<RemixSlot>}
+     * @memberof GetImageGenerationTagsResponse
+     */
+    slots?: Array<RemixSlot>;
+    /**
+     *
+     * @type {Array<MentionCandidate>}
+     * @memberof GetImageGenerationTagsResponse
+     */
+    mentions?: Array<MentionCandidate>;
 }
 /**
  * Check if a given object implements the GetImageGenerationTagsResponse interface.

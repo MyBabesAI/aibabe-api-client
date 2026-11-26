@@ -247,11 +247,11 @@ export function AdminPricingProductResponseFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function AdminPricingProductResponseToJSON(json: any): AdminPricingProductResponse {
-      return AdminPricingProductResponseToJSONTyped(json, false);
-  }
+export function AdminPricingProductResponseToJSON(json: any): AdminPricingProductResponse {
+    return AdminPricingProductResponseToJSONTyped(json, false);
+}
 
-  export function AdminPricingProductResponseToJSONTyped(value?: AdminPricingProductResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminPricingProductResponseToJSONTyped(value?: AdminPricingProductResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -49,11 +49,11 @@ export function LastVideoFrameResponseFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function LastVideoFrameResponseToJSON(json: any): LastVideoFrameResponse {
-      return LastVideoFrameResponseToJSONTyped(json, false);
-  }
+export function LastVideoFrameResponseToJSON(json: any): LastVideoFrameResponse {
+    return LastVideoFrameResponseToJSONTyped(json, false);
+}
 
-  export function LastVideoFrameResponseToJSONTyped(value?: LastVideoFrameResponse | null, ignoreDiscriminator: boolean = false): any {
+export function LastVideoFrameResponseToJSONTyped(value?: LastVideoFrameResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

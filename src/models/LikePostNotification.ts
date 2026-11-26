@@ -134,11 +134,11 @@ export function LikePostNotificationFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function LikePostNotificationToJSON(json: any): LikePostNotification {
-      return LikePostNotificationToJSONTyped(json, false);
-  }
+export function LikePostNotificationToJSON(json: any): LikePostNotification {
+    return LikePostNotificationToJSONTyped(json, false);
+}
 
-  export function LikePostNotificationToJSONTyped(value?: LikePostNotification | null, ignoreDiscriminator: boolean = false): any {
+export function LikePostNotificationToJSONTyped(value?: LikePostNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

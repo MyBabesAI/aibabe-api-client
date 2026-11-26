@@ -57,11 +57,11 @@ export function PutAdminUserFeatureFlagsRequestFromJSONTyped(json: any, ignoreDi
     };
 }
 
-  export function PutAdminUserFeatureFlagsRequestToJSON(json: any): PutAdminUserFeatureFlagsRequest {
-      return PutAdminUserFeatureFlagsRequestToJSONTyped(json, false);
-  }
+export function PutAdminUserFeatureFlagsRequestToJSON(json: any): PutAdminUserFeatureFlagsRequest {
+    return PutAdminUserFeatureFlagsRequestToJSONTyped(json, false);
+}
 
-  export function PutAdminUserFeatureFlagsRequestToJSONTyped(value?: PutAdminUserFeatureFlagsRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PutAdminUserFeatureFlagsRequestToJSONTyped(value?: PutAdminUserFeatureFlagsRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

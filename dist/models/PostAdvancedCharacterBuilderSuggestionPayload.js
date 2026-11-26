@@ -21,6 +21,8 @@ exports.PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped = PostAdvancedC
 const FurryVisualType_1 = require("./FurryVisualType");
 const CharacterBuilderSuggestionField_1 = require("./CharacterBuilderSuggestionField");
 const Gender_1 = require("./Gender");
+const ReferenceImageView_1 = require("./ReferenceImageView");
+const ReferenceTexts_1 = require("./ReferenceTexts");
 /**
  * Check if a given object implements the PostAdvancedCharacterBuilderSuggestionPayload interface.
  */
@@ -43,8 +45,12 @@ function PostAdvancedCharacterBuilderSuggestionPayloadFromJSONTyped(json, ignore
         'furryVisualType': json['furry_visual_type'] == null ? undefined : (0, FurryVisualType_1.FurryVisualTypeFromJSON)(json['furry_visual_type']),
         'currentBio': json['current_bio'] == null ? undefined : json['current_bio'],
         'currentGreetings': json['current_greetings'] == null ? undefined : json['current_greetings'],
+        'currentAlternativeGreetings': json['current_alternative_greetings'] == null ? undefined : json['current_alternative_greetings'],
         'currentStory': json['current_story'] == null ? undefined : json['current_story'],
         'currentExampleConversation': json['current_example_conversation'] == null ? undefined : json['current_example_conversation'],
+        'currentLookDescription': json['current_look_description'] == null ? undefined : json['current_look_description'],
+        'view': json['view'] == null ? undefined : (0, ReferenceImageView_1.ReferenceImageViewFromJSON)(json['view']),
+        'currentReferenceTexts': json['current_reference_texts'] == null ? undefined : (0, ReferenceTexts_1.ReferenceTextsFromJSON)(json['current_reference_texts']),
     };
 }
 function PostAdvancedCharacterBuilderSuggestionPayloadToJSON(json) {
@@ -61,8 +67,12 @@ function PostAdvancedCharacterBuilderSuggestionPayloadToJSONTyped(value, ignoreD
         'furry_visual_type': (0, FurryVisualType_1.FurryVisualTypeToJSON)(value['furryVisualType']),
         'current_bio': value['currentBio'],
         'current_greetings': value['currentGreetings'],
+        'current_alternative_greetings': value['currentAlternativeGreetings'],
         'current_story': value['currentStory'],
         'current_example_conversation': value['currentExampleConversation'],
+        'current_look_description': value['currentLookDescription'],
+        'view': (0, ReferenceImageView_1.ReferenceImageViewToJSON)(value['view']),
+        'current_reference_texts': (0, ReferenceTexts_1.ReferenceTextsToJSON)(value['currentReferenceTexts']),
     };
 }
 //# sourceMappingURL=PostAdvancedCharacterBuilderSuggestionPayload.js.map

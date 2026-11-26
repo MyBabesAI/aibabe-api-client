@@ -63,11 +63,11 @@ export function MessageCheckResponseFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function MessageCheckResponseToJSON(json: any): MessageCheckResponse {
-      return MessageCheckResponseToJSONTyped(json, false);
-  }
+export function MessageCheckResponseToJSON(json: any): MessageCheckResponse {
+    return MessageCheckResponseToJSONTyped(json, false);
+}
 
-  export function MessageCheckResponseToJSONTyped(value?: MessageCheckResponse | null, ignoreDiscriminator: boolean = false): any {
+export function MessageCheckResponseToJSONTyped(value?: MessageCheckResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

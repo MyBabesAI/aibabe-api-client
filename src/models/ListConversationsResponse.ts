@@ -64,11 +64,11 @@ export function ListConversationsResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function ListConversationsResponseToJSON(json: any): ListConversationsResponse {
-      return ListConversationsResponseToJSONTyped(json, false);
-  }
+export function ListConversationsResponseToJSON(json: any): ListConversationsResponse {
+    return ListConversationsResponseToJSONTyped(json, false);
+}
 
-  export function ListConversationsResponseToJSONTyped(value?: ListConversationsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListConversationsResponseToJSONTyped(value?: ListConversationsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

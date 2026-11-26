@@ -49,11 +49,11 @@ export function DeleteUserRequestFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function DeleteUserRequestToJSON(json: any): DeleteUserRequest {
-      return DeleteUserRequestToJSONTyped(json, false);
-  }
+export function DeleteUserRequestToJSON(json: any): DeleteUserRequest {
+    return DeleteUserRequestToJSONTyped(json, false);
+}
 
-  export function DeleteUserRequestToJSONTyped(value?: DeleteUserRequest | null, ignoreDiscriminator: boolean = false): any {
+export function DeleteUserRequestToJSONTyped(value?: DeleteUserRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

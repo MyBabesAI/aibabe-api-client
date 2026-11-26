@@ -234,11 +234,11 @@ export function EventResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-  export function EventResponseToJSON(json: any): EventResponse {
-      return EventResponseToJSONTyped(json, false);
-  }
+export function EventResponseToJSON(json: any): EventResponse {
+    return EventResponseToJSONTyped(json, false);
+}
 
-  export function EventResponseToJSONTyped(value?: EventResponse | null, ignoreDiscriminator: boolean = false): any {
+export function EventResponseToJSONTyped(value?: EventResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

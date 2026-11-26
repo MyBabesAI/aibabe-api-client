@@ -155,11 +155,11 @@ export function DonationNotificationFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function DonationNotificationToJSON(json: any): DonationNotification {
-      return DonationNotificationToJSONTyped(json, false);
-  }
+export function DonationNotificationToJSON(json: any): DonationNotification {
+    return DonationNotificationToJSONTyped(json, false);
+}
 
-  export function DonationNotificationToJSONTyped(value?: DonationNotification | null, ignoreDiscriminator: boolean = false): any {
+export function DonationNotificationToJSONTyped(value?: DonationNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

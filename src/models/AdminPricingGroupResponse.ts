@@ -130,11 +130,11 @@ export function AdminPricingGroupResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function AdminPricingGroupResponseToJSON(json: any): AdminPricingGroupResponse {
-      return AdminPricingGroupResponseToJSONTyped(json, false);
-  }
+export function AdminPricingGroupResponseToJSON(json: any): AdminPricingGroupResponse {
+    return AdminPricingGroupResponseToJSONTyped(json, false);
+}
 
-  export function AdminPricingGroupResponseToJSONTyped(value?: AdminPricingGroupResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AdminPricingGroupResponseToJSONTyped(value?: AdminPricingGroupResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

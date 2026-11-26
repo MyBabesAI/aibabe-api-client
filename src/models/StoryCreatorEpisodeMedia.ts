@@ -57,11 +57,11 @@ export function StoryCreatorEpisodeMediaFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function StoryCreatorEpisodeMediaToJSON(json: any): StoryCreatorEpisodeMedia {
-      return StoryCreatorEpisodeMediaToJSONTyped(json, false);
-  }
+export function StoryCreatorEpisodeMediaToJSON(json: any): StoryCreatorEpisodeMedia {
+    return StoryCreatorEpisodeMediaToJSONTyped(json, false);
+}
 
-  export function StoryCreatorEpisodeMediaToJSONTyped(value?: StoryCreatorEpisodeMedia | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorEpisodeMediaToJSONTyped(value?: StoryCreatorEpisodeMedia | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

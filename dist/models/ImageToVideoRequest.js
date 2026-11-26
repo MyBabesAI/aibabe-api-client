@@ -19,14 +19,15 @@ exports.ImageToVideoRequestFromJSON = ImageToVideoRequestFromJSON;
 exports.ImageToVideoRequestFromJSONTyped = ImageToVideoRequestFromJSONTyped;
 exports.ImageToVideoRequestToJSON = ImageToVideoRequestToJSON;
 exports.ImageToVideoRequestToJSONTyped = ImageToVideoRequestToJSONTyped;
+const VideoPictureDetails_1 = require("./VideoPictureDetails");
 const VideoShot_1 = require("./VideoShot");
+const VideoReference_1 = require("./VideoReference");
 const VideoAspectRatio_1 = require("./VideoAspectRatio");
 const VideoLoraName_1 = require("./VideoLoraName");
 /**
  * @export
  */
 exports.ImageToVideoRequestModelEnum = {
-    Wan22I2V: 'WAN_22_I2V',
     Wan27I2V: 'WAN_27_I2V',
     Wan30I2V: 'WAN_30_I2V',
     Wan30ProI2V: 'WAN_30_PRO_I2V',
@@ -83,6 +84,8 @@ function ImageToVideoRequestFromJSONTyped(json, ignoreDiscriminator) {
         'requestId': json['request_id'],
         'chatbotId': json['chatbot_id'],
         'inputImageId': json['input_image_id'],
+        'inputImage': json['input_image'] == null ? undefined : (0, VideoPictureDetails_1.VideoPictureDetailsFromJSON)(json['input_image']),
+        'references': json['references'] == null ? undefined : (json['references'].map(VideoReference_1.VideoReferenceFromJSON)),
         'resolution': json['resolution'],
         'loras': json['loras'] == null ? undefined : (json['loras'].map(VideoLoraName_1.VideoLoraNameFromJSON)),
         'negativePrompt': json['negative_prompt'] == null ? undefined : json['negative_prompt'],
@@ -111,6 +114,8 @@ function ImageToVideoRequestToJSONTyped(value, ignoreDiscriminator = false) {
         'request_id': value['requestId'],
         'chatbot_id': value['chatbotId'],
         'input_image_id': value['inputImageId'],
+        'input_image': (0, VideoPictureDetails_1.VideoPictureDetailsToJSON)(value['inputImage']),
+        'references': value['references'] == null ? undefined : (value['references'].map(VideoReference_1.VideoReferenceToJSON)),
         'resolution': value['resolution'],
         'loras': value['loras'] == null ? undefined : (value['loras'].map(VideoLoraName_1.VideoLoraNameToJSON)),
         'negative_prompt': value['negativePrompt'],

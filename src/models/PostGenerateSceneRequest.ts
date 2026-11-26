@@ -34,6 +34,13 @@ import {
     ImageAspectRatioToJSON,
     ImageAspectRatioToJSONTyped,
 } from './ImageAspectRatio';
+import type { LoraLevel } from './LoraLevel';
+import {
+    LoraLevelFromJSON,
+    LoraLevelFromJSONTyped,
+    LoraLevelToJSON,
+    LoraLevelToJSONTyped,
+} from './LoraLevel';
 import type { LoraName } from './LoraName';
 import {
     LoraNameFromJSON,
@@ -114,6 +121,12 @@ export interface PostGenerateSceneRequest {
      * @memberof PostGenerateSceneRequest
      */
     originalImageId?: string | null;
+    /**
+     * 
+     * @type {{ [key: string]: LoraLevel; }}
+     * @memberof PostGenerateSceneRequest
+     */
+    loraLevels?: { [key: string]: LoraLevel; } | null;
 }
 
 
@@ -151,14 +164,15 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'purpose': json['purpose'] == null ? undefined : ImagePurposeFromJSON(json['purpose']),
         'chatbotId': json['chatbot_id'] == null ? undefined : json['chatbot_id'],
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
+        'loraLevels': json['lora_levels'] == null ? undefined : (mapValues(json['lora_levels'], LoraLevelFromJSON)),
     };
 }
 
-  export function PostGenerateSceneRequestToJSON(json: any): PostGenerateSceneRequest {
-      return PostGenerateSceneRequestToJSONTyped(json, false);
-  }
+export function PostGenerateSceneRequestToJSON(json: any): PostGenerateSceneRequest {
+    return PostGenerateSceneRequestToJSONTyped(json, false);
+}
 
-  export function PostGenerateSceneRequestToJSONTyped(value?: PostGenerateSceneRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostGenerateSceneRequestToJSONTyped(value?: PostGenerateSceneRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -176,6 +190,7 @@ export function PostGenerateSceneRequestFromJSONTyped(json: any, ignoreDiscrimin
         'purpose': ImagePurposeToJSON(value['purpose']),
         'chatbot_id': value['chatbotId'],
         'original_image_id': value['originalImageId'],
+        'lora_levels': value['loraLevels'] == null ? undefined : (mapValues(value['loraLevels'], LoraLevelToJSON)),
     };
 }
 

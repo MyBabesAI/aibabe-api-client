@@ -56,6 +56,12 @@ export interface PostCustomAboutPagePayload {
     greetings: string;
     /**
      *
+     * @type {Array<string>}
+     * @memberof PostCustomAboutPagePayload
+     */
+    alternativeGreetings?: Array<string>;
+    /**
+     *
      * @type {string}
      * @memberof PostCustomAboutPagePayload
      */

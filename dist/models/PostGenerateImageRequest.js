@@ -18,7 +18,9 @@ exports.PostGenerateImageRequestFromJSON = PostGenerateImageRequestFromJSON;
 exports.PostGenerateImageRequestFromJSONTyped = PostGenerateImageRequestFromJSONTyped;
 exports.PostGenerateImageRequestToJSON = PostGenerateImageRequestToJSON;
 exports.PostGenerateImageRequestToJSONTyped = PostGenerateImageRequestToJSONTyped;
+const runtime_1 = require("../runtime");
 const ImageAspectRatio_1 = require("./ImageAspectRatio");
+const LoraLevel_1 = require("./LoraLevel");
 const LoraName_1 = require("./LoraName");
 /**
  * Check if a given object implements the PostGenerateImageRequest interface.
@@ -50,6 +52,7 @@ function PostGenerateImageRequestFromJSONTyped(json, ignoreDiscriminator) {
         'loras': json['loras'] == null ? undefined : (json['loras'].map(LoraName_1.LoraNameFromJSON)),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, ImageAspectRatio_1.ImageAspectRatioFromJSON)(json['aspect_ratio']),
         'originalImageId': json['original_image_id'] == null ? undefined : json['original_image_id'],
+        'loraLevels': json['lora_levels'] == null ? undefined : ((0, runtime_1.mapValues)(json['lora_levels'], LoraLevel_1.LoraLevelFromJSON)),
     };
 }
 function PostGenerateImageRequestToJSON(json) {
@@ -68,6 +71,7 @@ function PostGenerateImageRequestToJSONTyped(value, ignoreDiscriminator = false)
         'loras': value['loras'] == null ? undefined : (value['loras'].map(LoraName_1.LoraNameToJSON)),
         'aspect_ratio': (0, ImageAspectRatio_1.ImageAspectRatioToJSON)(value['aspectRatio']),
         'original_image_id': value['originalImageId'],
+        'lora_levels': value['loraLevels'] == null ? undefined : ((0, runtime_1.mapValues)(value['loraLevels'], LoraLevel_1.LoraLevelToJSON)),
     };
 }
 //# sourceMappingURL=PostGenerateImageRequest.js.map

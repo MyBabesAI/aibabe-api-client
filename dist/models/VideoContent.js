@@ -18,8 +18,12 @@ exports.VideoContentFromJSON = VideoContentFromJSON;
 exports.VideoContentFromJSONTyped = VideoContentFromJSONTyped;
 exports.VideoContentToJSON = VideoContentToJSON;
 exports.VideoContentToJSONTyped = VideoContentToJSONTyped;
+const CastMember_1 = require("./CastMember");
+const TrendPreview_1 = require("./TrendPreview");
+const ImageToVideoModel_1 = require("./ImageToVideoModel");
 const MediaOrigin_1 = require("./MediaOrigin");
 const AdminAgeEstimation_1 = require("./AdminAgeEstimation");
+const ImageLookLora_1 = require("./ImageLookLora");
 /**
  * Check if a given object implements the VideoContent interface.
  */
@@ -46,14 +50,19 @@ function VideoContentFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'id': json['id'],
         'url': json['url'],
+        'trend': json['trend'] == null ? undefined : (0, TrendPreview_1.TrendPreviewFromJSON)(json['trend']),
         'origin': json['origin'] == null ? undefined : (0, MediaOrigin_1.MediaOriginFromJSON)(json['origin']),
         'width': json['width'] == null ? undefined : json['width'],
         'height': json['height'] == null ? undefined : json['height'],
         'ageEstimation': json['age_estimation'] == null ? undefined : (0, AdminAgeEstimation_1.AdminAgeEstimationFromJSON)(json['age_estimation']),
+        'loras': json['loras'] == null ? undefined : (json['loras'].map(ImageLookLora_1.ImageLookLoraFromJSON)),
+        'characters': json['characters'] == null ? undefined : (json['characters'].map(CastMember_1.CastMemberFromJSON)),
         'generationId': json['generation_id'],
         'originalImageId': json['original_image_id'],
         'originalImageUrl': json['original_image_url'],
         'durationSeconds': json['duration_seconds'] == null ? undefined : json['duration_seconds'],
+        'model': json['model'] == null ? undefined : (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
+        'hasRecipe': json['has_recipe'] == null ? undefined : json['has_recipe'],
     };
 }
 function VideoContentToJSON(json) {
@@ -66,14 +75,19 @@ function VideoContentToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'id': value['id'],
         'url': value['url'],
+        'trend': (0, TrendPreview_1.TrendPreviewToJSON)(value['trend']),
         'origin': (0, MediaOrigin_1.MediaOriginToJSON)(value['origin']),
         'width': value['width'],
         'height': value['height'],
         'age_estimation': (0, AdminAgeEstimation_1.AdminAgeEstimationToJSON)(value['ageEstimation']),
+        'loras': value['loras'] == null ? undefined : (value['loras'].map(ImageLookLora_1.ImageLookLoraToJSON)),
+        'characters': value['characters'] == null ? undefined : (value['characters'].map(CastMember_1.CastMemberToJSON)),
         'generation_id': value['generationId'],
         'original_image_id': value['originalImageId'],
         'original_image_url': value['originalImageUrl'],
         'duration_seconds': value['durationSeconds'],
+        'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
+        'has_recipe': value['hasRecipe'],
     };
 }
 //# sourceMappingURL=VideoContent.js.map

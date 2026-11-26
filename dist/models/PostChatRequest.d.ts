@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { ImageView } from './ImageView';
 import type { ChatMode } from './ChatMode';
 /**
  *
@@ -54,10 +55,22 @@ export interface PostChatRequest {
     onlyImage?: boolean;
     /**
      *
+     * @type {ImageView}
+     * @memberof PostChatRequest
+     */
+    imageView?: ImageView | null;
+    /**
+     *
      * @type {ChatMode}
      * @memberof PostChatRequest
      */
     chatMode?: ChatMode | null;
+    /**
+     *
+     * @type {string}
+     * @memberof PostChatRequest
+     */
+    forkFromMessageId?: string | null;
 }
 /**
  * Check if a given object implements the PostChatRequest interface.

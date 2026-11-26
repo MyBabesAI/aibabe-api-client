@@ -79,11 +79,11 @@ export function UserPreferencesFromJSONTyped(json: any, ignoreDiscriminator: boo
     };
 }
 
-  export function UserPreferencesToJSON(json: any): UserPreferences {
-      return UserPreferencesToJSONTyped(json, false);
-  }
+export function UserPreferencesToJSON(json: any): UserPreferences {
+    return UserPreferencesToJSONTyped(json, false);
+}
 
-  export function UserPreferencesToJSONTyped(value?: UserPreferences | null, ignoreDiscriminator: boolean = false): any {
+export function UserPreferencesToJSONTyped(value?: UserPreferences | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

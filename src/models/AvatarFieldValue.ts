@@ -51,11 +51,11 @@ export function AvatarFieldValueFromJSONTyped(json: any, ignoreDiscriminator: bo
     return json;
 }
 
-  export function AvatarFieldValueToJSON(json: any): AvatarFieldValue {
-      return AvatarFieldValueToJSONTyped(json, false);
-  }
+export function AvatarFieldValueToJSON(json: any): AvatarFieldValue {
+    return AvatarFieldValueToJSONTyped(json, false);
+}
 
-  export function AvatarFieldValueToJSONTyped(value?: AvatarFieldValue | null, ignoreDiscriminator: boolean = false): any {
+export function AvatarFieldValueToJSONTyped(value?: AvatarFieldValue | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

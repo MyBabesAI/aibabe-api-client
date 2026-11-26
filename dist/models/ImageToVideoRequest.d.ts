@@ -9,7 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { VideoPictureDetails } from './VideoPictureDetails';
 import type { VideoShot } from './VideoShot';
+import type { VideoReference } from './VideoReference';
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import type { VideoLoraName } from './VideoLoraName';
 /**
@@ -60,6 +62,18 @@ export interface ImageToVideoRequest {
      * @memberof ImageToVideoRequest
      */
     inputImageId: string;
+    /**
+     *
+     * @type {VideoPictureDetails}
+     * @memberof ImageToVideoRequest
+     */
+    inputImage?: VideoPictureDetails | null;
+    /**
+     *
+     * @type {Array<VideoReference>}
+     * @memberof ImageToVideoRequest
+     */
+    references?: Array<VideoReference>;
     /**
      *
      * @type {string}
@@ -131,7 +145,6 @@ export interface ImageToVideoRequest {
  * @export
  */
 export declare const ImageToVideoRequestModelEnum: {
-    readonly Wan22I2V: "WAN_22_I2V";
     readonly Wan27I2V: "WAN_27_I2V";
     readonly Wan30I2V: "WAN_30_I2V";
     readonly Wan30ProI2V: "WAN_30_PRO_I2V";

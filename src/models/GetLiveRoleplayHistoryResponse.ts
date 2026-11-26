@@ -81,11 +81,11 @@ export function GetLiveRoleplayHistoryResponseFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function GetLiveRoleplayHistoryResponseToJSON(json: any): GetLiveRoleplayHistoryResponse {
-      return GetLiveRoleplayHistoryResponseToJSONTyped(json, false);
-  }
+export function GetLiveRoleplayHistoryResponseToJSON(json: any): GetLiveRoleplayHistoryResponse {
+    return GetLiveRoleplayHistoryResponseToJSONTyped(json, false);
+}
 
-  export function GetLiveRoleplayHistoryResponseToJSONTyped(value?: GetLiveRoleplayHistoryResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetLiveRoleplayHistoryResponseToJSONTyped(value?: GetLiveRoleplayHistoryResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

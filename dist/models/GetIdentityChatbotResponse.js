@@ -54,6 +54,7 @@ function GetIdentityChatbotResponseFromJSONTyped(json, ignoreDiscriminator) {
         'furryVisualType': json['furry_visual_type'] == null ? undefined : (0, FurryVisualType_1.FurryVisualTypeFromJSON)(json['furry_visual_type']),
         'bio': json['bio'],
         'greetings': json['greetings'],
+        'alternativeGreetings': json['alternative_greetings'] == null ? undefined : json['alternative_greetings'],
     };
 }
 function GetIdentityChatbotResponseToJSON(json) {
@@ -71,6 +72,7 @@ function GetIdentityChatbotResponseToJSONTyped(value, ignoreDiscriminator = fals
         'furry_visual_type': (0, FurryVisualType_1.FurryVisualTypeToJSON)(value['furryVisualType']),
         'bio': value['bio'],
         'greetings': value['greetings'],
+        'alternative_greetings': value['alternativeGreetings'],
     };
 }
 //# sourceMappingURL=GetIdentityChatbotResponse.js.map

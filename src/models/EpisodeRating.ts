@@ -57,11 +57,11 @@ export function EpisodeRatingFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-  export function EpisodeRatingToJSON(json: any): EpisodeRating {
-      return EpisodeRatingToJSONTyped(json, false);
-  }
+export function EpisodeRatingToJSON(json: any): EpisodeRating {
+    return EpisodeRatingToJSONTyped(json, false);
+}
 
-  export function EpisodeRatingToJSONTyped(value?: EpisodeRating | null, ignoreDiscriminator: boolean = false): any {
+export function EpisodeRatingToJSONTyped(value?: EpisodeRating | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

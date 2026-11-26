@@ -27,6 +27,13 @@ import {
     CharacterAvatarReviewToJSON,
     CharacterAvatarReviewToJSONTyped,
 } from './CharacterAvatarReview';
+import type { ReferenceTexts } from './ReferenceTexts';
+import {
+    ReferenceTextsFromJSON,
+    ReferenceTextsFromJSONTyped,
+    ReferenceTextsToJSON,
+    ReferenceTextsToJSONTyped,
+} from './ReferenceTexts';
 
 /**
  * 
@@ -52,6 +59,18 @@ export interface PostProfilePictureResponse {
      * @memberof PostProfilePictureResponse
      */
     generationCharge?: CreatorGenerationCharge | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PostProfilePictureResponse
+     */
+    description?: string | null;
+    /**
+     * 
+     * @type {ReferenceTexts}
+     * @memberof PostProfilePictureResponse
+     */
+    viewTexts?: ReferenceTexts | null;
 }
 
 /**
@@ -75,14 +94,16 @@ export function PostProfilePictureResponseFromJSONTyped(json: any, ignoreDiscrim
         'review': CharacterAvatarReviewFromJSON(json['review']),
         'generationStated': json['generation_stated'] == null ? undefined : json['generation_stated'],
         'generationCharge': json['generation_charge'] == null ? undefined : CreatorGenerationChargeFromJSON(json['generation_charge']),
+        'description': json['description'] == null ? undefined : json['description'],
+        'viewTexts': json['view_texts'] == null ? undefined : ReferenceTextsFromJSON(json['view_texts']),
     };
 }
 
-  export function PostProfilePictureResponseToJSON(json: any): PostProfilePictureResponse {
-      return PostProfilePictureResponseToJSONTyped(json, false);
-  }
+export function PostProfilePictureResponseToJSON(json: any): PostProfilePictureResponse {
+    return PostProfilePictureResponseToJSONTyped(json, false);
+}
 
-  export function PostProfilePictureResponseToJSONTyped(value?: PostProfilePictureResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostProfilePictureResponseToJSONTyped(value?: PostProfilePictureResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -92,6 +113,8 @@ export function PostProfilePictureResponseFromJSONTyped(json: any, ignoreDiscrim
         'review': CharacterAvatarReviewToJSON(value['review']),
         'generation_stated': value['generationStated'],
         'generation_charge': CreatorGenerationChargeToJSON(value['generationCharge']),
+        'description': value['description'],
+        'view_texts': ReferenceTextsToJSON(value['viewTexts']),
     };
 }
 

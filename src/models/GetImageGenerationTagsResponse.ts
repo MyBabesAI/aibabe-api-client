@@ -20,13 +20,27 @@ import {
     ArtStyleToJSON,
     ArtStyleToJSONTyped,
 } from './ArtStyle';
-import type { LoraName } from './LoraName';
+import type { MentionCandidate } from './MentionCandidate';
 import {
-    LoraNameFromJSON,
-    LoraNameFromJSONTyped,
-    LoraNameToJSON,
-    LoraNameToJSONTyped,
-} from './LoraName';
+    MentionCandidateFromJSON,
+    MentionCandidateFromJSONTyped,
+    MentionCandidateToJSON,
+    MentionCandidateToJSONTyped,
+} from './MentionCandidate';
+import type { ImageLookLora } from './ImageLookLora';
+import {
+    ImageLookLoraFromJSON,
+    ImageLookLoraFromJSONTyped,
+    ImageLookLoraToJSON,
+    ImageLookLoraToJSONTyped,
+} from './ImageLookLora';
+import type { RemixSlot } from './RemixSlot';
+import {
+    RemixSlotFromJSON,
+    RemixSlotFromJSONTyped,
+    RemixSlotToJSON,
+    RemixSlotToJSONTyped,
+} from './RemixSlot';
 
 /**
  * 
@@ -54,16 +68,28 @@ export interface GetImageGenerationTagsResponse {
     chatbotName: string | null;
     /**
      * 
-     * @type {Array<LoraName>}
-     * @memberof GetImageGenerationTagsResponse
-     */
-    loras: Array<LoraName>;
-    /**
-     * 
      * @type {ArtStyle}
      * @memberof GetImageGenerationTagsResponse
      */
     artStyle: ArtStyle;
+    /**
+     * 
+     * @type {Array<ImageLookLora>}
+     * @memberof GetImageGenerationTagsResponse
+     */
+    loras?: Array<ImageLookLora>;
+    /**
+     * 
+     * @type {Array<RemixSlot>}
+     * @memberof GetImageGenerationTagsResponse
+     */
+    slots?: Array<RemixSlot>;
+    /**
+     * 
+     * @type {Array<MentionCandidate>}
+     * @memberof GetImageGenerationTagsResponse
+     */
+    mentions?: Array<MentionCandidate>;
 }
 
 
@@ -75,7 +101,6 @@ export function instanceOfGetImageGenerationTagsResponse(value: object): value i
     if (!('tags' in value) || value['tags'] === undefined) return false;
     if (!('downloadUrl' in value) || value['downloadUrl'] === undefined) return false;
     if (!('chatbotName' in value) || value['chatbotName'] === undefined) return false;
-    if (!('loras' in value) || value['loras'] === undefined) return false;
     if (!('artStyle' in value) || value['artStyle'] === undefined) return false;
     return true;
 }
@@ -93,16 +118,18 @@ export function GetImageGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'tags': json['tags'],
         'downloadUrl': json['download_url'],
         'chatbotName': json['chatbot_name'],
-        'loras': ((json['loras'] as Array<any>).map(LoraNameFromJSON)),
         'artStyle': ArtStyleFromJSON(json['art_style']),
+        'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
+        'slots': json['slots'] == null ? undefined : ((json['slots'] as Array<any>).map(RemixSlotFromJSON)),
+        'mentions': json['mentions'] == null ? undefined : ((json['mentions'] as Array<any>).map(MentionCandidateFromJSON)),
     };
 }
 
-  export function GetImageGenerationTagsResponseToJSON(json: any): GetImageGenerationTagsResponse {
-      return GetImageGenerationTagsResponseToJSONTyped(json, false);
-  }
+export function GetImageGenerationTagsResponseToJSON(json: any): GetImageGenerationTagsResponse {
+    return GetImageGenerationTagsResponseToJSONTyped(json, false);
+}
 
-  export function GetImageGenerationTagsResponseToJSONTyped(value?: GetImageGenerationTagsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetImageGenerationTagsResponseToJSONTyped(value?: GetImageGenerationTagsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
@@ -112,8 +139,10 @@ export function GetImageGenerationTagsResponseFromJSONTyped(json: any, ignoreDis
         'tags': value['tags'],
         'download_url': value['downloadUrl'],
         'chatbot_name': value['chatbotName'],
-        'loras': ((value['loras'] as Array<any>).map(LoraNameToJSON)),
         'art_style': ArtStyleToJSON(value['artStyle']),
+        'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
+        'slots': value['slots'] == null ? undefined : ((value['slots'] as Array<any>).map(RemixSlotToJSON)),
+        'mentions': value['mentions'] == null ? undefined : ((value['mentions'] as Array<any>).map(MentionCandidateToJSON)),
     };
 }
 

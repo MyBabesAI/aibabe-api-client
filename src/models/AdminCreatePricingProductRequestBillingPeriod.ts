@@ -44,11 +44,11 @@ export function AdminCreatePricingProductRequestBillingPeriodFromJSONTyped(json:
     return json;
 }
 
-  export function AdminCreatePricingProductRequestBillingPeriodToJSON(json: any): AdminCreatePricingProductRequestBillingPeriod {
-      return AdminCreatePricingProductRequestBillingPeriodToJSONTyped(json, false);
-  }
+export function AdminCreatePricingProductRequestBillingPeriodToJSON(json: any): AdminCreatePricingProductRequestBillingPeriod {
+    return AdminCreatePricingProductRequestBillingPeriodToJSONTyped(json, false);
+}
 
-  export function AdminCreatePricingProductRequestBillingPeriodToJSONTyped(value?: AdminCreatePricingProductRequestBillingPeriod | null, ignoreDiscriminator: boolean = false): any {
+export function AdminCreatePricingProductRequestBillingPeriodToJSONTyped(value?: AdminCreatePricingProductRequestBillingPeriod | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

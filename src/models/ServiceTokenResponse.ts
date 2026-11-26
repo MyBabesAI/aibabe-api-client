@@ -72,11 +72,11 @@ export function ServiceTokenResponseFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-  export function ServiceTokenResponseToJSON(json: any): ServiceTokenResponse {
-      return ServiceTokenResponseToJSONTyped(json, false);
-  }
+export function ServiceTokenResponseToJSON(json: any): ServiceTokenResponse {
+    return ServiceTokenResponseToJSONTyped(json, false);
+}
 
-  export function ServiceTokenResponseToJSONTyped(value?: ServiceTokenResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ServiceTokenResponseToJSONTyped(value?: ServiceTokenResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

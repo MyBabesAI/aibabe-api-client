@@ -49,11 +49,11 @@ export function GetImageModerationPromptResponseFromJSONTyped(json: any, ignoreD
     };
 }
 
-  export function GetImageModerationPromptResponseToJSON(json: any): GetImageModerationPromptResponse {
-      return GetImageModerationPromptResponseToJSONTyped(json, false);
-  }
+export function GetImageModerationPromptResponseToJSON(json: any): GetImageModerationPromptResponse {
+    return GetImageModerationPromptResponseToJSONTyped(json, false);
+}
 
-  export function GetImageModerationPromptResponseToJSONTyped(value?: GetImageModerationPromptResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetImageModerationPromptResponseToJSONTyped(value?: GetImageModerationPromptResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

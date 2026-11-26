@@ -49,10 +49,16 @@ export interface PostConversationSettingsRequest {
     audioReferenceId?: string | null;
     /**
      *
-     * @type {boolean}
+     * @type {string}
      * @memberof PostConversationSettingsRequest
      */
-    memoryTurnedOn?: boolean | null;
+    userPersonaId?: string | null;
+    /**
+     *
+     * @type {number}
+     * @memberof PostConversationSettingsRequest
+     */
+    maxSpeakersPerTurn?: number | null;
     /**
      *
      * @type {string}

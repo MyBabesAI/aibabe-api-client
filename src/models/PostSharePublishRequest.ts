@@ -74,11 +74,11 @@ export function PostSharePublishRequestFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function PostSharePublishRequestToJSON(json: any): PostSharePublishRequest {
-      return PostSharePublishRequestToJSONTyped(json, false);
-  }
+export function PostSharePublishRequestToJSON(json: any): PostSharePublishRequest {
+    return PostSharePublishRequestToJSONTyped(json, false);
+}
 
-  export function PostSharePublishRequestToJSONTyped(value?: PostSharePublishRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostSharePublishRequestToJSONTyped(value?: PostSharePublishRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

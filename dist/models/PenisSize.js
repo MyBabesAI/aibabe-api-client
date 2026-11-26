@@ -21,7 +21,8 @@ exports.PenisSizeToJSON = PenisSizeToJSON;
 exports.PenisSizeToJSONTyped = PenisSizeToJSONTyped;
 /**
  * Size trait of a futa character. Stored but not rendered since 2026-10-14: the penis size slider it drove
- * (small -3 / large +3 / huge +4) erased the penis in spread-leg poses, see disabled_loras.
+ * (small -3 / large +3 / huge +4) erased the penis in spread-leg poses. The slider is off on Pornmaster and held to
+ * 1.5 elsewhere (disabled_loras_by_model, LORA_STRENGTH_MAX).
  * @export
  */
 exports.PenisSize = {

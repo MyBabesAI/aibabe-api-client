@@ -64,11 +64,11 @@ export function GetDetailedPostsResponseFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-  export function GetDetailedPostsResponseToJSON(json: any): GetDetailedPostsResponse {
-      return GetDetailedPostsResponseToJSONTyped(json, false);
-  }
+export function GetDetailedPostsResponseToJSON(json: any): GetDetailedPostsResponse {
+    return GetDetailedPostsResponseToJSONTyped(json, false);
+}
 
-  export function GetDetailedPostsResponseToJSONTyped(value?: GetDetailedPostsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetDetailedPostsResponseToJSONTyped(value?: GetDetailedPostsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -18,6 +18,7 @@ export declare const ContentType: {
     readonly Video: "video";
     readonly Character: "character";
     readonly Story: "story";
+    readonly Scenario: "scenario";
 };
 export type ContentType = typeof ContentType[keyof typeof ContentType];
 export declare function instanceOfContentType(value: any): boolean;

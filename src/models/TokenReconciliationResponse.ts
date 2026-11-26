@@ -57,11 +57,11 @@ export function TokenReconciliationResponseFromJSONTyped(json: any, ignoreDiscri
     };
 }
 
-  export function TokenReconciliationResponseToJSON(json: any): TokenReconciliationResponse {
-      return TokenReconciliationResponseToJSONTyped(json, false);
-  }
+export function TokenReconciliationResponseToJSON(json: any): TokenReconciliationResponse {
+    return TokenReconciliationResponseToJSONTyped(json, false);
+}
 
-  export function TokenReconciliationResponseToJSONTyped(value?: TokenReconciliationResponse | null, ignoreDiscriminator: boolean = false): any {
+export function TokenReconciliationResponseToJSONTyped(value?: TokenReconciliationResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

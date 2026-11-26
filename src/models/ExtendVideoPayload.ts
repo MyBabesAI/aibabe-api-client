@@ -131,7 +131,6 @@ export interface ExtendVideoPayload {
  * @export
  */
 export const ExtendVideoPayloadModelEnum = {
-    Wan22I2V: 'WAN_22_I2V',
     Wan27I2V: 'WAN_27_I2V',
     Wan30I2V: 'WAN_30_I2V',
     Wan30ProI2V: 'WAN_30_PRO_I2V',
@@ -199,11 +198,11 @@ export function ExtendVideoPayloadFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function ExtendVideoPayloadToJSON(json: any): ExtendVideoPayload {
-      return ExtendVideoPayloadToJSONTyped(json, false);
-  }
+export function ExtendVideoPayloadToJSON(json: any): ExtendVideoPayload {
+    return ExtendVideoPayloadToJSONTyped(json, false);
+}
 
-  export function ExtendVideoPayloadToJSONTyped(value?: ExtendVideoPayload | null, ignoreDiscriminator: boolean = false): any {
+export function ExtendVideoPayloadToJSONTyped(value?: ExtendVideoPayload | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

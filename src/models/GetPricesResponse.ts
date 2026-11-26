@@ -139,11 +139,11 @@ export function GetPricesResponseFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-  export function GetPricesResponseToJSON(json: any): GetPricesResponse {
-      return GetPricesResponseToJSONTyped(json, false);
-  }
+export function GetPricesResponseToJSON(json: any): GetPricesResponse {
+    return GetPricesResponseToJSONTyped(json, false);
+}
 
-  export function GetPricesResponseToJSONTyped(value?: GetPricesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function GetPricesResponseToJSONTyped(value?: GetPricesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

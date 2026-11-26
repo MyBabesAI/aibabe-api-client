@@ -49,11 +49,11 @@ export function PostAdvancedChatbotPublishResponseFromJSONTyped(json: any, ignor
     };
 }
 
-  export function PostAdvancedChatbotPublishResponseToJSON(json: any): PostAdvancedChatbotPublishResponse {
-      return PostAdvancedChatbotPublishResponseToJSONTyped(json, false);
-  }
+export function PostAdvancedChatbotPublishResponseToJSON(json: any): PostAdvancedChatbotPublishResponse {
+    return PostAdvancedChatbotPublishResponseToJSONTyped(json, false);
+}
 
-  export function PostAdvancedChatbotPublishResponseToJSONTyped(value?: PostAdvancedChatbotPublishResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostAdvancedChatbotPublishResponseToJSONTyped(value?: PostAdvancedChatbotPublishResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

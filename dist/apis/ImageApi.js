@@ -203,13 +203,39 @@ class ImageApi extends runtime.BaseAPI {
             headers: headerParameters,
             query: queryParameters,
         }, initOverrides);
-        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.TokenPricingConfigResponseFromJSON)(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.ImageConfigResponseFromJSON)(jsonValue));
     }
     /**
      * Get Image Config
      */
     async getImageConfigImagenConfigGet(initOverrides) {
         const response = await this.getImageConfigImagenConfigGetRaw(initOverrides);
+        return await response.value();
+    }
+    /**
+     * The mods a picture of the character may add, each at its default level, and whether her own mix is heavy: what the generator\'s look pickers show and send back as lora_levels.
+     * Get Looks
+     */
+    async getLooksImagenLooksChatbotIdGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['chatbotId'] == null) {
+            throw new runtime.RequiredError('chatbotId', 'Required parameter "chatbotId" was null or undefined when calling getLooksImagenLooksChatbotIdGet().');
+        }
+        const queryParameters = {};
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/imagen/looks/{chatbot_id}`.replace(`{${"chatbot_id"}}`, encodeURIComponent(String(requestParameters['chatbotId']))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetImageLooksResponseFromJSON)(jsonValue));
+    }
+    /**
+     * The mods a picture of the character may add, each at its default level, and whether her own mix is heavy: what the generator\'s look pickers show and send back as lora_levels.
+     * Get Looks
+     */
+    async getLooksImagenLooksChatbotIdGet(requestParameters, initOverrides) {
+        const response = await this.getLooksImagenLooksChatbotIdGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**
@@ -240,6 +266,35 @@ class ImageApi extends runtime.BaseAPI {
      */
     async getLorasImagenLorasGet(requestParameters = {}, initOverrides) {
         const response = await this.getLorasImagenLorasGetRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+    /**
+     * The mods a scene in `art_style` may add, each at its default level: what the scene creator\'s pickers show and send back as lora_levels on POST /imagen/generate-scene. No character is involved.
+     * Get Scene Looks
+     */
+    async getSceneLooksImagenLooksGetRaw(requestParameters, initOverrides) {
+        if (requestParameters['artStyle'] == null) {
+            throw new runtime.RequiredError('artStyle', 'Required parameter "artStyle" was null or undefined when calling getSceneLooksImagenLooksGet().');
+        }
+        const queryParameters = {};
+        if (requestParameters['artStyle'] != null) {
+            queryParameters['art_style'] = requestParameters['artStyle'];
+        }
+        const headerParameters = {};
+        const response = await this.request({
+            path: `/imagen/looks`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+        return new runtime.JSONApiResponse(response, (jsonValue) => (0, index_1.GetImageLooksResponseFromJSON)(jsonValue));
+    }
+    /**
+     * The mods a scene in `art_style` may add, each at its default level: what the scene creator\'s pickers show and send back as lora_levels on POST /imagen/generate-scene. No character is involved.
+     * Get Scene Looks
+     */
+    async getSceneLooksImagenLooksGet(requestParameters, initOverrides) {
+        const response = await this.getSceneLooksImagenLooksGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
     /**

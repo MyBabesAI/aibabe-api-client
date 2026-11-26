@@ -59,11 +59,11 @@ export function PostAcceptOfferRequestFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function PostAcceptOfferRequestToJSON(json: any): PostAcceptOfferRequest {
-      return PostAcceptOfferRequestToJSONTyped(json, false);
-  }
+export function PostAcceptOfferRequestToJSON(json: any): PostAcceptOfferRequest {
+    return PostAcceptOfferRequestToJSONTyped(json, false);
+}
 
-  export function PostAcceptOfferRequestToJSONTyped(value?: PostAcceptOfferRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PostAcceptOfferRequestToJSONTyped(value?: PostAcceptOfferRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

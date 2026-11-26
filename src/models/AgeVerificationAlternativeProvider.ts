@@ -65,11 +65,11 @@ export function AgeVerificationAlternativeProviderFromJSONTyped(json: any, ignor
     };
 }
 
-  export function AgeVerificationAlternativeProviderToJSON(json: any): AgeVerificationAlternativeProvider {
-      return AgeVerificationAlternativeProviderToJSONTyped(json, false);
-  }
+export function AgeVerificationAlternativeProviderToJSON(json: any): AgeVerificationAlternativeProvider {
+    return AgeVerificationAlternativeProviderToJSONTyped(json, false);
+}
 
-  export function AgeVerificationAlternativeProviderToJSONTyped(value?: AgeVerificationAlternativeProvider | null, ignoreDiscriminator: boolean = false): any {
+export function AgeVerificationAlternativeProviderToJSONTyped(value?: AgeVerificationAlternativeProvider | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

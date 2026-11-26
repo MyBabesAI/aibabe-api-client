@@ -21,7 +21,11 @@ export const CharacterBuilderSuggestionField = {
     Bio: 'bio',
     Greetings: 'greetings',
     Personality: 'personality',
-    ProfilePic: 'profile_pic'
+    ProfilePic: 'profile_pic',
+    ExampleConversation: 'example_conversation',
+    ReferenceViews: 'reference_views',
+    ReferenceView: 'reference_view',
+    FoldReferenceView: 'fold_reference_view'
 } as const;
 export type CharacterBuilderSuggestionField = typeof CharacterBuilderSuggestionField[keyof typeof CharacterBuilderSuggestionField];
 

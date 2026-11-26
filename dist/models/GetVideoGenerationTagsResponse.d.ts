@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { VideoReference } from './VideoReference';
 import type { VideoAspectRatio } from './VideoAspectRatio';
 import type { VideoLoraName } from './VideoLoraName';
 import type { ImageToVideoModel } from './ImageToVideoModel';
@@ -42,6 +43,12 @@ export interface GetVideoGenerationTagsResponse {
      * @memberof GetVideoGenerationTagsResponse
      */
     originalImageId: string;
+    /**
+     *
+     * @type {Array<VideoReference>}
+     * @memberof GetVideoGenerationTagsResponse
+     */
+    references?: Array<VideoReference>;
     /**
      *
      * @type {Array<VideoLoraName>}

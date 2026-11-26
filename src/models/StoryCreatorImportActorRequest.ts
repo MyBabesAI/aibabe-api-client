@@ -49,11 +49,11 @@ export function StoryCreatorImportActorRequestFromJSONTyped(json: any, ignoreDis
     };
 }
 
-  export function StoryCreatorImportActorRequestToJSON(json: any): StoryCreatorImportActorRequest {
-      return StoryCreatorImportActorRequestToJSONTyped(json, false);
-  }
+export function StoryCreatorImportActorRequestToJSON(json: any): StoryCreatorImportActorRequest {
+    return StoryCreatorImportActorRequestToJSONTyped(json, false);
+}
 
-  export function StoryCreatorImportActorRequestToJSONTyped(value?: StoryCreatorImportActorRequest | null, ignoreDiscriminator: boolean = false): any {
+export function StoryCreatorImportActorRequestToJSONTyped(value?: StoryCreatorImportActorRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

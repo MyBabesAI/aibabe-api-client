@@ -119,11 +119,11 @@ export function VideoMergeResultFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-  export function VideoMergeResultToJSON(json: any): VideoMergeResult {
-      return VideoMergeResultToJSONTyped(json, false);
-  }
+export function VideoMergeResultToJSON(json: any): VideoMergeResult {
+    return VideoMergeResultToJSONTyped(json, false);
+}
 
-  export function VideoMergeResultToJSONTyped(value?: VideoMergeResult | null, ignoreDiscriminator: boolean = false): any {
+export function VideoMergeResultToJSONTyped(value?: VideoMergeResult | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

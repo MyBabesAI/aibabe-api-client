@@ -82,11 +82,11 @@ export function FollowersGroupNotificationFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function FollowersGroupNotificationToJSON(json: any): FollowersGroupNotification {
-      return FollowersGroupNotificationToJSONTyped(json, false);
-  }
+export function FollowersGroupNotificationToJSON(json: any): FollowersGroupNotification {
+    return FollowersGroupNotificationToJSONTyped(json, false);
+}
 
-  export function FollowersGroupNotificationToJSONTyped(value?: FollowersGroupNotification | null, ignoreDiscriminator: boolean = false): any {
+export function FollowersGroupNotificationToJSONTyped(value?: FollowersGroupNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

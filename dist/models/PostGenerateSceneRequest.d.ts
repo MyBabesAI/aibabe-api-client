@@ -12,6 +12,7 @@
 import type { ArtStyle } from './ArtStyle';
 import type { ImagePurpose } from './ImagePurpose';
 import type { ImageAspectRatio } from './ImageAspectRatio';
+import type { LoraLevel } from './LoraLevel';
 import type { LoraName } from './LoraName';
 /**
  *
@@ -85,6 +86,14 @@ export interface PostGenerateSceneRequest {
      * @memberof PostGenerateSceneRequest
      */
     originalImageId?: string | null;
+    /**
+     *
+     * @type {{ [key: string]: LoraLevel; }}
+     * @memberof PostGenerateSceneRequest
+     */
+    loraLevels?: {
+        [key: string]: LoraLevel;
+    } | null;
 }
 /**
  * Check if a given object implements the PostGenerateSceneRequest interface.

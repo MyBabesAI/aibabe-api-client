@@ -57,11 +57,11 @@ export function PostShareTagsResponseFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function PostShareTagsResponseToJSON(json: any): PostShareTagsResponse {
-      return PostShareTagsResponseToJSONTyped(json, false);
-  }
+export function PostShareTagsResponseToJSON(json: any): PostShareTagsResponse {
+    return PostShareTagsResponseToJSONTyped(json, false);
+}
 
-  export function PostShareTagsResponseToJSONTyped(value?: PostShareTagsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostShareTagsResponseToJSONTyped(value?: PostShareTagsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

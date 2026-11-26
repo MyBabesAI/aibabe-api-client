@@ -36,11 +36,11 @@ export function VideosFromJSONTyped(json: any, ignoreDiscriminator: boolean): Vi
     return json;
 }
 
-  export function VideosToJSON(json: any): Videos {
-      return VideosToJSONTyped(json, false);
-  }
+export function VideosToJSON(json: any): Videos {
+    return VideosToJSONTyped(json, false);
+}
 
-  export function VideosToJSONTyped(value?: Videos | null, ignoreDiscriminator: boolean = false): any {
+export function VideosToJSONTyped(value?: Videos | null, ignoreDiscriminator: boolean = false): any {
     return value;
 }
 

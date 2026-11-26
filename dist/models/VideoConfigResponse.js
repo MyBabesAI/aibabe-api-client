@@ -20,6 +20,11 @@ exports.VideoConfigResponseToJSON = VideoConfigResponseToJSON;
 exports.VideoConfigResponseToJSONTyped = VideoConfigResponseToJSONTyped;
 const runtime_1 = require("../runtime");
 const VideoModelConfig_1 = require("./VideoModelConfig");
+const VideoReferenceTemplate_1 = require("./VideoReferenceTemplate");
+const PlanReferenceCapsValue_1 = require("./PlanReferenceCapsValue");
+const VideoMultishotTemplateView_1 = require("./VideoMultishotTemplateView");
+const VideoReferenceMoodTag_1 = require("./VideoReferenceMoodTag");
+const VideoTemplateCategoryTag_1 = require("./VideoTemplateCategoryTag");
 /**
  * Check if a given object implements the VideoConfigResponse interface.
  */
@@ -27,6 +32,8 @@ function instanceOfVideoConfigResponse(value) {
     if (!('generationModels' in value) || value['generationModels'] === undefined)
         return false;
     if (!('extensionModels' in value) || value['extensionModels'] === undefined)
+        return false;
+    if (!('planReferenceCaps' in value) || value['planReferenceCaps'] === undefined)
         return false;
     return true;
 }
@@ -40,6 +47,11 @@ function VideoConfigResponseFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'generationModels': ((0, runtime_1.mapValues)(json['generation_models'], VideoModelConfig_1.VideoModelConfigFromJSON)),
         'extensionModels': ((0, runtime_1.mapValues)(json['extension_models'], VideoModelConfig_1.VideoModelConfigFromJSON)),
+        'planReferenceCaps': ((0, runtime_1.mapValues)(json['plan_reference_caps'], PlanReferenceCapsValue_1.PlanReferenceCapsValueFromJSON)),
+        'referenceTemplates': json['reference_templates'] == null ? undefined : (json['reference_templates'].map(VideoReferenceTemplate_1.VideoReferenceTemplateFromJSON)),
+        'templateCategories': json['template_categories'] == null ? undefined : (json['template_categories'].map(VideoTemplateCategoryTag_1.VideoTemplateCategoryTagFromJSON)),
+        'referenceTemplateMoods': json['reference_template_moods'] == null ? undefined : (json['reference_template_moods'].map(VideoReferenceMoodTag_1.VideoReferenceMoodTagFromJSON)),
+        'multishotTemplates': json['multishot_templates'] == null ? undefined : (json['multishot_templates'].map(VideoMultishotTemplateView_1.VideoMultishotTemplateViewFromJSON)),
     };
 }
 function VideoConfigResponseToJSON(json) {
@@ -52,6 +64,11 @@ function VideoConfigResponseToJSONTyped(value, ignoreDiscriminator = false) {
     return {
         'generation_models': ((0, runtime_1.mapValues)(value['generationModels'], VideoModelConfig_1.VideoModelConfigToJSON)),
         'extension_models': ((0, runtime_1.mapValues)(value['extensionModels'], VideoModelConfig_1.VideoModelConfigToJSON)),
+        'plan_reference_caps': ((0, runtime_1.mapValues)(value['planReferenceCaps'], PlanReferenceCapsValue_1.PlanReferenceCapsValueToJSON)),
+        'reference_templates': value['referenceTemplates'] == null ? undefined : (value['referenceTemplates'].map(VideoReferenceTemplate_1.VideoReferenceTemplateToJSON)),
+        'template_categories': value['templateCategories'] == null ? undefined : (value['templateCategories'].map(VideoTemplateCategoryTag_1.VideoTemplateCategoryTagToJSON)),
+        'reference_template_moods': value['referenceTemplateMoods'] == null ? undefined : (value['referenceTemplateMoods'].map(VideoReferenceMoodTag_1.VideoReferenceMoodTagToJSON)),
+        'multishot_templates': value['multishotTemplates'] == null ? undefined : (value['multishotTemplates'].map(VideoMultishotTemplateView_1.VideoMultishotTemplateViewToJSON)),
     };
 }
 //# sourceMappingURL=VideoConfigResponse.js.map

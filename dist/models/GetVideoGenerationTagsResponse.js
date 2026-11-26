@@ -18,6 +18,7 @@ exports.GetVideoGenerationTagsResponseFromJSON = GetVideoGenerationTagsResponseF
 exports.GetVideoGenerationTagsResponseFromJSONTyped = GetVideoGenerationTagsResponseFromJSONTyped;
 exports.GetVideoGenerationTagsResponseToJSON = GetVideoGenerationTagsResponseToJSON;
 exports.GetVideoGenerationTagsResponseToJSONTyped = GetVideoGenerationTagsResponseToJSONTyped;
+const VideoReference_1 = require("./VideoReference");
 const VideoAspectRatio_1 = require("./VideoAspectRatio");
 const VideoLoraName_1 = require("./VideoLoraName");
 const ImageToVideoModel_1 = require("./ImageToVideoModel");
@@ -51,6 +52,7 @@ function GetVideoGenerationTagsResponseFromJSONTyped(json, ignoreDiscriminator) 
         'downloadUrl': json['download_url'],
         'chatbotName': json['chatbot_name'],
         'originalImageId': json['original_image_id'],
+        'references': json['references'] == null ? undefined : (json['references'].map(VideoReference_1.VideoReferenceFromJSON)),
         'loras': (json['loras'].map(VideoLoraName_1.VideoLoraNameFromJSON)),
         'model': (0, ImageToVideoModel_1.ImageToVideoModelFromJSON)(json['model']),
         'aspectRatio': json['aspect_ratio'] == null ? undefined : (0, VideoAspectRatio_1.VideoAspectRatioFromJSON)(json['aspect_ratio']),
@@ -69,6 +71,7 @@ function GetVideoGenerationTagsResponseToJSONTyped(value, ignoreDiscriminator = 
         'download_url': value['downloadUrl'],
         'chatbot_name': value['chatbotName'],
         'original_image_id': value['originalImageId'],
+        'references': value['references'] == null ? undefined : (value['references'].map(VideoReference_1.VideoReferenceToJSON)),
         'loras': (value['loras'].map(VideoLoraName_1.VideoLoraNameToJSON)),
         'model': (0, ImageToVideoModel_1.ImageToVideoModelToJSON)(value['model']),
         'aspect_ratio': (0, VideoAspectRatio_1.VideoAspectRatioToJSON)(value['aspectRatio']),

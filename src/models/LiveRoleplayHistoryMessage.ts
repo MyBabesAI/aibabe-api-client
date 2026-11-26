@@ -91,11 +91,11 @@ export function LiveRoleplayHistoryMessageFromJSONTyped(json: any, ignoreDiscrim
     };
 }
 
-  export function LiveRoleplayHistoryMessageToJSON(json: any): LiveRoleplayHistoryMessage {
-      return LiveRoleplayHistoryMessageToJSONTyped(json, false);
-  }
+export function LiveRoleplayHistoryMessageToJSON(json: any): LiveRoleplayHistoryMessage {
+    return LiveRoleplayHistoryMessageToJSONTyped(json, false);
+}
 
-  export function LiveRoleplayHistoryMessageToJSONTyped(value?: LiveRoleplayHistoryMessage | null, ignoreDiscriminator: boolean = false): any {
+export function LiveRoleplayHistoryMessageToJSONTyped(value?: LiveRoleplayHistoryMessage | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -103,11 +103,11 @@ export function MuleRouterWanTaskInfoFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function MuleRouterWanTaskInfoToJSON(json: any): MuleRouterWanTaskInfo {
-      return MuleRouterWanTaskInfoToJSONTyped(json, false);
-  }
+export function MuleRouterWanTaskInfoToJSON(json: any): MuleRouterWanTaskInfo {
+    return MuleRouterWanTaskInfoToJSONTyped(json, false);
+}
 
-  export function MuleRouterWanTaskInfoToJSONTyped(value?: MuleRouterWanTaskInfo | null, ignoreDiscriminator: boolean = false): any {
+export function MuleRouterWanTaskInfoToJSONTyped(value?: MuleRouterWanTaskInfo | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

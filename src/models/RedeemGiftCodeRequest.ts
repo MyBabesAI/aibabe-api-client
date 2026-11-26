@@ -49,11 +49,11 @@ export function RedeemGiftCodeRequestFromJSONTyped(json: any, ignoreDiscriminato
     };
 }
 
-  export function RedeemGiftCodeRequestToJSON(json: any): RedeemGiftCodeRequest {
-      return RedeemGiftCodeRequestToJSONTyped(json, false);
-  }
+export function RedeemGiftCodeRequestToJSON(json: any): RedeemGiftCodeRequest {
+    return RedeemGiftCodeRequestToJSONTyped(json, false);
+}
 
-  export function RedeemGiftCodeRequestToJSONTyped(value?: RedeemGiftCodeRequest | null, ignoreDiscriminator: boolean = false): any {
+export function RedeemGiftCodeRequestToJSONTyped(value?: RedeemGiftCodeRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

@@ -77,11 +77,11 @@ export function RemainingFreeUsesResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function RemainingFreeUsesResponseToJSON(json: any): RemainingFreeUsesResponse {
-      return RemainingFreeUsesResponseToJSONTyped(json, false);
-  }
+export function RemainingFreeUsesResponseToJSON(json: any): RemainingFreeUsesResponse {
+    return RemainingFreeUsesResponseToJSONTyped(json, false);
+}
 
-  export function RemainingFreeUsesResponseToJSONTyped(value?: RemainingFreeUsesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function RemainingFreeUsesResponseToJSONTyped(value?: RemainingFreeUsesResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

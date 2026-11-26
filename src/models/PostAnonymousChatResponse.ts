@@ -73,11 +73,11 @@ export function PostAnonymousChatResponseFromJSONTyped(json: any, ignoreDiscrimi
     };
 }
 
-  export function PostAnonymousChatResponseToJSON(json: any): PostAnonymousChatResponse {
-      return PostAnonymousChatResponseToJSONTyped(json, false);
-  }
+export function PostAnonymousChatResponseToJSON(json: any): PostAnonymousChatResponse {
+    return PostAnonymousChatResponseToJSONTyped(json, false);
+}
 
-  export function PostAnonymousChatResponseToJSONTyped(value?: PostAnonymousChatResponse | null, ignoreDiscriminator: boolean = false): any {
+export function PostAnonymousChatResponseToJSONTyped(value?: PostAnonymousChatResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

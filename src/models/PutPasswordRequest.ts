@@ -57,11 +57,11 @@ export function PutPasswordRequestFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-  export function PutPasswordRequestToJSON(json: any): PutPasswordRequest {
-      return PutPasswordRequestToJSONTyped(json, false);
-  }
+export function PutPasswordRequestToJSON(json: any): PutPasswordRequest {
+    return PutPasswordRequestToJSONTyped(json, false);
+}
 
-  export function PutPasswordRequestToJSONTyped(value?: PutPasswordRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PutPasswordRequestToJSONTyped(value?: PutPasswordRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

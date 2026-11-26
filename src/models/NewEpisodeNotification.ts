@@ -120,11 +120,11 @@ export function NewEpisodeNotificationFromJSONTyped(json: any, ignoreDiscriminat
     };
 }
 
-  export function NewEpisodeNotificationToJSON(json: any): NewEpisodeNotification {
-      return NewEpisodeNotificationToJSONTyped(json, false);
-  }
+export function NewEpisodeNotificationToJSON(json: any): NewEpisodeNotification {
+    return NewEpisodeNotificationToJSONTyped(json, false);
+}
 
-  export function NewEpisodeNotificationToJSONTyped(value?: NewEpisodeNotification | null, ignoreDiscriminator: boolean = false): any {
+export function NewEpisodeNotificationToJSONTyped(value?: NewEpisodeNotification | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }

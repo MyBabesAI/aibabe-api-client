@@ -58,11 +58,11 @@ export function PatchChatMessageRequestFromJSONTyped(json: any, ignoreDiscrimina
     };
 }
 
-  export function PatchChatMessageRequestToJSON(json: any): PatchChatMessageRequest {
-      return PatchChatMessageRequestToJSONTyped(json, false);
-  }
+export function PatchChatMessageRequestToJSON(json: any): PatchChatMessageRequest {
+    return PatchChatMessageRequestToJSONTyped(json, false);
+}
 
-  export function PatchChatMessageRequestToJSONTyped(value?: PatchChatMessageRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PatchChatMessageRequestToJSONTyped(value?: PatchChatMessageRequest | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
