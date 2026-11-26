@@ -165,6 +165,7 @@ export declare const LoraName: {
     readonly Krea2Furrytoonmix: "krea2_furrytoonmix";
     readonly Krea2BulgeDegenerator: "krea2_bulge_degenerator";
     readonly Krea2PenisSizeSlider: "krea2_penis_size_slider";
+    readonly Krea2FutanariAnatomy: "krea2_futanari_anatomy";
     readonly Krea2RealisticSnapshot: "krea2_realistic_snapshot";
     readonly Krea2NicegirlsUltrareal: "krea2_nicegirls_ultrareal";
     readonly Krea2AltGirl: "krea2_alt_girl";

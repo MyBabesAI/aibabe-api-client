@@ -169,6 +169,7 @@ export const LoraName = {
     Krea2Furrytoonmix: 'krea2_furrytoonmix',
     Krea2BulgeDegenerator: 'krea2_bulge_degenerator',
     Krea2PenisSizeSlider: 'krea2_penis_size_slider',
+    Krea2FutanariAnatomy: 'krea2_futanari_anatomy',
     Krea2RealisticSnapshot: 'krea2_realistic_snapshot',
     Krea2NicegirlsUltrareal: 'krea2_nicegirls_ultrareal',
     Krea2AltGirl: 'krea2_alt_girl',
