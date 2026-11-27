@@ -10,10 +10,10 @@
  * Do not edit the class manually.
  */
 import type { ArtStyle } from './ArtStyle';
-import type { ImageLookLora } from './ImageLookLora';
 /**
  * The draft a babe trend was recreated into. The frontend sends look_description, art_style and age as they are to
- * POST /advanced/profile-picture (no mods) and the member fills in the rest.
+ * POST /advanced/profile-picture (no mods) and the member fills in the rest. Her LoRAs (look, body shape) stay on the
+ * draft and render in the background, never listed here; GET /advanced/looks shows them as her look sliders.
  * @export
  * @interface PostAdvancedRecreateResponse
  */
@@ -30,12 +30,6 @@ export interface PostAdvancedRecreateResponse {
      * @memberof PostAdvancedRecreateResponse
      */
     artStyle: ArtStyle;
-    /**
-     *
-     * @type {Array<ImageLookLora>}
-     * @memberof PostAdvancedRecreateResponse
-     */
-    loras?: Array<ImageLookLora>;
     /**
      *
      * @type {number}

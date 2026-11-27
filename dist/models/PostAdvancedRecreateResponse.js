@@ -19,7 +19,6 @@ exports.PostAdvancedRecreateResponseFromJSONTyped = PostAdvancedRecreateResponse
 exports.PostAdvancedRecreateResponseToJSON = PostAdvancedRecreateResponseToJSON;
 exports.PostAdvancedRecreateResponseToJSONTyped = PostAdvancedRecreateResponseToJSONTyped;
 const ArtStyle_1 = require("./ArtStyle");
-const ImageLookLora_1 = require("./ImageLookLora");
 /**
  * Check if a given object implements the PostAdvancedRecreateResponse interface.
  */
@@ -40,7 +39,6 @@ function PostAdvancedRecreateResponseFromJSONTyped(json, ignoreDiscriminator) {
     return {
         'lookDescription': json['look_description'],
         'artStyle': (0, ArtStyle_1.ArtStyleFromJSON)(json['art_style']),
-        'loras': json['loras'] == null ? undefined : (json['loras'].map(ImageLookLora_1.ImageLookLoraFromJSON)),
         'age': json['age'] == null ? undefined : json['age'],
     };
 }
@@ -54,7 +52,6 @@ function PostAdvancedRecreateResponseToJSONTyped(value, ignoreDiscriminator = fa
     return {
         'look_description': value['lookDescription'],
         'art_style': (0, ArtStyle_1.ArtStyleToJSON)(value['artStyle']),
-        'loras': value['loras'] == null ? undefined : (value['loras'].map(ImageLookLora_1.ImageLookLoraToJSON)),
         'age': value['age'],
     };
 }

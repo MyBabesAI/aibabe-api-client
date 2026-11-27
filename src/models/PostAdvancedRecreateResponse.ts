@@ -20,17 +20,11 @@ import {
     ArtStyleToJSON,
     ArtStyleToJSONTyped,
 } from './ArtStyle';
-import type { ImageLookLora } from './ImageLookLora';
-import {
-    ImageLookLoraFromJSON,
-    ImageLookLoraFromJSONTyped,
-    ImageLookLoraToJSON,
-    ImageLookLoraToJSONTyped,
-} from './ImageLookLora';
 
 /**
  * The draft a babe trend was recreated into. The frontend sends look_description, art_style and age as they are to
- * POST /advanced/profile-picture (no mods) and the member fills in the rest.
+ * POST /advanced/profile-picture (no mods) and the member fills in the rest. Her LoRAs (look, body shape) stay on the
+ * draft and render in the background, never listed here; GET /advanced/looks shows them as her look sliders.
  * @export
  * @interface PostAdvancedRecreateResponse
  */
@@ -47,12 +41,6 @@ export interface PostAdvancedRecreateResponse {
      * @memberof PostAdvancedRecreateResponse
      */
     artStyle: ArtStyle;
-    /**
-     * 
-     * @type {Array<ImageLookLora>}
-     * @memberof PostAdvancedRecreateResponse
-     */
-    loras?: Array<ImageLookLora>;
     /**
      * 
      * @type {number}
@@ -84,7 +72,6 @@ export function PostAdvancedRecreateResponseFromJSONTyped(json: any, ignoreDiscr
         
         'lookDescription': json['look_description'],
         'artStyle': ArtStyleFromJSON(json['art_style']),
-        'loras': json['loras'] == null ? undefined : ((json['loras'] as Array<any>).map(ImageLookLoraFromJSON)),
         'age': json['age'] == null ? undefined : json['age'],
     };
 }
@@ -102,7 +89,6 @@ export function PostAdvancedRecreateResponseToJSONTyped(value?: PostAdvancedRecr
         
         'look_description': value['lookDescription'],
         'art_style': ArtStyleToJSON(value['artStyle']),
-        'loras': value['loras'] == null ? undefined : ((value['loras'] as Array<any>).map(ImageLookLoraToJSON)),
         'age': value['age'],
     };
 }
